@@ -32,7 +32,11 @@ import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequest;
+import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
+import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequest;
+import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
@@ -189,6 +193,61 @@ public class OrgsApiTest {
         String org = null;
         String slugPerm = null;
         api.orgsLicensePolicyDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create an evaluation request for this policy.
+     *
+     * Create an evaluation request for this policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyEvaluationCreateTest() throws Exception {
+        String org = null;
+        String policySlugPerm = null;
+        PackageLicensePolicyEvaluationRequestRequest data = null;
+        PackageLicensePolicyEvaluationRequest response = api.orgsLicensePolicyEvaluationCreate(org, policySlugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List evaluation requests for this policy.
+     *
+     * List evaluation requests for this policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyEvaluationListTest() throws Exception {
+        String org = null;
+        String policySlugPerm = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<PackageLicensePolicyEvaluationRequest> response = api.orgsLicensePolicyEvaluationList(org, policySlugPerm, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve an evaluation request for this policy.
+     *
+     * Retrieve an evaluation request for this policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsLicensePolicyEvaluationReadTest() throws Exception {
+        String org = null;
+        String policySlugPerm = null;
+        String slugPerm = null;
+        PackageLicensePolicyEvaluationRequest response = api.orgsLicensePolicyEvaluationRead(org, policySlugPerm, slugPerm);
 
         // TODO: test validations
     }
@@ -726,6 +785,61 @@ public class OrgsApiTest {
         String org = null;
         String slugPerm = null;
         api.orgsVulnerabilityPolicyDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create an evaluation request for this policy.
+     *
+     * Create an evaluation request for this policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyEvaluationCreateTest() throws Exception {
+        String org = null;
+        String policySlugPerm = null;
+        PackageVulnerabilityPolicyEvaluationRequestRequest data = null;
+        PackageVulnerabilityPolicyEvaluationRequest response = api.orgsVulnerabilityPolicyEvaluationCreate(org, policySlugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List evaluation requests for this policy.
+     *
+     * List evaluation requests for this policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyEvaluationListTest() throws Exception {
+        String org = null;
+        String policySlugPerm = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<PackageVulnerabilityPolicyEvaluationRequest> response = api.orgsVulnerabilityPolicyEvaluationList(org, policySlugPerm, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve an evaluation request for this policy.
+     *
+     * Retrieve an evaluation request for this policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsVulnerabilityPolicyEvaluationReadTest() throws Exception {
+        String org = null;
+        String policySlugPerm = null;
+        String slugPerm = null;
+        PackageVulnerabilityPolicyEvaluationRequest response = api.orgsVulnerabilityPolicyEvaluationRead(org, policySlugPerm, slugPerm);
 
         // TODO: test validations
     }

@@ -1236,6 +1236,3956 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create a Dart upstream config for this repository.
+    # Create a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DartUpstreamRequest] :data 
+    # @return [DartUpstream]
+    def repos_upstream_dart_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_dart_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Dart upstream config for this repository.
+    # Create a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DartUpstreamRequest] :data 
+    # @return [Array<(DartUpstream, Fixnum, Hash)>] DartUpstream data, response status code and response headers
+    def repos_upstream_dart_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_dart_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_dart_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_dart_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/dart/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DartUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_dart_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Dart upstream config for this repository.
+    # Delete a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_dart_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_dart_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Dart upstream config for this repository.
+    # Delete a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_dart_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_dart_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_dart_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_dart_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_dart_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_dart_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Dart upstream configs for this repository.
+    # List Dart upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<DartUpstream>]
+    def repos_upstream_dart_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_dart_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Dart upstream configs for this repository.
+    # List Dart upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<DartUpstream>, Fixnum, Hash)>] Array<DartUpstream> data, response status code and response headers
+    def repos_upstream_dart_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_dart_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_dart_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_dart_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/dart/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<DartUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_dart_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Dart upstream config for this repository.
+    # Partially update a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DartUpstreamRequestPatch] :data 
+    # @return [DartUpstream]
+    def repos_upstream_dart_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_dart_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Dart upstream config for this repository.
+    # Partially update a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DartUpstreamRequestPatch] :data 
+    # @return [Array<(DartUpstream, Fixnum, Hash)>] DartUpstream data, response status code and response headers
+    def repos_upstream_dart_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_dart_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_dart_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_dart_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_dart_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DartUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_dart_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Dart upstream config for this repository.
+    # Retrieve a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [DartUpstream]
+    def repos_upstream_dart_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_dart_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Dart upstream config for this repository.
+    # Retrieve a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DartUpstream, Fixnum, Hash)>] DartUpstream data, response status code and response headers
+    def repos_upstream_dart_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_dart_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_dart_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_dart_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_dart_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DartUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_dart_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Dart upstream config for this repository.
+    # Update a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DartUpstreamRequest] :data 
+    # @return [DartUpstream]
+    def repos_upstream_dart_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_dart_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Dart upstream config for this repository.
+    # Update a Dart upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DartUpstreamRequest] :data 
+    # @return [Array<(DartUpstream, Fixnum, Hash)>] DartUpstream data, response status code and response headers
+    def repos_upstream_dart_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_dart_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_dart_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_dart_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_dart_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DartUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_dart_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Debian upstream config for this repository.
+    # Create a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DebUpstreamRequest] :data 
+    # @return [DebUpstream]
+    def repos_upstream_deb_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_deb_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Debian upstream config for this repository.
+    # Create a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DebUpstreamRequest] :data 
+    # @return [Array<(DebUpstream, Fixnum, Hash)>] DebUpstream data, response status code and response headers
+    def repos_upstream_deb_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_deb_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_deb_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_deb_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/deb/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DebUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_deb_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Debian upstream config for this repository.
+    # Delete a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_deb_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_deb_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Debian upstream config for this repository.
+    # Delete a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_deb_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_deb_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_deb_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_deb_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_deb_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_deb_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Debian upstream configs for this repository.
+    # List Debian upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<DebUpstream>]
+    def repos_upstream_deb_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_deb_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Debian upstream configs for this repository.
+    # List Debian upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<DebUpstream>, Fixnum, Hash)>] Array<DebUpstream> data, response status code and response headers
+    def repos_upstream_deb_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_deb_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_deb_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_deb_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/deb/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<DebUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_deb_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Debian upstream config for this repository.
+    # Partially update a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DebUpstreamRequestPatch] :data 
+    # @return [DebUpstream]
+    def repos_upstream_deb_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_deb_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Debian upstream config for this repository.
+    # Partially update a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DebUpstreamRequestPatch] :data 
+    # @return [Array<(DebUpstream, Fixnum, Hash)>] DebUpstream data, response status code and response headers
+    def repos_upstream_deb_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_deb_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_deb_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_deb_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_deb_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DebUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_deb_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Debian upstream config for this repository.
+    # Retrieve a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [DebUpstream]
+    def repos_upstream_deb_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_deb_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Debian upstream config for this repository.
+    # Retrieve a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DebUpstream, Fixnum, Hash)>] DebUpstream data, response status code and response headers
+    def repos_upstream_deb_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_deb_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_deb_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_deb_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_deb_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DebUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_deb_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Debian upstream config for this repository.
+    # Update a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DebUpstreamRequest] :data 
+    # @return [DebUpstream]
+    def repos_upstream_deb_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_deb_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Debian upstream config for this repository.
+    # Update a Debian upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DebUpstreamRequest] :data 
+    # @return [Array<(DebUpstream, Fixnum, Hash)>] DebUpstream data, response status code and response headers
+    def repos_upstream_deb_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_deb_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_deb_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_deb_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_deb_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DebUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_deb_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Docker upstream config for this repository.
+    # Create a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DockerUpstreamRequest] :data 
+    # @return [DockerUpstream]
+    def repos_upstream_docker_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_docker_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Docker upstream config for this repository.
+    # Create a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DockerUpstreamRequest] :data 
+    # @return [Array<(DockerUpstream, Fixnum, Hash)>] DockerUpstream data, response status code and response headers
+    def repos_upstream_docker_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_docker_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_docker_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_docker_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/docker/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DockerUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_docker_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Docker upstream config for this repository.
+    # Delete a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_docker_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_docker_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Docker upstream config for this repository.
+    # Delete a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_docker_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_docker_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_docker_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_docker_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_docker_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_docker_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Docker upstream configs for this repository.
+    # List Docker upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<DockerUpstream>]
+    def repos_upstream_docker_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_docker_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Docker upstream configs for this repository.
+    # List Docker upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<DockerUpstream>, Fixnum, Hash)>] Array<DockerUpstream> data, response status code and response headers
+    def repos_upstream_docker_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_docker_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_docker_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_docker_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/docker/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<DockerUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_docker_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Docker upstream config for this repository.
+    # Partially update a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DockerUpstreamRequestPatch] :data 
+    # @return [DockerUpstream]
+    def repos_upstream_docker_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_docker_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Docker upstream config for this repository.
+    # Partially update a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DockerUpstreamRequestPatch] :data 
+    # @return [Array<(DockerUpstream, Fixnum, Hash)>] DockerUpstream data, response status code and response headers
+    def repos_upstream_docker_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_docker_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_docker_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_docker_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_docker_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DockerUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_docker_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Docker upstream config for this repository.
+    # Retrieve a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [DockerUpstream]
+    def repos_upstream_docker_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_docker_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Docker upstream config for this repository.
+    # Retrieve a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DockerUpstream, Fixnum, Hash)>] DockerUpstream data, response status code and response headers
+    def repos_upstream_docker_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_docker_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_docker_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_docker_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_docker_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DockerUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_docker_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Docker upstream config for this repository.
+    # Update a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DockerUpstreamRequest] :data 
+    # @return [DockerUpstream]
+    def repos_upstream_docker_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_docker_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Docker upstream config for this repository.
+    # Update a Docker upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [DockerUpstreamRequest] :data 
+    # @return [Array<(DockerUpstream, Fixnum, Hash)>] DockerUpstream data, response status code and response headers
+    def repos_upstream_docker_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_docker_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_docker_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_docker_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_docker_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DockerUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_docker_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Helm upstream config for this repository.
+    # Create a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HelmUpstreamRequest] :data 
+    # @return [HelmUpstream]
+    def repos_upstream_helm_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_helm_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Helm upstream config for this repository.
+    # Create a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HelmUpstreamRequest] :data 
+    # @return [Array<(HelmUpstream, Fixnum, Hash)>] HelmUpstream data, response status code and response headers
+    def repos_upstream_helm_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_helm_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_helm_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_helm_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/helm/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HelmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_helm_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Helm upstream config for this repository.
+    # Delete a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_helm_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_helm_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Helm upstream config for this repository.
+    # Delete a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_helm_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_helm_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_helm_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_helm_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_helm_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_helm_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Helm upstream configs for this repository.
+    # List Helm upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<HelmUpstream>]
+    def repos_upstream_helm_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_helm_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Helm upstream configs for this repository.
+    # List Helm upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<HelmUpstream>, Fixnum, Hash)>] Array<HelmUpstream> data, response status code and response headers
+    def repos_upstream_helm_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_helm_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_helm_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_helm_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/helm/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<HelmUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_helm_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Helm upstream config for this repository.
+    # Partially update a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HelmUpstreamRequestPatch] :data 
+    # @return [HelmUpstream]
+    def repos_upstream_helm_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_helm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Helm upstream config for this repository.
+    # Partially update a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HelmUpstreamRequestPatch] :data 
+    # @return [Array<(HelmUpstream, Fixnum, Hash)>] HelmUpstream data, response status code and response headers
+    def repos_upstream_helm_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_helm_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_helm_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_helm_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_helm_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HelmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_helm_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Helm upstream config for this repository.
+    # Retrieve a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [HelmUpstream]
+    def repos_upstream_helm_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_helm_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Helm upstream config for this repository.
+    # Retrieve a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(HelmUpstream, Fixnum, Hash)>] HelmUpstream data, response status code and response headers
+    def repos_upstream_helm_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_helm_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_helm_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_helm_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_helm_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HelmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_helm_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Helm upstream config for this repository.
+    # Update a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HelmUpstreamRequest] :data 
+    # @return [HelmUpstream]
+    def repos_upstream_helm_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_helm_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Helm upstream config for this repository.
+    # Update a Helm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HelmUpstreamRequest] :data 
+    # @return [Array<(HelmUpstream, Fixnum, Hash)>] HelmUpstream data, response status code and response headers
+    def repos_upstream_helm_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_helm_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_helm_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_helm_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_helm_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HelmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_helm_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Maven upstream config for this repository.
+    # Create a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [MavenUpstreamRequest] :data 
+    # @return [MavenUpstream]
+    def repos_upstream_maven_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_maven_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Maven upstream config for this repository.
+    # Create a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [MavenUpstreamRequest] :data 
+    # @return [Array<(MavenUpstream, Fixnum, Hash)>] MavenUpstream data, response status code and response headers
+    def repos_upstream_maven_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_maven_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_maven_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_maven_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/maven/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MavenUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_maven_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Maven upstream config for this repository.
+    # Delete a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_maven_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_maven_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Maven upstream config for this repository.
+    # Delete a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_maven_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_maven_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_maven_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_maven_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_maven_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_maven_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Maven upstream configs for this repository.
+    # List Maven upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<MavenUpstream>]
+    def repos_upstream_maven_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_maven_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Maven upstream configs for this repository.
+    # List Maven upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<MavenUpstream>, Fixnum, Hash)>] Array<MavenUpstream> data, response status code and response headers
+    def repos_upstream_maven_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_maven_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_maven_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_maven_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/maven/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<MavenUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_maven_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Maven upstream config for this repository.
+    # Partially update a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [MavenUpstreamRequestPatch] :data 
+    # @return [MavenUpstream]
+    def repos_upstream_maven_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_maven_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Maven upstream config for this repository.
+    # Partially update a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [MavenUpstreamRequestPatch] :data 
+    # @return [Array<(MavenUpstream, Fixnum, Hash)>] MavenUpstream data, response status code and response headers
+    def repos_upstream_maven_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_maven_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_maven_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_maven_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_maven_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MavenUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_maven_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Maven upstream config for this repository.
+    # Retrieve a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [MavenUpstream]
+    def repos_upstream_maven_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_maven_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Maven upstream config for this repository.
+    # Retrieve a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MavenUpstream, Fixnum, Hash)>] MavenUpstream data, response status code and response headers
+    def repos_upstream_maven_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_maven_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_maven_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_maven_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_maven_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MavenUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_maven_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Maven upstream config for this repository.
+    # Update a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [MavenUpstreamRequest] :data 
+    # @return [MavenUpstream]
+    def repos_upstream_maven_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_maven_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Maven upstream config for this repository.
+    # Update a Maven upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [MavenUpstreamRequest] :data 
+    # @return [Array<(MavenUpstream, Fixnum, Hash)>] MavenUpstream data, response status code and response headers
+    def repos_upstream_maven_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_maven_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_maven_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_maven_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_maven_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MavenUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_maven_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a npm upstream config for this repository.
+    # Create a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NpmUpstreamRequest] :data 
+    # @return [NpmUpstream]
+    def repos_upstream_npm_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_npm_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a npm upstream config for this repository.
+    # Create a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NpmUpstreamRequest] :data 
+    # @return [Array<(NpmUpstream, Fixnum, Hash)>] NpmUpstream data, response status code and response headers
+    def repos_upstream_npm_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_npm_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_npm_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_npm_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/npm/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_npm_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a npm upstream config for this repository.
+    # Delete a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_npm_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_npm_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a npm upstream config for this repository.
+    # Delete a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_npm_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_npm_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_npm_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_npm_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_npm_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_npm_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List npm upstream configs for this repository.
+    # List npm upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<NpmUpstream>]
+    def repos_upstream_npm_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_npm_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List npm upstream configs for this repository.
+    # List npm upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<NpmUpstream>, Fixnum, Hash)>] Array<NpmUpstream> data, response status code and response headers
+    def repos_upstream_npm_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_npm_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_npm_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_npm_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/npm/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<NpmUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_npm_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a npm upstream config for this repository.
+    # Partially update a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NpmUpstreamRequestPatch] :data 
+    # @return [NpmUpstream]
+    def repos_upstream_npm_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_npm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a npm upstream config for this repository.
+    # Partially update a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NpmUpstreamRequestPatch] :data 
+    # @return [Array<(NpmUpstream, Fixnum, Hash)>] NpmUpstream data, response status code and response headers
+    def repos_upstream_npm_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_npm_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_npm_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_npm_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_npm_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_npm_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a npm upstream config for this repository.
+    # Retrieve a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [NpmUpstream]
+    def repos_upstream_npm_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_npm_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a npm upstream config for this repository.
+    # Retrieve a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(NpmUpstream, Fixnum, Hash)>] NpmUpstream data, response status code and response headers
+    def repos_upstream_npm_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_npm_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_npm_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_npm_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_npm_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_npm_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a npm upstream config for this repository.
+    # Update a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NpmUpstreamRequest] :data 
+    # @return [NpmUpstream]
+    def repos_upstream_npm_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_npm_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a npm upstream config for this repository.
+    # Update a npm upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NpmUpstreamRequest] :data 
+    # @return [Array<(NpmUpstream, Fixnum, Hash)>] NpmUpstream data, response status code and response headers
+    def repos_upstream_npm_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_npm_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_npm_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_npm_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_npm_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_npm_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a NuGet upstream config for this repository.
+    # Create a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NugetUpstreamRequest] :data 
+    # @return [NugetUpstream]
+    def repos_upstream_nuget_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_nuget_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a NuGet upstream config for this repository.
+    # Create a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NugetUpstreamRequest] :data 
+    # @return [Array<(NugetUpstream, Fixnum, Hash)>] NugetUpstream data, response status code and response headers
+    def repos_upstream_nuget_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_nuget_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_nuget_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_nuget_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/nuget/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NugetUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_nuget_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a NuGet upstream config for this repository.
+    # Delete a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_nuget_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_nuget_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a NuGet upstream config for this repository.
+    # Delete a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_nuget_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_nuget_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_nuget_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_nuget_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_nuget_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_nuget_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List NuGet upstream configs for this repository.
+    # List NuGet upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<NugetUpstream>]
+    def repos_upstream_nuget_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_nuget_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List NuGet upstream configs for this repository.
+    # List NuGet upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<NugetUpstream>, Fixnum, Hash)>] Array<NugetUpstream> data, response status code and response headers
+    def repos_upstream_nuget_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_nuget_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_nuget_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_nuget_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/nuget/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<NugetUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_nuget_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a NuGet upstream config for this repository.
+    # Partially update a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NugetUpstreamRequestPatch] :data 
+    # @return [NugetUpstream]
+    def repos_upstream_nuget_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_nuget_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a NuGet upstream config for this repository.
+    # Partially update a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NugetUpstreamRequestPatch] :data 
+    # @return [Array<(NugetUpstream, Fixnum, Hash)>] NugetUpstream data, response status code and response headers
+    def repos_upstream_nuget_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_nuget_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_nuget_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_nuget_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_nuget_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NugetUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_nuget_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a NuGet upstream config for this repository.
+    # Retrieve a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [NugetUpstream]
+    def repos_upstream_nuget_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_nuget_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a NuGet upstream config for this repository.
+    # Retrieve a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(NugetUpstream, Fixnum, Hash)>] NugetUpstream data, response status code and response headers
+    def repos_upstream_nuget_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_nuget_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_nuget_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_nuget_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_nuget_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NugetUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_nuget_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a NuGet upstream config for this repository.
+    # Update a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NugetUpstreamRequest] :data 
+    # @return [NugetUpstream]
+    def repos_upstream_nuget_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_nuget_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a NuGet upstream config for this repository.
+    # Update a NuGet upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [NugetUpstreamRequest] :data 
+    # @return [Array<(NugetUpstream, Fixnum, Hash)>] NugetUpstream data, response status code and response headers
+    def repos_upstream_nuget_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_nuget_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_nuget_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_nuget_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_nuget_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NugetUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_nuget_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Python upstream config for this repository.
+    # Create a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PythonUpstreamRequest] :data 
+    # @return [PythonUpstream]
+    def repos_upstream_python_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_python_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Python upstream config for this repository.
+    # Create a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PythonUpstreamRequest] :data 
+    # @return [Array<(PythonUpstream, Fixnum, Hash)>] PythonUpstream data, response status code and response headers
+    def repos_upstream_python_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_python_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_python_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_python_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/python/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PythonUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_python_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Python upstream config for this repository.
+    # Delete a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_python_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_python_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Python upstream config for this repository.
+    # Delete a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_python_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_python_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_python_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_python_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_python_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_python_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Python upstream configs for this repository.
+    # List Python upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<PythonUpstream>]
+    def repos_upstream_python_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_python_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Python upstream configs for this repository.
+    # List Python upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<PythonUpstream>, Fixnum, Hash)>] Array<PythonUpstream> data, response status code and response headers
+    def repos_upstream_python_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_python_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_python_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_python_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/python/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<PythonUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_python_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Python upstream config for this repository.
+    # Partially update a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PythonUpstreamRequestPatch] :data 
+    # @return [PythonUpstream]
+    def repos_upstream_python_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_python_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Python upstream config for this repository.
+    # Partially update a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PythonUpstreamRequestPatch] :data 
+    # @return [Array<(PythonUpstream, Fixnum, Hash)>] PythonUpstream data, response status code and response headers
+    def repos_upstream_python_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_python_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_python_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_python_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_python_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PythonUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_python_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Python upstream config for this repository.
+    # Retrieve a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [PythonUpstream]
+    def repos_upstream_python_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_python_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Python upstream config for this repository.
+    # Retrieve a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PythonUpstream, Fixnum, Hash)>] PythonUpstream data, response status code and response headers
+    def repos_upstream_python_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_python_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_python_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_python_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_python_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PythonUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_python_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Python upstream config for this repository.
+    # Update a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PythonUpstreamRequest] :data 
+    # @return [PythonUpstream]
+    def repos_upstream_python_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_python_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Python upstream config for this repository.
+    # Update a Python upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PythonUpstreamRequest] :data 
+    # @return [Array<(PythonUpstream, Fixnum, Hash)>] PythonUpstream data, response status code and response headers
+    def repos_upstream_python_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_python_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_python_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_python_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_python_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PythonUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_python_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a RedHat upstream config for this repository.
+    # Create a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RpmUpstreamRequest] :data 
+    # @return [RpmUpstream]
+    def repos_upstream_rpm_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_rpm_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a RedHat upstream config for this repository.
+    # Create a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RpmUpstreamRequest] :data 
+    # @return [Array<(RpmUpstream, Fixnum, Hash)>] RpmUpstream data, response status code and response headers
+    def repos_upstream_rpm_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_rpm_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_rpm_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_rpm_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/rpm/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_rpm_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a RedHat upstream config for this repository.
+    # Delete a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_rpm_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_rpm_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a RedHat upstream config for this repository.
+    # Delete a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_rpm_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_rpm_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_rpm_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_rpm_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_rpm_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_rpm_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List RedHat upstream configs for this repository.
+    # List RedHat upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<RpmUpstream>]
+    def repos_upstream_rpm_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_rpm_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List RedHat upstream configs for this repository.
+    # List RedHat upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<RpmUpstream>, Fixnum, Hash)>] Array<RpmUpstream> data, response status code and response headers
+    def repos_upstream_rpm_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_rpm_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_rpm_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_rpm_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/rpm/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<RpmUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_rpm_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a RedHat upstream config for this repository.
+    # Partially update a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RpmUpstreamRequestPatch] :data 
+    # @return [RpmUpstream]
+    def repos_upstream_rpm_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_rpm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a RedHat upstream config for this repository.
+    # Partially update a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RpmUpstreamRequestPatch] :data 
+    # @return [Array<(RpmUpstream, Fixnum, Hash)>] RpmUpstream data, response status code and response headers
+    def repos_upstream_rpm_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_rpm_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_rpm_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_rpm_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_rpm_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_rpm_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a RedHat upstream config for this repository.
+    # Retrieve a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [RpmUpstream]
+    def repos_upstream_rpm_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_rpm_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a RedHat upstream config for this repository.
+    # Retrieve a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RpmUpstream, Fixnum, Hash)>] RpmUpstream data, response status code and response headers
+    def repos_upstream_rpm_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_rpm_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_rpm_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_rpm_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_rpm_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_rpm_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a RedHat upstream config for this repository.
+    # Update a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RpmUpstreamRequest] :data 
+    # @return [RpmUpstream]
+    def repos_upstream_rpm_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_rpm_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a RedHat upstream config for this repository.
+    # Update a RedHat upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RpmUpstreamRequest] :data 
+    # @return [Array<(RpmUpstream, Fixnum, Hash)>] RpmUpstream data, response status code and response headers
+    def repos_upstream_rpm_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_rpm_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_rpm_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_rpm_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_rpm_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RpmUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_rpm_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Ruby upstream config for this repository.
+    # Create a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RubyUpstreamRequest] :data 
+    # @return [RubyUpstream]
+    def repos_upstream_ruby_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_ruby_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Ruby upstream config for this repository.
+    # Create a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RubyUpstreamRequest] :data 
+    # @return [Array<(RubyUpstream, Fixnum, Hash)>] RubyUpstream data, response status code and response headers
+    def repos_upstream_ruby_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_ruby_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_ruby_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_ruby_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/ruby/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RubyUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_ruby_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Ruby upstream config for this repository.
+    # Delete a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_ruby_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_ruby_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Ruby upstream config for this repository.
+    # Delete a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_ruby_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_ruby_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_ruby_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_ruby_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_ruby_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_ruby_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Ruby upstream configs for this repository.
+    # List Ruby upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<RubyUpstream>]
+    def repos_upstream_ruby_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_ruby_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Ruby upstream configs for this repository.
+    # List Ruby upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<RubyUpstream>, Fixnum, Hash)>] Array<RubyUpstream> data, response status code and response headers
+    def repos_upstream_ruby_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_ruby_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_ruby_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_ruby_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/ruby/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<RubyUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_ruby_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Ruby upstream config for this repository.
+    # Partially update a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RubyUpstreamRequestPatch] :data 
+    # @return [RubyUpstream]
+    def repos_upstream_ruby_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_ruby_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Ruby upstream config for this repository.
+    # Partially update a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RubyUpstreamRequestPatch] :data 
+    # @return [Array<(RubyUpstream, Fixnum, Hash)>] RubyUpstream data, response status code and response headers
+    def repos_upstream_ruby_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_ruby_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_ruby_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_ruby_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_ruby_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RubyUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_ruby_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Ruby upstream config for this repository.
+    # Retrieve a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [RubyUpstream]
+    def repos_upstream_ruby_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_ruby_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Ruby upstream config for this repository.
+    # Retrieve a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RubyUpstream, Fixnum, Hash)>] RubyUpstream data, response status code and response headers
+    def repos_upstream_ruby_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_ruby_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_ruby_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_ruby_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_ruby_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RubyUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_ruby_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Ruby upstream config for this repository.
+    # Update a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RubyUpstreamRequest] :data 
+    # @return [RubyUpstream]
+    def repos_upstream_ruby_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_ruby_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Ruby upstream config for this repository.
+    # Update a Ruby upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RubyUpstreamRequest] :data 
+    # @return [Array<(RubyUpstream, Fixnum, Hash)>] RubyUpstream data, response status code and response headers
+    def repos_upstream_ruby_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_ruby_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_ruby_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_ruby_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_ruby_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RubyUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_ruby_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get a list of all repositories associated with current user.
     # Get a list of all repositories associated with current user.
     # @param [Hash] opts the optional parameters

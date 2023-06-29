@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.6</version>
+  <version>2.0.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.6"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.7"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.6.jar`
+* `target/cloudsmith-api-2.0.7.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -149,6 +149,9 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsInvitesResend**](docs/OrgsApi.md#orgsInvitesResend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
 *OrgsApi* | [**orgsLicensePolicyCreate**](docs/OrgsApi.md#orgsLicensePolicyCreate) | **POST** /orgs/{org}/license-policy/ | Create a package license policy.
 *OrgsApi* | [**orgsLicensePolicyDelete**](docs/OrgsApi.md#orgsLicensePolicyDelete) | **DELETE** /orgs/{org}/license-policy/{slug_perm}/ | Delete a package license policy.
+*OrgsApi* | [**orgsLicensePolicyEvaluationCreate**](docs/OrgsApi.md#orgsLicensePolicyEvaluationCreate) | **POST** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
+*OrgsApi* | [**orgsLicensePolicyEvaluationList**](docs/OrgsApi.md#orgsLicensePolicyEvaluationList) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
+*OrgsApi* | [**orgsLicensePolicyEvaluationRead**](docs/OrgsApi.md#orgsLicensePolicyEvaluationRead) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
 *OrgsApi* | [**orgsLicensePolicyList**](docs/OrgsApi.md#orgsLicensePolicyList) | **GET** /orgs/{org}/license-policy/ | Get a list of all package license policies.
 *OrgsApi* | [**orgsLicensePolicyPartialUpdate**](docs/OrgsApi.md#orgsLicensePolicyPartialUpdate) | **PATCH** /orgs/{org}/license-policy/{slug_perm}/ | Partially update a package license policy.
 *OrgsApi* | [**orgsLicensePolicyRead**](docs/OrgsApi.md#orgsLicensePolicyRead) | **GET** /orgs/{org}/license-policy/{slug_perm}/ | Get a package license policy.
@@ -180,6 +183,9 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
 *OrgsApi* | [**orgsVulnerabilityPolicyCreate**](docs/OrgsApi.md#orgsVulnerabilityPolicyCreate) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy.
 *OrgsApi* | [**orgsVulnerabilityPolicyDelete**](docs/OrgsApi.md#orgsVulnerabilityPolicyDelete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyEvaluationCreate**](docs/OrgsApi.md#orgsVulnerabilityPolicyEvaluationCreate) | **POST** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyEvaluationList**](docs/OrgsApi.md#orgsVulnerabilityPolicyEvaluationList) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
+*OrgsApi* | [**orgsVulnerabilityPolicyEvaluationRead**](docs/OrgsApi.md#orgsVulnerabilityPolicyEvaluationRead) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
 *OrgsApi* | [**orgsVulnerabilityPolicyList**](docs/OrgsApi.md#orgsVulnerabilityPolicyList) | **GET** /orgs/{org}/vulnerability-policy/ | Get a list of all package vulnerability policies.
 *OrgsApi* | [**orgsVulnerabilityPolicyPartialUpdate**](docs/OrgsApi.md#orgsVulnerabilityPolicyPartialUpdate) | **PATCH** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Partially update a package vulnerability policy.
 *OrgsApi* | [**orgsVulnerabilityPolicyRead**](docs/OrgsApi.md#orgsVulnerabilityPolicyRead) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
@@ -271,6 +277,66 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposRsaCreate**](docs/ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 *ReposApi* | [**reposRsaList**](docs/ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 *ReposApi* | [**reposRsaRegenerate**](docs/ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
+*ReposApi* | [**reposUpstreamDartCreate**](docs/ReposApi.md#reposUpstreamDartCreate) | **POST** /repos/{owner}/{identifier}/upstream/dart/ | Create a Dart upstream config for this repository.
+*ReposApi* | [**reposUpstreamDartDelete**](docs/ReposApi.md#reposUpstreamDartDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Delete a Dart upstream config for this repository.
+*ReposApi* | [**reposUpstreamDartList**](docs/ReposApi.md#reposUpstreamDartList) | **GET** /repos/{owner}/{identifier}/upstream/dart/ | List Dart upstream configs for this repository.
+*ReposApi* | [**reposUpstreamDartPartialUpdate**](docs/ReposApi.md#reposUpstreamDartPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Partially update a Dart upstream config for this repository.
+*ReposApi* | [**reposUpstreamDartRead**](docs/ReposApi.md#reposUpstreamDartRead) | **GET** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Retrieve a Dart upstream config for this repository.
+*ReposApi* | [**reposUpstreamDartUpdate**](docs/ReposApi.md#reposUpstreamDartUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Update a Dart upstream config for this repository.
+*ReposApi* | [**reposUpstreamDebCreate**](docs/ReposApi.md#reposUpstreamDebCreate) | **POST** /repos/{owner}/{identifier}/upstream/deb/ | Create a Debian upstream config for this repository.
+*ReposApi* | [**reposUpstreamDebDelete**](docs/ReposApi.md#reposUpstreamDebDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Delete a Debian upstream config for this repository.
+*ReposApi* | [**reposUpstreamDebList**](docs/ReposApi.md#reposUpstreamDebList) | **GET** /repos/{owner}/{identifier}/upstream/deb/ | List Debian upstream configs for this repository.
+*ReposApi* | [**reposUpstreamDebPartialUpdate**](docs/ReposApi.md#reposUpstreamDebPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Partially update a Debian upstream config for this repository.
+*ReposApi* | [**reposUpstreamDebRead**](docs/ReposApi.md#reposUpstreamDebRead) | **GET** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Retrieve a Debian upstream config for this repository.
+*ReposApi* | [**reposUpstreamDebUpdate**](docs/ReposApi.md#reposUpstreamDebUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Update a Debian upstream config for this repository.
+*ReposApi* | [**reposUpstreamDockerCreate**](docs/ReposApi.md#reposUpstreamDockerCreate) | **POST** /repos/{owner}/{identifier}/upstream/docker/ | Create a Docker upstream config for this repository.
+*ReposApi* | [**reposUpstreamDockerDelete**](docs/ReposApi.md#reposUpstreamDockerDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Delete a Docker upstream config for this repository.
+*ReposApi* | [**reposUpstreamDockerList**](docs/ReposApi.md#reposUpstreamDockerList) | **GET** /repos/{owner}/{identifier}/upstream/docker/ | List Docker upstream configs for this repository.
+*ReposApi* | [**reposUpstreamDockerPartialUpdate**](docs/ReposApi.md#reposUpstreamDockerPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
+*ReposApi* | [**reposUpstreamDockerRead**](docs/ReposApi.md#reposUpstreamDockerRead) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
+*ReposApi* | [**reposUpstreamDockerUpdate**](docs/ReposApi.md#reposUpstreamDockerUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+*ReposApi* | [**reposUpstreamHelmCreate**](docs/ReposApi.md#reposUpstreamHelmCreate) | **POST** /repos/{owner}/{identifier}/upstream/helm/ | Create a Helm upstream config for this repository.
+*ReposApi* | [**reposUpstreamHelmDelete**](docs/ReposApi.md#reposUpstreamHelmDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Delete a Helm upstream config for this repository.
+*ReposApi* | [**reposUpstreamHelmList**](docs/ReposApi.md#reposUpstreamHelmList) | **GET** /repos/{owner}/{identifier}/upstream/helm/ | List Helm upstream configs for this repository.
+*ReposApi* | [**reposUpstreamHelmPartialUpdate**](docs/ReposApi.md#reposUpstreamHelmPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Partially update a Helm upstream config for this repository.
+*ReposApi* | [**reposUpstreamHelmRead**](docs/ReposApi.md#reposUpstreamHelmRead) | **GET** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Retrieve a Helm upstream config for this repository.
+*ReposApi* | [**reposUpstreamHelmUpdate**](docs/ReposApi.md#reposUpstreamHelmUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Update a Helm upstream config for this repository.
+*ReposApi* | [**reposUpstreamMavenCreate**](docs/ReposApi.md#reposUpstreamMavenCreate) | **POST** /repos/{owner}/{identifier}/upstream/maven/ | Create a Maven upstream config for this repository.
+*ReposApi* | [**reposUpstreamMavenDelete**](docs/ReposApi.md#reposUpstreamMavenDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Delete a Maven upstream config for this repository.
+*ReposApi* | [**reposUpstreamMavenList**](docs/ReposApi.md#reposUpstreamMavenList) | **GET** /repos/{owner}/{identifier}/upstream/maven/ | List Maven upstream configs for this repository.
+*ReposApi* | [**reposUpstreamMavenPartialUpdate**](docs/ReposApi.md#reposUpstreamMavenPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Partially update a Maven upstream config for this repository.
+*ReposApi* | [**reposUpstreamMavenRead**](docs/ReposApi.md#reposUpstreamMavenRead) | **GET** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Retrieve a Maven upstream config for this repository.
+*ReposApi* | [**reposUpstreamMavenUpdate**](docs/ReposApi.md#reposUpstreamMavenUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Update a Maven upstream config for this repository.
+*ReposApi* | [**reposUpstreamNpmCreate**](docs/ReposApi.md#reposUpstreamNpmCreate) | **POST** /repos/{owner}/{identifier}/upstream/npm/ | Create a npm upstream config for this repository.
+*ReposApi* | [**reposUpstreamNpmDelete**](docs/ReposApi.md#reposUpstreamNpmDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Delete a npm upstream config for this repository.
+*ReposApi* | [**reposUpstreamNpmList**](docs/ReposApi.md#reposUpstreamNpmList) | **GET** /repos/{owner}/{identifier}/upstream/npm/ | List npm upstream configs for this repository.
+*ReposApi* | [**reposUpstreamNpmPartialUpdate**](docs/ReposApi.md#reposUpstreamNpmPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Partially update a npm upstream config for this repository.
+*ReposApi* | [**reposUpstreamNpmRead**](docs/ReposApi.md#reposUpstreamNpmRead) | **GET** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Retrieve a npm upstream config for this repository.
+*ReposApi* | [**reposUpstreamNpmUpdate**](docs/ReposApi.md#reposUpstreamNpmUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Update a npm upstream config for this repository.
+*ReposApi* | [**reposUpstreamNugetCreate**](docs/ReposApi.md#reposUpstreamNugetCreate) | **POST** /repos/{owner}/{identifier}/upstream/nuget/ | Create a NuGet upstream config for this repository.
+*ReposApi* | [**reposUpstreamNugetDelete**](docs/ReposApi.md#reposUpstreamNugetDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Delete a NuGet upstream config for this repository.
+*ReposApi* | [**reposUpstreamNugetList**](docs/ReposApi.md#reposUpstreamNugetList) | **GET** /repos/{owner}/{identifier}/upstream/nuget/ | List NuGet upstream configs for this repository.
+*ReposApi* | [**reposUpstreamNugetPartialUpdate**](docs/ReposApi.md#reposUpstreamNugetPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Partially update a NuGet upstream config for this repository.
+*ReposApi* | [**reposUpstreamNugetRead**](docs/ReposApi.md#reposUpstreamNugetRead) | **GET** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Retrieve a NuGet upstream config for this repository.
+*ReposApi* | [**reposUpstreamNugetUpdate**](docs/ReposApi.md#reposUpstreamNugetUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Update a NuGet upstream config for this repository.
+*ReposApi* | [**reposUpstreamPythonCreate**](docs/ReposApi.md#reposUpstreamPythonCreate) | **POST** /repos/{owner}/{identifier}/upstream/python/ | Create a Python upstream config for this repository.
+*ReposApi* | [**reposUpstreamPythonDelete**](docs/ReposApi.md#reposUpstreamPythonDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Delete a Python upstream config for this repository.
+*ReposApi* | [**reposUpstreamPythonList**](docs/ReposApi.md#reposUpstreamPythonList) | **GET** /repos/{owner}/{identifier}/upstream/python/ | List Python upstream configs for this repository.
+*ReposApi* | [**reposUpstreamPythonPartialUpdate**](docs/ReposApi.md#reposUpstreamPythonPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Partially update a Python upstream config for this repository.
+*ReposApi* | [**reposUpstreamPythonRead**](docs/ReposApi.md#reposUpstreamPythonRead) | **GET** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Retrieve a Python upstream config for this repository.
+*ReposApi* | [**reposUpstreamPythonUpdate**](docs/ReposApi.md#reposUpstreamPythonUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Update a Python upstream config for this repository.
+*ReposApi* | [**reposUpstreamRpmCreate**](docs/ReposApi.md#reposUpstreamRpmCreate) | **POST** /repos/{owner}/{identifier}/upstream/rpm/ | Create a RedHat upstream config for this repository.
+*ReposApi* | [**reposUpstreamRpmDelete**](docs/ReposApi.md#reposUpstreamRpmDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Delete a RedHat upstream config for this repository.
+*ReposApi* | [**reposUpstreamRpmList**](docs/ReposApi.md#reposUpstreamRpmList) | **GET** /repos/{owner}/{identifier}/upstream/rpm/ | List RedHat upstream configs for this repository.
+*ReposApi* | [**reposUpstreamRpmPartialUpdate**](docs/ReposApi.md#reposUpstreamRpmPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Partially update a RedHat upstream config for this repository.
+*ReposApi* | [**reposUpstreamRpmRead**](docs/ReposApi.md#reposUpstreamRpmRead) | **GET** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Retrieve a RedHat upstream config for this repository.
+*ReposApi* | [**reposUpstreamRpmUpdate**](docs/ReposApi.md#reposUpstreamRpmUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Update a RedHat upstream config for this repository.
+*ReposApi* | [**reposUpstreamRubyCreate**](docs/ReposApi.md#reposUpstreamRubyCreate) | **POST** /repos/{owner}/{identifier}/upstream/ruby/ | Create a Ruby upstream config for this repository.
+*ReposApi* | [**reposUpstreamRubyDelete**](docs/ReposApi.md#reposUpstreamRubyDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Delete a Ruby upstream config for this repository.
+*ReposApi* | [**reposUpstreamRubyList**](docs/ReposApi.md#reposUpstreamRubyList) | **GET** /repos/{owner}/{identifier}/upstream/ruby/ | List Ruby upstream configs for this repository.
+*ReposApi* | [**reposUpstreamRubyPartialUpdate**](docs/ReposApi.md#reposUpstreamRubyPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
+*ReposApi* | [**reposUpstreamRubyRead**](docs/ReposApi.md#reposUpstreamRubyRead) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
+*ReposApi* | [**reposUpstreamRubyUpdate**](docs/ReposApi.md#reposUpstreamRubyUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
 *ReposApi* | [**reposUserList**](docs/ReposApi.md#reposUserList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
 *StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
@@ -315,13 +381,22 @@ Class | Method | HTTP request | Description
  - [CranPackageUploadRequest](docs/CranPackageUploadRequest.md)
  - [DartPackageUpload](docs/DartPackageUpload.md)
  - [DartPackageUploadRequest](docs/DartPackageUploadRequest.md)
+ - [DartUpstream](docs/DartUpstream.md)
+ - [DartUpstreamRequest](docs/DartUpstreamRequest.md)
+ - [DartUpstreamRequestPatch](docs/DartUpstreamRequestPatch.md)
  - [DebPackageUpload](docs/DebPackageUpload.md)
  - [DebPackageUploadRequest](docs/DebPackageUploadRequest.md)
+ - [DebUpstream](docs/DebUpstream.md)
+ - [DebUpstreamRequest](docs/DebUpstreamRequest.md)
+ - [DebUpstreamRequestPatch](docs/DebUpstreamRequestPatch.md)
  - [Distribution](docs/Distribution.md)
  - [DistributionFull](docs/DistributionFull.md)
  - [DistributionVersion](docs/DistributionVersion.md)
  - [DockerPackageUpload](docs/DockerPackageUpload.md)
  - [DockerPackageUploadRequest](docs/DockerPackageUploadRequest.md)
+ - [DockerUpstream](docs/DockerUpstream.md)
+ - [DockerUpstreamRequest](docs/DockerUpstreamRequest.md)
+ - [DockerUpstreamRequestPatch](docs/DockerUpstreamRequestPatch.md)
  - [EntitlementUsageMetrics](docs/EntitlementUsageMetrics.md)
  - [ErrorDetail](docs/ErrorDetail.md)
  - [Eula](docs/Eula.md)
@@ -332,6 +407,9 @@ Class | Method | HTTP request | Description
  - [GoPackageUploadRequest](docs/GoPackageUploadRequest.md)
  - [HelmPackageUpload](docs/HelmPackageUpload.md)
  - [HelmPackageUploadRequest](docs/HelmPackageUploadRequest.md)
+ - [HelmUpstream](docs/HelmUpstream.md)
+ - [HelmUpstreamRequest](docs/HelmUpstreamRequest.md)
+ - [HelmUpstreamRequestPatch](docs/HelmUpstreamRequestPatch.md)
  - [HexPackageUpload](docs/HexPackageUpload.md)
  - [HexPackageUploadRequest](docs/HexPackageUploadRequest.md)
  - [History](docs/History.md)
@@ -341,6 +419,9 @@ Class | Method | HTTP request | Description
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
  - [MavenPackageUploadRequest](docs/MavenPackageUploadRequest.md)
+ - [MavenUpstream](docs/MavenUpstream.md)
+ - [MavenUpstreamRequest](docs/MavenUpstreamRequest.md)
+ - [MavenUpstreamRequestPatch](docs/MavenUpstreamRequestPatch.md)
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [NamespaceAuditLog](docs/NamespaceAuditLog.md)
@@ -349,8 +430,14 @@ Class | Method | HTTP request | Description
  - [NestedVulnerabilityScanResults](docs/NestedVulnerabilityScanResults.md)
  - [NpmPackageUpload](docs/NpmPackageUpload.md)
  - [NpmPackageUploadRequest](docs/NpmPackageUploadRequest.md)
+ - [NpmUpstream](docs/NpmUpstream.md)
+ - [NpmUpstreamRequest](docs/NpmUpstreamRequest.md)
+ - [NpmUpstreamRequestPatch](docs/NpmUpstreamRequestPatch.md)
  - [NugetPackageUpload](docs/NugetPackageUpload.md)
  - [NugetPackageUploadRequest](docs/NugetPackageUploadRequest.md)
+ - [NugetUpstream](docs/NugetUpstream.md)
+ - [NugetUpstreamRequest](docs/NugetUpstreamRequest.md)
+ - [NugetUpstreamRequestPatch](docs/NugetUpstreamRequestPatch.md)
  - [Organization](docs/Organization.md)
  - [OrganizationGroupSync](docs/OrganizationGroupSync.md)
  - [OrganizationGroupSyncRequest](docs/OrganizationGroupSyncRequest.md)
@@ -381,6 +468,8 @@ Class | Method | HTTP request | Description
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageFileUploadRequest](docs/PackageFileUploadRequest.md)
+ - [PackageLicensePolicyEvaluationRequest](docs/PackageLicensePolicyEvaluationRequest.md)
+ - [PackageLicensePolicyEvaluationRequestRequest](docs/PackageLicensePolicyEvaluationRequestRequest.md)
  - [PackageLicensePolicyViolationLog](docs/PackageLicensePolicyViolationLog.md)
  - [PackageLicensePolicyViolationLogCursorPage](docs/PackageLicensePolicyViolationLogCursorPage.md)
  - [PackageMove](docs/PackageMove.md)
@@ -394,10 +483,15 @@ Class | Method | HTTP request | Description
  - [PackageUsageMetrics](docs/PackageUsageMetrics.md)
  - [PackageVersionBadge](docs/PackageVersionBadge.md)
  - [PackageVulnerability](docs/PackageVulnerability.md)
+ - [PackageVulnerabilityPolicyEvaluationRequest](docs/PackageVulnerabilityPolicyEvaluationRequest.md)
+ - [PackageVulnerabilityPolicyEvaluationRequestRequest](docs/PackageVulnerabilityPolicyEvaluationRequestRequest.md)
  - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
  - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
  - [PythonPackageUpload](docs/PythonPackageUpload.md)
  - [PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
+ - [PythonUpstream](docs/PythonUpstream.md)
+ - [PythonUpstreamRequest](docs/PythonUpstreamRequest.md)
+ - [PythonUpstreamRequestPatch](docs/PythonUpstreamRequestPatch.md)
  - [Quota](docs/Quota.md)
  - [QuotaHistory](docs/QuotaHistory.md)
  - [RateCheck](docs/RateCheck.md)
@@ -440,8 +534,14 @@ Class | Method | HTTP request | Description
  - [RespositoryGeoIpEnableDisableRequest](docs/RespositoryGeoIpEnableDisableRequest.md)
  - [RpmPackageUpload](docs/RpmPackageUpload.md)
  - [RpmPackageUploadRequest](docs/RpmPackageUploadRequest.md)
+ - [RpmUpstream](docs/RpmUpstream.md)
+ - [RpmUpstreamRequest](docs/RpmUpstreamRequest.md)
+ - [RpmUpstreamRequestPatch](docs/RpmUpstreamRequestPatch.md)
  - [RubyPackageUpload](docs/RubyPackageUpload.md)
  - [RubyPackageUploadRequest](docs/RubyPackageUploadRequest.md)
+ - [RubyUpstream](docs/RubyUpstream.md)
+ - [RubyUpstreamRequest](docs/RubyUpstreamRequest.md)
+ - [RubyUpstreamRequestPatch](docs/RubyUpstreamRequestPatch.md)
  - [Service](docs/Service.md)
  - [ServiceRequest](docs/ServiceRequest.md)
  - [ServiceRequestPatch](docs/ServiceRequestPatch.md)

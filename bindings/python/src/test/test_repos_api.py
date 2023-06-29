@@ -169,6 +169,426 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_dart_create(self):
+        """Test case for repos_upstream_dart_create
+
+        Create a Dart upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_dart_delete(self):
+        """Test case for repos_upstream_dart_delete
+
+        Delete a Dart upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_dart_list(self):
+        """Test case for repos_upstream_dart_list
+
+        List Dart upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_dart_partial_update(self):
+        """Test case for repos_upstream_dart_partial_update
+
+        Partially update a Dart upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_dart_read(self):
+        """Test case for repos_upstream_dart_read
+
+        Retrieve a Dart upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_dart_update(self):
+        """Test case for repos_upstream_dart_update
+
+        Update a Dart upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_deb_create(self):
+        """Test case for repos_upstream_deb_create
+
+        Create a Debian upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_deb_delete(self):
+        """Test case for repos_upstream_deb_delete
+
+        Delete a Debian upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_deb_list(self):
+        """Test case for repos_upstream_deb_list
+
+        List Debian upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_deb_partial_update(self):
+        """Test case for repos_upstream_deb_partial_update
+
+        Partially update a Debian upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_deb_read(self):
+        """Test case for repos_upstream_deb_read
+
+        Retrieve a Debian upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_deb_update(self):
+        """Test case for repos_upstream_deb_update
+
+        Update a Debian upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_docker_create(self):
+        """Test case for repos_upstream_docker_create
+
+        Create a Docker upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_docker_delete(self):
+        """Test case for repos_upstream_docker_delete
+
+        Delete a Docker upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_docker_list(self):
+        """Test case for repos_upstream_docker_list
+
+        List Docker upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_docker_partial_update(self):
+        """Test case for repos_upstream_docker_partial_update
+
+        Partially update a Docker upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_docker_read(self):
+        """Test case for repos_upstream_docker_read
+
+        Retrieve a Docker upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_docker_update(self):
+        """Test case for repos_upstream_docker_update
+
+        Update a Docker upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_helm_create(self):
+        """Test case for repos_upstream_helm_create
+
+        Create a Helm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_helm_delete(self):
+        """Test case for repos_upstream_helm_delete
+
+        Delete a Helm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_helm_list(self):
+        """Test case for repos_upstream_helm_list
+
+        List Helm upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_helm_partial_update(self):
+        """Test case for repos_upstream_helm_partial_update
+
+        Partially update a Helm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_helm_read(self):
+        """Test case for repos_upstream_helm_read
+
+        Retrieve a Helm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_helm_update(self):
+        """Test case for repos_upstream_helm_update
+
+        Update a Helm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_maven_create(self):
+        """Test case for repos_upstream_maven_create
+
+        Create a Maven upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_maven_delete(self):
+        """Test case for repos_upstream_maven_delete
+
+        Delete a Maven upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_maven_list(self):
+        """Test case for repos_upstream_maven_list
+
+        List Maven upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_maven_partial_update(self):
+        """Test case for repos_upstream_maven_partial_update
+
+        Partially update a Maven upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_maven_read(self):
+        """Test case for repos_upstream_maven_read
+
+        Retrieve a Maven upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_maven_update(self):
+        """Test case for repos_upstream_maven_update
+
+        Update a Maven upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_npm_create(self):
+        """Test case for repos_upstream_npm_create
+
+        Create a npm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_npm_delete(self):
+        """Test case for repos_upstream_npm_delete
+
+        Delete a npm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_npm_list(self):
+        """Test case for repos_upstream_npm_list
+
+        List npm upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_npm_partial_update(self):
+        """Test case for repos_upstream_npm_partial_update
+
+        Partially update a npm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_npm_read(self):
+        """Test case for repos_upstream_npm_read
+
+        Retrieve a npm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_npm_update(self):
+        """Test case for repos_upstream_npm_update
+
+        Update a npm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nuget_create(self):
+        """Test case for repos_upstream_nuget_create
+
+        Create a NuGet upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nuget_delete(self):
+        """Test case for repos_upstream_nuget_delete
+
+        Delete a NuGet upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nuget_list(self):
+        """Test case for repos_upstream_nuget_list
+
+        List NuGet upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nuget_partial_update(self):
+        """Test case for repos_upstream_nuget_partial_update
+
+        Partially update a NuGet upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nuget_read(self):
+        """Test case for repos_upstream_nuget_read
+
+        Retrieve a NuGet upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nuget_update(self):
+        """Test case for repos_upstream_nuget_update
+
+        Update a NuGet upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_python_create(self):
+        """Test case for repos_upstream_python_create
+
+        Create a Python upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_python_delete(self):
+        """Test case for repos_upstream_python_delete
+
+        Delete a Python upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_python_list(self):
+        """Test case for repos_upstream_python_list
+
+        List Python upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_python_partial_update(self):
+        """Test case for repos_upstream_python_partial_update
+
+        Partially update a Python upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_python_read(self):
+        """Test case for repos_upstream_python_read
+
+        Retrieve a Python upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_python_update(self):
+        """Test case for repos_upstream_python_update
+
+        Update a Python upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_rpm_create(self):
+        """Test case for repos_upstream_rpm_create
+
+        Create a RedHat upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_rpm_delete(self):
+        """Test case for repos_upstream_rpm_delete
+
+        Delete a RedHat upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_rpm_list(self):
+        """Test case for repos_upstream_rpm_list
+
+        List RedHat upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_rpm_partial_update(self):
+        """Test case for repos_upstream_rpm_partial_update
+
+        Partially update a RedHat upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_rpm_read(self):
+        """Test case for repos_upstream_rpm_read
+
+        Retrieve a RedHat upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_rpm_update(self):
+        """Test case for repos_upstream_rpm_update
+
+        Update a RedHat upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_ruby_create(self):
+        """Test case for repos_upstream_ruby_create
+
+        Create a Ruby upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_ruby_delete(self):
+        """Test case for repos_upstream_ruby_delete
+
+        Delete a Ruby upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_ruby_list(self):
+        """Test case for repos_upstream_ruby_list
+
+        List Ruby upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_ruby_partial_update(self):
+        """Test case for repos_upstream_ruby_partial_update
+
+        Partially update a Ruby upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_ruby_read(self):
+        """Test case for repos_upstream_ruby_read
+
+        Retrieve a Ruby upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_ruby_update(self):
+        """Test case for repos_upstream_ruby_update
+
+        Update a Ruby upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_user_list(self):
         """Test case for repos_user_list
 

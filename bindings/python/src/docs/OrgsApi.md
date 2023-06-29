@@ -12,6 +12,9 @@ Method | HTTP request | Description
 [**orgs_invites_resend**](OrgsApi.md#orgs_invites_resend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
 [**orgs_license_policy_create**](OrgsApi.md#orgs_license_policy_create) | **POST** /orgs/{org}/license-policy/ | Create a package license policy.
 [**orgs_license_policy_delete**](OrgsApi.md#orgs_license_policy_delete) | **DELETE** /orgs/{org}/license-policy/{slug_perm}/ | Delete a package license policy.
+[**orgs_license_policy_evaluation_create**](OrgsApi.md#orgs_license_policy_evaluation_create) | **POST** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
+[**orgs_license_policy_evaluation_list**](OrgsApi.md#orgs_license_policy_evaluation_list) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
+[**orgs_license_policy_evaluation_read**](OrgsApi.md#orgs_license_policy_evaluation_read) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
 [**orgs_license_policy_list**](OrgsApi.md#orgs_license_policy_list) | **GET** /orgs/{org}/license-policy/ | Get a list of all package license policies.
 [**orgs_license_policy_partial_update**](OrgsApi.md#orgs_license_policy_partial_update) | **PATCH** /orgs/{org}/license-policy/{slug_perm}/ | Partially update a package license policy.
 [**orgs_license_policy_read**](OrgsApi.md#orgs_license_policy_read) | **GET** /orgs/{org}/license-policy/{slug_perm}/ | Get a package license policy.
@@ -43,6 +46,9 @@ Method | HTTP request | Description
 [**orgs_teams_read**](OrgsApi.md#orgs_teams_read) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
 [**orgs_vulnerability_policy_create**](OrgsApi.md#orgs_vulnerability_policy_create) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy.
 [**orgs_vulnerability_policy_delete**](OrgsApi.md#orgs_vulnerability_policy_delete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy.
+[**orgs_vulnerability_policy_evaluation_create**](OrgsApi.md#orgs_vulnerability_policy_evaluation_create) | **POST** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
+[**orgs_vulnerability_policy_evaluation_list**](OrgsApi.md#orgs_vulnerability_policy_evaluation_list) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
+[**orgs_vulnerability_policy_evaluation_read**](OrgsApi.md#orgs_vulnerability_policy_evaluation_read) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
 [**orgs_vulnerability_policy_list**](OrgsApi.md#orgs_vulnerability_policy_list) | **GET** /orgs/{org}/vulnerability-policy/ | Get a list of all package vulnerability policies.
 [**orgs_vulnerability_policy_partial_update**](OrgsApi.md#orgs_vulnerability_policy_partial_update) | **PATCH** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Partially update a package vulnerability policy.
 [**orgs_vulnerability_policy_read**](OrgsApi.md#orgs_vulnerability_policy_read) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
@@ -488,6 +494,182 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_license_policy_evaluation_create**
+> PackageLicensePolicyEvaluationRequest orgs_license_policy_evaluation_create(org, policy_slug_perm, data=data)
+
+Create an evaluation request for this policy.
+
+Create an evaluation request for this policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+policy_slug_perm = 'policy_slug_perm_example' # str | 
+data = cloudsmith_api.PackageLicensePolicyEvaluationRequestRequest() # PackageLicensePolicyEvaluationRequestRequest |  (optional)
+
+try:
+    # Create an evaluation request for this policy.
+    api_response = api_instance.orgs_license_policy_evaluation_create(org, policy_slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_license_policy_evaluation_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **policy_slug_perm** | **str**|  | 
+ **data** | [**PackageLicensePolicyEvaluationRequestRequest**](PackageLicensePolicyEvaluationRequestRequest.md)|  | [optional] 
+
+### Return type
+
+[**PackageLicensePolicyEvaluationRequest**](PackageLicensePolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_license_policy_evaluation_list**
+> list[PackageLicensePolicyEvaluationRequest] orgs_license_policy_evaluation_list(org, policy_slug_perm, page=page, page_size=page_size)
+
+List evaluation requests for this policy.
+
+List evaluation requests for this policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+policy_slug_perm = 'policy_slug_perm_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List evaluation requests for this policy.
+    api_response = api_instance.orgs_license_policy_evaluation_list(org, policy_slug_perm, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_license_policy_evaluation_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **policy_slug_perm** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[PackageLicensePolicyEvaluationRequest]**](PackageLicensePolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_license_policy_evaluation_read**
+> PackageLicensePolicyEvaluationRequest orgs_license_policy_evaluation_read(org, policy_slug_perm, slug_perm)
+
+Retrieve an evaluation request for this policy.
+
+Retrieve an evaluation request for this policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+policy_slug_perm = 'policy_slug_perm_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve an evaluation request for this policy.
+    api_response = api_instance.orgs_license_policy_evaluation_read(org, policy_slug_perm, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_license_policy_evaluation_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **policy_slug_perm** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**PackageLicensePolicyEvaluationRequest**](PackageLicensePolicyEvaluationRequest.md)
 
 ### Authorization
 
@@ -2237,6 +2419,182 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_vulnerability_policy_evaluation_create**
+> PackageVulnerabilityPolicyEvaluationRequest orgs_vulnerability_policy_evaluation_create(org, policy_slug_perm, data=data)
+
+Create an evaluation request for this policy.
+
+Create an evaluation request for this policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+policy_slug_perm = 'policy_slug_perm_example' # str | 
+data = cloudsmith_api.PackageVulnerabilityPolicyEvaluationRequestRequest() # PackageVulnerabilityPolicyEvaluationRequestRequest |  (optional)
+
+try:
+    # Create an evaluation request for this policy.
+    api_response = api_instance.orgs_vulnerability_policy_evaluation_create(org, policy_slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_vulnerability_policy_evaluation_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **policy_slug_perm** | **str**|  | 
+ **data** | [**PackageVulnerabilityPolicyEvaluationRequestRequest**](PackageVulnerabilityPolicyEvaluationRequestRequest.md)|  | [optional] 
+
+### Return type
+
+[**PackageVulnerabilityPolicyEvaluationRequest**](PackageVulnerabilityPolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_vulnerability_policy_evaluation_list**
+> list[PackageVulnerabilityPolicyEvaluationRequest] orgs_vulnerability_policy_evaluation_list(org, policy_slug_perm, page=page, page_size=page_size)
+
+List evaluation requests for this policy.
+
+List evaluation requests for this policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+policy_slug_perm = 'policy_slug_perm_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List evaluation requests for this policy.
+    api_response = api_instance.orgs_vulnerability_policy_evaluation_list(org, policy_slug_perm, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_vulnerability_policy_evaluation_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **policy_slug_perm** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[PackageVulnerabilityPolicyEvaluationRequest]**](PackageVulnerabilityPolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_vulnerability_policy_evaluation_read**
+> PackageVulnerabilityPolicyEvaluationRequest orgs_vulnerability_policy_evaluation_read(org, policy_slug_perm, slug_perm)
+
+Retrieve an evaluation request for this policy.
+
+Retrieve an evaluation request for this policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+policy_slug_perm = 'policy_slug_perm_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve an evaluation request for this policy.
+    api_response = api_instance.orgs_vulnerability_policy_evaluation_read(org, policy_slug_perm, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_vulnerability_policy_evaluation_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **policy_slug_perm** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**PackageVulnerabilityPolicyEvaluationRequest**](PackageVulnerabilityPolicyEvaluationRequest.md)
 
 ### Authorization
 
