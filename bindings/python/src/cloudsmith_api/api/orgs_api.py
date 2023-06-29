@@ -885,6 +885,347 @@ class OrgsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def orgs_license_policy_evaluation_create(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """Create an evaluation request for this policy.  # noqa: E501
+
+        Create an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_license_policy_evaluation_create(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param PackageLicensePolicyEvaluationRequestRequest data:
+        :return: PackageLicensePolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_license_policy_evaluation_create_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_license_policy_evaluation_create_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_license_policy_evaluation_create_with_http_info(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """Create an evaluation request for this policy.  # noqa: E501
+
+        Create an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_license_policy_evaluation_create_with_http_info(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param PackageLicensePolicyEvaluationRequestRequest data:
+        :return: PackageLicensePolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'policy_slug_perm', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_license_policy_evaluation_create" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_license_policy_evaluation_create`")  # noqa: E501
+        # verify the required parameter 'policy_slug_perm' is set
+        if self.api_client.client_side_validation and ('policy_slug_perm' not in params or
+                                                       params['policy_slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `policy_slug_perm` when calling `orgs_license_policy_evaluation_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'policy_slug_perm' in params:
+            path_params['policy_slug_perm'] = params['policy_slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PackageLicensePolicyEvaluationRequest',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_license_policy_evaluation_list(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """List evaluation requests for this policy.  # noqa: E501
+
+        List evaluation requests for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_license_policy_evaluation_list(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[PackageLicensePolicyEvaluationRequest]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_license_policy_evaluation_list_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_license_policy_evaluation_list_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_license_policy_evaluation_list_with_http_info(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """List evaluation requests for this policy.  # noqa: E501
+
+        List evaluation requests for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_license_policy_evaluation_list_with_http_info(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[PackageLicensePolicyEvaluationRequest]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'policy_slug_perm', 'page', 'page_size']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_license_policy_evaluation_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_license_policy_evaluation_list`")  # noqa: E501
+        # verify the required parameter 'policy_slug_perm' is set
+        if self.api_client.client_side_validation and ('policy_slug_perm' not in params or
+                                                       params['policy_slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `policy_slug_perm` when calling `orgs_license_policy_evaluation_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'policy_slug_perm' in params:
+            path_params['policy_slug_perm'] = params['policy_slug_perm']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[PackageLicensePolicyEvaluationRequest]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_license_policy_evaluation_read(self, org, policy_slug_perm, slug_perm, **kwargs):  # noqa: E501
+        """Retrieve an evaluation request for this policy.  # noqa: E501
+
+        Retrieve an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_license_policy_evaluation_read(org, policy_slug_perm, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param str slug_perm: (required)
+        :return: PackageLicensePolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_license_policy_evaluation_read_with_http_info(org, policy_slug_perm, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_license_policy_evaluation_read_with_http_info(org, policy_slug_perm, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_license_policy_evaluation_read_with_http_info(self, org, policy_slug_perm, slug_perm, **kwargs):  # noqa: E501
+        """Retrieve an evaluation request for this policy.  # noqa: E501
+
+        Retrieve an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_license_policy_evaluation_read_with_http_info(org, policy_slug_perm, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param str slug_perm: (required)
+        :return: PackageLicensePolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'policy_slug_perm', 'slug_perm']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_license_policy_evaluation_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_license_policy_evaluation_read`")  # noqa: E501
+        # verify the required parameter 'policy_slug_perm' is set
+        if self.api_client.client_side_validation and ('policy_slug_perm' not in params or
+                                                       params['policy_slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `policy_slug_perm` when calling `orgs_license_policy_evaluation_read`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `orgs_license_policy_evaluation_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'policy_slug_perm' in params:
+            path_params['policy_slug_perm'] = params['policy_slug_perm']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PackageLicensePolicyEvaluationRequest',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def orgs_license_policy_list(self, org, **kwargs):  # noqa: E501
         """Get a list of all package license policies.  # noqa: E501
 
@@ -4183,6 +4524,347 @@ class OrgsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_vulnerability_policy_evaluation_create(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """Create an evaluation request for this policy.  # noqa: E501
+
+        Create an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_vulnerability_policy_evaluation_create(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param PackageVulnerabilityPolicyEvaluationRequestRequest data:
+        :return: PackageVulnerabilityPolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_vulnerability_policy_evaluation_create_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_vulnerability_policy_evaluation_create_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_vulnerability_policy_evaluation_create_with_http_info(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """Create an evaluation request for this policy.  # noqa: E501
+
+        Create an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_vulnerability_policy_evaluation_create_with_http_info(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param PackageVulnerabilityPolicyEvaluationRequestRequest data:
+        :return: PackageVulnerabilityPolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'policy_slug_perm', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_vulnerability_policy_evaluation_create" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_vulnerability_policy_evaluation_create`")  # noqa: E501
+        # verify the required parameter 'policy_slug_perm' is set
+        if self.api_client.client_side_validation and ('policy_slug_perm' not in params or
+                                                       params['policy_slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `policy_slug_perm` when calling `orgs_vulnerability_policy_evaluation_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'policy_slug_perm' in params:
+            path_params['policy_slug_perm'] = params['policy_slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PackageVulnerabilityPolicyEvaluationRequest',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_vulnerability_policy_evaluation_list(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """List evaluation requests for this policy.  # noqa: E501
+
+        List evaluation requests for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_vulnerability_policy_evaluation_list(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[PackageVulnerabilityPolicyEvaluationRequest]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_vulnerability_policy_evaluation_list_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_vulnerability_policy_evaluation_list_with_http_info(org, policy_slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_vulnerability_policy_evaluation_list_with_http_info(self, org, policy_slug_perm, **kwargs):  # noqa: E501
+        """List evaluation requests for this policy.  # noqa: E501
+
+        List evaluation requests for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_vulnerability_policy_evaluation_list_with_http_info(org, policy_slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[PackageVulnerabilityPolicyEvaluationRequest]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'policy_slug_perm', 'page', 'page_size']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_vulnerability_policy_evaluation_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_vulnerability_policy_evaluation_list`")  # noqa: E501
+        # verify the required parameter 'policy_slug_perm' is set
+        if self.api_client.client_side_validation and ('policy_slug_perm' not in params or
+                                                       params['policy_slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `policy_slug_perm` when calling `orgs_vulnerability_policy_evaluation_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'policy_slug_perm' in params:
+            path_params['policy_slug_perm'] = params['policy_slug_perm']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[PackageVulnerabilityPolicyEvaluationRequest]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_vulnerability_policy_evaluation_read(self, org, policy_slug_perm, slug_perm, **kwargs):  # noqa: E501
+        """Retrieve an evaluation request for this policy.  # noqa: E501
+
+        Retrieve an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_vulnerability_policy_evaluation_read(org, policy_slug_perm, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param str slug_perm: (required)
+        :return: PackageVulnerabilityPolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_vulnerability_policy_evaluation_read_with_http_info(org, policy_slug_perm, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_vulnerability_policy_evaluation_read_with_http_info(org, policy_slug_perm, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_vulnerability_policy_evaluation_read_with_http_info(self, org, policy_slug_perm, slug_perm, **kwargs):  # noqa: E501
+        """Retrieve an evaluation request for this policy.  # noqa: E501
+
+        Retrieve an evaluation request for this policy.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_vulnerability_policy_evaluation_read_with_http_info(org, policy_slug_perm, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str policy_slug_perm: (required)
+        :param str slug_perm: (required)
+        :return: PackageVulnerabilityPolicyEvaluationRequest
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'policy_slug_perm', 'slug_perm']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_vulnerability_policy_evaluation_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_vulnerability_policy_evaluation_read`")  # noqa: E501
+        # verify the required parameter 'policy_slug_perm' is set
+        if self.api_client.client_side_validation and ('policy_slug_perm' not in params or
+                                                       params['policy_slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `policy_slug_perm` when calling `orgs_vulnerability_policy_evaluation_read`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `orgs_vulnerability_policy_evaluation_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'policy_slug_perm' in params:
+            path_params['policy_slug_perm'] = params['policy_slug_perm']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PackageVulnerabilityPolicyEvaluationRequest',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

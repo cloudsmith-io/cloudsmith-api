@@ -85,6 +85,27 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_license_policy_evaluation_create(self):
+        """Test case for orgs_license_policy_evaluation_create
+
+        Create an evaluation request for this policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_evaluation_list(self):
+        """Test case for orgs_license_policy_evaluation_list
+
+        List evaluation requests for this policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_license_policy_evaluation_read(self):
+        """Test case for orgs_license_policy_evaluation_read
+
+        Retrieve an evaluation request for this policy.  # noqa: E501
+        """
+        pass
+
     def test_orgs_license_policy_list(self):
         """Test case for orgs_license_policy_list
 
@@ -299,6 +320,27 @@ class TestOrgsApi(unittest.TestCase):
         """Test case for orgs_vulnerability_policy_delete
 
         Delete a package vulnerability policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_evaluation_create(self):
+        """Test case for orgs_vulnerability_policy_evaluation_create
+
+        Create an evaluation request for this policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_evaluation_list(self):
+        """Test case for orgs_vulnerability_policy_evaluation_list
+
+        List evaluation requests for this policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_vulnerability_policy_evaluation_read(self):
+        """Test case for orgs_vulnerability_policy_evaluation_read
+
+        Retrieve an evaluation request for this policy.  # noqa: E501
         """
         pass
 
