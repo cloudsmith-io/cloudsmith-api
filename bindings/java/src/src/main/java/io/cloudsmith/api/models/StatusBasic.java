@@ -38,7 +38,7 @@ public class StatusBasic implements Serializable {
   private String detail = "Cloudsmith API is operational.";
 
   @SerializedName("version")
-  private String version = "1.283.1";
+  private String version = "1.290.2";
 
    /**
    * The message describing the state of the API.

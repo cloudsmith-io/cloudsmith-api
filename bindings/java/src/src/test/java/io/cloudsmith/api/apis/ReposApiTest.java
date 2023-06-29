@@ -13,7 +13,31 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.DartUpstream;
+import io.cloudsmith.api.models.DartUpstreamRequest;
+import io.cloudsmith.api.models.DartUpstreamRequestPatch;
+import io.cloudsmith.api.models.DebUpstream;
+import io.cloudsmith.api.models.DebUpstreamRequest;
+import io.cloudsmith.api.models.DebUpstreamRequestPatch;
+import io.cloudsmith.api.models.DockerUpstream;
+import io.cloudsmith.api.models.DockerUpstreamRequest;
+import io.cloudsmith.api.models.DockerUpstreamRequestPatch;
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.HelmUpstream;
+import io.cloudsmith.api.models.HelmUpstreamRequest;
+import io.cloudsmith.api.models.HelmUpstreamRequestPatch;
+import io.cloudsmith.api.models.MavenUpstream;
+import io.cloudsmith.api.models.MavenUpstreamRequest;
+import io.cloudsmith.api.models.MavenUpstreamRequestPatch;
+import io.cloudsmith.api.models.NpmUpstream;
+import io.cloudsmith.api.models.NpmUpstreamRequest;
+import io.cloudsmith.api.models.NpmUpstreamRequestPatch;
+import io.cloudsmith.api.models.NugetUpstream;
+import io.cloudsmith.api.models.NugetUpstreamRequest;
+import io.cloudsmith.api.models.NugetUpstreamRequestPatch;
+import io.cloudsmith.api.models.PythonUpstream;
+import io.cloudsmith.api.models.PythonUpstreamRequest;
+import io.cloudsmith.api.models.PythonUpstreamRequestPatch;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
@@ -31,6 +55,12 @@ import io.cloudsmith.api.models.RepositoryRequestPatch;
 import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
 import io.cloudsmith.api.models.RespositoryGeoIpEnableDisableRequest;
+import io.cloudsmith.api.models.RpmUpstream;
+import io.cloudsmith.api.models.RpmUpstreamRequest;
+import io.cloudsmith.api.models.RpmUpstreamRequestPatch;
+import io.cloudsmith.api.models.RubyUpstream;
+import io.cloudsmith.api.models.RubyUpstreamRequest;
+import io.cloudsmith.api.models.RubyUpstreamRequestPatch;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -398,6 +428,1116 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         RepositoryRsaKey response = api.reposRsaRegenerate(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Dart upstream config for this repository.
+     *
+     * Create a Dart upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDartCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        DartUpstreamRequest data = null;
+        DartUpstream response = api.reposUpstreamDartCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Dart upstream config for this repository.
+     *
+     * Delete a Dart upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDartDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamDartDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Dart upstream configs for this repository.
+     *
+     * List Dart upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDartListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<DartUpstream> response = api.reposUpstreamDartList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Dart upstream config for this repository.
+     *
+     * Partially update a Dart upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDartPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DartUpstreamRequestPatch data = null;
+        DartUpstream response = api.reposUpstreamDartPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Dart upstream config for this repository.
+     *
+     * Retrieve a Dart upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDartReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DartUpstream response = api.reposUpstreamDartRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Dart upstream config for this repository.
+     *
+     * Update a Dart upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDartUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DartUpstreamRequest data = null;
+        DartUpstream response = api.reposUpstreamDartUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Debian upstream config for this repository.
+     *
+     * Create a Debian upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDebCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        DebUpstreamRequest data = null;
+        DebUpstream response = api.reposUpstreamDebCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Debian upstream config for this repository.
+     *
+     * Delete a Debian upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDebDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamDebDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Debian upstream configs for this repository.
+     *
+     * List Debian upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDebListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<DebUpstream> response = api.reposUpstreamDebList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Debian upstream config for this repository.
+     *
+     * Partially update a Debian upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDebPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DebUpstreamRequestPatch data = null;
+        DebUpstream response = api.reposUpstreamDebPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Debian upstream config for this repository.
+     *
+     * Retrieve a Debian upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDebReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DebUpstream response = api.reposUpstreamDebRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Debian upstream config for this repository.
+     *
+     * Update a Debian upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDebUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DebUpstreamRequest data = null;
+        DebUpstream response = api.reposUpstreamDebUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Docker upstream config for this repository.
+     *
+     * Create a Docker upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDockerCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        DockerUpstreamRequest data = null;
+        DockerUpstream response = api.reposUpstreamDockerCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Docker upstream config for this repository.
+     *
+     * Delete a Docker upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDockerDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamDockerDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Docker upstream configs for this repository.
+     *
+     * List Docker upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDockerListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<DockerUpstream> response = api.reposUpstreamDockerList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Docker upstream config for this repository.
+     *
+     * Partially update a Docker upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDockerPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DockerUpstreamRequestPatch data = null;
+        DockerUpstream response = api.reposUpstreamDockerPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Docker upstream config for this repository.
+     *
+     * Retrieve a Docker upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDockerReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DockerUpstream response = api.reposUpstreamDockerRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Docker upstream config for this repository.
+     *
+     * Update a Docker upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamDockerUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        DockerUpstreamRequest data = null;
+        DockerUpstream response = api.reposUpstreamDockerUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Helm upstream config for this repository.
+     *
+     * Create a Helm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHelmCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        HelmUpstreamRequest data = null;
+        HelmUpstream response = api.reposUpstreamHelmCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Helm upstream config for this repository.
+     *
+     * Delete a Helm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHelmDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamHelmDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Helm upstream configs for this repository.
+     *
+     * List Helm upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHelmListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<HelmUpstream> response = api.reposUpstreamHelmList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Helm upstream config for this repository.
+     *
+     * Partially update a Helm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHelmPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        HelmUpstreamRequestPatch data = null;
+        HelmUpstream response = api.reposUpstreamHelmPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Helm upstream config for this repository.
+     *
+     * Retrieve a Helm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHelmReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        HelmUpstream response = api.reposUpstreamHelmRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Helm upstream config for this repository.
+     *
+     * Update a Helm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHelmUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        HelmUpstreamRequest data = null;
+        HelmUpstream response = api.reposUpstreamHelmUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Maven upstream config for this repository.
+     *
+     * Create a Maven upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamMavenCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        MavenUpstreamRequest data = null;
+        MavenUpstream response = api.reposUpstreamMavenCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Maven upstream config for this repository.
+     *
+     * Delete a Maven upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamMavenDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamMavenDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Maven upstream configs for this repository.
+     *
+     * List Maven upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamMavenListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<MavenUpstream> response = api.reposUpstreamMavenList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Maven upstream config for this repository.
+     *
+     * Partially update a Maven upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamMavenPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        MavenUpstreamRequestPatch data = null;
+        MavenUpstream response = api.reposUpstreamMavenPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Maven upstream config for this repository.
+     *
+     * Retrieve a Maven upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamMavenReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        MavenUpstream response = api.reposUpstreamMavenRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Maven upstream config for this repository.
+     *
+     * Update a Maven upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamMavenUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        MavenUpstreamRequest data = null;
+        MavenUpstream response = api.reposUpstreamMavenUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a npm upstream config for this repository.
+     *
+     * Create a npm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNpmCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        NpmUpstreamRequest data = null;
+        NpmUpstream response = api.reposUpstreamNpmCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a npm upstream config for this repository.
+     *
+     * Delete a npm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNpmDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamNpmDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List npm upstream configs for this repository.
+     *
+     * List npm upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNpmListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<NpmUpstream> response = api.reposUpstreamNpmList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a npm upstream config for this repository.
+     *
+     * Partially update a npm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNpmPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NpmUpstreamRequestPatch data = null;
+        NpmUpstream response = api.reposUpstreamNpmPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a npm upstream config for this repository.
+     *
+     * Retrieve a npm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNpmReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NpmUpstream response = api.reposUpstreamNpmRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a npm upstream config for this repository.
+     *
+     * Update a npm upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNpmUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NpmUpstreamRequest data = null;
+        NpmUpstream response = api.reposUpstreamNpmUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a NuGet upstream config for this repository.
+     *
+     * Create a NuGet upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNugetCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        NugetUpstreamRequest data = null;
+        NugetUpstream response = api.reposUpstreamNugetCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a NuGet upstream config for this repository.
+     *
+     * Delete a NuGet upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNugetDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamNugetDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List NuGet upstream configs for this repository.
+     *
+     * List NuGet upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNugetListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<NugetUpstream> response = api.reposUpstreamNugetList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a NuGet upstream config for this repository.
+     *
+     * Partially update a NuGet upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNugetPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NugetUpstreamRequestPatch data = null;
+        NugetUpstream response = api.reposUpstreamNugetPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a NuGet upstream config for this repository.
+     *
+     * Retrieve a NuGet upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNugetReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NugetUpstream response = api.reposUpstreamNugetRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a NuGet upstream config for this repository.
+     *
+     * Update a NuGet upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNugetUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NugetUpstreamRequest data = null;
+        NugetUpstream response = api.reposUpstreamNugetUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Python upstream config for this repository.
+     *
+     * Create a Python upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamPythonCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        PythonUpstreamRequest data = null;
+        PythonUpstream response = api.reposUpstreamPythonCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Python upstream config for this repository.
+     *
+     * Delete a Python upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamPythonDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamPythonDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Python upstream configs for this repository.
+     *
+     * List Python upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamPythonListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<PythonUpstream> response = api.reposUpstreamPythonList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Python upstream config for this repository.
+     *
+     * Partially update a Python upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamPythonPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        PythonUpstreamRequestPatch data = null;
+        PythonUpstream response = api.reposUpstreamPythonPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Python upstream config for this repository.
+     *
+     * Retrieve a Python upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamPythonReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        PythonUpstream response = api.reposUpstreamPythonRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Python upstream config for this repository.
+     *
+     * Update a Python upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamPythonUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        PythonUpstreamRequest data = null;
+        PythonUpstream response = api.reposUpstreamPythonUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a RedHat upstream config for this repository.
+     *
+     * Create a RedHat upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRpmCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RpmUpstreamRequest data = null;
+        RpmUpstream response = api.reposUpstreamRpmCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a RedHat upstream config for this repository.
+     *
+     * Delete a RedHat upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRpmDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamRpmDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List RedHat upstream configs for this repository.
+     *
+     * List RedHat upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRpmListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<RpmUpstream> response = api.reposUpstreamRpmList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a RedHat upstream config for this repository.
+     *
+     * Partially update a RedHat upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRpmPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        RpmUpstreamRequestPatch data = null;
+        RpmUpstream response = api.reposUpstreamRpmPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a RedHat upstream config for this repository.
+     *
+     * Retrieve a RedHat upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRpmReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        RpmUpstream response = api.reposUpstreamRpmRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a RedHat upstream config for this repository.
+     *
+     * Update a RedHat upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRpmUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        RpmUpstreamRequest data = null;
+        RpmUpstream response = api.reposUpstreamRpmUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Ruby upstream config for this repository.
+     *
+     * Create a Ruby upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRubyCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RubyUpstreamRequest data = null;
+        RubyUpstream response = api.reposUpstreamRubyCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Ruby upstream config for this repository.
+     *
+     * Delete a Ruby upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRubyDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamRubyDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Ruby upstream configs for this repository.
+     *
+     * List Ruby upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRubyListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<RubyUpstream> response = api.reposUpstreamRubyList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Ruby upstream config for this repository.
+     *
+     * Partially update a Ruby upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRubyPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        RubyUpstreamRequestPatch data = null;
+        RubyUpstream response = api.reposUpstreamRubyPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Ruby upstream config for this repository.
+     *
+     * Retrieve a Ruby upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRubyReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        RubyUpstream response = api.reposUpstreamRubyRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Ruby upstream config for this repository.
+     *
+     * Update a Ruby upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamRubyUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        RubyUpstreamRequest data = null;
+        RubyUpstream response = api.reposUpstreamRubyUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

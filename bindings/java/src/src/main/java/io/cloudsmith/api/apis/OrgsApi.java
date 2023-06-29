@@ -55,7 +55,11 @@ import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequest;
+import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
+import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequest;
+import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
@@ -1221,6 +1225,453 @@ public class OrgsApi {
 
         com.squareup.okhttp.Call call = orgsLicensePolicyDeleteValidateBeforeCall(org, slugPerm, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsLicensePolicyEvaluationCreate
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsLicensePolicyEvaluationCreateCall(String org, String policySlugPerm, PackageLicensePolicyEvaluationRequestRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "policy_slug_perm" + "\\}", apiClient.escapeString(policySlugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsLicensePolicyEvaluationCreateValidateBeforeCall(String org, String policySlugPerm, PackageLicensePolicyEvaluationRequestRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, policySlugPerm, data };
+            Method method = this.getClass().getMethod("orgsLicensePolicyEvaluationCreateWithHttpInfo", String.class, String.class, PackageLicensePolicyEvaluationRequestRequest.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationCreateCall(org, policySlugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create an evaluation request for this policy.
+     * Create an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @return PackageLicensePolicyEvaluationRequest
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageLicensePolicyEvaluationRequest orgsLicensePolicyEvaluationCreate(String org, String policySlugPerm, PackageLicensePolicyEvaluationRequestRequest data) throws ApiException {
+        ApiResponse<PackageLicensePolicyEvaluationRequest> resp = orgsLicensePolicyEvaluationCreateWithHttpInfo(org, policySlugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create an evaluation request for this policy.
+     * Create an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;PackageLicensePolicyEvaluationRequest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageLicensePolicyEvaluationRequest> orgsLicensePolicyEvaluationCreateWithHttpInfo( @NotNull String org,  @NotNull String policySlugPerm,  PackageLicensePolicyEvaluationRequestRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationCreateValidateBeforeCall(org, policySlugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<PackageLicensePolicyEvaluationRequest>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create an evaluation request for this policy. (asynchronously)
+     * Create an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsLicensePolicyEvaluationCreateAsync(String org, String policySlugPerm, PackageLicensePolicyEvaluationRequestRequest data, final ApiCallback<PackageLicensePolicyEvaluationRequest> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationCreateValidateBeforeCall(org, policySlugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageLicensePolicyEvaluationRequest>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsLicensePolicyEvaluationList
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsLicensePolicyEvaluationListCall(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "policy_slug_perm" + "\\}", apiClient.escapeString(policySlugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsLicensePolicyEvaluationListValidateBeforeCall(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, policySlugPerm, page, pageSize };
+            Method method = this.getClass().getMethod("orgsLicensePolicyEvaluationListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationListCall(org, policySlugPerm, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * List evaluation requests for this policy.
+     * List evaluation requests for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;PackageLicensePolicyEvaluationRequest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<PackageLicensePolicyEvaluationRequest> orgsLicensePolicyEvaluationList(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<PackageLicensePolicyEvaluationRequest>> resp = orgsLicensePolicyEvaluationListWithHttpInfo(org, policySlugPerm, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * List evaluation requests for this policy.
+     * List evaluation requests for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;PackageLicensePolicyEvaluationRequest&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<PackageLicensePolicyEvaluationRequest>> orgsLicensePolicyEvaluationListWithHttpInfo( @NotNull String org,  @NotNull String policySlugPerm,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationListValidateBeforeCall(org, policySlugPerm, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<PackageLicensePolicyEvaluationRequest>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List evaluation requests for this policy. (asynchronously)
+     * List evaluation requests for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsLicensePolicyEvaluationListAsync(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<PackageLicensePolicyEvaluationRequest>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationListValidateBeforeCall(org, policySlugPerm, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<PackageLicensePolicyEvaluationRequest>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsLicensePolicyEvaluationRead
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsLicensePolicyEvaluationReadCall(String org, String policySlugPerm, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "policy_slug_perm" + "\\}", apiClient.escapeString(policySlugPerm.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsLicensePolicyEvaluationReadValidateBeforeCall(String org, String policySlugPerm, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, policySlugPerm, slugPerm };
+            Method method = this.getClass().getMethod("orgsLicensePolicyEvaluationReadWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationReadCall(org, policySlugPerm, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve an evaluation request for this policy.
+     * Retrieve an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @return PackageLicensePolicyEvaluationRequest
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageLicensePolicyEvaluationRequest orgsLicensePolicyEvaluationRead(String org, String policySlugPerm, String slugPerm) throws ApiException {
+        ApiResponse<PackageLicensePolicyEvaluationRequest> resp = orgsLicensePolicyEvaluationReadWithHttpInfo(org, policySlugPerm, slugPerm);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve an evaluation request for this policy.
+     * Retrieve an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;PackageLicensePolicyEvaluationRequest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageLicensePolicyEvaluationRequest> orgsLicensePolicyEvaluationReadWithHttpInfo( @NotNull String org,  @NotNull String policySlugPerm,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationReadValidateBeforeCall(org, policySlugPerm, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<PackageLicensePolicyEvaluationRequest>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve an evaluation request for this policy. (asynchronously)
+     * Retrieve an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsLicensePolicyEvaluationReadAsync(String org, String policySlugPerm, String slugPerm, final ApiCallback<PackageLicensePolicyEvaluationRequest> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsLicensePolicyEvaluationReadValidateBeforeCall(org, policySlugPerm, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageLicensePolicyEvaluationRequest>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -5650,6 +6101,453 @@ public class OrgsApi {
 
         com.squareup.okhttp.Call call = orgsVulnerabilityPolicyDeleteValidateBeforeCall(org, slugPerm, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsVulnerabilityPolicyEvaluationCreate
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationCreateCall(String org, String policySlugPerm, PackageVulnerabilityPolicyEvaluationRequestRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "policy_slug_perm" + "\\}", apiClient.escapeString(policySlugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationCreateValidateBeforeCall(String org, String policySlugPerm, PackageVulnerabilityPolicyEvaluationRequestRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, policySlugPerm, data };
+            Method method = this.getClass().getMethod("orgsVulnerabilityPolicyEvaluationCreateWithHttpInfo", String.class, String.class, PackageVulnerabilityPolicyEvaluationRequestRequest.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationCreateCall(org, policySlugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create an evaluation request for this policy.
+     * Create an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @return PackageVulnerabilityPolicyEvaluationRequest
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageVulnerabilityPolicyEvaluationRequest orgsVulnerabilityPolicyEvaluationCreate(String org, String policySlugPerm, PackageVulnerabilityPolicyEvaluationRequestRequest data) throws ApiException {
+        ApiResponse<PackageVulnerabilityPolicyEvaluationRequest> resp = orgsVulnerabilityPolicyEvaluationCreateWithHttpInfo(org, policySlugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create an evaluation request for this policy.
+     * Create an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;PackageVulnerabilityPolicyEvaluationRequest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageVulnerabilityPolicyEvaluationRequest> orgsVulnerabilityPolicyEvaluationCreateWithHttpInfo( @NotNull String org,  @NotNull String policySlugPerm,  PackageVulnerabilityPolicyEvaluationRequestRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationCreateValidateBeforeCall(org, policySlugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<PackageVulnerabilityPolicyEvaluationRequest>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create an evaluation request for this policy. (asynchronously)
+     * Create an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationCreateAsync(String org, String policySlugPerm, PackageVulnerabilityPolicyEvaluationRequestRequest data, final ApiCallback<PackageVulnerabilityPolicyEvaluationRequest> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationCreateValidateBeforeCall(org, policySlugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageVulnerabilityPolicyEvaluationRequest>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsVulnerabilityPolicyEvaluationList
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationListCall(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "policy_slug_perm" + "\\}", apiClient.escapeString(policySlugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationListValidateBeforeCall(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, policySlugPerm, page, pageSize };
+            Method method = this.getClass().getMethod("orgsVulnerabilityPolicyEvaluationListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationListCall(org, policySlugPerm, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * List evaluation requests for this policy.
+     * List evaluation requests for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;PackageVulnerabilityPolicyEvaluationRequest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<PackageVulnerabilityPolicyEvaluationRequest> orgsVulnerabilityPolicyEvaluationList(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<PackageVulnerabilityPolicyEvaluationRequest>> resp = orgsVulnerabilityPolicyEvaluationListWithHttpInfo(org, policySlugPerm, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * List evaluation requests for this policy.
+     * List evaluation requests for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;PackageVulnerabilityPolicyEvaluationRequest&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<PackageVulnerabilityPolicyEvaluationRequest>> orgsVulnerabilityPolicyEvaluationListWithHttpInfo( @NotNull String org,  @NotNull String policySlugPerm,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationListValidateBeforeCall(org, policySlugPerm, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<PackageVulnerabilityPolicyEvaluationRequest>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List evaluation requests for this policy. (asynchronously)
+     * List evaluation requests for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationListAsync(String org, String policySlugPerm, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<PackageVulnerabilityPolicyEvaluationRequest>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationListValidateBeforeCall(org, policySlugPerm, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<PackageVulnerabilityPolicyEvaluationRequest>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsVulnerabilityPolicyEvaluationRead
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationReadCall(String org, String policySlugPerm, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "policy_slug_perm" + "\\}", apiClient.escapeString(policySlugPerm.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationReadValidateBeforeCall(String org, String policySlugPerm, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, policySlugPerm, slugPerm };
+            Method method = this.getClass().getMethod("orgsVulnerabilityPolicyEvaluationReadWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationReadCall(org, policySlugPerm, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve an evaluation request for this policy.
+     * Retrieve an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @return PackageVulnerabilityPolicyEvaluationRequest
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageVulnerabilityPolicyEvaluationRequest orgsVulnerabilityPolicyEvaluationRead(String org, String policySlugPerm, String slugPerm) throws ApiException {
+        ApiResponse<PackageVulnerabilityPolicyEvaluationRequest> resp = orgsVulnerabilityPolicyEvaluationReadWithHttpInfo(org, policySlugPerm, slugPerm);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve an evaluation request for this policy.
+     * Retrieve an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;PackageVulnerabilityPolicyEvaluationRequest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageVulnerabilityPolicyEvaluationRequest> orgsVulnerabilityPolicyEvaluationReadWithHttpInfo( @NotNull String org,  @NotNull String policySlugPerm,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationReadValidateBeforeCall(org, policySlugPerm, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<PackageVulnerabilityPolicyEvaluationRequest>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve an evaluation request for this policy. (asynchronously)
+     * Retrieve an evaluation request for this policy.
+     * @param org  (required)
+     * @param policySlugPerm  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsVulnerabilityPolicyEvaluationReadAsync(String org, String policySlugPerm, String slugPerm, final ApiCallback<PackageVulnerabilityPolicyEvaluationRequest> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsVulnerabilityPolicyEvaluationReadValidateBeforeCall(org, policySlugPerm, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageVulnerabilityPolicyEvaluationRequest>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**

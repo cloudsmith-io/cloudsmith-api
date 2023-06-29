@@ -12,6 +12,9 @@ Method | HTTP request | Description
 [**orgsInvitesResend**](OrgsApi.md#orgsInvitesResend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
 [**orgsLicensePolicyCreate**](OrgsApi.md#orgsLicensePolicyCreate) | **POST** /orgs/{org}/license-policy/ | Create a package license policy.
 [**orgsLicensePolicyDelete**](OrgsApi.md#orgsLicensePolicyDelete) | **DELETE** /orgs/{org}/license-policy/{slug_perm}/ | Delete a package license policy.
+[**orgsLicensePolicyEvaluationCreate**](OrgsApi.md#orgsLicensePolicyEvaluationCreate) | **POST** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
+[**orgsLicensePolicyEvaluationList**](OrgsApi.md#orgsLicensePolicyEvaluationList) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
+[**orgsLicensePolicyEvaluationRead**](OrgsApi.md#orgsLicensePolicyEvaluationRead) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
 [**orgsLicensePolicyList**](OrgsApi.md#orgsLicensePolicyList) | **GET** /orgs/{org}/license-policy/ | Get a list of all package license policies.
 [**orgsLicensePolicyPartialUpdate**](OrgsApi.md#orgsLicensePolicyPartialUpdate) | **PATCH** /orgs/{org}/license-policy/{slug_perm}/ | Partially update a package license policy.
 [**orgsLicensePolicyRead**](OrgsApi.md#orgsLicensePolicyRead) | **GET** /orgs/{org}/license-policy/{slug_perm}/ | Get a package license policy.
@@ -43,6 +46,9 @@ Method | HTTP request | Description
 [**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
 [**orgsVulnerabilityPolicyCreate**](OrgsApi.md#orgsVulnerabilityPolicyCreate) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy.
 [**orgsVulnerabilityPolicyDelete**](OrgsApi.md#orgsVulnerabilityPolicyDelete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy.
+[**orgsVulnerabilityPolicyEvaluationCreate**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationCreate) | **POST** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
+[**orgsVulnerabilityPolicyEvaluationList**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationList) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
+[**orgsVulnerabilityPolicyEvaluationRead**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationRead) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
 [**orgsVulnerabilityPolicyList**](OrgsApi.md#orgsVulnerabilityPolicyList) | **GET** /orgs/{org}/vulnerability-policy/ | Get a list of all package vulnerability policies.
 [**orgsVulnerabilityPolicyPartialUpdate**](OrgsApi.md#orgsVulnerabilityPolicyPartialUpdate) | **PATCH** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Partially update a package vulnerability policy.
 [**orgsVulnerabilityPolicyRead**](OrgsApi.md#orgsVulnerabilityPolicyRead) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
@@ -498,6 +504,185 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsLicensePolicyEvaluationCreate"></a>
+# **orgsLicensePolicyEvaluationCreate**
+> PackageLicensePolicyEvaluationRequest orgsLicensePolicyEvaluationCreate(org, policySlugPerm, data)
+
+Create an evaluation request for this policy.
+
+Create an evaluation request for this policy.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String policySlugPerm = "policySlugPerm_example"; // String | 
+PackageLicensePolicyEvaluationRequestRequest data = new PackageLicensePolicyEvaluationRequestRequest(); // PackageLicensePolicyEvaluationRequestRequest | 
+try {
+    PackageLicensePolicyEvaluationRequest result = apiInstance.orgsLicensePolicyEvaluationCreate(org, policySlugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **policySlugPerm** | **String**|  |
+ **data** | [**PackageLicensePolicyEvaluationRequestRequest**](PackageLicensePolicyEvaluationRequestRequest.md)|  | [optional]
+
+### Return type
+
+[**PackageLicensePolicyEvaluationRequest**](PackageLicensePolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsLicensePolicyEvaluationList"></a>
+# **orgsLicensePolicyEvaluationList**
+> List&lt;PackageLicensePolicyEvaluationRequest&gt; orgsLicensePolicyEvaluationList(org, policySlugPerm, page, pageSize)
+
+List evaluation requests for this policy.
+
+List evaluation requests for this policy.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String policySlugPerm = "policySlugPerm_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<PackageLicensePolicyEvaluationRequest> result = apiInstance.orgsLicensePolicyEvaluationList(org, policySlugPerm, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **policySlugPerm** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;PackageLicensePolicyEvaluationRequest&gt;**](PackageLicensePolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsLicensePolicyEvaluationRead"></a>
+# **orgsLicensePolicyEvaluationRead**
+> PackageLicensePolicyEvaluationRequest orgsLicensePolicyEvaluationRead(org, policySlugPerm, slugPerm)
+
+Retrieve an evaluation request for this policy.
+
+Retrieve an evaluation request for this policy.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String policySlugPerm = "policySlugPerm_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    PackageLicensePolicyEvaluationRequest result = apiInstance.orgsLicensePolicyEvaluationRead(org, policySlugPerm, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **policySlugPerm** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**PackageLicensePolicyEvaluationRequest**](PackageLicensePolicyEvaluationRequest.md)
 
 ### Authorization
 
@@ -2278,6 +2463,185 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsVulnerabilityPolicyEvaluationCreate"></a>
+# **orgsVulnerabilityPolicyEvaluationCreate**
+> PackageVulnerabilityPolicyEvaluationRequest orgsVulnerabilityPolicyEvaluationCreate(org, policySlugPerm, data)
+
+Create an evaluation request for this policy.
+
+Create an evaluation request for this policy.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String policySlugPerm = "policySlugPerm_example"; // String | 
+PackageVulnerabilityPolicyEvaluationRequestRequest data = new PackageVulnerabilityPolicyEvaluationRequestRequest(); // PackageVulnerabilityPolicyEvaluationRequestRequest | 
+try {
+    PackageVulnerabilityPolicyEvaluationRequest result = apiInstance.orgsVulnerabilityPolicyEvaluationCreate(org, policySlugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **policySlugPerm** | **String**|  |
+ **data** | [**PackageVulnerabilityPolicyEvaluationRequestRequest**](PackageVulnerabilityPolicyEvaluationRequestRequest.md)|  | [optional]
+
+### Return type
+
+[**PackageVulnerabilityPolicyEvaluationRequest**](PackageVulnerabilityPolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsVulnerabilityPolicyEvaluationList"></a>
+# **orgsVulnerabilityPolicyEvaluationList**
+> List&lt;PackageVulnerabilityPolicyEvaluationRequest&gt; orgsVulnerabilityPolicyEvaluationList(org, policySlugPerm, page, pageSize)
+
+List evaluation requests for this policy.
+
+List evaluation requests for this policy.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String policySlugPerm = "policySlugPerm_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<PackageVulnerabilityPolicyEvaluationRequest> result = apiInstance.orgsVulnerabilityPolicyEvaluationList(org, policySlugPerm, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **policySlugPerm** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;PackageVulnerabilityPolicyEvaluationRequest&gt;**](PackageVulnerabilityPolicyEvaluationRequest.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsVulnerabilityPolicyEvaluationRead"></a>
+# **orgsVulnerabilityPolicyEvaluationRead**
+> PackageVulnerabilityPolicyEvaluationRequest orgsVulnerabilityPolicyEvaluationRead(org, policySlugPerm, slugPerm)
+
+Retrieve an evaluation request for this policy.
+
+Retrieve an evaluation request for this policy.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String policySlugPerm = "policySlugPerm_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    PackageVulnerabilityPolicyEvaluationRequest result = apiInstance.orgsVulnerabilityPolicyEvaluationRead(org, policySlugPerm, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **policySlugPerm** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**PackageVulnerabilityPolicyEvaluationRequest**](PackageVulnerabilityPolicyEvaluationRequest.md)
 
 ### Authorization
 
