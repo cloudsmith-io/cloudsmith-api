@@ -38,8 +38,6 @@ upload_to_cloudsmith() {
 
   # no-wait-for-sync necessary to prevent upload from failing due to sync failure
   cloudsmith push python ${cloudsmith_repo_api} "${distribution_filepath}" --skip-errors --no-wait-for-sync
-
-  cloudsmith push python ${cloudsmith_repo_cli} "${distribution_filepath}" --skip-errors --no-wait-for-sync
 }
 
 set -e
