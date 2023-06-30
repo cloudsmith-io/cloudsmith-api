@@ -11,7 +11,7 @@
 """
 
 
-from pathlib import Path
+import os
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "cloudsmith-api"
@@ -29,6 +29,11 @@ REQUIRES = [
     "six>=1.10",
     "urllib3>=1.23"
 ]
+
+here = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+with open(os.path.join(here, "README.md")) as f:
+    long_description = f.read()
+
     
 
 setup(
@@ -41,6 +46,6 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    long_description=(Path(__file__).parent / "README.md").read_text(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
 )
