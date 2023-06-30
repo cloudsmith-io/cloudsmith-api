@@ -11,6 +11,7 @@
 """
 
 
+from pathlib import Path
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "cloudsmith-api"
@@ -40,7 +41,6 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    long_description="""\
-    The API to the Cloudsmith Service  # noqa: E501
-    """
+    long_description=(Path(__file__).parent / "README.md").read_text(),
+    long_description_content_type="text/markdown",
 )
