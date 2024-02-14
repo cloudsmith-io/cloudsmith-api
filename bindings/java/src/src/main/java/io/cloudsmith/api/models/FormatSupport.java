@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.FormatSupportUpstream;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -46,6 +47,9 @@ public class FormatSupport implements Serializable {
 
   @SerializedName("metadata")
   private Boolean metadata = null;
+
+  @SerializedName("upstreams")
+  private FormatSupportUpstream upstreams = null;
 
   @SerializedName("versioning")
   private Boolean versioning = null;
@@ -126,6 +130,26 @@ public class FormatSupport implements Serializable {
     this.metadata = metadata;
   }
 
+  public FormatSupport upstreams(FormatSupportUpstream upstreams) {
+    this.upstreams = upstreams;
+    return this;
+  }
+
+   /**
+   * Get upstreams
+   * @return upstreams
+  **/
+  @NotNull
+  @Valid
+  @ApiModelProperty(required = true, value = "")
+  public FormatSupportUpstream getUpstreams() {
+    return upstreams;
+  }
+
+  public void setUpstreams(FormatSupportUpstream upstreams) {
+    this.upstreams = upstreams;
+  }
+
   public FormatSupport versioning(Boolean versioning) {
     this.versioning = versioning;
     return this;
@@ -159,12 +183,13 @@ public class FormatSupport implements Serializable {
         Objects.equals(this.distributions, formatSupport.distributions) &&
         Objects.equals(this.fileLists, formatSupport.fileLists) &&
         Objects.equals(this.metadata, formatSupport.metadata) &&
+        Objects.equals(this.upstreams, formatSupport.upstreams) &&
         Objects.equals(this.versioning, formatSupport.versioning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dependencies, distributions, fileLists, metadata, versioning);
+    return Objects.hash(dependencies, distributions, fileLists, metadata, upstreams, versioning);
   }
 
 
@@ -177,6 +202,7 @@ public class FormatSupport implements Serializable {
     sb.append("    distributions: ").append(toIndentedString(distributions)).append("\n");
     sb.append("    fileLists: ").append(toIndentedString(fileLists)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    upstreams: ").append(toIndentedString(upstreams)).append("\n");
     sb.append("    versioning: ").append(toIndentedString(versioning)).append("\n");
     sb.append("}");
     return sb.toString();

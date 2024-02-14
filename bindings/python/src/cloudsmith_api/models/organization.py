@@ -73,8 +73,7 @@ class Organization(object):
             self.created_at = created_at
         if location is not None:
             self.location = location
-        if name is not None:
-            self.name = name
+        self.name = name
         if slug is not None:
             self.slug = slug
         if slug_perm is not None:
@@ -157,7 +156,6 @@ class Organization(object):
     def name(self):
         """Gets the name of this Organization.
 
-        A descriptive name for your organization.
 
         :return: The name of this Organization.
         :rtype: str
@@ -168,11 +166,12 @@ class Organization(object):
     def name(self, name):
         """Sets the name of this Organization.
 
-        A descriptive name for your organization.
 
         :param name: The name of this Organization.
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501

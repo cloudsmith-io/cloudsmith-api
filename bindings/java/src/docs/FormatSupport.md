@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **distributions** | **Boolean** | If true the package format supports distributions | 
 **fileLists** | **Boolean** | If true the package format supports file lists | 
 **metadata** | **Boolean** | If true the package format supports metadata | 
+**upstreams** | [**FormatSupportUpstream**](FormatSupportUpstream.md) |  | 
 **versioning** | **Boolean** | If true the package format supports versioning | 
 
 

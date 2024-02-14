@@ -41,6 +41,9 @@ public class OrganizationMembership implements Serializable {
   @SerializedName("has_two_factor")
   private Boolean hasTwoFactor = null;
 
+  @SerializedName("is_active")
+  private String isActive = null;
+
   @SerializedName("joined_at")
   private OffsetDateTime joinedAt = null;
 
@@ -236,6 +239,15 @@ public class OrganizationMembership implements Serializable {
   }
 
    /**
+   * Get isActive
+   * @return isActive
+  **/
+  @ApiModelProperty(value = "")
+  public String getIsActive() {
+    return isActive;
+  }
+
+   /**
    * Get joinedAt
    * @return joinedAt
   **/
@@ -330,6 +342,7 @@ public class OrganizationMembership implements Serializable {
     OrganizationMembership organizationMembership = (OrganizationMembership) o;
     return Objects.equals(this.email, organizationMembership.email) &&
         Objects.equals(this.hasTwoFactor, organizationMembership.hasTwoFactor) &&
+        Objects.equals(this.isActive, organizationMembership.isActive) &&
         Objects.equals(this.joinedAt, organizationMembership.joinedAt) &&
         Objects.equals(this.lastLoginAt, organizationMembership.lastLoginAt) &&
         Objects.equals(this.lastLoginMethod, organizationMembership.lastLoginMethod) &&
@@ -343,7 +356,7 @@ public class OrganizationMembership implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, hasTwoFactor, joinedAt, lastLoginAt, lastLoginMethod, role, user, userId, userName, userUrl, visibility);
+    return Objects.hash(email, hasTwoFactor, isActive, joinedAt, lastLoginAt, lastLoginMethod, role, user, userId, userName, userUrl, visibility);
   }
 
 
@@ -354,6 +367,7 @@ public class OrganizationMembership implements Serializable {
     
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    hasTwoFactor: ").append(toIndentedString(hasTwoFactor)).append("\n");
+    sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    joinedAt: ").append(toIndentedString(joinedAt)).append("\n");
     sb.append("    lastLoginAt: ").append(toIndentedString(lastLoginAt)).append("\n");
     sb.append("    lastLoginMethod: ").append(toIndentedString(lastLoginMethod)).append("\n");

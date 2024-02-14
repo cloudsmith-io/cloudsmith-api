@@ -19,6 +19,365 @@ module CloudsmithApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Create a package deny policy.
+    # Create a package deny policy.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageDenyPolicyRequest] :data 
+    # @return [PackageDenyPolicy]
+    def orgs_deny_policy_create(org, opts = {})
+      data, _status_code, _headers = orgs_deny_policy_create_with_http_info(org, opts)
+      data
+    end
+
+    # Create a package deny policy.
+    # Create a package deny policy.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageDenyPolicyRequest] :data 
+    # @return [Array<(PackageDenyPolicy, Fixnum, Hash)>] PackageDenyPolicy data, response status code and response headers
+    def orgs_deny_policy_create_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_deny_policy_create ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_deny_policy_create"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/deny-policy/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageDenyPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_deny_policy_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a package deny policy.
+    # Delete a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_deny_policy_delete(org, slug_perm, opts = {})
+      orgs_deny_policy_delete_with_http_info(org, slug_perm, opts)
+      nil
+    end
+
+    # Delete a package deny policy.
+    # Delete a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_deny_policy_delete_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_deny_policy_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_deny_policy_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_deny_policy_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/deny-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_deny_policy_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a list of all package deny policies.
+    # Get a list of all package deny policies.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<PackageDenyPolicy>]
+    def orgs_deny_policy_list(org, opts = {})
+      data, _status_code, _headers = orgs_deny_policy_list_with_http_info(org, opts)
+      data
+    end
+
+    # Get a list of all package deny policies.
+    # Get a list of all package deny policies.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<PackageDenyPolicy>, Fixnum, Hash)>] Array<PackageDenyPolicy> data, response status code and response headers
+    def orgs_deny_policy_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_deny_policy_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_deny_policy_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/deny-policy/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<PackageDenyPolicy>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_deny_policy_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a package deny policy.
+    # Partially update a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageDenyPolicyRequestPatch] :data 
+    # @return [PackageDenyPolicy]
+    def orgs_deny_policy_partial_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_deny_policy_partial_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Partially update a package deny policy.
+    # Partially update a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageDenyPolicyRequestPatch] :data 
+    # @return [Array<(PackageDenyPolicy, Fixnum, Hash)>] PackageDenyPolicy data, response status code and response headers
+    def orgs_deny_policy_partial_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_deny_policy_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_deny_policy_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_deny_policy_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/deny-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageDenyPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_deny_policy_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get a package deny policy.
+    # Get a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [PackageDenyPolicy]
+    def orgs_deny_policy_read(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_deny_policy_read_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Get a package deny policy.
+    # Get a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PackageDenyPolicy, Fixnum, Hash)>] PackageDenyPolicy data, response status code and response headers
+    def orgs_deny_policy_read_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_deny_policy_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_deny_policy_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_deny_policy_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/deny-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageDenyPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_deny_policy_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a package deny policy.
+    # Update a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageDenyPolicyRequest] :data 
+    # @return [PackageDenyPolicy]
+    def orgs_deny_policy_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_deny_policy_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Update a package deny policy.
+    # Update a package deny policy.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageDenyPolicyRequest] :data 
+    # @return [Array<(PackageDenyPolicy, Fixnum, Hash)>] PackageDenyPolicy data, response status code and response headers
+    def orgs_deny_policy_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_deny_policy_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_deny_policy_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_deny_policy_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/deny-policy/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageDenyPolicy')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_deny_policy_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Create an organization invite for a specific user
     # Create an organization invite for a specific user
     # @param org 
@@ -1108,6 +1467,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [BOOLEAN] :is_active Filter for active/inactive users. (default to false)
     # @return [Array<OrganizationMembership>]
     def orgs_members_list(org, opts = {})
       data, _status_code, _headers = orgs_members_list_with_http_info(org, opts)
@@ -1120,6 +1480,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [BOOLEAN] :is_active Filter for active/inactive users.
     # @return [Array<(Array<OrganizationMembership>, Fixnum, Hash)>] Array<OrganizationMembership> data, response status code and response headers
     def orgs_members_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
@@ -1136,6 +1497,7 @@ module CloudsmithApi
       query_params = {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'is_active'] = opts[:'is_active'] if !opts[:'is_active'].nil?
 
       # header parameters
       header_params = {}

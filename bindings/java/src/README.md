@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.7</version>
+  <version>2.0.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.7"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.8"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.7.jar`
+* `target/cloudsmith-api-2.0.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -141,6 +141,12 @@ Class | Method | HTTP request | Description
 *MetricsApi* | [**metricsPackagesList**](docs/MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
+*OrgsApi* | [**orgsDenyPolicyCreate**](docs/OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
+*OrgsApi* | [**orgsDenyPolicyDelete**](docs/OrgsApi.md#orgsDenyPolicyDelete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
+*OrgsApi* | [**orgsDenyPolicyList**](docs/OrgsApi.md#orgsDenyPolicyList) | **GET** /orgs/{org}/deny-policy/ | Get a list of all package deny policies.
+*OrgsApi* | [**orgsDenyPolicyPartialUpdate**](docs/OrgsApi.md#orgsDenyPolicyPartialUpdate) | **PATCH** /orgs/{org}/deny-policy/{slug_perm}/ | Partially update a package deny policy.
+*OrgsApi* | [**orgsDenyPolicyRead**](docs/OrgsApi.md#orgsDenyPolicyRead) | **GET** /orgs/{org}/deny-policy/{slug_perm}/ | Get a package deny policy.
+*OrgsApi* | [**orgsDenyPolicyUpdate**](docs/OrgsApi.md#orgsDenyPolicyUpdate) | **PUT** /orgs/{org}/deny-policy/{slug_perm}/ | Update a package deny policy.
 *OrgsApi* | [**orgsInvitesCreate**](docs/OrgsApi.md#orgsInvitesCreate) | **POST** /orgs/{org}/invites/ | Create an organization invite for a specific user
 *OrgsApi* | [**orgsInvitesDelete**](docs/OrgsApi.md#orgsInvitesDelete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
 *OrgsApi* | [**orgsInvitesExtend**](docs/OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
@@ -277,6 +283,12 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposRsaCreate**](docs/ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 *ReposApi* | [**reposRsaList**](docs/ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 *ReposApi* | [**reposRsaRegenerate**](docs/ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
+*ReposApi* | [**reposUpstreamCranCreate**](docs/ReposApi.md#reposUpstreamCranCreate) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository.
+*ReposApi* | [**reposUpstreamCranDelete**](docs/ReposApi.md#reposUpstreamCranDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository.
+*ReposApi* | [**reposUpstreamCranList**](docs/ReposApi.md#reposUpstreamCranList) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository.
+*ReposApi* | [**reposUpstreamCranPartialUpdate**](docs/ReposApi.md#reposUpstreamCranPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Partially update a CRAN upstream config for this repository.
+*ReposApi* | [**reposUpstreamCranRead**](docs/ReposApi.md#reposUpstreamCranRead) | **GET** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Retrieve a CRAN upstream config for this repository.
+*ReposApi* | [**reposUpstreamCranUpdate**](docs/ReposApi.md#reposUpstreamCranUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Update a CRAN upstream config for this repository.
 *ReposApi* | [**reposUpstreamDartCreate**](docs/ReposApi.md#reposUpstreamDartCreate) | **POST** /repos/{owner}/{identifier}/upstream/dart/ | Create a Dart upstream config for this repository.
 *ReposApi* | [**reposUpstreamDartDelete**](docs/ReposApi.md#reposUpstreamDartDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Delete a Dart upstream config for this repository.
 *ReposApi* | [**reposUpstreamDartList**](docs/ReposApi.md#reposUpstreamDartList) | **GET** /repos/{owner}/{identifier}/upstream/dart/ | List Dart upstream configs for this repository.
@@ -379,6 +391,9 @@ Class | Method | HTTP request | Description
  - [CondaPackageUploadRequest](docs/CondaPackageUploadRequest.md)
  - [CranPackageUpload](docs/CranPackageUpload.md)
  - [CranPackageUploadRequest](docs/CranPackageUploadRequest.md)
+ - [CranUpstream](docs/CranUpstream.md)
+ - [CranUpstreamRequest](docs/CranUpstreamRequest.md)
+ - [CranUpstreamRequestPatch](docs/CranUpstreamRequestPatch.md)
  - [DartPackageUpload](docs/DartPackageUpload.md)
  - [DartPackageUploadRequest](docs/DartPackageUploadRequest.md)
  - [DartUpstream](docs/DartUpstream.md)
@@ -402,6 +417,7 @@ Class | Method | HTTP request | Description
  - [Eula](docs/Eula.md)
  - [Format](docs/Format.md)
  - [FormatSupport](docs/FormatSupport.md)
+ - [FormatSupportUpstream](docs/FormatSupportUpstream.md)
  - [GeoIpLocation](docs/GeoIpLocation.md)
  - [GoPackageUpload](docs/GoPackageUpload.md)
  - [GoPackageUploadRequest](docs/GoPackageUploadRequest.md)
@@ -462,6 +478,9 @@ Class | Method | HTTP request | Description
  - [P2PackageUploadRequest](docs/P2PackageUploadRequest.md)
  - [PackageCopy](docs/PackageCopy.md)
  - [PackageCopyRequest](docs/PackageCopyRequest.md)
+ - [PackageDenyPolicy](docs/PackageDenyPolicy.md)
+ - [PackageDenyPolicyRequest](docs/PackageDenyPolicyRequest.md)
+ - [PackageDenyPolicyRequestPatch](docs/PackageDenyPolicyRequestPatch.md)
  - [PackageDependencies](docs/PackageDependencies.md)
  - [PackageDependency](docs/PackageDependency.md)
  - [PackageFile](docs/PackageFile.md)

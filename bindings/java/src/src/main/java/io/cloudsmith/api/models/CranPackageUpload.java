@@ -147,6 +147,9 @@ public class CranPackageUpload implements Serializable {
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
 
+  @SerializedName("r_version")
+  private String rVersion = null;
+
   @SerializedName("release")
   private String release = null;
 
@@ -642,6 +645,24 @@ public class CranPackageUpload implements Serializable {
     return packageType;
   }
 
+  public CranPackageUpload rVersion(String rVersion) {
+    this.rVersion = rVersion;
+    return this;
+  }
+
+   /**
+   * Binary package uploads should specify the version of R they were built for.
+   * @return rVersion
+  **/
+ @Size(min=1,max=16)  @ApiModelProperty(value = "Binary package uploads should specify the version of R they were built for.")
+  public String getRVersion() {
+    return rVersion;
+  }
+
+  public void setRVersion(String rVersion) {
+    this.rVersion = rVersion;
+  }
+
    /**
    * The release of the package version (if any).
    * @return release
@@ -1001,6 +1022,7 @@ public class CranPackageUpload implements Serializable {
         Objects.equals(this.originRepository, cranPackageUpload.originRepository) &&
         Objects.equals(this.originRepositoryUrl, cranPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, cranPackageUpload.packageType) &&
+        Objects.equals(this.rVersion, cranPackageUpload.rVersion) &&
         Objects.equals(this.release, cranPackageUpload.release) &&
         Objects.equals(this.repository, cranPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, cranPackageUpload.repositoryUrl) &&
@@ -1038,7 +1060,7 @@ public class CranPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, rVersion, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1082,6 +1104,7 @@ public class CranPackageUpload implements Serializable {
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    rVersion: ").append(toIndentedString(rVersion)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");

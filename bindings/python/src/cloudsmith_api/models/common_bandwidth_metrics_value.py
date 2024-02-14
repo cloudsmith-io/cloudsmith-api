@@ -64,6 +64,7 @@ class CommonBandwidthMetricsValue(object):
     def display(self):
         """Gets the display of this CommonBandwidthMetricsValue.
 
+        Bandwidth usage value
 
         :return: The display of this CommonBandwidthMetricsValue.
         :rtype: str
@@ -74,6 +75,7 @@ class CommonBandwidthMetricsValue(object):
     def display(self, display):
         """Sets the display of this CommonBandwidthMetricsValue.
 
+        Bandwidth usage value
 
         :param display: The display of this CommonBandwidthMetricsValue.
         :type: str
@@ -93,6 +95,7 @@ class CommonBandwidthMetricsValue(object):
     def units(self):
         """Gets the units of this CommonBandwidthMetricsValue.
 
+        Unit of measurement e.g. bytes
 
         :return: The units of this CommonBandwidthMetricsValue.
         :rtype: str
@@ -103,6 +106,7 @@ class CommonBandwidthMetricsValue(object):
     def units(self, units):
         """Sets the units of this CommonBandwidthMetricsValue.
 
+        Unit of measurement e.g. bytes
 
         :param units: The units of this CommonBandwidthMetricsValue.
         :type: str
@@ -117,6 +121,7 @@ class CommonBandwidthMetricsValue(object):
     def value(self):
         """Gets the value of this CommonBandwidthMetricsValue.
 
+        Human readable version of display value
 
         :return: The value of this CommonBandwidthMetricsValue.
         :rtype: int
@@ -127,6 +132,7 @@ class CommonBandwidthMetricsValue(object):
     def value(self, value):
         """Sets the value of this CommonBandwidthMetricsValue.
 
+        Human readable version of display value
 
         :param value: The value of this CommonBandwidthMetricsValue.
         :type: int

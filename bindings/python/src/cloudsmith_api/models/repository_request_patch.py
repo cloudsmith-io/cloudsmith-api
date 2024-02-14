@@ -919,7 +919,7 @@ class RepositoryRequestPatch(object):
     def strict_npm_validation(self):
         """Gets the strict_npm_validation of this RepositoryRequestPatch.
 
-        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
+        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly.
 
         :return: The strict_npm_validation of this RepositoryRequestPatch.
         :rtype: bool
@@ -930,7 +930,7 @@ class RepositoryRequestPatch(object):
     def strict_npm_validation(self, strict_npm_validation):
         """Sets the strict_npm_validation of this RepositoryRequestPatch.
 
-        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
+        If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly.
 
         :param strict_npm_validation: The strict_npm_validation of this RepositoryRequestPatch.
         :type: bool

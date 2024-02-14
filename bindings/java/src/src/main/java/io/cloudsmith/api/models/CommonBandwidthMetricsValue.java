@@ -28,8 +28,9 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * CommonBandwidthMetricsValue
+ * Average bandwidth usage in the specified period, e.g. a day
  */
+@ApiModel(description = "Average bandwidth usage in the specified period, e.g. a day")
 
 public class CommonBandwidthMetricsValue implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -49,11 +50,11 @@ public class CommonBandwidthMetricsValue implements Serializable {
   }
 
    /**
-   * Get display
+   * Bandwidth usage value
    * @return display
   **/
   @NotNull
- @Size(min=1,max=64)  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=64)  @ApiModelProperty(required = true, value = "Bandwidth usage value")
   public String getDisplay() {
     return display;
   }
@@ -68,10 +69,10 @@ public class CommonBandwidthMetricsValue implements Serializable {
   }
 
    /**
-   * Get units
+   * Unit of measurement e.g. bytes
    * @return units
   **/
- @Size(min=1)  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "Unit of measurement e.g. bytes")
   public String getUnits() {
     return units;
   }
@@ -86,11 +87,11 @@ public class CommonBandwidthMetricsValue implements Serializable {
   }
 
    /**
-   * Get value
+   * Human readable version of display value
    * @return value
   **/
   @NotNull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Human readable version of display value")
   public java.math.BigInteger getValue() {
     return value;
   }

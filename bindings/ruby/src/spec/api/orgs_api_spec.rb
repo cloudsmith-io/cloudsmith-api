@@ -32,6 +32,87 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_deny_policy_create
+  # Create a package deny policy.
+  # Create a package deny policy.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackageDenyPolicyRequest] :data 
+  # @return [PackageDenyPolicy]
+  describe 'orgs_deny_policy_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_deny_policy_delete
+  # Delete a package deny policy.
+  # Delete a package deny policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'orgs_deny_policy_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_deny_policy_list
+  # Get a list of all package deny policies.
+  # Get a list of all package deny policies.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<PackageDenyPolicy>]
+  describe 'orgs_deny_policy_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_deny_policy_partial_update
+  # Partially update a package deny policy.
+  # Partially update a package deny policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackageDenyPolicyRequestPatch] :data 
+  # @return [PackageDenyPolicy]
+  describe 'orgs_deny_policy_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_deny_policy_read
+  # Get a package deny policy.
+  # Get a package deny policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [PackageDenyPolicy]
+  describe 'orgs_deny_policy_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_deny_policy_update
+  # Update a package deny policy.
+  # Update a package deny policy.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackageDenyPolicyRequest] :data 
+  # @return [PackageDenyPolicy]
+  describe 'orgs_deny_policy_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_invites_create
   # Create an organization invite for a specific user
   # Create an organization invite for a specific user
@@ -283,6 +364,7 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [BOOLEAN] :is_active Filter for active/inactive users.
   # @return [Array<OrganizationMembership>]
   describe 'orgs_members_list test' do
     it 'should work' do

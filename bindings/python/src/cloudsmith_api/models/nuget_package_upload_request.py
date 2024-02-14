@@ -121,7 +121,7 @@ class NugetPackageUploadRequest(object):
     def symbols_file(self):
         """Gets the symbols_file of this NugetPackageUploadRequest.
 
-        Attaches a symbols file to the package.
+        Uploads a symbols file as a separate package
 
         :return: The symbols_file of this NugetPackageUploadRequest.
         :rtype: str
@@ -132,7 +132,7 @@ class NugetPackageUploadRequest(object):
     def symbols_file(self, symbols_file):
         """Sets the symbols_file of this NugetPackageUploadRequest.
 
-        Attaches a symbols file to the package.
+        Uploads a symbols file as a separate package
 
         :param symbols_file: The symbols_file of this NugetPackageUploadRequest.
         :type: str

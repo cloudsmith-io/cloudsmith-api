@@ -37,6 +37,9 @@ from cloudsmith_api.models.conda_package_upload import CondaPackageUpload
 from cloudsmith_api.models.conda_package_upload_request import CondaPackageUploadRequest
 from cloudsmith_api.models.cran_package_upload import CranPackageUpload
 from cloudsmith_api.models.cran_package_upload_request import CranPackageUploadRequest
+from cloudsmith_api.models.cran_upstream import CranUpstream
+from cloudsmith_api.models.cran_upstream_request import CranUpstreamRequest
+from cloudsmith_api.models.cran_upstream_request_patch import CranUpstreamRequestPatch
 from cloudsmith_api.models.dart_package_upload import DartPackageUpload
 from cloudsmith_api.models.dart_package_upload_request import DartPackageUploadRequest
 from cloudsmith_api.models.dart_upstream import DartUpstream
@@ -60,6 +63,7 @@ from cloudsmith_api.models.error_detail import ErrorDetail
 from cloudsmith_api.models.eula import Eula
 from cloudsmith_api.models.format import Format
 from cloudsmith_api.models.format_support import FormatSupport
+from cloudsmith_api.models.format_support_upstream import FormatSupportUpstream
 from cloudsmith_api.models.geo_ip_location import GeoIpLocation
 from cloudsmith_api.models.go_package_upload import GoPackageUpload
 from cloudsmith_api.models.go_package_upload_request import GoPackageUploadRequest
@@ -120,6 +124,9 @@ from cloudsmith_api.models.p2_package_upload_request import P2PackageUploadReque
 from cloudsmith_api.models.package import Package
 from cloudsmith_api.models.package_copy import PackageCopy
 from cloudsmith_api.models.package_copy_request import PackageCopyRequest
+from cloudsmith_api.models.package_deny_policy import PackageDenyPolicy
+from cloudsmith_api.models.package_deny_policy_request import PackageDenyPolicyRequest
+from cloudsmith_api.models.package_deny_policy_request_patch import PackageDenyPolicyRequestPatch
 from cloudsmith_api.models.package_dependencies import PackageDependencies
 from cloudsmith_api.models.package_dependency import PackageDependency
 from cloudsmith_api.models.package_file import PackageFile

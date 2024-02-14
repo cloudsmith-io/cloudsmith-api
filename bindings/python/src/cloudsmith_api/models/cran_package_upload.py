@@ -68,6 +68,7 @@ class CranPackageUpload(object):
         'origin_repository': 'str',
         'origin_repository_url': 'str',
         'package_type': 'int',
+        'r_version': 'str',
         'release': 'str',
         'repository': 'str',
         'repository_url': 'str',
@@ -139,6 +140,7 @@ class CranPackageUpload(object):
         'origin_repository': 'origin_repository',
         'origin_repository_url': 'origin_repository_url',
         'package_type': 'package_type',
+        'r_version': 'r_version',
         'release': 'release',
         'repository': 'repository',
         'repository_url': 'repository_url',
@@ -174,7 +176,7 @@ class CranPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, r_version=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """CranPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -215,6 +217,7 @@ class CranPackageUpload(object):
         self._origin_repository = None
         self._origin_repository_url = None
         self._package_type = None
+        self._r_version = None
         self._release = None
         self._repository = None
         self._repository_url = None
@@ -320,6 +323,8 @@ class CranPackageUpload(object):
             self.origin_repository_url = origin_repository_url
         if package_type is not None:
             self.package_type = package_type
+        if r_version is not None:
+            self.r_version = r_version
         if release is not None:
             self.release = release
         if repository is not None:
@@ -1150,6 +1155,35 @@ class CranPackageUpload(object):
         """
 
         self._package_type = package_type
+
+    @property
+    def r_version(self):
+        """Gets the r_version of this CranPackageUpload.
+
+        Binary package uploads should specify the version of R they were built for.
+
+        :return: The r_version of this CranPackageUpload.
+        :rtype: str
+        """
+        return self._r_version
+
+    @r_version.setter
+    def r_version(self, r_version):
+        """Sets the r_version of this CranPackageUpload.
+
+        Binary package uploads should specify the version of R they were built for.
+
+        :param r_version: The r_version of this CranPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                r_version is not None and len(r_version) > 16):
+            raise ValueError("Invalid value for `r_version`, length must be less than or equal to `16`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                r_version is not None and len(r_version) < 1):
+            raise ValueError("Invalid value for `r_version`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._r_version = r_version
 
     @property
     def release(self):

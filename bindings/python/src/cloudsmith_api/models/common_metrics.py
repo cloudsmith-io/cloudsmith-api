@@ -74,6 +74,7 @@ class CommonMetrics(object):
     def active(self):
         """Gets the active of this CommonMetrics.
 
+        Number of packages with at least 1 download
 
         :return: The active of this CommonMetrics.
         :rtype: int
@@ -84,6 +85,7 @@ class CommonMetrics(object):
     def active(self, active):
         """Sets the active of this CommonMetrics.
 
+        Number of packages with at least 1 download
 
         :param active: The active of this CommonMetrics.
         :type: int
@@ -141,6 +143,7 @@ class CommonMetrics(object):
     def inactive(self):
         """Gets the inactive of this CommonMetrics.
 
+        Packages with zero downloads
 
         :return: The inactive of this CommonMetrics.
         :rtype: int
@@ -151,6 +154,7 @@ class CommonMetrics(object):
     def inactive(self, inactive):
         """Sets the inactive of this CommonMetrics.
 
+        Packages with zero downloads
 
         :param inactive: The inactive of this CommonMetrics.
         :type: int
@@ -162,6 +166,7 @@ class CommonMetrics(object):
     def total(self):
         """Gets the total of this CommonMetrics.
 
+        Total number of packages in repo
 
         :return: The total of this CommonMetrics.
         :rtype: int
@@ -172,6 +177,7 @@ class CommonMetrics(object):
     def total(self, total):
         """Sets the total of this CommonMetrics.
 
+        Total number of packages in repo
 
         :param total: The total of this CommonMetrics.
         :type: int

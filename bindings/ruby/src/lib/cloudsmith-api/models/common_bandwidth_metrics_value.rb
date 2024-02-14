@@ -13,11 +13,15 @@ Swagger Codegen version: 2.4.26
 require 'date'
 
 module CloudsmithApi
+# Average bandwidth usage in the specified period, e.g. a day
 class CommonBandwidthMetricsValue
+  # Bandwidth usage value
   attr_accessor :display
 
+  # Unit of measurement e.g. bytes
   attr_accessor :units
 
+  # Human readable version of display value
   attr_accessor :value
 
   # Attribute mapping from ruby-style variable name to JSON key.

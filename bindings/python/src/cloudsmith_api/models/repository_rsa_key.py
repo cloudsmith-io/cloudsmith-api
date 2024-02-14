@@ -38,7 +38,8 @@ class RepositoryRsaKey(object):
         'default': 'bool',
         'fingerprint': 'str',
         'fingerprint_short': 'str',
-        'public_key': 'str'
+        'public_key': 'str',
+        'ssh_fingerprint': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class RepositoryRsaKey(object):
         'default': 'default',
         'fingerprint': 'fingerprint',
         'fingerprint_short': 'fingerprint_short',
-        'public_key': 'public_key'
+        'public_key': 'public_key',
+        'ssh_fingerprint': 'ssh_fingerprint'
     }
 
-    def __init__(self, active=None, created_at=None, default=None, fingerprint=None, fingerprint_short=None, public_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, active=None, created_at=None, default=None, fingerprint=None, fingerprint_short=None, public_key=None, ssh_fingerprint=None, _configuration=None):  # noqa: E501
         """RepositoryRsaKey - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class RepositoryRsaKey(object):
         self._fingerprint = None
         self._fingerprint_short = None
         self._public_key = None
+        self._ssh_fingerprint = None
         self.discriminator = None
 
         if active is not None:
@@ -76,6 +79,8 @@ class RepositoryRsaKey(object):
             self.fingerprint_short = fingerprint_short
         if public_key is not None:
             self.public_key = public_key
+        if ssh_fingerprint is not None:
+            self.ssh_fingerprint = ssh_fingerprint
 
     @property
     def active(self):
@@ -216,6 +221,29 @@ class RepositoryRsaKey(object):
             raise ValueError("Invalid value for `public_key`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._public_key = public_key
+
+    @property
+    def ssh_fingerprint(self):
+        """Gets the ssh_fingerprint of this RepositoryRsaKey.
+
+        The SSH fingerprint used by RSA for this key.
+
+        :return: The ssh_fingerprint of this RepositoryRsaKey.
+        :rtype: str
+        """
+        return self._ssh_fingerprint
+
+    @ssh_fingerprint.setter
+    def ssh_fingerprint(self, ssh_fingerprint):
+        """Sets the ssh_fingerprint of this RepositoryRsaKey.
+
+        The SSH fingerprint used by RSA for this key.
+
+        :param ssh_fingerprint: The ssh_fingerprint of this RepositoryRsaKey.
+        :type: str
+        """
+
+        self._ssh_fingerprint = ssh_fingerprint
 
     def to_dict(self):
         """Returns the model properties as a dict"""

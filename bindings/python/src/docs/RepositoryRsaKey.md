@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **fingerprint** | **str** | The long identifier used by RSA for this key. | [optional] 
 **fingerprint_short** | **str** |  | [optional] 
 **public_key** | **str** | The public key given to repository users. | [optional] 
+**ssh_fingerprint** | **str** | The SSH fingerprint used by RSA for this key. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

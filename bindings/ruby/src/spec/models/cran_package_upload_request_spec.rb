@@ -32,7 +32,23 @@ describe 'CranPackageUploadRequest' do
       expect(@instance).to be_instance_of(CloudsmithApi::CranPackageUploadRequest)
     end
   end
+  describe 'test attribute "architecture"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["arm64", "x86_64"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.architecture = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "package_file"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "r_version"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

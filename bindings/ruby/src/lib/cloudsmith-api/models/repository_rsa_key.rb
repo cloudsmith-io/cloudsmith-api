@@ -30,6 +30,9 @@ class RepositoryRsaKey
   # The public key given to repository users.
   attr_accessor :public_key
 
+  # The SSH fingerprint used by RSA for this key.
+  attr_accessor :ssh_fingerprint
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -38,7 +41,8 @@ class RepositoryRsaKey
       :'default' => :'default',
       :'fingerprint' => :'fingerprint',
       :'fingerprint_short' => :'fingerprint_short',
-      :'public_key' => :'public_key'
+      :'public_key' => :'public_key',
+      :'ssh_fingerprint' => :'ssh_fingerprint'
     }
   end
 
@@ -50,7 +54,8 @@ class RepositoryRsaKey
       :'default' => :'BOOLEAN',
       :'fingerprint' => :'String',
       :'fingerprint_short' => :'String',
-      :'public_key' => :'String'
+      :'public_key' => :'String',
+      :'ssh_fingerprint' => :'String'
     }
   end
 
@@ -85,6 +90,10 @@ class RepositoryRsaKey
     if attributes.has_key?(:'public_key')
       self.public_key = attributes[:'public_key']
     end
+
+    if attributes.has_key?(:'ssh_fingerprint')
+      self.ssh_fingerprint = attributes[:'ssh_fingerprint']
+    end
   end
 
   # Show invalid properties with the reasons. Usually used together with valid?
@@ -110,7 +119,8 @@ class RepositoryRsaKey
         default == o.default &&
         fingerprint == o.fingerprint &&
         fingerprint_short == o.fingerprint_short &&
-        public_key == o.public_key
+        public_key == o.public_key &&
+        ssh_fingerprint == o.ssh_fingerprint
   end
 
   # @see the `==` method
@@ -122,7 +132,7 @@ class RepositoryRsaKey
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [active, created_at, default, fingerprint, fingerprint_short, public_key].hash
+    [active, created_at, default, fingerprint, fingerprint_short, public_key, ssh_fingerprint].hash
   end
 
     # Builds the object from hash

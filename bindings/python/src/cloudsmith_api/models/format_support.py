@@ -37,6 +37,7 @@ class FormatSupport(object):
         'distributions': 'bool',
         'file_lists': 'bool',
         'metadata': 'bool',
+        'upstreams': 'FormatSupportUpstream',
         'versioning': 'bool'
     }
 
@@ -45,10 +46,11 @@ class FormatSupport(object):
         'distributions': 'distributions',
         'file_lists': 'file_lists',
         'metadata': 'metadata',
+        'upstreams': 'upstreams',
         'versioning': 'versioning'
     }
 
-    def __init__(self, dependencies=None, distributions=None, file_lists=None, metadata=None, versioning=None, _configuration=None):  # noqa: E501
+    def __init__(self, dependencies=None, distributions=None, file_lists=None, metadata=None, upstreams=None, versioning=None, _configuration=None):  # noqa: E501
         """FormatSupport - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -58,6 +60,7 @@ class FormatSupport(object):
         self._distributions = None
         self._file_lists = None
         self._metadata = None
+        self._upstreams = None
         self._versioning = None
         self.discriminator = None
 
@@ -65,6 +68,7 @@ class FormatSupport(object):
         self.distributions = distributions
         self.file_lists = file_lists
         self.metadata = metadata
+        self.upstreams = upstreams
         self.versioning = versioning
 
     @property
@@ -166,6 +170,29 @@ class FormatSupport(object):
             raise ValueError("Invalid value for `metadata`, must not be `None`")  # noqa: E501
 
         self._metadata = metadata
+
+    @property
+    def upstreams(self):
+        """Gets the upstreams of this FormatSupport.
+
+
+        :return: The upstreams of this FormatSupport.
+        :rtype: FormatSupportUpstream
+        """
+        return self._upstreams
+
+    @upstreams.setter
+    def upstreams(self, upstreams):
+        """Sets the upstreams of this FormatSupport.
+
+
+        :param upstreams: The upstreams of this FormatSupport.
+        :type: FormatSupportUpstream
+        """
+        if self._configuration.client_side_validation and upstreams is None:
+            raise ValueError("Invalid value for `upstreams`, must not be `None`")  # noqa: E501
+
+        self._upstreams = upstreams
 
     @property
     def versioning(self):

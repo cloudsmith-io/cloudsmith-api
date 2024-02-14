@@ -1368,10 +1368,10 @@ public class RepositoryCreate implements Serializable {
   }
 
    /**
-   * If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can&#39;t guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!
+   * If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly.
    * @return strictNpmValidation
   **/
-  @ApiModelProperty(value = "If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this off if you have packages that are old or otherwise mildly off-spec, but we can't guarantee the packages will work with npm-cli or other tooling correctly. Turn off at your own risk!")
+  @ApiModelProperty(value = "If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly.")
   public Boolean isStrictNpmValidation() {
     return strictNpmValidation;
   }

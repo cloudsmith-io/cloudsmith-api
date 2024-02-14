@@ -89,10 +89,10 @@ public class NugetPackageUploadRequest implements Serializable {
   }
 
    /**
-   * Attaches a symbols file to the package.
+   * Uploads a symbols file as a separate package
    * @return symbolsFile
   **/
- @Size(min=1)  @ApiModelProperty(value = "Attaches a symbols file to the package.")
+ @Size(min=1)  @ApiModelProperty(value = "Uploads a symbols file as a separate package")
   public String getSymbolsFile() {
     return symbolsFile;
   }

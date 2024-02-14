@@ -27,6 +27,8 @@ class FormatSupport
   # If true the package format supports metadata
   attr_accessor :metadata
 
+  attr_accessor :upstreams
+
   # If true the package format supports versioning
   attr_accessor :versioning
 
@@ -37,6 +39,7 @@ class FormatSupport
       :'distributions' => :'distributions',
       :'file_lists' => :'file_lists',
       :'metadata' => :'metadata',
+      :'upstreams' => :'upstreams',
       :'versioning' => :'versioning'
     }
   end
@@ -48,6 +51,7 @@ class FormatSupport
       :'distributions' => :'BOOLEAN',
       :'file_lists' => :'BOOLEAN',
       :'metadata' => :'BOOLEAN',
+      :'upstreams' => :'FormatSupportUpstream',
       :'versioning' => :'BOOLEAN'
     }
   end
@@ -76,6 +80,10 @@ class FormatSupport
       self.metadata = attributes[:'metadata']
     end
 
+    if attributes.has_key?(:'upstreams')
+      self.upstreams = attributes[:'upstreams']
+    end
+
     if attributes.has_key?(:'versioning')
       self.versioning = attributes[:'versioning']
     end
@@ -101,6 +109,10 @@ class FormatSupport
       invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
     end
 
+    if @upstreams.nil?
+      invalid_properties.push('invalid value for "upstreams", upstreams cannot be nil.')
+    end
+
     if @versioning.nil?
       invalid_properties.push('invalid value for "versioning", versioning cannot be nil.')
     end
@@ -115,6 +127,7 @@ class FormatSupport
     return false if @distributions.nil?
     return false if @file_lists.nil?
     return false if @metadata.nil?
+    return false if @upstreams.nil?
     return false if @versioning.nil?
     true
   end
@@ -128,6 +141,7 @@ class FormatSupport
         distributions == o.distributions &&
         file_lists == o.file_lists &&
         metadata == o.metadata &&
+        upstreams == o.upstreams &&
         versioning == o.versioning
   end
 
@@ -140,7 +154,7 @@ class FormatSupport
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [dependencies, distributions, file_lists, metadata, versioning].hash
+    [dependencies, distributions, file_lists, metadata, upstreams, versioning].hash
   end
 
     # Builds the object from hash

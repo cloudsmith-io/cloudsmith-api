@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **origin_repository** | **String** |  | [optional] 
 **origin_repository_url** | **String** |  | [optional] 
 **package_type** | **Integer** | The type of package contents. | [optional] 
+**r_version** | **String** | Binary package uploads should specify the version of R they were built for. | [optional] 
 **release** | **String** | The release of the package version (if any). | [optional] 
 **repository** | **String** |  | [optional] 
 **repository_url** | **String** |  | [optional] 

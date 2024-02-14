@@ -32,6 +32,9 @@ import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.PackageDenyPolicy;
+import io.cloudsmith.api.models.PackageDenyPolicyRequest;
+import io.cloudsmith.api.models.PackageDenyPolicyRequestPatch;
 import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequest;
 import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
@@ -58,6 +61,111 @@ public class OrgsApiTest {
 
     private final OrgsApi api = new OrgsApi();
 
+    
+    /**
+     * Create a package deny policy.
+     *
+     * Create a package deny policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsDenyPolicyCreateTest() throws Exception {
+        String org = null;
+        PackageDenyPolicyRequest data = null;
+        PackageDenyPolicy response = api.orgsDenyPolicyCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a package deny policy.
+     *
+     * Delete a package deny policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsDenyPolicyDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsDenyPolicyDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a list of all package deny policies.
+     *
+     * Get a list of all package deny policies.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsDenyPolicyListTest() throws Exception {
+        String org = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<PackageDenyPolicy> response = api.orgsDenyPolicyList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a package deny policy.
+     *
+     * Partially update a package deny policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsDenyPolicyPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        PackageDenyPolicyRequestPatch data = null;
+        PackageDenyPolicy response = api.orgsDenyPolicyPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get a package deny policy.
+     *
+     * Get a package deny policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsDenyPolicyReadTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        PackageDenyPolicy response = api.orgsDenyPolicyRead(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a package deny policy.
+     *
+     * Update a package deny policy.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsDenyPolicyUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        PackageDenyPolicyRequest data = null;
+        PackageDenyPolicy response = api.orgsDenyPolicyUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
     
     /**
      * Create an organization invite for a specific user
@@ -388,7 +496,8 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize);
+        Boolean isActive = null;
+        List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize, isActive);
 
         // TODO: test validations
     }
