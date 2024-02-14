@@ -25,7 +25,7 @@ upload_to_pypi() {
 
   if [[ "$CI" == "true" ]]
   then
-    twine upload -u csm-api-bot -p "$PYPI_PASSWORD" --skip-existing --non-interactive "$distribution_filepath"
+    twine upload -u __token__ -p "$PYPI_PASSWORD" --skip-existing --non-interactive "$distribution_filepath"
   else
     twine upload --skip-existing --non-interactive "$distribution_filepath"
   fi
