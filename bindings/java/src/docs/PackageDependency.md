@@ -38,6 +38,8 @@ TEST | &quot;Test&quot;
 SYSTEM | &quot;System&quot;
 IMPORT | &quot;Import&quot;
 EXCLUDED | &quot;Excluded&quot;
+BUILD_REQUIRES | &quot;Build-Requires&quot;
+PYTHON_REQUIRES | &quot;Python-Requires&quot;
 
 
 <a name="OperatorEnum"></a>

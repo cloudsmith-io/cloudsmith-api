@@ -29,6 +29,48 @@ class TestOrgsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_orgs_deny_policy_create(self):
+        """Test case for orgs_deny_policy_create
+
+        Create a package deny policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_deny_policy_delete(self):
+        """Test case for orgs_deny_policy_delete
+
+        Delete a package deny policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_deny_policy_list(self):
+        """Test case for orgs_deny_policy_list
+
+        Get a list of all package deny policies.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_deny_policy_partial_update(self):
+        """Test case for orgs_deny_policy_partial_update
+
+        Partially update a package deny policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_deny_policy_read(self):
+        """Test case for orgs_deny_policy_read
+
+        Get a package deny policy.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_deny_policy_update(self):
+        """Test case for orgs_deny_policy_update
+
+        Update a package deny policy.  # noqa: E501
+        """
+        pass
+
     def test_orgs_invites_create(self):
         """Test case for orgs_invites_create
 

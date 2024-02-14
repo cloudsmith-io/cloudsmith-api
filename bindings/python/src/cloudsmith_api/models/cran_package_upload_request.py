@@ -33,33 +33,73 @@ class CranPackageUploadRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'architecture': 'str',
         'package_file': 'str',
+        'r_version': 'str',
         'republish': 'bool',
         'tags': 'str'
     }
 
     attribute_map = {
+        'architecture': 'architecture',
         'package_file': 'package_file',
+        'r_version': 'r_version',
         'republish': 'republish',
         'tags': 'tags'
     }
 
-    def __init__(self, package_file=None, republish=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, package_file=None, r_version=None, republish=None, tags=None, _configuration=None):  # noqa: E501
         """CranPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._architecture = None
         self._package_file = None
+        self._r_version = None
         self._republish = None
         self._tags = None
         self.discriminator = None
 
+        if architecture is not None:
+            self.architecture = architecture
         self.package_file = package_file
+        if r_version is not None:
+            self.r_version = r_version
         if republish is not None:
             self.republish = republish
         if tags is not None:
             self.tags = tags
+
+    @property
+    def architecture(self):
+        """Gets the architecture of this CranPackageUploadRequest.
+
+        Binary package uploads for macOS should specify the architecture they were built for.
+
+        :return: The architecture of this CranPackageUploadRequest.
+        :rtype: str
+        """
+        return self._architecture
+
+    @architecture.setter
+    def architecture(self, architecture):
+        """Sets the architecture of this CranPackageUploadRequest.
+
+        Binary package uploads for macOS should specify the architecture they were built for.
+
+        :param architecture: The architecture of this CranPackageUploadRequest.
+        :type: str
+        """
+        allowed_values = ["arm64", "x86_64"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                architecture not in allowed_values):
+            raise ValueError(
+                "Invalid value for `architecture` ({0}), must be one of {1}"  # noqa: E501
+                .format(architecture, allowed_values)
+            )
+
+        self._architecture = architecture
 
     @property
     def package_file(self):
@@ -88,6 +128,35 @@ class CranPackageUploadRequest(object):
             raise ValueError("Invalid value for `package_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._package_file = package_file
+
+    @property
+    def r_version(self):
+        """Gets the r_version of this CranPackageUploadRequest.
+
+        Binary package uploads should specify the version of R they were built for.
+
+        :return: The r_version of this CranPackageUploadRequest.
+        :rtype: str
+        """
+        return self._r_version
+
+    @r_version.setter
+    def r_version(self, r_version):
+        """Sets the r_version of this CranPackageUploadRequest.
+
+        Binary package uploads should specify the version of R they were built for.
+
+        :param r_version: The r_version of this CranPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                r_version is not None and len(r_version) > 16):
+            raise ValueError("Invalid value for `r_version`, length must be less than or equal to `16`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                r_version is not None and len(r_version) < 1):
+            raise ValueError("Invalid value for `r_version`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._r_version = r_version
 
     @property
     def republish(self):

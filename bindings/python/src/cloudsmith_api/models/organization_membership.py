@@ -35,6 +35,7 @@ class OrganizationMembership(object):
     swagger_types = {
         'email': 'str',
         'has_two_factor': 'bool',
+        'is_active': 'str',
         'joined_at': 'datetime',
         'last_login_at': 'datetime',
         'last_login_method': 'str',
@@ -49,6 +50,7 @@ class OrganizationMembership(object):
     attribute_map = {
         'email': 'email',
         'has_two_factor': 'has_two_factor',
+        'is_active': 'is_active',
         'joined_at': 'joined_at',
         'last_login_at': 'last_login_at',
         'last_login_method': 'last_login_method',
@@ -60,7 +62,7 @@ class OrganizationMembership(object):
         'visibility': 'visibility'
     }
 
-    def __init__(self, email=None, has_two_factor=None, joined_at=None, last_login_at=None, last_login_method='Unknown', role='Owner', user=None, user_id=None, user_name=None, user_url=None, visibility='Public', _configuration=None):  # noqa: E501
+    def __init__(self, email=None, has_two_factor=None, is_active=None, joined_at=None, last_login_at=None, last_login_method='Unknown', role='Owner', user=None, user_id=None, user_name=None, user_url=None, visibility='Public', _configuration=None):  # noqa: E501
         """OrganizationMembership - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -68,6 +70,7 @@ class OrganizationMembership(object):
 
         self._email = None
         self._has_two_factor = None
+        self._is_active = None
         self._joined_at = None
         self._last_login_at = None
         self._last_login_method = None
@@ -83,6 +86,8 @@ class OrganizationMembership(object):
             self.email = email
         if has_two_factor is not None:
             self.has_two_factor = has_two_factor
+        if is_active is not None:
+            self.is_active = is_active
         if joined_at is not None:
             self.joined_at = joined_at
         if last_login_at is not None:
@@ -146,6 +151,27 @@ class OrganizationMembership(object):
         """
 
         self._has_two_factor = has_two_factor
+
+    @property
+    def is_active(self):
+        """Gets the is_active of this OrganizationMembership.
+
+
+        :return: The is_active of this OrganizationMembership.
+        :rtype: str
+        """
+        return self._is_active
+
+    @is_active.setter
+    def is_active(self, is_active):
+        """Sets the is_active of this OrganizationMembership.
+
+
+        :param is_active: The is_active of this OrganizationMembership.
+        :type: str
+        """
+
+        self._is_active = is_active
 
     @property
     def joined_at(self):

@@ -35,7 +35,7 @@ describe 'PackageDependency' do
   describe 'test attribute "dep_type"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Depends", "Pre-Depends", "Recommends", "Suggests", "Enhances", "Replaces", "Breaks", "Built-Using", "Build-Depends", "Build-Depends-Indep", "Build-Conflicts", "Build-Conflicts-Indep", "Conflicts", "Provides", "Obsoletes", "Requires", "Runtime", "Development", "Compile", "Provided", "Test", "System", "Import", "Excluded"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Depends", "Pre-Depends", "Recommends", "Suggests", "Enhances", "Replaces", "Breaks", "Built-Using", "Build-Depends", "Build-Depends-Indep", "Build-Conflicts", "Build-Conflicts-Indep", "Conflicts", "Provides", "Obsoletes", "Requires", "Runtime", "Development", "Compile", "Provided", "Test", "System", "Import", "Excluded", "Build-Requires", "Python-Requires"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.dep_type = value }.not_to raise_error
       # end

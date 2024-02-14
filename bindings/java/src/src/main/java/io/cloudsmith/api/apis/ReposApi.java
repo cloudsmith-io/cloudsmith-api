@@ -36,6 +36,9 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import io.cloudsmith.api.models.CranUpstream;
+import io.cloudsmith.api.models.CranUpstreamRequest;
+import io.cloudsmith.api.models.CranUpstreamRequestPatch;
 import io.cloudsmith.api.models.DartUpstream;
 import io.cloudsmith.api.models.DartUpstreamRequest;
 import io.cloudsmith.api.models.DartUpstreamRequestPatch;
@@ -2985,6 +2988,898 @@ public class ReposApi {
 
         com.squareup.okhttp.Call call = reposRsaRegenerateValidateBeforeCall(owner, identifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RepositoryRsaKey>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamCranCreate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranCreateCall(String owner, String identifier, CranUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/cran/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamCranCreateValidateBeforeCall(String owner, String identifier, CranUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, data };
+            Method method = this.getClass().getMethod("reposUpstreamCranCreateWithHttpInfo", String.class, String.class, CranUpstreamRequest.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamCranCreateCall(owner, identifier, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create a CRAN upstream config for this repository.
+     * Create a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return CranUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CranUpstream reposUpstreamCranCreate(String owner, String identifier, CranUpstreamRequest data) throws ApiException {
+        ApiResponse<CranUpstream> resp = reposUpstreamCranCreateWithHttpInfo(owner, identifier, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a CRAN upstream config for this repository.
+     * Create a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;CranUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CranUpstream> reposUpstreamCranCreateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  CranUpstreamRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamCranCreateValidateBeforeCall(owner, identifier, data, null, null);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a CRAN upstream config for this repository. (asynchronously)
+     * Create a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranCreateAsync(String owner, String identifier, CranUpstreamRequest data, final ApiCallback<CranUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamCranCreateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamCranDelete
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranDeleteCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamCranDeleteValidateBeforeCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm };
+            Method method = this.getClass().getMethod("reposUpstreamCranDeleteWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamCranDeleteCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Delete a CRAN upstream config for this repository.
+     * Delete a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void reposUpstreamCranDelete(String owner, String identifier, String slugPerm) throws ApiException {
+        reposUpstreamCranDeleteWithHttpInfo(owner, identifier, slugPerm);
+    }
+
+    /**
+     * Delete a CRAN upstream config for this repository.
+     * Delete a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> reposUpstreamCranDeleteWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamCranDeleteValidateBeforeCall(owner, identifier, slugPerm, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a CRAN upstream config for this repository. (asynchronously)
+     * Delete a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranDeleteAsync(String owner, String identifier, String slugPerm, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamCranDeleteValidateBeforeCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamCranList
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranListCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/cran/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamCranListValidateBeforeCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, page, pageSize };
+            Method method = this.getClass().getMethod("reposUpstreamCranListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamCranListCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * List CRAN upstream configs for this repository.
+     * List CRAN upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;CranUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<CranUpstream> reposUpstreamCranList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<CranUpstream>> resp = reposUpstreamCranListWithHttpInfo(owner, identifier, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * List CRAN upstream configs for this repository.
+     * List CRAN upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;CranUpstream&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<CranUpstream>> reposUpstreamCranListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamCranListValidateBeforeCall(owner, identifier, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<CranUpstream>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List CRAN upstream configs for this repository. (asynchronously)
+     * List CRAN upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<CranUpstream>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamCranListValidateBeforeCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<CranUpstream>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamCranPartialUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranPartialUpdateCall(String owner, String identifier, String slugPerm, CranUpstreamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamCranPartialUpdateValidateBeforeCall(String owner, String identifier, String slugPerm, CranUpstreamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm, data };
+            Method method = this.getClass().getMethod("reposUpstreamCranPartialUpdateWithHttpInfo", String.class, String.class, String.class, CranUpstreamRequestPatch.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamCranPartialUpdateCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Partially update a CRAN upstream config for this repository.
+     * Partially update a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return CranUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CranUpstream reposUpstreamCranPartialUpdate(String owner, String identifier, String slugPerm, CranUpstreamRequestPatch data) throws ApiException {
+        ApiResponse<CranUpstream> resp = reposUpstreamCranPartialUpdateWithHttpInfo(owner, identifier, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Partially update a CRAN upstream config for this repository.
+     * Partially update a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;CranUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CranUpstream> reposUpstreamCranPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm,  CranUpstreamRequestPatch data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamCranPartialUpdateValidateBeforeCall(owner, identifier, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Partially update a CRAN upstream config for this repository. (asynchronously)
+     * Partially update a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranPartialUpdateAsync(String owner, String identifier, String slugPerm, CranUpstreamRequestPatch data, final ApiCallback<CranUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamCranPartialUpdateValidateBeforeCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamCranRead
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranReadCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamCranReadValidateBeforeCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm };
+            Method method = this.getClass().getMethod("reposUpstreamCranReadWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamCranReadCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve a CRAN upstream config for this repository.
+     * Retrieve a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return CranUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CranUpstream reposUpstreamCranRead(String owner, String identifier, String slugPerm) throws ApiException {
+        ApiResponse<CranUpstream> resp = reposUpstreamCranReadWithHttpInfo(owner, identifier, slugPerm);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a CRAN upstream config for this repository.
+     * Retrieve a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;CranUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CranUpstream> reposUpstreamCranReadWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamCranReadValidateBeforeCall(owner, identifier, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a CRAN upstream config for this repository. (asynchronously)
+     * Retrieve a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranReadAsync(String owner, String identifier, String slugPerm, final ApiCallback<CranUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamCranReadValidateBeforeCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamCranUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranUpdateCall(String owner, String identifier, String slugPerm, CranUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamCranUpdateValidateBeforeCall(String owner, String identifier, String slugPerm, CranUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm, data };
+            Method method = this.getClass().getMethod("reposUpstreamCranUpdateWithHttpInfo", String.class, String.class, String.class, CranUpstreamRequest.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamCranUpdateCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Update a CRAN upstream config for this repository.
+     * Update a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return CranUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CranUpstream reposUpstreamCranUpdate(String owner, String identifier, String slugPerm, CranUpstreamRequest data) throws ApiException {
+        ApiResponse<CranUpstream> resp = reposUpstreamCranUpdateWithHttpInfo(owner, identifier, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Update a CRAN upstream config for this repository.
+     * Update a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;CranUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CranUpstream> reposUpstreamCranUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm,  CranUpstreamRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamCranUpdateValidateBeforeCall(owner, identifier, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a CRAN upstream config for this repository. (asynchronously)
+     * Update a CRAN upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamCranUpdateAsync(String owner, String identifier, String slugPerm, CranUpstreamRequest data, final ApiCallback<CranUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamCranUpdateValidateBeforeCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CranUpstream>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

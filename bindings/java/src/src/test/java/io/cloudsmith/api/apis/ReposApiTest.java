@@ -13,6 +13,9 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.CranUpstream;
+import io.cloudsmith.api.models.CranUpstreamRequest;
+import io.cloudsmith.api.models.CranUpstreamRequestPatch;
 import io.cloudsmith.api.models.DartUpstream;
 import io.cloudsmith.api.models.DartUpstreamRequest;
 import io.cloudsmith.api.models.DartUpstreamRequestPatch;
@@ -428,6 +431,117 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         RepositoryRsaKey response = api.reposRsaRegenerate(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a CRAN upstream config for this repository.
+     *
+     * Create a CRAN upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCranCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        CranUpstreamRequest data = null;
+        CranUpstream response = api.reposUpstreamCranCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a CRAN upstream config for this repository.
+     *
+     * Delete a CRAN upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCranDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamCranDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List CRAN upstream configs for this repository.
+     *
+     * List CRAN upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCranListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<CranUpstream> response = api.reposUpstreamCranList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a CRAN upstream config for this repository.
+     *
+     * Partially update a CRAN upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCranPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CranUpstreamRequestPatch data = null;
+        CranUpstream response = api.reposUpstreamCranPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a CRAN upstream config for this repository.
+     *
+     * Retrieve a CRAN upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCranReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CranUpstream response = api.reposUpstreamCranRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a CRAN upstream config for this repository.
+     *
+     * Update a CRAN upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCranUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CranUpstreamRequest data = null;
+        CranUpstream response = api.reposUpstreamCranUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

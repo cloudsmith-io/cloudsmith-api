@@ -4,6 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orgs_deny_policy_create**](OrgsApi.md#orgs_deny_policy_create) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
+[**orgs_deny_policy_delete**](OrgsApi.md#orgs_deny_policy_delete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
+[**orgs_deny_policy_list**](OrgsApi.md#orgs_deny_policy_list) | **GET** /orgs/{org}/deny-policy/ | Get a list of all package deny policies.
+[**orgs_deny_policy_partial_update**](OrgsApi.md#orgs_deny_policy_partial_update) | **PATCH** /orgs/{org}/deny-policy/{slug_perm}/ | Partially update a package deny policy.
+[**orgs_deny_policy_read**](OrgsApi.md#orgs_deny_policy_read) | **GET** /orgs/{org}/deny-policy/{slug_perm}/ | Get a package deny policy.
+[**orgs_deny_policy_update**](OrgsApi.md#orgs_deny_policy_update) | **PUT** /orgs/{org}/deny-policy/{slug_perm}/ | Update a package deny policy.
 [**orgs_invites_create**](OrgsApi.md#orgs_invites_create) | **POST** /orgs/{org}/invites/ | Create an organization invite for a specific user
 [**orgs_invites_delete**](OrgsApi.md#orgs_invites_delete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
 [**orgs_invites_extend**](OrgsApi.md#orgs_invites_extend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
@@ -54,6 +60,359 @@ Method | HTTP request | Description
 [**orgs_vulnerability_policy_read**](OrgsApi.md#orgs_vulnerability_policy_read) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
 [**orgs_vulnerability_policy_update**](OrgsApi.md#orgs_vulnerability_policy_update) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
 [**orgs_vulnerability_policy_violation_list**](OrgsApi.md#orgs_vulnerability_policy_violation_list) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
+
+
+# **orgs_deny_policy_create**
+> PackageDenyPolicy orgs_deny_policy_create(org, opts)
+
+Create a package deny policy.
+
+Create a package deny policy.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::PackageDenyPolicyRequest.new # PackageDenyPolicyRequest | 
+}
+
+begin
+  #Create a package deny policy.
+  result = api_instance.orgs_deny_policy_create(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_deny_policy_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional] 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_deny_policy_delete**
+> orgs_deny_policy_delete(org, slug_perm)
+
+Delete a package deny policy.
+
+Delete a package deny policy.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete a package deny policy.
+  api_instance.orgs_deny_policy_delete(org, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_deny_policy_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_deny_policy_list**
+> Array&lt;PackageDenyPolicy&gt; orgs_deny_policy_list(org, opts)
+
+Get a list of all package deny policies.
+
+Get a list of all package deny policies.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #Get a list of all package deny policies.
+  result = api_instance.orgs_deny_policy_list(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_deny_policy_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;PackageDenyPolicy&gt;**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_deny_policy_partial_update**
+> PackageDenyPolicy orgs_deny_policy_partial_update(org, slug_perm, opts)
+
+Partially update a package deny policy.
+
+Partially update a package deny policy.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::PackageDenyPolicyRequestPatch.new # PackageDenyPolicyRequestPatch | 
+}
+
+begin
+  #Partially update a package deny policy.
+  result = api_instance.orgs_deny_policy_partial_update(org, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_deny_policy_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**PackageDenyPolicyRequestPatch**](PackageDenyPolicyRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_deny_policy_read**
+> PackageDenyPolicy orgs_deny_policy_read(org, slug_perm)
+
+Get a package deny policy.
+
+Get a package deny policy.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Get a package deny policy.
+  result = api_instance.orgs_deny_policy_read(org, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_deny_policy_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_deny_policy_update**
+> PackageDenyPolicy orgs_deny_policy_update(org, slug_perm, opts)
+
+Update a package deny policy.
+
+Update a package deny policy.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::PackageDenyPolicyRequest.new # PackageDenyPolicyRequest | 
+}
+
+begin
+  #Update a package deny policy.
+  result = api_instance.orgs_deny_policy_update(org, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_deny_policy_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional] 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **orgs_invites_create**
@@ -1140,7 +1499,8 @@ org = 'org_example' # String |
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
+  page_size: 56, # Integer | Number of results to return per page.
+  is_active: false # BOOLEAN | Filter for active/inactive users.
 }
 
 begin
@@ -1159,6 +1519,7 @@ Name | Type | Description  | Notes
  **org** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **is_active** | **BOOLEAN**| Filter for active/inactive users. | [optional] [default to false]
 
 ### Return type
 

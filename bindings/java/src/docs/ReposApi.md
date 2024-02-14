@@ -24,6 +24,12 @@ Method | HTTP request | Description
 [**reposRsaCreate**](ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 [**reposRsaList**](ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**reposRsaRegenerate**](ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
+[**reposUpstreamCranCreate**](ReposApi.md#reposUpstreamCranCreate) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository.
+[**reposUpstreamCranDelete**](ReposApi.md#reposUpstreamCranDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository.
+[**reposUpstreamCranList**](ReposApi.md#reposUpstreamCranList) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository.
+[**reposUpstreamCranPartialUpdate**](ReposApi.md#reposUpstreamCranPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Partially update a CRAN upstream config for this repository.
+[**reposUpstreamCranRead**](ReposApi.md#reposUpstreamCranRead) | **GET** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Retrieve a CRAN upstream config for this repository.
+[**reposUpstreamCranUpdate**](ReposApi.md#reposUpstreamCranUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Update a CRAN upstream config for this repository.
 [**reposUpstreamDartCreate**](ReposApi.md#reposUpstreamDartCreate) | **POST** /repos/{owner}/{identifier}/upstream/dart/ | Create a Dart upstream config for this repository.
 [**reposUpstreamDartDelete**](ReposApi.md#reposUpstreamDartDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Delete a Dart upstream config for this repository.
 [**reposUpstreamDartList**](ReposApi.md#reposUpstreamDartList) | **GET** /repos/{owner}/{identifier}/upstream/dart/ | List Dart upstream configs for this repository.
@@ -1238,6 +1244,365 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepositoryRsaKey**](RepositoryRsaKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamCranCreate"></a>
+# **reposUpstreamCranCreate**
+> CranUpstream reposUpstreamCranCreate(owner, identifier, data)
+
+Create a CRAN upstream config for this repository.
+
+Create a CRAN upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+CranUpstreamRequest data = new CranUpstreamRequest(); // CranUpstreamRequest | 
+try {
+    CranUpstream result = apiInstance.reposUpstreamCranCreate(owner, identifier, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamCranCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamCranDelete"></a>
+# **reposUpstreamCranDelete**
+> reposUpstreamCranDelete(owner, identifier, slugPerm)
+
+Delete a CRAN upstream config for this repository.
+
+Delete a CRAN upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    apiInstance.reposUpstreamCranDelete(owner, identifier, slugPerm);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamCranDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamCranList"></a>
+# **reposUpstreamCranList**
+> List&lt;CranUpstream&gt; reposUpstreamCranList(owner, identifier, page, pageSize)
+
+List CRAN upstream configs for this repository.
+
+List CRAN upstream configs for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<CranUpstream> result = apiInstance.reposUpstreamCranList(owner, identifier, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamCranList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;CranUpstream&gt;**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamCranPartialUpdate"></a>
+# **reposUpstreamCranPartialUpdate**
+> CranUpstream reposUpstreamCranPartialUpdate(owner, identifier, slugPerm, data)
+
+Partially update a CRAN upstream config for this repository.
+
+Partially update a CRAN upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+CranUpstreamRequestPatch data = new CranUpstreamRequestPatch(); // CranUpstreamRequestPatch | 
+try {
+    CranUpstream result = apiInstance.reposUpstreamCranPartialUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamCranPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**CranUpstreamRequestPatch**](CranUpstreamRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamCranRead"></a>
+# **reposUpstreamCranRead**
+> CranUpstream reposUpstreamCranRead(owner, identifier, slugPerm)
+
+Retrieve a CRAN upstream config for this repository.
+
+Retrieve a CRAN upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    CranUpstream result = apiInstance.reposUpstreamCranRead(owner, identifier, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamCranRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamCranUpdate"></a>
+# **reposUpstreamCranUpdate**
+> CranUpstream reposUpstreamCranUpdate(owner, identifier, slugPerm, data)
+
+Update a CRAN upstream config for this repository.
+
+Update a CRAN upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+CranUpstreamRequest data = new CranUpstreamRequest(); // CranUpstreamRequest | 
+try {
+    CranUpstream result = apiInstance.reposUpstreamCranUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamCranUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
 
 ### Authorization
 

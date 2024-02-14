@@ -55,6 +55,9 @@ import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.PackageDenyPolicy;
+import io.cloudsmith.api.models.PackageDenyPolicyRequest;
+import io.cloudsmith.api.models.PackageDenyPolicyRequestPatch;
 import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequest;
 import io.cloudsmith.api.models.PackageLicensePolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
@@ -90,6 +93,868 @@ public class OrgsApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for orgsDenyPolicyCreate
+     * @param org  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyCreateCall(String org, PackageDenyPolicyRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/deny-policy/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsDenyPolicyCreateValidateBeforeCall(String org, PackageDenyPolicyRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, data };
+            Method method = this.getClass().getMethod("orgsDenyPolicyCreateWithHttpInfo", String.class, PackageDenyPolicyRequest.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsDenyPolicyCreateCall(org, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create a package deny policy.
+     * Create a package deny policy.
+     * @param org  (required)
+     * @param data  (optional)
+     * @return PackageDenyPolicy
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageDenyPolicy orgsDenyPolicyCreate(String org, PackageDenyPolicyRequest data) throws ApiException {
+        ApiResponse<PackageDenyPolicy> resp = orgsDenyPolicyCreateWithHttpInfo(org, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a package deny policy.
+     * Create a package deny policy.
+     * @param org  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;PackageDenyPolicy&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageDenyPolicy> orgsDenyPolicyCreateWithHttpInfo( @NotNull String org,  PackageDenyPolicyRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsDenyPolicyCreateValidateBeforeCall(org, data, null, null);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a package deny policy. (asynchronously)
+     * Create a package deny policy.
+     * @param org  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyCreateAsync(String org, PackageDenyPolicyRequest data, final ApiCallback<PackageDenyPolicy> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsDenyPolicyCreateValidateBeforeCall(org, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsDenyPolicyDelete
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyDeleteCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/deny-policy/{slug_perm}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsDenyPolicyDeleteValidateBeforeCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, slugPerm };
+            Method method = this.getClass().getMethod("orgsDenyPolicyDeleteWithHttpInfo", String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsDenyPolicyDeleteCall(org, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Delete a package deny policy.
+     * Delete a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void orgsDenyPolicyDelete(String org, String slugPerm) throws ApiException {
+        orgsDenyPolicyDeleteWithHttpInfo(org, slugPerm);
+    }
+
+    /**
+     * Delete a package deny policy.
+     * Delete a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> orgsDenyPolicyDeleteWithHttpInfo( @NotNull String org,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = orgsDenyPolicyDeleteValidateBeforeCall(org, slugPerm, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a package deny policy. (asynchronously)
+     * Delete a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyDeleteAsync(String org, String slugPerm, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsDenyPolicyDeleteValidateBeforeCall(org, slugPerm, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsDenyPolicyList
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/deny-policy/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsDenyPolicyListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, page, pageSize };
+            Method method = this.getClass().getMethod("orgsDenyPolicyListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsDenyPolicyListCall(org, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Get a list of all package deny policies.
+     * Get a list of all package deny policies.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;PackageDenyPolicy&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<PackageDenyPolicy> orgsDenyPolicyList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<PackageDenyPolicy>> resp = orgsDenyPolicyListWithHttpInfo(org, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * Get a list of all package deny policies.
+     * Get a list of all package deny policies.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;PackageDenyPolicy&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<PackageDenyPolicy>> orgsDenyPolicyListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = orgsDenyPolicyListValidateBeforeCall(org, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<PackageDenyPolicy>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a list of all package deny policies. (asynchronously)
+     * Get a list of all package deny policies.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<PackageDenyPolicy>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsDenyPolicyListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<PackageDenyPolicy>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsDenyPolicyPartialUpdate
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyPartialUpdateCall(String org, String slugPerm, PackageDenyPolicyRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/deny-policy/{slug_perm}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsDenyPolicyPartialUpdateValidateBeforeCall(String org, String slugPerm, PackageDenyPolicyRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, slugPerm, data };
+            Method method = this.getClass().getMethod("orgsDenyPolicyPartialUpdateWithHttpInfo", String.class, String.class, PackageDenyPolicyRequestPatch.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsDenyPolicyPartialUpdateCall(org, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Partially update a package deny policy.
+     * Partially update a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return PackageDenyPolicy
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageDenyPolicy orgsDenyPolicyPartialUpdate(String org, String slugPerm, PackageDenyPolicyRequestPatch data) throws ApiException {
+        ApiResponse<PackageDenyPolicy> resp = orgsDenyPolicyPartialUpdateWithHttpInfo(org, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Partially update a package deny policy.
+     * Partially update a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;PackageDenyPolicy&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageDenyPolicy> orgsDenyPolicyPartialUpdateWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  PackageDenyPolicyRequestPatch data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsDenyPolicyPartialUpdateValidateBeforeCall(org, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Partially update a package deny policy. (asynchronously)
+     * Partially update a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyPartialUpdateAsync(String org, String slugPerm, PackageDenyPolicyRequestPatch data, final ApiCallback<PackageDenyPolicy> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsDenyPolicyPartialUpdateValidateBeforeCall(org, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsDenyPolicyRead
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyReadCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/deny-policy/{slug_perm}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsDenyPolicyReadValidateBeforeCall(String org, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, slugPerm };
+            Method method = this.getClass().getMethod("orgsDenyPolicyReadWithHttpInfo", String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsDenyPolicyReadCall(org, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Get a package deny policy.
+     * Get a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @return PackageDenyPolicy
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageDenyPolicy orgsDenyPolicyRead(String org, String slugPerm) throws ApiException {
+        ApiResponse<PackageDenyPolicy> resp = orgsDenyPolicyReadWithHttpInfo(org, slugPerm);
+        return resp.getData();
+    }
+
+    /**
+     * Get a package deny policy.
+     * Get a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;PackageDenyPolicy&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageDenyPolicy> orgsDenyPolicyReadWithHttpInfo( @NotNull String org,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = orgsDenyPolicyReadValidateBeforeCall(org, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a package deny policy. (asynchronously)
+     * Get a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyReadAsync(String org, String slugPerm, final ApiCallback<PackageDenyPolicy> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsDenyPolicyReadValidateBeforeCall(org, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsDenyPolicyUpdate
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyUpdateCall(String org, String slugPerm, PackageDenyPolicyRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/deny-policy/{slug_perm}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsDenyPolicyUpdateValidateBeforeCall(String org, String slugPerm, PackageDenyPolicyRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, slugPerm, data };
+            Method method = this.getClass().getMethod("orgsDenyPolicyUpdateWithHttpInfo", String.class, String.class, PackageDenyPolicyRequest.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsDenyPolicyUpdateCall(org, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Update a package deny policy.
+     * Update a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return PackageDenyPolicy
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PackageDenyPolicy orgsDenyPolicyUpdate(String org, String slugPerm, PackageDenyPolicyRequest data) throws ApiException {
+        ApiResponse<PackageDenyPolicy> resp = orgsDenyPolicyUpdateWithHttpInfo(org, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Update a package deny policy.
+     * Update a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;PackageDenyPolicy&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PackageDenyPolicy> orgsDenyPolicyUpdateWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  PackageDenyPolicyRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsDenyPolicyUpdateValidateBeforeCall(org, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a package deny policy. (asynchronously)
+     * Update a package deny policy.
+     * @param org  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsDenyPolicyUpdateAsync(String org, String slugPerm, PackageDenyPolicyRequest data, final ApiCallback<PackageDenyPolicy> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsDenyPolicyUpdateValidateBeforeCall(org, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PackageDenyPolicy>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for orgsInvitesCreate
      * @param org  (required)
@@ -2693,12 +3558,13 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param isActive Filter for active/inactive users. (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsMembersListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsMembersListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean isActive, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2711,6 +3577,8 @@ public class OrgsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+        if (isActive != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("is_active", isActive));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2745,18 +3613,18 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsMembersListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsMembersListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean isActive, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { org, page, pageSize };
-            Method method = this.getClass().getMethod("orgsMembersListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Object[] parameterValues = { org, page, pageSize, isActive };
+            Method method = this.getClass().getMethod("orgsMembersListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class, Boolean.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = orgsMembersListCall(org, page, pageSize, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = orgsMembersListCall(org, page, pageSize, isActive, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -2778,11 +3646,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param isActive Filter for active/inactive users. (optional, default to false)
      * @return List&lt;OrganizationMembership&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<OrganizationMembership> orgsMembersList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<OrganizationMembership>> resp = orgsMembersListWithHttpInfo(org, page, pageSize);
+    public List<OrganizationMembership> orgsMembersList(String org, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean isActive) throws ApiException {
+        ApiResponse<List<OrganizationMembership>> resp = orgsMembersListWithHttpInfo(org, page, pageSize, isActive);
         return resp.getData();
     }
 
@@ -2792,11 +3661,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param isActive Filter for active/inactive users. (optional, default to false)
      * @return ApiResponse&lt;List&lt;OrganizationMembership&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<OrganizationMembership>> orgsMembersListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = orgsMembersListValidateBeforeCall(org, page, pageSize, null, null);
+    public ApiResponse<List<OrganizationMembership>> orgsMembersListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize,  Boolean isActive) throws ApiException {
+        com.squareup.okhttp.Call call = orgsMembersListValidateBeforeCall(org, page, pageSize, isActive, null, null);
         Type localVarReturnType = new TypeToken<List<OrganizationMembership>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2807,11 +3677,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param isActive Filter for active/inactive users. (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsMembersListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<OrganizationMembership>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsMembersListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean isActive, final ApiCallback<List<OrganizationMembership>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2832,7 +3703,7 @@ public class OrgsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = orgsMembersListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = orgsMembersListValidateBeforeCall(org, page, pageSize, isActive, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<OrganizationMembership>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

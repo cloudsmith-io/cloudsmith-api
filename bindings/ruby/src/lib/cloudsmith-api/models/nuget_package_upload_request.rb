@@ -20,7 +20,7 @@ class NugetPackageUploadRequest
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
-  # Attaches a symbols file to the package.
+  # Uploads a symbols file as a separate package
   attr_accessor :symbols_file
 
   # A comma-separated values list of tags to add to the package.

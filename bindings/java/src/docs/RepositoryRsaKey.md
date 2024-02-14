@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **fingerprint** | **String** | The long identifier used by RSA for this key. |  [optional]
 **fingerprintShort** | **String** |  |  [optional]
 **publicKey** | **String** | The public key given to repository users. |  [optional]
+**sshFingerprint** | **String** | The SSH fingerprint used by RSA for this key. |  [optional]
 
 
 

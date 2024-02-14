@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **str** |  | [optional] 
 **has_two_factor** | **bool** |  | [optional] 
+**is_active** | **str** |  | [optional] 
 **joined_at** | **datetime** |  | [optional] 
 **last_login_at** | **datetime** |  | [optional] 
 **last_login_method** | **str** |  | [optional] [default to 'Unknown']

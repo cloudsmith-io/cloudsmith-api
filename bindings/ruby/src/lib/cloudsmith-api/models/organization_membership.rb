@@ -18,6 +18,8 @@ class OrganizationMembership
 
   attr_accessor :has_two_factor
 
+  attr_accessor :is_active
+
   attr_accessor :joined_at
 
   attr_accessor :last_login_at
@@ -63,6 +65,7 @@ class OrganizationMembership
     {
       :'email' => :'email',
       :'has_two_factor' => :'has_two_factor',
+      :'is_active' => :'is_active',
       :'joined_at' => :'joined_at',
       :'last_login_at' => :'last_login_at',
       :'last_login_method' => :'last_login_method',
@@ -80,6 +83,7 @@ class OrganizationMembership
     {
       :'email' => :'String',
       :'has_two_factor' => :'BOOLEAN',
+      :'is_active' => :'String',
       :'joined_at' => :'DateTime',
       :'last_login_at' => :'DateTime',
       :'last_login_method' => :'String',
@@ -106,6 +110,10 @@ class OrganizationMembership
 
     if attributes.has_key?(:'has_two_factor')
       self.has_two_factor = attributes[:'has_two_factor']
+    end
+
+    if attributes.has_key?(:'is_active')
+      self.is_active = attributes[:'is_active']
     end
 
     if attributes.has_key?(:'joined_at')
@@ -207,6 +215,7 @@ class OrganizationMembership
     self.class == o.class &&
         email == o.email &&
         has_two_factor == o.has_two_factor &&
+        is_active == o.is_active &&
         joined_at == o.joined_at &&
         last_login_at == o.last_login_at &&
         last_login_method == o.last_login_method &&
@@ -227,7 +236,7 @@ class OrganizationMembership
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [email, has_two_factor, joined_at, last_login_at, last_login_method, role, user, user_id, user_name, user_url, visibility].hash
+    [email, has_two_factor, is_active, joined_at, last_login_at, last_login_method, role, user, user_id, user_name, user_url, visibility].hash
   end
 
     # Builds the object from hash

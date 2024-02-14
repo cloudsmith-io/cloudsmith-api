@@ -34,14 +34,85 @@ import javax.validation.Valid;
 public class CranPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * Binary package uploads for macOS should specify the architecture they were built for.
+   */
+  @JsonAdapter(ArchitectureEnum.Adapter.class)
+  public enum ArchitectureEnum {
+    ARM64("arm64"),
+    
+    X86_64("x86_64");
+
+    private String value;
+
+    ArchitectureEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ArchitectureEnum fromValue(String text) {
+      for (ArchitectureEnum b : ArchitectureEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ArchitectureEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ArchitectureEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ArchitectureEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ArchitectureEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("architecture")
+  private ArchitectureEnum architecture = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
+
+  @SerializedName("r_version")
+  private String rVersion = null;
 
   @SerializedName("republish")
   private Boolean republish = null;
 
   @SerializedName("tags")
   private String tags = null;
+
+  public CranPackageUploadRequest architecture(ArchitectureEnum architecture) {
+    this.architecture = architecture;
+    return this;
+  }
+
+   /**
+   * Binary package uploads for macOS should specify the architecture they were built for.
+   * @return architecture
+  **/
+  @ApiModelProperty(value = "Binary package uploads for macOS should specify the architecture they were built for.")
+  public ArchitectureEnum getArchitecture() {
+    return architecture;
+  }
+
+  public void setArchitecture(ArchitectureEnum architecture) {
+    this.architecture = architecture;
+  }
 
   public CranPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
@@ -60,6 +131,24 @@ public class CranPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public CranPackageUploadRequest rVersion(String rVersion) {
+    this.rVersion = rVersion;
+    return this;
+  }
+
+   /**
+   * Binary package uploads should specify the version of R they were built for.
+   * @return rVersion
+  **/
+ @Size(min=1,max=16)  @ApiModelProperty(value = "Binary package uploads should specify the version of R they were built for.")
+  public String getRVersion() {
+    return rVersion;
+  }
+
+  public void setRVersion(String rVersion) {
+    this.rVersion = rVersion;
   }
 
   public CranPackageUploadRequest republish(Boolean republish) {
@@ -108,14 +197,16 @@ public class CranPackageUploadRequest implements Serializable {
       return false;
     }
     CranPackageUploadRequest cranPackageUploadRequest = (CranPackageUploadRequest) o;
-    return Objects.equals(this.packageFile, cranPackageUploadRequest.packageFile) &&
+    return Objects.equals(this.architecture, cranPackageUploadRequest.architecture) &&
+        Objects.equals(this.packageFile, cranPackageUploadRequest.packageFile) &&
+        Objects.equals(this.rVersion, cranPackageUploadRequest.rVersion) &&
         Objects.equals(this.republish, cranPackageUploadRequest.republish) &&
         Objects.equals(this.tags, cranPackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(architecture, packageFile, rVersion, republish, tags);
   }
 
 
@@ -124,7 +215,9 @@ public class CranPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class CranPackageUploadRequest {\n");
     
+    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    rVersion: ").append(toIndentedString(rVersion)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

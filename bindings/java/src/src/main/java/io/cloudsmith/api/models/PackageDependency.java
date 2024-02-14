@@ -85,7 +85,11 @@ public class PackageDependency implements Serializable {
     
     IMPORT("Import"),
     
-    EXCLUDED("Excluded");
+    EXCLUDED("Excluded"),
+    
+    BUILD_REQUIRES("Build-Requires"),
+    
+    PYTHON_REQUIRES("Python-Requires");
 
     private String value;
 

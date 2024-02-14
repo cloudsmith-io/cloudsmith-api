@@ -14,8 +14,14 @@ require 'date'
 
 module CloudsmithApi
 class CranPackageUploadRequest
+  # Binary package uploads for macOS should specify the architecture they were built for.
+  attr_accessor :architecture
+
   # The primary file for the package.
   attr_accessor :package_file
+
+  # Binary package uploads should specify the version of R they were built for.
+  attr_accessor :r_version
 
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
@@ -23,10 +29,34 @@ class CranPackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'architecture' => :'architecture',
       :'package_file' => :'package_file',
+      :'r_version' => :'r_version',
       :'republish' => :'republish',
       :'tags' => :'tags'
     }
@@ -35,7 +65,9 @@ class CranPackageUploadRequest
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'architecture' => :'String',
       :'package_file' => :'String',
+      :'r_version' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String'
     }
@@ -49,8 +81,16 @@ class CranPackageUploadRequest
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+    if attributes.has_key?(:'architecture')
+      self.architecture = attributes[:'architecture']
+    end
+
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
+    end
+
+    if attributes.has_key?(:'r_version')
+      self.r_version = attributes[:'r_version']
     end
 
     if attributes.has_key?(:'republish')
@@ -76,8 +116,20 @@ class CranPackageUploadRequest
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    architecture_validator = EnumAttributeValidator.new('String', ['arm64', 'x86_64'])
+    return false unless architecture_validator.valid?(@architecture)
     return false if @package_file.nil?
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] architecture Object to be assigned
+  def architecture=(architecture)
+    validator = EnumAttributeValidator.new('String', ['arm64', 'x86_64'])
+    unless validator.valid?(architecture)
+      fail ArgumentError, 'invalid value for "architecture", must be one of #{validator.allowable_values}.'
+    end
+    @architecture = architecture
   end
 
   # Checks equality by comparing each attribute.
@@ -85,7 +137,9 @@ class CranPackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        architecture == o.architecture &&
         package_file == o.package_file &&
+        r_version == o.r_version &&
         republish == o.republish &&
         tags == o.tags
   end
@@ -99,7 +153,7 @@ class CranPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [package_file, republish, tags].hash
+    [architecture, package_file, r_version, republish, tags].hash
   end
 
     # Builds the object from hash

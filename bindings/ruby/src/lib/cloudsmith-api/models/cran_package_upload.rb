@@ -91,6 +91,9 @@ class CranPackageUpload
   # The type of package contents.
   attr_accessor :package_type
 
+  # Binary package uploads should specify the version of R they were built for.
+  attr_accessor :r_version
+
   # The release of the package version (if any).
   attr_accessor :release
 
@@ -233,6 +236,7 @@ class CranPackageUpload
       :'origin_repository' => :'origin_repository',
       :'origin_repository_url' => :'origin_repository_url',
       :'package_type' => :'package_type',
+      :'r_version' => :'r_version',
       :'release' => :'release',
       :'repository' => :'repository',
       :'repository_url' => :'repository_url',
@@ -307,6 +311,7 @@ class CranPackageUpload
       :'origin_repository' => :'String',
       :'origin_repository_url' => :'String',
       :'package_type' => :'Integer',
+      :'r_version' => :'String',
       :'release' => :'String',
       :'repository' => :'String',
       :'repository_url' => :'String',
@@ -493,6 +498,10 @@ class CranPackageUpload
 
     if attributes.has_key?(:'package_type')
       self.package_type = attributes[:'package_type']
+    end
+
+    if attributes.has_key?(:'r_version')
+      self.r_version = attributes[:'r_version']
     end
 
     if attributes.has_key?(:'release')
@@ -695,6 +704,7 @@ class CranPackageUpload
         origin_repository == o.origin_repository &&
         origin_repository_url == o.origin_repository_url &&
         package_type == o.package_type &&
+        r_version == o.r_version &&
         release == o.release &&
         repository == o.repository &&
         repository_url == o.repository_url &&
@@ -739,7 +749,7 @@ class CranPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, r_version, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

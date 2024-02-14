@@ -14,14 +14,17 @@ require 'date'
 
 module CloudsmithApi
 class CommonMetrics
+  # Number of packages with at least 1 download
   attr_accessor :active
 
   attr_accessor :bandwidth
 
   attr_accessor :downloads
 
+  # Packages with zero downloads
   attr_accessor :inactive
 
+  # Total number of packages in repo
   attr_accessor :total
 
   # Attribute mapping from ruby-style variable name to JSON key.

@@ -169,6 +169,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_cran_create(self):
+        """Test case for repos_upstream_cran_create
+
+        Create a CRAN upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cran_delete(self):
+        """Test case for repos_upstream_cran_delete
+
+        Delete a CRAN upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cran_list(self):
+        """Test case for repos_upstream_cran_list
+
+        List CRAN upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cran_partial_update(self):
+        """Test case for repos_upstream_cran_partial_update
+
+        Partially update a CRAN upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cran_read(self):
+        """Test case for repos_upstream_cran_read
+
+        Retrieve a CRAN upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cran_update(self):
+        """Test case for repos_upstream_cran_update
+
+        Update a CRAN upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_upstream_dart_create(self):
         """Test case for repos_upstream_dart_create
 

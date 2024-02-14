@@ -24,6 +24,12 @@ Method | HTTP request | Description
 [**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 [**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
+[**repos_upstream_cran_create**](ReposApi.md#repos_upstream_cran_create) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository.
+[**repos_upstream_cran_delete**](ReposApi.md#repos_upstream_cran_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository.
+[**repos_upstream_cran_list**](ReposApi.md#repos_upstream_cran_list) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository.
+[**repos_upstream_cran_partial_update**](ReposApi.md#repos_upstream_cran_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Partially update a CRAN upstream config for this repository.
+[**repos_upstream_cran_read**](ReposApi.md#repos_upstream_cran_read) | **GET** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Retrieve a CRAN upstream config for this repository.
+[**repos_upstream_cran_update**](ReposApi.md#repos_upstream_cran_update) | **PUT** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Update a CRAN upstream config for this repository.
 [**repos_upstream_dart_create**](ReposApi.md#repos_upstream_dart_create) | **POST** /repos/{owner}/{identifier}/upstream/dart/ | Create a Dart upstream config for this repository.
 [**repos_upstream_dart_delete**](ReposApi.md#repos_upstream_dart_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Delete a Dart upstream config for this repository.
 [**repos_upstream_dart_list**](ReposApi.md#repos_upstream_dart_list) | **GET** /repos/{owner}/{identifier}/upstream/dart/ | List Dart upstream configs for this repository.
@@ -1260,6 +1266,377 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepositoryRsaKey**](RepositoryRsaKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_cran_create**
+> CranUpstream repos_upstream_cran_create(owner, identifier, opts)
+
+Create a CRAN upstream config for this repository.
+
+Create a CRAN upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::CranUpstreamRequest.new # CranUpstreamRequest | 
+}
+
+begin
+  #Create a CRAN upstream config for this repository.
+  result = api_instance.repos_upstream_cran_create(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_cran_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_cran_delete**
+> repos_upstream_cran_delete(owner, identifier, slug_perm)
+
+Delete a CRAN upstream config for this repository.
+
+Delete a CRAN upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete a CRAN upstream config for this repository.
+  api_instance.repos_upstream_cran_delete(owner, identifier, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_cran_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_cran_list**
+> Array&lt;CranUpstream&gt; repos_upstream_cran_list(owner, identifier, opts)
+
+List CRAN upstream configs for this repository.
+
+List CRAN upstream configs for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #List CRAN upstream configs for this repository.
+  result = api_instance.repos_upstream_cran_list(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_cran_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;CranUpstream&gt;**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_cran_partial_update**
+> CranUpstream repos_upstream_cran_partial_update(owner, identifier, slug_perm, opts)
+
+Partially update a CRAN upstream config for this repository.
+
+Partially update a CRAN upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::CranUpstreamRequestPatch.new # CranUpstreamRequestPatch | 
+}
+
+begin
+  #Partially update a CRAN upstream config for this repository.
+  result = api_instance.repos_upstream_cran_partial_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_cran_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**CranUpstreamRequestPatch**](CranUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_cran_read**
+> CranUpstream repos_upstream_cran_read(owner, identifier, slug_perm)
+
+Retrieve a CRAN upstream config for this repository.
+
+Retrieve a CRAN upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve a CRAN upstream config for this repository.
+  result = api_instance.repos_upstream_cran_read(owner, identifier, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_cran_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_cran_update**
+> CranUpstream repos_upstream_cran_update(owner, identifier, slug_perm, opts)
+
+Update a CRAN upstream config for this repository.
+
+Update a CRAN upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::CranUpstreamRequest.new # CranUpstreamRequest | 
+}
+
+begin
+  #Update a CRAN upstream config for this repository.
+  result = api_instance.repos_upstream_cran_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_cran_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**CranUpstream**](CranUpstream.md)
 
 ### Authorization
 

@@ -57,10 +57,10 @@ public class CommonMetrics implements Serializable {
   }
 
    /**
-   * Get active
+   * Number of packages with at least 1 download
    * @return active
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of packages with at least 1 download")
   public java.math.BigInteger getActive() {
     return active;
   }
@@ -115,10 +115,10 @@ public class CommonMetrics implements Serializable {
   }
 
    /**
-   * Get inactive
+   * Packages with zero downloads
    * @return inactive
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Packages with zero downloads")
   public java.math.BigInteger getInactive() {
     return inactive;
   }
@@ -133,10 +133,10 @@ public class CommonMetrics implements Serializable {
   }
 
    /**
-   * Get total
+   * Total number of packages in repo
    * @return total
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Total number of packages in repo")
   public java.math.BigInteger getTotal() {
     return total;
   }

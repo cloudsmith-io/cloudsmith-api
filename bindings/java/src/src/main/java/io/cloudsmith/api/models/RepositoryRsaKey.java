@@ -53,6 +53,9 @@ public class RepositoryRsaKey implements Serializable {
   @SerializedName("public_key")
   private String publicKey = null;
 
+  @SerializedName("ssh_fingerprint")
+  private String sshFingerprint = null;
+
    /**
    * If selected this is the active key for this repository.
    * @return active
@@ -108,6 +111,15 @@ public class RepositoryRsaKey implements Serializable {
     return publicKey;
   }
 
+   /**
+   * The SSH fingerprint used by RSA for this key.
+   * @return sshFingerprint
+  **/
+  @ApiModelProperty(value = "The SSH fingerprint used by RSA for this key.")
+  public String getSshFingerprint() {
+    return sshFingerprint;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,12 +135,13 @@ public class RepositoryRsaKey implements Serializable {
         Objects.equals(this._default, repositoryRsaKey._default) &&
         Objects.equals(this.fingerprint, repositoryRsaKey.fingerprint) &&
         Objects.equals(this.fingerprintShort, repositoryRsaKey.fingerprintShort) &&
-        Objects.equals(this.publicKey, repositoryRsaKey.publicKey);
+        Objects.equals(this.publicKey, repositoryRsaKey.publicKey) &&
+        Objects.equals(this.sshFingerprint, repositoryRsaKey.sshFingerprint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, createdAt, _default, fingerprint, fingerprintShort, publicKey);
+    return Objects.hash(active, createdAt, _default, fingerprint, fingerprintShort, publicKey, sshFingerprint);
   }
 
 
@@ -143,6 +156,7 @@ public class RepositoryRsaKey implements Serializable {
     sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    fingerprintShort: ").append(toIndentedString(fingerprintShort)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    sshFingerprint: ").append(toIndentedString(sshFingerprint)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -4,6 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orgs_deny_policy_create**](OrgsApi.md#orgs_deny_policy_create) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
+[**orgs_deny_policy_delete**](OrgsApi.md#orgs_deny_policy_delete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
+[**orgs_deny_policy_list**](OrgsApi.md#orgs_deny_policy_list) | **GET** /orgs/{org}/deny-policy/ | Get a list of all package deny policies.
+[**orgs_deny_policy_partial_update**](OrgsApi.md#orgs_deny_policy_partial_update) | **PATCH** /orgs/{org}/deny-policy/{slug_perm}/ | Partially update a package deny policy.
+[**orgs_deny_policy_read**](OrgsApi.md#orgs_deny_policy_read) | **GET** /orgs/{org}/deny-policy/{slug_perm}/ | Get a package deny policy.
+[**orgs_deny_policy_update**](OrgsApi.md#orgs_deny_policy_update) | **PUT** /orgs/{org}/deny-policy/{slug_perm}/ | Update a package deny policy.
 [**orgs_invites_create**](OrgsApi.md#orgs_invites_create) | **POST** /orgs/{org}/invites/ | Create an organization invite for a specific user
 [**orgs_invites_delete**](OrgsApi.md#orgs_invites_delete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
 [**orgs_invites_extend**](OrgsApi.md#orgs_invites_extend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
@@ -55,6 +61,347 @@ Method | HTTP request | Description
 [**orgs_vulnerability_policy_update**](OrgsApi.md#orgs_vulnerability_policy_update) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
 [**orgs_vulnerability_policy_violation_list**](OrgsApi.md#orgs_vulnerability_policy_violation_list) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
 
+
+# **orgs_deny_policy_create**
+> PackageDenyPolicy orgs_deny_policy_create(org, data=data)
+
+Create a package deny policy.
+
+Create a package deny policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+data = cloudsmith_api.PackageDenyPolicyRequest() # PackageDenyPolicyRequest |  (optional)
+
+try:
+    # Create a package deny policy.
+    api_response = api_instance.orgs_deny_policy_create(org, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_deny_policy_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional] 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_deny_policy_delete**
+> orgs_deny_policy_delete(org, slug_perm)
+
+Delete a package deny policy.
+
+Delete a package deny policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a package deny policy.
+    api_instance.orgs_deny_policy_delete(org, slug_perm)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_deny_policy_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_deny_policy_list**
+> list[PackageDenyPolicy] orgs_deny_policy_list(org, page=page, page_size=page_size)
+
+Get a list of all package deny policies.
+
+Get a list of all package deny policies.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # Get a list of all package deny policies.
+    api_response = api_instance.orgs_deny_policy_list(org, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_deny_policy_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[PackageDenyPolicy]**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_deny_policy_partial_update**
+> PackageDenyPolicy orgs_deny_policy_partial_update(org, slug_perm, data=data)
+
+Partially update a package deny policy.
+
+Partially update a package deny policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.PackageDenyPolicyRequestPatch() # PackageDenyPolicyRequestPatch |  (optional)
+
+try:
+    # Partially update a package deny policy.
+    api_response = api_instance.orgs_deny_policy_partial_update(org, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_deny_policy_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**PackageDenyPolicyRequestPatch**](PackageDenyPolicyRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_deny_policy_read**
+> PackageDenyPolicy orgs_deny_policy_read(org, slug_perm)
+
+Get a package deny policy.
+
+Get a package deny policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Get a package deny policy.
+    api_response = api_instance.orgs_deny_policy_read(org, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_deny_policy_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_deny_policy_update**
+> PackageDenyPolicy orgs_deny_policy_update(org, slug_perm, data=data)
+
+Update a package deny policy.
+
+Update a package deny policy.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.PackageDenyPolicyRequest() # PackageDenyPolicyRequest |  (optional)
+
+try:
+    # Update a package deny policy.
+    api_response = api_instance.orgs_deny_policy_update(org, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_deny_policy_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional] 
+
+### Return type
+
+[**PackageDenyPolicy**](PackageDenyPolicy.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_invites_create**
 > OrganizationInvite orgs_invites_create(org, data=data)
@@ -1082,7 +1429,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_members_list**
-> list[OrganizationMembership] orgs_members_list(org, page=page, page_size=page_size)
+> list[OrganizationMembership] orgs_members_list(org, page=page, page_size=page_size, is_active=is_active)
 
 Get the details for all organization members.
 
@@ -1107,10 +1454,11 @@ api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+is_active = false # bool | Filter for active/inactive users. (optional) (default to false)
 
 try:
     # Get the details for all organization members.
-    api_response = api_instance.orgs_members_list(org, page=page, page_size=page_size)
+    api_response = api_instance.orgs_members_list(org, page=page, page_size=page_size, is_active=is_active)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_members_list: %s\n" % e)
@@ -1123,6 +1471,7 @@ Name | Type | Description  | Notes
  **org** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **is_active** | **bool**| Filter for active/inactive users. | [optional] [default to false]
 
 ### Return type
 

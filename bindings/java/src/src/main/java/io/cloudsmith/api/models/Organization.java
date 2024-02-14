@@ -84,13 +84,23 @@ public class Organization implements Serializable {
     return location;
   }
 
+  public Organization name(String name) {
+    this.name = name;
+    return this;
+  }
+
    /**
-   * A descriptive name for your organization.
+   * Get name
    * @return name
   **/
- @Size(min=1)  @ApiModelProperty(value = "A descriptive name for your organization.")
+  @NotNull
+ @Size(min=1)  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
    /**
