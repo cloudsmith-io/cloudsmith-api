@@ -29,28 +29,6 @@ class CranPackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
-  class EnumAttributeValidator
-    attr_reader :datatype
-    attr_reader :allowable_values
-
-    def initialize(datatype, allowable_values)
-      @allowable_values = allowable_values.map do |value|
-        case datatype.to_s
-        when /Integer/i
-          value.to_i
-        when /Float/i
-          value.to_f
-        else
-          value
-        end
-      end
-    end
-
-    def valid?(value)
-      !value || allowable_values.include?(value)
-    end
-  end
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -116,20 +94,8 @@ class CranPackageUploadRequest
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    architecture_validator = EnumAttributeValidator.new('String', ['arm64', 'x86_64'])
-    return false unless architecture_validator.valid?(@architecture)
     return false if @package_file.nil?
     true
-  end
-
-  # Custom attribute writer method checking allowed values (enum).
-  # @param [Object] architecture Object to be assigned
-  def architecture=(architecture)
-    validator = EnumAttributeValidator.new('String', ['arm64', 'x86_64'])
-    unless validator.valid?(architecture)
-      fail ArgumentError, 'invalid value for "architecture", must be one of #{validator.allowable_values}.'
-    end
-    @architecture = architecture
   end
 
   # Checks equality by comparing each attribute.

@@ -91,13 +91,9 @@ class CranPackageUploadRequest(object):
         :param architecture: The architecture of this CranPackageUploadRequest.
         :type: str
         """
-        allowed_values = ["arm64", "x86_64"]  # noqa: E501
         if (self._configuration.client_side_validation and
-                architecture not in allowed_values):
-            raise ValueError(
-                "Invalid value for `architecture` ({0}), must be one of {1}"  # noqa: E501
-                .format(architecture, allowed_values)
-            )
+                architecture is not None and len(architecture) < 1):
+            raise ValueError("Invalid value for `architecture`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._architecture = architecture
 

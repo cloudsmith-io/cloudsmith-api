@@ -34,55 +34,8 @@ import javax.validation.Valid;
 public class CranPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Binary package uploads for macOS should specify the architecture they were built for.
-   */
-  @JsonAdapter(ArchitectureEnum.Adapter.class)
-  public enum ArchitectureEnum {
-    ARM64("arm64"),
-    
-    X86_64("x86_64");
-
-    private String value;
-
-    ArchitectureEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ArchitectureEnum fromValue(String text) {
-      for (ArchitectureEnum b : ArchitectureEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ArchitectureEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ArchitectureEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ArchitectureEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ArchitectureEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
   @SerializedName("architecture")
-  private ArchitectureEnum architecture = null;
+  private String architecture = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
@@ -96,7 +49,7 @@ public class CranPackageUploadRequest implements Serializable {
   @SerializedName("tags")
   private String tags = null;
 
-  public CranPackageUploadRequest architecture(ArchitectureEnum architecture) {
+  public CranPackageUploadRequest architecture(String architecture) {
     this.architecture = architecture;
     return this;
   }
@@ -105,12 +58,12 @@ public class CranPackageUploadRequest implements Serializable {
    * Binary package uploads for macOS should specify the architecture they were built for.
    * @return architecture
   **/
-  @ApiModelProperty(value = "Binary package uploads for macOS should specify the architecture they were built for.")
-  public ArchitectureEnum getArchitecture() {
+ @Size(min=1)  @ApiModelProperty(value = "Binary package uploads for macOS should specify the architecture they were built for.")
+  public String getArchitecture() {
     return architecture;
   }
 
-  public void setArchitecture(ArchitectureEnum architecture) {
+  public void setArchitecture(String architecture) {
     this.architecture = architecture;
   }
 
