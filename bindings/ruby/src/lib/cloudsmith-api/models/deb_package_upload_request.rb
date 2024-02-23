@@ -17,6 +17,9 @@ class DebPackageUploadRequest
   # The changes archive containing the changes made to the source and debian packaging files
   attr_accessor :changes_file
 
+  # The component (channel) for the package (e.g. 'main', 'unstable', etc.)
+  attr_accessor :component
+
   # The distribution to store the package for.
   attr_accessor :distribution
 
@@ -36,6 +39,7 @@ class DebPackageUploadRequest
   def self.attribute_map
     {
       :'changes_file' => :'changes_file',
+      :'component' => :'component',
       :'distribution' => :'distribution',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
@@ -48,6 +52,7 @@ class DebPackageUploadRequest
   def self.swagger_types
     {
       :'changes_file' => :'String',
+      :'component' => :'String',
       :'distribution' => :'String',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
@@ -66,6 +71,12 @@ class DebPackageUploadRequest
 
     if attributes.has_key?(:'changes_file')
       self.changes_file = attributes[:'changes_file']
+    end
+
+    if attributes.has_key?(:'component')
+      self.component = attributes[:'component']
+    else
+      self.component = 'main'
     end
 
     if attributes.has_key?(:'distribution')
@@ -118,6 +129,7 @@ class DebPackageUploadRequest
     return true if self.equal?(o)
     self.class == o.class &&
         changes_file == o.changes_file &&
+        component == o.component &&
         distribution == o.distribution &&
         package_file == o.package_file &&
         republish == o.republish &&
@@ -134,7 +146,7 @@ class DebPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [changes_file, distribution, package_file, republish, sources_file, tags].hash
+    [changes_file, component, distribution, package_file, republish, sources_file, tags].hash
   end
 
     # Builds the object from hash

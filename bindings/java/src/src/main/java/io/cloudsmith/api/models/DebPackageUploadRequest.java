@@ -37,6 +37,9 @@ public class DebPackageUploadRequest implements Serializable {
   @SerializedName("changes_file")
   private String changesFile = null;
 
+  @SerializedName("component")
+  private String component = "main";
+
   @SerializedName("distribution")
   private String distribution = null;
 
@@ -68,6 +71,24 @@ public class DebPackageUploadRequest implements Serializable {
 
   public void setChangesFile(String changesFile) {
     this.changesFile = changesFile;
+  }
+
+  public DebPackageUploadRequest component(String component) {
+    this.component = component;
+    return this;
+  }
+
+   /**
+   * The component (channel) for the package (e.g. &#39;main&#39;, &#39;unstable&#39;, etc.)
+   * @return component
+  **/
+ @Pattern(regexp="^[-_.\\w]+$") @Size(min=1,max=64)  @ApiModelProperty(value = "The component (channel) for the package (e.g. 'main', 'unstable', etc.)")
+  public String getComponent() {
+    return component;
+  }
+
+  public void setComponent(String component) {
+    this.component = component;
   }
 
   public DebPackageUploadRequest distribution(String distribution) {
@@ -173,6 +194,7 @@ public class DebPackageUploadRequest implements Serializable {
     }
     DebPackageUploadRequest debPackageUploadRequest = (DebPackageUploadRequest) o;
     return Objects.equals(this.changesFile, debPackageUploadRequest.changesFile) &&
+        Objects.equals(this.component, debPackageUploadRequest.component) &&
         Objects.equals(this.distribution, debPackageUploadRequest.distribution) &&
         Objects.equals(this.packageFile, debPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, debPackageUploadRequest.republish) &&
@@ -182,7 +204,7 @@ public class DebPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(changesFile, distribution, packageFile, republish, sourcesFile, tags);
+    return Objects.hash(changesFile, component, distribution, packageFile, republish, sourcesFile, tags);
   }
 
 
@@ -192,6 +214,7 @@ public class DebPackageUploadRequest implements Serializable {
     sb.append("class DebPackageUploadRequest {\n");
     
     sb.append("    changesFile: ").append(toIndentedString(changesFile)).append("\n");
+    sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
