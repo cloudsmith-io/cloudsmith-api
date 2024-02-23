@@ -34,6 +34,7 @@ class DebPackageUploadRequest(object):
     """
     swagger_types = {
         'changes_file': 'str',
+        'component': 'str',
         'distribution': 'str',
         'package_file': 'str',
         'republish': 'bool',
@@ -43,6 +44,7 @@ class DebPackageUploadRequest(object):
 
     attribute_map = {
         'changes_file': 'changes_file',
+        'component': 'component',
         'distribution': 'distribution',
         'package_file': 'package_file',
         'republish': 'republish',
@@ -50,13 +52,14 @@ class DebPackageUploadRequest(object):
         'tags': 'tags'
     }
 
-    def __init__(self, changes_file=None, distribution=None, package_file=None, republish=None, sources_file=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, changes_file=None, component='main', distribution=None, package_file=None, republish=None, sources_file=None, tags=None, _configuration=None):  # noqa: E501
         """DebPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._changes_file = None
+        self._component = None
         self._distribution = None
         self._package_file = None
         self._republish = None
@@ -66,6 +69,8 @@ class DebPackageUploadRequest(object):
 
         if changes_file is not None:
             self.changes_file = changes_file
+        if component is not None:
+            self.component = component
         self.distribution = distribution
         self.package_file = package_file
         if republish is not None:
@@ -100,6 +105,38 @@ class DebPackageUploadRequest(object):
             raise ValueError("Invalid value for `changes_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._changes_file = changes_file
+
+    @property
+    def component(self):
+        """Gets the component of this DebPackageUploadRequest.
+
+        The component (channel) for the package (e.g. 'main', 'unstable', etc.)
+
+        :return: The component of this DebPackageUploadRequest.
+        :rtype: str
+        """
+        return self._component
+
+    @component.setter
+    def component(self, component):
+        """Sets the component of this DebPackageUploadRequest.
+
+        The component (channel) for the package (e.g. 'main', 'unstable', etc.)
+
+        :param component: The component of this DebPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                component is not None and len(component) > 64):
+            raise ValueError("Invalid value for `component`, length must be less than or equal to `64`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                component is not None and len(component) < 1):
+            raise ValueError("Invalid value for `component`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                component is not None and not re.search('^[-_.\\w]+$', component)):  # noqa: E501
+            raise ValueError(r"Invalid value for `component`, must be a follow pattern or equal to `/^[-_.\\w]+$/`")  # noqa: E501
+
+        self._component = component
 
     @property
     def distribution(self):
