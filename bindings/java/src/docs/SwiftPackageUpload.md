@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **architectures** | [**List&lt;Architecture&gt;**](Architecture.md) |  |  [optional]
+**authorName** | **String** | The name of the author of the package. |  [optional]
+**authorOrg** | **String** | The organization of the author. |  [optional]
 **cdnUrl** | **String** |  |  [optional]
 **checksumMd5** | **String** |  |  [optional]
 **checksumSha1** | **String** |  |  [optional]
@@ -32,6 +34,7 @@ Name | Type | Description | Notes
 **isSyncInFlight** | **Boolean** |  |  [optional]
 **isSyncInProgress** | **Boolean** |  |  [optional]
 **license** | **String** | The license of this package. |  [optional]
+**licenseUrl** | **String** | The license URL of this package. |  [optional]
 **name** | **String** | The name of this package. |  [optional]
 **namespace** | **String** |  |  [optional]
 **namespaceUrl** | **String** |  |  [optional]
@@ -39,9 +42,11 @@ Name | Type | Description | Notes
 **originRepository** | **String** |  |  [optional]
 **originRepositoryUrl** | **String** |  |  [optional]
 **packageType** | **java.math.BigInteger** | The type of package contents. |  [optional]
+**readmeUrl** | **String** | The URL of the readme for the package. |  [optional]
 **release** | **String** | The release of the package version (if any). |  [optional]
 **repository** | **String** |  |  [optional]
-**repositoryUrl** | **String** |  |  [optional]
+**repositoryUrl** | **String** | The URL of the SCM repository for the package. |  [optional]
+**scope** | **String** | A scope provides a namespace for related packages within the package registry. | 
 **securityScanCompletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was completed. |  [optional]
 **securityScanStartedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was started. |  [optional]
 **securityScanStatus** | [**SecurityScanStatusEnum**](#SecurityScanStatusEnum) |  |  [optional]
