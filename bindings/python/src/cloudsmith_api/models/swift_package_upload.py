@@ -34,6 +34,8 @@ class SwiftPackageUpload(object):
     """
     swagger_types = {
         'architectures': 'list[Architecture]',
+        'author_name': 'str',
+        'author_org': 'str',
         'cdn_url': 'str',
         'checksum_md5': 'str',
         'checksum_sha1': 'str',
@@ -61,6 +63,7 @@ class SwiftPackageUpload(object):
         'is_sync_in_flight': 'bool',
         'is_sync_in_progress': 'bool',
         'license': 'str',
+        'license_url': 'str',
         'name': 'str',
         'namespace': 'str',
         'namespace_url': 'str',
@@ -68,9 +71,11 @@ class SwiftPackageUpload(object):
         'origin_repository': 'str',
         'origin_repository_url': 'str',
         'package_type': 'int',
+        'readme_url': 'str',
         'release': 'str',
         'repository': 'str',
         'repository_url': 'str',
+        'scope': 'str',
         'security_scan_completed_at': 'datetime',
         'security_scan_started_at': 'datetime',
         'security_scan_status': 'str',
@@ -105,6 +110,8 @@ class SwiftPackageUpload(object):
 
     attribute_map = {
         'architectures': 'architectures',
+        'author_name': 'author_name',
+        'author_org': 'author_org',
         'cdn_url': 'cdn_url',
         'checksum_md5': 'checksum_md5',
         'checksum_sha1': 'checksum_sha1',
@@ -132,6 +139,7 @@ class SwiftPackageUpload(object):
         'is_sync_in_flight': 'is_sync_in_flight',
         'is_sync_in_progress': 'is_sync_in_progress',
         'license': 'license',
+        'license_url': 'license_url',
         'name': 'name',
         'namespace': 'namespace',
         'namespace_url': 'namespace_url',
@@ -139,9 +147,11 @@ class SwiftPackageUpload(object):
         'origin_repository': 'origin_repository',
         'origin_repository_url': 'origin_repository_url',
         'package_type': 'package_type',
+        'readme_url': 'readme_url',
         'release': 'release',
         'repository': 'repository',
         'repository_url': 'repository_url',
+        'scope': 'scope',
         'security_scan_completed_at': 'security_scan_completed_at',
         'security_scan_started_at': 'security_scan_started_at',
         'security_scan_status': 'security_scan_status',
@@ -174,13 +184,15 @@ class SwiftPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, author_name=None, author_org=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, license_url=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, readme_url=None, release=None, repository=None, repository_url=None, scope=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """SwiftPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._architectures = None
+        self._author_name = None
+        self._author_org = None
         self._cdn_url = None
         self._checksum_md5 = None
         self._checksum_sha1 = None
@@ -208,6 +220,7 @@ class SwiftPackageUpload(object):
         self._is_sync_in_flight = None
         self._is_sync_in_progress = None
         self._license = None
+        self._license_url = None
         self._name = None
         self._namespace = None
         self._namespace_url = None
@@ -215,9 +228,11 @@ class SwiftPackageUpload(object):
         self._origin_repository = None
         self._origin_repository_url = None
         self._package_type = None
+        self._readme_url = None
         self._release = None
         self._repository = None
         self._repository_url = None
+        self._scope = None
         self._security_scan_completed_at = None
         self._security_scan_started_at = None
         self._security_scan_status = None
@@ -252,6 +267,10 @@ class SwiftPackageUpload(object):
 
         if architectures is not None:
             self.architectures = architectures
+        if author_name is not None:
+            self.author_name = author_name
+        if author_org is not None:
+            self.author_org = author_org
         if cdn_url is not None:
             self.cdn_url = cdn_url
         if checksum_md5 is not None:
@@ -306,6 +325,8 @@ class SwiftPackageUpload(object):
             self.is_sync_in_progress = is_sync_in_progress
         if license is not None:
             self.license = license
+        if license_url is not None:
+            self.license_url = license_url
         if name is not None:
             self.name = name
         if namespace is not None:
@@ -320,12 +341,15 @@ class SwiftPackageUpload(object):
             self.origin_repository_url = origin_repository_url
         if package_type is not None:
             self.package_type = package_type
+        if readme_url is not None:
+            self.readme_url = readme_url
         if release is not None:
             self.release = release
         if repository is not None:
             self.repository = repository
         if repository_url is not None:
             self.repository_url = repository_url
+        self.scope = scope
         if security_scan_completed_at is not None:
             self.security_scan_completed_at = security_scan_completed_at
         if security_scan_started_at is not None:
@@ -406,6 +430,58 @@ class SwiftPackageUpload(object):
         """
 
         self._architectures = architectures
+
+    @property
+    def author_name(self):
+        """Gets the author_name of this SwiftPackageUpload.
+
+        The name of the author of the package.
+
+        :return: The author_name of this SwiftPackageUpload.
+        :rtype: str
+        """
+        return self._author_name
+
+    @author_name.setter
+    def author_name(self, author_name):
+        """Sets the author_name of this SwiftPackageUpload.
+
+        The name of the author of the package.
+
+        :param author_name: The author_name of this SwiftPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                author_name is not None and len(author_name) < 1):
+            raise ValueError("Invalid value for `author_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._author_name = author_name
+
+    @property
+    def author_org(self):
+        """Gets the author_org of this SwiftPackageUpload.
+
+        The organization of the author.
+
+        :return: The author_org of this SwiftPackageUpload.
+        :rtype: str
+        """
+        return self._author_org
+
+    @author_org.setter
+    def author_org(self, author_org):
+        """Sets the author_org of this SwiftPackageUpload.
+
+        The organization of the author.
+
+        :param author_org: The author_org of this SwiftPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                author_org is not None and len(author_org) < 1):
+            raise ValueError("Invalid value for `author_org`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._author_org = author_org
 
     @property
     def cdn_url(self):
@@ -994,6 +1070,32 @@ class SwiftPackageUpload(object):
         self._license = license
 
     @property
+    def license_url(self):
+        """Gets the license_url of this SwiftPackageUpload.
+
+        The license URL of this package.
+
+        :return: The license_url of this SwiftPackageUpload.
+        :rtype: str
+        """
+        return self._license_url
+
+    @license_url.setter
+    def license_url(self, license_url):
+        """Sets the license_url of this SwiftPackageUpload.
+
+        The license URL of this package.
+
+        :param license_url: The license_url of this SwiftPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                license_url is not None and len(license_url) > 200):
+            raise ValueError("Invalid value for `license_url`, length must be less than or equal to `200`")  # noqa: E501
+
+        self._license_url = license_url
+
+    @property
     def name(self):
         """Gets the name of this SwiftPackageUpload.
 
@@ -1151,6 +1253,32 @@ class SwiftPackageUpload(object):
         self._package_type = package_type
 
     @property
+    def readme_url(self):
+        """Gets the readme_url of this SwiftPackageUpload.
+
+        The URL of the readme for the package.
+
+        :return: The readme_url of this SwiftPackageUpload.
+        :rtype: str
+        """
+        return self._readme_url
+
+    @readme_url.setter
+    def readme_url(self, readme_url):
+        """Sets the readme_url of this SwiftPackageUpload.
+
+        The URL of the readme for the package.
+
+        :param readme_url: The readme_url of this SwiftPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                readme_url is not None and len(readme_url) < 1):
+            raise ValueError("Invalid value for `readme_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._readme_url = readme_url
+
+    @property
     def release(self):
         """Gets the release of this SwiftPackageUpload.
 
@@ -1201,6 +1329,7 @@ class SwiftPackageUpload(object):
     def repository_url(self):
         """Gets the repository_url of this SwiftPackageUpload.
 
+        The URL of the SCM repository for the package.
 
         :return: The repository_url of this SwiftPackageUpload.
         :rtype: str
@@ -1211,12 +1340,47 @@ class SwiftPackageUpload(object):
     def repository_url(self, repository_url):
         """Sets the repository_url of this SwiftPackageUpload.
 
+        The URL of the SCM repository for the package.
 
         :param repository_url: The repository_url of this SwiftPackageUpload.
         :type: str
         """
+        if (self._configuration.client_side_validation and
+                repository_url is not None and len(repository_url) < 1):
+            raise ValueError("Invalid value for `repository_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._repository_url = repository_url
+
+    @property
+    def scope(self):
+        """Gets the scope of this SwiftPackageUpload.
+
+        A scope provides a namespace for related packages within the package registry.
+
+        :return: The scope of this SwiftPackageUpload.
+        :rtype: str
+        """
+        return self._scope
+
+    @scope.setter
+    def scope(self, scope):
+        """Sets the scope of this SwiftPackageUpload.
+
+        A scope provides a namespace for related packages within the package registry.
+
+        :param scope: The scope of this SwiftPackageUpload.
+        :type: str
+        """
+        if self._configuration.client_side_validation and scope is None:
+            raise ValueError("Invalid value for `scope`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scope is not None and len(scope) > 39):
+            raise ValueError("Invalid value for `scope`, length must be less than or equal to `39`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scope is not None and len(scope) < 1):
+            raise ValueError("Invalid value for `scope`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._scope = scope
 
     @property
     def security_scan_completed_at(self):

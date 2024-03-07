@@ -34,17 +34,89 @@ import javax.validation.Valid;
 public class SwiftPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("author_name")
+  private String authorName = null;
+
+  @SerializedName("author_org")
+  private String authorOrg = null;
+
+  @SerializedName("license_url")
+  private String licenseUrl = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("readme_url")
+  private String readmeUrl = null;
+
+  @SerializedName("repository_url")
+  private String repositoryUrl = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
+
+  @SerializedName("scope")
+  private String scope = null;
 
   @SerializedName("tags")
   private String tags = null;
 
   @SerializedName("version")
   private String version = null;
+
+  public SwiftPackageUploadRequest authorName(String authorName) {
+    this.authorName = authorName;
+    return this;
+  }
+
+   /**
+   * The name of the author of the package.
+   * @return authorName
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The name of the author of the package.")
+  public String getAuthorName() {
+    return authorName;
+  }
+
+  public void setAuthorName(String authorName) {
+    this.authorName = authorName;
+  }
+
+  public SwiftPackageUploadRequest authorOrg(String authorOrg) {
+    this.authorOrg = authorOrg;
+    return this;
+  }
+
+   /**
+   * The organization of the author.
+   * @return authorOrg
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The organization of the author.")
+  public String getAuthorOrg() {
+    return authorOrg;
+  }
+
+  public void setAuthorOrg(String authorOrg) {
+    this.authorOrg = authorOrg;
+  }
+
+  public SwiftPackageUploadRequest licenseUrl(String licenseUrl) {
+    this.licenseUrl = licenseUrl;
+    return this;
+  }
+
+   /**
+   * The license URL of this package.
+   * @return licenseUrl
+  **/
+ @Size(max=200)  @ApiModelProperty(value = "The license URL of this package.")
+  public String getLicenseUrl() {
+    return licenseUrl;
+  }
+
+  public void setLicenseUrl(String licenseUrl) {
+    this.licenseUrl = licenseUrl;
+  }
 
   public SwiftPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
@@ -65,6 +137,42 @@ public class SwiftPackageUploadRequest implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public SwiftPackageUploadRequest readmeUrl(String readmeUrl) {
+    this.readmeUrl = readmeUrl;
+    return this;
+  }
+
+   /**
+   * The URL of the readme for the package.
+   * @return readmeUrl
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The URL of the readme for the package.")
+  public String getReadmeUrl() {
+    return readmeUrl;
+  }
+
+  public void setReadmeUrl(String readmeUrl) {
+    this.readmeUrl = readmeUrl;
+  }
+
+  public SwiftPackageUploadRequest repositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
+    return this;
+  }
+
+   /**
+   * The URL of the SCM repository for the package.
+   * @return repositoryUrl
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The URL of the SCM repository for the package.")
+  public String getRepositoryUrl() {
+    return repositoryUrl;
+  }
+
+  public void setRepositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
+  }
+
   public SwiftPackageUploadRequest republish(Boolean republish) {
     this.republish = republish;
     return this;
@@ -81,6 +189,25 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   public void setRepublish(Boolean republish) {
     this.republish = republish;
+  }
+
+  public SwiftPackageUploadRequest scope(String scope) {
+    this.scope = scope;
+    return this;
+  }
+
+   /**
+   * A scope provides a namespace for related packages within the package registry.
+   * @return scope
+  **/
+  @NotNull
+ @Size(min=1,max=39)  @ApiModelProperty(required = true, value = "A scope provides a namespace for related packages within the package registry.")
+  public String getScope() {
+    return scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
   }
 
   public SwiftPackageUploadRequest tags(String tags) {
@@ -130,15 +257,21 @@ public class SwiftPackageUploadRequest implements Serializable {
       return false;
     }
     SwiftPackageUploadRequest swiftPackageUploadRequest = (SwiftPackageUploadRequest) o;
-    return Objects.equals(this.packageFile, swiftPackageUploadRequest.packageFile) &&
+    return Objects.equals(this.authorName, swiftPackageUploadRequest.authorName) &&
+        Objects.equals(this.authorOrg, swiftPackageUploadRequest.authorOrg) &&
+        Objects.equals(this.licenseUrl, swiftPackageUploadRequest.licenseUrl) &&
+        Objects.equals(this.packageFile, swiftPackageUploadRequest.packageFile) &&
+        Objects.equals(this.readmeUrl, swiftPackageUploadRequest.readmeUrl) &&
+        Objects.equals(this.repositoryUrl, swiftPackageUploadRequest.repositoryUrl) &&
         Objects.equals(this.republish, swiftPackageUploadRequest.republish) &&
+        Objects.equals(this.scope, swiftPackageUploadRequest.scope) &&
         Objects.equals(this.tags, swiftPackageUploadRequest.tags) &&
         Objects.equals(this.version, swiftPackageUploadRequest.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags, version);
+    return Objects.hash(authorName, authorOrg, licenseUrl, packageFile, readmeUrl, repositoryUrl, republish, scope, tags, version);
   }
 
 
@@ -147,8 +280,14 @@ public class SwiftPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class SwiftPackageUploadRequest {\n");
     
+    sb.append("    authorName: ").append(toIndentedString(authorName)).append("\n");
+    sb.append("    authorOrg: ").append(toIndentedString(authorOrg)).append("\n");
+    sb.append("    licenseUrl: ").append(toIndentedString(licenseUrl)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    readmeUrl: ").append(toIndentedString(readmeUrl)).append("\n");
+    sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

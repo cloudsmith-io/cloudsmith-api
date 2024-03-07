@@ -33,37 +33,144 @@ class SwiftPackageUploadRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'author_name': 'str',
+        'author_org': 'str',
+        'license_url': 'str',
         'package_file': 'str',
+        'readme_url': 'str',
+        'repository_url': 'str',
         'republish': 'bool',
+        'scope': 'str',
         'tags': 'str',
         'version': 'str'
     }
 
     attribute_map = {
+        'author_name': 'author_name',
+        'author_org': 'author_org',
+        'license_url': 'license_url',
         'package_file': 'package_file',
+        'readme_url': 'readme_url',
+        'repository_url': 'repository_url',
         'republish': 'republish',
+        'scope': 'scope',
         'tags': 'tags',
         'version': 'version'
     }
 
-    def __init__(self, package_file=None, republish=None, tags=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, author_name=None, author_org=None, license_url=None, package_file=None, readme_url=None, repository_url=None, republish=None, scope=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """SwiftPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._author_name = None
+        self._author_org = None
+        self._license_url = None
         self._package_file = None
+        self._readme_url = None
+        self._repository_url = None
         self._republish = None
+        self._scope = None
         self._tags = None
         self._version = None
         self.discriminator = None
 
+        if author_name is not None:
+            self.author_name = author_name
+        if author_org is not None:
+            self.author_org = author_org
+        if license_url is not None:
+            self.license_url = license_url
         self.package_file = package_file
+        if readme_url is not None:
+            self.readme_url = readme_url
+        if repository_url is not None:
+            self.repository_url = repository_url
         if republish is not None:
             self.republish = republish
+        self.scope = scope
         if tags is not None:
             self.tags = tags
         self.version = version
+
+    @property
+    def author_name(self):
+        """Gets the author_name of this SwiftPackageUploadRequest.
+
+        The name of the author of the package.
+
+        :return: The author_name of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._author_name
+
+    @author_name.setter
+    def author_name(self, author_name):
+        """Sets the author_name of this SwiftPackageUploadRequest.
+
+        The name of the author of the package.
+
+        :param author_name: The author_name of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                author_name is not None and len(author_name) < 1):
+            raise ValueError("Invalid value for `author_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._author_name = author_name
+
+    @property
+    def author_org(self):
+        """Gets the author_org of this SwiftPackageUploadRequest.
+
+        The organization of the author.
+
+        :return: The author_org of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._author_org
+
+    @author_org.setter
+    def author_org(self, author_org):
+        """Sets the author_org of this SwiftPackageUploadRequest.
+
+        The organization of the author.
+
+        :param author_org: The author_org of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                author_org is not None and len(author_org) < 1):
+            raise ValueError("Invalid value for `author_org`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._author_org = author_org
+
+    @property
+    def license_url(self):
+        """Gets the license_url of this SwiftPackageUploadRequest.
+
+        The license URL of this package.
+
+        :return: The license_url of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._license_url
+
+    @license_url.setter
+    def license_url(self, license_url):
+        """Sets the license_url of this SwiftPackageUploadRequest.
+
+        The license URL of this package.
+
+        :param license_url: The license_url of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                license_url is not None and len(license_url) > 200):
+            raise ValueError("Invalid value for `license_url`, length must be less than or equal to `200`")  # noqa: E501
+
+        self._license_url = license_url
 
     @property
     def package_file(self):
@@ -94,6 +201,58 @@ class SwiftPackageUploadRequest(object):
         self._package_file = package_file
 
     @property
+    def readme_url(self):
+        """Gets the readme_url of this SwiftPackageUploadRequest.
+
+        The URL of the readme for the package.
+
+        :return: The readme_url of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._readme_url
+
+    @readme_url.setter
+    def readme_url(self, readme_url):
+        """Sets the readme_url of this SwiftPackageUploadRequest.
+
+        The URL of the readme for the package.
+
+        :param readme_url: The readme_url of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                readme_url is not None and len(readme_url) < 1):
+            raise ValueError("Invalid value for `readme_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._readme_url = readme_url
+
+    @property
+    def repository_url(self):
+        """Gets the repository_url of this SwiftPackageUploadRequest.
+
+        The URL of the SCM repository for the package.
+
+        :return: The repository_url of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._repository_url
+
+    @repository_url.setter
+    def repository_url(self, repository_url):
+        """Sets the repository_url of this SwiftPackageUploadRequest.
+
+        The URL of the SCM repository for the package.
+
+        :param repository_url: The repository_url of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                repository_url is not None and len(repository_url) < 1):
+            raise ValueError("Invalid value for `repository_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._repository_url = repository_url
+
+    @property
     def republish(self):
         """Gets the republish of this SwiftPackageUploadRequest.
 
@@ -115,6 +274,37 @@ class SwiftPackageUploadRequest(object):
         """
 
         self._republish = republish
+
+    @property
+    def scope(self):
+        """Gets the scope of this SwiftPackageUploadRequest.
+
+        A scope provides a namespace for related packages within the package registry.
+
+        :return: The scope of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._scope
+
+    @scope.setter
+    def scope(self, scope):
+        """Sets the scope of this SwiftPackageUploadRequest.
+
+        A scope provides a namespace for related packages within the package registry.
+
+        :param scope: The scope of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if self._configuration.client_side_validation and scope is None:
+            raise ValueError("Invalid value for `scope`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scope is not None and len(scope) > 39):
+            raise ValueError("Invalid value for `scope`, length must be less than or equal to `39`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                scope is not None and len(scope) < 1):
+            raise ValueError("Invalid value for `scope`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._scope = scope
 
     @property
     def tags(self):

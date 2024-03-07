@@ -4,6 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **architectures** | [**list[Architecture]**](Architecture.md) |  | [optional] 
+**author_name** | **str** | The name of the author of the package. | [optional] 
+**author_org** | **str** | The organization of the author. | [optional] 
 **cdn_url** | **str** |  | [optional] 
 **checksum_md5** | **str** |  | [optional] 
 **checksum_sha1** | **str** |  | [optional] 
@@ -31,6 +33,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **bool** |  | [optional] 
 **is_sync_in_progress** | **bool** |  | [optional] 
 **license** | **str** | The license of this package. | [optional] 
+**license_url** | **str** | The license URL of this package. | [optional] 
 **name** | **str** | The name of this package. | [optional] 
 **namespace** | **str** |  | [optional] 
 **namespace_url** | **str** |  | [optional] 
@@ -38,9 +41,11 @@ Name | Type | Description | Notes
 **origin_repository** | **str** |  | [optional] 
 **origin_repository_url** | **str** |  | [optional] 
 **package_type** | **int** | The type of package contents. | [optional] 
+**readme_url** | **str** | The URL of the readme for the package. | [optional] 
 **release** | **str** | The release of the package version (if any). | [optional] 
 **repository** | **str** |  | [optional] 
-**repository_url** | **str** |  | [optional] 
+**repository_url** | **str** | The URL of the SCM repository for the package. | [optional] 
+**scope** | **str** | A scope provides a namespace for related packages within the package registry. | 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] 
 **security_scan_started_at** | **datetime** | The datetime the security scanning was started. | [optional] 
 **security_scan_status** | **str** |  | [optional] [default to 'Awaiting Security Scan']

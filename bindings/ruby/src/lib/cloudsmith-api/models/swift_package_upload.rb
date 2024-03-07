@@ -16,6 +16,12 @@ module CloudsmithApi
 class SwiftPackageUpload
   attr_accessor :architectures
 
+  # The name of the author of the package.
+  attr_accessor :author_name
+
+  # The organization of the author.
+  attr_accessor :author_org
+
   attr_accessor :cdn_url
 
   attr_accessor :checksum_md5
@@ -75,6 +81,9 @@ class SwiftPackageUpload
   # The license of this package.
   attr_accessor :license
 
+  # The license URL of this package.
+  attr_accessor :license_url
+
   # The name of this package.
   attr_accessor :name
 
@@ -91,12 +100,19 @@ class SwiftPackageUpload
   # The type of package contents.
   attr_accessor :package_type
 
+  # The URL of the readme for the package.
+  attr_accessor :readme_url
+
   # The release of the package version (if any).
   attr_accessor :release
 
   attr_accessor :repository
 
+  # The URL of the SCM repository for the package.
   attr_accessor :repository_url
+
+  # A scope provides a namespace for related packages within the package registry.
+  attr_accessor :scope
 
   # The datetime the security scanning was completed.
   attr_accessor :security_scan_completed_at
@@ -199,6 +215,8 @@ class SwiftPackageUpload
   def self.attribute_map
     {
       :'architectures' => :'architectures',
+      :'author_name' => :'author_name',
+      :'author_org' => :'author_org',
       :'cdn_url' => :'cdn_url',
       :'checksum_md5' => :'checksum_md5',
       :'checksum_sha1' => :'checksum_sha1',
@@ -226,6 +244,7 @@ class SwiftPackageUpload
       :'is_sync_in_flight' => :'is_sync_in_flight',
       :'is_sync_in_progress' => :'is_sync_in_progress',
       :'license' => :'license',
+      :'license_url' => :'license_url',
       :'name' => :'name',
       :'namespace' => :'namespace',
       :'namespace_url' => :'namespace_url',
@@ -233,9 +252,11 @@ class SwiftPackageUpload
       :'origin_repository' => :'origin_repository',
       :'origin_repository_url' => :'origin_repository_url',
       :'package_type' => :'package_type',
+      :'readme_url' => :'readme_url',
       :'release' => :'release',
       :'repository' => :'repository',
       :'repository_url' => :'repository_url',
+      :'scope' => :'scope',
       :'security_scan_completed_at' => :'security_scan_completed_at',
       :'security_scan_started_at' => :'security_scan_started_at',
       :'security_scan_status' => :'security_scan_status',
@@ -273,6 +294,8 @@ class SwiftPackageUpload
   def self.swagger_types
     {
       :'architectures' => :'Array<Architecture>',
+      :'author_name' => :'String',
+      :'author_org' => :'String',
       :'cdn_url' => :'String',
       :'checksum_md5' => :'String',
       :'checksum_sha1' => :'String',
@@ -300,6 +323,7 @@ class SwiftPackageUpload
       :'is_sync_in_flight' => :'BOOLEAN',
       :'is_sync_in_progress' => :'BOOLEAN',
       :'license' => :'String',
+      :'license_url' => :'String',
       :'name' => :'String',
       :'namespace' => :'String',
       :'namespace_url' => :'String',
@@ -307,9 +331,11 @@ class SwiftPackageUpload
       :'origin_repository' => :'String',
       :'origin_repository_url' => :'String',
       :'package_type' => :'Integer',
+      :'readme_url' => :'String',
       :'release' => :'String',
       :'repository' => :'String',
       :'repository_url' => :'String',
+      :'scope' => :'String',
       :'security_scan_completed_at' => :'DateTime',
       :'security_scan_started_at' => :'DateTime',
       :'security_scan_status' => :'String',
@@ -355,6 +381,14 @@ class SwiftPackageUpload
       if (value = attributes[:'architectures']).is_a?(Array)
         self.architectures = value
       end
+    end
+
+    if attributes.has_key?(:'author_name')
+      self.author_name = attributes[:'author_name']
+    end
+
+    if attributes.has_key?(:'author_org')
+      self.author_org = attributes[:'author_org']
     end
 
     if attributes.has_key?(:'cdn_url')
@@ -467,6 +501,10 @@ class SwiftPackageUpload
       self.license = attributes[:'license']
     end
 
+    if attributes.has_key?(:'license_url')
+      self.license_url = attributes[:'license_url']
+    end
+
     if attributes.has_key?(:'name')
       self.name = attributes[:'name']
     end
@@ -495,6 +533,10 @@ class SwiftPackageUpload
       self.package_type = attributes[:'package_type']
     end
 
+    if attributes.has_key?(:'readme_url')
+      self.readme_url = attributes[:'readme_url']
+    end
+
     if attributes.has_key?(:'release')
       self.release = attributes[:'release']
     end
@@ -505,6 +547,10 @@ class SwiftPackageUpload
 
     if attributes.has_key?(:'repository_url')
       self.repository_url = attributes[:'repository_url']
+    end
+
+    if attributes.has_key?(:'scope')
+      self.scope = attributes[:'scope']
     end
 
     if attributes.has_key?(:'security_scan_completed_at')
@@ -634,6 +680,10 @@ class SwiftPackageUpload
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
+    if @scope.nil?
+      invalid_properties.push('invalid value for "scope", scope cannot be nil.')
+    end
+
     if @version.nil?
       invalid_properties.push('invalid value for "version", version cannot be nil.')
     end
@@ -644,6 +694,7 @@ class SwiftPackageUpload
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    return false if @scope.nil?
     security_scan_status_validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
     return false unless security_scan_status_validator.valid?(@security_scan_status)
     return false if @version.nil?
@@ -666,6 +717,8 @@ class SwiftPackageUpload
     return true if self.equal?(o)
     self.class == o.class &&
         architectures == o.architectures &&
+        author_name == o.author_name &&
+        author_org == o.author_org &&
         cdn_url == o.cdn_url &&
         checksum_md5 == o.checksum_md5 &&
         checksum_sha1 == o.checksum_sha1 &&
@@ -693,6 +746,7 @@ class SwiftPackageUpload
         is_sync_in_flight == o.is_sync_in_flight &&
         is_sync_in_progress == o.is_sync_in_progress &&
         license == o.license &&
+        license_url == o.license_url &&
         name == o.name &&
         namespace == o.namespace &&
         namespace_url == o.namespace_url &&
@@ -700,9 +754,11 @@ class SwiftPackageUpload
         origin_repository == o.origin_repository &&
         origin_repository_url == o.origin_repository_url &&
         package_type == o.package_type &&
+        readme_url == o.readme_url &&
         release == o.release &&
         repository == o.repository &&
         repository_url == o.repository_url &&
+        scope == o.scope &&
         security_scan_completed_at == o.security_scan_completed_at &&
         security_scan_started_at == o.security_scan_started_at &&
         security_scan_status == o.security_scan_status &&
@@ -744,7 +800,7 @@ class SwiftPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, author_name, author_org, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, license_url, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, readme_url, release, repository, repository_url, scope, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

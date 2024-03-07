@@ -45,6 +45,12 @@ public class SwiftPackageUpload implements Serializable {
   @SerializedName("architectures")
   private List<Architecture> architectures = null;
 
+  @SerializedName("author_name")
+  private String authorName = null;
+
+  @SerializedName("author_org")
+  private String authorOrg = null;
+
   @SerializedName("cdn_url")
   private String cdnUrl = null;
 
@@ -126,6 +132,9 @@ public class SwiftPackageUpload implements Serializable {
   @SerializedName("license")
   private String license = null;
 
+  @SerializedName("license_url")
+  private String licenseUrl = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -147,6 +156,9 @@ public class SwiftPackageUpload implements Serializable {
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
 
+  @SerializedName("readme_url")
+  private String readmeUrl = null;
+
   @SerializedName("release")
   private String release = null;
 
@@ -155,6 +167,9 @@ public class SwiftPackageUpload implements Serializable {
 
   @SerializedName("repository_url")
   private String repositoryUrl = null;
+
+  @SerializedName("scope")
+  private String scope = null;
 
   @SerializedName("security_scan_completed_at")
   private OffsetDateTime securityScanCompletedAt = null;
@@ -313,6 +328,42 @@ public class SwiftPackageUpload implements Serializable {
   @ApiModelProperty(value = "")
   public List<Architecture> getArchitectures() {
     return architectures;
+  }
+
+  public SwiftPackageUpload authorName(String authorName) {
+    this.authorName = authorName;
+    return this;
+  }
+
+   /**
+   * The name of the author of the package.
+   * @return authorName
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The name of the author of the package.")
+  public String getAuthorName() {
+    return authorName;
+  }
+
+  public void setAuthorName(String authorName) {
+    this.authorName = authorName;
+  }
+
+  public SwiftPackageUpload authorOrg(String authorOrg) {
+    this.authorOrg = authorOrg;
+    return this;
+  }
+
+   /**
+   * The organization of the author.
+   * @return authorOrg
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The organization of the author.")
+  public String getAuthorOrg() {
+    return authorOrg;
+  }
+
+  public void setAuthorOrg(String authorOrg) {
+    this.authorOrg = authorOrg;
   }
 
    /**
@@ -579,6 +630,24 @@ public class SwiftPackageUpload implements Serializable {
     return license;
   }
 
+  public SwiftPackageUpload licenseUrl(String licenseUrl) {
+    this.licenseUrl = licenseUrl;
+    return this;
+  }
+
+   /**
+   * The license URL of this package.
+   * @return licenseUrl
+  **/
+ @Size(max=200)  @ApiModelProperty(value = "The license URL of this package.")
+  public String getLicenseUrl() {
+    return licenseUrl;
+  }
+
+  public void setLicenseUrl(String licenseUrl) {
+    this.licenseUrl = licenseUrl;
+  }
+
    /**
    * The name of this package.
    * @return name
@@ -642,6 +711,24 @@ public class SwiftPackageUpload implements Serializable {
     return packageType;
   }
 
+  public SwiftPackageUpload readmeUrl(String readmeUrl) {
+    this.readmeUrl = readmeUrl;
+    return this;
+  }
+
+   /**
+   * The URL of the readme for the package.
+   * @return readmeUrl
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The URL of the readme for the package.")
+  public String getReadmeUrl() {
+    return readmeUrl;
+  }
+
+  public void setReadmeUrl(String readmeUrl) {
+    this.readmeUrl = readmeUrl;
+  }
+
    /**
    * The release of the package version (if any).
    * @return release
@@ -660,13 +747,41 @@ public class SwiftPackageUpload implements Serializable {
     return repository;
   }
 
+  public SwiftPackageUpload repositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
+    return this;
+  }
+
    /**
-   * Get repositoryUrl
+   * The URL of the SCM repository for the package.
    * @return repositoryUrl
   **/
-  @ApiModelProperty(value = "")
+ @Size(min=1)  @ApiModelProperty(value = "The URL of the SCM repository for the package.")
   public String getRepositoryUrl() {
     return repositoryUrl;
+  }
+
+  public void setRepositoryUrl(String repositoryUrl) {
+    this.repositoryUrl = repositoryUrl;
+  }
+
+  public SwiftPackageUpload scope(String scope) {
+    this.scope = scope;
+    return this;
+  }
+
+   /**
+   * A scope provides a namespace for related packages within the package registry.
+   * @return scope
+  **/
+  @NotNull
+ @Size(min=1,max=39)  @ApiModelProperty(required = true, value = "A scope provides a namespace for related packages within the package registry.")
+  public String getScope() {
+    return scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
   }
 
    /**
@@ -977,6 +1092,8 @@ public class SwiftPackageUpload implements Serializable {
     }
     SwiftPackageUpload swiftPackageUpload = (SwiftPackageUpload) o;
     return Objects.equals(this.architectures, swiftPackageUpload.architectures) &&
+        Objects.equals(this.authorName, swiftPackageUpload.authorName) &&
+        Objects.equals(this.authorOrg, swiftPackageUpload.authorOrg) &&
         Objects.equals(this.cdnUrl, swiftPackageUpload.cdnUrl) &&
         Objects.equals(this.checksumMd5, swiftPackageUpload.checksumMd5) &&
         Objects.equals(this.checksumSha1, swiftPackageUpload.checksumSha1) &&
@@ -1004,6 +1121,7 @@ public class SwiftPackageUpload implements Serializable {
         Objects.equals(this.isSyncInFlight, swiftPackageUpload.isSyncInFlight) &&
         Objects.equals(this.isSyncInProgress, swiftPackageUpload.isSyncInProgress) &&
         Objects.equals(this.license, swiftPackageUpload.license) &&
+        Objects.equals(this.licenseUrl, swiftPackageUpload.licenseUrl) &&
         Objects.equals(this.name, swiftPackageUpload.name) &&
         Objects.equals(this.namespace, swiftPackageUpload.namespace) &&
         Objects.equals(this.namespaceUrl, swiftPackageUpload.namespaceUrl) &&
@@ -1011,9 +1129,11 @@ public class SwiftPackageUpload implements Serializable {
         Objects.equals(this.originRepository, swiftPackageUpload.originRepository) &&
         Objects.equals(this.originRepositoryUrl, swiftPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, swiftPackageUpload.packageType) &&
+        Objects.equals(this.readmeUrl, swiftPackageUpload.readmeUrl) &&
         Objects.equals(this.release, swiftPackageUpload.release) &&
         Objects.equals(this.repository, swiftPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, swiftPackageUpload.repositoryUrl) &&
+        Objects.equals(this.scope, swiftPackageUpload.scope) &&
         Objects.equals(this.securityScanCompletedAt, swiftPackageUpload.securityScanCompletedAt) &&
         Objects.equals(this.securityScanStartedAt, swiftPackageUpload.securityScanStartedAt) &&
         Objects.equals(this.securityScanStatus, swiftPackageUpload.securityScanStatus) &&
@@ -1048,7 +1168,7 @@ public class SwiftPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, authorName, authorOrg, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, licenseUrl, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, readmeUrl, release, repository, repositoryUrl, scope, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1058,6 +1178,8 @@ public class SwiftPackageUpload implements Serializable {
     sb.append("class SwiftPackageUpload {\n");
     
     sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
+    sb.append("    authorName: ").append(toIndentedString(authorName)).append("\n");
+    sb.append("    authorOrg: ").append(toIndentedString(authorOrg)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    checksumMd5: ").append(toIndentedString(checksumMd5)).append("\n");
     sb.append("    checksumSha1: ").append(toIndentedString(checksumSha1)).append("\n");
@@ -1085,6 +1207,7 @@ public class SwiftPackageUpload implements Serializable {
     sb.append("    isSyncInFlight: ").append(toIndentedString(isSyncInFlight)).append("\n");
     sb.append("    isSyncInProgress: ").append(toIndentedString(isSyncInProgress)).append("\n");
     sb.append("    license: ").append(toIndentedString(license)).append("\n");
+    sb.append("    licenseUrl: ").append(toIndentedString(licenseUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
@@ -1092,9 +1215,11 @@ public class SwiftPackageUpload implements Serializable {
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    readmeUrl: ").append(toIndentedString(readmeUrl)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    securityScanCompletedAt: ").append(toIndentedString(securityScanCompletedAt)).append("\n");
     sb.append("    securityScanStartedAt: ").append(toIndentedString(securityScanStartedAt)).append("\n");
     sb.append("    securityScanStatus: ").append(toIndentedString(securityScanStatus)).append("\n");

@@ -14,11 +14,29 @@ require 'date'
 
 module CloudsmithApi
 class SwiftPackageUploadRequest
+  # The name of the author of the package.
+  attr_accessor :author_name
+
+  # The organization of the author.
+  attr_accessor :author_org
+
+  # The license URL of this package.
+  attr_accessor :license_url
+
   # The primary file for the package.
   attr_accessor :package_file
 
+  # The URL of the readme for the package.
+  attr_accessor :readme_url
+
+  # The URL of the SCM repository for the package.
+  attr_accessor :repository_url
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
+
+  # A scope provides a namespace for related packages within the package registry.
+  attr_accessor :scope
 
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
@@ -29,8 +47,14 @@ class SwiftPackageUploadRequest
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'author_name' => :'author_name',
+      :'author_org' => :'author_org',
+      :'license_url' => :'license_url',
       :'package_file' => :'package_file',
+      :'readme_url' => :'readme_url',
+      :'repository_url' => :'repository_url',
       :'republish' => :'republish',
+      :'scope' => :'scope',
       :'tags' => :'tags',
       :'version' => :'version'
     }
@@ -39,8 +63,14 @@ class SwiftPackageUploadRequest
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'author_name' => :'String',
+      :'author_org' => :'String',
+      :'license_url' => :'String',
       :'package_file' => :'String',
+      :'readme_url' => :'String',
+      :'repository_url' => :'String',
       :'republish' => :'BOOLEAN',
+      :'scope' => :'String',
       :'tags' => :'String',
       :'version' => :'String'
     }
@@ -54,12 +84,36 @@ class SwiftPackageUploadRequest
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+    if attributes.has_key?(:'author_name')
+      self.author_name = attributes[:'author_name']
+    end
+
+    if attributes.has_key?(:'author_org')
+      self.author_org = attributes[:'author_org']
+    end
+
+    if attributes.has_key?(:'license_url')
+      self.license_url = attributes[:'license_url']
+    end
+
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
     end
 
+    if attributes.has_key?(:'readme_url')
+      self.readme_url = attributes[:'readme_url']
+    end
+
+    if attributes.has_key?(:'repository_url')
+      self.repository_url = attributes[:'repository_url']
+    end
+
     if attributes.has_key?(:'republish')
       self.republish = attributes[:'republish']
+    end
+
+    if attributes.has_key?(:'scope')
+      self.scope = attributes[:'scope']
     end
 
     if attributes.has_key?(:'tags')
@@ -79,6 +133,10 @@ class SwiftPackageUploadRequest
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
+    if @scope.nil?
+      invalid_properties.push('invalid value for "scope", scope cannot be nil.')
+    end
+
     if @version.nil?
       invalid_properties.push('invalid value for "version", version cannot be nil.')
     end
@@ -90,6 +148,7 @@ class SwiftPackageUploadRequest
   # @return true if the model is valid
   def valid?
     return false if @package_file.nil?
+    return false if @scope.nil?
     return false if @version.nil?
     true
   end
@@ -99,8 +158,14 @@ class SwiftPackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        author_name == o.author_name &&
+        author_org == o.author_org &&
+        license_url == o.license_url &&
         package_file == o.package_file &&
+        readme_url == o.readme_url &&
+        repository_url == o.repository_url &&
         republish == o.republish &&
+        scope == o.scope &&
         tags == o.tags &&
         version == o.version
   end
@@ -114,7 +179,7 @@ class SwiftPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [package_file, republish, tags, version].hash
+    [author_name, author_org, license_url, package_file, readme_url, repository_url, republish, scope, tags, version].hash
   end
 
     # Builds the object from hash
