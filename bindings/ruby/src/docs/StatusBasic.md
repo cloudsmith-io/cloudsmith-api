@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **detail** | **String** | The message describing the state of the API. | [optional] [default to &#39;Cloudsmith API is operational.&#39;]
-**version** | **String** | The current version for the Cloudsmith service. | [optional] [default to &#39;1.373.1&#39;]
+**version** | **String** | The current version for the Cloudsmith service. | [optional] [default to &#39;1.389.2&#39;]
 
 

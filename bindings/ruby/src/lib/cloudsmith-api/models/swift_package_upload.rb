@@ -680,6 +680,10 @@ class SwiftPackageUpload
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
+    end
+
     if @scope.nil?
       invalid_properties.push('invalid value for "scope", scope cannot be nil.')
     end
@@ -694,6 +698,7 @@ class SwiftPackageUpload
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    return false if @name.nil?
     return false if @scope.nil?
     security_scan_status_validator = EnumAttributeValidator.new('String', ['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported'])
     return false unless security_scan_status_validator.valid?(@security_scan_status)

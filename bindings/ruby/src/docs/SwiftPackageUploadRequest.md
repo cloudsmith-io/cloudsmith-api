@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **author_name** | **String** | The name of the author of the package. | [optional] 
 **author_org** | **String** | The organization of the author. | [optional] 
 **license_url** | **String** | The license URL of this package. | [optional] 
+**name** | **String** | The name of this package. | 
 **package_file** | **String** | The primary file for the package. | 
 **readme_url** | **String** | The URL of the readme for the package. | [optional] 
 **repository_url** | **String** | The URL of the SCM repository for the package. | [optional] 

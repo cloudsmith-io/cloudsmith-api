@@ -5581,6 +5581,401 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create a Swift upstream config for this repository.
+    # Create a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [SwiftUpstreamRequest] :data 
+    # @return [SwiftUpstream]
+    def repos_upstream_swift_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_swift_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Swift upstream config for this repository.
+    # Create a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [SwiftUpstreamRequest] :data 
+    # @return [Array<(SwiftUpstream, Fixnum, Hash)>] SwiftUpstream data, response status code and response headers
+    def repos_upstream_swift_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_swift_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_swift_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_swift_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/swift/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SwiftUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_swift_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Swift upstream config for this repository.
+    # Delete a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_swift_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_swift_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Swift upstream config for this repository.
+    # Delete a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_swift_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_swift_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_swift_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_swift_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_swift_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_swift_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Swift upstream configs for this repository.
+    # List Swift upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<SwiftUpstream>]
+    def repos_upstream_swift_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_swift_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Swift upstream configs for this repository.
+    # List Swift upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<SwiftUpstream>, Fixnum, Hash)>] Array<SwiftUpstream> data, response status code and response headers
+    def repos_upstream_swift_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_swift_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_swift_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_swift_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/swift/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SwiftUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_swift_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Swift upstream config for this repository.
+    # Partially update a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [SwiftUpstreamRequestPatch] :data 
+    # @return [SwiftUpstream]
+    def repos_upstream_swift_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_swift_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Swift upstream config for this repository.
+    # Partially update a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [SwiftUpstreamRequestPatch] :data 
+    # @return [Array<(SwiftUpstream, Fixnum, Hash)>] SwiftUpstream data, response status code and response headers
+    def repos_upstream_swift_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_swift_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_swift_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_swift_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_swift_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SwiftUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_swift_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Swift upstream config for this repository.
+    # Retrieve a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [SwiftUpstream]
+    def repos_upstream_swift_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_swift_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Swift upstream config for this repository.
+    # Retrieve a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SwiftUpstream, Fixnum, Hash)>] SwiftUpstream data, response status code and response headers
+    def repos_upstream_swift_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_swift_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_swift_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_swift_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_swift_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SwiftUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_swift_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Swift upstream config for this repository.
+    # Update a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [SwiftUpstreamRequest] :data 
+    # @return [SwiftUpstream]
+    def repos_upstream_swift_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_swift_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Swift upstream config for this repository.
+    # Update a Swift upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [SwiftUpstreamRequest] :data 
+    # @return [Array<(SwiftUpstream, Fixnum, Hash)>] SwiftUpstream data, response status code and response headers
+    def repos_upstream_swift_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_swift_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_swift_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_swift_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_swift_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SwiftUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_swift_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get a list of all repositories associated with current user.
     # Get a list of all repositories associated with current user.
     # @param [Hash] opts the optional parameters

@@ -90,6 +90,12 @@ Method | HTTP request | Description
 [**repos_upstream_ruby_partial_update**](ReposApi.md#repos_upstream_ruby_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
 [**repos_upstream_ruby_read**](ReposApi.md#repos_upstream_ruby_read) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
 [**repos_upstream_ruby_update**](ReposApi.md#repos_upstream_ruby_update) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
+[**repos_upstream_swift_create**](ReposApi.md#repos_upstream_swift_create) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
+[**repos_upstream_swift_delete**](ReposApi.md#repos_upstream_swift_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
+[**repos_upstream_swift_list**](ReposApi.md#repos_upstream_swift_list) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
+[**repos_upstream_swift_partial_update**](ReposApi.md#repos_upstream_swift_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Partially update a Swift upstream config for this repository.
+[**repos_upstream_swift_read**](ReposApi.md#repos_upstream_swift_read) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
+[**repos_upstream_swift_update**](ReposApi.md#repos_upstream_swift_update) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
 [**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 
 
@@ -5347,6 +5353,377 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RubyUpstream**](RubyUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_swift_create**
+> SwiftUpstream repos_upstream_swift_create(owner, identifier, opts)
+
+Create a Swift upstream config for this repository.
+
+Create a Swift upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::SwiftUpstreamRequest.new # SwiftUpstreamRequest | 
+}
+
+begin
+  #Create a Swift upstream config for this repository.
+  result = api_instance.repos_upstream_swift_create(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_swift_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_swift_delete**
+> repos_upstream_swift_delete(owner, identifier, slug_perm)
+
+Delete a Swift upstream config for this repository.
+
+Delete a Swift upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete a Swift upstream config for this repository.
+  api_instance.repos_upstream_swift_delete(owner, identifier, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_swift_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_swift_list**
+> Array&lt;SwiftUpstream&gt; repos_upstream_swift_list(owner, identifier, opts)
+
+List Swift upstream configs for this repository.
+
+List Swift upstream configs for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #List Swift upstream configs for this repository.
+  result = api_instance.repos_upstream_swift_list(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_swift_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;SwiftUpstream&gt;**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_swift_partial_update**
+> SwiftUpstream repos_upstream_swift_partial_update(owner, identifier, slug_perm, opts)
+
+Partially update a Swift upstream config for this repository.
+
+Partially update a Swift upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::SwiftUpstreamRequestPatch.new # SwiftUpstreamRequestPatch | 
+}
+
+begin
+  #Partially update a Swift upstream config for this repository.
+  result = api_instance.repos_upstream_swift_partial_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_swift_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**SwiftUpstreamRequestPatch**](SwiftUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_swift_read**
+> SwiftUpstream repos_upstream_swift_read(owner, identifier, slug_perm)
+
+Retrieve a Swift upstream config for this repository.
+
+Retrieve a Swift upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve a Swift upstream config for this repository.
+  result = api_instance.repos_upstream_swift_read(owner, identifier, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_swift_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_swift_update**
+> SwiftUpstream repos_upstream_swift_update(owner, identifier, slug_perm, opts)
+
+Update a Swift upstream config for this repository.
+
+Update a Swift upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::SwiftUpstreamRequest.new # SwiftUpstreamRequest | 
+}
+
+begin
+  #Update a Swift upstream config for this repository.
+  result = api_instance.repos_upstream_swift_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_swift_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
 
 ### Authorization
 

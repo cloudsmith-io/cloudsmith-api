@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **is_sync_in_progress** | **bool** |  | [optional] 
 **license** | **str** | The license of this package. | [optional] 
 **license_url** | **str** | The license URL of this package. | [optional] 
-**name** | **str** | The name of this package. | [optional] 
+**name** | **str** | The name of this package. | 
 **namespace** | **str** |  | [optional] 
 **namespace_url** | **str** |  | [optional] 
 **num_files** | **int** |  | [optional] 

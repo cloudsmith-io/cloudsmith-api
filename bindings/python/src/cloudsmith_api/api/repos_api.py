@@ -9851,6 +9851,700 @@ class ReposApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def repos_upstream_swift_create(self, owner, identifier, **kwargs):  # noqa: E501
+        """Create a Swift upstream config for this repository.  # noqa: E501
+
+        Create a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_create(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param SwiftUpstreamRequest data:
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_upstream_swift_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_upstream_swift_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_upstream_swift_create_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """Create a Swift upstream config for this repository.  # noqa: E501
+
+        Create a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_create_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param SwiftUpstreamRequest data:
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_upstream_swift_create" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_swift_create`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_swift_create`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/upstream/swift/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SwiftUpstream',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_upstream_swift_delete(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Delete a Swift upstream config for this repository.  # noqa: E501
+
+        Delete a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_delete(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_upstream_swift_delete_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_upstream_swift_delete_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def repos_upstream_swift_delete_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Delete a Swift upstream config for this repository.  # noqa: E501
+
+        Delete a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_delete_with_http_info(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'slug_perm']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_upstream_swift_delete" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_swift_delete`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_swift_delete`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_swift_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_upstream_swift_list(self, owner, identifier, **kwargs):  # noqa: E501
+        """List Swift upstream configs for this repository.  # noqa: E501
+
+        List Swift upstream configs for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_list(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[SwiftUpstream]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_upstream_swift_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_upstream_swift_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def repos_upstream_swift_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
+        """List Swift upstream configs for this repository.  # noqa: E501
+
+        List Swift upstream configs for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_list_with_http_info(owner, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[SwiftUpstream]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'page', 'page_size']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_upstream_swift_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_swift_list`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_swift_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/upstream/swift/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[SwiftUpstream]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_upstream_swift_partial_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Partially update a Swift upstream config for this repository.  # noqa: E501
+
+        Partially update a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_partial_update(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :param SwiftUpstreamRequestPatch data:
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_upstream_swift_partial_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_upstream_swift_partial_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def repos_upstream_swift_partial_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Partially update a Swift upstream config for this repository.  # noqa: E501
+
+        Partially update a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_partial_update_with_http_info(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :param SwiftUpstreamRequestPatch data:
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'slug_perm', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_upstream_swift_partial_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_swift_partial_update`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_swift_partial_update`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_swift_partial_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SwiftUpstream',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_upstream_swift_read(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Retrieve a Swift upstream config for this repository.  # noqa: E501
+
+        Retrieve a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_read(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_upstream_swift_read_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_upstream_swift_read_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def repos_upstream_swift_read_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Retrieve a Swift upstream config for this repository.  # noqa: E501
+
+        Retrieve a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_read_with_http_info(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'slug_perm']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_upstream_swift_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_swift_read`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_swift_read`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_swift_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SwiftUpstream',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def repos_upstream_swift_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Update a Swift upstream config for this repository.  # noqa: E501
+
+        Update a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_update(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :param SwiftUpstreamRequest data:
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.repos_upstream_swift_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+        else:
+            (data) = self.repos_upstream_swift_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
+            return data
+
+    def repos_upstream_swift_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
+        """Update a Swift upstream config for this repository.  # noqa: E501
+
+        Update a Swift upstream config for this repository.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.repos_upstream_swift_update_with_http_info(owner, identifier, slug_perm, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str identifier: (required)
+        :param str slug_perm: (required)
+        :param SwiftUpstreamRequest data:
+        :return: SwiftUpstream
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'identifier', 'slug_perm', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repos_upstream_swift_update" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_swift_update`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_swift_update`")  # noqa: E501
+        # verify the required parameter 'slug_perm' is set
+        if self.api_client.client_side_validation and ('slug_perm' not in params or
+                                                       params['slug_perm'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_swift_update`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+        if 'slug_perm' in params:
+            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SwiftUpstream',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def repos_user_list(self, **kwargs):  # noqa: E501
         """Get a list of all repositories associated with current user.  # noqa: E501
 

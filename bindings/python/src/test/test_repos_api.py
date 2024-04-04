@@ -631,6 +631,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_swift_create(self):
+        """Test case for repos_upstream_swift_create
+
+        Create a Swift upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_swift_delete(self):
+        """Test case for repos_upstream_swift_delete
+
+        Delete a Swift upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_swift_list(self):
+        """Test case for repos_upstream_swift_list
+
+        List Swift upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_swift_partial_update(self):
+        """Test case for repos_upstream_swift_partial_update
+
+        Partially update a Swift upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_swift_read(self):
+        """Test case for repos_upstream_swift_read
+
+        Retrieve a Swift upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_swift_update(self):
+        """Test case for repos_upstream_swift_update
+
+        Update a Swift upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_user_list(self):
         """Test case for repos_user_list
 

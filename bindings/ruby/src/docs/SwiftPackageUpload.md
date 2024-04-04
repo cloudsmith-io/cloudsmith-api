@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **is_sync_in_progress** | **BOOLEAN** |  | [optional] 
 **license** | **String** | The license of this package. | [optional] 
 **license_url** | **String** | The license URL of this package. | [optional] 
-**name** | **String** | The name of this package. | [optional] 
+**name** | **String** | The name of this package. | 
 **namespace** | **String** |  | [optional] 
 **namespace_url** | **String** |  | [optional] 
 **num_files** | **Integer** |  | [optional] 

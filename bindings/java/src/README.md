@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.11</version>
+  <version>2.0.12</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.11"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.12"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.11.jar`
+* `target/cloudsmith-api-2.0.12.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -349,6 +349,12 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposUpstreamRubyPartialUpdate**](docs/ReposApi.md#reposUpstreamRubyPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
 *ReposApi* | [**reposUpstreamRubyRead**](docs/ReposApi.md#reposUpstreamRubyRead) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
 *ReposApi* | [**reposUpstreamRubyUpdate**](docs/ReposApi.md#reposUpstreamRubyUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
+*ReposApi* | [**reposUpstreamSwiftCreate**](docs/ReposApi.md#reposUpstreamSwiftCreate) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
+*ReposApi* | [**reposUpstreamSwiftDelete**](docs/ReposApi.md#reposUpstreamSwiftDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
+*ReposApi* | [**reposUpstreamSwiftList**](docs/ReposApi.md#reposUpstreamSwiftList) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
+*ReposApi* | [**reposUpstreamSwiftPartialUpdate**](docs/ReposApi.md#reposUpstreamSwiftPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Partially update a Swift upstream config for this repository.
+*ReposApi* | [**reposUpstreamSwiftRead**](docs/ReposApi.md#reposUpstreamSwiftRead) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
+*ReposApi* | [**reposUpstreamSwiftUpdate**](docs/ReposApi.md#reposUpstreamSwiftUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
 *ReposApi* | [**reposUserList**](docs/ReposApi.md#reposUserList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
 *StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
@@ -573,6 +579,9 @@ Class | Method | HTTP request | Description
  - [StorageUsageRaw](docs/StorageUsageRaw.md)
  - [SwiftPackageUpload](docs/SwiftPackageUpload.md)
  - [SwiftPackageUploadRequest](docs/SwiftPackageUploadRequest.md)
+ - [SwiftUpstream](docs/SwiftUpstream.md)
+ - [SwiftUpstreamRequest](docs/SwiftUpstreamRequest.md)
+ - [SwiftUpstreamRequestPatch](docs/SwiftUpstreamRequestPatch.md)
  - [Tags](docs/Tags.md)
  - [TerraformPackageUpload](docs/TerraformPackageUpload.md)
  - [TerraformPackageUploadRequest](docs/TerraformPackageUploadRequest.md)

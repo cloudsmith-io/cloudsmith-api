@@ -3,7 +3,7 @@
     "apiPackage": "io.cloudsmith.api.apis",
     "artifactId": "cloudsmith-api",
     "artifactUrl": "https://api.cloudsmith.io/?format=openapi",
-    "artifactVersion": "2.0.11",
+    "artifactVersion": "2.0.12",
     "artifactDescription": "Cloudsmith API",
     "dateLibrary": "java8",
     "developerName": "Cloudsmith Ltd",

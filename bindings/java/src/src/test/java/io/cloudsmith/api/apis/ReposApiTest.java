@@ -64,6 +64,9 @@ import io.cloudsmith.api.models.RpmUpstreamRequestPatch;
 import io.cloudsmith.api.models.RubyUpstream;
 import io.cloudsmith.api.models.RubyUpstreamRequest;
 import io.cloudsmith.api.models.RubyUpstreamRequestPatch;
+import io.cloudsmith.api.models.SwiftUpstream;
+import io.cloudsmith.api.models.SwiftUpstreamRequest;
+import io.cloudsmith.api.models.SwiftUpstreamRequestPatch;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -1652,6 +1655,117 @@ public class ReposApiTest {
         String slugPerm = null;
         RubyUpstreamRequest data = null;
         RubyUpstream response = api.reposUpstreamRubyUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Swift upstream config for this repository.
+     *
+     * Create a Swift upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamSwiftCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        SwiftUpstreamRequest data = null;
+        SwiftUpstream response = api.reposUpstreamSwiftCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Swift upstream config for this repository.
+     *
+     * Delete a Swift upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamSwiftDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamSwiftDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Swift upstream configs for this repository.
+     *
+     * List Swift upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamSwiftListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<SwiftUpstream> response = api.reposUpstreamSwiftList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Swift upstream config for this repository.
+     *
+     * Partially update a Swift upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamSwiftPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        SwiftUpstreamRequestPatch data = null;
+        SwiftUpstream response = api.reposUpstreamSwiftPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Swift upstream config for this repository.
+     *
+     * Retrieve a Swift upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamSwiftReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        SwiftUpstream response = api.reposUpstreamSwiftRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Swift upstream config for this repository.
+     *
+     * Update a Swift upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamSwiftUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        SwiftUpstreamRequest data = null;
+        SwiftUpstream response = api.reposUpstreamSwiftUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

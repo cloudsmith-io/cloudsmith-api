@@ -1262,6 +1262,93 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_upstream_swift_create
+  # Create a Swift upstream config for this repository.
+  # Create a Swift upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SwiftUpstreamRequest] :data 
+  # @return [SwiftUpstream]
+  describe 'repos_upstream_swift_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_swift_delete
+  # Delete a Swift upstream config for this repository.
+  # Delete a Swift upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_swift_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_swift_list
+  # List Swift upstream configs for this repository.
+  # List Swift upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<SwiftUpstream>]
+  describe 'repos_upstream_swift_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_swift_partial_update
+  # Partially update a Swift upstream config for this repository.
+  # Partially update a Swift upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SwiftUpstreamRequestPatch] :data 
+  # @return [SwiftUpstream]
+  describe 'repos_upstream_swift_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_swift_read
+  # Retrieve a Swift upstream config for this repository.
+  # Retrieve a Swift upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [SwiftUpstream]
+  describe 'repos_upstream_swift_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_swift_update
+  # Update a Swift upstream config for this repository.
+  # Update a Swift upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SwiftUpstreamRequest] :data 
+  # @return [SwiftUpstream]
+  describe 'repos_upstream_swift_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_user_list
   # Get a list of all repositories associated with current user.
   # Get a list of all repositories associated with current user.
