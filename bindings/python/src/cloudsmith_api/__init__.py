@@ -244,6 +244,9 @@ from cloudsmith_api.models.storage_usage import StorageUsage
 from cloudsmith_api.models.storage_usage_raw import StorageUsageRaw
 from cloudsmith_api.models.swift_package_upload import SwiftPackageUpload
 from cloudsmith_api.models.swift_package_upload_request import SwiftPackageUploadRequest
+from cloudsmith_api.models.swift_upstream import SwiftUpstream
+from cloudsmith_api.models.swift_upstream_request import SwiftUpstreamRequest
+from cloudsmith_api.models.swift_upstream_request_patch import SwiftUpstreamRequestPatch
 from cloudsmith_api.models.tags import Tags
 from cloudsmith_api.models.terraform_package_upload import TerraformPackageUpload
 from cloudsmith_api.models.terraform_package_upload_request import TerraformPackageUploadRequest

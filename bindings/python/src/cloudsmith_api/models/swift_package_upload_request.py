@@ -36,6 +36,7 @@ class SwiftPackageUploadRequest(object):
         'author_name': 'str',
         'author_org': 'str',
         'license_url': 'str',
+        'name': 'str',
         'package_file': 'str',
         'readme_url': 'str',
         'repository_url': 'str',
@@ -49,6 +50,7 @@ class SwiftPackageUploadRequest(object):
         'author_name': 'author_name',
         'author_org': 'author_org',
         'license_url': 'license_url',
+        'name': 'name',
         'package_file': 'package_file',
         'readme_url': 'readme_url',
         'repository_url': 'repository_url',
@@ -58,7 +60,7 @@ class SwiftPackageUploadRequest(object):
         'version': 'version'
     }
 
-    def __init__(self, author_name=None, author_org=None, license_url=None, package_file=None, readme_url=None, repository_url=None, republish=None, scope=None, tags=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, author_name=None, author_org=None, license_url=None, name=None, package_file=None, readme_url=None, repository_url=None, republish=None, scope=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """SwiftPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class SwiftPackageUploadRequest(object):
         self._author_name = None
         self._author_org = None
         self._license_url = None
+        self._name = None
         self._package_file = None
         self._readme_url = None
         self._repository_url = None
@@ -82,6 +85,7 @@ class SwiftPackageUploadRequest(object):
             self.author_org = author_org
         if license_url is not None:
             self.license_url = license_url
+        self.name = name
         self.package_file = package_file
         if readme_url is not None:
             self.readme_url = readme_url
@@ -171,6 +175,34 @@ class SwiftPackageUploadRequest(object):
             raise ValueError("Invalid value for `license_url`, length must be less than or equal to `200`")  # noqa: E501
 
         self._license_url = license_url
+
+    @property
+    def name(self):
+        """Gets the name of this SwiftPackageUploadRequest.
+
+        The name of this package.
+
+        :return: The name of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this SwiftPackageUploadRequest.
+
+        The name of this package.
+
+        :param name: The name of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) > 200):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
+
+        self._name = name
 
     @property
     def package_file(self):

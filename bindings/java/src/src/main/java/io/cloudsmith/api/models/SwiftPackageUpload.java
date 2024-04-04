@@ -648,13 +648,23 @@ public class SwiftPackageUpload implements Serializable {
     this.licenseUrl = licenseUrl;
   }
 
+  public SwiftPackageUpload name(String name) {
+    this.name = name;
+    return this;
+  }
+
    /**
    * The name of this package.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of this package.")
+  @NotNull
+ @Size(max=200)  @ApiModelProperty(required = true, value = "The name of this package.")
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
    /**

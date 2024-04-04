@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **isSyncInProgress** | **Boolean** |  |  [optional]
 **license** | **String** | The license of this package. |  [optional]
 **licenseUrl** | **String** | The license URL of this package. |  [optional]
-**name** | **String** | The name of this package. |  [optional]
+**name** | **String** | The name of this package. | 
 **namespace** | **String** |  |  [optional]
 **namespaceUrl** | **String** |  |  [optional]
 **numFiles** | **java.math.BigInteger** |  |  [optional]

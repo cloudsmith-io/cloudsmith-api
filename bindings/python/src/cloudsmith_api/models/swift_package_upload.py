@@ -327,8 +327,7 @@ class SwiftPackageUpload(object):
             self.license = license
         if license_url is not None:
             self.license_url = license_url
-        if name is not None:
-            self.name = name
+        self.name = name
         if namespace is not None:
             self.namespace = namespace
         if namespace_url is not None:
@@ -1115,6 +1114,11 @@ class SwiftPackageUpload(object):
         :param name: The name of this SwiftPackageUpload.
         :type: str
         """
+        if self._configuration.client_side_validation and name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) > 200):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 

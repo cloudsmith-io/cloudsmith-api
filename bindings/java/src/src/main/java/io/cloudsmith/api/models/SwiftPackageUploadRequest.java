@@ -43,6 +43,9 @@ public class SwiftPackageUploadRequest implements Serializable {
   @SerializedName("license_url")
   private String licenseUrl = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -116,6 +119,25 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   public void setLicenseUrl(String licenseUrl) {
     this.licenseUrl = licenseUrl;
+  }
+
+  public SwiftPackageUploadRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name of this package.
+   * @return name
+  **/
+  @NotNull
+ @Size(max=200)  @ApiModelProperty(required = true, value = "The name of this package.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public SwiftPackageUploadRequest packageFile(String packageFile) {
@@ -260,6 +282,7 @@ public class SwiftPackageUploadRequest implements Serializable {
     return Objects.equals(this.authorName, swiftPackageUploadRequest.authorName) &&
         Objects.equals(this.authorOrg, swiftPackageUploadRequest.authorOrg) &&
         Objects.equals(this.licenseUrl, swiftPackageUploadRequest.licenseUrl) &&
+        Objects.equals(this.name, swiftPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, swiftPackageUploadRequest.packageFile) &&
         Objects.equals(this.readmeUrl, swiftPackageUploadRequest.readmeUrl) &&
         Objects.equals(this.repositoryUrl, swiftPackageUploadRequest.repositoryUrl) &&
@@ -271,7 +294,7 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorName, authorOrg, licenseUrl, packageFile, readmeUrl, repositoryUrl, republish, scope, tags, version);
+    return Objects.hash(authorName, authorOrg, licenseUrl, name, packageFile, readmeUrl, repositoryUrl, republish, scope, tags, version);
   }
 
 
@@ -283,6 +306,7 @@ public class SwiftPackageUploadRequest implements Serializable {
     sb.append("    authorName: ").append(toIndentedString(authorName)).append("\n");
     sb.append("    authorOrg: ").append(toIndentedString(authorOrg)).append("\n");
     sb.append("    licenseUrl: ").append(toIndentedString(licenseUrl)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    readmeUrl: ").append(toIndentedString(readmeUrl)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");

@@ -90,6 +90,12 @@ Method | HTTP request | Description
 [**reposUpstreamRubyPartialUpdate**](ReposApi.md#reposUpstreamRubyPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
 [**reposUpstreamRubyRead**](ReposApi.md#reposUpstreamRubyRead) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
 [**reposUpstreamRubyUpdate**](ReposApi.md#reposUpstreamRubyUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
+[**reposUpstreamSwiftCreate**](ReposApi.md#reposUpstreamSwiftCreate) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
+[**reposUpstreamSwiftDelete**](ReposApi.md#reposUpstreamSwiftDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
+[**reposUpstreamSwiftList**](ReposApi.md#reposUpstreamSwiftList) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
+[**reposUpstreamSwiftPartialUpdate**](ReposApi.md#reposUpstreamSwiftPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Partially update a Swift upstream config for this repository.
+[**reposUpstreamSwiftRead**](ReposApi.md#reposUpstreamSwiftRead) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
+[**reposUpstreamSwiftUpdate**](ReposApi.md#reposUpstreamSwiftUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
 [**reposUserList**](ReposApi.md#reposUserList) | **GET** /repos/ | Get a list of all repositories associated with current user.
 
 
@@ -5193,6 +5199,365 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RubyUpstream**](RubyUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamSwiftCreate"></a>
+# **reposUpstreamSwiftCreate**
+> SwiftUpstream reposUpstreamSwiftCreate(owner, identifier, data)
+
+Create a Swift upstream config for this repository.
+
+Create a Swift upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+SwiftUpstreamRequest data = new SwiftUpstreamRequest(); // SwiftUpstreamRequest | 
+try {
+    SwiftUpstream result = apiInstance.reposUpstreamSwiftCreate(owner, identifier, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamSwiftCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamSwiftDelete"></a>
+# **reposUpstreamSwiftDelete**
+> reposUpstreamSwiftDelete(owner, identifier, slugPerm)
+
+Delete a Swift upstream config for this repository.
+
+Delete a Swift upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    apiInstance.reposUpstreamSwiftDelete(owner, identifier, slugPerm);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamSwiftDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamSwiftList"></a>
+# **reposUpstreamSwiftList**
+> List&lt;SwiftUpstream&gt; reposUpstreamSwiftList(owner, identifier, page, pageSize)
+
+List Swift upstream configs for this repository.
+
+List Swift upstream configs for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<SwiftUpstream> result = apiInstance.reposUpstreamSwiftList(owner, identifier, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamSwiftList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;SwiftUpstream&gt;**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamSwiftPartialUpdate"></a>
+# **reposUpstreamSwiftPartialUpdate**
+> SwiftUpstream reposUpstreamSwiftPartialUpdate(owner, identifier, slugPerm, data)
+
+Partially update a Swift upstream config for this repository.
+
+Partially update a Swift upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+SwiftUpstreamRequestPatch data = new SwiftUpstreamRequestPatch(); // SwiftUpstreamRequestPatch | 
+try {
+    SwiftUpstream result = apiInstance.reposUpstreamSwiftPartialUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamSwiftPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**SwiftUpstreamRequestPatch**](SwiftUpstreamRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamSwiftRead"></a>
+# **reposUpstreamSwiftRead**
+> SwiftUpstream reposUpstreamSwiftRead(owner, identifier, slugPerm)
+
+Retrieve a Swift upstream config for this repository.
+
+Retrieve a Swift upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    SwiftUpstream result = apiInstance.reposUpstreamSwiftRead(owner, identifier, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamSwiftRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamSwiftUpdate"></a>
+# **reposUpstreamSwiftUpdate**
+> SwiftUpstream reposUpstreamSwiftUpdate(owner, identifier, slugPerm, data)
+
+Update a Swift upstream config for this repository.
+
+Update a Swift upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+SwiftUpstreamRequest data = new SwiftUpstreamRequest(); // SwiftUpstreamRequest | 
+try {
+    SwiftUpstream result = apiInstance.reposUpstreamSwiftUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamSwiftUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**SwiftUpstream**](SwiftUpstream.md)
 
 ### Authorization
 

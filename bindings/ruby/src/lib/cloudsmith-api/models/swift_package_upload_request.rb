@@ -23,6 +23,9 @@ class SwiftPackageUploadRequest
   # The license URL of this package.
   attr_accessor :license_url
 
+  # The name of this package.
+  attr_accessor :name
+
   # The primary file for the package.
   attr_accessor :package_file
 
@@ -50,6 +53,7 @@ class SwiftPackageUploadRequest
       :'author_name' => :'author_name',
       :'author_org' => :'author_org',
       :'license_url' => :'license_url',
+      :'name' => :'name',
       :'package_file' => :'package_file',
       :'readme_url' => :'readme_url',
       :'repository_url' => :'repository_url',
@@ -66,6 +70,7 @@ class SwiftPackageUploadRequest
       :'author_name' => :'String',
       :'author_org' => :'String',
       :'license_url' => :'String',
+      :'name' => :'String',
       :'package_file' => :'String',
       :'readme_url' => :'String',
       :'repository_url' => :'String',
@@ -94,6 +99,10 @@ class SwiftPackageUploadRequest
 
     if attributes.has_key?(:'license_url')
       self.license_url = attributes[:'license_url']
+    end
+
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
     end
 
     if attributes.has_key?(:'package_file')
@@ -129,6 +138,10 @@ class SwiftPackageUploadRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
+    if @name.nil?
+      invalid_properties.push('invalid value for "name", name cannot be nil.')
+    end
+
     if @package_file.nil?
       invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
@@ -147,6 +160,7 @@ class SwiftPackageUploadRequest
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    return false if @name.nil?
     return false if @package_file.nil?
     return false if @scope.nil?
     return false if @version.nil?
@@ -161,6 +175,7 @@ class SwiftPackageUploadRequest
         author_name == o.author_name &&
         author_org == o.author_org &&
         license_url == o.license_url &&
+        name == o.name &&
         package_file == o.package_file &&
         readme_url == o.readme_url &&
         repository_url == o.repository_url &&
@@ -179,7 +194,7 @@ class SwiftPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [author_name, author_org, license_url, package_file, readme_url, repository_url, republish, scope, tags, version].hash
+    [author_name, author_org, license_url, name, package_file, readme_url, repository_url, republish, scope, tags, version].hash
   end
 
     # Builds the object from hash
