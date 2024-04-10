@@ -262,9 +262,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Get the synchronisation status for a package.
+     * Get the synchronization status for a package.
      *
-     * Get the synchronisation status for a package.
+     * Get the synchronization status for a package.
      *
      * @throws Exception
      *          if the Api call fails

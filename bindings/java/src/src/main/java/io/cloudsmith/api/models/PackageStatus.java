@@ -35,11 +35,32 @@ import javax.validation.Valid;
 public class PackageStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("is_cancellable")
+  private Boolean isCancellable = null;
+
+  @SerializedName("is_copyable")
+  private Boolean isCopyable = null;
+
+  @SerializedName("is_deleteable")
+  private Boolean isDeleteable = null;
+
   @SerializedName("is_downloadable")
   private Boolean isDownloadable = null;
 
+  @SerializedName("is_moveable")
+  private Boolean isMoveable = null;
+
+  @SerializedName("is_quarantinable")
+  private Boolean isQuarantinable = null;
+
   @SerializedName("is_quarantined")
   private Boolean isQuarantined = null;
+
+  @SerializedName("is_resyncable")
+  private Boolean isResyncable = null;
+
+  @SerializedName("is_security_scannable")
+  private Boolean isSecurityScannable = null;
 
   @SerializedName("is_sync_awaiting")
   private Boolean isSyncAwaiting = null;
@@ -87,6 +108,33 @@ public class PackageStatus implements Serializable {
   private java.math.BigInteger syncProgress = null;
 
    /**
+   * Get isCancellable
+   * @return isCancellable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsCancellable() {
+    return isCancellable;
+  }
+
+   /**
+   * Get isCopyable
+   * @return isCopyable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsCopyable() {
+    return isCopyable;
+  }
+
+   /**
+   * Get isDeleteable
+   * @return isDeleteable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDeleteable() {
+    return isDeleteable;
+  }
+
+   /**
    * Get isDownloadable
    * @return isDownloadable
   **/
@@ -96,12 +144,48 @@ public class PackageStatus implements Serializable {
   }
 
    /**
+   * Get isMoveable
+   * @return isMoveable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsMoveable() {
+    return isMoveable;
+  }
+
+   /**
+   * Get isQuarantinable
+   * @return isQuarantinable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsQuarantinable() {
+    return isQuarantinable;
+  }
+
+   /**
    * Get isQuarantined
    * @return isQuarantined
   **/
   @ApiModelProperty(value = "")
   public Boolean isIsQuarantined() {
     return isQuarantined;
+  }
+
+   /**
+   * Get isResyncable
+   * @return isResyncable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsResyncable() {
+    return isResyncable;
+  }
+
+   /**
+   * Get isSecurityScannable
+   * @return isSecurityScannable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsSecurityScannable() {
+    return isSecurityScannable;
   }
 
    /**
@@ -252,8 +336,15 @@ public class PackageStatus implements Serializable {
       return false;
     }
     PackageStatus packageStatus = (PackageStatus) o;
-    return Objects.equals(this.isDownloadable, packageStatus.isDownloadable) &&
+    return Objects.equals(this.isCancellable, packageStatus.isCancellable) &&
+        Objects.equals(this.isCopyable, packageStatus.isCopyable) &&
+        Objects.equals(this.isDeleteable, packageStatus.isDeleteable) &&
+        Objects.equals(this.isDownloadable, packageStatus.isDownloadable) &&
+        Objects.equals(this.isMoveable, packageStatus.isMoveable) &&
+        Objects.equals(this.isQuarantinable, packageStatus.isQuarantinable) &&
         Objects.equals(this.isQuarantined, packageStatus.isQuarantined) &&
+        Objects.equals(this.isResyncable, packageStatus.isResyncable) &&
+        Objects.equals(this.isSecurityScannable, packageStatus.isSecurityScannable) &&
         Objects.equals(this.isSyncAwaiting, packageStatus.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, packageStatus.isSyncCompleted) &&
         Objects.equals(this.isSyncFailed, packageStatus.isSyncFailed) &&
@@ -273,7 +364,7 @@ public class PackageStatus implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, selfUrl, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, syncFinishedAt, syncProgress);
+    return Objects.hash(isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, selfUrl, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, syncFinishedAt, syncProgress);
   }
 
 
@@ -282,8 +373,15 @@ public class PackageStatus implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackageStatus {\n");
     
+    sb.append("    isCancellable: ").append(toIndentedString(isCancellable)).append("\n");
+    sb.append("    isCopyable: ").append(toIndentedString(isCopyable)).append("\n");
+    sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
+    sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
+    sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
+    sb.append("    isResyncable: ").append(toIndentedString(isResyncable)).append("\n");
+    sb.append("    isSecurityScannable: ").append(toIndentedString(isSecurityScannable)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
     sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");

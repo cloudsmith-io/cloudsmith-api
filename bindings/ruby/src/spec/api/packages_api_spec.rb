@@ -165,8 +165,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_status
-  # Get the synchronisation status for a package.
-  # Get the synchronisation status for a package.
+  # Get the synchronization status for a package.
+  # Get the synchronization status for a package.
   # @param owner 
   # @param repo 
   # @param identifier 

@@ -1557,8 +1557,8 @@ public class PackagesApi {
     }
 
     /**
-     * Get the synchronisation status for a package.
-     * Get the synchronisation status for a package.
+     * Get the synchronization status for a package.
+     * Get the synchronization status for a package.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
@@ -1571,8 +1571,8 @@ public class PackagesApi {
     }
 
     /**
-     * Get the synchronisation status for a package.
-     * Get the synchronisation status for a package.
+     * Get the synchronization status for a package.
+     * Get the synchronization status for a package.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
@@ -1586,8 +1586,8 @@ public class PackagesApi {
     }
 
     /**
-     * Get the synchronisation status for a package. (asynchronously)
-     * Get the synchronisation status for a package.
+     * Get the synchronization status for a package. (asynchronously)
+     * Get the synchronization status for a package.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)

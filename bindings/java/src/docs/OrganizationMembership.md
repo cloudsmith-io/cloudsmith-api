@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** |  |  [optional]
 **hasTwoFactor** | **Boolean** |  |  [optional]
-**isActive** | **String** |  |  [optional]
+**isActive** | **Boolean** |  |  [optional]
 **joinedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **lastLoginAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **lastLoginMethod** | [**LastLoginMethodEnum**](#LastLoginMethodEnum) |  |  [optional]

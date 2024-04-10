@@ -1702,6 +1702,364 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create the OpenID Connect provider settings for the org.
+    # Create the OpenID Connect provider settings for the org.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ProviderSettingsRequest] :data 
+    # @return [nil]
+    def orgs_openid_connect_create(org, opts = {})
+      orgs_openid_connect_create_with_http_info(org, opts)
+      nil
+    end
+
+    # Create the OpenID Connect provider settings for the org.
+    # Create the OpenID Connect provider settings for the org.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ProviderSettingsRequest] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_openid_connect_create_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_create ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_create"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a specific OpenID Connect provider setting for the org.
+    # Delete a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_openid_connect_delete(org, slug_perm, opts = {})
+      orgs_openid_connect_delete_with_http_info(org, slug_perm, opts)
+      nil
+    end
+
+    # Delete a specific OpenID Connect provider setting for the org.
+    # Delete a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_openid_connect_delete_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_openid_connect_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the list of OpenID Connect provider settings for the org.
+    # Retrieve the list of OpenID Connect provider settings for the org.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<ProviderSettings>]
+    def orgs_openid_connect_list(org, opts = {})
+      data, _status_code, _headers = orgs_openid_connect_list_with_http_info(org, opts)
+      data
+    end
+
+    # Retrieve the list of OpenID Connect provider settings for the org.
+    # Retrieve the list of OpenID Connect provider settings for the org.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<ProviderSettings>, Fixnum, Hash)>] Array<ProviderSettings> data, response status code and response headers
+    def orgs_openid_connect_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<ProviderSettings>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a specific OpenID Connect provider setting for the org.
+    # Update a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ProviderSettingsRequestPatch] :data 
+    # @return [ProviderSettings]
+    def orgs_openid_connect_partial_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_openid_connect_partial_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Update a specific OpenID Connect provider setting for the org.
+    # Update a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ProviderSettingsRequestPatch] :data 
+    # @return [Array<(ProviderSettings, Fixnum, Hash)>] ProviderSettings data, response status code and response headers
+    def orgs_openid_connect_partial_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_openid_connect_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ProviderSettings')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a specific OpenID Connect provider setting for the org.
+    # Retrieve a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [ProviderSettings]
+    def orgs_openid_connect_read(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_openid_connect_read_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a specific OpenID Connect provider setting for the org.
+    # Retrieve a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ProviderSettings, Fixnum, Hash)>] ProviderSettings data, response status code and response headers
+    def orgs_openid_connect_read_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_openid_connect_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ProviderSettings')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a specific OpenID Connect provider setting for the org.
+    # Update a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ProviderSettingsRequest] :data 
+    # @return [ProviderSettings]
+    def orgs_openid_connect_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_openid_connect_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Update a specific OpenID Connect provider setting for the org.
+    # Update a specific OpenID Connect provider setting for the org.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ProviderSettingsRequest] :data 
+    # @return [Array<(ProviderSettings, Fixnum, Hash)>] ProviderSettings data, response status code and response headers
+    def orgs_openid_connect_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_openid_connect_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ProviderSettings')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get the details for the specific organization.
     # Get the details for the specific organization.
     # @param org 

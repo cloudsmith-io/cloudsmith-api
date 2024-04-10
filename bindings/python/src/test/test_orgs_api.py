@@ -225,6 +225,48 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_openid_connect_create(self):
+        """Test case for orgs_openid_connect_create
+
+        Create the OpenID Connect provider settings for the org.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_openid_connect_delete(self):
+        """Test case for orgs_openid_connect_delete
+
+        Delete a specific OpenID Connect provider setting for the org.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_openid_connect_list(self):
+        """Test case for orgs_openid_connect_list
+
+        Retrieve the list of OpenID Connect provider settings for the org.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_openid_connect_partial_update(self):
+        """Test case for orgs_openid_connect_partial_update
+
+        Update a specific OpenID Connect provider setting for the org.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_openid_connect_read(self):
+        """Test case for orgs_openid_connect_read
+
+        Retrieve a specific OpenID Connect provider setting for the org.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_openid_connect_update(self):
+        """Test case for orgs_openid_connect_update
+
+        Update a specific OpenID Connect provider setting for the org.  # noqa: E501
+        """
+        pass
+
     def test_orgs_read(self):
         """Test case for orgs_read
 

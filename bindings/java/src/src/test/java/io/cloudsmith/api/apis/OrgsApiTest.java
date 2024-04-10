@@ -41,6 +41,9 @@ import io.cloudsmith.api.models.PackageLicensePolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
+import io.cloudsmith.api.models.ProviderSettings;
+import io.cloudsmith.api.models.ProviderSettingsRequest;
+import io.cloudsmith.api.models.ProviderSettingsRequestPatch;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
@@ -549,6 +552,111 @@ public class OrgsApiTest {
         String org = null;
         String member = null;
         api.orgsMembersRemove(org, member);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create the OpenID Connect provider settings for the org.
+     *
+     * Create the OpenID Connect provider settings for the org.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectCreateTest() throws Exception {
+        String org = null;
+        ProviderSettingsRequest data = null;
+        api.orgsOpenidConnectCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a specific OpenID Connect provider setting for the org.
+     *
+     * Delete a specific OpenID Connect provider setting for the org.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsOpenidConnectDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the list of OpenID Connect provider settings for the org.
+     *
+     * Retrieve the list of OpenID Connect provider settings for the org.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectListTest() throws Exception {
+        String org = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<ProviderSettings> response = api.orgsOpenidConnectList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a specific OpenID Connect provider setting for the org.
+     *
+     * Update a specific OpenID Connect provider setting for the org.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        ProviderSettingsRequestPatch data = null;
+        ProviderSettings response = api.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a specific OpenID Connect provider setting for the org.
+     *
+     * Retrieve a specific OpenID Connect provider setting for the org.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectReadTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        ProviderSettings response = api.orgsOpenidConnectRead(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a specific OpenID Connect provider setting for the org.
+     *
+     * Update a specific OpenID Connect provider setting for the org.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        ProviderSettingsRequest data = null;
+        ProviderSettings response = api.orgsOpenidConnectUpdate(org, slugPerm, data);
 
         // TODO: test validations
     }

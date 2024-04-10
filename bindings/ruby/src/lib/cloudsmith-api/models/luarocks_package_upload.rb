@@ -58,9 +58,23 @@ class LuarocksPackageUpload
 
   attr_accessor :indexed
 
+  attr_accessor :is_cancellable
+
+  attr_accessor :is_copyable
+
+  attr_accessor :is_deleteable
+
   attr_accessor :is_downloadable
 
+  attr_accessor :is_moveable
+
+  attr_accessor :is_quarantinable
+
   attr_accessor :is_quarantined
+
+  attr_accessor :is_resyncable
+
+  attr_accessor :is_security_scannable
 
   attr_accessor :is_sync_awaiting
 
@@ -218,8 +232,15 @@ class LuarocksPackageUpload
       :'format_url' => :'format_url',
       :'identifier_perm' => :'identifier_perm',
       :'indexed' => :'indexed',
+      :'is_cancellable' => :'is_cancellable',
+      :'is_copyable' => :'is_copyable',
+      :'is_deleteable' => :'is_deleteable',
       :'is_downloadable' => :'is_downloadable',
+      :'is_moveable' => :'is_moveable',
+      :'is_quarantinable' => :'is_quarantinable',
       :'is_quarantined' => :'is_quarantined',
+      :'is_resyncable' => :'is_resyncable',
+      :'is_security_scannable' => :'is_security_scannable',
       :'is_sync_awaiting' => :'is_sync_awaiting',
       :'is_sync_completed' => :'is_sync_completed',
       :'is_sync_failed' => :'is_sync_failed',
@@ -292,8 +313,15 @@ class LuarocksPackageUpload
       :'format_url' => :'String',
       :'identifier_perm' => :'String',
       :'indexed' => :'BOOLEAN',
+      :'is_cancellable' => :'BOOLEAN',
+      :'is_copyable' => :'BOOLEAN',
+      :'is_deleteable' => :'BOOLEAN',
       :'is_downloadable' => :'BOOLEAN',
+      :'is_moveable' => :'BOOLEAN',
+      :'is_quarantinable' => :'BOOLEAN',
       :'is_quarantined' => :'BOOLEAN',
+      :'is_resyncable' => :'BOOLEAN',
+      :'is_security_scannable' => :'BOOLEAN',
       :'is_sync_awaiting' => :'BOOLEAN',
       :'is_sync_completed' => :'BOOLEAN',
       :'is_sync_failed' => :'BOOLEAN',
@@ -435,12 +463,40 @@ class LuarocksPackageUpload
       self.indexed = attributes[:'indexed']
     end
 
+    if attributes.has_key?(:'is_cancellable')
+      self.is_cancellable = attributes[:'is_cancellable']
+    end
+
+    if attributes.has_key?(:'is_copyable')
+      self.is_copyable = attributes[:'is_copyable']
+    end
+
+    if attributes.has_key?(:'is_deleteable')
+      self.is_deleteable = attributes[:'is_deleteable']
+    end
+
     if attributes.has_key?(:'is_downloadable')
       self.is_downloadable = attributes[:'is_downloadable']
     end
 
+    if attributes.has_key?(:'is_moveable')
+      self.is_moveable = attributes[:'is_moveable']
+    end
+
+    if attributes.has_key?(:'is_quarantinable')
+      self.is_quarantinable = attributes[:'is_quarantinable']
+    end
+
     if attributes.has_key?(:'is_quarantined')
       self.is_quarantined = attributes[:'is_quarantined']
+    end
+
+    if attributes.has_key?(:'is_resyncable')
+      self.is_resyncable = attributes[:'is_resyncable']
+    end
+
+    if attributes.has_key?(:'is_security_scannable')
+      self.is_security_scannable = attributes[:'is_security_scannable']
     end
 
     if attributes.has_key?(:'is_sync_awaiting')
@@ -680,8 +736,15 @@ class LuarocksPackageUpload
         format_url == o.format_url &&
         identifier_perm == o.identifier_perm &&
         indexed == o.indexed &&
+        is_cancellable == o.is_cancellable &&
+        is_copyable == o.is_copyable &&
+        is_deleteable == o.is_deleteable &&
         is_downloadable == o.is_downloadable &&
+        is_moveable == o.is_moveable &&
+        is_quarantinable == o.is_quarantinable &&
         is_quarantined == o.is_quarantined &&
+        is_resyncable == o.is_resyncable &&
+        is_security_scannable == o.is_security_scannable &&
         is_sync_awaiting == o.is_sync_awaiting &&
         is_sync_completed == o.is_sync_completed &&
         is_sync_failed == o.is_sync_failed &&
@@ -739,7 +802,7 @@ class LuarocksPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_downloadable, is_quarantined, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

@@ -32,6 +32,12 @@ Method | HTTP request | Description
 [**orgs_members_read**](OrgsApi.md#orgs_members_read) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 [**orgs_members_refresh**](OrgsApi.md#orgs_members_refresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 [**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+[**orgs_openid_connect_create**](OrgsApi.md#orgs_openid_connect_create) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
+[**orgs_openid_connect_delete**](OrgsApi.md#orgs_openid_connect_delete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
+[**orgs_openid_connect_list**](OrgsApi.md#orgs_openid_connect_list) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
+[**orgs_openid_connect_partial_update**](OrgsApi.md#orgs_openid_connect_partial_update) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
+[**orgs_openid_connect_read**](OrgsApi.md#orgs_openid_connect_read) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
+[**orgs_openid_connect_update**](OrgsApi.md#orgs_openid_connect_update) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgs_read**](OrgsApi.md#orgs_read) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 [**orgs_saml_group_sync_create**](OrgsApi.md#orgs_saml_group_sync_create) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgs_saml_group_sync_delete**](OrgsApi.md#orgs_saml_group_sync_delete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
@@ -1693,6 +1699,358 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_create**
+> orgs_openid_connect_create(org, opts)
+
+Create the OpenID Connect provider settings for the org.
+
+Create the OpenID Connect provider settings for the org.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ProviderSettingsRequest.new # ProviderSettingsRequest | 
+}
+
+begin
+  #Create the OpenID Connect provider settings for the org.
+  api_instance.orgs_openid_connect_create(org, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_delete**
+> orgs_openid_connect_delete(org, slug_perm)
+
+Delete a specific OpenID Connect provider setting for the org.
+
+Delete a specific OpenID Connect provider setting for the org.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete a specific OpenID Connect provider setting for the org.
+  api_instance.orgs_openid_connect_delete(org, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_list**
+> Array&lt;ProviderSettings&gt; orgs_openid_connect_list(org, opts)
+
+Retrieve the list of OpenID Connect provider settings for the org.
+
+Retrieve the list of OpenID Connect provider settings for the org.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #Retrieve the list of OpenID Connect provider settings for the org.
+  result = api_instance.orgs_openid_connect_list(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;ProviderSettings&gt;**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_partial_update**
+> ProviderSettings orgs_openid_connect_partial_update(org, slug_perm, opts)
+
+Update a specific OpenID Connect provider setting for the org.
+
+Update a specific OpenID Connect provider setting for the org.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ProviderSettingsRequestPatch.new # ProviderSettingsRequestPatch | 
+}
+
+begin
+  #Update a specific OpenID Connect provider setting for the org.
+  result = api_instance.orgs_openid_connect_partial_update(org, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**ProviderSettingsRequestPatch**](ProviderSettingsRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_read**
+> ProviderSettings orgs_openid_connect_read(org, slug_perm)
+
+Retrieve a specific OpenID Connect provider setting for the org.
+
+Retrieve a specific OpenID Connect provider setting for the org.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve a specific OpenID Connect provider setting for the org.
+  result = api_instance.orgs_openid_connect_read(org, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_update**
+> ProviderSettings orgs_openid_connect_update(org, slug_perm, opts)
+
+Update a specific OpenID Connect provider setting for the org.
+
+Update a specific OpenID Connect provider setting for the org.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ProviderSettingsRequest.new # ProviderSettingsRequest | 
+}
+
+begin
+  #Update a specific OpenID Connect provider setting for the org.
+  result = api_instance.orgs_openid_connect_update(org, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional] 
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
 
 ### Authorization
 

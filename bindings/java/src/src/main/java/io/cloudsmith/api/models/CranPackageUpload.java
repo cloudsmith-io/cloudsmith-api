@@ -102,11 +102,32 @@ public class CranPackageUpload implements Serializable {
   @SerializedName("indexed")
   private Boolean indexed = null;
 
+  @SerializedName("is_cancellable")
+  private Boolean isCancellable = null;
+
+  @SerializedName("is_copyable")
+  private Boolean isCopyable = null;
+
+  @SerializedName("is_deleteable")
+  private Boolean isDeleteable = null;
+
   @SerializedName("is_downloadable")
   private Boolean isDownloadable = null;
 
+  @SerializedName("is_moveable")
+  private Boolean isMoveable = null;
+
+  @SerializedName("is_quarantinable")
+  private Boolean isQuarantinable = null;
+
   @SerializedName("is_quarantined")
   private Boolean isQuarantined = null;
+
+  @SerializedName("is_resyncable")
+  private Boolean isResyncable = null;
+
+  @SerializedName("is_security_scannable")
+  private Boolean isSecurityScannable = null;
 
   @SerializedName("is_sync_awaiting")
   private Boolean isSyncAwaiting = null;
@@ -511,6 +532,33 @@ public class CranPackageUpload implements Serializable {
   }
 
    /**
+   * Get isCancellable
+   * @return isCancellable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsCancellable() {
+    return isCancellable;
+  }
+
+   /**
+   * Get isCopyable
+   * @return isCopyable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsCopyable() {
+    return isCopyable;
+  }
+
+   /**
+   * Get isDeleteable
+   * @return isDeleteable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDeleteable() {
+    return isDeleteable;
+  }
+
+   /**
    * Get isDownloadable
    * @return isDownloadable
   **/
@@ -520,12 +568,48 @@ public class CranPackageUpload implements Serializable {
   }
 
    /**
+   * Get isMoveable
+   * @return isMoveable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsMoveable() {
+    return isMoveable;
+  }
+
+   /**
+   * Get isQuarantinable
+   * @return isQuarantinable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsQuarantinable() {
+    return isQuarantinable;
+  }
+
+   /**
    * Get isQuarantined
    * @return isQuarantined
   **/
   @ApiModelProperty(value = "")
   public Boolean isIsQuarantined() {
     return isQuarantined;
+  }
+
+   /**
+   * Get isResyncable
+   * @return isResyncable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsResyncable() {
+    return isResyncable;
+  }
+
+   /**
+   * Get isSecurityScannable
+   * @return isSecurityScannable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsSecurityScannable() {
+    return isSecurityScannable;
   }
 
    /**
@@ -1007,8 +1091,15 @@ public class CranPackageUpload implements Serializable {
         Objects.equals(this.formatUrl, cranPackageUpload.formatUrl) &&
         Objects.equals(this.identifierPerm, cranPackageUpload.identifierPerm) &&
         Objects.equals(this.indexed, cranPackageUpload.indexed) &&
+        Objects.equals(this.isCancellable, cranPackageUpload.isCancellable) &&
+        Objects.equals(this.isCopyable, cranPackageUpload.isCopyable) &&
+        Objects.equals(this.isDeleteable, cranPackageUpload.isDeleteable) &&
         Objects.equals(this.isDownloadable, cranPackageUpload.isDownloadable) &&
+        Objects.equals(this.isMoveable, cranPackageUpload.isMoveable) &&
+        Objects.equals(this.isQuarantinable, cranPackageUpload.isQuarantinable) &&
         Objects.equals(this.isQuarantined, cranPackageUpload.isQuarantined) &&
+        Objects.equals(this.isResyncable, cranPackageUpload.isResyncable) &&
+        Objects.equals(this.isSecurityScannable, cranPackageUpload.isSecurityScannable) &&
         Objects.equals(this.isSyncAwaiting, cranPackageUpload.isSyncAwaiting) &&
         Objects.equals(this.isSyncCompleted, cranPackageUpload.isSyncCompleted) &&
         Objects.equals(this.isSyncFailed, cranPackageUpload.isSyncFailed) &&
@@ -1060,7 +1151,7 @@ public class CranPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isDownloadable, isQuarantined, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, rVersion, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, rVersion, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1089,8 +1180,15 @@ public class CranPackageUpload implements Serializable {
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
     sb.append("    identifierPerm: ").append(toIndentedString(identifierPerm)).append("\n");
     sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
+    sb.append("    isCancellable: ").append(toIndentedString(isCancellable)).append("\n");
+    sb.append("    isCopyable: ").append(toIndentedString(isCopyable)).append("\n");
+    sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
+    sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
+    sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
+    sb.append("    isResyncable: ").append(toIndentedString(isResyncable)).append("\n");
+    sb.append("    isSecurityScannable: ").append(toIndentedString(isSecurityScannable)).append("\n");
     sb.append("    isSyncAwaiting: ").append(toIndentedString(isSyncAwaiting)).append("\n");
     sb.append("    isSyncCompleted: ").append(toIndentedString(isSyncCompleted)).append("\n");
     sb.append("    isSyncFailed: ").append(toIndentedString(isSyncFailed)).append("\n");

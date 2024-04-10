@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.12</version>
+  <version>2.0.13</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.12"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.13"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.12.jar`
+* `target/cloudsmith-api-2.0.13.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -169,6 +169,12 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 *OrgsApi* | [**orgsMembersRefresh**](docs/OrgsApi.md#orgsMembersRefresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 *OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+*OrgsApi* | [**orgsOpenidConnectCreate**](docs/OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
+*OrgsApi* | [**orgsOpenidConnectDelete**](docs/OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
+*OrgsApi* | [**orgsOpenidConnectList**](docs/OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
+*OrgsApi* | [**orgsOpenidConnectPartialUpdate**](docs/OrgsApi.md#orgsOpenidConnectPartialUpdate) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
+*OrgsApi* | [**orgsOpenidConnectRead**](docs/OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
+*OrgsApi* | [**orgsOpenidConnectUpdate**](docs/OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
@@ -206,7 +212,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 *PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 *PackagesApi* | [**packagesScan**](docs/PackagesApi.md#packagesScan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
-*PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+*PackagesApi* | [**packagesStatus**](docs/PackagesApi.md#packagesStatus) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronization status for a package.
 *PackagesApi* | [**packagesTag**](docs/PackagesApi.md#packagesTag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 *PackagesApi* | [**packagesUploadAlpine**](docs/PackagesApi.md#packagesUploadAlpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 *PackagesApi* | [**packagesUploadCargo**](docs/PackagesApi.md#packagesUploadCargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
@@ -512,6 +518,9 @@ Class | Method | HTTP request | Description
  - [PackageVulnerabilityPolicyEvaluationRequestRequest](docs/PackageVulnerabilityPolicyEvaluationRequestRequest.md)
  - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
  - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
+ - [ProviderSettings](docs/ProviderSettings.md)
+ - [ProviderSettingsRequest](docs/ProviderSettingsRequest.md)
+ - [ProviderSettingsRequestPatch](docs/ProviderSettingsRequestPatch.md)
  - [PythonPackageUpload](docs/PythonPackageUpload.md)
  - [PythonPackageUploadRequest](docs/PythonPackageUploadRequest.md)
  - [PythonUpstream](docs/PythonUpstream.md)

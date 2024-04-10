@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**packages_read**](PackagesApi.md#packages_read) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 [**packages_resync**](PackagesApi.md#packages_resync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 [**packages_scan**](PackagesApi.md#packages_scan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
-[**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronisation status for a package.
+[**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronization status for a package.
 [**packages_tag**](PackagesApi.md#packages_tag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packages_upload_cargo**](PackagesApi.md#packages_upload_cargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
@@ -628,9 +628,9 @@ Name | Type | Description  | Notes
 # **packages_status**
 > PackageStatus packages_status(owner, repo, identifier)
 
-Get the synchronisation status for a package.
+Get the synchronization status for a package.
 
-Get the synchronisation status for a package.
+Get the synchronization status for a package.
 
 ### Example
 ```ruby
@@ -654,7 +654,7 @@ identifier = 'identifier_example' # String |
 
 
 begin
-  #Get the synchronisation status for a package.
+  #Get the synchronization status for a package.
   result = api_instance.packages_status(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e

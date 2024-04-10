@@ -3,8 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**is_cancellable** | **bool** |  | [optional] 
+**is_copyable** | **bool** |  | [optional] 
+**is_deleteable** | **bool** |  | [optional] 
 **is_downloadable** | **bool** |  | [optional] 
+**is_moveable** | **bool** |  | [optional] 
+**is_quarantinable** | **bool** |  | [optional] 
 **is_quarantined** | **bool** |  | [optional] 
+**is_resyncable** | **bool** |  | [optional] 
+**is_security_scannable** | **bool** |  | [optional] 
 **is_sync_awaiting** | **bool** |  | [optional] 
 **is_sync_completed** | **bool** |  | [optional] 
 **is_sync_failed** | **bool** |  | [optional] 

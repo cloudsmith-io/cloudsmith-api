@@ -1089,9 +1089,9 @@ class PackagesApi(object):
             collection_formats=collection_formats)
 
     def packages_status(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get the synchronisation status for a package.  # noqa: E501
+        """Get the synchronization status for a package.  # noqa: E501
 
-        Get the synchronisation status for a package.  # noqa: E501
+        Get the synchronization status for a package.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_status(owner, repo, identifier, async_req=True)
@@ -1113,9 +1113,9 @@ class PackagesApi(object):
             return data
 
     def packages_status_with_http_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Get the synchronisation status for a package.  # noqa: E501
+        """Get the synchronization status for a package.  # noqa: E501
 
-        Get the synchronisation status for a package.  # noqa: E501
+        Get the synchronization status for a package.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_status_with_http_info(owner, repo, identifier, async_req=True)

@@ -2,6 +2,10 @@
 
 Please refer to Cloudsmith's standard guide on [Open-Source Contributing](https://help.cloudsmith.io/docs/contributing).
 
+## Publishing new bindings
+
+* Update `package_version` in `scripts/common.sh`
+
 ## Contributor License Agreement
 
 By making any contributions to Cloudsmith Ltd projects you agree to be bound by the terms of the Cloudsmith Ltd [Contributor License Agreement](https://help.cloudsmith.io/docs/contributor-license-agreement).
