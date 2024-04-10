@@ -35,7 +35,7 @@ class OrganizationMembership(object):
     swagger_types = {
         'email': 'str',
         'has_two_factor': 'bool',
-        'is_active': 'str',
+        'is_active': 'bool',
         'joined_at': 'datetime',
         'last_login_at': 'datetime',
         'last_login_method': 'str',
@@ -158,7 +158,7 @@ class OrganizationMembership(object):
 
 
         :return: The is_active of this OrganizationMembership.
-        :rtype: str
+        :rtype: bool
         """
         return self._is_active
 
@@ -168,7 +168,7 @@ class OrganizationMembership(object):
 
 
         :param is_active: The is_active of this OrganizationMembership.
-        :type: str
+        :type: bool
         """
 
         self._is_active = is_active

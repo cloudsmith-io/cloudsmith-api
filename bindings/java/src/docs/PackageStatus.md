@@ -4,8 +4,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**isCancellable** | **Boolean** |  |  [optional]
+**isCopyable** | **Boolean** |  |  [optional]
+**isDeleteable** | **Boolean** |  |  [optional]
 **isDownloadable** | **Boolean** |  |  [optional]
+**isMoveable** | **Boolean** |  |  [optional]
+**isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
+**isResyncable** | **Boolean** |  |  [optional]
+**isSecurityScannable** | **Boolean** |  |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]
 **isSyncFailed** | **Boolean** |  |  [optional]

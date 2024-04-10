@@ -411,6 +411,87 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_openid_connect_create
+  # Create the OpenID Connect provider settings for the org.
+  # Create the OpenID Connect provider settings for the org.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ProviderSettingsRequest] :data 
+  # @return [nil]
+  describe 'orgs_openid_connect_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_openid_connect_delete
+  # Delete a specific OpenID Connect provider setting for the org.
+  # Delete a specific OpenID Connect provider setting for the org.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'orgs_openid_connect_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_openid_connect_list
+  # Retrieve the list of OpenID Connect provider settings for the org.
+  # Retrieve the list of OpenID Connect provider settings for the org.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<ProviderSettings>]
+  describe 'orgs_openid_connect_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_openid_connect_partial_update
+  # Update a specific OpenID Connect provider setting for the org.
+  # Update a specific OpenID Connect provider setting for the org.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ProviderSettingsRequestPatch] :data 
+  # @return [ProviderSettings]
+  describe 'orgs_openid_connect_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_openid_connect_read
+  # Retrieve a specific OpenID Connect provider setting for the org.
+  # Retrieve a specific OpenID Connect provider setting for the org.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [ProviderSettings]
+  describe 'orgs_openid_connect_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_openid_connect_update
+  # Update a specific OpenID Connect provider setting for the org.
+  # Update a specific OpenID Connect provider setting for the org.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ProviderSettingsRequest] :data 
+  # @return [ProviderSettings]
+  describe 'orgs_openid_connect_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_read
   # Get the details for the specific organization.
   # Get the details for the specific organization.

@@ -83,7 +83,7 @@ class OrganizationMembership
     {
       :'email' => :'String',
       :'has_two_factor' => :'BOOLEAN',
-      :'is_active' => :'String',
+      :'is_active' => :'BOOLEAN',
       :'joined_at' => :'DateTime',
       :'last_login_at' => :'DateTime',
       :'last_login_method' => :'String',

@@ -42,7 +42,7 @@ public class OrganizationMembership implements Serializable {
   private Boolean hasTwoFactor = null;
 
   @SerializedName("is_active")
-  private String isActive = null;
+  private Boolean isActive = null;
 
   @SerializedName("joined_at")
   private OffsetDateTime joinedAt = null;
@@ -243,7 +243,7 @@ public class OrganizationMembership implements Serializable {
    * @return isActive
   **/
   @ApiModelProperty(value = "")
-  public String getIsActive() {
+  public Boolean isIsActive() {
     return isActive;
   }
 

@@ -33,8 +33,15 @@ class PackageStatus(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'is_cancellable': 'bool',
+        'is_copyable': 'bool',
+        'is_deleteable': 'bool',
         'is_downloadable': 'bool',
+        'is_moveable': 'bool',
+        'is_quarantinable': 'bool',
         'is_quarantined': 'bool',
+        'is_resyncable': 'bool',
+        'is_security_scannable': 'bool',
         'is_sync_awaiting': 'bool',
         'is_sync_completed': 'bool',
         'is_sync_failed': 'bool',
@@ -53,8 +60,15 @@ class PackageStatus(object):
     }
 
     attribute_map = {
+        'is_cancellable': 'is_cancellable',
+        'is_copyable': 'is_copyable',
+        'is_deleteable': 'is_deleteable',
         'is_downloadable': 'is_downloadable',
+        'is_moveable': 'is_moveable',
+        'is_quarantinable': 'is_quarantinable',
         'is_quarantined': 'is_quarantined',
+        'is_resyncable': 'is_resyncable',
+        'is_security_scannable': 'is_security_scannable',
         'is_sync_awaiting': 'is_sync_awaiting',
         'is_sync_completed': 'is_sync_completed',
         'is_sync_failed': 'is_sync_failed',
@@ -72,14 +86,21 @@ class PackageStatus(object):
         'sync_progress': 'sync_progress'
     }
 
-    def __init__(self, is_downloadable=None, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, self_url=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, sync_finished_at=None, sync_progress=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, self_url=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, sync_finished_at=None, sync_progress=None, _configuration=None):  # noqa: E501
         """PackageStatus - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._is_cancellable = None
+        self._is_copyable = None
+        self._is_deleteable = None
         self._is_downloadable = None
+        self._is_moveable = None
+        self._is_quarantinable = None
         self._is_quarantined = None
+        self._is_resyncable = None
+        self._is_security_scannable = None
         self._is_sync_awaiting = None
         self._is_sync_completed = None
         self._is_sync_failed = None
@@ -97,10 +118,24 @@ class PackageStatus(object):
         self._sync_progress = None
         self.discriminator = None
 
+        if is_cancellable is not None:
+            self.is_cancellable = is_cancellable
+        if is_copyable is not None:
+            self.is_copyable = is_copyable
+        if is_deleteable is not None:
+            self.is_deleteable = is_deleteable
         if is_downloadable is not None:
             self.is_downloadable = is_downloadable
+        if is_moveable is not None:
+            self.is_moveable = is_moveable
+        if is_quarantinable is not None:
+            self.is_quarantinable = is_quarantinable
         if is_quarantined is not None:
             self.is_quarantined = is_quarantined
+        if is_resyncable is not None:
+            self.is_resyncable = is_resyncable
+        if is_security_scannable is not None:
+            self.is_security_scannable = is_security_scannable
         if is_sync_awaiting is not None:
             self.is_sync_awaiting = is_sync_awaiting
         if is_sync_completed is not None:
@@ -133,6 +168,69 @@ class PackageStatus(object):
             self.sync_progress = sync_progress
 
     @property
+    def is_cancellable(self):
+        """Gets the is_cancellable of this PackageStatus.
+
+
+        :return: The is_cancellable of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_cancellable
+
+    @is_cancellable.setter
+    def is_cancellable(self, is_cancellable):
+        """Sets the is_cancellable of this PackageStatus.
+
+
+        :param is_cancellable: The is_cancellable of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_cancellable = is_cancellable
+
+    @property
+    def is_copyable(self):
+        """Gets the is_copyable of this PackageStatus.
+
+
+        :return: The is_copyable of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_copyable
+
+    @is_copyable.setter
+    def is_copyable(self, is_copyable):
+        """Sets the is_copyable of this PackageStatus.
+
+
+        :param is_copyable: The is_copyable of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_copyable = is_copyable
+
+    @property
+    def is_deleteable(self):
+        """Gets the is_deleteable of this PackageStatus.
+
+
+        :return: The is_deleteable of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_deleteable
+
+    @is_deleteable.setter
+    def is_deleteable(self, is_deleteable):
+        """Sets the is_deleteable of this PackageStatus.
+
+
+        :param is_deleteable: The is_deleteable of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_deleteable = is_deleteable
+
+    @property
     def is_downloadable(self):
         """Gets the is_downloadable of this PackageStatus.
 
@@ -154,6 +252,48 @@ class PackageStatus(object):
         self._is_downloadable = is_downloadable
 
     @property
+    def is_moveable(self):
+        """Gets the is_moveable of this PackageStatus.
+
+
+        :return: The is_moveable of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_moveable
+
+    @is_moveable.setter
+    def is_moveable(self, is_moveable):
+        """Sets the is_moveable of this PackageStatus.
+
+
+        :param is_moveable: The is_moveable of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_moveable = is_moveable
+
+    @property
+    def is_quarantinable(self):
+        """Gets the is_quarantinable of this PackageStatus.
+
+
+        :return: The is_quarantinable of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_quarantinable
+
+    @is_quarantinable.setter
+    def is_quarantinable(self, is_quarantinable):
+        """Sets the is_quarantinable of this PackageStatus.
+
+
+        :param is_quarantinable: The is_quarantinable of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_quarantinable = is_quarantinable
+
+    @property
     def is_quarantined(self):
         """Gets the is_quarantined of this PackageStatus.
 
@@ -173,6 +313,48 @@ class PackageStatus(object):
         """
 
         self._is_quarantined = is_quarantined
+
+    @property
+    def is_resyncable(self):
+        """Gets the is_resyncable of this PackageStatus.
+
+
+        :return: The is_resyncable of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_resyncable
+
+    @is_resyncable.setter
+    def is_resyncable(self, is_resyncable):
+        """Sets the is_resyncable of this PackageStatus.
+
+
+        :param is_resyncable: The is_resyncable of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_resyncable = is_resyncable
+
+    @property
+    def is_security_scannable(self):
+        """Gets the is_security_scannable of this PackageStatus.
+
+
+        :return: The is_security_scannable of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_security_scannable
+
+    @is_security_scannable.setter
+    def is_security_scannable(self, is_security_scannable):
+        """Sets the is_security_scannable of this PackageStatus.
+
+
+        :param is_security_scannable: The is_security_scannable of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_security_scannable = is_security_scannable
 
     @property
     def is_sync_awaiting(self):

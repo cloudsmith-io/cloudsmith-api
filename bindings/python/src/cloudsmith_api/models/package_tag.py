@@ -53,9 +53,16 @@ class PackageTag(object):
         'format_url': 'str',
         'identifier_perm': 'str',
         'indexed': 'bool',
+        'is_cancellable': 'bool',
+        'is_copyable': 'bool',
+        'is_deleteable': 'bool',
         'is_downloadable': 'bool',
         'is_immutable': 'bool',
+        'is_moveable': 'bool',
+        'is_quarantinable': 'bool',
         'is_quarantined': 'bool',
+        'is_resyncable': 'bool',
+        'is_security_scannable': 'bool',
         'is_sync_awaiting': 'bool',
         'is_sync_completed': 'bool',
         'is_sync_failed': 'bool',
@@ -125,9 +132,16 @@ class PackageTag(object):
         'format_url': 'format_url',
         'identifier_perm': 'identifier_perm',
         'indexed': 'indexed',
+        'is_cancellable': 'is_cancellable',
+        'is_copyable': 'is_copyable',
+        'is_deleteable': 'is_deleteable',
         'is_downloadable': 'is_downloadable',
         'is_immutable': 'is_immutable',
+        'is_moveable': 'is_moveable',
+        'is_quarantinable': 'is_quarantinable',
         'is_quarantined': 'is_quarantined',
+        'is_resyncable': 'is_resyncable',
+        'is_security_scannable': 'is_security_scannable',
         'is_sync_awaiting': 'is_sync_awaiting',
         'is_sync_completed': 'is_sync_completed',
         'is_sync_failed': 'is_sync_failed',
@@ -176,7 +190,7 @@ class PackageTag(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_downloadable=None, is_immutable=False, is_quarantined=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_immutable=False, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """PackageTag - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -202,9 +216,16 @@ class PackageTag(object):
         self._format_url = None
         self._identifier_perm = None
         self._indexed = None
+        self._is_cancellable = None
+        self._is_copyable = None
+        self._is_deleteable = None
         self._is_downloadable = None
         self._is_immutable = None
+        self._is_moveable = None
+        self._is_quarantinable = None
         self._is_quarantined = None
+        self._is_resyncable = None
+        self._is_security_scannable = None
         self._is_sync_awaiting = None
         self._is_sync_completed = None
         self._is_sync_failed = None
@@ -293,12 +314,26 @@ class PackageTag(object):
             self.identifier_perm = identifier_perm
         if indexed is not None:
             self.indexed = indexed
+        if is_cancellable is not None:
+            self.is_cancellable = is_cancellable
+        if is_copyable is not None:
+            self.is_copyable = is_copyable
+        if is_deleteable is not None:
+            self.is_deleteable = is_deleteable
         if is_downloadable is not None:
             self.is_downloadable = is_downloadable
         if is_immutable is not None:
             self.is_immutable = is_immutable
+        if is_moveable is not None:
+            self.is_moveable = is_moveable
+        if is_quarantinable is not None:
+            self.is_quarantinable = is_quarantinable
         if is_quarantined is not None:
             self.is_quarantined = is_quarantined
+        if is_resyncable is not None:
+            self.is_resyncable = is_resyncable
+        if is_security_scannable is not None:
+            self.is_security_scannable = is_security_scannable
         if is_sync_awaiting is not None:
             self.is_sync_awaiting = is_sync_awaiting
         if is_sync_completed is not None:
@@ -830,6 +865,69 @@ class PackageTag(object):
         self._indexed = indexed
 
     @property
+    def is_cancellable(self):
+        """Gets the is_cancellable of this PackageTag.
+
+
+        :return: The is_cancellable of this PackageTag.
+        :rtype: bool
+        """
+        return self._is_cancellable
+
+    @is_cancellable.setter
+    def is_cancellable(self, is_cancellable):
+        """Sets the is_cancellable of this PackageTag.
+
+
+        :param is_cancellable: The is_cancellable of this PackageTag.
+        :type: bool
+        """
+
+        self._is_cancellable = is_cancellable
+
+    @property
+    def is_copyable(self):
+        """Gets the is_copyable of this PackageTag.
+
+
+        :return: The is_copyable of this PackageTag.
+        :rtype: bool
+        """
+        return self._is_copyable
+
+    @is_copyable.setter
+    def is_copyable(self, is_copyable):
+        """Sets the is_copyable of this PackageTag.
+
+
+        :param is_copyable: The is_copyable of this PackageTag.
+        :type: bool
+        """
+
+        self._is_copyable = is_copyable
+
+    @property
+    def is_deleteable(self):
+        """Gets the is_deleteable of this PackageTag.
+
+
+        :return: The is_deleteable of this PackageTag.
+        :rtype: bool
+        """
+        return self._is_deleteable
+
+    @is_deleteable.setter
+    def is_deleteable(self, is_deleteable):
+        """Sets the is_deleteable of this PackageTag.
+
+
+        :param is_deleteable: The is_deleteable of this PackageTag.
+        :type: bool
+        """
+
+        self._is_deleteable = is_deleteable
+
+    @property
     def is_downloadable(self):
         """Gets the is_downloadable of this PackageTag.
 
@@ -874,6 +972,48 @@ class PackageTag(object):
         self._is_immutable = is_immutable
 
     @property
+    def is_moveable(self):
+        """Gets the is_moveable of this PackageTag.
+
+
+        :return: The is_moveable of this PackageTag.
+        :rtype: bool
+        """
+        return self._is_moveable
+
+    @is_moveable.setter
+    def is_moveable(self, is_moveable):
+        """Sets the is_moveable of this PackageTag.
+
+
+        :param is_moveable: The is_moveable of this PackageTag.
+        :type: bool
+        """
+
+        self._is_moveable = is_moveable
+
+    @property
+    def is_quarantinable(self):
+        """Gets the is_quarantinable of this PackageTag.
+
+
+        :return: The is_quarantinable of this PackageTag.
+        :rtype: bool
+        """
+        return self._is_quarantinable
+
+    @is_quarantinable.setter
+    def is_quarantinable(self, is_quarantinable):
+        """Sets the is_quarantinable of this PackageTag.
+
+
+        :param is_quarantinable: The is_quarantinable of this PackageTag.
+        :type: bool
+        """
+
+        self._is_quarantinable = is_quarantinable
+
+    @property
     def is_quarantined(self):
         """Gets the is_quarantined of this PackageTag.
 
@@ -893,6 +1033,48 @@ class PackageTag(object):
         """
 
         self._is_quarantined = is_quarantined
+
+    @property
+    def is_resyncable(self):
+        """Gets the is_resyncable of this PackageTag.
+
+
+        :return: The is_resyncable of this PackageTag.
+        :rtype: bool
+        """
+        return self._is_resyncable
+
+    @is_resyncable.setter
+    def is_resyncable(self, is_resyncable):
+        """Sets the is_resyncable of this PackageTag.
+
+
+        :param is_resyncable: The is_resyncable of this PackageTag.
+        :type: bool
+        """
+
+        self._is_resyncable = is_resyncable
+
+    @property
+    def is_security_scannable(self):
+        """Gets the is_security_scannable of this PackageTag.
+
+
+        :return: The is_security_scannable of this PackageTag.
+        :rtype: bool
+        """
+        return self._is_security_scannable
+
+    @is_security_scannable.setter
+    def is_security_scannable(self, is_security_scannable):
+        """Sets the is_security_scannable of this PackageTag.
+
+
+        :param is_security_scannable: The is_security_scannable of this PackageTag.
+        :type: bool
+        """
+
+        self._is_security_scannable = is_security_scannable
 
     @property
     def is_sync_awaiting(self):

@@ -95,7 +95,7 @@ class TestPackagesApi(unittest.TestCase):
     def test_packages_status(self):
         """Test case for packages_status
 
-        Get the synchronisation status for a package.  # noqa: E501
+        Get the synchronization status for a package.  # noqa: E501
         """
         pass
 

@@ -32,6 +32,12 @@ Method | HTTP request | Description
 [**orgsMembersRead**](OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 [**orgsMembersRefresh**](OrgsApi.md#orgsMembersRefresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 [**orgsMembersRemove**](OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+[**orgsOpenidConnectCreate**](OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
+[**orgsOpenidConnectDelete**](OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
+[**orgsOpenidConnectList**](OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
+[**orgsOpenidConnectPartialUpdate**](OrgsApi.md#orgsOpenidConnectPartialUpdate) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
+[**orgsOpenidConnectRead**](OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
+[**orgsOpenidConnectUpdate**](OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgsRead**](OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 [**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgsSamlGroupSyncDelete**](OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
@@ -1672,6 +1678,352 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectCreate"></a>
+# **orgsOpenidConnectCreate**
+> orgsOpenidConnectCreate(org, data)
+
+Create the OpenID Connect provider settings for the org.
+
+Create the OpenID Connect provider settings for the org.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+ProviderSettingsRequest data = new ProviderSettingsRequest(); // ProviderSettingsRequest | 
+try {
+    apiInstance.orgsOpenidConnectCreate(org, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectDelete"></a>
+# **orgsOpenidConnectDelete**
+> orgsOpenidConnectDelete(org, slugPerm)
+
+Delete a specific OpenID Connect provider setting for the org.
+
+Delete a specific OpenID Connect provider setting for the org.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    apiInstance.orgsOpenidConnectDelete(org, slugPerm);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectList"></a>
+# **orgsOpenidConnectList**
+> List&lt;ProviderSettings&gt; orgsOpenidConnectList(org, page, pageSize)
+
+Retrieve the list of OpenID Connect provider settings for the org.
+
+Retrieve the list of OpenID Connect provider settings for the org.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<ProviderSettings> result = apiInstance.orgsOpenidConnectList(org, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;ProviderSettings&gt;**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectPartialUpdate"></a>
+# **orgsOpenidConnectPartialUpdate**
+> ProviderSettings orgsOpenidConnectPartialUpdate(org, slugPerm, data)
+
+Update a specific OpenID Connect provider setting for the org.
+
+Update a specific OpenID Connect provider setting for the org.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+ProviderSettingsRequestPatch data = new ProviderSettingsRequestPatch(); // ProviderSettingsRequestPatch | 
+try {
+    ProviderSettings result = apiInstance.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**ProviderSettingsRequestPatch**](ProviderSettingsRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectRead"></a>
+# **orgsOpenidConnectRead**
+> ProviderSettings orgsOpenidConnectRead(org, slugPerm)
+
+Retrieve a specific OpenID Connect provider setting for the org.
+
+Retrieve a specific OpenID Connect provider setting for the org.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    ProviderSettings result = apiInstance.orgsOpenidConnectRead(org, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectUpdate"></a>
+# **orgsOpenidConnectUpdate**
+> ProviderSettings orgsOpenidConnectUpdate(org, slugPerm, data)
+
+Update a specific OpenID Connect provider setting for the org.
+
+Update a specific OpenID Connect provider setting for the org.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+ProviderSettingsRequest data = new ProviderSettingsRequest(); // ProviderSettingsRequest | 
+try {
+    ProviderSettings result = apiInstance.orgsOpenidConnectUpdate(org, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional]
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
 
 ### Authorization
 

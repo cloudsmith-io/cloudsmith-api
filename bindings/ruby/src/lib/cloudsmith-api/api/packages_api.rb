@@ -624,8 +624,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Get the synchronisation status for a package.
-    # Get the synchronisation status for a package.
+    # Get the synchronization status for a package.
+    # Get the synchronization status for a package.
     # @param owner 
     # @param repo 
     # @param identifier 
@@ -636,8 +636,8 @@ module CloudsmithApi
       data
     end
 
-    # Get the synchronisation status for a package.
-    # Get the synchronisation status for a package.
+    # Get the synchronization status for a package.
+    # Get the synchronization status for a package.
     # @param owner 
     # @param repo 
     # @param identifier 

@@ -32,6 +32,12 @@ Method | HTTP request | Description
 [**orgs_members_read**](OrgsApi.md#orgs_members_read) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 [**orgs_members_refresh**](OrgsApi.md#orgs_members_refresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 [**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+[**orgs_openid_connect_create**](OrgsApi.md#orgs_openid_connect_create) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
+[**orgs_openid_connect_delete**](OrgsApi.md#orgs_openid_connect_delete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
+[**orgs_openid_connect_list**](OrgsApi.md#orgs_openid_connect_list) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
+[**orgs_openid_connect_partial_update**](OrgsApi.md#orgs_openid_connect_partial_update) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
+[**orgs_openid_connect_read**](OrgsApi.md#orgs_openid_connect_read) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
+[**orgs_openid_connect_update**](OrgsApi.md#orgs_openid_connect_update) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgs_read**](OrgsApi.md#orgs_read) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 [**orgs_saml_group_sync_create**](OrgsApi.md#orgs_saml_group_sync_create) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgs_saml_group_sync_delete**](OrgsApi.md#orgs_saml_group_sync_delete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
@@ -1642,6 +1648,346 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_openid_connect_create**
+> orgs_openid_connect_create(org, data=data)
+
+Create the OpenID Connect provider settings for the org.
+
+Create the OpenID Connect provider settings for the org.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+data = cloudsmith_api.ProviderSettingsRequest() # ProviderSettingsRequest |  (optional)
+
+try:
+    # Create the OpenID Connect provider settings for the org.
+    api_instance.orgs_openid_connect_create(org, data=data)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_openid_connect_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_openid_connect_delete**
+> orgs_openid_connect_delete(org, slug_perm)
+
+Delete a specific OpenID Connect provider setting for the org.
+
+Delete a specific OpenID Connect provider setting for the org.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a specific OpenID Connect provider setting for the org.
+    api_instance.orgs_openid_connect_delete(org, slug_perm)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_openid_connect_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_openid_connect_list**
+> list[ProviderSettings] orgs_openid_connect_list(org, page=page, page_size=page_size)
+
+Retrieve the list of OpenID Connect provider settings for the org.
+
+Retrieve the list of OpenID Connect provider settings for the org.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # Retrieve the list of OpenID Connect provider settings for the org.
+    api_response = api_instance.orgs_openid_connect_list(org, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_openid_connect_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[ProviderSettings]**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_openid_connect_partial_update**
+> ProviderSettings orgs_openid_connect_partial_update(org, slug_perm, data=data)
+
+Update a specific OpenID Connect provider setting for the org.
+
+Update a specific OpenID Connect provider setting for the org.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.ProviderSettingsRequestPatch() # ProviderSettingsRequestPatch |  (optional)
+
+try:
+    # Update a specific OpenID Connect provider setting for the org.
+    api_response = api_instance.orgs_openid_connect_partial_update(org, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_openid_connect_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**ProviderSettingsRequestPatch**](ProviderSettingsRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_openid_connect_read**
+> ProviderSettings orgs_openid_connect_read(org, slug_perm)
+
+Retrieve a specific OpenID Connect provider setting for the org.
+
+Retrieve a specific OpenID Connect provider setting for the org.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a specific OpenID Connect provider setting for the org.
+    api_response = api_instance.orgs_openid_connect_read(org, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_openid_connect_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_openid_connect_update**
+> ProviderSettings orgs_openid_connect_update(org, slug_perm, data=data)
+
+Update a specific OpenID Connect provider setting for the org.
+
+Update a specific OpenID Connect provider setting for the org.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.ProviderSettingsRequest() # ProviderSettingsRequest |  (optional)
+
+try:
+    # Update a specific OpenID Connect provider setting for the org.
+    api_response = api_instance.orgs_openid_connect_update(org, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_openid_connect_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional] 
+
+### Return type
+
+[**ProviderSettings**](ProviderSettings.md)
 
 ### Authorization
 
