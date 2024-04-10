@@ -2,9 +2,11 @@
 
 Please refer to Cloudsmith's standard guide on [Open-Source Contributing](https://help.cloudsmith.io/docs/contributing).
 
-## Publishing new bindings
+## Updating bindings
 
 * Update `package_version` in `scripts/common.sh`
+* Run `./scripts/build.sh` to generate bindings
+* Create a PR specifing API and binding version
 
 ## Contributor License Agreement
 
