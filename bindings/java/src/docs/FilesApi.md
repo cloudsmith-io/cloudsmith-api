@@ -36,6 +36,17 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: token
+ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
+token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.setApiKeyPrefix("Token");
+
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
@@ -64,7 +75,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
 
 ### HTTP request headers
 
@@ -96,6 +107,17 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: token
+ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
+token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.setApiKeyPrefix("Token");
+
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
@@ -125,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
 
 ### HTTP request headers
 
@@ -157,6 +179,17 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: token
+ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
+token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.setApiKeyPrefix("Token");
+
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
@@ -184,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
 
 ### HTTP request headers
 
@@ -215,6 +248,17 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: token
+ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
+token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.setApiKeyPrefix("Token");
 
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
@@ -247,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
 
 ### HTTP request headers
 
@@ -279,6 +323,17 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: token
+ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
+token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.setApiKeyPrefix("Token");
+
 FilesApi apiInstance = new FilesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
@@ -305,7 +360,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
 
 ### HTTP request headers
 

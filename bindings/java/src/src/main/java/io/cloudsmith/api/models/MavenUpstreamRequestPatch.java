@@ -102,6 +102,64 @@ public class MavenUpstreamRequestPatch implements Serializable {
   @SerializedName("extra_value_2")
   private String extraValue2 = null;
 
+  @SerializedName("gpg_key_inline")
+  private String gpgKeyInline = null;
+
+  @SerializedName("gpg_key_url")
+  private String gpgKeyUrl = null;
+
+  /**
+   * The GPG signature verification mode for this upstream.
+   */
+  @JsonAdapter(GpgVerificationEnum.Adapter.class)
+  public enum GpgVerificationEnum {
+    ALLOW_ALL("Allow All"),
+    
+    WARN_ON_INVALID("Warn on Invalid"),
+    
+    REJECT_INVALID("Reject Invalid");
+
+    private String value;
+
+    GpgVerificationEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static GpgVerificationEnum fromValue(String text) {
+      for (GpgVerificationEnum b : GpgVerificationEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<GpgVerificationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final GpgVerificationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public GpgVerificationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return GpgVerificationEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("gpg_verification")
+  private GpgVerificationEnum gpgVerification = GpgVerificationEnum.ALLOW_ALL;
+
   @SerializedName("is_active")
   private Boolean isActive = null;
 
@@ -295,6 +353,60 @@ public class MavenUpstreamRequestPatch implements Serializable {
     this.extraValue2 = extraValue2;
   }
 
+  public MavenUpstreamRequestPatch gpgKeyInline(String gpgKeyInline) {
+    this.gpgKeyInline = gpgKeyInline;
+    return this;
+  }
+
+   /**
+   * A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
+   * @return gpgKeyInline
+  **/
+  @ApiModelProperty(value = "A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
+  public String getGpgKeyInline() {
+    return gpgKeyInline;
+  }
+
+  public void setGpgKeyInline(String gpgKeyInline) {
+    this.gpgKeyInline = gpgKeyInline;
+  }
+
+  public MavenUpstreamRequestPatch gpgKeyUrl(String gpgKeyUrl) {
+    this.gpgKeyUrl = gpgKeyUrl;
+    return this;
+  }
+
+   /**
+   * When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
+   * @return gpgKeyUrl
+  **/
+ @Size(max=254)  @ApiModelProperty(value = "When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
+  public String getGpgKeyUrl() {
+    return gpgKeyUrl;
+  }
+
+  public void setGpgKeyUrl(String gpgKeyUrl) {
+    this.gpgKeyUrl = gpgKeyUrl;
+  }
+
+  public MavenUpstreamRequestPatch gpgVerification(GpgVerificationEnum gpgVerification) {
+    this.gpgVerification = gpgVerification;
+    return this;
+  }
+
+   /**
+   * The GPG signature verification mode for this upstream.
+   * @return gpgVerification
+  **/
+  @ApiModelProperty(value = "The GPG signature verification mode for this upstream.")
+  public GpgVerificationEnum getGpgVerification() {
+    return gpgVerification;
+  }
+
+  public void setGpgVerification(GpgVerificationEnum gpgVerification) {
+    this.gpgVerification = gpgVerification;
+  }
+
   public MavenUpstreamRequestPatch isActive(Boolean isActive) {
     this.isActive = isActive;
     return this;
@@ -422,6 +534,9 @@ public class MavenUpstreamRequestPatch implements Serializable {
         Objects.equals(this.extraHeader2, mavenUpstreamRequestPatch.extraHeader2) &&
         Objects.equals(this.extraValue1, mavenUpstreamRequestPatch.extraValue1) &&
         Objects.equals(this.extraValue2, mavenUpstreamRequestPatch.extraValue2) &&
+        Objects.equals(this.gpgKeyInline, mavenUpstreamRequestPatch.gpgKeyInline) &&
+        Objects.equals(this.gpgKeyUrl, mavenUpstreamRequestPatch.gpgKeyUrl) &&
+        Objects.equals(this.gpgVerification, mavenUpstreamRequestPatch.gpgVerification) &&
         Objects.equals(this.isActive, mavenUpstreamRequestPatch.isActive) &&
         Objects.equals(this.mode, mavenUpstreamRequestPatch.mode) &&
         Objects.equals(this.name, mavenUpstreamRequestPatch.name) &&
@@ -432,7 +547,7 @@ public class MavenUpstreamRequestPatch implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, gpgKeyInline, gpgKeyUrl, gpgVerification, isActive, mode, name, priority, upstreamUrl, verifySsl);
   }
 
 
@@ -448,6 +563,9 @@ public class MavenUpstreamRequestPatch implements Serializable {
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
     sb.append("    extraValue2: ").append(toIndentedString(extraValue2)).append("\n");
+    sb.append("    gpgKeyInline: ").append(toIndentedString(gpgKeyInline)).append("\n");
+    sb.append("    gpgKeyUrl: ").append(toIndentedString(gpgKeyUrl)).append("\n");
+    sb.append("    gpgVerification: ").append(toIndentedString(gpgVerification)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

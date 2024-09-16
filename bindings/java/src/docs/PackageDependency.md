@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **depType** | [**DepTypeEnum**](#DepTypeEnum) |  |  [optional]
-**name** | **String** | The name of the package dependency. | 
+**name** | **String** |  |  [optional]
 **operator** | [**OperatorEnum**](#OperatorEnum) |  |  [optional]
-**version** | **String** | The raw dependency version (if any). |  [optional]
+**version** | **String** |  |  [optional]
 
 
 <a name="DepTypeEnum"></a>

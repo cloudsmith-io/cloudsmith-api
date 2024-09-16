@@ -35,16 +35,18 @@ class ComposerPackageUploadRequest(object):
     swagger_types = {
         'package_file': 'str',
         'republish': 'bool',
-        'tags': 'str'
+        'tags': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
         'package_file': 'package_file',
         'republish': 'republish',
-        'tags': 'tags'
+        'tags': 'tags',
+        'version': 'version'
     }
 
-    def __init__(self, package_file=None, republish=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, package_file=None, republish=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """ComposerPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -53,6 +55,7 @@ class ComposerPackageUploadRequest(object):
         self._package_file = None
         self._republish = None
         self._tags = None
+        self._version = None
         self.discriminator = None
 
         self.package_file = package_file
@@ -60,6 +63,8 @@ class ComposerPackageUploadRequest(object):
             self.republish = republish
         if tags is not None:
             self.tags = tags
+        if version is not None:
+            self.version = version
 
     @property
     def package_file(self):
@@ -140,6 +145,32 @@ class ComposerPackageUploadRequest(object):
             raise ValueError("Invalid value for `tags`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tags = tags
+
+    @property
+    def version(self):
+        """Gets the version of this ComposerPackageUploadRequest.
+
+        The raw version for this package.
+
+        :return: The version of this ComposerPackageUploadRequest.
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this ComposerPackageUploadRequest.
+
+        The raw version for this package.
+
+        :param version: The version of this ComposerPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                version is not None and len(version) > 128):
+            raise ValueError("Invalid value for `version`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

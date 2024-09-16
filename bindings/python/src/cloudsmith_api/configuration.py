@@ -246,6 +246,13 @@ class Configuration(object):
                     'key': 'Authorization',
                     'value': self.get_basic_auth_token()
                 },
+            'token':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'Authorization',
+                    'value': self.get_api_key_with_prefix('Authorization')
+                },
 
         }
 
@@ -258,5 +265,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v1\n"\
-               "SDK Package Version: 2.0.13".\
+               "SDK Package Version: 2.0.14".\
                format(env=sys.platform, pyversion=sys.version)

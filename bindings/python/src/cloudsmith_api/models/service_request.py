@@ -87,8 +87,8 @@ class ServiceRequest(object):
         :type: str
         """
         if (self._configuration.client_side_validation and
-                description is not None and len(description) > 140):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `140`")  # noqa: E501
+                description is not None and len(description) > 1024):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `1024`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 description is not None and len(description) < 1):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
@@ -118,8 +118,8 @@ class ServiceRequest(object):
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                name is not None and len(name) > 40):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `40`")  # noqa: E501
+                name is not None and len(name) > 120):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `120`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501

@@ -72,6 +72,9 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("display_name")
+  private String displayName = null;
+
   @SerializedName("distro")
   private Distribution distro = null;
 
@@ -439,6 +442,15 @@ public class MavenPackageUpload implements Serializable {
   @ApiModelProperty(value = "A textual description of this package.")
   public String getDescription() {
     return description;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayName() {
+    return displayName;
   }
 
   public MavenPackageUpload distro(Distribution distro) {
@@ -1174,6 +1186,7 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.dependenciesChecksumMd5, mavenPackageUpload.dependenciesChecksumMd5) &&
         Objects.equals(this.dependenciesUrl, mavenPackageUpload.dependenciesUrl) &&
         Objects.equals(this.description, mavenPackageUpload.description) &&
+        Objects.equals(this.displayName, mavenPackageUpload.displayName) &&
         Objects.equals(this.distro, mavenPackageUpload.distro) &&
         Objects.equals(this.distroVersion, mavenPackageUpload.distroVersion) &&
         Objects.equals(this.downloads, mavenPackageUpload.downloads) &&
@@ -1248,7 +1261,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1267,6 +1280,7 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
     sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
