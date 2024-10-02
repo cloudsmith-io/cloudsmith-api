@@ -42,6 +42,7 @@ class PythonPackageUpload(object):
         'dependencies_checksum_md5': 'str',
         'dependencies_url': 'str',
         'description': 'str',
+        'display_name': 'str',
         'distro': 'Distribution',
         'distro_version': 'DistributionVersion',
         'downloads': 'int',
@@ -120,6 +121,7 @@ class PythonPackageUpload(object):
         'dependencies_checksum_md5': 'dependencies_checksum_md5',
         'dependencies_url': 'dependencies_url',
         'description': 'description',
+        'display_name': 'display_name',
         'distro': 'distro',
         'distro_version': 'distro_version',
         'downloads': 'downloads',
@@ -188,7 +190,7 @@ class PythonPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """PythonPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -203,6 +205,7 @@ class PythonPackageUpload(object):
         self._dependencies_checksum_md5 = None
         self._dependencies_url = None
         self._description = None
+        self._display_name = None
         self._distro = None
         self._distro_version = None
         self._downloads = None
@@ -289,6 +292,8 @@ class PythonPackageUpload(object):
             self.dependencies_url = dependencies_url
         if description is not None:
             self.description = description
+        if display_name is not None:
+            self.display_name = display_name
         if distro is not None:
             self.distro = distro
         if distro_version is not None:
@@ -614,6 +619,27 @@ class PythonPackageUpload(object):
         """
 
         self._description = description
+
+    @property
+    def display_name(self):
+        """Gets the display_name of this PythonPackageUpload.
+
+
+        :return: The display_name of this PythonPackageUpload.
+        :rtype: str
+        """
+        return self._display_name
+
+    @display_name.setter
+    def display_name(self, display_name):
+        """Sets the display_name of this PythonPackageUpload.
+
+
+        :param display_name: The display_name of this PythonPackageUpload.
+        :type: str
+        """
+
+        self._display_name = display_name
 
     @property
     def distro(self):

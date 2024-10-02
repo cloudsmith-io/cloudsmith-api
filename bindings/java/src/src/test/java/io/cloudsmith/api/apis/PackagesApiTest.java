@@ -189,9 +189,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Quarantine or restore a package.
+     * Quarantine or release a package.
      *
-     * Quarantine or restore a package.
+     * Quarantine or release a package.
      *
      * @throws Exception
      *          if the Api call fails

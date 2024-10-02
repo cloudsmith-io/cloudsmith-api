@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**userSelf**](UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
-[**userTokenCreate**](UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
+[**userTokenCreate**](UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve/Create API key/token for the authenticated user.
 
 
 <a name="userSelf"></a>
@@ -33,6 +33,17 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+// Configure API key authorization: token
+ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
+token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//token.setApiKeyPrefix("Token");
+
 UserApi apiInstance = new UserApi();
 try {
     UserBrief result = apiInstance.userSelf();
@@ -52,7 +63,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
 
 ### HTTP request headers
 
@@ -63,9 +74,9 @@ This endpoint does not need any parameter.
 # **userTokenCreate**
 > UserAuthToken userTokenCreate(data)
 
-Retrieve the API key/token for the authenticated user.
+Retrieve/Create API key/token for the authenticated user.
 
-Retrieve the API key/token for the authenticated user.
+Retrieve/Create API key/token for the authenticated user.
 
 ### Example
 ```java
@@ -78,11 +89,10 @@ Retrieve the API key/token for the authenticated user.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 UserApi apiInstance = new UserApi();
 UserAuthTokenRequest data = new UserAuthTokenRequest(); // UserAuthTokenRequest | 
@@ -107,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[basic](../README.md#basic)
 
 ### HTTP request headers
 

@@ -108,8 +108,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_quarantine
-  # Quarantine or restore a package.
-  # Quarantine or restore a package.
+  # Quarantine or release a package.
+  # Quarantine or release a package.
   # @param owner 
   # @param repo 
   # @param identifier 

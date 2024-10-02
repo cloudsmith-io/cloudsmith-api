@@ -6,6 +6,7 @@ Please refer to Cloudsmith's standard guide on [Open-Source Contributing](https:
 
 * Update `package_version` in `scripts/common.sh`
 * Run `./scripts/build.sh` to generate bindings
+  * Docker can be used for this step with `docker run --rm -v ./:/bindings -it cimg/openjdk:8.0 /bin/bash`
 * Create a PR specifing API and binding version
 
 ## Contributor License Agreement

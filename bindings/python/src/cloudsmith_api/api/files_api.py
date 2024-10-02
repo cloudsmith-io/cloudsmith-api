@@ -134,7 +134,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/files/{owner}/{repo}/{identifier}/abort/', 'POST',
@@ -253,7 +253,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/files/{owner}/{repo}/{identifier}/complete/', 'POST',
@@ -364,7 +364,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/files/{owner}/{repo}/', 'POST',
@@ -491,7 +491,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/files/{owner}/{repo}/{identifier}/info/', 'GET',
@@ -602,7 +602,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/files/{owner}/{repo}/validate/', 'POST',

@@ -134,7 +134,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/copy/', 'POST',
@@ -249,7 +249,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/', 'DELETE',
@@ -364,7 +364,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/dependencies/', 'GET',
@@ -487,7 +487,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/', 'GET',
@@ -606,7 +606,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/move/', 'POST',
@@ -625,9 +625,9 @@ class PackagesApi(object):
             collection_formats=collection_formats)
 
     def packages_quarantine(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Quarantine or restore a package.  # noqa: E501
+        """Quarantine or release a package.  # noqa: E501
 
-        Quarantine or restore a package.  # noqa: E501
+        Quarantine or release a package.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_quarantine(owner, repo, identifier, async_req=True)
@@ -650,9 +650,9 @@ class PackagesApi(object):
             return data
 
     def packages_quarantine_with_http_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
-        """Quarantine or restore a package.  # noqa: E501
+        """Quarantine or release a package.  # noqa: E501
 
-        Quarantine or restore a package.  # noqa: E501
+        Quarantine or release a package.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_quarantine_with_http_info(owner, repo, identifier, async_req=True)
@@ -725,7 +725,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/quarantine/', 'POST',
@@ -840,7 +840,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/', 'GET',
@@ -955,7 +955,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/resync/', 'POST',
@@ -1070,7 +1070,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/scan/', 'POST',
@@ -1185,7 +1185,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/status/', 'GET',
@@ -1304,7 +1304,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/tag/', 'POST',
@@ -1415,7 +1415,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/alpine/', 'POST',
@@ -1526,7 +1526,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/cargo/', 'POST',
@@ -1637,7 +1637,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/cocoapods/', 'POST',
@@ -1748,7 +1748,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/composer/', 'POST',
@@ -1859,7 +1859,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/conan/', 'POST',
@@ -1970,7 +1970,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/conda/', 'POST',
@@ -2081,7 +2081,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/cran/', 'POST',
@@ -2192,7 +2192,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/dart/', 'POST',
@@ -2303,7 +2303,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/deb/', 'POST',
@@ -2414,7 +2414,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/docker/', 'POST',
@@ -2525,7 +2525,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/go/', 'POST',
@@ -2636,7 +2636,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/helm/', 'POST',
@@ -2747,7 +2747,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/hex/', 'POST',
@@ -2858,7 +2858,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/luarocks/', 'POST',
@@ -2969,7 +2969,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/maven/', 'POST',
@@ -3080,7 +3080,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/npm/', 'POST',
@@ -3191,7 +3191,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/nuget/', 'POST',
@@ -3302,7 +3302,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/p2/', 'POST',
@@ -3413,7 +3413,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/python/', 'POST',
@@ -3524,7 +3524,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/raw/', 'POST',
@@ -3635,7 +3635,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/rpm/', 'POST',
@@ -3746,7 +3746,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/ruby/', 'POST',
@@ -3857,7 +3857,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/swift/', 'POST',
@@ -3968,7 +3968,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/terraform/', 'POST',
@@ -4079,7 +4079,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/upload/vagrant/', 'POST',
@@ -4190,7 +4190,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/alpine/', 'POST',
@@ -4301,7 +4301,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/cargo/', 'POST',
@@ -4412,7 +4412,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/cocoapods/', 'POST',
@@ -4523,7 +4523,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/composer/', 'POST',
@@ -4634,7 +4634,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/conan/', 'POST',
@@ -4745,7 +4745,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/conda/', 'POST',
@@ -4856,7 +4856,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/cran/', 'POST',
@@ -4967,7 +4967,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/dart/', 'POST',
@@ -5078,7 +5078,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/deb/', 'POST',
@@ -5189,7 +5189,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/docker/', 'POST',
@@ -5300,7 +5300,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/go/', 'POST',
@@ -5411,7 +5411,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/helm/', 'POST',
@@ -5522,7 +5522,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/hex/', 'POST',
@@ -5633,7 +5633,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/luarocks/', 'POST',
@@ -5744,7 +5744,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/maven/', 'POST',
@@ -5855,7 +5855,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/npm/', 'POST',
@@ -5966,7 +5966,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/nuget/', 'POST',
@@ -6077,7 +6077,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/p2/', 'POST',
@@ -6188,7 +6188,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/python/', 'POST',
@@ -6299,7 +6299,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/raw/', 'POST',
@@ -6410,7 +6410,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/rpm/', 'POST',
@@ -6521,7 +6521,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/ruby/', 'POST',
@@ -6632,7 +6632,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/swift/', 'POST',
@@ -6743,7 +6743,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/terraform/', 'POST',
@@ -6854,7 +6854,7 @@ class PackagesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/vagrant/', 'POST',

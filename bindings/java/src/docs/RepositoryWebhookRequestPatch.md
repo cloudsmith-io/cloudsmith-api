@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **events** | [**List&lt;EventsEnum&gt;**](#List&lt;EventsEnum&gt;) |  |  [optional]
 **isActive** | **Boolean** | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |  [optional]
 **packageQuery** | **String** | The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire. |  [optional]
-**requestBodyFormat** | **java.math.BigInteger** | The format of the payloads for webhook requests. |  [optional]
-**requestBodyTemplateFormat** | **java.math.BigInteger** | The format of the payloads for webhook requests. |  [optional]
+**requestBodyFormat** | **java.math.BigInteger** | The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template. |  [optional]
+**requestBodyTemplateFormat** | **java.math.BigInteger** | The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML. |  [optional]
 **requestContentType** | **String** | The value that will be sent for the &#39;Content Type&#39; header.  |  [optional]
 **secretHeader** | **String** | The header to send the predefined secret in. This must be unique from existing headers or it won&#39;t be sent. You can use this as a form of authentication on the endpoint side. |  [optional]
 **secretValue** | **String** | The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side. |  [optional]
@@ -27,6 +27,9 @@ PACKAGE_CREATED | &quot;package.created&quot;
 PACKAGE_DELETED | &quot;package.deleted&quot;
 PACKAGE_DOWNLOADED | &quot;package.downloaded&quot;
 PACKAGE_FAILED | &quot;package.failed&quot;
+PACKAGE_QUARANTINED | &quot;package.quarantined&quot;
+PACKAGE_RELEASED | &quot;package.released&quot;
+PACKAGE_RESTORED | &quot;package.restored&quot;
 PACKAGE_SECURITY_SCANNED | &quot;package.security_scanned&quot;
 PACKAGE_SYNCED | &quot;package.synced&quot;
 PACKAGE_SYNCING | &quot;package.syncing&quot;

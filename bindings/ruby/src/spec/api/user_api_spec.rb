@@ -44,8 +44,8 @@ describe 'UserApi' do
   end
 
   # unit tests for user_token_create
-  # Retrieve the API key/token for the authenticated user.
-  # Retrieve the API key/token for the authenticated user.
+  # Retrieve/Create API key/token for the authenticated user.
+  # Retrieve/Create API key/token for the authenticated user.
   # @param [Hash] opts the optional parameters
   # @option opts [UserAuthTokenRequest] :data 
   # @return [UserAuthToken]

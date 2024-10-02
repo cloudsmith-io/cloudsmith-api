@@ -68,6 +68,12 @@ public class RepositoryWebhook implements Serializable {
     
     PACKAGE_FAILED("package.failed"),
     
+    PACKAGE_QUARANTINED("package.quarantined"),
+    
+    PACKAGE_RELEASED("package.released"),
+    
+    PACKAGE_RESTORED("package.restored"),
+    
     PACKAGE_SECURITY_SCANNED("package.security_scanned"),
     
     PACKAGE_SYNCED("package.synced"),
@@ -337,10 +343,10 @@ public class RepositoryWebhook implements Serializable {
   }
 
    /**
-   * The format of the payloads for webhook requests.
+   * The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.
    * @return requestBodyFormat
   **/
-  @ApiModelProperty(value = "The format of the payloads for webhook requests.")
+  @ApiModelProperty(value = "The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.")
   public java.math.BigInteger getRequestBodyFormat() {
     return requestBodyFormat;
   }
@@ -364,10 +370,10 @@ public class RepositoryWebhook implements Serializable {
   }
 
    /**
-   * The format of the payloads for webhook requests.
+   * The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.
    * @return requestBodyTemplateFormat
   **/
-  @ApiModelProperty(value = "The format of the payloads for webhook requests.")
+  @ApiModelProperty(value = "The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.")
   public java.math.BigInteger getRequestBodyTemplateFormat() {
     return requestBodyTemplateFormat;
   }

@@ -126,7 +126,7 @@ class WebhooksApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/webhooks/{owner}/{repo}/', 'POST',
@@ -241,7 +241,7 @@ class WebhooksApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/webhooks/{owner}/{repo}/{identifier}/', 'DELETE',
@@ -356,7 +356,7 @@ class WebhooksApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/webhooks/{owner}/{repo}/', 'GET',
@@ -475,7 +475,7 @@ class WebhooksApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/webhooks/{owner}/{repo}/{identifier}/', 'PATCH',
@@ -590,7 +590,7 @@ class WebhooksApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/webhooks/{owner}/{repo}/{identifier}/', 'GET',

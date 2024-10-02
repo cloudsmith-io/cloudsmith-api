@@ -30,6 +30,8 @@ class OrganizationInvite
 
   attr_accessor :slug_perm
 
+  attr_accessor :teams
+
   # The slug of the user to be invited.
   attr_accessor :user
 
@@ -67,6 +69,7 @@ class OrganizationInvite
       :'org' => :'org',
       :'role' => :'role',
       :'slug_perm' => :'slug_perm',
+      :'teams' => :'teams',
       :'user' => :'user',
       :'user_url' => :'user_url'
     }
@@ -82,6 +85,7 @@ class OrganizationInvite
       :'org' => :'String',
       :'role' => :'String',
       :'slug_perm' => :'String',
+      :'teams' => :'Array<OrganizationTeamInvite>',
       :'user' => :'String',
       :'user_url' => :'String'
     }
@@ -123,6 +127,12 @@ class OrganizationInvite
 
     if attributes.has_key?(:'slug_perm')
       self.slug_perm = attributes[:'slug_perm']
+    end
+
+    if attributes.has_key?(:'teams')
+      if (value = attributes[:'teams']).is_a?(Array)
+        self.teams = value
+      end
     end
 
     if attributes.has_key?(:'user')
@@ -171,6 +181,7 @@ class OrganizationInvite
         org == o.org &&
         role == o.role &&
         slug_perm == o.slug_perm &&
+        teams == o.teams &&
         user == o.user &&
         user_url == o.user_url
   end
@@ -184,7 +195,7 @@ class OrganizationInvite
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [email, expires_at, inviter, inviter_url, org, role, slug_perm, user, user_url].hash
+    [email, expires_at, inviter, inviter_url, org, role, slug_perm, teams, user, user_url].hash
   end
 
     # Builds the object from hash

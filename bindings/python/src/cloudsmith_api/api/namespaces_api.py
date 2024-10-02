@@ -114,7 +114,7 @@ class NamespacesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/namespaces/', 'GET',
@@ -133,9 +133,9 @@ class NamespacesApi(object):
             collection_formats=collection_formats)
 
     def namespaces_read(self, slug, **kwargs):  # noqa: E501
-        """Views for working with namespaces.  # noqa: E501
+        """Get a specific namespace that the user belongs to.  # noqa: E501
 
-        Views for working with namespaces.  # noqa: E501
+        Get a specific namespace that the user belongs to.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.namespaces_read(slug, async_req=True)
@@ -155,9 +155,9 @@ class NamespacesApi(object):
             return data
 
     def namespaces_read_with_http_info(self, slug, **kwargs):  # noqa: E501
-        """Views for working with namespaces.  # noqa: E501
+        """Get a specific namespace that the user belongs to.  # noqa: E501
 
-        Views for working with namespaces.  # noqa: E501
+        Get a specific namespace that the user belongs to.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.namespaces_read_with_http_info(slug, async_req=True)
@@ -213,7 +213,7 @@ class NamespacesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/namespaces/{slug}/', 'GET',

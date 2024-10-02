@@ -43,6 +43,9 @@ public class ComposerPackageUploadRequest implements Serializable {
   @SerializedName("tags")
   private String tags = null;
 
+  @SerializedName("version")
+  private String version = null;
+
   public ComposerPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
     return this;
@@ -98,6 +101,24 @@ public class ComposerPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public ComposerPackageUploadRequest version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The raw version for this package.
+   * @return version
+  **/
+ @Size(max=128)  @ApiModelProperty(value = "The raw version for this package.")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -110,12 +131,13 @@ public class ComposerPackageUploadRequest implements Serializable {
     ComposerPackageUploadRequest composerPackageUploadRequest = (ComposerPackageUploadRequest) o;
     return Objects.equals(this.packageFile, composerPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, composerPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, composerPackageUploadRequest.tags);
+        Objects.equals(this.tags, composerPackageUploadRequest.tags) &&
+        Objects.equals(this.version, composerPackageUploadRequest.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(packageFile, republish, tags, version);
   }
 
 
@@ -127,6 +149,7 @@ public class ComposerPackageUploadRequest implements Serializable {
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

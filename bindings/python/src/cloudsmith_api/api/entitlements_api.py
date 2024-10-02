@@ -130,7 +130,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/', 'POST',
@@ -245,7 +245,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/{identifier}/', 'DELETE',
@@ -360,7 +360,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/{identifier}/disable/', 'POST',
@@ -475,7 +475,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/{identifier}/enable/', 'POST',
@@ -602,7 +602,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/', 'GET',
@@ -725,7 +725,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/{identifier}/', 'PATCH',
@@ -848,7 +848,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/{identifier}/', 'GET',
@@ -971,7 +971,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/{identifier}/refresh/', 'POST',
@@ -1090,7 +1090,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/{identifier}/reset/', 'POST',
@@ -1205,7 +1205,7 @@ class EntitlementsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
 
         return self.api_client.call_api(
             '/entitlements/{owner}/{repo}/sync/', 'POST',

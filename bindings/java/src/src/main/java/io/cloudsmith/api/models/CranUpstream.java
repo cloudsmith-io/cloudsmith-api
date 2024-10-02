@@ -94,6 +94,58 @@ public class CranUpstream implements Serializable {
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
+  /**
+   * Gets or Sets disableReason
+   */
+  @JsonAdapter(DisableReasonEnum.Adapter.class)
+  public enum DisableReasonEnum {
+    N_A("N/A"),
+    
+    UPSTREAM_POINTS_TO_ITS_OWN_REPOSITORY("Upstream points to its own repository"),
+    
+    MISSING_UPSTREAM_SOURCE("Missing upstream source");
+
+    private String value;
+
+    DisableReasonEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DisableReasonEnum fromValue(String text) {
+      for (DisableReasonEnum b : DisableReasonEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DisableReasonEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DisableReasonEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DisableReasonEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DisableReasonEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("disable_reason")
+  private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
+
   @SerializedName("extra_header_1")
   private String extraHeader1 = null;
 
@@ -161,6 +213,9 @@ public class CranUpstream implements Serializable {
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("pending_validation")
+  private Boolean pendingValidation = null;
 
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
@@ -239,6 +294,15 @@ public class CranUpstream implements Serializable {
   @ApiModelProperty(value = "The datetime the upstream source was created.")
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+   /**
+   * Get disableReason
+   * @return disableReason
+  **/
+  @ApiModelProperty(value = "")
+  public DisableReasonEnum getDisableReason() {
+    return disableReason;
   }
 
   public CranUpstream extraHeader1(String extraHeader1) {
@@ -368,6 +432,15 @@ public class CranUpstream implements Serializable {
     this.name = name;
   }
 
+   /**
+   * When true, this upstream source is pending validation.
+   * @return pendingValidation
+  **/
+  @ApiModelProperty(value = "When true, this upstream source is pending validation.")
+  public Boolean isPendingValidation() {
+    return pendingValidation;
+  }
+
   public CranUpstream priority(java.math.BigInteger priority) {
     this.priority = priority;
     return this;
@@ -458,6 +531,7 @@ public class CranUpstream implements Serializable {
         Objects.equals(this.authSecret, cranUpstream.authSecret) &&
         Objects.equals(this.authUsername, cranUpstream.authUsername) &&
         Objects.equals(this.createdAt, cranUpstream.createdAt) &&
+        Objects.equals(this.disableReason, cranUpstream.disableReason) &&
         Objects.equals(this.extraHeader1, cranUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, cranUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, cranUpstream.extraValue1) &&
@@ -465,6 +539,7 @@ public class CranUpstream implements Serializable {
         Objects.equals(this.isActive, cranUpstream.isActive) &&
         Objects.equals(this.mode, cranUpstream.mode) &&
         Objects.equals(this.name, cranUpstream.name) &&
+        Objects.equals(this.pendingValidation, cranUpstream.pendingValidation) &&
         Objects.equals(this.priority, cranUpstream.priority) &&
         Objects.equals(this.slugPerm, cranUpstream.slugPerm) &&
         Objects.equals(this.updatedAt, cranUpstream.updatedAt) &&
@@ -474,7 +549,7 @@ public class CranUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, createdAt, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, createdAt, disableReason, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
   }
 
 
@@ -487,6 +562,7 @@ public class CranUpstream implements Serializable {
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
@@ -494,6 +570,7 @@ public class CranUpstream implements Serializable {
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

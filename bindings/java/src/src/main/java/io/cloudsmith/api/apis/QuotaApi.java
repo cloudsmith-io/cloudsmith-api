@@ -111,7 +111,7 @@ public class QuotaApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -248,7 +248,7 @@ public class QuotaApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -385,7 +385,7 @@ public class QuotaApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -522,7 +522,7 @@ public class QuotaApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

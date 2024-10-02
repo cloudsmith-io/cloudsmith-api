@@ -14,10 +14,14 @@ Name | Type | Description | Notes
 **description** | **String** | A description of the repository&#39;s purpose/contents. |  [optional]
 **distributes** | **List&lt;String&gt;** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. |  [optional]
 **dockerRefreshTokensEnabled** | **Boolean** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. |  [optional]
+**enforceEula** | **Boolean** | If checked, downloads will explicitly require acceptance of an EULA. |  [optional]
 **indexFiles** | **Boolean** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. |  [optional]
+**manageEntitlementsPrivilege** | [**ManageEntitlementsPrivilegeEnum**](#ManageEntitlementsPrivilegeEnum) | This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository. |  [optional]
 **moveOwn** | **Boolean** | If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
 **movePackages** | [**MovePackagesEnum**](#MovePackagesEnum) | This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting. |  [optional]
 **name** | **String** | A descriptive name for the repository. |  [optional]
+**openSourceLicense** | **String** | The SPDX identifier of the open source license. |  [optional]
+**openSourceProjectUrl** | **String** | The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source. |  [optional]
 **proxyNpmjs** | **Boolean** | If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied. |  [optional]
 **proxyPypi** | **Boolean** | If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied. |  [optional]
 **rawPackageIndexEnabled** | **Boolean** | If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository. |  [optional]
@@ -32,8 +36,10 @@ Name | Type | Description | Notes
 **showSetupAll** | **Boolean** | If checked, the Set Me Up help for all formats will always be shown, even if you don&#39;t have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only. |  [optional]
 **slug** | **String** | The slug identifies the repository in URIs. |  [optional]
 **strictNpmValidation** | **Boolean** | If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly. |  [optional]
+**tagPreReleasesAsLatest** | **Boolean** | If checked, packages pushed with a pre-release component on that version will be marked with the &#39;latest&#39; tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools  |  [optional]
 **useDebianLabels** | **Boolean** | If checked, a &#39;Label&#39; field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of &#39;source&#x3D;t-&lt;identifier&gt;&#39;; or &#39;source&#x3D;none&#39; if no token was used. You can use this to help with pinning. |  [optional]
 **useDefaultCargoUpstream** | **Boolean** | If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \&quot;registry\&quot; will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \&quot;registry\&quot; values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry. |  [optional]
+**useEntitlementsPrivilege** | [**UseEntitlementsPrivilegeEnum**](#UseEntitlementsPrivilegeEnum) | This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can&#39;t use it). |  [optional]
 **useNoarchPackages** | **Boolean** | If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686). |  [optional]
 **useSourcePackages** | **Boolean** | If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries. |  [optional]
 **useVulnerabilityScanning** | **Boolean** | If checked, vulnerability scanning will be enabled for all supported packages within this repository. |  [optional]
@@ -77,6 +83,15 @@ ADMIN | &quot;Admin&quot;
 WRITE | &quot;Write&quot;
 
 
+<a name="ManageEntitlementsPrivilegeEnum"></a>
+## Enum: ManageEntitlementsPrivilegeEnum
+Name | Value
+---- | -----
+ADMIN | &quot;Admin&quot;
+WRITE | &quot;Write&quot;
+READ | &quot;Read&quot;
+
+
 <a name="MovePackagesEnum"></a>
 ## Enum: MovePackagesEnum
 Name | Value
@@ -100,6 +115,7 @@ Name | Value
 ---- | -----
 PUBLIC | &quot;Public&quot;
 PRIVATE | &quot;Private&quot;
+OPEN_SOURCE | &quot;Open-Source&quot;
 
 
 <a name="ResyncPackagesEnum"></a>
@@ -112,6 +128,15 @@ WRITE | &quot;Write&quot;
 
 <a name="ScanPackagesEnum"></a>
 ## Enum: ScanPackagesEnum
+Name | Value
+---- | -----
+ADMIN | &quot;Admin&quot;
+WRITE | &quot;Write&quot;
+READ | &quot;Read&quot;
+
+
+<a name="UseEntitlementsPrivilegeEnum"></a>
+## Enum: UseEntitlementsPrivilegeEnum
 Name | Value
 ---- | -----
 ADMIN | &quot;Admin&quot;

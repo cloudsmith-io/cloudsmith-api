@@ -40,6 +40,7 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
+import io.cloudsmith.api.models.OrganizationGroupSyncStatus;
 import io.cloudsmith.api.models.OrganizationInvite;
 import io.cloudsmith.api.models.OrganizationInviteExtend;
 import io.cloudsmith.api.models.OrganizationInviteRequest;
@@ -97,6 +98,139 @@ public class OrgsApi {
     }
 
     /**
+     * Build call for orgsDelete
+     * @param org  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsDeleteCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsDeleteValidateBeforeCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org };
+            Method method = this.getClass().getMethod("orgsDeleteWithHttpInfo", String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsDeleteCall(org, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Delete the specified organization.
+     * Delete the specified organization.
+     * @param org  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void orgsDelete(String org) throws ApiException {
+        orgsDeleteWithHttpInfo(org);
+    }
+
+    /**
+     * Delete the specified organization.
+     * Delete the specified organization.
+     * @param org  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> orgsDeleteWithHttpInfo( @NotNull String org) throws ApiException {
+        com.squareup.okhttp.Call call = orgsDeleteValidateBeforeCall(org, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete the specified organization. (asynchronously)
+     * Delete the specified organization.
+     * @param org  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsDeleteAsync(String org, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsDeleteValidateBeforeCall(org, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for orgsDenyPolicyCreate
      * @param org  (required)
      * @param data  (optional)
@@ -143,7 +277,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -285,7 +419,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -427,7 +561,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -573,7 +707,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -718,7 +852,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -861,7 +995,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1005,7 +1139,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1147,7 +1281,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1285,7 +1419,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1431,7 +1565,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1577,7 +1711,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1722,7 +1856,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1863,7 +1997,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2005,7 +2139,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2144,7 +2278,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2295,7 +2429,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2445,7 +2579,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2594,7 +2728,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2740,7 +2874,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2885,7 +3019,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3028,7 +3162,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3177,7 +3311,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3324,7 +3458,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3466,7 +3600,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3611,7 +3745,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3759,7 +3893,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3901,7 +4035,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4039,7 +4173,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4176,7 +4310,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4213,10 +4347,12 @@ public class OrgsApi {
      * Create the OpenID Connect provider settings for the org.
      * @param org  (required)
      * @param data  (optional)
+     * @return ProviderSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void orgsOpenidConnectCreate(String org, ProviderSettingsRequest data) throws ApiException {
-        orgsOpenidConnectCreateWithHttpInfo(org, data);
+    public ProviderSettings orgsOpenidConnectCreate(String org, ProviderSettingsRequest data) throws ApiException {
+        ApiResponse<ProviderSettings> resp = orgsOpenidConnectCreateWithHttpInfo(org, data);
+        return resp.getData();
     }
 
     /**
@@ -4224,12 +4360,13 @@ public class OrgsApi {
      * Create the OpenID Connect provider settings for the org.
      * @param org  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;ProviderSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> orgsOpenidConnectCreateWithHttpInfo( @NotNull String org,  ProviderSettingsRequest data) throws ApiException {
+    public ApiResponse<ProviderSettings> orgsOpenidConnectCreateWithHttpInfo( @NotNull String org,  ProviderSettingsRequest data) throws ApiException {
         com.squareup.okhttp.Call call = orgsOpenidConnectCreateValidateBeforeCall(org, data, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -4241,7 +4378,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsOpenidConnectCreateAsync(String org, ProviderSettingsRequest data, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsOpenidConnectCreateAsync(String org, ProviderSettingsRequest data, final ApiCallback<ProviderSettings> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4263,7 +4400,8 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsOpenidConnectCreateValidateBeforeCall(org, data, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -4314,7 +4452,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4456,7 +4594,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4602,7 +4740,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4747,7 +4885,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4890,7 +5028,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5033,7 +5171,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5171,7 +5309,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5313,7 +5451,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5404,6 +5542,272 @@ public class OrgsApi {
         return call;
     }
     /**
+     * Build call for orgsSamlGroupSyncDisable
+     * @param org  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsSamlGroupSyncDisableCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/saml-group-sync/disable/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsSamlGroupSyncDisableValidateBeforeCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org };
+            Method method = this.getClass().getMethod("orgsSamlGroupSyncDisableWithHttpInfo", String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsSamlGroupSyncDisableCall(org, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Disable SAML Group Sync for this organization.
+     * Disable SAML Group Sync for this organization.
+     * @param org  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void orgsSamlGroupSyncDisable(String org) throws ApiException {
+        orgsSamlGroupSyncDisableWithHttpInfo(org);
+    }
+
+    /**
+     * Disable SAML Group Sync for this organization.
+     * Disable SAML Group Sync for this organization.
+     * @param org  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> orgsSamlGroupSyncDisableWithHttpInfo( @NotNull String org) throws ApiException {
+        com.squareup.okhttp.Call call = orgsSamlGroupSyncDisableValidateBeforeCall(org, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Disable SAML Group Sync for this organization. (asynchronously)
+     * Disable SAML Group Sync for this organization.
+     * @param org  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsSamlGroupSyncDisableAsync(String org, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsSamlGroupSyncDisableValidateBeforeCall(org, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsSamlGroupSyncEnable
+     * @param org  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsSamlGroupSyncEnableCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/saml-group-sync/enable/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsSamlGroupSyncEnableValidateBeforeCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org };
+            Method method = this.getClass().getMethod("orgsSamlGroupSyncEnableWithHttpInfo", String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsSamlGroupSyncEnableCall(org, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Enable SAML Group Sync for this organization.
+     * Enable SAML Group Sync for this organization.
+     * @param org  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void orgsSamlGroupSyncEnable(String org) throws ApiException {
+        orgsSamlGroupSyncEnableWithHttpInfo(org);
+    }
+
+    /**
+     * Enable SAML Group Sync for this organization.
+     * Enable SAML Group Sync for this organization.
+     * @param org  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> orgsSamlGroupSyncEnableWithHttpInfo( @NotNull String org) throws ApiException {
+        com.squareup.okhttp.Call call = orgsSamlGroupSyncEnableValidateBeforeCall(org, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Enable SAML Group Sync for this organization. (asynchronously)
+     * Enable SAML Group Sync for this organization.
+     * @param org  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsSamlGroupSyncEnableAsync(String org, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsSamlGroupSyncEnableValidateBeforeCall(org, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for orgsSamlGroupSyncList
      * @param org  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -5455,7 +5859,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5553,6 +5957,143 @@ public class OrgsApi {
         return call;
     }
     /**
+     * Build call for orgsSamlGroupSyncStatus
+     * @param org  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsSamlGroupSyncStatusCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/saml-group-sync/status/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsSamlGroupSyncStatusValidateBeforeCall(String org, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org };
+            Method method = this.getClass().getMethod("orgsSamlGroupSyncStatusWithHttpInfo", String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsSamlGroupSyncStatusCall(org, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve the SAML Group Sync status for this organization.
+     * Retrieve the SAML Group Sync status for this organization.
+     * @param org  (required)
+     * @return OrganizationGroupSyncStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrganizationGroupSyncStatus orgsSamlGroupSyncStatus(String org) throws ApiException {
+        ApiResponse<OrganizationGroupSyncStatus> resp = orgsSamlGroupSyncStatusWithHttpInfo(org);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve the SAML Group Sync status for this organization.
+     * Retrieve the SAML Group Sync status for this organization.
+     * @param org  (required)
+     * @return ApiResponse&lt;OrganizationGroupSyncStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrganizationGroupSyncStatus> orgsSamlGroupSyncStatusWithHttpInfo( @NotNull String org) throws ApiException {
+        com.squareup.okhttp.Call call = orgsSamlGroupSyncStatusValidateBeforeCall(org, null, null);
+        Type localVarReturnType = new TypeToken<OrganizationGroupSyncStatus>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the SAML Group Sync status for this organization. (asynchronously)
+     * Retrieve the SAML Group Sync status for this organization.
+     * @param org  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsSamlGroupSyncStatusAsync(String org, final ApiCallback<OrganizationGroupSyncStatus> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsSamlGroupSyncStatusValidateBeforeCall(org, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrganizationGroupSyncStatus>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for orgsServicesCreate
      * @param org  (required)
      * @param data  (optional)
@@ -5599,7 +6140,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5741,7 +6282,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5883,7 +6424,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6029,7 +6570,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6174,7 +6715,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6316,7 +6857,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6457,7 +6998,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6599,7 +7140,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6741,7 +7282,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6887,7 +7428,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7032,7 +7573,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7130,13 +7671,14 @@ public class OrgsApi {
      * Build call for orgsTeamsMembersUpdate
      * @param org  (required)
      * @param team  (required)
+     * @param data  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersUpdateCall(String org, String team, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call orgsTeamsMembersUpdateCall(String org, String team, OrganizationTeamMembers data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
 
         // create path and map variables
         String localVarPath = "/orgs/{org}/teams/{team}/members"
@@ -7174,23 +7716,23 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsTeamsMembersUpdateValidateBeforeCall(String org, String team, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsTeamsMembersUpdateValidateBeforeCall(String org, String team, OrganizationTeamMembers data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { org, team };
-            Method method = this.getClass().getMethod("orgsTeamsMembersUpdateWithHttpInfo", String.class, String.class);
+            Object[] parameterValues = { org, team, data };
+            Method method = this.getClass().getMethod("orgsTeamsMembersUpdateWithHttpInfo", String.class, String.class, OrganizationTeamMembers.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = orgsTeamsMembersUpdateCall(org, team, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = orgsTeamsMembersUpdateCall(org, team, data, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -7211,11 +7753,12 @@ public class OrgsApi {
      * Replace all team members.
      * @param org  (required)
      * @param team  (required)
+     * @param data  (optional)
      * @return OrganizationTeamMembers
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationTeamMembers orgsTeamsMembersUpdate(String org, String team) throws ApiException {
-        ApiResponse<OrganizationTeamMembers> resp = orgsTeamsMembersUpdateWithHttpInfo(org, team);
+    public OrganizationTeamMembers orgsTeamsMembersUpdate(String org, String team, OrganizationTeamMembers data) throws ApiException {
+        ApiResponse<OrganizationTeamMembers> resp = orgsTeamsMembersUpdateWithHttpInfo(org, team, data);
         return resp.getData();
     }
 
@@ -7224,11 +7767,12 @@ public class OrgsApi {
      * Replace all team members.
      * @param org  (required)
      * @param team  (required)
+     * @param data  (optional)
      * @return ApiResponse&lt;OrganizationTeamMembers&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationTeamMembers> orgsTeamsMembersUpdateWithHttpInfo( @NotNull String org,  @NotNull String team) throws ApiException {
-        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, null, null);
+    public ApiResponse<OrganizationTeamMembers> orgsTeamsMembersUpdateWithHttpInfo( @NotNull String org,  @NotNull String team,  OrganizationTeamMembers data) throws ApiException {
+        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, data, null, null);
         Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -7238,11 +7782,12 @@ public class OrgsApi {
      * Replace all team members.
      * @param org  (required)
      * @param team  (required)
+     * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersUpdateAsync(String org, String team, final ApiCallback<OrganizationTeamMembers> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsMembersUpdateAsync(String org, String team, OrganizationTeamMembers data, final ApiCallback<OrganizationTeamMembers> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7263,7 +7808,7 @@ public class OrgsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = orgsTeamsMembersUpdateValidateBeforeCall(org, team, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -7317,7 +7862,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7462,7 +8007,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7603,7 +8148,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7745,7 +8290,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7884,7 +8429,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8035,7 +8580,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8185,7 +8730,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8334,7 +8879,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8480,7 +9025,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8625,7 +9170,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8768,7 +9313,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8917,7 +9462,7 @@ public class OrgsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

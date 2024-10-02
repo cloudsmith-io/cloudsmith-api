@@ -60,6 +60,16 @@ describe 'MavenUpstream' do
     end
   end
 
+  describe 'test attribute "disable_reason"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["N/A", "Upstream points to its own repository", "Missing upstream source"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.disable_reason = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "extra_header_1"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -84,6 +94,28 @@ describe 'MavenUpstream' do
     end
   end
 
+  describe 'test attribute "gpg_key_inline"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "gpg_key_url"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "gpg_verification"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Allow All", "Warn on Invalid", "Reject Invalid"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.gpg_verification = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "is_active"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -101,6 +133,12 @@ describe 'MavenUpstream' do
   end
 
   describe 'test attribute "name"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "pending_validation"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -127,6 +165,16 @@ describe 'MavenUpstream' do
   describe 'test attribute "upstream_url"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "verification_status"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Unknown", "Invalid", "Valid", "Invalid (No Key)"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.verification_status = value }.not_to raise_error
+      # end
     end
   end
 

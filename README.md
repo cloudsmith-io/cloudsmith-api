@@ -42,12 +42,12 @@ Where `<language>` is the language you're generating bindings for (e.g. `python`
 
 ## Versioning
 
-The version of the generated library bindings is automatically made to match the upstream API. So if the Cloudsmith API is currently `0.22.2`, then the language bindings will also be `0.22.2`.
+The version of the generated library bindings is defined in [`common.sh`](https://github.com/cloudsmith-io/cloudsmith-api/blob/master/scripts/common.sh).
 
 
 ## Releasing
 
-The client APIs are automatically released as part of the build and release process. See the [travis configuration file](https://github.com/cloudsmith-io/cloudsmith-api/blob/master/.travis.yml) for more details.
+The client APIs are automatically released as part of the build and release process. See the [CI configuration file](https://github.com/cloudsmith-io/cloudsmith-api/blob/master/.circleci/config.yml) for more details.
 
 
 ## Contributing

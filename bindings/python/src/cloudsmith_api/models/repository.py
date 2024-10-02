@@ -46,17 +46,24 @@ class Repository(object):
         'description': 'str',
         'distributes': 'list[str]',
         'docker_refresh_tokens_enabled': 'bool',
+        'ecdsa_keys': 'list[RepositoryEcdsaKey]',
+        'enforce_eula': 'bool',
         'gpg_keys': 'list[RepositoryGpgKey]',
         'index_files': 'bool',
         'is_open_source': 'bool',
         'is_private': 'bool',
         'is_public': 'bool',
+        'manage_entitlements_privilege': 'str',
         'move_own': 'bool',
         'move_packages': 'str',
         'name': 'str',
         'namespace': 'str',
         'namespace_url': 'str',
         'num_downloads': 'int',
+        'num_policy_violated_packages': 'int',
+        'num_quarantined_packages': 'int',
+        'open_source_license': 'str',
+        'open_source_project_url': 'str',
         'package_count': 'int',
         'package_group_count': 'int',
         'proxy_npmjs': 'bool',
@@ -80,8 +87,10 @@ class Repository(object):
         'slug_perm': 'str',
         'storage_region': 'str',
         'strict_npm_validation': 'bool',
+        'tag_pre_releases_as_latest': 'bool',
         'use_debian_labels': 'bool',
         'use_default_cargo_upstream': 'bool',
+        'use_entitlements_privilege': 'str',
         'use_noarch_packages': 'bool',
         'use_source_packages': 'bool',
         'use_vulnerability_scanning': 'bool',
@@ -103,17 +112,24 @@ class Repository(object):
         'description': 'description',
         'distributes': 'distributes',
         'docker_refresh_tokens_enabled': 'docker_refresh_tokens_enabled',
+        'ecdsa_keys': 'ecdsa_keys',
+        'enforce_eula': 'enforce_eula',
         'gpg_keys': 'gpg_keys',
         'index_files': 'index_files',
         'is_open_source': 'is_open_source',
         'is_private': 'is_private',
         'is_public': 'is_public',
+        'manage_entitlements_privilege': 'manage_entitlements_privilege',
         'move_own': 'move_own',
         'move_packages': 'move_packages',
         'name': 'name',
         'namespace': 'namespace',
         'namespace_url': 'namespace_url',
         'num_downloads': 'num_downloads',
+        'num_policy_violated_packages': 'num_policy_violated_packages',
+        'num_quarantined_packages': 'num_quarantined_packages',
+        'open_source_license': 'open_source_license',
+        'open_source_project_url': 'open_source_project_url',
         'package_count': 'package_count',
         'package_group_count': 'package_group_count',
         'proxy_npmjs': 'proxy_npmjs',
@@ -137,8 +153,10 @@ class Repository(object):
         'slug_perm': 'slug_perm',
         'storage_region': 'storage_region',
         'strict_npm_validation': 'strict_npm_validation',
+        'tag_pre_releases_as_latest': 'tag_pre_releases_as_latest',
         'use_debian_labels': 'use_debian_labels',
         'use_default_cargo_upstream': 'use_default_cargo_upstream',
+        'use_entitlements_privilege': 'use_entitlements_privilege',
         'use_noarch_packages': 'use_noarch_packages',
         'use_source_packages': 'use_source_packages',
         'use_vulnerability_scanning': 'use_vulnerability_scanning',
@@ -146,7 +164,7 @@ class Repository(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, num_downloads=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, use_debian_labels=None, use_default_cargo_upstream=None, use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """Repository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -165,17 +183,24 @@ class Repository(object):
         self._description = None
         self._distributes = None
         self._docker_refresh_tokens_enabled = None
+        self._ecdsa_keys = None
+        self._enforce_eula = None
         self._gpg_keys = None
         self._index_files = None
         self._is_open_source = None
         self._is_private = None
         self._is_public = None
+        self._manage_entitlements_privilege = None
         self._move_own = None
         self._move_packages = None
         self._name = None
         self._namespace = None
         self._namespace_url = None
         self._num_downloads = None
+        self._num_policy_violated_packages = None
+        self._num_quarantined_packages = None
+        self._open_source_license = None
+        self._open_source_project_url = None
         self._package_count = None
         self._package_group_count = None
         self._proxy_npmjs = None
@@ -199,8 +224,10 @@ class Repository(object):
         self._slug_perm = None
         self._storage_region = None
         self._strict_npm_validation = None
+        self._tag_pre_releases_as_latest = None
         self._use_debian_labels = None
         self._use_default_cargo_upstream = None
+        self._use_entitlements_privilege = None
         self._use_noarch_packages = None
         self._use_source_packages = None
         self._use_vulnerability_scanning = None
@@ -234,6 +261,10 @@ class Repository(object):
             self.distributes = distributes
         if docker_refresh_tokens_enabled is not None:
             self.docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
+        if ecdsa_keys is not None:
+            self.ecdsa_keys = ecdsa_keys
+        if enforce_eula is not None:
+            self.enforce_eula = enforce_eula
         if gpg_keys is not None:
             self.gpg_keys = gpg_keys
         if index_files is not None:
@@ -244,6 +275,8 @@ class Repository(object):
             self.is_private = is_private
         if is_public is not None:
             self.is_public = is_public
+        if manage_entitlements_privilege is not None:
+            self.manage_entitlements_privilege = manage_entitlements_privilege
         if move_own is not None:
             self.move_own = move_own
         if move_packages is not None:
@@ -255,6 +288,14 @@ class Repository(object):
             self.namespace_url = namespace_url
         if num_downloads is not None:
             self.num_downloads = num_downloads
+        if num_policy_violated_packages is not None:
+            self.num_policy_violated_packages = num_policy_violated_packages
+        if num_quarantined_packages is not None:
+            self.num_quarantined_packages = num_quarantined_packages
+        if open_source_license is not None:
+            self.open_source_license = open_source_license
+        if open_source_project_url is not None:
+            self.open_source_project_url = open_source_project_url
         if package_count is not None:
             self.package_count = package_count
         if package_group_count is not None:
@@ -301,10 +342,14 @@ class Repository(object):
             self.storage_region = storage_region
         if strict_npm_validation is not None:
             self.strict_npm_validation = strict_npm_validation
+        if tag_pre_releases_as_latest is not None:
+            self.tag_pre_releases_as_latest = tag_pre_releases_as_latest
         if use_debian_labels is not None:
             self.use_debian_labels = use_debian_labels
         if use_default_cargo_upstream is not None:
             self.use_default_cargo_upstream = use_default_cargo_upstream
+        if use_entitlements_privilege is not None:
+            self.use_entitlements_privilege = use_entitlements_privilege
         if use_noarch_packages is not None:
             self.use_noarch_packages = use_noarch_packages
         if use_source_packages is not None:
@@ -553,6 +598,7 @@ class Repository(object):
     def deleted_at(self):
         """Gets the deleted_at of this Repository.
 
+        The datetime the repository was manually deleted at.
 
         :return: The deleted_at of this Repository.
         :rtype: datetime
@@ -563,6 +609,7 @@ class Repository(object):
     def deleted_at(self, deleted_at):
         """Sets the deleted_at of this Repository.
 
+        The datetime the repository was manually deleted at.
 
         :param deleted_at: The deleted_at of this Repository.
         :type: datetime
@@ -638,6 +685,50 @@ class Repository(object):
         """
 
         self._docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
+
+    @property
+    def ecdsa_keys(self):
+        """Gets the ecdsa_keys of this Repository.
+
+
+        :return: The ecdsa_keys of this Repository.
+        :rtype: list[RepositoryEcdsaKey]
+        """
+        return self._ecdsa_keys
+
+    @ecdsa_keys.setter
+    def ecdsa_keys(self, ecdsa_keys):
+        """Sets the ecdsa_keys of this Repository.
+
+
+        :param ecdsa_keys: The ecdsa_keys of this Repository.
+        :type: list[RepositoryEcdsaKey]
+        """
+
+        self._ecdsa_keys = ecdsa_keys
+
+    @property
+    def enforce_eula(self):
+        """Gets the enforce_eula of this Repository.
+
+        If checked, downloads will explicitly require acceptance of an EULA.
+
+        :return: The enforce_eula of this Repository.
+        :rtype: bool
+        """
+        return self._enforce_eula
+
+    @enforce_eula.setter
+    def enforce_eula(self, enforce_eula):
+        """Sets the enforce_eula of this Repository.
+
+        If checked, downloads will explicitly require acceptance of an EULA.
+
+        :param enforce_eula: The enforce_eula of this Repository.
+        :type: bool
+        """
+
+        self._enforce_eula = enforce_eula
 
     @property
     def gpg_keys(self):
@@ -745,6 +836,36 @@ class Repository(object):
         """
 
         self._is_public = is_public
+
+    @property
+    def manage_entitlements_privilege(self):
+        """Gets the manage_entitlements_privilege of this Repository.
+
+        This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
+
+        :return: The manage_entitlements_privilege of this Repository.
+        :rtype: str
+        """
+        return self._manage_entitlements_privilege
+
+    @manage_entitlements_privilege.setter
+    def manage_entitlements_privilege(self, manage_entitlements_privilege):
+        """Sets the manage_entitlements_privilege of this Repository.
+
+        This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
+
+        :param manage_entitlements_privilege: The manage_entitlements_privilege of this Repository.
+        :type: str
+        """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                manage_entitlements_privilege not in allowed_values):
+            raise ValueError(
+                "Invalid value for `manage_entitlements_privilege` ({0}), must be one of {1}"  # noqa: E501
+                .format(manage_entitlements_privilege, allowed_values)
+            )
+
+        self._manage_entitlements_privilege = manage_entitlements_privilege
 
     @property
     def move_own(self):
@@ -904,6 +1025,101 @@ class Repository(object):
         """
 
         self._num_downloads = num_downloads
+
+    @property
+    def num_policy_violated_packages(self):
+        """Gets the num_policy_violated_packages of this Repository.
+
+        Number of packages with policy violations in a repository.
+
+        :return: The num_policy_violated_packages of this Repository.
+        :rtype: int
+        """
+        return self._num_policy_violated_packages
+
+    @num_policy_violated_packages.setter
+    def num_policy_violated_packages(self, num_policy_violated_packages):
+        """Sets the num_policy_violated_packages of this Repository.
+
+        Number of packages with policy violations in a repository.
+
+        :param num_policy_violated_packages: The num_policy_violated_packages of this Repository.
+        :type: int
+        """
+
+        self._num_policy_violated_packages = num_policy_violated_packages
+
+    @property
+    def num_quarantined_packages(self):
+        """Gets the num_quarantined_packages of this Repository.
+
+        Number of quarantined packages in a repository.
+
+        :return: The num_quarantined_packages of this Repository.
+        :rtype: int
+        """
+        return self._num_quarantined_packages
+
+    @num_quarantined_packages.setter
+    def num_quarantined_packages(self, num_quarantined_packages):
+        """Sets the num_quarantined_packages of this Repository.
+
+        Number of quarantined packages in a repository.
+
+        :param num_quarantined_packages: The num_quarantined_packages of this Repository.
+        :type: int
+        """
+
+        self._num_quarantined_packages = num_quarantined_packages
+
+    @property
+    def open_source_license(self):
+        """Gets the open_source_license of this Repository.
+
+        The SPDX identifier of the open source license.
+
+        :return: The open_source_license of this Repository.
+        :rtype: str
+        """
+        return self._open_source_license
+
+    @open_source_license.setter
+    def open_source_license(self, open_source_license):
+        """Sets the open_source_license of this Repository.
+
+        The SPDX identifier of the open source license.
+
+        :param open_source_license: The open_source_license of this Repository.
+        :type: str
+        """
+
+        self._open_source_license = open_source_license
+
+    @property
+    def open_source_project_url(self):
+        """Gets the open_source_project_url of this Repository.
+
+        The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.
+
+        :return: The open_source_project_url of this Repository.
+        :rtype: str
+        """
+        return self._open_source_project_url
+
+    @open_source_project_url.setter
+    def open_source_project_url(self, open_source_project_url):
+        """Sets the open_source_project_url of this Repository.
+
+        The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.
+
+        :param open_source_project_url: The open_source_project_url of this Repository.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                open_source_project_url is not None and len(open_source_project_url) > 200):
+            raise ValueError("Invalid value for `open_source_project_url`, length must be less than or equal to `200`")  # noqa: E501
+
+        self._open_source_project_url = open_source_project_url
 
     @property
     def package_count(self):
@@ -1139,7 +1355,7 @@ class Repository(object):
         :param repository_type_str: The repository_type_str of this Repository.
         :type: str
         """
-        allowed_values = ["Public", "Private"]  # noqa: E501
+        allowed_values = ["Public", "Private", "Open-Source"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 repository_type_str not in allowed_values):
             raise ValueError(
@@ -1472,6 +1688,29 @@ class Repository(object):
         self._strict_npm_validation = strict_npm_validation
 
     @property
+    def tag_pre_releases_as_latest(self):
+        """Gets the tag_pre_releases_as_latest of this Repository.
+
+        If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools 
+
+        :return: The tag_pre_releases_as_latest of this Repository.
+        :rtype: bool
+        """
+        return self._tag_pre_releases_as_latest
+
+    @tag_pre_releases_as_latest.setter
+    def tag_pre_releases_as_latest(self, tag_pre_releases_as_latest):
+        """Sets the tag_pre_releases_as_latest of this Repository.
+
+        If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools 
+
+        :param tag_pre_releases_as_latest: The tag_pre_releases_as_latest of this Repository.
+        :type: bool
+        """
+
+        self._tag_pre_releases_as_latest = tag_pre_releases_as_latest
+
+    @property
     def use_debian_labels(self):
         """Gets the use_debian_labels of this Repository.
 
@@ -1516,6 +1755,36 @@ class Repository(object):
         """
 
         self._use_default_cargo_upstream = use_default_cargo_upstream
+
+    @property
+    def use_entitlements_privilege(self):
+        """Gets the use_entitlements_privilege of this Repository.
+
+        This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).
+
+        :return: The use_entitlements_privilege of this Repository.
+        :rtype: str
+        """
+        return self._use_entitlements_privilege
+
+    @use_entitlements_privilege.setter
+    def use_entitlements_privilege(self, use_entitlements_privilege):
+        """Sets the use_entitlements_privilege of this Repository.
+
+        This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).
+
+        :param use_entitlements_privilege: The use_entitlements_privilege of this Repository.
+        :type: str
+        """
+        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                use_entitlements_privilege not in allowed_values):
+            raise ValueError(
+                "Invalid value for `use_entitlements_privilege` ({0}), must be one of {1}"  # noqa: E501
+                .format(use_entitlements_privilege, allowed_values)
+            )
+
+        self._use_entitlements_privilege = use_entitlements_privilege
 
     @property
     def use_noarch_packages(self):
