@@ -34,6 +34,8 @@ class PackageCopy
   # A textual description of this package.
   attr_accessor :description
 
+  attr_accessor :display_name
+
   attr_accessor :distro
 
   attr_accessor :distro_version
@@ -224,6 +226,7 @@ class PackageCopy
       :'dependencies_checksum_md5' => :'dependencies_checksum_md5',
       :'dependencies_url' => :'dependencies_url',
       :'description' => :'description',
+      :'display_name' => :'display_name',
       :'distro' => :'distro',
       :'distro_version' => :'distro_version',
       :'downloads' => :'downloads',
@@ -306,6 +309,7 @@ class PackageCopy
       :'dependencies_checksum_md5' => :'String',
       :'dependencies_url' => :'String',
       :'description' => :'String',
+      :'display_name' => :'String',
       :'distro' => :'Distribution',
       :'distro_version' => :'DistributionVersion',
       :'downloads' => :'Integer',
@@ -420,6 +424,10 @@ class PackageCopy
 
     if attributes.has_key?(:'description')
       self.description = attributes[:'description']
+    end
+
+    if attributes.has_key?(:'display_name')
+      self.display_name = attributes[:'display_name']
     end
 
     if attributes.has_key?(:'distro')
@@ -734,6 +742,7 @@ class PackageCopy
         dependencies_checksum_md5 == o.dependencies_checksum_md5 &&
         dependencies_url == o.dependencies_url &&
         description == o.description &&
+        display_name == o.display_name &&
         distro == o.distro &&
         distro_version == o.distro_version &&
         downloads == o.downloads &&
@@ -812,7 +821,7 @@ class PackageCopy
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

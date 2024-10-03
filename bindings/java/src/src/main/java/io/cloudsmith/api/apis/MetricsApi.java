@@ -126,7 +126,7 @@ public class MetricsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -295,7 +295,7 @@ public class MetricsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -467,7 +467,7 @@ public class MetricsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

@@ -125,7 +125,7 @@ class RepositoryWebhookRequestPatch(object):
         :param events: The events of this RepositoryWebhookRequestPatch.
         :type: list[str]
         """
-        allowed_values = ["*", "package.created", "package.deleted", "package.downloaded", "package.failed", "package.security_scanned", "package.synced", "package.syncing", "package.tags_updated"]  # noqa: E501
+        allowed_values = ["*", "package.created", "package.deleted", "package.downloaded", "package.failed", "package.quarantined", "package.released", "package.restored", "package.security_scanned", "package.synced", "package.syncing", "package.tags_updated"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(events).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -189,7 +189,7 @@ class RepositoryWebhookRequestPatch(object):
     def request_body_format(self):
         """Gets the request_body_format of this RepositoryWebhookRequestPatch.
 
-        The format of the payloads for webhook requests.
+        The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.
 
         :return: The request_body_format of this RepositoryWebhookRequestPatch.
         :rtype: int
@@ -200,7 +200,7 @@ class RepositoryWebhookRequestPatch(object):
     def request_body_format(self, request_body_format):
         """Sets the request_body_format of this RepositoryWebhookRequestPatch.
 
-        The format of the payloads for webhook requests.
+        The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.
 
         :param request_body_format: The request_body_format of this RepositoryWebhookRequestPatch.
         :type: int
@@ -212,7 +212,7 @@ class RepositoryWebhookRequestPatch(object):
     def request_body_template_format(self):
         """Gets the request_body_template_format of this RepositoryWebhookRequestPatch.
 
-        The format of the payloads for webhook requests.
+        The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.
 
         :return: The request_body_template_format of this RepositoryWebhookRequestPatch.
         :rtype: int
@@ -223,7 +223,7 @@ class RepositoryWebhookRequestPatch(object):
     def request_body_template_format(self, request_body_template_format):
         """Sets the request_body_template_format of this RepositoryWebhookRequestPatch.
 
-        The format of the payloads for webhook requests.
+        The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.
 
         :param request_body_template_format: The request_body_template_format of this RepositoryWebhookRequestPatch.
         :type: int

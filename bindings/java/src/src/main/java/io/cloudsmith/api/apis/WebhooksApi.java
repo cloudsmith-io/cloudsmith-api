@@ -115,7 +115,7 @@ public class WebhooksApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -262,7 +262,7 @@ public class WebhooksApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -409,7 +409,7 @@ public class WebhooksApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -560,7 +560,7 @@ public class WebhooksApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -710,7 +710,7 @@ public class WebhooksApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

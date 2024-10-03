@@ -34,8 +34,29 @@ import javax.validation.Valid;
 public class PackageQuarantineRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("release")
+  private Boolean release = null;
+
   @SerializedName("restore")
   private Boolean restore = null;
+
+  public PackageQuarantineRequest release(Boolean release) {
+    this.release = release;
+    return this;
+  }
+
+   /**
+   * If true, the package is released from quarantine.
+   * @return release
+  **/
+  @ApiModelProperty(value = "If true, the package is released from quarantine.")
+  public Boolean isRelease() {
+    return release;
+  }
+
+  public void setRelease(Boolean release) {
+    this.release = release;
+  }
 
   public PackageQuarantineRequest restore(Boolean restore) {
     this.restore = restore;
@@ -43,10 +64,10 @@ public class PackageQuarantineRequest implements Serializable {
   }
 
    /**
-   * If true, the package be restored from quarantine.
+   * If true, the package is released from quarantine. Note: This field is deprecated, please use &#39;release&#39; instead.
    * @return restore
   **/
-  @ApiModelProperty(value = "If true, the package be restored from quarantine.")
+  @ApiModelProperty(value = "If true, the package is released from quarantine. Note: This field is deprecated, please use 'release' instead.")
   public Boolean isRestore() {
     return restore;
   }
@@ -65,12 +86,13 @@ public class PackageQuarantineRequest implements Serializable {
       return false;
     }
     PackageQuarantineRequest packageQuarantineRequest = (PackageQuarantineRequest) o;
-    return Objects.equals(this.restore, packageQuarantineRequest.restore);
+    return Objects.equals(this.release, packageQuarantineRequest.release) &&
+        Objects.equals(this.restore, packageQuarantineRequest.restore);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(restore);
+    return Objects.hash(release, restore);
   }
 
 
@@ -79,6 +101,7 @@ public class PackageQuarantineRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackageQuarantineRequest {\n");
     
+    sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    restore: ").append(toIndentedString(restore)).append("\n");
     sb.append("}");
     return sb.toString();

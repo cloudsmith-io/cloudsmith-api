@@ -39,7 +39,7 @@ class TestNamespacesApi(unittest.TestCase):
     def test_namespaces_read(self):
         """Test case for namespaces_read
 
-        Views for working with namespaces.  # noqa: E501
+        Get a specific namespace that the user belongs to.  # noqa: E501
         """
         pass
 

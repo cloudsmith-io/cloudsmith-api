@@ -26,6 +26,8 @@ class HelmUpstream
   # The datetime the upstream source was created.
   attr_accessor :created_at
 
+  attr_accessor :disable_reason
+
   # The key for extra header #1 to send to upstream.
   attr_accessor :extra_header_1
 
@@ -46,6 +48,9 @@ class HelmUpstream
 
   # A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.
   attr_accessor :name
+
+  # When true, this upstream source is pending validation.
+  attr_accessor :pending_validation
 
   # Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
   attr_accessor :priority
@@ -89,6 +94,7 @@ class HelmUpstream
       :'auth_secret' => :'auth_secret',
       :'auth_username' => :'auth_username',
       :'created_at' => :'created_at',
+      :'disable_reason' => :'disable_reason',
       :'extra_header_1' => :'extra_header_1',
       :'extra_header_2' => :'extra_header_2',
       :'extra_value_1' => :'extra_value_1',
@@ -96,6 +102,7 @@ class HelmUpstream
       :'is_active' => :'is_active',
       :'mode' => :'mode',
       :'name' => :'name',
+      :'pending_validation' => :'pending_validation',
       :'priority' => :'priority',
       :'slug_perm' => :'slug_perm',
       :'updated_at' => :'updated_at',
@@ -111,6 +118,7 @@ class HelmUpstream
       :'auth_secret' => :'String',
       :'auth_username' => :'String',
       :'created_at' => :'DateTime',
+      :'disable_reason' => :'String',
       :'extra_header_1' => :'String',
       :'extra_header_2' => :'String',
       :'extra_value_1' => :'String',
@@ -118,6 +126,7 @@ class HelmUpstream
       :'is_active' => :'BOOLEAN',
       :'mode' => :'String',
       :'name' => :'String',
+      :'pending_validation' => :'BOOLEAN',
       :'priority' => :'Integer',
       :'slug_perm' => :'String',
       :'updated_at' => :'DateTime',
@@ -152,6 +161,12 @@ class HelmUpstream
       self.created_at = attributes[:'created_at']
     end
 
+    if attributes.has_key?(:'disable_reason')
+      self.disable_reason = attributes[:'disable_reason']
+    else
+      self.disable_reason = 'N/A'
+    end
+
     if attributes.has_key?(:'extra_header_1')
       self.extra_header_1 = attributes[:'extra_header_1']
     end
@@ -180,6 +195,10 @@ class HelmUpstream
 
     if attributes.has_key?(:'name')
       self.name = attributes[:'name']
+    end
+
+    if attributes.has_key?(:'pending_validation')
+      self.pending_validation = attributes[:'pending_validation']
     end
 
     if attributes.has_key?(:'priority')
@@ -223,6 +242,8 @@ class HelmUpstream
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
+    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source'])
+    return false unless disable_reason_validator.valid?(@disable_reason)
     mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
     return false unless mode_validator.valid?(@mode)
     return false if @name.nil?
@@ -238,6 +259,16 @@ class HelmUpstream
       fail ArgumentError, 'invalid value for "auth_mode", must be one of #{validator.allowable_values}.'
     end
     @auth_mode = auth_mode
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] disable_reason Object to be assigned
+  def disable_reason=(disable_reason)
+    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source'])
+    unless validator.valid?(disable_reason)
+      fail ArgumentError, 'invalid value for "disable_reason", must be one of #{validator.allowable_values}.'
+    end
+    @disable_reason = disable_reason
   end
 
   # Custom attribute writer method checking allowed values (enum).
@@ -259,6 +290,7 @@ class HelmUpstream
         auth_secret == o.auth_secret &&
         auth_username == o.auth_username &&
         created_at == o.created_at &&
+        disable_reason == o.disable_reason &&
         extra_header_1 == o.extra_header_1 &&
         extra_header_2 == o.extra_header_2 &&
         extra_value_1 == o.extra_value_1 &&
@@ -266,6 +298,7 @@ class HelmUpstream
         is_active == o.is_active &&
         mode == o.mode &&
         name == o.name &&
+        pending_validation == o.pending_validation &&
         priority == o.priority &&
         slug_perm == o.slug_perm &&
         updated_at == o.updated_at &&
@@ -282,7 +315,7 @@ class HelmUpstream
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_mode, auth_secret, auth_username, created_at, extra_header_1, extra_header_2, extra_value_1, extra_value_2, is_active, mode, name, priority, slug_perm, updated_at, upstream_url, verify_ssl].hash
+    [auth_mode, auth_secret, auth_username, created_at, disable_reason, extra_header_1, extra_header_2, extra_value_1, extra_value_2, is_active, mode, name, pending_validation, priority, slug_perm, updated_at, upstream_url, verify_ssl].hash
   end
 
     # Builds the object from hash

@@ -14,12 +14,16 @@ require 'date'
 
 module CloudsmithApi
 class PackageQuarantineRequest
-  # If true, the package be restored from quarantine.
+  # If true, the package is released from quarantine.
+  attr_accessor :release
+
+  # If true, the package is released from quarantine. Note: This field is deprecated, please use 'release' instead.
   attr_accessor :restore
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'release' => :'release',
       :'restore' => :'restore'
     }
   end
@@ -27,6 +31,7 @@ class PackageQuarantineRequest
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'release' => :'BOOLEAN',
       :'restore' => :'BOOLEAN'
     }
   end
@@ -38,6 +43,10 @@ class PackageQuarantineRequest
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'release')
+      self.release = attributes[:'release']
+    end
 
     if attributes.has_key?(:'restore')
       self.restore = attributes[:'restore']
@@ -62,6 +71,7 @@ class PackageQuarantineRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        release == o.release &&
         restore == o.restore
   end
 
@@ -74,7 +84,7 @@ class PackageQuarantineRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [restore].hash
+    [release, restore].hash
   end
 
     # Builds the object from hash

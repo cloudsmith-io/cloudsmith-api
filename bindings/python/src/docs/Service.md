@@ -3,6 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**created_at** | **datetime** |  | [optional] 
+**created_by** | **str** |  | [optional] 
+**created_by_url** | **str** |  | [optional] 
 **description** | **str** | The description of the service | [optional] 
 **key** | **str** | The API key of the service | [optional] 
 **name** | **str** | The name of the service | 

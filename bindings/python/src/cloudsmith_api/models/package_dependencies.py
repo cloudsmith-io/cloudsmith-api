@@ -49,8 +49,7 @@ class PackageDependencies(object):
         self._dependencies = None
         self.discriminator = None
 
-        if dependencies is not None:
-            self.dependencies = dependencies
+        self.dependencies = dependencies
 
     @property
     def dependencies(self):
@@ -70,6 +69,8 @@ class PackageDependencies(object):
         :param dependencies: The dependencies of this PackageDependencies.
         :type: list[PackageDependency]
         """
+        if self._configuration.client_side_validation and dependencies is None:
+            raise ValueError("Invalid value for `dependencies`, must not be `None`")  # noqa: E501
 
         self._dependencies = dependencies
 

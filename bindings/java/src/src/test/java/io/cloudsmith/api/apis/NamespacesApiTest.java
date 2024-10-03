@@ -51,9 +51,9 @@ public class NamespacesApiTest {
     }
     
     /**
-     * Views for working with namespaces.
+     * Get a specific namespace that the user belongs to.
      *
-     * Views for working with namespaces.
+     * Get a specific namespace that the user belongs to.
      *
      * @throws Exception
      *          if the Api call fails

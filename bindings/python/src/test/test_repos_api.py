@@ -29,6 +29,27 @@ class TestReposApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_api_repos_geoip_status(self):
+        """Test case for api_repos_geoip_status
+
+        Retrieve the GeoIP status for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repo_retention_partial_update(self):
+        """Test case for repo_retention_partial_update
+
+        Update the retention rules for the repository.  # noqa: E501
+        """
+        pass
+
+    def test_repo_retention_read(self):
+        """Test case for repo_retention_read
+
+        Retrieve the retention rules for the repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_create(self):
         """Test case for repos_create
 
@@ -40,6 +61,27 @@ class TestReposApi(unittest.TestCase):
         """Test case for repos_delete
 
         Delete a repository in a given namespace.  # noqa: E501
+        """
+        pass
+
+    def test_repos_ecdsa_create(self):
+        """Test case for repos_ecdsa_create
+
+        Set the active ECDSA key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_ecdsa_list(self):
+        """Test case for repos_ecdsa_list
+
+        Retrieve the active ECDSA key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_ecdsa_regenerate(self):
+        """Test case for repos_ecdsa_regenerate
+
+        Regenerate ECDSA Key for the Repository.  # noqa: E501
         """
         pass
 
@@ -166,6 +208,55 @@ class TestReposApi(unittest.TestCase):
         """Test case for repos_rsa_regenerate
 
         Regenerate RSA Key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_transfer_region(self):
+        """Test case for repos_transfer_region
+
+        Transfer a repository to a different region.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_composer_create(self):
+        """Test case for repos_upstream_composer_create
+
+        Create a Composer upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_composer_delete(self):
+        """Test case for repos_upstream_composer_delete
+
+        Delete a Composer upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_composer_list(self):
+        """Test case for repos_upstream_composer_list
+
+        List Composer upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_composer_partial_update(self):
+        """Test case for repos_upstream_composer_partial_update
+
+        Partially update a Composer upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_composer_read(self):
+        """Test case for repos_upstream_composer_read
+
+        Retrieve a Composer upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_composer_update(self):
+        """Test case for repos_upstream_composer_update
+
+        Update a Composer upstream config for this repository.  # noqa: E501
         """
         pass
 
@@ -376,6 +467,48 @@ class TestReposApi(unittest.TestCase):
         """Test case for repos_upstream_helm_update
 
         Update a Helm upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_hex_create(self):
+        """Test case for repos_upstream_hex_create
+
+        Create a Hex upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_hex_delete(self):
+        """Test case for repos_upstream_hex_delete
+
+        Delete a Hex upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_hex_list(self):
+        """Test case for repos_upstream_hex_list
+
+        List Hex upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_hex_partial_update(self):
+        """Test case for repos_upstream_hex_partial_update
+
+        Partially update a Hex upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_hex_read(self):
+        """Test case for repos_upstream_hex_read
+
+        Retrieve a Hex upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_hex_update(self):
+        """Test case for repos_upstream_hex_update
+
+        Update a Hex upstream config for this repository.  # noqa: E501
         """
         pass
 

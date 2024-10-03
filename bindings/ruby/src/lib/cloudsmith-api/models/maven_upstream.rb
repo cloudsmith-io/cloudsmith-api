@@ -26,6 +26,8 @@ class MavenUpstream
   # The datetime the upstream source was created.
   attr_accessor :created_at
 
+  attr_accessor :disable_reason
+
   # The key for extra header #1 to send to upstream.
   attr_accessor :extra_header_1
 
@@ -38,6 +40,15 @@ class MavenUpstream
   # The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.
   attr_accessor :extra_value_2
 
+  # A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
+  attr_accessor :gpg_key_inline
+
+  # When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
+  attr_accessor :gpg_key_url
+
+  # The GPG signature verification mode for this upstream.
+  attr_accessor :gpg_verification
+
   # Whether or not this upstream is active and ready for requests.
   attr_accessor :is_active
 
@@ -46,6 +57,9 @@ class MavenUpstream
 
   # A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.
   attr_accessor :name
+
+  # When true, this upstream source is pending validation.
+  attr_accessor :pending_validation
 
   # Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
   attr_accessor :priority
@@ -56,6 +70,9 @@ class MavenUpstream
 
   # The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. 
   attr_accessor :upstream_url
+
+  # The signature verification status for this upstream.
+  attr_accessor :verification_status
 
   # If enabled, SSL certificates are verified when requests are made to this upstream. It's recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams.
   attr_accessor :verify_ssl
@@ -89,17 +106,23 @@ class MavenUpstream
       :'auth_secret' => :'auth_secret',
       :'auth_username' => :'auth_username',
       :'created_at' => :'created_at',
+      :'disable_reason' => :'disable_reason',
       :'extra_header_1' => :'extra_header_1',
       :'extra_header_2' => :'extra_header_2',
       :'extra_value_1' => :'extra_value_1',
       :'extra_value_2' => :'extra_value_2',
+      :'gpg_key_inline' => :'gpg_key_inline',
+      :'gpg_key_url' => :'gpg_key_url',
+      :'gpg_verification' => :'gpg_verification',
       :'is_active' => :'is_active',
       :'mode' => :'mode',
       :'name' => :'name',
+      :'pending_validation' => :'pending_validation',
       :'priority' => :'priority',
       :'slug_perm' => :'slug_perm',
       :'updated_at' => :'updated_at',
       :'upstream_url' => :'upstream_url',
+      :'verification_status' => :'verification_status',
       :'verify_ssl' => :'verify_ssl'
     }
   end
@@ -111,17 +134,23 @@ class MavenUpstream
       :'auth_secret' => :'String',
       :'auth_username' => :'String',
       :'created_at' => :'DateTime',
+      :'disable_reason' => :'String',
       :'extra_header_1' => :'String',
       :'extra_header_2' => :'String',
       :'extra_value_1' => :'String',
       :'extra_value_2' => :'String',
+      :'gpg_key_inline' => :'String',
+      :'gpg_key_url' => :'String',
+      :'gpg_verification' => :'String',
       :'is_active' => :'BOOLEAN',
       :'mode' => :'String',
       :'name' => :'String',
+      :'pending_validation' => :'BOOLEAN',
       :'priority' => :'Integer',
       :'slug_perm' => :'String',
       :'updated_at' => :'DateTime',
       :'upstream_url' => :'String',
+      :'verification_status' => :'String',
       :'verify_ssl' => :'BOOLEAN'
     }
   end
@@ -152,6 +181,12 @@ class MavenUpstream
       self.created_at = attributes[:'created_at']
     end
 
+    if attributes.has_key?(:'disable_reason')
+      self.disable_reason = attributes[:'disable_reason']
+    else
+      self.disable_reason = 'N/A'
+    end
+
     if attributes.has_key?(:'extra_header_1')
       self.extra_header_1 = attributes[:'extra_header_1']
     end
@@ -168,6 +203,20 @@ class MavenUpstream
       self.extra_value_2 = attributes[:'extra_value_2']
     end
 
+    if attributes.has_key?(:'gpg_key_inline')
+      self.gpg_key_inline = attributes[:'gpg_key_inline']
+    end
+
+    if attributes.has_key?(:'gpg_key_url')
+      self.gpg_key_url = attributes[:'gpg_key_url']
+    end
+
+    if attributes.has_key?(:'gpg_verification')
+      self.gpg_verification = attributes[:'gpg_verification']
+    else
+      self.gpg_verification = 'Allow All'
+    end
+
     if attributes.has_key?(:'is_active')
       self.is_active = attributes[:'is_active']
     end
@@ -180,6 +229,10 @@ class MavenUpstream
 
     if attributes.has_key?(:'name')
       self.name = attributes[:'name']
+    end
+
+    if attributes.has_key?(:'pending_validation')
+      self.pending_validation = attributes[:'pending_validation']
     end
 
     if attributes.has_key?(:'priority')
@@ -196,6 +249,12 @@ class MavenUpstream
 
     if attributes.has_key?(:'upstream_url')
       self.upstream_url = attributes[:'upstream_url']
+    end
+
+    if attributes.has_key?(:'verification_status')
+      self.verification_status = attributes[:'verification_status']
+    else
+      self.verification_status = 'Unknown'
     end
 
     if attributes.has_key?(:'verify_ssl')
@@ -223,10 +282,16 @@ class MavenUpstream
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
+    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source'])
+    return false unless disable_reason_validator.valid?(@disable_reason)
+    gpg_verification_validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
+    return false unless gpg_verification_validator.valid?(@gpg_verification)
     mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy', 'Cache Only'])
     return false unless mode_validator.valid?(@mode)
     return false if @name.nil?
     return false if @upstream_url.nil?
+    verification_status_validator = EnumAttributeValidator.new('String', ['Unknown', 'Invalid', 'Valid', 'Invalid (No Key)'])
+    return false unless verification_status_validator.valid?(@verification_status)
     true
   end
 
@@ -241,6 +306,26 @@ class MavenUpstream
   end
 
   # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] disable_reason Object to be assigned
+  def disable_reason=(disable_reason)
+    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source'])
+    unless validator.valid?(disable_reason)
+      fail ArgumentError, 'invalid value for "disable_reason", must be one of #{validator.allowable_values}.'
+    end
+    @disable_reason = disable_reason
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] gpg_verification Object to be assigned
+  def gpg_verification=(gpg_verification)
+    validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
+    unless validator.valid?(gpg_verification)
+      fail ArgumentError, 'invalid value for "gpg_verification", must be one of #{validator.allowable_values}.'
+    end
+    @gpg_verification = gpg_verification
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
   # @param [Object] mode Object to be assigned
   def mode=(mode)
     validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy', 'Cache Only'])
@@ -248,6 +333,16 @@ class MavenUpstream
       fail ArgumentError, 'invalid value for "mode", must be one of #{validator.allowable_values}.'
     end
     @mode = mode
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] verification_status Object to be assigned
+  def verification_status=(verification_status)
+    validator = EnumAttributeValidator.new('String', ['Unknown', 'Invalid', 'Valid', 'Invalid (No Key)'])
+    unless validator.valid?(verification_status)
+      fail ArgumentError, 'invalid value for "verification_status", must be one of #{validator.allowable_values}.'
+    end
+    @verification_status = verification_status
   end
 
   # Checks equality by comparing each attribute.
@@ -259,17 +354,23 @@ class MavenUpstream
         auth_secret == o.auth_secret &&
         auth_username == o.auth_username &&
         created_at == o.created_at &&
+        disable_reason == o.disable_reason &&
         extra_header_1 == o.extra_header_1 &&
         extra_header_2 == o.extra_header_2 &&
         extra_value_1 == o.extra_value_1 &&
         extra_value_2 == o.extra_value_2 &&
+        gpg_key_inline == o.gpg_key_inline &&
+        gpg_key_url == o.gpg_key_url &&
+        gpg_verification == o.gpg_verification &&
         is_active == o.is_active &&
         mode == o.mode &&
         name == o.name &&
+        pending_validation == o.pending_validation &&
         priority == o.priority &&
         slug_perm == o.slug_perm &&
         updated_at == o.updated_at &&
         upstream_url == o.upstream_url &&
+        verification_status == o.verification_status &&
         verify_ssl == o.verify_ssl
   end
 
@@ -282,7 +383,7 @@ class MavenUpstream
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_mode, auth_secret, auth_username, created_at, extra_header_1, extra_header_2, extra_value_1, extra_value_2, is_active, mode, name, priority, slug_perm, updated_at, upstream_url, verify_ssl].hash
+    [auth_mode, auth_secret, auth_username, created_at, disable_reason, extra_header_1, extra_header_2, extra_value_1, extra_value_2, gpg_key_inline, gpg_key_url, gpg_verification, is_active, mode, name, pending_validation, priority, slug_perm, updated_at, upstream_url, verification_status, verify_ssl].hash
   end
 
     # Builds the object from hash

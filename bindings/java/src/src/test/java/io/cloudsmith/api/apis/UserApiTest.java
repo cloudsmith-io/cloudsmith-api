@@ -51,9 +51,9 @@ public class UserApiTest {
     }
     
     /**
-     * Retrieve the API key/token for the authenticated user.
+     * Retrieve/Create API key/token for the authenticated user.
      *
-     * Retrieve the API key/token for the authenticated user.
+     * Retrieve/Create API key/token for the authenticated user.
      *
      * @throws Exception
      *          if the Api call fails

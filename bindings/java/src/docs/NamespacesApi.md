@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**namespacesList**](NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
-[**namespacesRead**](NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
+[**namespacesRead**](NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Get a specific namespace that the user belongs to.
 
 
 <a name="namespacesList"></a>
@@ -33,6 +33,11 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
 NamespacesApi apiInstance = new NamespacesApi();
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
@@ -58,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -69,9 +74,9 @@ Name | Type | Description  | Notes
 # **namespacesRead**
 > Namespace namespacesRead(slug)
 
-Views for working with namespaces.
+Get a specific namespace that the user belongs to.
 
-Views for working with namespaces.
+Get a specific namespace that the user belongs to.
 
 ### Example
 ```java
@@ -89,6 +94,11 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 NamespacesApi apiInstance = new NamespacesApi();
 String slug = "slug_example"; // String | 
@@ -113,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic)
 
 ### HTTP request headers
 
