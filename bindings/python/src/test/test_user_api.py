@@ -39,7 +39,7 @@ class TestUserApi(unittest.TestCase):
     def test_user_token_create(self):
         """Test case for user_token_create
 
-        Retrieve the API key/token for the authenticated user.  # noqa: E501
+        Retrieve/Create API key/token for the authenticated user.  # noqa: E501
         """
         pass
 

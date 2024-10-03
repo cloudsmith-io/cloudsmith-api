@@ -114,7 +114,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic']  # noqa: E501
 
         return self.api_client.call_api(
             '/users/profile/{slug}/', 'GET',

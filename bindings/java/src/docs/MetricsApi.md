@@ -34,6 +34,11 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -67,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -98,6 +103,11 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
@@ -134,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic)
 
 ### HTTP request headers
 
@@ -165,6 +175,11 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
 
 MetricsApi apiInstance = new MetricsApi();
 String owner = "owner_example"; // String | 
@@ -201,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey)
+[apikey](../README.md#apikey), [basic](../README.md#basic)
 
 ### HTTP request headers
 

@@ -60,7 +60,8 @@ class PackageDependency(object):
 
         if dep_type is not None:
             self.dep_type = dep_type
-        self.name = name
+        if name is not None:
+            self.name = name
         if operator is not None:
             self.operator = operator
         if version is not None:
@@ -98,7 +99,6 @@ class PackageDependency(object):
     def name(self):
         """Gets the name of this PackageDependency.
 
-        The name of the package dependency.
 
         :return: The name of this PackageDependency.
         :rtype: str
@@ -109,13 +109,10 @@ class PackageDependency(object):
     def name(self, name):
         """Sets the name of this PackageDependency.
 
-        The name of the package dependency.
 
         :param name: The name of this PackageDependency.
         :type: str
         """
-        if self._configuration.client_side_validation and name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 name is not None and len(name) > 255):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `255`")  # noqa: E501
@@ -157,7 +154,6 @@ class PackageDependency(object):
     def version(self):
         """Gets the version of this PackageDependency.
 
-        The raw dependency version (if any).
 
         :return: The version of this PackageDependency.
         :rtype: str
@@ -168,7 +164,6 @@ class PackageDependency(object):
     def version(self, version):
         """Sets the version of this PackageDependency.
 
-        The raw dependency version (if any).
 
         :param version: The version of this PackageDependency.
         :type: str
@@ -176,6 +171,9 @@ class PackageDependency(object):
         if (self._configuration.client_side_validation and
                 version is not None and len(version) > 128):
             raise ValueError("Invalid value for `version`, length must be less than or equal to `128`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                version is not None and len(version) < 1):
+            raise ValueError("Invalid value for `version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._version = version
 

@@ -54,7 +54,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -67,8 +67,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Retrieve the API key/token for the authenticated user.
-    # Retrieve the API key/token for the authenticated user.
+    # Retrieve/Create API key/token for the authenticated user.
+    # Retrieve/Create API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
     # @option opts [UserAuthTokenRequest] :data 
     # @return [UserAuthToken]
@@ -77,8 +77,8 @@ module CloudsmithApi
       data
     end
 
-    # Retrieve the API key/token for the authenticated user.
-    # Retrieve the API key/token for the authenticated user.
+    # Retrieve/Create API key/token for the authenticated user.
+    # Retrieve/Create API key/token for the authenticated user.
     # @param [Hash] opts the optional parameters
     # @option opts [UserAuthTokenRequest] :data 
     # @return [Array<(UserAuthToken, Fixnum, Hash)>] UserAuthToken data, response status code and response headers
@@ -104,7 +104,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

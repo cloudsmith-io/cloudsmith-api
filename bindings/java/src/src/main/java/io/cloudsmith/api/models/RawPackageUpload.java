@@ -69,6 +69,9 @@ public class RawPackageUpload implements Serializable {
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("display_name")
+  private String displayName = null;
+
   @SerializedName("distro")
   private Distribution distro = null;
 
@@ -415,6 +418,15 @@ public class RawPackageUpload implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayName() {
+    return displayName;
   }
 
   public RawPackageUpload distro(Distribution distro) {
@@ -1095,6 +1107,7 @@ public class RawPackageUpload implements Serializable {
         Objects.equals(this.dependenciesChecksumMd5, rawPackageUpload.dependenciesChecksumMd5) &&
         Objects.equals(this.dependenciesUrl, rawPackageUpload.dependenciesUrl) &&
         Objects.equals(this.description, rawPackageUpload.description) &&
+        Objects.equals(this.displayName, rawPackageUpload.displayName) &&
         Objects.equals(this.distro, rawPackageUpload.distro) &&
         Objects.equals(this.distroVersion, rawPackageUpload.distroVersion) &&
         Objects.equals(this.downloads, rawPackageUpload.downloads) &&
@@ -1165,7 +1178,7 @@ public class RawPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1183,6 +1196,7 @@ public class RawPackageUpload implements Serializable {
     sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
     sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");

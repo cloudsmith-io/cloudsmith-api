@@ -140,8 +140,8 @@ class UserProfile(object):
         if self._configuration.client_side_validation and first_name is None:
             raise ValueError("Invalid value for `first_name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                first_name is not None and len(first_name) > 40):
-            raise ValueError("Invalid value for `first_name`, length must be less than or equal to `40`")  # noqa: E501
+                first_name is not None and len(first_name) > 120):
+            raise ValueError("Invalid value for `first_name`, length must be less than or equal to `120`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 first_name is not None and len(first_name) < 1):
             raise ValueError("Invalid value for `first_name`, length must be greater than or equal to `1`")  # noqa: E501
@@ -309,8 +309,8 @@ class UserProfile(object):
         :type: str
         """
         if (self._configuration.client_side_validation and
-                tagline is not None and len(tagline) > 80):
-            raise ValueError("Invalid value for `tagline`, length must be less than or equal to `80`")  # noqa: E501
+                tagline is not None and len(tagline) > 1024):
+            raise ValueError("Invalid value for `tagline`, length must be less than or equal to `1024`")  # noqa: E501
 
         self._tagline = tagline
 

@@ -134,7 +134,7 @@ class MetricsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic']  # noqa: E501
 
         return self.api_client.call_api(
             '/metrics/entitlements/{owner}/', 'GET',
@@ -261,7 +261,7 @@ class MetricsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic']  # noqa: E501
 
         return self.api_client.call_api(
             '/metrics/entitlements/{owner}/{repo}/', 'GET',
@@ -388,7 +388,7 @@ class MetricsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic']  # noqa: E501
 
         return self.api_client.call_api(
             '/metrics/packages/{owner}/{repo}/', 'GET',

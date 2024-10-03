@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **org** | **str** |  | [optional] 
 **role** | **str** | The role to be assigned to the invited user. | [optional] [default to 'Member']
 **slug_perm** | **str** |  | [optional] 
+**teams** | [**list[OrganizationTeamInvite]**](OrganizationTeamInvite.md) |  | [optional] 
 **user** | **str** | The slug of the user to be invited. | [optional] 
 **user_url** | **str** |  | [optional] 
 

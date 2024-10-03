@@ -106,7 +106,7 @@ class UserApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['apikey', 'basic']  # noqa: E501
 
         return self.api_client.call_api(
             '/user/self/', 'GET',
@@ -125,9 +125,9 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def user_token_create(self, **kwargs):  # noqa: E501
-        """Retrieve the API key/token for the authenticated user.  # noqa: E501
+        """Retrieve/Create API key/token for the authenticated user.  # noqa: E501
 
-        Retrieve the API key/token for the authenticated user.  # noqa: E501
+        Retrieve/Create API key/token for the authenticated user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.user_token_create(async_req=True)
@@ -147,9 +147,9 @@ class UserApi(object):
             return data
 
     def user_token_create_with_http_info(self, **kwargs):  # noqa: E501
-        """Retrieve the API key/token for the authenticated user.  # noqa: E501
+        """Retrieve/Create API key/token for the authenticated user.  # noqa: E501
 
-        Retrieve the API key/token for the authenticated user.  # noqa: E501
+        Retrieve/Create API key/token for the authenticated user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.user_token_create_with_http_info(async_req=True)
@@ -201,7 +201,7 @@ class UserApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey']  # noqa: E501
+        auth_settings = ['basic']  # noqa: E501
 
         return self.api_client.call_api(
             '/user/token/', 'POST',

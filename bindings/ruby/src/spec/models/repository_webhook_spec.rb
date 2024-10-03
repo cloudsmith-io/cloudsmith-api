@@ -65,7 +65,7 @@ describe 'RepositoryWebhook' do
   describe 'test attribute "events"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["*", "package.created", "package.deleted", "package.downloaded", "package.failed", "package.security_scanned", "package.synced", "package.syncing", "package.tags_updated"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["*", "package.created", "package.deleted", "package.downloaded", "package.failed", "package.quarantined", "package.released", "package.restored", "package.security_scanned", "package.synced", "package.syncing", "package.tags_updated"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.events = value }.not_to raise_error
       # end

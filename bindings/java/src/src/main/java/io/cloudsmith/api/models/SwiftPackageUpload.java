@@ -75,6 +75,9 @@ public class SwiftPackageUpload implements Serializable {
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("display_name")
+  private String displayName = null;
+
   @SerializedName("distro")
   private Distribution distro = null;
 
@@ -457,6 +460,15 @@ public class SwiftPackageUpload implements Serializable {
   @ApiModelProperty(value = "A textual description of this package.")
   public String getDescription() {
     return description;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayName() {
+    return displayName;
   }
 
   public SwiftPackageUpload distro(Distribution distro) {
@@ -1196,6 +1208,7 @@ public class SwiftPackageUpload implements Serializable {
         Objects.equals(this.dependenciesChecksumMd5, swiftPackageUpload.dependenciesChecksumMd5) &&
         Objects.equals(this.dependenciesUrl, swiftPackageUpload.dependenciesUrl) &&
         Objects.equals(this.description, swiftPackageUpload.description) &&
+        Objects.equals(this.displayName, swiftPackageUpload.displayName) &&
         Objects.equals(this.distro, swiftPackageUpload.distro) &&
         Objects.equals(this.distroVersion, swiftPackageUpload.distroVersion) &&
         Objects.equals(this.downloads, swiftPackageUpload.downloads) &&
@@ -1269,7 +1282,7 @@ public class SwiftPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, authorName, authorOrg, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, licenseUrl, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, readmeUrl, release, repository, repositoryUrl, scope, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, authorName, authorOrg, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, licenseUrl, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, readmeUrl, release, repository, repositoryUrl, scope, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1289,6 +1302,7 @@ public class SwiftPackageUpload implements Serializable {
     sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
     sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");

@@ -60,7 +60,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -73,8 +73,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Views for working with namespaces.
-    # Views for working with namespaces.
+    # Get a specific namespace that the user belongs to.
+    # Get a specific namespace that the user belongs to.
     # @param slug 
     # @param [Hash] opts the optional parameters
     # @return [Namespace]
@@ -83,8 +83,8 @@ module CloudsmithApi
       data
     end
 
-    # Views for working with namespaces.
-    # Views for working with namespaces.
+    # Get a specific namespace that the user belongs to.
+    # Get a specific namespace that the user belongs to.
     # @param slug 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Namespace, Fixnum, Hash)>] Namespace data, response status code and response headers
@@ -114,7 +114,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

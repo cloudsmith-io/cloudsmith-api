@@ -114,7 +114,7 @@ public class NamespacesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -254,7 +254,7 @@ public class NamespacesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey" };
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -287,8 +287,8 @@ public class NamespacesApi {
     }
 
     /**
-     * Views for working with namespaces.
-     * Views for working with namespaces.
+     * Get a specific namespace that the user belongs to.
+     * Get a specific namespace that the user belongs to.
      * @param slug  (required)
      * @return Namespace
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -299,8 +299,8 @@ public class NamespacesApi {
     }
 
     /**
-     * Views for working with namespaces.
-     * Views for working with namespaces.
+     * Get a specific namespace that the user belongs to.
+     * Get a specific namespace that the user belongs to.
      * @param slug  (required)
      * @return ApiResponse&lt;Namespace&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -312,8 +312,8 @@ public class NamespacesApi {
     }
 
     /**
-     * Views for working with namespaces. (asynchronously)
-     * Views for working with namespaces.
+     * Get a specific namespace that the user belongs to. (asynchronously)
+     * Get a specific namespace that the user belongs to.
      * @param slug  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

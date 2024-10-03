@@ -94,6 +94,58 @@ public class RpmUpstream implements Serializable {
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
+  /**
+   * Gets or Sets disableReason
+   */
+  @JsonAdapter(DisableReasonEnum.Adapter.class)
+  public enum DisableReasonEnum {
+    N_A("N/A"),
+    
+    UPSTREAM_POINTS_TO_ITS_OWN_REPOSITORY("Upstream points to its own repository"),
+    
+    MISSING_UPSTREAM_SOURCE("Missing upstream source");
+
+    private String value;
+
+    DisableReasonEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DisableReasonEnum fromValue(String text) {
+      for (DisableReasonEnum b : DisableReasonEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DisableReasonEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DisableReasonEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DisableReasonEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DisableReasonEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("disable_reason")
+  private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
+
   @SerializedName("distro_version")
   private String distroVersion = null;
 
@@ -108,6 +160,64 @@ public class RpmUpstream implements Serializable {
 
   @SerializedName("extra_value_2")
   private String extraValue2 = null;
+
+  @SerializedName("gpg_key_inline")
+  private String gpgKeyInline = null;
+
+  @SerializedName("gpg_key_url")
+  private String gpgKeyUrl = null;
+
+  /**
+   * The GPG signature verification mode for this upstream.
+   */
+  @JsonAdapter(GpgVerificationEnum.Adapter.class)
+  public enum GpgVerificationEnum {
+    ALLOW_ALL("Allow All"),
+    
+    WARN_ON_INVALID("Warn on Invalid"),
+    
+    REJECT_INVALID("Reject Invalid");
+
+    private String value;
+
+    GpgVerificationEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static GpgVerificationEnum fromValue(String text) {
+      for (GpgVerificationEnum b : GpgVerificationEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<GpgVerificationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final GpgVerificationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public GpgVerificationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return GpgVerificationEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("gpg_verification")
+  private GpgVerificationEnum gpgVerification = GpgVerificationEnum.ALLOW_ALL;
 
   @SerializedName("include_sources")
   private Boolean includeSources = null;
@@ -168,6 +278,9 @@ public class RpmUpstream implements Serializable {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("pending_validation")
+  private Boolean pendingValidation = null;
+
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
 
@@ -179,6 +292,60 @@ public class RpmUpstream implements Serializable {
 
   @SerializedName("upstream_url")
   private String upstreamUrl = null;
+
+  /**
+   * The signature verification status for this upstream.
+   */
+  @JsonAdapter(VerificationStatusEnum.Adapter.class)
+  public enum VerificationStatusEnum {
+    UNKNOWN("Unknown"),
+    
+    INVALID("Invalid"),
+    
+    VALID("Valid"),
+    
+    INVALID_NO_KEY_("Invalid (No Key)");
+
+    private String value;
+
+    VerificationStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VerificationStatusEnum fromValue(String text) {
+      for (VerificationStatusEnum b : VerificationStatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<VerificationStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VerificationStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VerificationStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VerificationStatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("verification_status")
+  private VerificationStatusEnum verificationStatus = VerificationStatusEnum.UNKNOWN;
 
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
@@ -245,6 +412,15 @@ public class RpmUpstream implements Serializable {
   @ApiModelProperty(value = "The datetime the upstream source was created.")
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+   /**
+   * Get disableReason
+   * @return disableReason
+  **/
+  @ApiModelProperty(value = "")
+  public DisableReasonEnum getDisableReason() {
+    return disableReason;
   }
 
   public RpmUpstream distroVersion(String distroVersion) {
@@ -338,6 +514,60 @@ public class RpmUpstream implements Serializable {
     this.extraValue2 = extraValue2;
   }
 
+  public RpmUpstream gpgKeyInline(String gpgKeyInline) {
+    this.gpgKeyInline = gpgKeyInline;
+    return this;
+  }
+
+   /**
+   * A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
+   * @return gpgKeyInline
+  **/
+  @ApiModelProperty(value = "A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
+  public String getGpgKeyInline() {
+    return gpgKeyInline;
+  }
+
+  public void setGpgKeyInline(String gpgKeyInline) {
+    this.gpgKeyInline = gpgKeyInline;
+  }
+
+  public RpmUpstream gpgKeyUrl(String gpgKeyUrl) {
+    this.gpgKeyUrl = gpgKeyUrl;
+    return this;
+  }
+
+   /**
+   * When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
+   * @return gpgKeyUrl
+  **/
+ @Size(max=254)  @ApiModelProperty(value = "When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
+  public String getGpgKeyUrl() {
+    return gpgKeyUrl;
+  }
+
+  public void setGpgKeyUrl(String gpgKeyUrl) {
+    this.gpgKeyUrl = gpgKeyUrl;
+  }
+
+  public RpmUpstream gpgVerification(GpgVerificationEnum gpgVerification) {
+    this.gpgVerification = gpgVerification;
+    return this;
+  }
+
+   /**
+   * The GPG signature verification mode for this upstream.
+   * @return gpgVerification
+  **/
+  @ApiModelProperty(value = "The GPG signature verification mode for this upstream.")
+  public GpgVerificationEnum getGpgVerification() {
+    return gpgVerification;
+  }
+
+  public void setGpgVerification(GpgVerificationEnum gpgVerification) {
+    this.gpgVerification = gpgVerification;
+  }
+
   public RpmUpstream includeSources(Boolean includeSources) {
     this.includeSources = includeSources;
     return this;
@@ -411,6 +641,15 @@ public class RpmUpstream implements Serializable {
     this.name = name;
   }
 
+   /**
+   * When true, this upstream source is pending validation.
+   * @return pendingValidation
+  **/
+  @ApiModelProperty(value = "When true, this upstream source is pending validation.")
+  public Boolean isPendingValidation() {
+    return pendingValidation;
+  }
+
   public RpmUpstream priority(java.math.BigInteger priority) {
     this.priority = priority;
     return this;
@@ -469,6 +708,15 @@ public class RpmUpstream implements Serializable {
     this.upstreamUrl = upstreamUrl;
   }
 
+   /**
+   * The signature verification status for this upstream.
+   * @return verificationStatus
+  **/
+  @ApiModelProperty(value = "The signature verification status for this upstream.")
+  public VerificationStatusEnum getVerificationStatus() {
+    return verificationStatus;
+  }
+
   public RpmUpstream verifySsl(Boolean verifySsl) {
     this.verifySsl = verifySsl;
     return this;
@@ -501,25 +749,31 @@ public class RpmUpstream implements Serializable {
         Objects.equals(this.authSecret, rpmUpstream.authSecret) &&
         Objects.equals(this.authUsername, rpmUpstream.authUsername) &&
         Objects.equals(this.createdAt, rpmUpstream.createdAt) &&
+        Objects.equals(this.disableReason, rpmUpstream.disableReason) &&
         Objects.equals(this.distroVersion, rpmUpstream.distroVersion) &&
         Objects.equals(this.extraHeader1, rpmUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, rpmUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, rpmUpstream.extraValue1) &&
         Objects.equals(this.extraValue2, rpmUpstream.extraValue2) &&
+        Objects.equals(this.gpgKeyInline, rpmUpstream.gpgKeyInline) &&
+        Objects.equals(this.gpgKeyUrl, rpmUpstream.gpgKeyUrl) &&
+        Objects.equals(this.gpgVerification, rpmUpstream.gpgVerification) &&
         Objects.equals(this.includeSources, rpmUpstream.includeSources) &&
         Objects.equals(this.isActive, rpmUpstream.isActive) &&
         Objects.equals(this.mode, rpmUpstream.mode) &&
         Objects.equals(this.name, rpmUpstream.name) &&
+        Objects.equals(this.pendingValidation, rpmUpstream.pendingValidation) &&
         Objects.equals(this.priority, rpmUpstream.priority) &&
         Objects.equals(this.slugPerm, rpmUpstream.slugPerm) &&
         Objects.equals(this.updatedAt, rpmUpstream.updatedAt) &&
         Objects.equals(this.upstreamUrl, rpmUpstream.upstreamUrl) &&
+        Objects.equals(this.verificationStatus, rpmUpstream.verificationStatus) &&
         Objects.equals(this.verifySsl, rpmUpstream.verifySsl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, createdAt, distroVersion, extraHeader1, extraHeader2, extraValue1, extraValue2, includeSources, isActive, mode, name, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, createdAt, disableReason, distroVersion, extraHeader1, extraHeader2, extraValue1, extraValue2, gpgKeyInline, gpgKeyUrl, gpgVerification, includeSources, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verificationStatus, verifySsl);
   }
 
 
@@ -532,19 +786,25 @@ public class RpmUpstream implements Serializable {
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
     sb.append("    extraValue2: ").append(toIndentedString(extraValue2)).append("\n");
+    sb.append("    gpgKeyInline: ").append(toIndentedString(gpgKeyInline)).append("\n");
+    sb.append("    gpgKeyUrl: ").append(toIndentedString(gpgKeyUrl)).append("\n");
+    sb.append("    gpgVerification: ").append(toIndentedString(gpgVerification)).append("\n");
     sb.append("    includeSources: ").append(toIndentedString(includeSources)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");
+    sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("    verifySsl: ").append(toIndentedString(verifySsl)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -17,6 +17,7 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
+import io.cloudsmith.api.models.OrganizationGroupSyncStatus;
 import io.cloudsmith.api.models.OrganizationInvite;
 import io.cloudsmith.api.models.OrganizationInviteExtend;
 import io.cloudsmith.api.models.OrganizationInviteRequest;
@@ -64,6 +65,22 @@ public class OrgsApiTest {
 
     private final OrgsApi api = new OrgsApi();
 
+    
+    /**
+     * Delete the specified organization.
+     *
+     * Delete the specified organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsDeleteTest() throws Exception {
+        String org = null;
+        api.orgsDelete(org);
+
+        // TODO: test validations
+    }
     
     /**
      * Create a package deny policy.
@@ -568,7 +585,7 @@ public class OrgsApiTest {
     public void orgsOpenidConnectCreateTest() throws Exception {
         String org = null;
         ProviderSettingsRequest data = null;
-        api.orgsOpenidConnectCreate(org, data);
+        ProviderSettings response = api.orgsOpenidConnectCreate(org, data);
 
         // TODO: test validations
     }
@@ -712,6 +729,38 @@ public class OrgsApiTest {
     }
     
     /**
+     * Disable SAML Group Sync for this organization.
+     *
+     * Disable SAML Group Sync for this organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlGroupSyncDisableTest() throws Exception {
+        String org = null;
+        api.orgsSamlGroupSyncDisable(org);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Enable SAML Group Sync for this organization.
+     *
+     * Enable SAML Group Sync for this organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlGroupSyncEnableTest() throws Exception {
+        String org = null;
+        api.orgsSamlGroupSyncEnable(org);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get the details of all SAML Group Sync mapping within an organization.
      *
      * Get the details of all SAML Group Sync mapping within an organization.
@@ -725,6 +774,22 @@ public class OrgsApiTest {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
         List<OrganizationGroupSync> response = api.orgsSamlGroupSyncList(org, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the SAML Group Sync status for this organization.
+     *
+     * Retrieve the SAML Group Sync status for this organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlGroupSyncStatusTest() throws Exception {
+        String org = null;
+        OrganizationGroupSyncStatus response = api.orgsSamlGroupSyncStatus(org);
 
         // TODO: test validations
     }
@@ -932,7 +997,8 @@ public class OrgsApiTest {
     public void orgsTeamsMembersUpdateTest() throws Exception {
         String org = null;
         String team = null;
-        OrganizationTeamMembers response = api.orgsTeamsMembersUpdate(org, team);
+        OrganizationTeamMembers data = null;
+        OrganizationTeamMembers response = api.orgsTeamsMembersUpdate(org, team, data);
 
         // TODO: test validations
     }

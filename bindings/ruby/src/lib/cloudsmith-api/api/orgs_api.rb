@@ -19,6 +19,59 @@ module CloudsmithApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Delete the specified organization.
+    # Delete the specified organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_delete(org, opts = {})
+      orgs_delete_with_http_info(org, opts)
+      nil
+    end
+
+    # Delete the specified organization.
+    # Delete the specified organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_delete_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Create a package deny policy.
     # Create a package deny policy.
     # @param org 
@@ -62,7 +115,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -122,7 +175,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -181,7 +234,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -243,7 +296,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -303,7 +356,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -365,7 +418,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -421,7 +474,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -481,7 +534,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -540,7 +593,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -600,7 +653,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -662,7 +715,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -722,7 +775,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -778,7 +831,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -838,7 +891,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -899,7 +952,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -965,7 +1018,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1031,7 +1084,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1091,7 +1144,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1153,7 +1206,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1213,7 +1266,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1275,7 +1328,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1335,7 +1388,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1389,7 +1442,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1449,7 +1502,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1511,7 +1564,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1571,7 +1624,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1631,7 +1684,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1690,7 +1743,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1707,10 +1760,10 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [ProviderSettingsRequest] :data 
-    # @return [nil]
+    # @return [ProviderSettings]
     def orgs_openid_connect_create(org, opts = {})
-      orgs_openid_connect_create_with_http_info(org, opts)
-      nil
+      data, _status_code, _headers = orgs_openid_connect_create_with_http_info(org, opts)
+      data
     end
 
     # Create the OpenID Connect provider settings for the org.
@@ -1718,7 +1771,7 @@ module CloudsmithApi
     # @param org 
     # @param [Hash] opts the optional parameters
     # @option opts [ProviderSettingsRequest] :data 
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(ProviderSettings, Fixnum, Hash)>] ProviderSettings data, response status code and response headers
     def orgs_openid_connect_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_create ...'
@@ -1745,13 +1798,14 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'ProviderSettings')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -1804,7 +1858,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1863,7 +1917,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1925,7 +1979,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1985,7 +2039,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2047,7 +2101,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2101,7 +2155,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2157,7 +2211,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2217,7 +2271,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2226,6 +2280,112 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_group_sync_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Disable SAML Group Sync for this organization.
+    # Disable SAML Group Sync for this organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_saml_group_sync_disable(org, opts = {})
+      orgs_saml_group_sync_disable_with_http_info(org, opts)
+      nil
+    end
+
+    # Disable SAML Group Sync for this organization.
+    # Disable SAML Group Sync for this organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_saml_group_sync_disable_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_saml_group_sync_disable ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_saml_group_sync_disable"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/saml-group-sync/disable/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_group_sync_disable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Enable SAML Group Sync for this organization.
+    # Enable SAML Group Sync for this organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_saml_group_sync_enable(org, opts = {})
+      orgs_saml_group_sync_enable_with_http_info(org, opts)
+      nil
+    end
+
+    # Enable SAML Group Sync for this organization.
+    # Enable SAML Group Sync for this organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_saml_group_sync_enable_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_saml_group_sync_enable ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_saml_group_sync_enable"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/saml-group-sync/enable/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_group_sync_enable\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2276,7 +2436,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2286,6 +2446,60 @@ module CloudsmithApi
         :return_type => 'Array<OrganizationGroupSync>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_group_sync_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the SAML Group Sync status for this organization.
+    # Retrieve the SAML Group Sync status for this organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationGroupSyncStatus]
+    def orgs_saml_group_sync_status(org, opts = {})
+      data, _status_code, _headers = orgs_saml_group_sync_status_with_http_info(org, opts)
+      data
+    end
+
+    # Retrieve the SAML Group Sync status for this organization.
+    # Retrieve the SAML Group Sync status for this organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationGroupSyncStatus, Fixnum, Hash)>] OrganizationGroupSyncStatus data, response status code and response headers
+    def orgs_saml_group_sync_status_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_saml_group_sync_status ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_saml_group_sync_status"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/saml-group-sync/status/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationGroupSyncStatus')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_group_sync_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2332,7 +2546,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2392,7 +2606,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2451,7 +2665,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2513,7 +2727,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2573,7 +2787,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2633,7 +2847,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2689,7 +2903,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2749,7 +2963,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2808,7 +3022,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2870,7 +3084,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2930,7 +3144,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2948,6 +3162,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationTeamMembers] :data 
     # @return [OrganizationTeamMembers]
     def orgs_teams_members_update(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_members_update_with_http_info(org, team, opts)
@@ -2959,6 +3174,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationTeamMembers] :data 
     # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
     def orgs_teams_members_update_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
@@ -2989,8 +3205,8 @@ module CloudsmithApi
       form_params = {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['apikey']
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3052,7 +3268,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3112,7 +3328,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3168,7 +3384,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3228,7 +3444,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3289,7 +3505,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3355,7 +3571,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3421,7 +3637,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3481,7 +3697,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3543,7 +3759,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3603,7 +3819,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3665,7 +3881,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3725,7 +3941,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey']
+      auth_names = ['apikey', 'basic']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

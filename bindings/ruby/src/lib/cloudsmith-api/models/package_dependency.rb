@@ -16,12 +16,10 @@ module CloudsmithApi
 class PackageDependency
   attr_accessor :dep_type
 
-  # The name of the package dependency.
   attr_accessor :name
 
   attr_accessor :operator
 
-  # The raw dependency version (if any).
   attr_accessor :version
 
   class EnumAttributeValidator
@@ -99,10 +97,6 @@ class PackageDependency
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if @name.nil?
-      invalid_properties.push('invalid value for "name", name cannot be nil.')
-    end
-
     invalid_properties
   end
 
@@ -111,7 +105,6 @@ class PackageDependency
   def valid?
     dep_type_validator = EnumAttributeValidator.new('String', ['Depends', 'Pre-Depends', 'Recommends', 'Suggests', 'Enhances', 'Replaces', 'Breaks', 'Built-Using', 'Build-Depends', 'Build-Depends-Indep', 'Build-Conflicts', 'Build-Conflicts-Indep', 'Conflicts', 'Provides', 'Obsoletes', 'Requires', 'Runtime', 'Development', 'Compile', 'Provided', 'Test', 'System', 'Import', 'Excluded', 'Build-Requires', 'Python-Requires'])
     return false unless dep_type_validator.valid?(@dep_type)
-    return false if @name.nil?
     operator_validator = EnumAttributeValidator.new('String', ['=', '!=', '<', '<<', '<=', '>', '>>', '>=', '~=', '~>', 'matches'])
     return false unless operator_validator.valid?(@operator)
     true

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **org** | **String** |  |  [optional]
 **role** | [**RoleEnum**](#RoleEnum) | The role to be assigned to the invited user. |  [optional]
 **slugPerm** | **String** |  |  [optional]
+**teams** | [**List&lt;OrganizationTeamInvite&gt;**](OrganizationTeamInvite.md) |  |  [optional]
 **user** | **String** | The slug of the user to be invited. |  [optional]
 **userUrl** | **String** |  |  [optional]
 
