@@ -33,331 +33,6 @@ class ReposApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api_repos_geoip_status(self, owner, identifier, **kwargs):  # noqa: E501
-        """Retrieve the GeoIP status for this repository.  # noqa: E501
-
-        Retrieve the GeoIP status for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_repos_geoip_status(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :return: RepositoryGeoIpStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.api_repos_geoip_status_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.api_repos_geoip_status_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def api_repos_geoip_status_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Retrieve the GeoIP status for this repository.  # noqa: E501
-
-        Retrieve the GeoIP status for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.api_repos_geoip_status_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :return: RepositoryGeoIpStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method api_repos_geoip_status" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `api_repos_geoip_status`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `api_repos_geoip_status`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/geoip/status/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RepositoryGeoIpStatus',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repo_retention_partial_update(self, owner, repo, **kwargs):  # noqa: E501
-        """Update the retention rules for the repository.  # noqa: E501
-
-        Update the retention rules for the repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repo_retention_partial_update(owner, repo, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str repo: (required)
-        :param RepositoryRetentionRulesRequestPatch data:
-        :return: RepositoryRetentionRules
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repo_retention_partial_update_with_http_info(owner, repo, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repo_retention_partial_update_with_http_info(owner, repo, **kwargs)  # noqa: E501
-            return data
-
-    def repo_retention_partial_update_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
-        """Update the retention rules for the repository.  # noqa: E501
-
-        Update the retention rules for the repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repo_retention_partial_update_with_http_info(owner, repo, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str repo: (required)
-        :param RepositoryRetentionRulesRequestPatch data:
-        :return: RepositoryRetentionRules
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'repo', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repo_retention_partial_update" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repo_retention_partial_update`")  # noqa: E501
-        # verify the required parameter 'repo' is set
-        if self.api_client.client_side_validation and ('repo' not in params or
-                                                       params['repo'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repo` when calling `repo_retention_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'repo' in params:
-            path_params['repo'] = params['repo']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{repo}/retention/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RepositoryRetentionRules',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repo_retention_read(self, owner, repo, **kwargs):  # noqa: E501
-        """Retrieve the retention rules for the repository.  # noqa: E501
-
-        Retrieve the retention rules for the repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repo_retention_read(owner, repo, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str repo: (required)
-        :return: RepositoryRetentionRules
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repo_retention_read_with_http_info(owner, repo, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repo_retention_read_with_http_info(owner, repo, **kwargs)  # noqa: E501
-            return data
-
-    def repo_retention_read_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
-        """Retrieve the retention rules for the repository.  # noqa: E501
-
-        Retrieve the retention rules for the repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repo_retention_read_with_http_info(owner, repo, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str repo: (required)
-        :return: RepositoryRetentionRules
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'repo']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repo_retention_read" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repo_retention_read`")  # noqa: E501
-        # verify the required parameter 'repo' is set
-        if self.api_client.client_side_validation and ('repo' not in params or
-                                                       params['repo'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repo` when calling `repo_retention_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'repo' in params:
-            path_params['repo'] = params['repo']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{repo}/retention/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RepositoryRetentionRules',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def repos_create(self, owner, **kwargs):  # noqa: E501
         """Create a new repository in a given namespace.  # noqa: E501
 
@@ -443,7 +118,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/', 'POST',
@@ -550,7 +225,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/', 'DELETE',
@@ -561,331 +236,6 @@ class ReposApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_ecdsa_create(self, owner, identifier, **kwargs):  # noqa: E501
-        """Set the active ECDSA key for the Repository.  # noqa: E501
-
-        Set the active ECDSA key for the Repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_ecdsa_create(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param RepositoryEcdsaKeyCreate data:
-        :return: RepositoryEcdsaKey
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_ecdsa_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_ecdsa_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def repos_ecdsa_create_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Set the active ECDSA key for the Repository.  # noqa: E501
-
-        Set the active ECDSA key for the Repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_ecdsa_create_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param RepositoryEcdsaKeyCreate data:
-        :return: RepositoryEcdsaKey
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_ecdsa_create" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_ecdsa_create`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_ecdsa_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/ecdsa/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RepositoryEcdsaKey',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_ecdsa_list(self, owner, identifier, **kwargs):  # noqa: E501
-        """Retrieve the active ECDSA key for the Repository.  # noqa: E501
-
-        Retrieve the active ECDSA key for the Repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_ecdsa_list(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :return: RepositoryEcdsaKey
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_ecdsa_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_ecdsa_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def repos_ecdsa_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Retrieve the active ECDSA key for the Repository.  # noqa: E501
-
-        Retrieve the active ECDSA key for the Repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_ecdsa_list_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :return: RepositoryEcdsaKey
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_ecdsa_list" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_ecdsa_list`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_ecdsa_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/ecdsa/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RepositoryEcdsaKey',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_ecdsa_regenerate(self, owner, identifier, **kwargs):  # noqa: E501
-        """Regenerate ECDSA Key for the Repository.  # noqa: E501
-
-        Regenerate ECDSA Key for the Repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_ecdsa_regenerate(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :return: RepositoryEcdsaKey
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_ecdsa_regenerate_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_ecdsa_regenerate_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def repos_ecdsa_regenerate_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Regenerate ECDSA Key for the Repository.  # noqa: E501
-
-        Regenerate ECDSA Key for the Repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_ecdsa_regenerate_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :return: RepositoryEcdsaKey
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_ecdsa_regenerate" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_ecdsa_regenerate`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_ecdsa_regenerate`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/ecdsa/regenerate/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RepositoryEcdsaKey',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -986,7 +336,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/geoip/disable/', 'POST',
@@ -1097,7 +447,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/geoip/enable/', 'POST',
@@ -1208,7 +558,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/geoip', 'PATCH',
@@ -1315,7 +665,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/geoip', 'GET',
@@ -1426,7 +776,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/geoip/test/', 'POST',
@@ -1537,7 +887,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/geoip', 'PUT',
@@ -1648,7 +998,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/gpg/', 'POST',
@@ -1755,7 +1105,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/gpg/', 'GET',
@@ -1862,7 +1212,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/gpg/regenerate/', 'POST',
@@ -1969,7 +1319,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/', 'GET',
@@ -2080,7 +1430,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/', 'PATCH',
@@ -2195,7 +1545,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/privileges', 'GET',
@@ -2306,7 +1656,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/privileges', 'PATCH',
@@ -2417,7 +1767,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/privileges', 'PUT',
@@ -2524,7 +1874,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/', 'GET',
@@ -2635,7 +1985,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/rsa/', 'POST',
@@ -2742,7 +2092,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/rsa/', 'GET',
@@ -2849,7 +2199,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/rsa/regenerate/', 'POST',
@@ -2860,811 +2210,6 @@ class ReposApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='RepositoryRsaKey',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_transfer_region(self, owner, repo, **kwargs):  # noqa: E501
-        """Transfer a repository to a different region.  # noqa: E501
-
-        Transfer a repository to a different region.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_transfer_region(owner, repo, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str repo: (required)
-        :param RepositoryTransferRegionRequest data:
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_transfer_region_with_http_info(owner, repo, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_transfer_region_with_http_info(owner, repo, **kwargs)  # noqa: E501
-            return data
-
-    def repos_transfer_region_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
-        """Transfer a repository to a different region.  # noqa: E501
-
-        Transfer a repository to a different region.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_transfer_region_with_http_info(owner, repo, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str repo: (required)
-        :param RepositoryTransferRegionRequest data:
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'repo', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_transfer_region" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_transfer_region`")  # noqa: E501
-        # verify the required parameter 'repo' is set
-        if self.api_client.client_side_validation and ('repo' not in params or
-                                                       params['repo'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `repo` when calling `repos_transfer_region`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'repo' in params:
-            path_params['repo'] = params['repo']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{repo}/transfer-region/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_composer_create(self, owner, identifier, **kwargs):  # noqa: E501
-        """Create a Composer upstream config for this repository.  # noqa: E501
-
-        Create a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_create(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param ComposerUpstreamRequest data:
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_composer_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_composer_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_composer_create_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Create a Composer upstream config for this repository.  # noqa: E501
-
-        Create a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_create_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param ComposerUpstreamRequest data:
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_composer_create" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_composer_create`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_composer_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/composer/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ComposerUpstream',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_composer_delete(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Delete a Composer upstream config for this repository.  # noqa: E501
-
-        Delete a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_delete(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_composer_delete_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_composer_delete_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_composer_delete_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Delete a Composer upstream config for this repository.  # noqa: E501
-
-        Delete a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_delete_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_composer_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_composer_delete`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_composer_delete`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_composer_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_composer_list(self, owner, identifier, **kwargs):  # noqa: E501
-        """List Composer upstream configs for this repository.  # noqa: E501
-
-        List Composer upstream configs for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_list(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[ComposerUpstream]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_composer_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_composer_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_composer_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """List Composer upstream configs for this repository.  # noqa: E501
-
-        List Composer upstream configs for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_list_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[ComposerUpstream]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_composer_list" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_composer_list`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_composer_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/composer/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[ComposerUpstream]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_composer_partial_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Partially update a Composer upstream config for this repository.  # noqa: E501
-
-        Partially update a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_partial_update(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param ComposerUpstreamRequestPatch data:
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_composer_partial_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_composer_partial_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_composer_partial_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Partially update a Composer upstream config for this repository.  # noqa: E501
-
-        Partially update a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_partial_update_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param ComposerUpstreamRequestPatch data:
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_composer_partial_update" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_composer_partial_update`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_composer_partial_update`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_composer_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ComposerUpstream',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_composer_read(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Retrieve a Composer upstream config for this repository.  # noqa: E501
-
-        Retrieve a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_read(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_composer_read_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_composer_read_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_composer_read_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Retrieve a Composer upstream config for this repository.  # noqa: E501
-
-        Retrieve a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_read_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_composer_read" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_composer_read`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_composer_read`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_composer_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ComposerUpstream',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_composer_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Update a Composer upstream config for this repository.  # noqa: E501
-
-        Update a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_update(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param ComposerUpstreamRequest data:
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_composer_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_composer_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_composer_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Update a Composer upstream config for this repository.  # noqa: E501
-
-        Update a Composer upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_composer_update_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param ComposerUpstreamRequest data:
-        :return: ComposerUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_composer_update" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_composer_update`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_composer_update`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_composer_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ComposerUpstream',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3765,7 +2310,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/cran/', 'POST',
@@ -3880,7 +2425,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/', 'DELETE',
@@ -3995,7 +2540,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/cran/', 'GET',
@@ -4114,7 +2659,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/', 'PATCH',
@@ -4229,7 +2774,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/', 'GET',
@@ -4348,7 +2893,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/', 'PUT',
@@ -4459,7 +3004,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/dart/', 'POST',
@@ -4574,7 +3119,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/', 'DELETE',
@@ -4689,7 +3234,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/dart/', 'GET',
@@ -4808,7 +3353,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/', 'PATCH',
@@ -4923,7 +3468,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/', 'GET',
@@ -5042,7 +3587,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/', 'PUT',
@@ -5153,7 +3698,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/deb/', 'POST',
@@ -5268,7 +3813,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/', 'DELETE',
@@ -5383,7 +3928,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/deb/', 'GET',
@@ -5502,7 +4047,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/', 'PATCH',
@@ -5617,7 +4162,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/', 'GET',
@@ -5736,7 +4281,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/', 'PUT',
@@ -5847,7 +4392,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/docker/', 'POST',
@@ -5962,7 +4507,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/', 'DELETE',
@@ -6077,7 +4622,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/docker/', 'GET',
@@ -6196,7 +4741,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/', 'PATCH',
@@ -6311,7 +4856,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/', 'GET',
@@ -6430,7 +4975,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/', 'PUT',
@@ -6541,7 +5086,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/helm/', 'POST',
@@ -6656,7 +5201,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/', 'DELETE',
@@ -6771,7 +5316,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/helm/', 'GET',
@@ -6890,7 +5435,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/', 'PATCH',
@@ -7005,7 +5550,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/', 'GET',
@@ -7124,7 +5669,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/', 'PUT',
@@ -7135,700 +5680,6 @@ class ReposApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='HelmUpstream',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_hex_create(self, owner, identifier, **kwargs):  # noqa: E501
-        """Create a Hex upstream config for this repository.  # noqa: E501
-
-        Create a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_create(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param HexUpstreamRequest data:
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_hex_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_hex_create_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_hex_create_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Create a Hex upstream config for this repository.  # noqa: E501
-
-        Create a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_create_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param HexUpstreamRequest data:
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_hex_create" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_hex_create`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_hex_create`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/hex/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='HexUpstream',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_hex_delete(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Delete a Hex upstream config for this repository.  # noqa: E501
-
-        Delete a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_delete(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_hex_delete_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_hex_delete_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_hex_delete_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Delete a Hex upstream config for this repository.  # noqa: E501
-
-        Delete a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_delete_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_hex_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_hex_delete`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_hex_delete`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_hex_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_hex_list(self, owner, identifier, **kwargs):  # noqa: E501
-        """List Hex upstream configs for this repository.  # noqa: E501
-
-        List Hex upstream configs for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_list(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[HexUpstream]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_hex_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_hex_list_with_http_info(owner, identifier, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_hex_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """List Hex upstream configs for this repository.  # noqa: E501
-
-        List Hex upstream configs for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_list_with_http_info(owner, identifier, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param int page: A page number within the paginated result set.
-        :param int page_size: Number of results to return per page.
-        :return: list[HexUpstream]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'page', 'page_size']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_hex_list" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_hex_list`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_hex_list`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-
-        query_params = []
-        if 'page' in params:
-            query_params.append(('page', params['page']))  # noqa: E501
-        if 'page_size' in params:
-            query_params.append(('page_size', params['page_size']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/hex/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[HexUpstream]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_hex_partial_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Partially update a Hex upstream config for this repository.  # noqa: E501
-
-        Partially update a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_partial_update(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param HexUpstreamRequestPatch data:
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_hex_partial_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_hex_partial_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_hex_partial_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Partially update a Hex upstream config for this repository.  # noqa: E501
-
-        Partially update a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_partial_update_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param HexUpstreamRequestPatch data:
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_hex_partial_update" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_hex_partial_update`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_hex_partial_update`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_hex_partial_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='HexUpstream',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_hex_read(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Retrieve a Hex upstream config for this repository.  # noqa: E501
-
-        Retrieve a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_read(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_hex_read_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_hex_read_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_hex_read_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Retrieve a Hex upstream config for this repository.  # noqa: E501
-
-        Retrieve a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_read_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_hex_read" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_hex_read`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_hex_read`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_hex_read`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='HexUpstream',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def repos_upstream_hex_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Update a Hex upstream config for this repository.  # noqa: E501
-
-        Update a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_update(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param HexUpstreamRequest data:
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.repos_upstream_hex_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-        else:
-            (data) = self.repos_upstream_hex_update_with_http_info(owner, identifier, slug_perm, **kwargs)  # noqa: E501
-            return data
-
-    def repos_upstream_hex_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Update a Hex upstream config for this repository.  # noqa: E501
-
-        Update a Hex upstream config for this repository.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.repos_upstream_hex_update_with_http_info(owner, identifier, slug_perm, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str owner: (required)
-        :param str identifier: (required)
-        :param str slug_perm: (required)
-        :param HexUpstreamRequest data:
-        :return: HexUpstream
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['owner', 'identifier', 'slug_perm', 'data']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method repos_upstream_hex_update" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'owner' is set
-        if self.api_client.client_side_validation and ('owner' not in params or
-                                                       params['owner'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `owner` when calling `repos_upstream_hex_update`")  # noqa: E501
-        # verify the required parameter 'identifier' is set
-        if self.api_client.client_side_validation and ('identifier' not in params or
-                                                       params['identifier'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `identifier` when calling `repos_upstream_hex_update`")  # noqa: E501
-        # verify the required parameter 'slug_perm' is set
-        if self.api_client.client_side_validation and ('slug_perm' not in params or
-                                                       params['slug_perm'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `slug_perm` when calling `repos_upstream_hex_update`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'owner' in params:
-            path_params['owner'] = params['owner']  # noqa: E501
-        if 'identifier' in params:
-            path_params['identifier'] = params['identifier']  # noqa: E501
-        if 'slug_perm' in params:
-            path_params['slug_perm'] = params['slug_perm']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data' in params:
-            body_params = params['data']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='HexUpstream',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7929,7 +5780,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/maven/', 'POST',
@@ -8044,7 +5895,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/', 'DELETE',
@@ -8159,7 +6010,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/maven/', 'GET',
@@ -8278,7 +6129,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/', 'PATCH',
@@ -8393,7 +6244,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/', 'GET',
@@ -8512,7 +6363,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/', 'PUT',
@@ -8623,7 +6474,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/npm/', 'POST',
@@ -8738,7 +6589,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/', 'DELETE',
@@ -8853,7 +6704,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/npm/', 'GET',
@@ -8972,7 +6823,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/', 'PATCH',
@@ -9087,7 +6938,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/', 'GET',
@@ -9206,7 +7057,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/', 'PUT',
@@ -9317,7 +7168,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/nuget/', 'POST',
@@ -9432,7 +7283,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/', 'DELETE',
@@ -9547,7 +7398,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/nuget/', 'GET',
@@ -9666,7 +7517,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/', 'PATCH',
@@ -9781,7 +7632,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/', 'GET',
@@ -9900,7 +7751,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/', 'PUT',
@@ -10011,7 +7862,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/python/', 'POST',
@@ -10126,7 +7977,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/', 'DELETE',
@@ -10241,7 +8092,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/python/', 'GET',
@@ -10360,7 +8211,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/', 'PATCH',
@@ -10475,7 +8326,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/', 'GET',
@@ -10594,7 +8445,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/python/{slug_perm}/', 'PUT',
@@ -10705,7 +8556,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/rpm/', 'POST',
@@ -10820,7 +8671,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/', 'DELETE',
@@ -10935,7 +8786,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/rpm/', 'GET',
@@ -11054,7 +8905,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/', 'PATCH',
@@ -11169,7 +9020,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/', 'GET',
@@ -11288,7 +9139,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/', 'PUT',
@@ -11399,7 +9250,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/ruby/', 'POST',
@@ -11514,7 +9365,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/', 'DELETE',
@@ -11629,7 +9480,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/ruby/', 'GET',
@@ -11748,7 +9599,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/', 'PATCH',
@@ -11863,7 +9714,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/', 'GET',
@@ -11982,7 +9833,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/', 'PUT',
@@ -12093,7 +9944,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/swift/', 'POST',
@@ -12208,7 +10059,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'DELETE',
@@ -12323,7 +10174,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/swift/', 'GET',
@@ -12442,7 +10293,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'PATCH',
@@ -12557,7 +10408,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'GET',
@@ -12676,7 +10527,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/', 'PUT',
@@ -12775,7 +10626,7 @@ class ReposApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/repos/', 'GET',

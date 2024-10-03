@@ -40,7 +40,6 @@ class Repository
   # This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.
   attr_accessor :delete_packages
 
-  # The datetime the repository was manually deleted at.
   attr_accessor :deleted_at
 
   # A description of the repository's purpose/contents.
@@ -52,11 +51,6 @@ class Repository
   # If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.
   attr_accessor :docker_refresh_tokens_enabled
 
-  attr_accessor :ecdsa_keys
-
-  # If checked, downloads will explicitly require acceptance of an EULA.
-  attr_accessor :enforce_eula
-
   attr_accessor :gpg_keys
 
   # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
@@ -67,9 +61,6 @@ class Repository
   attr_accessor :is_private
 
   attr_accessor :is_public
-
-  # This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
-  attr_accessor :manage_entitlements_privilege
 
   # If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.
   attr_accessor :move_own
@@ -88,18 +79,6 @@ class Repository
 
   # The number of downloads for packages in the repository.
   attr_accessor :num_downloads
-
-  # Number of packages with policy violations in a repository.
-  attr_accessor :num_policy_violated_packages
-
-  # Number of quarantined packages in a repository.
-  attr_accessor :num_quarantined_packages
-
-  # The SPDX identifier of the open source license.
-  attr_accessor :open_source_license
-
-  # The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.
-  attr_accessor :open_source_project_url
 
   # The number of packages in the repository.
   attr_accessor :package_count
@@ -170,17 +149,11 @@ class Repository
   # If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly.
   attr_accessor :strict_npm_validation
 
-  # If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools 
-  attr_accessor :tag_pre_releases_as_latest
-
   # If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.
   attr_accessor :use_debian_labels
 
   # If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.
   attr_accessor :use_default_cargo_upstream
-
-  # This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).
-  attr_accessor :use_entitlements_privilege
 
   # If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).
   attr_accessor :use_noarch_packages
@@ -235,24 +208,17 @@ class Repository
       :'description' => :'description',
       :'distributes' => :'distributes',
       :'docker_refresh_tokens_enabled' => :'docker_refresh_tokens_enabled',
-      :'ecdsa_keys' => :'ecdsa_keys',
-      :'enforce_eula' => :'enforce_eula',
       :'gpg_keys' => :'gpg_keys',
       :'index_files' => :'index_files',
       :'is_open_source' => :'is_open_source',
       :'is_private' => :'is_private',
       :'is_public' => :'is_public',
-      :'manage_entitlements_privilege' => :'manage_entitlements_privilege',
       :'move_own' => :'move_own',
       :'move_packages' => :'move_packages',
       :'name' => :'name',
       :'namespace' => :'namespace',
       :'namespace_url' => :'namespace_url',
       :'num_downloads' => :'num_downloads',
-      :'num_policy_violated_packages' => :'num_policy_violated_packages',
-      :'num_quarantined_packages' => :'num_quarantined_packages',
-      :'open_source_license' => :'open_source_license',
-      :'open_source_project_url' => :'open_source_project_url',
       :'package_count' => :'package_count',
       :'package_group_count' => :'package_group_count',
       :'proxy_npmjs' => :'proxy_npmjs',
@@ -276,10 +242,8 @@ class Repository
       :'slug_perm' => :'slug_perm',
       :'storage_region' => :'storage_region',
       :'strict_npm_validation' => :'strict_npm_validation',
-      :'tag_pre_releases_as_latest' => :'tag_pre_releases_as_latest',
       :'use_debian_labels' => :'use_debian_labels',
       :'use_default_cargo_upstream' => :'use_default_cargo_upstream',
-      :'use_entitlements_privilege' => :'use_entitlements_privilege',
       :'use_noarch_packages' => :'use_noarch_packages',
       :'use_source_packages' => :'use_source_packages',
       :'use_vulnerability_scanning' => :'use_vulnerability_scanning',
@@ -304,24 +268,17 @@ class Repository
       :'description' => :'String',
       :'distributes' => :'Array<String>',
       :'docker_refresh_tokens_enabled' => :'BOOLEAN',
-      :'ecdsa_keys' => :'Array<RepositoryEcdsaKey>',
-      :'enforce_eula' => :'BOOLEAN',
       :'gpg_keys' => :'Array<RepositoryGpgKey>',
       :'index_files' => :'BOOLEAN',
       :'is_open_source' => :'BOOLEAN',
       :'is_private' => :'BOOLEAN',
       :'is_public' => :'BOOLEAN',
-      :'manage_entitlements_privilege' => :'String',
       :'move_own' => :'BOOLEAN',
       :'move_packages' => :'String',
       :'name' => :'String',
       :'namespace' => :'String',
       :'namespace_url' => :'String',
       :'num_downloads' => :'Integer',
-      :'num_policy_violated_packages' => :'Integer',
-      :'num_quarantined_packages' => :'Integer',
-      :'open_source_license' => :'String',
-      :'open_source_project_url' => :'String',
       :'package_count' => :'Integer',
       :'package_group_count' => :'Integer',
       :'proxy_npmjs' => :'BOOLEAN',
@@ -345,10 +302,8 @@ class Repository
       :'slug_perm' => :'String',
       :'storage_region' => :'String',
       :'strict_npm_validation' => :'BOOLEAN',
-      :'tag_pre_releases_as_latest' => :'BOOLEAN',
       :'use_debian_labels' => :'BOOLEAN',
       :'use_default_cargo_upstream' => :'BOOLEAN',
-      :'use_entitlements_privilege' => :'String',
       :'use_noarch_packages' => :'BOOLEAN',
       :'use_source_packages' => :'BOOLEAN',
       :'use_vulnerability_scanning' => :'BOOLEAN',
@@ -427,16 +382,6 @@ class Repository
       self.docker_refresh_tokens_enabled = attributes[:'docker_refresh_tokens_enabled']
     end
 
-    if attributes.has_key?(:'ecdsa_keys')
-      if (value = attributes[:'ecdsa_keys']).is_a?(Array)
-        self.ecdsa_keys = value
-      end
-    end
-
-    if attributes.has_key?(:'enforce_eula')
-      self.enforce_eula = attributes[:'enforce_eula']
-    end
-
     if attributes.has_key?(:'gpg_keys')
       if (value = attributes[:'gpg_keys']).is_a?(Array)
         self.gpg_keys = value
@@ -457,12 +402,6 @@ class Repository
 
     if attributes.has_key?(:'is_public')
       self.is_public = attributes[:'is_public']
-    end
-
-    if attributes.has_key?(:'manage_entitlements_privilege')
-      self.manage_entitlements_privilege = attributes[:'manage_entitlements_privilege']
-    else
-      self.manage_entitlements_privilege = 'Admin'
     end
 
     if attributes.has_key?(:'move_own')
@@ -489,22 +428,6 @@ class Repository
 
     if attributes.has_key?(:'num_downloads')
       self.num_downloads = attributes[:'num_downloads']
-    end
-
-    if attributes.has_key?(:'num_policy_violated_packages')
-      self.num_policy_violated_packages = attributes[:'num_policy_violated_packages']
-    end
-
-    if attributes.has_key?(:'num_quarantined_packages')
-      self.num_quarantined_packages = attributes[:'num_quarantined_packages']
-    end
-
-    if attributes.has_key?(:'open_source_license')
-      self.open_source_license = attributes[:'open_source_license']
-    end
-
-    if attributes.has_key?(:'open_source_project_url')
-      self.open_source_project_url = attributes[:'open_source_project_url']
     end
 
     if attributes.has_key?(:'package_count')
@@ -609,22 +532,12 @@ class Repository
       self.strict_npm_validation = attributes[:'strict_npm_validation']
     end
 
-    if attributes.has_key?(:'tag_pre_releases_as_latest')
-      self.tag_pre_releases_as_latest = attributes[:'tag_pre_releases_as_latest']
-    end
-
     if attributes.has_key?(:'use_debian_labels')
       self.use_debian_labels = attributes[:'use_debian_labels']
     end
 
     if attributes.has_key?(:'use_default_cargo_upstream')
       self.use_default_cargo_upstream = attributes[:'use_default_cargo_upstream']
-    end
-
-    if attributes.has_key?(:'use_entitlements_privilege')
-      self.use_entitlements_privilege = attributes[:'use_entitlements_privilege']
-    else
-      self.use_entitlements_privilege = 'Read'
     end
 
     if attributes.has_key?(:'use_noarch_packages')
@@ -672,21 +585,17 @@ class Repository
     return false unless default_privilege_validator.valid?(@default_privilege)
     delete_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
     return false unless delete_packages_validator.valid?(@delete_packages)
-    manage_entitlements_privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-    return false unless manage_entitlements_privilege_validator.valid?(@manage_entitlements_privilege)
     move_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
     return false unless move_packages_validator.valid?(@move_packages)
     return false if @name.nil?
     replace_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
     return false unless replace_packages_validator.valid?(@replace_packages)
-    repository_type_str_validator = EnumAttributeValidator.new('String', ['Public', 'Private', 'Open-Source'])
+    repository_type_str_validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
     return false unless repository_type_str_validator.valid?(@repository_type_str)
     resync_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write'])
     return false unless resync_packages_validator.valid?(@resync_packages)
     scan_packages_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
     return false unless scan_packages_validator.valid?(@scan_packages)
-    use_entitlements_privilege_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-    return false unless use_entitlements_privilege_validator.valid?(@use_entitlements_privilege)
     view_statistics_validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
     return false unless view_statistics_validator.valid?(@view_statistics)
     true
@@ -733,16 +642,6 @@ class Repository
   end
 
   # Custom attribute writer method checking allowed values (enum).
-  # @param [Object] manage_entitlements_privilege Object to be assigned
-  def manage_entitlements_privilege=(manage_entitlements_privilege)
-    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-    unless validator.valid?(manage_entitlements_privilege)
-      fail ArgumentError, 'invalid value for "manage_entitlements_privilege", must be one of #{validator.allowable_values}.'
-    end
-    @manage_entitlements_privilege = manage_entitlements_privilege
-  end
-
-  # Custom attribute writer method checking allowed values (enum).
   # @param [Object] move_packages Object to be assigned
   def move_packages=(move_packages)
     validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
@@ -765,7 +664,7 @@ class Repository
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] repository_type_str Object to be assigned
   def repository_type_str=(repository_type_str)
-    validator = EnumAttributeValidator.new('String', ['Public', 'Private', 'Open-Source'])
+    validator = EnumAttributeValidator.new('String', ['Public', 'Private'])
     unless validator.valid?(repository_type_str)
       fail ArgumentError, 'invalid value for "repository_type_str", must be one of #{validator.allowable_values}.'
     end
@@ -790,16 +689,6 @@ class Repository
       fail ArgumentError, 'invalid value for "scan_packages", must be one of #{validator.allowable_values}.'
     end
     @scan_packages = scan_packages
-  end
-
-  # Custom attribute writer method checking allowed values (enum).
-  # @param [Object] use_entitlements_privilege Object to be assigned
-  def use_entitlements_privilege=(use_entitlements_privilege)
-    validator = EnumAttributeValidator.new('String', ['Admin', 'Write', 'Read'])
-    unless validator.valid?(use_entitlements_privilege)
-      fail ArgumentError, 'invalid value for "use_entitlements_privilege", must be one of #{validator.allowable_values}.'
-    end
-    @use_entitlements_privilege = use_entitlements_privilege
   end
 
   # Custom attribute writer method checking allowed values (enum).
@@ -830,24 +719,17 @@ class Repository
         description == o.description &&
         distributes == o.distributes &&
         docker_refresh_tokens_enabled == o.docker_refresh_tokens_enabled &&
-        ecdsa_keys == o.ecdsa_keys &&
-        enforce_eula == o.enforce_eula &&
         gpg_keys == o.gpg_keys &&
         index_files == o.index_files &&
         is_open_source == o.is_open_source &&
         is_private == o.is_private &&
         is_public == o.is_public &&
-        manage_entitlements_privilege == o.manage_entitlements_privilege &&
         move_own == o.move_own &&
         move_packages == o.move_packages &&
         name == o.name &&
         namespace == o.namespace &&
         namespace_url == o.namespace_url &&
         num_downloads == o.num_downloads &&
-        num_policy_violated_packages == o.num_policy_violated_packages &&
-        num_quarantined_packages == o.num_quarantined_packages &&
-        open_source_license == o.open_source_license &&
-        open_source_project_url == o.open_source_project_url &&
         package_count == o.package_count &&
         package_group_count == o.package_group_count &&
         proxy_npmjs == o.proxy_npmjs &&
@@ -871,10 +753,8 @@ class Repository
         slug_perm == o.slug_perm &&
         storage_region == o.storage_region &&
         strict_npm_validation == o.strict_npm_validation &&
-        tag_pre_releases_as_latest == o.tag_pre_releases_as_latest &&
         use_debian_labels == o.use_debian_labels &&
         use_default_cargo_upstream == o.use_default_cargo_upstream &&
-        use_entitlements_privilege == o.use_entitlements_privilege &&
         use_noarch_packages == o.use_noarch_packages &&
         use_source_packages == o.use_source_packages &&
         use_vulnerability_scanning == o.use_vulnerability_scanning &&
@@ -891,7 +771,7 @@ class Repository
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, gpg_keys, index_files, is_open_source, is_private, is_public, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    [cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, move_own, move_packages, name, namespace, namespace_url, num_downloads, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, use_debian_labels, use_default_cargo_upstream, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
   end
 
     # Builds the object from hash

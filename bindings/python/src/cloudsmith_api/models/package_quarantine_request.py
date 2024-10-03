@@ -33,58 +33,30 @@ class PackageQuarantineRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'release': 'bool',
         'restore': 'bool'
     }
 
     attribute_map = {
-        'release': 'release',
         'restore': 'restore'
     }
 
-    def __init__(self, release=None, restore=None, _configuration=None):  # noqa: E501
+    def __init__(self, restore=None, _configuration=None):  # noqa: E501
         """PackageQuarantineRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._release = None
         self._restore = None
         self.discriminator = None
 
-        if release is not None:
-            self.release = release
         if restore is not None:
             self.restore = restore
-
-    @property
-    def release(self):
-        """Gets the release of this PackageQuarantineRequest.
-
-        If true, the package is released from quarantine.
-
-        :return: The release of this PackageQuarantineRequest.
-        :rtype: bool
-        """
-        return self._release
-
-    @release.setter
-    def release(self, release):
-        """Sets the release of this PackageQuarantineRequest.
-
-        If true, the package is released from quarantine.
-
-        :param release: The release of this PackageQuarantineRequest.
-        :type: bool
-        """
-
-        self._release = release
 
     @property
     def restore(self):
         """Gets the restore of this PackageQuarantineRequest.
 
-        If true, the package is released from quarantine. Note: This field is deprecated, please use 'release' instead.
+        If true, the package be restored from quarantine.
 
         :return: The restore of this PackageQuarantineRequest.
         :rtype: bool
@@ -95,7 +67,7 @@ class PackageQuarantineRequest(object):
     def restore(self, restore):
         """Sets the restore of this PackageQuarantineRequest.
 
-        If true, the package is released from quarantine. Note: This field is deprecated, please use 'release' instead.
+        If true, the package be restored from quarantine.
 
         :param restore: The restore of this PackageQuarantineRequest.
         :type: bool

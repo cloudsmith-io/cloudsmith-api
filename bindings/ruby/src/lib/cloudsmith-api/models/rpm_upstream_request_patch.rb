@@ -38,15 +38,6 @@ class RpmUpstreamRequestPatch
   # The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.
   attr_accessor :extra_value_2
 
-  # A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-  attr_accessor :gpg_key_inline
-
-  # When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-  attr_accessor :gpg_key_url
-
-  # The GPG signature verification mode for this upstream.
-  attr_accessor :gpg_verification
-
   # When checked, source packages will be available from this upstream.
   attr_accessor :include_sources
 
@@ -101,9 +92,6 @@ class RpmUpstreamRequestPatch
       :'extra_header_2' => :'extra_header_2',
       :'extra_value_1' => :'extra_value_1',
       :'extra_value_2' => :'extra_value_2',
-      :'gpg_key_inline' => :'gpg_key_inline',
-      :'gpg_key_url' => :'gpg_key_url',
-      :'gpg_verification' => :'gpg_verification',
       :'include_sources' => :'include_sources',
       :'is_active' => :'is_active',
       :'mode' => :'mode',
@@ -125,9 +113,6 @@ class RpmUpstreamRequestPatch
       :'extra_header_2' => :'String',
       :'extra_value_1' => :'String',
       :'extra_value_2' => :'String',
-      :'gpg_key_inline' => :'String',
-      :'gpg_key_url' => :'String',
-      :'gpg_verification' => :'String',
       :'include_sources' => :'BOOLEAN',
       :'is_active' => :'BOOLEAN',
       :'mode' => :'String',
@@ -180,20 +165,6 @@ class RpmUpstreamRequestPatch
       self.extra_value_2 = attributes[:'extra_value_2']
     end
 
-    if attributes.has_key?(:'gpg_key_inline')
-      self.gpg_key_inline = attributes[:'gpg_key_inline']
-    end
-
-    if attributes.has_key?(:'gpg_key_url')
-      self.gpg_key_url = attributes[:'gpg_key_url']
-    end
-
-    if attributes.has_key?(:'gpg_verification')
-      self.gpg_verification = attributes[:'gpg_verification']
-    else
-      self.gpg_verification = 'Allow All'
-    end
-
     if attributes.has_key?(:'include_sources')
       self.include_sources = attributes[:'include_sources']
     end
@@ -237,8 +208,6 @@ class RpmUpstreamRequestPatch
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
-    gpg_verification_validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
-    return false unless gpg_verification_validator.valid?(@gpg_verification)
     mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
     return false unless mode_validator.valid?(@mode)
     true
@@ -252,16 +221,6 @@ class RpmUpstreamRequestPatch
       fail ArgumentError, 'invalid value for "auth_mode", must be one of #{validator.allowable_values}.'
     end
     @auth_mode = auth_mode
-  end
-
-  # Custom attribute writer method checking allowed values (enum).
-  # @param [Object] gpg_verification Object to be assigned
-  def gpg_verification=(gpg_verification)
-    validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
-    unless validator.valid?(gpg_verification)
-      fail ArgumentError, 'invalid value for "gpg_verification", must be one of #{validator.allowable_values}.'
-    end
-    @gpg_verification = gpg_verification
   end
 
   # Custom attribute writer method checking allowed values (enum).
@@ -287,9 +246,6 @@ class RpmUpstreamRequestPatch
         extra_header_2 == o.extra_header_2 &&
         extra_value_1 == o.extra_value_1 &&
         extra_value_2 == o.extra_value_2 &&
-        gpg_key_inline == o.gpg_key_inline &&
-        gpg_key_url == o.gpg_key_url &&
-        gpg_verification == o.gpg_verification &&
         include_sources == o.include_sources &&
         is_active == o.is_active &&
         mode == o.mode &&
@@ -308,7 +264,7 @@ class RpmUpstreamRequestPatch
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_mode, auth_secret, auth_username, distro_version, extra_header_1, extra_header_2, extra_value_1, extra_value_2, gpg_key_inline, gpg_key_url, gpg_verification, include_sources, is_active, mode, name, priority, upstream_url, verify_ssl].hash
+    [auth_mode, auth_secret, auth_username, distro_version, extra_header_1, extra_header_2, extra_value_1, extra_value_2, include_sources, is_active, mode, name, priority, upstream_url, verify_ssl].hash
   end
 
     # Builds the object from hash

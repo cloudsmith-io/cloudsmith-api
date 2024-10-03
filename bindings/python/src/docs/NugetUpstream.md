@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **auth_secret** | **str** | Secret to provide with requests to upstream. | [optional] 
 **auth_username** | **str** | Username to provide with requests to upstream. | [optional] 
 **created_at** | **datetime** | The datetime the upstream source was created. | [optional] 
-**disable_reason** | **str** |  | [optional] [default to 'N/A']
 **extra_header_1** | **str** | The key for extra header #1 to send to upstream. | [optional] 
 **extra_header_2** | **str** | The key for extra header #2 to send to upstream. | [optional] 
 **extra_value_1** | **str** | The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted. | [optional] 
@@ -15,7 +14,6 @@ Name | Type | Description | Notes
 **is_active** | **bool** | Whether or not this upstream is active and ready for requests. | [optional] 
 **mode** | **str** | The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode. | [optional] [default to 'Proxy Only']
 **name** | **str** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. | 
-**pending_validation** | **bool** | When true, this upstream source is pending validation. | [optional] 
 **priority** | **int** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. | [optional] 
 **slug_perm** | **str** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 

@@ -105,7 +105,7 @@ public class ServiceRequest implements Serializable {
    * The description of the service
    * @return description
   **/
- @Size(min=1,max=1024)  @ApiModelProperty(value = "The description of the service")
+ @Size(min=1,max=140)  @ApiModelProperty(value = "The description of the service")
   public String getDescription() {
     return description;
   }
@@ -124,7 +124,7 @@ public class ServiceRequest implements Serializable {
    * @return name
   **/
   @NotNull
- @Size(min=1,max=120)  @ApiModelProperty(required = true, value = "The name of the service")
+ @Size(min=1,max=40)  @ApiModelProperty(required = true, value = "The name of the service")
   public String getName() {
     return name;
   }

@@ -33,9 +33,6 @@ class Service(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'created_at': 'datetime',
-        'created_by': 'str',
-        'created_by_url': 'str',
         'description': 'str',
         'key': 'str',
         'name': 'str',
@@ -45,9 +42,6 @@ class Service(object):
     }
 
     attribute_map = {
-        'created_at': 'created_at',
-        'created_by': 'created_by',
-        'created_by_url': 'created_by_url',
         'description': 'description',
         'key': 'key',
         'name': 'name',
@@ -56,15 +50,12 @@ class Service(object):
         'teams': 'teams'
     }
 
-    def __init__(self, created_at=None, created_by=None, created_by_url=None, description=None, key=None, name=None, role='Member', slug=None, teams=None, _configuration=None):  # noqa: E501
+    def __init__(self, description=None, key=None, name=None, role='Member', slug=None, teams=None, _configuration=None):  # noqa: E501
         """Service - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._created_at = None
-        self._created_by = None
-        self._created_by_url = None
         self._description = None
         self._key = None
         self._name = None
@@ -73,12 +64,6 @@ class Service(object):
         self._teams = None
         self.discriminator = None
 
-        if created_at is not None:
-            self.created_at = created_at
-        if created_by is not None:
-            self.created_by = created_by
-        if created_by_url is not None:
-            self.created_by_url = created_by_url
         if description is not None:
             self.description = description
         if key is not None:
@@ -90,72 +75,6 @@ class Service(object):
             self.slug = slug
         if teams is not None:
             self.teams = teams
-
-    @property
-    def created_at(self):
-        """Gets the created_at of this Service.
-
-
-        :return: The created_at of this Service.
-        :rtype: datetime
-        """
-        return self._created_at
-
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this Service.
-
-
-        :param created_at: The created_at of this Service.
-        :type: datetime
-        """
-
-        self._created_at = created_at
-
-    @property
-    def created_by(self):
-        """Gets the created_by of this Service.
-
-
-        :return: The created_by of this Service.
-        :rtype: str
-        """
-        return self._created_by
-
-    @created_by.setter
-    def created_by(self, created_by):
-        """Sets the created_by of this Service.
-
-
-        :param created_by: The created_by of this Service.
-        :type: str
-        """
-        if (self._configuration.client_side_validation and
-                created_by is not None and len(created_by) < 1):
-            raise ValueError("Invalid value for `created_by`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._created_by = created_by
-
-    @property
-    def created_by_url(self):
-        """Gets the created_by_url of this Service.
-
-
-        :return: The created_by_url of this Service.
-        :rtype: str
-        """
-        return self._created_by_url
-
-    @created_by_url.setter
-    def created_by_url(self, created_by_url):
-        """Sets the created_by_url of this Service.
-
-
-        :param created_by_url: The created_by_url of this Service.
-        :type: str
-        """
-
-        self._created_by_url = created_by_url
 
     @property
     def description(self):
@@ -178,8 +97,8 @@ class Service(object):
         :type: str
         """
         if (self._configuration.client_side_validation and
-                description is not None and len(description) > 1024):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `1024`")  # noqa: E501
+                description is not None and len(description) > 140):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `140`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 description is not None and len(description) < 1):
             raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
@@ -232,8 +151,8 @@ class Service(object):
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                name is not None and len(name) > 120):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `120`")  # noqa: E501
+                name is not None and len(name) > 40):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `40`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501

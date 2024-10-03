@@ -93,7 +93,7 @@ public class UserProfile implements Serializable {
    * @return firstName
   **/
   @NotNull
- @Size(min=1,max=120)  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=40)  @ApiModelProperty(required = true, value = "")
   public String getFirstName() {
     return firstName;
   }
@@ -194,7 +194,7 @@ public class UserProfile implements Serializable {
    * Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it&#39;s public and it represents who you are.
    * @return tagline
   **/
- @Size(max=1024)  @ApiModelProperty(value = "Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
+ @Size(max=80)  @ApiModelProperty(value = "Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
   public String getTagline() {
     return tagline;
   }

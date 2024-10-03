@@ -46,8 +46,8 @@ describe 'NamespacesApi' do
   end
 
   # unit tests for namespaces_read
-  # Get a specific namespace that the user belongs to.
-  # Get a specific namespace that the user belongs to.
+  # Views for working with namespaces.
+  # Views for working with namespaces.
   # @param slug 
   # @param [Hash] opts the optional parameters
   # @return [Namespace]

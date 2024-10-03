@@ -69,9 +69,6 @@ public class PackageQuarantine implements Serializable {
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("display_name")
-  private String displayName = null;
-
   @SerializedName("distro")
   private Distribution distro = null;
 
@@ -170,6 +167,9 @@ public class PackageQuarantine implements Serializable {
 
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
+
+  @SerializedName("release")
+  private String release = null;
 
   @SerializedName("repository")
   private String repository = null;
@@ -409,15 +409,6 @@ public class PackageQuarantine implements Serializable {
   @ApiModelProperty(value = "A textual description of this package.")
   public String getDescription() {
     return description;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @ApiModelProperty(value = "")
-  public String getDisplayName() {
-    return displayName;
   }
 
   public PackageQuarantine distro(Distribution distro) {
@@ -736,6 +727,15 @@ public class PackageQuarantine implements Serializable {
   @ApiModelProperty(value = "The type of package contents.")
   public java.math.BigInteger getPackageType() {
     return packageType;
+  }
+
+   /**
+   * The release of the package version (if any).
+   * @return release
+  **/
+  @ApiModelProperty(value = "The release of the package version (if any).")
+  public String getRelease() {
+    return release;
   }
 
    /**
@@ -1081,7 +1081,6 @@ public class PackageQuarantine implements Serializable {
         Objects.equals(this.dependenciesChecksumMd5, packageQuarantine.dependenciesChecksumMd5) &&
         Objects.equals(this.dependenciesUrl, packageQuarantine.dependenciesUrl) &&
         Objects.equals(this.description, packageQuarantine.description) &&
-        Objects.equals(this.displayName, packageQuarantine.displayName) &&
         Objects.equals(this.distro, packageQuarantine.distro) &&
         Objects.equals(this.distroVersion, packageQuarantine.distroVersion) &&
         Objects.equals(this.downloads, packageQuarantine.downloads) &&
@@ -1115,6 +1114,7 @@ public class PackageQuarantine implements Serializable {
         Objects.equals(this.originRepository, packageQuarantine.originRepository) &&
         Objects.equals(this.originRepositoryUrl, packageQuarantine.originRepositoryUrl) &&
         Objects.equals(this.packageType, packageQuarantine.packageType) &&
+        Objects.equals(this.release, packageQuarantine.release) &&
         Objects.equals(this.repository, packageQuarantine.repository) &&
         Objects.equals(this.repositoryUrl, packageQuarantine.repositoryUrl) &&
         Objects.equals(this.securityScanCompletedAt, packageQuarantine.securityScanCompletedAt) &&
@@ -1152,7 +1152,7 @@ public class PackageQuarantine implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tags, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tags, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1170,7 +1170,6 @@ public class PackageQuarantine implements Serializable {
     sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
     sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
@@ -1204,6 +1203,7 @@ public class PackageQuarantine implements Serializable {
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
     sb.append("    securityScanCompletedAt: ").append(toIndentedString(securityScanCompletedAt)).append("\n");

@@ -114,7 +114,7 @@ class QuotaApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/quota/history/{owner}/', 'GET',
@@ -213,7 +213,7 @@ class QuotaApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/quota/oss/history/{owner}/', 'GET',
@@ -312,7 +312,7 @@ class QuotaApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/quota/oss/{owner}/', 'GET',
@@ -411,7 +411,7 @@ class QuotaApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/quota/{owner}/', 'GET',

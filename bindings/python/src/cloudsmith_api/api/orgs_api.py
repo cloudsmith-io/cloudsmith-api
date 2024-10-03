@@ -33,105 +33,6 @@ class OrgsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def orgs_delete(self, org, **kwargs):  # noqa: E501
-        """Delete the specified organization.  # noqa: E501
-
-        Delete the specified organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_delete(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.orgs_delete_with_http_info(org, **kwargs)  # noqa: E501
-        else:
-            (data) = self.orgs_delete_with_http_info(org, **kwargs)  # noqa: E501
-            return data
-
-    def orgs_delete_with_http_info(self, org, **kwargs):  # noqa: E501
-        """Delete the specified organization.  # noqa: E501
-
-        Delete the specified organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_delete_with_http_info(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['org']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method orgs_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'org' is set
-        if self.api_client.client_side_validation and ('org' not in params or
-                                                       params['org'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `org` when calling `orgs_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'org' in params:
-            path_params['org'] = params['org']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/orgs/{org}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def orgs_deny_policy_create(self, org, **kwargs):  # noqa: E501
         """Create a package deny policy.  # noqa: E501
 
@@ -217,7 +118,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/deny-policy/', 'POST',
@@ -324,7 +225,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/deny-policy/{slug_perm}/', 'DELETE',
@@ -431,7 +332,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/deny-policy/', 'GET',
@@ -542,7 +443,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/deny-policy/{slug_perm}/', 'PATCH',
@@ -649,7 +550,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/deny-policy/{slug_perm}/', 'GET',
@@ -760,7 +661,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/deny-policy/{slug_perm}/', 'PUT',
@@ -863,7 +764,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/invites/', 'POST',
@@ -970,7 +871,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/invites/{slug_perm}/', 'DELETE',
@@ -1077,7 +978,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/invites/{slug_perm}/extend/', 'POST',
@@ -1184,7 +1085,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/invites/', 'GET',
@@ -1295,7 +1196,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/invites/{slug_perm}/', 'PATCH',
@@ -1402,7 +1303,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/invites/{slug_perm}/resend/', 'POST',
@@ -1505,7 +1406,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/', 'POST',
@@ -1612,7 +1513,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/{slug_perm}/', 'DELETE',
@@ -1723,7 +1624,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/', 'POST',
@@ -1838,7 +1739,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/', 'GET',
@@ -1953,7 +1854,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/', 'GET',
@@ -2060,7 +1961,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/', 'GET',
@@ -2171,7 +2072,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/{slug_perm}/', 'PATCH',
@@ -2278,7 +2179,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/{slug_perm}/', 'GET',
@@ -2389,7 +2290,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy/{slug_perm}/', 'PUT',
@@ -2496,7 +2397,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/license-policy-violation/', 'GET',
@@ -2595,7 +2496,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/', 'GET',
@@ -2702,7 +2603,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/members/{member}/', 'DELETE',
@@ -2813,7 +2714,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/members/', 'GET',
@@ -2920,7 +2821,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/members/{member}/', 'GET',
@@ -3027,7 +2928,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/members/{member}/refresh/', 'POST',
@@ -3134,7 +3035,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/members/{member}/remove/', 'GET',
@@ -3164,7 +3065,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param ProviderSettingsRequest data:
-        :return: ProviderSettings
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3187,7 +3088,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param ProviderSettingsRequest data:
-        :return: ProviderSettings
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3237,7 +3138,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/openid-connect/', 'POST',
@@ -3247,7 +3148,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProviderSettings',  # noqa: E501
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3344,7 +3245,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/openid-connect/{slug_perm}/', 'DELETE',
@@ -3451,7 +3352,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/openid-connect/', 'GET',
@@ -3562,7 +3463,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/openid-connect/{slug_perm}/', 'PATCH',
@@ -3669,7 +3570,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/openid-connect/{slug_perm}/', 'GET',
@@ -3780,7 +3681,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/openid-connect/{slug_perm}/', 'PUT',
@@ -3879,7 +3780,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/', 'GET',
@@ -3982,7 +3883,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/saml-group-sync/', 'POST',
@@ -4089,208 +3990,10 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/saml-group-sync/{slug_perm}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def orgs_saml_group_sync_disable(self, org, **kwargs):  # noqa: E501
-        """Disable SAML Group Sync for this organization.  # noqa: E501
-
-        Disable SAML Group Sync for this organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_saml_group_sync_disable(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.orgs_saml_group_sync_disable_with_http_info(org, **kwargs)  # noqa: E501
-        else:
-            (data) = self.orgs_saml_group_sync_disable_with_http_info(org, **kwargs)  # noqa: E501
-            return data
-
-    def orgs_saml_group_sync_disable_with_http_info(self, org, **kwargs):  # noqa: E501
-        """Disable SAML Group Sync for this organization.  # noqa: E501
-
-        Disable SAML Group Sync for this organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_saml_group_sync_disable_with_http_info(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['org']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method orgs_saml_group_sync_disable" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'org' is set
-        if self.api_client.client_side_validation and ('org' not in params or
-                                                       params['org'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `org` when calling `orgs_saml_group_sync_disable`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'org' in params:
-            path_params['org'] = params['org']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/orgs/{org}/saml-group-sync/disable/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def orgs_saml_group_sync_enable(self, org, **kwargs):  # noqa: E501
-        """Enable SAML Group Sync for this organization.  # noqa: E501
-
-        Enable SAML Group Sync for this organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_saml_group_sync_enable(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.orgs_saml_group_sync_enable_with_http_info(org, **kwargs)  # noqa: E501
-        else:
-            (data) = self.orgs_saml_group_sync_enable_with_http_info(org, **kwargs)  # noqa: E501
-            return data
-
-    def orgs_saml_group_sync_enable_with_http_info(self, org, **kwargs):  # noqa: E501
-        """Enable SAML Group Sync for this organization.  # noqa: E501
-
-        Enable SAML Group Sync for this organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_saml_group_sync_enable_with_http_info(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['org']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method orgs_saml_group_sync_enable" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'org' is set
-        if self.api_client.client_side_validation and ('org' not in params or
-                                                       params['org'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `org` when calling `orgs_saml_group_sync_enable`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'org' in params:
-            path_params['org'] = params['org']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/orgs/{org}/saml-group-sync/enable/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -4394,7 +4097,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/saml-group-sync/', 'GET',
@@ -4405,105 +4108,6 @@ class OrgsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[OrganizationGroupSync]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def orgs_saml_group_sync_status(self, org, **kwargs):  # noqa: E501
-        """Retrieve the SAML Group Sync status for this organization.  # noqa: E501
-
-        Retrieve the SAML Group Sync status for this organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_saml_group_sync_status(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: OrganizationGroupSyncStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.orgs_saml_group_sync_status_with_http_info(org, **kwargs)  # noqa: E501
-        else:
-            (data) = self.orgs_saml_group_sync_status_with_http_info(org, **kwargs)  # noqa: E501
-            return data
-
-    def orgs_saml_group_sync_status_with_http_info(self, org, **kwargs):  # noqa: E501
-        """Retrieve the SAML Group Sync status for this organization.  # noqa: E501
-
-        Retrieve the SAML Group Sync status for this organization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.orgs_saml_group_sync_status_with_http_info(org, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str org: (required)
-        :return: OrganizationGroupSyncStatus
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['org']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method orgs_saml_group_sync_status" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'org' is set
-        if self.api_client.client_side_validation and ('org' not in params or
-                                                       params['org'] is None):  # noqa: E501
-            raise ValueError("Missing the required parameter `org` when calling `orgs_saml_group_sync_status`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'org' in params:
-            path_params['org'] = params['org']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/orgs/{org}/saml-group-sync/status/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='OrganizationGroupSyncStatus',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4596,7 +4200,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/services/', 'POST',
@@ -4703,7 +4307,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/services/{service}/', 'DELETE',
@@ -4810,7 +4414,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/services/', 'GET',
@@ -4921,7 +4525,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/services/{service}/', 'PATCH',
@@ -5028,7 +4632,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/services/{service}/', 'GET',
@@ -5135,7 +4739,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/services/{service}/refresh/', 'POST',
@@ -5238,7 +4842,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/', 'POST',
@@ -5345,7 +4949,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/{team}/', 'DELETE',
@@ -5452,7 +5056,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/', 'GET',
@@ -5563,7 +5167,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/{team}/members', 'POST',
@@ -5670,7 +5274,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/{team}/members', 'GET',
@@ -5700,7 +5304,6 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :param OrganizationTeamMembers data:
         :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5724,13 +5327,12 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
-        :param OrganizationTeamMembers data:
         :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'team', 'data']  # noqa: E501
+        all_params = ['org', 'team']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5770,8 +5372,6 @@ class OrgsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data' in params:
-            body_params = params['data']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -5781,7 +5381,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/{team}/members', 'PUT',
@@ -5892,7 +5492,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/{team}/', 'PATCH',
@@ -5999,7 +5599,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/teams/{team}/', 'GET',
@@ -6102,7 +5702,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/', 'POST',
@@ -6209,7 +5809,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/{slug_perm}/', 'DELETE',
@@ -6320,7 +5920,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/', 'POST',
@@ -6435,7 +6035,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/', 'GET',
@@ -6550,7 +6150,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/', 'GET',
@@ -6657,7 +6257,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/', 'GET',
@@ -6768,7 +6368,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/{slug_perm}/', 'PATCH',
@@ -6875,7 +6475,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/{slug_perm}/', 'GET',
@@ -6986,7 +6586,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy/{slug_perm}/', 'PUT',
@@ -7093,7 +6693,7 @@ class OrgsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/orgs/{org}/vulnerability-policy-violation/', 'GET',

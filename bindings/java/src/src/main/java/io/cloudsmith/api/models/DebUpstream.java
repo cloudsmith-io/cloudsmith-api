@@ -99,58 +99,6 @@ public class DebUpstream implements Serializable {
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
-  /**
-   * Gets or Sets disableReason
-   */
-  @JsonAdapter(DisableReasonEnum.Adapter.class)
-  public enum DisableReasonEnum {
-    N_A("N/A"),
-    
-    UPSTREAM_POINTS_TO_ITS_OWN_REPOSITORY("Upstream points to its own repository"),
-    
-    MISSING_UPSTREAM_SOURCE("Missing upstream source");
-
-    private String value;
-
-    DisableReasonEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static DisableReasonEnum fromValue(String text) {
-      for (DisableReasonEnum b : DisableReasonEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<DisableReasonEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DisableReasonEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DisableReasonEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return DisableReasonEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("disable_reason")
-  private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
-
   @SerializedName("distro_versions")
   private List<String> distroVersions = new ArrayList<>();
 
@@ -165,64 +113,6 @@ public class DebUpstream implements Serializable {
 
   @SerializedName("extra_value_2")
   private String extraValue2 = null;
-
-  @SerializedName("gpg_key_inline")
-  private String gpgKeyInline = null;
-
-  @SerializedName("gpg_key_url")
-  private String gpgKeyUrl = null;
-
-  /**
-   * The GPG signature verification mode for this upstream.
-   */
-  @JsonAdapter(GpgVerificationEnum.Adapter.class)
-  public enum GpgVerificationEnum {
-    ALLOW_ALL("Allow All"),
-    
-    WARN_ON_INVALID("Warn on Invalid"),
-    
-    REJECT_INVALID("Reject Invalid");
-
-    private String value;
-
-    GpgVerificationEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static GpgVerificationEnum fromValue(String text) {
-      for (GpgVerificationEnum b : GpgVerificationEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<GpgVerificationEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final GpgVerificationEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public GpgVerificationEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return GpgVerificationEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("gpg_verification")
-  private GpgVerificationEnum gpgVerification = GpgVerificationEnum.ALLOW_ALL;
 
   @SerializedName("include_sources")
   private Boolean includeSources = null;
@@ -283,9 +173,6 @@ public class DebUpstream implements Serializable {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("pending_validation")
-  private Boolean pendingValidation = null;
-
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
 
@@ -300,60 +187,6 @@ public class DebUpstream implements Serializable {
 
   @SerializedName("upstream_url")
   private String upstreamUrl = null;
-
-  /**
-   * The signature verification status for this upstream.
-   */
-  @JsonAdapter(VerificationStatusEnum.Adapter.class)
-  public enum VerificationStatusEnum {
-    UNKNOWN("Unknown"),
-    
-    INVALID("Invalid"),
-    
-    VALID("Valid"),
-    
-    INVALID_NO_KEY_("Invalid (No Key)");
-
-    private String value;
-
-    VerificationStatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static VerificationStatusEnum fromValue(String text) {
-      for (VerificationStatusEnum b : VerificationStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<VerificationStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final VerificationStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public VerificationStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return VerificationStatusEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("verification_status")
-  private VerificationStatusEnum verificationStatus = VerificationStatusEnum.UNKNOWN;
 
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
@@ -438,15 +271,6 @@ public class DebUpstream implements Serializable {
   @ApiModelProperty(value = "The datetime the upstream source was created.")
   public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-   /**
-   * Get disableReason
-   * @return disableReason
-  **/
-  @ApiModelProperty(value = "")
-  public DisableReasonEnum getDisableReason() {
-    return disableReason;
   }
 
   public DebUpstream distroVersions(List<String> distroVersions) {
@@ -545,60 +369,6 @@ public class DebUpstream implements Serializable {
     this.extraValue2 = extraValue2;
   }
 
-  public DebUpstream gpgKeyInline(String gpgKeyInline) {
-    this.gpgKeyInline = gpgKeyInline;
-    return this;
-  }
-
-   /**
-   * A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-   * @return gpgKeyInline
-  **/
-  @ApiModelProperty(value = "A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
-  public String getGpgKeyInline() {
-    return gpgKeyInline;
-  }
-
-  public void setGpgKeyInline(String gpgKeyInline) {
-    this.gpgKeyInline = gpgKeyInline;
-  }
-
-  public DebUpstream gpgKeyUrl(String gpgKeyUrl) {
-    this.gpgKeyUrl = gpgKeyUrl;
-    return this;
-  }
-
-   /**
-   * When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-   * @return gpgKeyUrl
-  **/
- @Size(max=254)  @ApiModelProperty(value = "When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
-  public String getGpgKeyUrl() {
-    return gpgKeyUrl;
-  }
-
-  public void setGpgKeyUrl(String gpgKeyUrl) {
-    this.gpgKeyUrl = gpgKeyUrl;
-  }
-
-  public DebUpstream gpgVerification(GpgVerificationEnum gpgVerification) {
-    this.gpgVerification = gpgVerification;
-    return this;
-  }
-
-   /**
-   * The GPG signature verification mode for this upstream.
-   * @return gpgVerification
-  **/
-  @ApiModelProperty(value = "The GPG signature verification mode for this upstream.")
-  public GpgVerificationEnum getGpgVerification() {
-    return gpgVerification;
-  }
-
-  public void setGpgVerification(GpgVerificationEnum gpgVerification) {
-    this.gpgVerification = gpgVerification;
-  }
-
   public DebUpstream includeSources(Boolean includeSources) {
     this.includeSources = includeSources;
     return this;
@@ -670,15 +440,6 @@ public class DebUpstream implements Serializable {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-   /**
-   * When true, this upstream source is pending validation.
-   * @return pendingValidation
-  **/
-  @ApiModelProperty(value = "When true, this upstream source is pending validation.")
-  public Boolean isPendingValidation() {
-    return pendingValidation;
   }
 
   public DebUpstream priority(java.math.BigInteger priority) {
@@ -757,15 +518,6 @@ public class DebUpstream implements Serializable {
     this.upstreamUrl = upstreamUrl;
   }
 
-   /**
-   * The signature verification status for this upstream.
-   * @return verificationStatus
-  **/
-  @ApiModelProperty(value = "The signature verification status for this upstream.")
-  public VerificationStatusEnum getVerificationStatus() {
-    return verificationStatus;
-  }
-
   public DebUpstream verifySsl(Boolean verifySsl) {
     this.verifySsl = verifySsl;
     return this;
@@ -799,32 +551,26 @@ public class DebUpstream implements Serializable {
         Objects.equals(this.authUsername, debUpstream.authUsername) &&
         Objects.equals(this.component, debUpstream.component) &&
         Objects.equals(this.createdAt, debUpstream.createdAt) &&
-        Objects.equals(this.disableReason, debUpstream.disableReason) &&
         Objects.equals(this.distroVersions, debUpstream.distroVersions) &&
         Objects.equals(this.extraHeader1, debUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, debUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, debUpstream.extraValue1) &&
         Objects.equals(this.extraValue2, debUpstream.extraValue2) &&
-        Objects.equals(this.gpgKeyInline, debUpstream.gpgKeyInline) &&
-        Objects.equals(this.gpgKeyUrl, debUpstream.gpgKeyUrl) &&
-        Objects.equals(this.gpgVerification, debUpstream.gpgVerification) &&
         Objects.equals(this.includeSources, debUpstream.includeSources) &&
         Objects.equals(this.isActive, debUpstream.isActive) &&
         Objects.equals(this.mode, debUpstream.mode) &&
         Objects.equals(this.name, debUpstream.name) &&
-        Objects.equals(this.pendingValidation, debUpstream.pendingValidation) &&
         Objects.equals(this.priority, debUpstream.priority) &&
         Objects.equals(this.slugPerm, debUpstream.slugPerm) &&
         Objects.equals(this.updatedAt, debUpstream.updatedAt) &&
         Objects.equals(this.upstreamDistribution, debUpstream.upstreamDistribution) &&
         Objects.equals(this.upstreamUrl, debUpstream.upstreamUrl) &&
-        Objects.equals(this.verificationStatus, debUpstream.verificationStatus) &&
         Objects.equals(this.verifySsl, debUpstream.verifySsl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, component, createdAt, disableReason, distroVersions, extraHeader1, extraHeader2, extraValue1, extraValue2, gpgKeyInline, gpgKeyUrl, gpgVerification, includeSources, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamDistribution, upstreamUrl, verificationStatus, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, component, createdAt, distroVersions, extraHeader1, extraHeader2, extraValue1, extraValue2, includeSources, isActive, mode, name, priority, slugPerm, updatedAt, upstreamDistribution, upstreamUrl, verifySsl);
   }
 
 
@@ -838,26 +584,20 @@ public class DebUpstream implements Serializable {
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
     sb.append("    distroVersions: ").append(toIndentedString(distroVersions)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
     sb.append("    extraValue2: ").append(toIndentedString(extraValue2)).append("\n");
-    sb.append("    gpgKeyInline: ").append(toIndentedString(gpgKeyInline)).append("\n");
-    sb.append("    gpgKeyUrl: ").append(toIndentedString(gpgKeyUrl)).append("\n");
-    sb.append("    gpgVerification: ").append(toIndentedString(gpgVerification)).append("\n");
     sb.append("    includeSources: ").append(toIndentedString(includeSources)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    upstreamDistribution: ").append(toIndentedString(upstreamDistribution)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");
-    sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("    verifySsl: ").append(toIndentedString(verifySsl)).append("\n");
     sb.append("}");
     return sb.toString();

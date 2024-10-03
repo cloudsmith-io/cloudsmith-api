@@ -126,18 +126,6 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "ecdsa_keys"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "enforce_eula"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "gpg_keys"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -165,16 +153,6 @@ describe 'Repository' do
   describe 'test attribute "is_public"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "manage_entitlements_privilege"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write", "Read"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.manage_entitlements_privilege = value }.not_to raise_error
-      # end
     end
   end
 
@@ -213,30 +191,6 @@ describe 'Repository' do
   end
 
   describe 'test attribute "num_downloads"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "num_policy_violated_packages"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "num_quarantined_packages"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "open_source_license"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "open_source_project_url"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -303,7 +257,7 @@ describe 'Repository' do
   describe 'test attribute "repository_type_str"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Public", "Private", "Open-Source"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Public", "Private"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.repository_type_str = value }.not_to raise_error
       # end
@@ -396,12 +350,6 @@ describe 'Repository' do
     end
   end
 
-  describe 'test attribute "tag_pre_releases_as_latest"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "use_debian_labels"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -411,16 +359,6 @@ describe 'Repository' do
   describe 'test attribute "use_default_cargo_upstream"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "use_entitlements_privilege"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Admin", "Write", "Read"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.use_entitlements_privilege = value }.not_to raise_error
-      # end
     end
   end
 

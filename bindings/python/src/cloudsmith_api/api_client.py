@@ -74,7 +74,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/2.0.14/python'
+        self.user_agent = 'Swagger-Codegen/2.0.13/python'
         self.client_side_validation = configuration.client_side_validation
 
     def __del__(self):

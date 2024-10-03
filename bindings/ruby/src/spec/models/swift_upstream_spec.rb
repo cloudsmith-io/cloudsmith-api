@@ -60,16 +60,6 @@ describe 'SwiftUpstream' do
     end
   end
 
-  describe 'test attribute "disable_reason"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["N/A", "Upstream points to its own repository", "Missing upstream source"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.disable_reason = value }.not_to raise_error
-      # end
-    end
-  end
-
   describe 'test attribute "extra_header_1"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -103,7 +93,7 @@ describe 'SwiftUpstream' do
   describe 'test attribute "mode"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Proxy Only", "Cache and Proxy"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Proxy Only"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.mode = value }.not_to raise_error
       # end
@@ -111,12 +101,6 @@ describe 'SwiftUpstream' do
   end
 
   describe 'test attribute "name"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "pending_validation"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

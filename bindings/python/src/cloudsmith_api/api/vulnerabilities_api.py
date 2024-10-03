@@ -122,7 +122,7 @@ class VulnerabilitiesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/vulnerabilities/{owner}/', 'GET',
@@ -245,7 +245,7 @@ class VulnerabilitiesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/vulnerabilities/{owner}/{repo}/{package}/', 'GET',
@@ -368,7 +368,7 @@ class VulnerabilitiesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/vulnerabilities/{owner}/{repo}/{package}/{identifier}/', 'GET',
@@ -483,7 +483,7 @@ class VulnerabilitiesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['apikey', 'basic', 'token']  # noqa: E501
+        auth_settings = ['apikey']  # noqa: E501
 
         return self.api_client.call_api(
             '/vulnerabilities/{owner}/{repo}/', 'GET',

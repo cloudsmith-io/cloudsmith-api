@@ -37,7 +37,6 @@ class NugetUpstream(object):
         'auth_secret': 'str',
         'auth_username': 'str',
         'created_at': 'datetime',
-        'disable_reason': 'str',
         'extra_header_1': 'str',
         'extra_header_2': 'str',
         'extra_value_1': 'str',
@@ -45,7 +44,6 @@ class NugetUpstream(object):
         'is_active': 'bool',
         'mode': 'str',
         'name': 'str',
-        'pending_validation': 'bool',
         'priority': 'int',
         'slug_perm': 'str',
         'updated_at': 'datetime',
@@ -58,7 +56,6 @@ class NugetUpstream(object):
         'auth_secret': 'auth_secret',
         'auth_username': 'auth_username',
         'created_at': 'created_at',
-        'disable_reason': 'disable_reason',
         'extra_header_1': 'extra_header_1',
         'extra_header_2': 'extra_header_2',
         'extra_value_1': 'extra_value_1',
@@ -66,7 +63,6 @@ class NugetUpstream(object):
         'is_active': 'is_active',
         'mode': 'mode',
         'name': 'name',
-        'pending_validation': 'pending_validation',
         'priority': 'priority',
         'slug_perm': 'slug_perm',
         'updated_at': 'updated_at',
@@ -74,7 +70,7 @@ class NugetUpstream(object):
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, created_at=None, disable_reason='N/A', extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, created_at=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, priority=None, slug_perm=None, updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """NugetUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -84,7 +80,6 @@ class NugetUpstream(object):
         self._auth_secret = None
         self._auth_username = None
         self._created_at = None
-        self._disable_reason = None
         self._extra_header_1 = None
         self._extra_header_2 = None
         self._extra_value_1 = None
@@ -92,7 +87,6 @@ class NugetUpstream(object):
         self._is_active = None
         self._mode = None
         self._name = None
-        self._pending_validation = None
         self._priority = None
         self._slug_perm = None
         self._updated_at = None
@@ -108,8 +102,6 @@ class NugetUpstream(object):
             self.auth_username = auth_username
         if created_at is not None:
             self.created_at = created_at
-        if disable_reason is not None:
-            self.disable_reason = disable_reason
         if extra_header_1 is not None:
             self.extra_header_1 = extra_header_1
         if extra_header_2 is not None:
@@ -123,8 +115,6 @@ class NugetUpstream(object):
         if mode is not None:
             self.mode = mode
         self.name = name
-        if pending_validation is not None:
-            self.pending_validation = pending_validation
         if priority is not None:
             self.priority = priority
         if slug_perm is not None:
@@ -239,34 +229,6 @@ class NugetUpstream(object):
         """
 
         self._created_at = created_at
-
-    @property
-    def disable_reason(self):
-        """Gets the disable_reason of this NugetUpstream.
-
-
-        :return: The disable_reason of this NugetUpstream.
-        :rtype: str
-        """
-        return self._disable_reason
-
-    @disable_reason.setter
-    def disable_reason(self, disable_reason):
-        """Sets the disable_reason of this NugetUpstream.
-
-
-        :param disable_reason: The disable_reason of this NugetUpstream.
-        :type: str
-        """
-        allowed_values = ["N/A", "Upstream points to its own repository", "Missing upstream source"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                disable_reason not in allowed_values):
-            raise ValueError(
-                "Invalid value for `disable_reason` ({0}), must be one of {1}"  # noqa: E501
-                .format(disable_reason, allowed_values)
-            )
-
-        self._disable_reason = disable_reason
 
     @property
     def extra_header_1(self):
@@ -470,29 +432,6 @@ class NugetUpstream(object):
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def pending_validation(self):
-        """Gets the pending_validation of this NugetUpstream.
-
-        When true, this upstream source is pending validation.
-
-        :return: The pending_validation of this NugetUpstream.
-        :rtype: bool
-        """
-        return self._pending_validation
-
-    @pending_validation.setter
-    def pending_validation(self, pending_validation):
-        """Sets the pending_validation of this NugetUpstream.
-
-        When true, this upstream source is pending validation.
-
-        :param pending_validation: The pending_validation of this NugetUpstream.
-        :type: bool
-        """
-
-        self._pending_validation = pending_validation
 
     @property
     def priority(self):

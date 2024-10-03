@@ -40,9 +40,6 @@ class MavenUpstreamRequestPatch(object):
         'extra_header_2': 'str',
         'extra_value_1': 'str',
         'extra_value_2': 'str',
-        'gpg_key_inline': 'str',
-        'gpg_key_url': 'str',
-        'gpg_verification': 'str',
         'is_active': 'bool',
         'mode': 'str',
         'name': 'str',
@@ -59,9 +56,6 @@ class MavenUpstreamRequestPatch(object):
         'extra_header_2': 'extra_header_2',
         'extra_value_1': 'extra_value_1',
         'extra_value_2': 'extra_value_2',
-        'gpg_key_inline': 'gpg_key_inline',
-        'gpg_key_url': 'gpg_key_url',
-        'gpg_verification': 'gpg_verification',
         'is_active': 'is_active',
         'mode': 'mode',
         'name': 'name',
@@ -70,7 +64,7 @@ class MavenUpstreamRequestPatch(object):
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, gpg_key_inline=None, gpg_key_url=None, gpg_verification='Allow All', is_active=None, mode='Proxy Only', name=None, priority=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, priority=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """MavenUpstreamRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,9 +77,6 @@ class MavenUpstreamRequestPatch(object):
         self._extra_header_2 = None
         self._extra_value_1 = None
         self._extra_value_2 = None
-        self._gpg_key_inline = None
-        self._gpg_key_url = None
-        self._gpg_verification = None
         self._is_active = None
         self._mode = None
         self._name = None
@@ -108,12 +99,6 @@ class MavenUpstreamRequestPatch(object):
             self.extra_value_1 = extra_value_1
         if extra_value_2 is not None:
             self.extra_value_2 = extra_value_2
-        if gpg_key_inline is not None:
-            self.gpg_key_inline = gpg_key_inline
-        if gpg_key_url is not None:
-            self.gpg_key_url = gpg_key_url
-        if gpg_verification is not None:
-            self.gpg_verification = gpg_verification
         if is_active is not None:
             self.is_active = is_active
         if mode is not None:
@@ -324,85 +309,6 @@ class MavenUpstreamRequestPatch(object):
             raise ValueError(r"Invalid value for `extra_value_2`, must be a follow pattern or equal to `/^[^\\n\\r]+$/`")  # noqa: E501
 
         self._extra_value_2 = extra_value_2
-
-    @property
-    def gpg_key_inline(self):
-        """Gets the gpg_key_inline of this MavenUpstreamRequestPatch.
-
-        A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :return: The gpg_key_inline of this MavenUpstreamRequestPatch.
-        :rtype: str
-        """
-        return self._gpg_key_inline
-
-    @gpg_key_inline.setter
-    def gpg_key_inline(self, gpg_key_inline):
-        """Sets the gpg_key_inline of this MavenUpstreamRequestPatch.
-
-        A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :param gpg_key_inline: The gpg_key_inline of this MavenUpstreamRequestPatch.
-        :type: str
-        """
-
-        self._gpg_key_inline = gpg_key_inline
-
-    @property
-    def gpg_key_url(self):
-        """Gets the gpg_key_url of this MavenUpstreamRequestPatch.
-
-        When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :return: The gpg_key_url of this MavenUpstreamRequestPatch.
-        :rtype: str
-        """
-        return self._gpg_key_url
-
-    @gpg_key_url.setter
-    def gpg_key_url(self, gpg_key_url):
-        """Sets the gpg_key_url of this MavenUpstreamRequestPatch.
-
-        When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :param gpg_key_url: The gpg_key_url of this MavenUpstreamRequestPatch.
-        :type: str
-        """
-        if (self._configuration.client_side_validation and
-                gpg_key_url is not None and len(gpg_key_url) > 254):
-            raise ValueError("Invalid value for `gpg_key_url`, length must be less than or equal to `254`")  # noqa: E501
-
-        self._gpg_key_url = gpg_key_url
-
-    @property
-    def gpg_verification(self):
-        """Gets the gpg_verification of this MavenUpstreamRequestPatch.
-
-        The GPG signature verification mode for this upstream.
-
-        :return: The gpg_verification of this MavenUpstreamRequestPatch.
-        :rtype: str
-        """
-        return self._gpg_verification
-
-    @gpg_verification.setter
-    def gpg_verification(self, gpg_verification):
-        """Sets the gpg_verification of this MavenUpstreamRequestPatch.
-
-        The GPG signature verification mode for this upstream.
-
-        :param gpg_verification: The gpg_verification of this MavenUpstreamRequestPatch.
-        :type: str
-        """
-        allowed_values = ["Allow All", "Warn on Invalid", "Reject Invalid"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                gpg_verification not in allowed_values):
-            raise ValueError(
-                "Invalid value for `gpg_verification` ({0}), must be one of {1}"  # noqa: E501
-                .format(gpg_verification, allowed_values)
-            )
-
-        self._gpg_verification = gpg_verification
 
     @property
     def is_active(self):
