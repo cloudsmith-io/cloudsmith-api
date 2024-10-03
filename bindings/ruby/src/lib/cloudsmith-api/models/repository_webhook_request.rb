@@ -22,10 +22,10 @@ class RepositoryWebhookRequest
   # The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.
   attr_accessor :package_query
 
-  # The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.
+  # The format of the payloads for webhook requests.
   attr_accessor :request_body_format
 
-  # The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.
+  # The format of the payloads for webhook requests.
   attr_accessor :request_body_template_format
 
   # The value that will be sent for the 'Content Type' header. 

@@ -75,9 +75,6 @@ public class ConanPackageUpload implements Serializable {
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("display_name")
-  private String displayName = null;
-
   @SerializedName("distro")
   private Distribution distro = null;
 
@@ -451,15 +448,6 @@ public class ConanPackageUpload implements Serializable {
   @ApiModelProperty(value = "A textual description of this package.")
   public String getDescription() {
     return description;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @ApiModelProperty(value = "")
-  public String getDisplayName() {
-    return displayName;
   }
 
   public ConanPackageUpload distro(Distribution distro) {
@@ -1133,7 +1121,6 @@ public class ConanPackageUpload implements Serializable {
         Objects.equals(this.dependenciesChecksumMd5, conanPackageUpload.dependenciesChecksumMd5) &&
         Objects.equals(this.dependenciesUrl, conanPackageUpload.dependenciesUrl) &&
         Objects.equals(this.description, conanPackageUpload.description) &&
-        Objects.equals(this.displayName, conanPackageUpload.displayName) &&
         Objects.equals(this.distro, conanPackageUpload.distro) &&
         Objects.equals(this.distroVersion, conanPackageUpload.distroVersion) &&
         Objects.equals(this.downloads, conanPackageUpload.downloads) &&
@@ -1204,7 +1191,7 @@ public class ConanPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1224,7 +1211,6 @@ public class ConanPackageUpload implements Serializable {
     sb.append("    dependenciesChecksumMd5: ").append(toIndentedString(dependenciesChecksumMd5)).append("\n");
     sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");

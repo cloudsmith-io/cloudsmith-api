@@ -4,7 +4,6 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**orgsDelete**](OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 [**orgsDenyPolicyCreate**](OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
 [**orgsDenyPolicyDelete**](OrgsApi.md#orgsDenyPolicyDelete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
 [**orgsDenyPolicyList**](OrgsApi.md#orgsDenyPolicyList) | **GET** /orgs/{org}/deny-policy/ | Get a list of all package deny policies.
@@ -42,10 +41,7 @@ Method | HTTP request | Description
 [**orgsRead**](OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 [**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgsSamlGroupSyncDelete**](OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
-[**orgsSamlGroupSyncDisable**](OrgsApi.md#orgsSamlGroupSyncDisable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization.
-[**orgsSamlGroupSyncEnable**](OrgsApi.md#orgsSamlGroupSyncEnable) | **POST** /orgs/{org}/saml-group-sync/enable/ | Enable SAML Group Sync for this organization.
 [**orgsSamlGroupSyncList**](OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
-[**orgsSamlGroupSyncStatus**](OrgsApi.md#orgsSamlGroupSyncStatus) | **GET** /orgs/{org}/saml-group-sync/status/ | Retrieve the SAML Group Sync status for this organization.
 [**orgsServicesCreate**](OrgsApi.md#orgsServicesCreate) | **POST** /orgs/{org}/services/ | Create a service within an organization.
 [**orgsServicesDelete**](OrgsApi.md#orgsServicesDelete) | **DELETE** /orgs/{org}/services/{service}/ | Delete a specific service
 [**orgsServicesList**](OrgsApi.md#orgsServicesList) | **GET** /orgs/{org}/services/ | Get a list of all services within an organization.
@@ -72,71 +68,6 @@ Method | HTTP request | Description
 [**orgsVulnerabilityPolicyViolationList**](OrgsApi.md#orgsVulnerabilityPolicyViolationList) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
 
 
-<a name="orgsDelete"></a>
-# **orgsDelete**
-> orgsDelete(org)
-
-Delete the specified organization.
-
-Delete the specified organization.
-
-### Example
-```java
-// Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    apiInstance.orgsDelete(org);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDelete");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="orgsDenyPolicyCreate"></a>
 # **orgsDenyPolicyCreate**
 > PackageDenyPolicy orgsDenyPolicyCreate(org, data)
@@ -161,17 +92,6 @@ ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
 apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
@@ -198,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -230,17 +150,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -265,7 +174,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -297,17 +206,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -335,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -367,17 +265,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -405,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -437,17 +324,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -473,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -505,17 +381,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -543,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -575,17 +440,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationInviteRequest data = new OrganizationInviteRequest(); // OrganizationInviteRequest | 
@@ -611,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -643,17 +497,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -678,7 +521,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -710,17 +553,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -746,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -778,17 +610,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -816,7 +637,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -848,17 +669,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -886,7 +696,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -918,17 +728,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -954,7 +753,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -986,17 +785,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationPackageLicensePolicyRequest data = new OrganizationPackageLicensePolicyRequest(); // OrganizationPackageLicensePolicyRequest | 
@@ -1022,7 +810,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1054,17 +842,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -1089,7 +866,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1121,17 +898,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String policySlugPerm = "policySlugPerm_example"; // String | 
@@ -1159,7 +925,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1191,17 +957,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String policySlugPerm = "policySlugPerm_example"; // String | 
@@ -1231,7 +986,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1263,17 +1018,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String policySlugPerm = "policySlugPerm_example"; // String | 
@@ -1301,7 +1045,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1333,17 +1077,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -1371,7 +1104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1403,17 +1136,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -1441,7 +1163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1473,17 +1195,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -1509,7 +1220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1541,17 +1252,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -1579,7 +1279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1611,17 +1311,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String cursor = "cursor_example"; // String | The pagination cursor value.
@@ -1649,7 +1338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1681,17 +1370,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
@@ -1717,7 +1395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1749,17 +1427,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String member = "member_example"; // String | 
@@ -1784,7 +1451,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1816,17 +1483,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -1856,7 +1512,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1888,17 +1544,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String member = "member_example"; // String | 
@@ -1924,7 +1569,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1956,17 +1601,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String member = "member_example"; // String | 
@@ -1991,7 +1625,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2023,17 +1657,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String member = "member_example"; // String | 
@@ -2058,7 +1681,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2067,7 +1690,7 @@ null (empty response body)
 
 <a name="orgsOpenidConnectCreate"></a>
 # **orgsOpenidConnectCreate**
-> ProviderSettings orgsOpenidConnectCreate(org, data)
+> orgsOpenidConnectCreate(org, data)
 
 Create the OpenID Connect provider settings for the org.
 
@@ -2090,23 +1713,11 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 ProviderSettingsRequest data = new ProviderSettingsRequest(); // ProviderSettingsRequest | 
 try {
-    ProviderSettings result = apiInstance.orgsOpenidConnectCreate(org, data);
-    System.out.println(result);
+    apiInstance.orgsOpenidConnectCreate(org, data);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsOpenidConnectCreate");
     e.printStackTrace();
@@ -2122,11 +1733,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProviderSettings**](ProviderSettings.md)
+null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2158,17 +1769,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -2193,7 +1793,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2225,17 +1825,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -2263,7 +1852,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2295,17 +1884,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -2333,7 +1911,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2365,17 +1943,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -2401,7 +1968,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2433,17 +2000,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -2471,7 +2027,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2503,17 +2059,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 try {
@@ -2537,7 +2082,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2569,17 +2114,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationGroupSyncRequest data = new OrganizationGroupSyncRequest(); // OrganizationGroupSyncRequest | 
@@ -2605,7 +2139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2637,17 +2171,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -2672,137 +2195,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="orgsSamlGroupSyncDisable"></a>
-# **orgsSamlGroupSyncDisable**
-> orgsSamlGroupSyncDisable(org)
-
-Disable SAML Group Sync for this organization.
-
-Disable SAML Group Sync for this organization.
-
-### Example
-```java
-// Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    apiInstance.orgsSamlGroupSyncDisable(org);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncDisable");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="orgsSamlGroupSyncEnable"></a>
-# **orgsSamlGroupSyncEnable**
-> orgsSamlGroupSyncEnable(org)
-
-Enable SAML Group Sync for this organization.
-
-Enable SAML Group Sync for this organization.
-
-### Example
-```java
-// Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    apiInstance.orgsSamlGroupSyncEnable(org);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncEnable");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2834,17 +2227,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -2872,73 +2254,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="orgsSamlGroupSyncStatus"></a>
-# **orgsSamlGroupSyncStatus**
-> OrganizationGroupSyncStatus orgsSamlGroupSyncStatus(org)
-
-Retrieve the SAML Group Sync status for this organization.
-
-Retrieve the SAML Group Sync status for this organization.
-
-### Example
-```java
-// Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
-
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    OrganizationGroupSyncStatus result = apiInstance.orgsSamlGroupSyncStatus(org);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncStatus");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
-
-### Return type
-
-[**OrganizationGroupSyncStatus**](OrganizationGroupSyncStatus.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2970,17 +2286,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 ServiceRequest data = new ServiceRequest(); // ServiceRequest | 
@@ -3006,7 +2311,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3038,17 +2343,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String service = "service_example"; // String | 
@@ -3073,7 +2367,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3105,17 +2399,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -3143,7 +2426,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3175,17 +2458,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String service = "service_example"; // String | 
@@ -3213,7 +2485,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3245,17 +2517,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String service = "service_example"; // String | 
@@ -3281,7 +2542,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3313,17 +2574,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String service = "service_example"; // String | 
@@ -3349,7 +2599,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3381,17 +2631,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationTeamRequest data = new OrganizationTeamRequest(); // OrganizationTeamRequest | 
@@ -3417,7 +2656,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3449,17 +2688,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
@@ -3484,7 +2712,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3516,17 +2744,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -3554,7 +2771,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3586,17 +2803,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
@@ -3624,7 +2830,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3656,17 +2862,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
@@ -3692,7 +2887,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3701,7 +2896,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsMembersUpdate"></a>
 # **orgsTeamsMembersUpdate**
-> OrganizationTeamMembers orgsTeamsMembersUpdate(org, team, data)
+> OrganizationTeamMembers orgsTeamsMembersUpdate(org, team)
 
 Replace all team members.
 
@@ -3724,23 +2919,11 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
-OrganizationTeamMembers data = new OrganizationTeamMembers(); // OrganizationTeamMembers | 
 try {
-    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersUpdate(org, team, data);
+    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersUpdate(org, team);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersUpdate");
@@ -3754,7 +2937,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **team** | **String**|  |
- **data** | [**OrganizationTeamMembers**](OrganizationTeamMembers.md)|  | [optional]
 
 ### Return type
 
@@ -3762,7 +2944,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3794,17 +2976,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
@@ -3832,7 +3003,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3864,17 +3035,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
@@ -3900,7 +3060,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3932,17 +3092,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 OrganizationPackageVulnerabilityPolicyRequest data = new OrganizationPackageVulnerabilityPolicyRequest(); // OrganizationPackageVulnerabilityPolicyRequest | 
@@ -3968,7 +3117,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4000,17 +3149,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -4035,7 +3173,7 @@ null (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4067,17 +3205,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String policySlugPerm = "policySlugPerm_example"; // String | 
@@ -4105,7 +3232,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4137,17 +3264,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String policySlugPerm = "policySlugPerm_example"; // String | 
@@ -4177,7 +3293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4209,17 +3325,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String policySlugPerm = "policySlugPerm_example"; // String | 
@@ -4247,7 +3352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4279,17 +3384,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
@@ -4317,7 +3411,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4349,17 +3443,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -4387,7 +3470,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4419,17 +3502,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -4455,7 +3527,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4487,17 +3559,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
@@ -4525,7 +3586,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4557,17 +3618,6 @@ apikey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apikey.setApiKeyPrefix("Token");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-// Configure API key authorization: token
-ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-token.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//token.setApiKeyPrefix("Token");
-
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String cursor = "cursor_example"; // String | The pagination cursor value.
@@ -4595,7 +3645,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 

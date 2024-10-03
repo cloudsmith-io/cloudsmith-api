@@ -23,16 +23,12 @@ class ComposerPackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
-  # The raw version for this package.
-  attr_accessor :version
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'package_file' => :'package_file',
       :'republish' => :'republish',
-      :'tags' => :'tags',
-      :'version' => :'version'
+      :'tags' => :'tags'
     }
   end
 
@@ -41,8 +37,7 @@ class ComposerPackageUploadRequest
     {
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
-      :'tags' => :'String',
-      :'version' => :'String'
+      :'tags' => :'String'
     }
   end
 
@@ -64,10 +59,6 @@ class ComposerPackageUploadRequest
 
     if attributes.has_key?(:'tags')
       self.tags = attributes[:'tags']
-    end
-
-    if attributes.has_key?(:'version')
-      self.version = attributes[:'version']
     end
   end
 
@@ -96,8 +87,7 @@ class ComposerPackageUploadRequest
     self.class == o.class &&
         package_file == o.package_file &&
         republish == o.republish &&
-        tags == o.tags &&
-        version == o.version
+        tags == o.tags
   end
 
   # @see the `==` method
@@ -109,7 +99,7 @@ class ComposerPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [package_file, republish, tags, version].hash
+    [package_file, republish, tags].hash
   end
 
     # Builds the object from hash

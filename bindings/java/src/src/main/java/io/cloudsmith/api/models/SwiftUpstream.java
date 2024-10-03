@@ -94,58 +94,6 @@ public class SwiftUpstream implements Serializable {
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
-  /**
-   * Gets or Sets disableReason
-   */
-  @JsonAdapter(DisableReasonEnum.Adapter.class)
-  public enum DisableReasonEnum {
-    N_A("N/A"),
-    
-    UPSTREAM_POINTS_TO_ITS_OWN_REPOSITORY("Upstream points to its own repository"),
-    
-    MISSING_UPSTREAM_SOURCE("Missing upstream source");
-
-    private String value;
-
-    DisableReasonEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static DisableReasonEnum fromValue(String text) {
-      for (DisableReasonEnum b : DisableReasonEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<DisableReasonEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DisableReasonEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DisableReasonEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return DisableReasonEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("disable_reason")
-  private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
-
   @SerializedName("extra_header_1")
   private String extraHeader1 = null;
 
@@ -166,9 +114,7 @@ public class SwiftUpstream implements Serializable {
    */
   @JsonAdapter(ModeEnum.Adapter.class)
   public enum ModeEnum {
-    PROXY_ONLY("Proxy Only"),
-    
-    CACHE_AND_PROXY("Cache and Proxy");
+    PROXY_ONLY("Proxy Only");
 
     private String value;
 
@@ -213,9 +159,6 @@ public class SwiftUpstream implements Serializable {
 
   @SerializedName("name")
   private String name = null;
-
-  @SerializedName("pending_validation")
-  private Boolean pendingValidation = null;
 
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
@@ -294,15 +237,6 @@ public class SwiftUpstream implements Serializable {
   @ApiModelProperty(value = "The datetime the upstream source was created.")
   public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-   /**
-   * Get disableReason
-   * @return disableReason
-  **/
-  @ApiModelProperty(value = "")
-  public DisableReasonEnum getDisableReason() {
-    return disableReason;
   }
 
   public SwiftUpstream extraHeader1(String extraHeader1) {
@@ -432,15 +366,6 @@ public class SwiftUpstream implements Serializable {
     this.name = name;
   }
 
-   /**
-   * When true, this upstream source is pending validation.
-   * @return pendingValidation
-  **/
-  @ApiModelProperty(value = "When true, this upstream source is pending validation.")
-  public Boolean isPendingValidation() {
-    return pendingValidation;
-  }
-
   public SwiftUpstream priority(java.math.BigInteger priority) {
     this.priority = priority;
     return this;
@@ -531,7 +456,6 @@ public class SwiftUpstream implements Serializable {
         Objects.equals(this.authSecret, swiftUpstream.authSecret) &&
         Objects.equals(this.authUsername, swiftUpstream.authUsername) &&
         Objects.equals(this.createdAt, swiftUpstream.createdAt) &&
-        Objects.equals(this.disableReason, swiftUpstream.disableReason) &&
         Objects.equals(this.extraHeader1, swiftUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, swiftUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, swiftUpstream.extraValue1) &&
@@ -539,7 +463,6 @@ public class SwiftUpstream implements Serializable {
         Objects.equals(this.isActive, swiftUpstream.isActive) &&
         Objects.equals(this.mode, swiftUpstream.mode) &&
         Objects.equals(this.name, swiftUpstream.name) &&
-        Objects.equals(this.pendingValidation, swiftUpstream.pendingValidation) &&
         Objects.equals(this.priority, swiftUpstream.priority) &&
         Objects.equals(this.slugPerm, swiftUpstream.slugPerm) &&
         Objects.equals(this.updatedAt, swiftUpstream.updatedAt) &&
@@ -549,7 +472,7 @@ public class SwiftUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, createdAt, disableReason, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, createdAt, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
   }
 
 
@@ -562,7 +485,6 @@ public class SwiftUpstream implements Serializable {
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
@@ -570,7 +492,6 @@ public class SwiftUpstream implements Serializable {
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

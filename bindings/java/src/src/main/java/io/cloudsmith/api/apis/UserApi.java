@@ -110,7 +110,7 @@ public class UserApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -243,7 +243,7 @@ public class UserApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "basic" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -276,8 +276,8 @@ public class UserApi {
     }
 
     /**
-     * Retrieve/Create API key/token for the authenticated user.
-     * Retrieve/Create API key/token for the authenticated user.
+     * Retrieve the API key/token for the authenticated user.
+     * Retrieve the API key/token for the authenticated user.
      * @param data  (optional)
      * @return UserAuthToken
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -288,8 +288,8 @@ public class UserApi {
     }
 
     /**
-     * Retrieve/Create API key/token for the authenticated user.
-     * Retrieve/Create API key/token for the authenticated user.
+     * Retrieve the API key/token for the authenticated user.
+     * Retrieve the API key/token for the authenticated user.
      * @param data  (optional)
      * @return ApiResponse&lt;UserAuthToken&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -301,8 +301,8 @@ public class UserApi {
     }
 
     /**
-     * Retrieve/Create API key/token for the authenticated user. (asynchronously)
-     * Retrieve/Create API key/token for the authenticated user.
+     * Retrieve the API key/token for the authenticated user. (asynchronously)
+     * Retrieve the API key/token for the authenticated user.
      * @param data  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

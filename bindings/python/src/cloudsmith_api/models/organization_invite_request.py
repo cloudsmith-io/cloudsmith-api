@@ -35,18 +35,16 @@ class OrganizationInviteRequest(object):
     swagger_types = {
         'email': 'str',
         'role': 'str',
-        'teams': 'list[OrganizationTeamInvite]',
         'user': 'str'
     }
 
     attribute_map = {
         'email': 'email',
         'role': 'role',
-        'teams': 'teams',
         'user': 'user'
     }
 
-    def __init__(self, email=None, role='Member', teams=None, user=None, _configuration=None):  # noqa: E501
+    def __init__(self, email=None, role='Member', user=None, _configuration=None):  # noqa: E501
         """OrganizationInviteRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -54,7 +52,6 @@ class OrganizationInviteRequest(object):
 
         self._email = None
         self._role = None
-        self._teams = None
         self._user = None
         self.discriminator = None
 
@@ -62,8 +59,6 @@ class OrganizationInviteRequest(object):
             self.email = email
         if role is not None:
             self.role = role
-        if teams is not None:
-            self.teams = teams
         if user is not None:
             self.user = user
 
@@ -122,27 +117,6 @@ class OrganizationInviteRequest(object):
             )
 
         self._role = role
-
-    @property
-    def teams(self):
-        """Gets the teams of this OrganizationInviteRequest.
-
-
-        :return: The teams of this OrganizationInviteRequest.
-        :rtype: list[OrganizationTeamInvite]
-        """
-        return self._teams
-
-    @teams.setter
-    def teams(self, teams):
-        """Sets the teams of this OrganizationInviteRequest.
-
-
-        :param teams: The teams of this OrganizationInviteRequest.
-        :type: list[OrganizationTeamInvite]
-        """
-
-        self._teams = teams
 
     @property
     def user(self):

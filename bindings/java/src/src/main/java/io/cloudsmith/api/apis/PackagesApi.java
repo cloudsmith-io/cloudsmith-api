@@ -175,7 +175,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -325,7 +325,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -468,7 +468,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -625,7 +625,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -782,7 +782,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -933,7 +933,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -966,8 +966,8 @@ public class PackagesApi {
     }
 
     /**
-     * Quarantine or release a package.
-     * Quarantine or release a package.
+     * Quarantine or restore a package.
+     * Quarantine or restore a package.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
@@ -981,8 +981,8 @@ public class PackagesApi {
     }
 
     /**
-     * Quarantine or release a package.
-     * Quarantine or release a package.
+     * Quarantine or restore a package.
+     * Quarantine or restore a package.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
@@ -997,8 +997,8 @@ public class PackagesApi {
     }
 
     /**
-     * Quarantine or release a package. (asynchronously)
-     * Quarantine or release a package.
+     * Quarantine or restore a package. (asynchronously)
+     * Quarantine or restore a package.
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
@@ -1083,7 +1083,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1230,7 +1230,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1377,7 +1377,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1524,7 +1524,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1672,7 +1672,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1821,7 +1821,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1967,7 +1967,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2113,7 +2113,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2259,7 +2259,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2405,7 +2405,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2551,7 +2551,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2697,7 +2697,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2843,7 +2843,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2989,7 +2989,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3135,7 +3135,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3281,7 +3281,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3427,7 +3427,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3573,7 +3573,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3719,7 +3719,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3865,7 +3865,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4011,7 +4011,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4157,7 +4157,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4303,7 +4303,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4449,7 +4449,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4595,7 +4595,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4741,7 +4741,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4887,7 +4887,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5033,7 +5033,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5179,7 +5179,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5325,7 +5325,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5471,7 +5471,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5613,7 +5613,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5755,7 +5755,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5897,7 +5897,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6039,7 +6039,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6181,7 +6181,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6323,7 +6323,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6465,7 +6465,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6607,7 +6607,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6749,7 +6749,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6891,7 +6891,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7033,7 +7033,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7175,7 +7175,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7317,7 +7317,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7459,7 +7459,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7601,7 +7601,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7743,7 +7743,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7885,7 +7885,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8027,7 +8027,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8169,7 +8169,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8311,7 +8311,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8453,7 +8453,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8595,7 +8595,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8737,7 +8737,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8879,7 +8879,7 @@ public class PackagesApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "apikey", "basic", "token" };
+        String[] localVarAuthNames = new String[] { "apikey" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

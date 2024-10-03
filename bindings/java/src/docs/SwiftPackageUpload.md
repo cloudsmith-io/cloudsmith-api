@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **dependenciesChecksumMd5** | **String** | A checksum of all of the package&#39;s dependencies. |  [optional]
 **dependenciesUrl** | **String** |  |  [optional]
 **description** | **String** | A textual description of this package. |  [optional]
-**displayName** | **String** |  |  [optional]
 **distro** | [**Distribution**](Distribution.md) |  |  [optional]
 **distroVersion** | [**DistributionVersion**](DistributionVersion.md) |  |  [optional]
 **downloads** | **java.math.BigInteger** |  |  [optional]

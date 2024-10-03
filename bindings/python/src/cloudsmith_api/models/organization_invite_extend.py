@@ -40,7 +40,6 @@ class OrganizationInviteExtend(object):
         'org': 'str',
         'role': 'str',
         'slug_perm': 'str',
-        'teams': 'list[OrganizationTeamInvite]',
         'user': 'str',
         'user_url': 'str'
     }
@@ -53,12 +52,11 @@ class OrganizationInviteExtend(object):
         'org': 'org',
         'role': 'role',
         'slug_perm': 'slug_perm',
-        'teams': 'teams',
         'user': 'user',
         'user_url': 'user_url'
     }
 
-    def __init__(self, email=None, expires_at=None, inviter=None, inviter_url=None, org=None, role='Member', slug_perm=None, teams=None, user=None, user_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, email=None, expires_at=None, inviter=None, inviter_url=None, org=None, role='Member', slug_perm=None, user=None, user_url=None, _configuration=None):  # noqa: E501
         """OrganizationInviteExtend - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,7 +69,6 @@ class OrganizationInviteExtend(object):
         self._org = None
         self._role = None
         self._slug_perm = None
-        self._teams = None
         self._user = None
         self._user_url = None
         self.discriminator = None
@@ -90,8 +87,6 @@ class OrganizationInviteExtend(object):
             self.role = role
         if slug_perm is not None:
             self.slug_perm = slug_perm
-        if teams is not None:
-            self.teams = teams
         if user is not None:
             self.user = user
         if user_url is not None:
@@ -268,27 +263,6 @@ class OrganizationInviteExtend(object):
             raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
-
-    @property
-    def teams(self):
-        """Gets the teams of this OrganizationInviteExtend.
-
-
-        :return: The teams of this OrganizationInviteExtend.
-        :rtype: list[OrganizationTeamInvite]
-        """
-        return self._teams
-
-    @teams.setter
-    def teams(self, teams):
-        """Sets the teams of this OrganizationInviteExtend.
-
-
-        :param teams: The teams of this OrganizationInviteExtend.
-        :type: list[OrganizationTeamInvite]
-        """
-
-        self._teams = teams
 
     @property
     def user(self):

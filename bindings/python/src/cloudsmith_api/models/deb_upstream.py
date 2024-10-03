@@ -38,26 +38,20 @@ class DebUpstream(object):
         'auth_username': 'str',
         'component': 'str',
         'created_at': 'datetime',
-        'disable_reason': 'str',
         'distro_versions': 'list[str]',
         'extra_header_1': 'str',
         'extra_header_2': 'str',
         'extra_value_1': 'str',
         'extra_value_2': 'str',
-        'gpg_key_inline': 'str',
-        'gpg_key_url': 'str',
-        'gpg_verification': 'str',
         'include_sources': 'bool',
         'is_active': 'bool',
         'mode': 'str',
         'name': 'str',
-        'pending_validation': 'bool',
         'priority': 'int',
         'slug_perm': 'str',
         'updated_at': 'datetime',
         'upstream_distribution': 'str',
         'upstream_url': 'str',
-        'verification_status': 'str',
         'verify_ssl': 'bool'
     }
 
@@ -67,30 +61,24 @@ class DebUpstream(object):
         'auth_username': 'auth_username',
         'component': 'component',
         'created_at': 'created_at',
-        'disable_reason': 'disable_reason',
         'distro_versions': 'distro_versions',
         'extra_header_1': 'extra_header_1',
         'extra_header_2': 'extra_header_2',
         'extra_value_1': 'extra_value_1',
         'extra_value_2': 'extra_value_2',
-        'gpg_key_inline': 'gpg_key_inline',
-        'gpg_key_url': 'gpg_key_url',
-        'gpg_verification': 'gpg_verification',
         'include_sources': 'include_sources',
         'is_active': 'is_active',
         'mode': 'mode',
         'name': 'name',
-        'pending_validation': 'pending_validation',
         'priority': 'priority',
         'slug_perm': 'slug_perm',
         'updated_at': 'updated_at',
         'upstream_distribution': 'upstream_distribution',
         'upstream_url': 'upstream_url',
-        'verification_status': 'verification_status',
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, component=None, created_at=None, disable_reason='N/A', distro_versions=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, gpg_key_inline=None, gpg_key_url=None, gpg_verification='Allow All', include_sources=None, is_active=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, updated_at=None, upstream_distribution=None, upstream_url=None, verification_status='Unknown', verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, component=None, created_at=None, distro_versions=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, include_sources=None, is_active=None, mode='Proxy Only', name=None, priority=None, slug_perm=None, updated_at=None, upstream_distribution=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """DebUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -101,26 +89,20 @@ class DebUpstream(object):
         self._auth_username = None
         self._component = None
         self._created_at = None
-        self._disable_reason = None
         self._distro_versions = None
         self._extra_header_1 = None
         self._extra_header_2 = None
         self._extra_value_1 = None
         self._extra_value_2 = None
-        self._gpg_key_inline = None
-        self._gpg_key_url = None
-        self._gpg_verification = None
         self._include_sources = None
         self._is_active = None
         self._mode = None
         self._name = None
-        self._pending_validation = None
         self._priority = None
         self._slug_perm = None
         self._updated_at = None
         self._upstream_distribution = None
         self._upstream_url = None
-        self._verification_status = None
         self._verify_ssl = None
         self.discriminator = None
 
@@ -134,8 +116,6 @@ class DebUpstream(object):
             self.component = component
         if created_at is not None:
             self.created_at = created_at
-        if disable_reason is not None:
-            self.disable_reason = disable_reason
         self.distro_versions = distro_versions
         if extra_header_1 is not None:
             self.extra_header_1 = extra_header_1
@@ -145,12 +125,6 @@ class DebUpstream(object):
             self.extra_value_1 = extra_value_1
         if extra_value_2 is not None:
             self.extra_value_2 = extra_value_2
-        if gpg_key_inline is not None:
-            self.gpg_key_inline = gpg_key_inline
-        if gpg_key_url is not None:
-            self.gpg_key_url = gpg_key_url
-        if gpg_verification is not None:
-            self.gpg_verification = gpg_verification
         if include_sources is not None:
             self.include_sources = include_sources
         if is_active is not None:
@@ -158,8 +132,6 @@ class DebUpstream(object):
         if mode is not None:
             self.mode = mode
         self.name = name
-        if pending_validation is not None:
-            self.pending_validation = pending_validation
         if priority is not None:
             self.priority = priority
         if slug_perm is not None:
@@ -169,8 +141,6 @@ class DebUpstream(object):
         if upstream_distribution is not None:
             self.upstream_distribution = upstream_distribution
         self.upstream_url = upstream_url
-        if verification_status is not None:
-            self.verification_status = verification_status
         if verify_ssl is not None:
             self.verify_ssl = verify_ssl
 
@@ -307,34 +277,6 @@ class DebUpstream(object):
         """
 
         self._created_at = created_at
-
-    @property
-    def disable_reason(self):
-        """Gets the disable_reason of this DebUpstream.
-
-
-        :return: The disable_reason of this DebUpstream.
-        :rtype: str
-        """
-        return self._disable_reason
-
-    @disable_reason.setter
-    def disable_reason(self, disable_reason):
-        """Sets the disable_reason of this DebUpstream.
-
-
-        :param disable_reason: The disable_reason of this DebUpstream.
-        :type: str
-        """
-        allowed_values = ["N/A", "Upstream points to its own repository", "Missing upstream source"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                disable_reason not in allowed_values):
-            raise ValueError(
-                "Invalid value for `disable_reason` ({0}), must be one of {1}"  # noqa: E501
-                .format(disable_reason, allowed_values)
-            )
-
-        self._disable_reason = disable_reason
 
     @property
     def distro_versions(self):
@@ -478,85 +420,6 @@ class DebUpstream(object):
         self._extra_value_2 = extra_value_2
 
     @property
-    def gpg_key_inline(self):
-        """Gets the gpg_key_inline of this DebUpstream.
-
-        A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :return: The gpg_key_inline of this DebUpstream.
-        :rtype: str
-        """
-        return self._gpg_key_inline
-
-    @gpg_key_inline.setter
-    def gpg_key_inline(self, gpg_key_inline):
-        """Sets the gpg_key_inline of this DebUpstream.
-
-        A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :param gpg_key_inline: The gpg_key_inline of this DebUpstream.
-        :type: str
-        """
-
-        self._gpg_key_inline = gpg_key_inline
-
-    @property
-    def gpg_key_url(self):
-        """Gets the gpg_key_url of this DebUpstream.
-
-        When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :return: The gpg_key_url of this DebUpstream.
-        :rtype: str
-        """
-        return self._gpg_key_url
-
-    @gpg_key_url.setter
-    def gpg_key_url(self, gpg_key_url):
-        """Sets the gpg_key_url of this DebUpstream.
-
-        When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.
-
-        :param gpg_key_url: The gpg_key_url of this DebUpstream.
-        :type: str
-        """
-        if (self._configuration.client_side_validation and
-                gpg_key_url is not None and len(gpg_key_url) > 254):
-            raise ValueError("Invalid value for `gpg_key_url`, length must be less than or equal to `254`")  # noqa: E501
-
-        self._gpg_key_url = gpg_key_url
-
-    @property
-    def gpg_verification(self):
-        """Gets the gpg_verification of this DebUpstream.
-
-        The GPG signature verification mode for this upstream.
-
-        :return: The gpg_verification of this DebUpstream.
-        :rtype: str
-        """
-        return self._gpg_verification
-
-    @gpg_verification.setter
-    def gpg_verification(self, gpg_verification):
-        """Sets the gpg_verification of this DebUpstream.
-
-        The GPG signature verification mode for this upstream.
-
-        :param gpg_verification: The gpg_verification of this DebUpstream.
-        :type: str
-        """
-        allowed_values = ["Allow All", "Warn on Invalid", "Reject Invalid"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                gpg_verification not in allowed_values):
-            raise ValueError(
-                "Invalid value for `gpg_verification` ({0}), must be one of {1}"  # noqa: E501
-                .format(gpg_verification, allowed_values)
-            )
-
-        self._gpg_verification = gpg_verification
-
-    @property
     def include_sources(self):
         """Gets the include_sources of this DebUpstream.
 
@@ -665,29 +528,6 @@ class DebUpstream(object):
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def pending_validation(self):
-        """Gets the pending_validation of this DebUpstream.
-
-        When true, this upstream source is pending validation.
-
-        :return: The pending_validation of this DebUpstream.
-        :rtype: bool
-        """
-        return self._pending_validation
-
-    @pending_validation.setter
-    def pending_validation(self, pending_validation):
-        """Sets the pending_validation of this DebUpstream.
-
-        When true, this upstream source is pending validation.
-
-        :param pending_validation: The pending_validation of this DebUpstream.
-        :type: bool
-        """
-
-        self._pending_validation = pending_validation
 
     @property
     def priority(self):
@@ -825,36 +665,6 @@ class DebUpstream(object):
             raise ValueError("Invalid value for `upstream_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._upstream_url = upstream_url
-
-    @property
-    def verification_status(self):
-        """Gets the verification_status of this DebUpstream.
-
-        The signature verification status for this upstream.
-
-        :return: The verification_status of this DebUpstream.
-        :rtype: str
-        """
-        return self._verification_status
-
-    @verification_status.setter
-    def verification_status(self, verification_status):
-        """Sets the verification_status of this DebUpstream.
-
-        The signature verification status for this upstream.
-
-        :param verification_status: The verification_status of this DebUpstream.
-        :type: str
-        """
-        allowed_values = ["Unknown", "Invalid", "Valid", "Invalid (No Key)"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                verification_status not in allowed_values):
-            raise ValueError(
-                "Invalid value for `verification_status` ({0}), must be one of {1}"  # noqa: E501
-                .format(verification_status, allowed_values)
-            )
-
-        self._verification_status = verification_status
 
     @property
     def verify_ssl(self):

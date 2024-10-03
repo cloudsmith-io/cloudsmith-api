@@ -20,12 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.OrganizationTeamInvite;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -94,9 +91,6 @@ public class OrganizationInviteRequest implements Serializable {
   @SerializedName("role")
   private RoleEnum role = RoleEnum.MEMBER;
 
-  @SerializedName("teams")
-  private List<OrganizationTeamInvite> teams = null;
-
   @SerializedName("user")
   private String user = null;
 
@@ -136,33 +130,6 @@ public class OrganizationInviteRequest implements Serializable {
     this.role = role;
   }
 
-  public OrganizationInviteRequest teams(List<OrganizationTeamInvite> teams) {
-    this.teams = teams;
-    return this;
-  }
-
-  public OrganizationInviteRequest addTeamsItem(OrganizationTeamInvite teamsItem) {
-    if (this.teams == null) {
-      this.teams = new ArrayList<>();
-    }
-    this.teams.add(teamsItem);
-    return this;
-  }
-
-   /**
-   * Get teams
-   * @return teams
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public List<OrganizationTeamInvite> getTeams() {
-    return teams;
-  }
-
-  public void setTeams(List<OrganizationTeamInvite> teams) {
-    this.teams = teams;
-  }
-
   public OrganizationInviteRequest user(String user) {
     this.user = user;
     return this;
@@ -193,13 +160,12 @@ public class OrganizationInviteRequest implements Serializable {
     OrganizationInviteRequest organizationInviteRequest = (OrganizationInviteRequest) o;
     return Objects.equals(this.email, organizationInviteRequest.email) &&
         Objects.equals(this.role, organizationInviteRequest.role) &&
-        Objects.equals(this.teams, organizationInviteRequest.teams) &&
         Objects.equals(this.user, organizationInviteRequest.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, role, teams, user);
+    return Objects.hash(email, role, user);
   }
 
 
@@ -210,7 +176,6 @@ public class OrganizationInviteRequest implements Serializable {
     
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();

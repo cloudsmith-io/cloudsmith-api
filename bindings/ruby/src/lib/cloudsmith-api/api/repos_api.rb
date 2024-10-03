@@ -19,188 +19,6 @@ module CloudsmithApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieve the GeoIP status for this repository.
-    # Retrieve the GeoIP status for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [RepositoryGeoIpStatus]
-    def api_repos_geoip_status(owner, identifier, opts = {})
-      data, _status_code, _headers = api_repos_geoip_status_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # Retrieve the GeoIP status for this repository.
-    # Retrieve the GeoIP status for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryGeoIpStatus, Fixnum, Hash)>] RepositoryGeoIpStatus data, response status code and response headers
-    def api_repos_geoip_status_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.api_repos_geoip_status ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.api_repos_geoip_status"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.api_repos_geoip_status"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/geoip/status/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'RepositoryGeoIpStatus')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#api_repos_geoip_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Update the retention rules for the repository.
-    # Update the retention rules for the repository.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryRetentionRulesRequestPatch] :data 
-    # @return [RepositoryRetentionRules]
-    def repo_retention_partial_update(owner, repo, opts = {})
-      data, _status_code, _headers = repo_retention_partial_update_with_http_info(owner, repo, opts)
-      data
-    end
-
-    # Update the retention rules for the repository.
-    # Update the retention rules for the repository.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryRetentionRulesRequestPatch] :data 
-    # @return [Array<(RepositoryRetentionRules, Fixnum, Hash)>] RepositoryRetentionRules data, response status code and response headers
-    def repo_retention_partial_update_with_http_info(owner, repo, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repo_retention_partial_update ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repo_retention_partial_update"
-      end
-      # verify the required parameter 'repo' is set
-      if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling ReposApi.repo_retention_partial_update"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{repo}/retention/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'RepositoryRetentionRules')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repo_retention_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Retrieve the retention rules for the repository.
-    # Retrieve the retention rules for the repository.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @return [RepositoryRetentionRules]
-    def repo_retention_read(owner, repo, opts = {})
-      data, _status_code, _headers = repo_retention_read_with_http_info(owner, repo, opts)
-      data
-    end
-
-    # Retrieve the retention rules for the repository.
-    # Retrieve the retention rules for the repository.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryRetentionRules, Fixnum, Hash)>] RepositoryRetentionRules data, response status code and response headers
-    def repo_retention_read_with_http_info(owner, repo, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repo_retention_read ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repo_retention_read"
-      end
-      # verify the required parameter 'repo' is set
-      if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling ReposApi.repo_retention_read"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{repo}/retention/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'RepositoryRetentionRules')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repo_retention_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
     # Create a new repository in a given namespace.
     # Create a new repository in a given namespace.
     # @param owner 
@@ -244,7 +62,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -304,7 +122,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -313,188 +131,6 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Set the active ECDSA key for the Repository.
-    # Set the active ECDSA key for the Repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryEcdsaKeyCreate] :data 
-    # @return [RepositoryEcdsaKey]
-    def repos_ecdsa_create(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_ecdsa_create_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # Set the active ECDSA key for the Repository.
-    # Set the active ECDSA key for the Repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryEcdsaKeyCreate] :data 
-    # @return [Array<(RepositoryEcdsaKey, Fixnum, Hash)>] RepositoryEcdsaKey data, response status code and response headers
-    def repos_ecdsa_create_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_ecdsa_create ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_ecdsa_create"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_ecdsa_create"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/ecdsa/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'RepositoryEcdsaKey')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_ecdsa_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Retrieve the active ECDSA key for the Repository.
-    # Retrieve the active ECDSA key for the Repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [RepositoryEcdsaKey]
-    def repos_ecdsa_list(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_ecdsa_list_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # Retrieve the active ECDSA key for the Repository.
-    # Retrieve the active ECDSA key for the Repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryEcdsaKey, Fixnum, Hash)>] RepositoryEcdsaKey data, response status code and response headers
-    def repos_ecdsa_list_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_ecdsa_list ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_ecdsa_list"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_ecdsa_list"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/ecdsa/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'RepositoryEcdsaKey')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_ecdsa_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Regenerate ECDSA Key for the Repository.
-    # Regenerate ECDSA Key for the Repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [RepositoryEcdsaKey]
-    def repos_ecdsa_regenerate(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_ecdsa_regenerate_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # Regenerate ECDSA Key for the Repository.
-    # Regenerate ECDSA Key for the Repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RepositoryEcdsaKey, Fixnum, Hash)>] RepositoryEcdsaKey data, response status code and response headers
-    def repos_ecdsa_regenerate_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_ecdsa_regenerate ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_ecdsa_regenerate"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_ecdsa_regenerate"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/ecdsa/regenerate/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'RepositoryEcdsaKey')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_ecdsa_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -547,7 +183,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -608,7 +244,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -669,7 +305,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -729,7 +365,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -791,7 +427,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -853,7 +489,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -915,7 +551,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -975,7 +611,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1035,7 +671,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1095,7 +731,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1157,7 +793,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1223,7 +859,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1285,7 +921,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1346,7 +982,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1405,7 +1041,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1467,7 +1103,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1527,7 +1163,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1587,7 +1223,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -1597,462 +1233,6 @@ module CloudsmithApi
         :return_type => 'RepositoryRsaKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_rsa_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Transfer a repository to a different region.
-    # Transfer a repository to a different region.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryTransferRegionRequest] :data 
-    # @return [nil]
-    def repos_transfer_region(owner, repo, opts = {})
-      repos_transfer_region_with_http_info(owner, repo, opts)
-      nil
-    end
-
-    # Transfer a repository to a different region.
-    # Transfer a repository to a different region.
-    # @param owner 
-    # @param repo 
-    # @param [Hash] opts the optional parameters
-    # @option opts [RepositoryTransferRegionRequest] :data 
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def repos_transfer_region_with_http_info(owner, repo, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_transfer_region ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_transfer_region"
-      end
-      # verify the required parameter 'repo' is set
-      if @api_client.config.client_side_validation && repo.nil?
-        fail ArgumentError, "Missing the required parameter 'repo' when calling ReposApi.repos_transfer_region"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{repo}/transfer-region/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_transfer_region\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Create a Composer upstream config for this repository.
-    # Create a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [ComposerUpstreamRequest] :data 
-    # @return [ComposerUpstream]
-    def repos_upstream_composer_create(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_upstream_composer_create_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # Create a Composer upstream config for this repository.
-    # Create a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [ComposerUpstreamRequest] :data 
-    # @return [Array<(ComposerUpstream, Fixnum, Hash)>] ComposerUpstream data, response status code and response headers
-    def repos_upstream_composer_create_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_composer_create ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_composer_create"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_composer_create"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/composer/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'ComposerUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_composer_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Delete a Composer upstream config for this repository.
-    # Delete a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def repos_upstream_composer_delete(owner, identifier, slug_perm, opts = {})
-      repos_upstream_composer_delete_with_http_info(owner, identifier, slug_perm, opts)
-      nil
-    end
-
-    # Delete a Composer upstream config for this repository.
-    # Delete a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def repos_upstream_composer_delete_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_composer_delete ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_composer_delete"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_composer_delete"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_composer_delete"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_composer_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # List Composer upstream configs for this repository.
-    # List Composer upstream configs for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<ComposerUpstream>]
-    def repos_upstream_composer_list(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_upstream_composer_list_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # List Composer upstream configs for this repository.
-    # List Composer upstream configs for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<ComposerUpstream>, Fixnum, Hash)>] Array<ComposerUpstream> data, response status code and response headers
-    def repos_upstream_composer_list_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_composer_list ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_composer_list"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_composer_list"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/composer/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<ComposerUpstream>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_composer_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Partially update a Composer upstream config for this repository.
-    # Partially update a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [ComposerUpstreamRequestPatch] :data 
-    # @return [ComposerUpstream]
-    def repos_upstream_composer_partial_update(owner, identifier, slug_perm, opts = {})
-      data, _status_code, _headers = repos_upstream_composer_partial_update_with_http_info(owner, identifier, slug_perm, opts)
-      data
-    end
-
-    # Partially update a Composer upstream config for this repository.
-    # Partially update a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [ComposerUpstreamRequestPatch] :data 
-    # @return [Array<(ComposerUpstream, Fixnum, Hash)>] ComposerUpstream data, response status code and response headers
-    def repos_upstream_composer_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_composer_partial_update ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_composer_partial_update"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_composer_partial_update"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_composer_partial_update"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'ComposerUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_composer_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Retrieve a Composer upstream config for this repository.
-    # Retrieve a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [ComposerUpstream]
-    def repos_upstream_composer_read(owner, identifier, slug_perm, opts = {})
-      data, _status_code, _headers = repos_upstream_composer_read_with_http_info(owner, identifier, slug_perm, opts)
-      data
-    end
-
-    # Retrieve a Composer upstream config for this repository.
-    # Retrieve a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(ComposerUpstream, Fixnum, Hash)>] ComposerUpstream data, response status code and response headers
-    def repos_upstream_composer_read_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_composer_read ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_composer_read"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_composer_read"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_composer_read"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'ComposerUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_composer_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Update a Composer upstream config for this repository.
-    # Update a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [ComposerUpstreamRequest] :data 
-    # @return [ComposerUpstream]
-    def repos_upstream_composer_update(owner, identifier, slug_perm, opts = {})
-      data, _status_code, _headers = repos_upstream_composer_update_with_http_info(owner, identifier, slug_perm, opts)
-      data
-    end
-
-    # Update a Composer upstream config for this repository.
-    # Update a Composer upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [ComposerUpstreamRequest] :data 
-    # @return [Array<(ComposerUpstream, Fixnum, Hash)>] ComposerUpstream data, response status code and response headers
-    def repos_upstream_composer_update_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_composer_update ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_composer_update"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_composer_update"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_composer_update"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'ComposerUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_composer_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2105,7 +1285,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2171,7 +1351,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2236,7 +1416,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2304,7 +1484,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2370,7 +1550,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2438,7 +1618,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2500,7 +1680,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2566,7 +1746,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2631,7 +1811,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2699,7 +1879,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2765,7 +1945,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2833,7 +2013,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2895,7 +2075,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -2961,7 +2141,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3026,7 +2206,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3094,7 +2274,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3160,7 +2340,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3228,7 +2408,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3290,7 +2470,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3356,7 +2536,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3421,7 +2601,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3489,7 +2669,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3555,7 +2735,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3623,7 +2803,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3685,7 +2865,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3751,7 +2931,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3816,7 +2996,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3884,7 +3064,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -3950,7 +3130,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4018,7 +3198,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4028,401 +3208,6 @@ module CloudsmithApi
         :return_type => 'HelmUpstream')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_upstream_helm_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Create a Hex upstream config for this repository.
-    # Create a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [HexUpstreamRequest] :data 
-    # @return [HexUpstream]
-    def repos_upstream_hex_create(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_upstream_hex_create_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # Create a Hex upstream config for this repository.
-    # Create a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [HexUpstreamRequest] :data 
-    # @return [Array<(HexUpstream, Fixnum, Hash)>] HexUpstream data, response status code and response headers
-    def repos_upstream_hex_create_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_hex_create ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_hex_create"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_hex_create"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/hex/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'HexUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_hex_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Delete a Hex upstream config for this repository.
-    # Delete a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def repos_upstream_hex_delete(owner, identifier, slug_perm, opts = {})
-      repos_upstream_hex_delete_with_http_info(owner, identifier, slug_perm, opts)
-      nil
-    end
-
-    # Delete a Hex upstream config for this repository.
-    # Delete a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def repos_upstream_hex_delete_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_hex_delete ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_hex_delete"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_hex_delete"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_hex_delete"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_hex_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # List Hex upstream configs for this repository.
-    # List Hex upstream configs for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<HexUpstream>]
-    def repos_upstream_hex_list(owner, identifier, opts = {})
-      data, _status_code, _headers = repos_upstream_hex_list_with_http_info(owner, identifier, opts)
-      data
-    end
-
-    # List Hex upstream configs for this repository.
-    # List Hex upstream configs for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page A page number within the paginated result set.
-    # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(Array<HexUpstream>, Fixnum, Hash)>] Array<HexUpstream> data, response status code and response headers
-    def repos_upstream_hex_list_with_http_info(owner, identifier, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_hex_list ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_hex_list"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_hex_list"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/hex/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
-
-      # query parameters
-      query_params = {}
-      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
-      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<HexUpstream>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_hex_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Partially update a Hex upstream config for this repository.
-    # Partially update a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [HexUpstreamRequestPatch] :data 
-    # @return [HexUpstream]
-    def repos_upstream_hex_partial_update(owner, identifier, slug_perm, opts = {})
-      data, _status_code, _headers = repos_upstream_hex_partial_update_with_http_info(owner, identifier, slug_perm, opts)
-      data
-    end
-
-    # Partially update a Hex upstream config for this repository.
-    # Partially update a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [HexUpstreamRequestPatch] :data 
-    # @return [Array<(HexUpstream, Fixnum, Hash)>] HexUpstream data, response status code and response headers
-    def repos_upstream_hex_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_hex_partial_update ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_hex_partial_update"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_hex_partial_update"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_hex_partial_update"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'HexUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_hex_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Retrieve a Hex upstream config for this repository.
-    # Retrieve a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [HexUpstream]
-    def repos_upstream_hex_read(owner, identifier, slug_perm, opts = {})
-      data, _status_code, _headers = repos_upstream_hex_read_with_http_info(owner, identifier, slug_perm, opts)
-      data
-    end
-
-    # Retrieve a Hex upstream config for this repository.
-    # Retrieve a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(HexUpstream, Fixnum, Hash)>] HexUpstream data, response status code and response headers
-    def repos_upstream_hex_read_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_hex_read ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_hex_read"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_hex_read"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_hex_read"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'HexUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_hex_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Update a Hex upstream config for this repository.
-    # Update a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [HexUpstreamRequest] :data 
-    # @return [HexUpstream]
-    def repos_upstream_hex_update(owner, identifier, slug_perm, opts = {})
-      data, _status_code, _headers = repos_upstream_hex_update_with_http_info(owner, identifier, slug_perm, opts)
-      data
-    end
-
-    # Update a Hex upstream config for this repository.
-    # Update a Hex upstream config for this repository.
-    # @param owner 
-    # @param identifier 
-    # @param slug_perm 
-    # @param [Hash] opts the optional parameters
-    # @option opts [HexUpstreamRequest] :data 
-    # @return [Array<(HexUpstream, Fixnum, Hash)>] HexUpstream data, response status code and response headers
-    def repos_upstream_hex_update_with_http_info(owner, identifier, slug_perm, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_hex_update ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_hex_update"
-      end
-      # verify the required parameter 'identifier' is set
-      if @api_client.config.client_side_validation && identifier.nil?
-        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_hex_update"
-      end
-      # verify the required parameter 'slug_perm' is set
-      if @api_client.config.client_side_validation && slug_perm.nil?
-        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_hex_update"
-      end
-      # resource path
-      local_var_path = '/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'HexUpstream')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_hex_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4475,7 +3260,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4541,7 +3326,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4606,7 +3391,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4674,7 +3459,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4740,7 +3525,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4808,7 +3593,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4870,7 +3655,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -4936,7 +3721,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5001,7 +3786,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5069,7 +3854,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5135,7 +3920,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5203,7 +3988,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5265,7 +4050,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5331,7 +4116,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5396,7 +4181,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5464,7 +4249,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5530,7 +4315,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5598,7 +4383,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5660,7 +4445,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5726,7 +4511,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5791,7 +4576,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5859,7 +4644,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5925,7 +4710,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -5993,7 +4778,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6055,7 +4840,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6121,7 +4906,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6186,7 +4971,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6254,7 +5039,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6320,7 +5105,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6388,7 +5173,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6450,7 +5235,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6516,7 +5301,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6581,7 +5366,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6649,7 +5434,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6715,7 +5500,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6783,7 +5568,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6845,7 +5630,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6911,7 +5696,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -6976,7 +5761,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -7044,7 +5829,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -7110,7 +5895,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -7178,7 +5963,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -7232,7 +6017,7 @@ module CloudsmithApi
 
       # http body (model)
       post_body = nil
-      auth_names = ['apikey', 'basic', 'token']
+      auth_names = ['apikey']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

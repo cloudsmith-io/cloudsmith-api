@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.14</version>
+  <version>2.0.13</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.14"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.13"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.14.jar`
+* `target/cloudsmith-api-2.0.13.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -90,17 +90,6 @@ public class AuditLogApiExample {
         apikey.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //apikey.setApiKeyPrefix("Token");
-
-        // Configure HTTP basic authorization: basic
-        HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-        basic.setUsername("YOUR USERNAME");
-        basic.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: token
-        ApiKeyAuth token = (ApiKeyAuth) defaultClient.getAuthentication("token");
-        token.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //token.setApiKeyPrefix("Token");
 
         AuditLogApi apiInstance = new AuditLogApi();
         String owner = "owner_example"; // String | 
@@ -151,8 +140,7 @@ Class | Method | HTTP request | Description
 *MetricsApi* | [**metricsEntitlementsRepoList**](docs/MetricsApi.md#metricsEntitlementsRepoList) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
 *MetricsApi* | [**metricsPackagesList**](docs/MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
-*NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Get a specific namespace that the user belongs to.
-*OrgsApi* | [**orgsDelete**](docs/OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
+*NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Views for working with namespaces.
 *OrgsApi* | [**orgsDenyPolicyCreate**](docs/OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
 *OrgsApi* | [**orgsDenyPolicyDelete**](docs/OrgsApi.md#orgsDenyPolicyDelete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
 *OrgsApi* | [**orgsDenyPolicyList**](docs/OrgsApi.md#orgsDenyPolicyList) | **GET** /orgs/{org}/deny-policy/ | Get a list of all package deny policies.
@@ -190,10 +178,7 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
-*OrgsApi* | [**orgsSamlGroupSyncDisable**](docs/OrgsApi.md#orgsSamlGroupSyncDisable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization.
-*OrgsApi* | [**orgsSamlGroupSyncEnable**](docs/OrgsApi.md#orgsSamlGroupSyncEnable) | **POST** /orgs/{org}/saml-group-sync/enable/ | Enable SAML Group Sync for this organization.
 *OrgsApi* | [**orgsSamlGroupSyncList**](docs/OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
-*OrgsApi* | [**orgsSamlGroupSyncStatus**](docs/OrgsApi.md#orgsSamlGroupSyncStatus) | **GET** /orgs/{org}/saml-group-sync/status/ | Retrieve the SAML Group Sync status for this organization.
 *OrgsApi* | [**orgsServicesCreate**](docs/OrgsApi.md#orgsServicesCreate) | **POST** /orgs/{org}/services/ | Create a service within an organization.
 *OrgsApi* | [**orgsServicesDelete**](docs/OrgsApi.md#orgsServicesDelete) | **DELETE** /orgs/{org}/services/{service}/ | Delete a specific service
 *OrgsApi* | [**orgsServicesList**](docs/OrgsApi.md#orgsServicesList) | **GET** /orgs/{org}/services/ | Get a list of all services within an organization.
@@ -223,7 +208,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the list of dependencies for a package. Transitive dependencies are included where supported.
 *PackagesApi* | [**packagesList**](docs/PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 *PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
-*PackagesApi* | [**packagesQuarantine**](docs/PackagesApi.md#packagesQuarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or release a package.
+*PackagesApi* | [**packagesQuarantine**](docs/PackagesApi.md#packagesQuarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or restore a package.
 *PackagesApi* | [**packagesRead**](docs/PackagesApi.md#packagesRead) | **GET** /packages/{owner}/{repo}/{identifier}/ | Get a specific package in a repository.
 *PackagesApi* | [**packagesResync**](docs/PackagesApi.md#packagesResync) | **POST** /packages/{owner}/{repo}/{identifier}/resync/ | Schedule a package for resynchronisation.
 *PackagesApi* | [**packagesScan**](docs/PackagesApi.md#packagesScan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
@@ -284,14 +269,8 @@ Class | Method | HTTP request | Description
 *QuotaApi* | [**quotaOssRead**](docs/QuotaApi.md#quotaOssRead) | **GET** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
 *QuotaApi* | [**quotaRead**](docs/QuotaApi.md#quotaRead) | **GET** /quota/{owner}/ | Quota usage for a given namespace.
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
-*ReposApi* | [**apiReposGeoipStatus**](docs/ReposApi.md#apiReposGeoipStatus) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository.
-*ReposApi* | [**repoRetentionPartialUpdate**](docs/ReposApi.md#repoRetentionPartialUpdate) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
-*ReposApi* | [**repoRetentionRead**](docs/ReposApi.md#repoRetentionRead) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
 *ReposApi* | [**reposCreate**](docs/ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 *ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
-*ReposApi* | [**reposEcdsaCreate**](docs/ReposApi.md#reposEcdsaCreate) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
-*ReposApi* | [**reposEcdsaList**](docs/ReposApi.md#reposEcdsaList) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
-*ReposApi* | [**reposEcdsaRegenerate**](docs/ReposApi.md#reposEcdsaRegenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
 *ReposApi* | [**reposGeoipDisable**](docs/ReposApi.md#reposGeoipDisable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 *ReposApi* | [**reposGeoipEnable**](docs/ReposApi.md#reposGeoipEnable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
 *ReposApi* | [**reposGeoipPartialUpdate**](docs/ReposApi.md#reposGeoipPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
@@ -310,13 +289,6 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposRsaCreate**](docs/ReposApi.md#reposRsaCreate) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 *ReposApi* | [**reposRsaList**](docs/ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 *ReposApi* | [**reposRsaRegenerate**](docs/ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
-*ReposApi* | [**reposTransferRegion**](docs/ReposApi.md#reposTransferRegion) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
-*ReposApi* | [**reposUpstreamComposerCreate**](docs/ReposApi.md#reposUpstreamComposerCreate) | **POST** /repos/{owner}/{identifier}/upstream/composer/ | Create a Composer upstream config for this repository.
-*ReposApi* | [**reposUpstreamComposerDelete**](docs/ReposApi.md#reposUpstreamComposerDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Delete a Composer upstream config for this repository.
-*ReposApi* | [**reposUpstreamComposerList**](docs/ReposApi.md#reposUpstreamComposerList) | **GET** /repos/{owner}/{identifier}/upstream/composer/ | List Composer upstream configs for this repository.
-*ReposApi* | [**reposUpstreamComposerPartialUpdate**](docs/ReposApi.md#reposUpstreamComposerPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Partially update a Composer upstream config for this repository.
-*ReposApi* | [**reposUpstreamComposerRead**](docs/ReposApi.md#reposUpstreamComposerRead) | **GET** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Retrieve a Composer upstream config for this repository.
-*ReposApi* | [**reposUpstreamComposerUpdate**](docs/ReposApi.md#reposUpstreamComposerUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Update a Composer upstream config for this repository.
 *ReposApi* | [**reposUpstreamCranCreate**](docs/ReposApi.md#reposUpstreamCranCreate) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository.
 *ReposApi* | [**reposUpstreamCranDelete**](docs/ReposApi.md#reposUpstreamCranDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository.
 *ReposApi* | [**reposUpstreamCranList**](docs/ReposApi.md#reposUpstreamCranList) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository.
@@ -347,12 +319,6 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposUpstreamHelmPartialUpdate**](docs/ReposApi.md#reposUpstreamHelmPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Partially update a Helm upstream config for this repository.
 *ReposApi* | [**reposUpstreamHelmRead**](docs/ReposApi.md#reposUpstreamHelmRead) | **GET** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Retrieve a Helm upstream config for this repository.
 *ReposApi* | [**reposUpstreamHelmUpdate**](docs/ReposApi.md#reposUpstreamHelmUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Update a Helm upstream config for this repository.
-*ReposApi* | [**reposUpstreamHexCreate**](docs/ReposApi.md#reposUpstreamHexCreate) | **POST** /repos/{owner}/{identifier}/upstream/hex/ | Create a Hex upstream config for this repository.
-*ReposApi* | [**reposUpstreamHexDelete**](docs/ReposApi.md#reposUpstreamHexDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Delete a Hex upstream config for this repository.
-*ReposApi* | [**reposUpstreamHexList**](docs/ReposApi.md#reposUpstreamHexList) | **GET** /repos/{owner}/{identifier}/upstream/hex/ | List Hex upstream configs for this repository.
-*ReposApi* | [**reposUpstreamHexPartialUpdate**](docs/ReposApi.md#reposUpstreamHexPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Partially update a Hex upstream config for this repository.
-*ReposApi* | [**reposUpstreamHexRead**](docs/ReposApi.md#reposUpstreamHexRead) | **GET** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Retrieve a Hex upstream config for this repository.
-*ReposApi* | [**reposUpstreamHexUpdate**](docs/ReposApi.md#reposUpstreamHexUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Update a Hex upstream config for this repository.
 *ReposApi* | [**reposUpstreamMavenCreate**](docs/ReposApi.md#reposUpstreamMavenCreate) | **POST** /repos/{owner}/{identifier}/upstream/maven/ | Create a Maven upstream config for this repository.
 *ReposApi* | [**reposUpstreamMavenDelete**](docs/ReposApi.md#reposUpstreamMavenDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Delete a Maven upstream config for this repository.
 *ReposApi* | [**reposUpstreamMavenList**](docs/ReposApi.md#reposUpstreamMavenList) | **GET** /repos/{owner}/{identifier}/upstream/maven/ | List Maven upstream configs for this repository.
@@ -400,7 +366,7 @@ Class | Method | HTTP request | Description
 *StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
 *StorageRegionsApi* | [**storageRegionsRead**](docs/StorageRegionsApi.md#storageRegionsRead) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
-*UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve/Create API key/token for the authenticated user.
+*UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
 *VulnerabilitiesApi* | [**vulnerabilitiesNamespaceList**](docs/VulnerabilitiesApi.md#vulnerabilitiesNamespaceList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
 *VulnerabilitiesApi* | [**vulnerabilitiesPackageList**](docs/VulnerabilitiesApi.md#vulnerabilitiesPackageList) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
@@ -431,9 +397,6 @@ Class | Method | HTTP request | Description
  - [CommonMetrics](docs/CommonMetrics.md)
  - [ComposerPackageUpload](docs/ComposerPackageUpload.md)
  - [ComposerPackageUploadRequest](docs/ComposerPackageUploadRequest.md)
- - [ComposerUpstream](docs/ComposerUpstream.md)
- - [ComposerUpstreamRequest](docs/ComposerUpstreamRequest.md)
- - [ComposerUpstreamRequestPatch](docs/ComposerUpstreamRequestPatch.md)
  - [ConanPackageUpload](docs/ConanPackageUpload.md)
  - [ConanPackageUploadRequest](docs/ConanPackageUploadRequest.md)
  - [CondaPackageUpload](docs/CondaPackageUpload.md)
@@ -477,9 +440,6 @@ Class | Method | HTTP request | Description
  - [HelmUpstreamRequestPatch](docs/HelmUpstreamRequestPatch.md)
  - [HexPackageUpload](docs/HexPackageUpload.md)
  - [HexPackageUploadRequest](docs/HexPackageUploadRequest.md)
- - [HexUpstream](docs/HexUpstream.md)
- - [HexUpstreamRequest](docs/HexUpstreamRequest.md)
- - [HexUpstreamRequestPatch](docs/HexUpstreamRequestPatch.md)
  - [History](docs/History.md)
  - [HistoryFieldset](docs/HistoryFieldset.md)
  - [HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)
@@ -509,7 +469,6 @@ Class | Method | HTTP request | Description
  - [Organization](docs/Organization.md)
  - [OrganizationGroupSync](docs/OrganizationGroupSync.md)
  - [OrganizationGroupSyncRequest](docs/OrganizationGroupSyncRequest.md)
- - [OrganizationGroupSyncStatus](docs/OrganizationGroupSyncStatus.md)
  - [OrganizationInvite](docs/OrganizationInvite.md)
  - [OrganizationInviteExtend](docs/OrganizationInviteExtend.md)
  - [OrganizationInviteRequest](docs/OrganizationInviteRequest.md)
@@ -523,7 +482,6 @@ Class | Method | HTTP request | Description
  - [OrganizationPackageVulnerabilityPolicyRequest](docs/OrganizationPackageVulnerabilityPolicyRequest.md)
  - [OrganizationPackageVulnerabilityPolicyRequestPatch](docs/OrganizationPackageVulnerabilityPolicyRequestPatch.md)
  - [OrganizationTeam](docs/OrganizationTeam.md)
- - [OrganizationTeamInvite](docs/OrganizationTeamInvite.md)
  - [OrganizationTeamMembers](docs/OrganizationTeamMembers.md)
  - [OrganizationTeamMembership](docs/OrganizationTeamMembership.md)
  - [OrganizationTeamRequest](docs/OrganizationTeamRequest.md)
@@ -577,14 +535,11 @@ Class | Method | HTTP request | Description
  - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
  - [RepositoryCreateRequest](docs/RepositoryCreateRequest.md)
- - [RepositoryEcdsaKey](docs/RepositoryEcdsaKey.md)
- - [RepositoryEcdsaKeyCreate](docs/RepositoryEcdsaKeyCreate.md)
  - [RepositoryGeoIpCidr](docs/RepositoryGeoIpCidr.md)
  - [RepositoryGeoIpCountryCode](docs/RepositoryGeoIpCountryCode.md)
  - [RepositoryGeoIpRules](docs/RepositoryGeoIpRules.md)
  - [RepositoryGeoIpRulesRequest](docs/RepositoryGeoIpRulesRequest.md)
  - [RepositoryGeoIpRulesRequestPatch](docs/RepositoryGeoIpRulesRequestPatch.md)
- - [RepositoryGeoIpStatus](docs/RepositoryGeoIpStatus.md)
  - [RepositoryGeoIpTestAddress](docs/RepositoryGeoIpTestAddress.md)
  - [RepositoryGeoIpTestAddressResponse](docs/RepositoryGeoIpTestAddressResponse.md)
  - [RepositoryGeoIpTestAddressResponseDict](docs/RepositoryGeoIpTestAddressResponseDict.md)
@@ -595,8 +550,6 @@ Class | Method | HTTP request | Description
  - [RepositoryPrivilegeInputRequest](docs/RepositoryPrivilegeInputRequest.md)
  - [RepositoryPrivilegeInputRequestPatch](docs/RepositoryPrivilegeInputRequestPatch.md)
  - [RepositoryRequestPatch](docs/RepositoryRequestPatch.md)
- - [RepositoryRetentionRules](docs/RepositoryRetentionRules.md)
- - [RepositoryRetentionRulesRequestPatch](docs/RepositoryRetentionRulesRequestPatch.md)
  - [RepositoryRsaKey](docs/RepositoryRsaKey.md)
  - [RepositoryRsaKeyCreate](docs/RepositoryRsaKeyCreate.md)
  - [RepositoryToken](docs/RepositoryToken.md)
@@ -607,8 +560,6 @@ Class | Method | HTTP request | Description
  - [RepositoryTokenRequestPatch](docs/RepositoryTokenRequestPatch.md)
  - [RepositoryTokenSync](docs/RepositoryTokenSync.md)
  - [RepositoryTokenSyncRequest](docs/RepositoryTokenSyncRequest.md)
- - [RepositoryTransferRegion](docs/RepositoryTransferRegion.md)
- - [RepositoryTransferRegionRequest](docs/RepositoryTransferRegionRequest.md)
  - [RepositoryWebhook](docs/RepositoryWebhook.md)
  - [RepositoryWebhookRequest](docs/RepositoryWebhookRequest.md)
  - [RepositoryWebhookRequestPatch](docs/RepositoryWebhookRequestPatch.md)
@@ -674,12 +625,6 @@ Authentication schemes defined for the API:
 ### basic
 
 - **Type**: HTTP basic authentication
-
-### token
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
 
 
 ## Recommendation

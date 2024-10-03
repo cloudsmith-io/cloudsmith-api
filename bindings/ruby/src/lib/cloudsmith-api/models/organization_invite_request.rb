@@ -20,8 +20,6 @@ class OrganizationInviteRequest
   # The role to be assigned to the invited user.
   attr_accessor :role
 
-  attr_accessor :teams
-
   # The slug of the user to be invited.
   attr_accessor :user
 
@@ -52,7 +50,6 @@ class OrganizationInviteRequest
     {
       :'email' => :'email',
       :'role' => :'role',
-      :'teams' => :'teams',
       :'user' => :'user'
     }
   end
@@ -62,7 +59,6 @@ class OrganizationInviteRequest
     {
       :'email' => :'String',
       :'role' => :'String',
-      :'teams' => :'Array<OrganizationTeamInvite>',
       :'user' => :'String'
     }
   end
@@ -83,12 +79,6 @@ class OrganizationInviteRequest
       self.role = attributes[:'role']
     else
       self.role = 'Member'
-    end
-
-    if attributes.has_key?(:'teams')
-      if (value = attributes[:'teams']).is_a?(Array)
-        self.teams = value
-      end
     end
 
     if attributes.has_key?(:'user')
@@ -128,7 +118,6 @@ class OrganizationInviteRequest
     self.class == o.class &&
         email == o.email &&
         role == o.role &&
-        teams == o.teams &&
         user == o.user
   end
 
@@ -141,7 +130,7 @@ class OrganizationInviteRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [email, role, teams, user].hash
+    [email, role, user].hash
   end
 
     # Builds the object from hash

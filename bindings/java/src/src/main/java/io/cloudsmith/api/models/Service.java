@@ -24,7 +24,6 @@ import io.cloudsmith.api.models.ServiceTeams;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
@@ -37,15 +36,6 @@ import javax.validation.Valid;
 
 public class Service implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  @SerializedName("created_at")
-  private OffsetDateTime createdAt = null;
-
-  @SerializedName("created_by")
-  private String createdBy = null;
-
-  @SerializedName("created_by_url")
-  private String createdByUrl = null;
 
   @SerializedName("description")
   private String description = null;
@@ -112,34 +102,6 @@ public class Service implements Serializable {
   @SerializedName("teams")
   private List<ServiceTeams> teams = null;
 
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-   /**
-   * Get createdBy
-   * @return createdBy
-  **/
- @Size(min=1)  @ApiModelProperty(value = "")
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
-   /**
-   * Get createdByUrl
-   * @return createdByUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getCreatedByUrl() {
-    return createdByUrl;
-  }
-
   public Service description(String description) {
     this.description = description;
     return this;
@@ -149,7 +111,7 @@ public class Service implements Serializable {
    * The description of the service
    * @return description
   **/
- @Size(min=1,max=1024)  @ApiModelProperty(value = "The description of the service")
+ @Size(min=1,max=140)  @ApiModelProperty(value = "The description of the service")
   public String getDescription() {
     return description;
   }
@@ -177,7 +139,7 @@ public class Service implements Serializable {
    * @return name
   **/
   @NotNull
- @Size(min=1,max=120)  @ApiModelProperty(required = true, value = "The name of the service")
+ @Size(min=1,max=40)  @ApiModelProperty(required = true, value = "The name of the service")
   public String getName() {
     return name;
   }
@@ -250,10 +212,7 @@ public class Service implements Serializable {
       return false;
     }
     Service service = (Service) o;
-    return Objects.equals(this.createdAt, service.createdAt) &&
-        Objects.equals(this.createdBy, service.createdBy) &&
-        Objects.equals(this.createdByUrl, service.createdByUrl) &&
-        Objects.equals(this.description, service.description) &&
+    return Objects.equals(this.description, service.description) &&
         Objects.equals(this.key, service.key) &&
         Objects.equals(this.name, service.name) &&
         Objects.equals(this.role, service.role) &&
@@ -263,7 +222,7 @@ public class Service implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, createdByUrl, description, key, name, role, slug, teams);
+    return Objects.hash(description, key, name, role, slug, teams);
   }
 
 
@@ -272,9 +231,6 @@ public class Service implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Service {\n");
     
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    createdByUrl: ").append(toIndentedString(createdByUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

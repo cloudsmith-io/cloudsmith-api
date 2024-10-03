@@ -4,9 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**createdBy** | **String** |  |  [optional]
-**createdByUrl** | **String** |  |  [optional]
 **description** | **String** | The description of the service |  [optional]
 **key** | **String** | The API key of the service |  [optional]
 **name** | **String** | The name of the service | 

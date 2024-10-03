@@ -43,14 +43,10 @@ class RepositoryRequestPatch(object):
         'description': 'str',
         'distributes': 'list[str]',
         'docker_refresh_tokens_enabled': 'bool',
-        'enforce_eula': 'bool',
         'index_files': 'bool',
-        'manage_entitlements_privilege': 'str',
         'move_own': 'bool',
         'move_packages': 'str',
         'name': 'str',
-        'open_source_license': 'str',
-        'open_source_project_url': 'str',
         'proxy_npmjs': 'bool',
         'proxy_pypi': 'bool',
         'raw_package_index_enabled': 'bool',
@@ -65,10 +61,8 @@ class RepositoryRequestPatch(object):
         'show_setup_all': 'bool',
         'slug': 'str',
         'strict_npm_validation': 'bool',
-        'tag_pre_releases_as_latest': 'bool',
         'use_debian_labels': 'bool',
         'use_default_cargo_upstream': 'bool',
-        'use_entitlements_privilege': 'str',
         'use_noarch_packages': 'bool',
         'use_source_packages': 'bool',
         'use_vulnerability_scanning': 'bool',
@@ -87,14 +81,10 @@ class RepositoryRequestPatch(object):
         'description': 'description',
         'distributes': 'distributes',
         'docker_refresh_tokens_enabled': 'docker_refresh_tokens_enabled',
-        'enforce_eula': 'enforce_eula',
         'index_files': 'index_files',
-        'manage_entitlements_privilege': 'manage_entitlements_privilege',
         'move_own': 'move_own',
         'move_packages': 'move_packages',
         'name': 'name',
-        'open_source_license': 'open_source_license',
-        'open_source_project_url': 'open_source_project_url',
         'proxy_npmjs': 'proxy_npmjs',
         'proxy_pypi': 'proxy_pypi',
         'raw_package_index_enabled': 'raw_package_index_enabled',
@@ -109,10 +99,8 @@ class RepositoryRequestPatch(object):
         'show_setup_all': 'show_setup_all',
         'slug': 'slug',
         'strict_npm_validation': 'strict_npm_validation',
-        'tag_pre_releases_as_latest': 'tag_pre_releases_as_latest',
         'use_debian_labels': 'use_debian_labels',
         'use_default_cargo_upstream': 'use_default_cargo_upstream',
-        'use_entitlements_privilege': 'use_entitlements_privilege',
         'use_noarch_packages': 'use_noarch_packages',
         'use_source_packages': 'use_source_packages',
         'use_vulnerability_scanning': 'use_vulnerability_scanning',
@@ -120,7 +108,7 @@ class RepositoryRequestPatch(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, index_files=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, index_files=None, move_own=None, move_packages='Admin', name=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, strict_npm_validation=None, use_debian_labels=None, use_default_cargo_upstream=None, use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -136,14 +124,10 @@ class RepositoryRequestPatch(object):
         self._description = None
         self._distributes = None
         self._docker_refresh_tokens_enabled = None
-        self._enforce_eula = None
         self._index_files = None
-        self._manage_entitlements_privilege = None
         self._move_own = None
         self._move_packages = None
         self._name = None
-        self._open_source_license = None
-        self._open_source_project_url = None
         self._proxy_npmjs = None
         self._proxy_pypi = None
         self._raw_package_index_enabled = None
@@ -158,10 +142,8 @@ class RepositoryRequestPatch(object):
         self._show_setup_all = None
         self._slug = None
         self._strict_npm_validation = None
-        self._tag_pre_releases_as_latest = None
         self._use_debian_labels = None
         self._use_default_cargo_upstream = None
-        self._use_entitlements_privilege = None
         self._use_noarch_packages = None
         self._use_source_packages = None
         self._use_vulnerability_scanning = None
@@ -189,22 +171,14 @@ class RepositoryRequestPatch(object):
             self.distributes = distributes
         if docker_refresh_tokens_enabled is not None:
             self.docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
-        if enforce_eula is not None:
-            self.enforce_eula = enforce_eula
         if index_files is not None:
             self.index_files = index_files
-        if manage_entitlements_privilege is not None:
-            self.manage_entitlements_privilege = manage_entitlements_privilege
         if move_own is not None:
             self.move_own = move_own
         if move_packages is not None:
             self.move_packages = move_packages
         if name is not None:
             self.name = name
-        if open_source_license is not None:
-            self.open_source_license = open_source_license
-        if open_source_project_url is not None:
-            self.open_source_project_url = open_source_project_url
         if proxy_npmjs is not None:
             self.proxy_npmjs = proxy_npmjs
         if proxy_pypi is not None:
@@ -233,14 +207,10 @@ class RepositoryRequestPatch(object):
             self.slug = slug
         if strict_npm_validation is not None:
             self.strict_npm_validation = strict_npm_validation
-        if tag_pre_releases_as_latest is not None:
-            self.tag_pre_releases_as_latest = tag_pre_releases_as_latest
         if use_debian_labels is not None:
             self.use_debian_labels = use_debian_labels
         if use_default_cargo_upstream is not None:
             self.use_default_cargo_upstream = use_default_cargo_upstream
-        if use_entitlements_privilege is not None:
-            self.use_entitlements_privilege = use_entitlements_privilege
         if use_noarch_packages is not None:
             self.use_noarch_packages = use_noarch_packages
         if use_source_packages is not None:
@@ -511,29 +481,6 @@ class RepositoryRequestPatch(object):
         self._docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
 
     @property
-    def enforce_eula(self):
-        """Gets the enforce_eula of this RepositoryRequestPatch.
-
-        If checked, downloads will explicitly require acceptance of an EULA.
-
-        :return: The enforce_eula of this RepositoryRequestPatch.
-        :rtype: bool
-        """
-        return self._enforce_eula
-
-    @enforce_eula.setter
-    def enforce_eula(self, enforce_eula):
-        """Sets the enforce_eula of this RepositoryRequestPatch.
-
-        If checked, downloads will explicitly require acceptance of an EULA.
-
-        :param enforce_eula: The enforce_eula of this RepositoryRequestPatch.
-        :type: bool
-        """
-
-        self._enforce_eula = enforce_eula
-
-    @property
     def index_files(self):
         """Gets the index_files of this RepositoryRequestPatch.
 
@@ -555,36 +502,6 @@ class RepositoryRequestPatch(object):
         """
 
         self._index_files = index_files
-
-    @property
-    def manage_entitlements_privilege(self):
-        """Gets the manage_entitlements_privilege of this RepositoryRequestPatch.
-
-        This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
-
-        :return: The manage_entitlements_privilege of this RepositoryRequestPatch.
-        :rtype: str
-        """
-        return self._manage_entitlements_privilege
-
-    @manage_entitlements_privilege.setter
-    def manage_entitlements_privilege(self, manage_entitlements_privilege):
-        """Sets the manage_entitlements_privilege of this RepositoryRequestPatch.
-
-        This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
-
-        :param manage_entitlements_privilege: The manage_entitlements_privilege of this RepositoryRequestPatch.
-        :type: str
-        """
-        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                manage_entitlements_privilege not in allowed_values):
-            raise ValueError(
-                "Invalid value for `manage_entitlements_privilege` ({0}), must be one of {1}"  # noqa: E501
-                .format(manage_entitlements_privilege, allowed_values)
-            )
-
-        self._manage_entitlements_privilege = manage_entitlements_privilege
 
     @property
     def move_own(self):
@@ -670,55 +587,6 @@ class RepositoryRequestPatch(object):
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def open_source_license(self):
-        """Gets the open_source_license of this RepositoryRequestPatch.
-
-        The SPDX identifier of the open source license.
-
-        :return: The open_source_license of this RepositoryRequestPatch.
-        :rtype: str
-        """
-        return self._open_source_license
-
-    @open_source_license.setter
-    def open_source_license(self, open_source_license):
-        """Sets the open_source_license of this RepositoryRequestPatch.
-
-        The SPDX identifier of the open source license.
-
-        :param open_source_license: The open_source_license of this RepositoryRequestPatch.
-        :type: str
-        """
-
-        self._open_source_license = open_source_license
-
-    @property
-    def open_source_project_url(self):
-        """Gets the open_source_project_url of this RepositoryRequestPatch.
-
-        The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.
-
-        :return: The open_source_project_url of this RepositoryRequestPatch.
-        :rtype: str
-        """
-        return self._open_source_project_url
-
-    @open_source_project_url.setter
-    def open_source_project_url(self, open_source_project_url):
-        """Sets the open_source_project_url of this RepositoryRequestPatch.
-
-        The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.
-
-        :param open_source_project_url: The open_source_project_url of this RepositoryRequestPatch.
-        :type: str
-        """
-        if (self._configuration.client_side_validation and
-                open_source_project_url is not None and len(open_source_project_url) > 200):
-            raise ValueError("Invalid value for `open_source_project_url`, length must be less than or equal to `200`")  # noqa: E501
-
-        self._open_source_project_url = open_source_project_url
 
     @property
     def proxy_npmjs(self):
@@ -885,7 +753,7 @@ class RepositoryRequestPatch(object):
         :param repository_type_str: The repository_type_str of this RepositoryRequestPatch.
         :type: str
         """
-        allowed_values = ["Public", "Private", "Open-Source"]  # noqa: E501
+        allowed_values = ["Public", "Private"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 repository_type_str not in allowed_values):
             raise ValueError(
@@ -1071,29 +939,6 @@ class RepositoryRequestPatch(object):
         self._strict_npm_validation = strict_npm_validation
 
     @property
-    def tag_pre_releases_as_latest(self):
-        """Gets the tag_pre_releases_as_latest of this RepositoryRequestPatch.
-
-        If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools 
-
-        :return: The tag_pre_releases_as_latest of this RepositoryRequestPatch.
-        :rtype: bool
-        """
-        return self._tag_pre_releases_as_latest
-
-    @tag_pre_releases_as_latest.setter
-    def tag_pre_releases_as_latest(self, tag_pre_releases_as_latest):
-        """Sets the tag_pre_releases_as_latest of this RepositoryRequestPatch.
-
-        If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools 
-
-        :param tag_pre_releases_as_latest: The tag_pre_releases_as_latest of this RepositoryRequestPatch.
-        :type: bool
-        """
-
-        self._tag_pre_releases_as_latest = tag_pre_releases_as_latest
-
-    @property
     def use_debian_labels(self):
         """Gets the use_debian_labels of this RepositoryRequestPatch.
 
@@ -1138,36 +983,6 @@ class RepositoryRequestPatch(object):
         """
 
         self._use_default_cargo_upstream = use_default_cargo_upstream
-
-    @property
-    def use_entitlements_privilege(self):
-        """Gets the use_entitlements_privilege of this RepositoryRequestPatch.
-
-        This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).
-
-        :return: The use_entitlements_privilege of this RepositoryRequestPatch.
-        :rtype: str
-        """
-        return self._use_entitlements_privilege
-
-    @use_entitlements_privilege.setter
-    def use_entitlements_privilege(self, use_entitlements_privilege):
-        """Sets the use_entitlements_privilege of this RepositoryRequestPatch.
-
-        This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).
-
-        :param use_entitlements_privilege: The use_entitlements_privilege of this RepositoryRequestPatch.
-        :type: str
-        """
-        allowed_values = ["Admin", "Write", "Read"]  # noqa: E501
-        if (self._configuration.client_side_validation and
-                use_entitlements_privilege not in allowed_values):
-            raise ValueError(
-                "Invalid value for `use_entitlements_privilege` ({0}), must be one of {1}"  # noqa: E501
-                .format(use_entitlements_privilege, allowed_values)
-            )
-
-        self._use_entitlements_privilege = use_entitlements_privilege
 
     @property
     def use_noarch_packages(self):

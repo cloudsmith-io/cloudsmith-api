@@ -29,13 +29,6 @@ class TestOrgsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_orgs_delete(self):
-        """Test case for orgs_delete
-
-        Delete the specified organization.  # noqa: E501
-        """
-        pass
-
     def test_orgs_deny_policy_create(self):
         """Test case for orgs_deny_policy_create
 
@@ -295,31 +288,10 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
-    def test_orgs_saml_group_sync_disable(self):
-        """Test case for orgs_saml_group_sync_disable
-
-        Disable SAML Group Sync for this organization.  # noqa: E501
-        """
-        pass
-
-    def test_orgs_saml_group_sync_enable(self):
-        """Test case for orgs_saml_group_sync_enable
-
-        Enable SAML Group Sync for this organization.  # noqa: E501
-        """
-        pass
-
     def test_orgs_saml_group_sync_list(self):
         """Test case for orgs_saml_group_sync_list
 
         Get the details of all SAML Group Sync mapping within an organization.  # noqa: E501
-        """
-        pass
-
-    def test_orgs_saml_group_sync_status(self):
-        """Test case for orgs_saml_group_sync_status
-
-        Retrieve the SAML Group Sync status for this organization.  # noqa: E501
         """
         pass
 

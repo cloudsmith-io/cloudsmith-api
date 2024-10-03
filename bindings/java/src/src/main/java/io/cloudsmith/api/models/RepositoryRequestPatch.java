@@ -262,63 +262,8 @@ public class RepositoryRequestPatch implements Serializable {
   @SerializedName("docker_refresh_tokens_enabled")
   private Boolean dockerRefreshTokensEnabled = null;
 
-  @SerializedName("enforce_eula")
-  private Boolean enforceEula = null;
-
   @SerializedName("index_files")
   private Boolean indexFiles = null;
-
-  /**
-   * This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
-   */
-  @JsonAdapter(ManageEntitlementsPrivilegeEnum.Adapter.class)
-  public enum ManageEntitlementsPrivilegeEnum {
-    ADMIN("Admin"),
-    
-    WRITE("Write"),
-    
-    READ("Read");
-
-    private String value;
-
-    ManageEntitlementsPrivilegeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ManageEntitlementsPrivilegeEnum fromValue(String text) {
-      for (ManageEntitlementsPrivilegeEnum b : ManageEntitlementsPrivilegeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<ManageEntitlementsPrivilegeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ManageEntitlementsPrivilegeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ManageEntitlementsPrivilegeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ManageEntitlementsPrivilegeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("manage_entitlements_privilege")
-  private ManageEntitlementsPrivilegeEnum manageEntitlementsPrivilege = ManageEntitlementsPrivilegeEnum.ADMIN;
 
   @SerializedName("move_own")
   private Boolean moveOwn = null;
@@ -377,12 +322,6 @@ public class RepositoryRequestPatch implements Serializable {
 
   @SerializedName("name")
   private String name = null;
-
-  @SerializedName("open_source_license")
-  private String openSourceLicense = null;
-
-  @SerializedName("open_source_project_url")
-  private String openSourceProjectUrl = null;
 
   @SerializedName("proxy_npmjs")
   private Boolean proxyNpmjs = null;
@@ -456,9 +395,7 @@ public class RepositoryRequestPatch implements Serializable {
   public enum RepositoryTypeStrEnum {
     PUBLIC("Public"),
     
-    PRIVATE("Private"),
-    
-    OPEN_SOURCE("Open-Source");
+    PRIVATE("Private");
 
     private String value;
 
@@ -618,66 +555,11 @@ public class RepositoryRequestPatch implements Serializable {
   @SerializedName("strict_npm_validation")
   private Boolean strictNpmValidation = null;
 
-  @SerializedName("tag_pre_releases_as_latest")
-  private Boolean tagPreReleasesAsLatest = null;
-
   @SerializedName("use_debian_labels")
   private Boolean useDebianLabels = null;
 
   @SerializedName("use_default_cargo_upstream")
   private Boolean useDefaultCargoUpstream = null;
-
-  /**
-   * This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can&#39;t use it).
-   */
-  @JsonAdapter(UseEntitlementsPrivilegeEnum.Adapter.class)
-  public enum UseEntitlementsPrivilegeEnum {
-    ADMIN("Admin"),
-    
-    WRITE("Write"),
-    
-    READ("Read");
-
-    private String value;
-
-    UseEntitlementsPrivilegeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static UseEntitlementsPrivilegeEnum fromValue(String text) {
-      for (UseEntitlementsPrivilegeEnum b : UseEntitlementsPrivilegeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<UseEntitlementsPrivilegeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final UseEntitlementsPrivilegeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public UseEntitlementsPrivilegeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return UseEntitlementsPrivilegeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("use_entitlements_privilege")
-  private UseEntitlementsPrivilegeEnum useEntitlementsPrivilege = UseEntitlementsPrivilegeEnum.READ;
 
   @SerializedName("use_noarch_packages")
   private Boolean useNoarchPackages = null;
@@ -931,24 +813,6 @@ public class RepositoryRequestPatch implements Serializable {
     this.dockerRefreshTokensEnabled = dockerRefreshTokensEnabled;
   }
 
-  public RepositoryRequestPatch enforceEula(Boolean enforceEula) {
-    this.enforceEula = enforceEula;
-    return this;
-  }
-
-   /**
-   * If checked, downloads will explicitly require acceptance of an EULA.
-   * @return enforceEula
-  **/
-  @ApiModelProperty(value = "If checked, downloads will explicitly require acceptance of an EULA.")
-  public Boolean isEnforceEula() {
-    return enforceEula;
-  }
-
-  public void setEnforceEula(Boolean enforceEula) {
-    this.enforceEula = enforceEula;
-  }
-
   public RepositoryRequestPatch indexFiles(Boolean indexFiles) {
     this.indexFiles = indexFiles;
     return this;
@@ -965,24 +829,6 @@ public class RepositoryRequestPatch implements Serializable {
 
   public void setIndexFiles(Boolean indexFiles) {
     this.indexFiles = indexFiles;
-  }
-
-  public RepositoryRequestPatch manageEntitlementsPrivilege(ManageEntitlementsPrivilegeEnum manageEntitlementsPrivilege) {
-    this.manageEntitlementsPrivilege = manageEntitlementsPrivilege;
-    return this;
-  }
-
-   /**
-   * This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
-   * @return manageEntitlementsPrivilege
-  **/
-  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.")
-  public ManageEntitlementsPrivilegeEnum getManageEntitlementsPrivilege() {
-    return manageEntitlementsPrivilege;
-  }
-
-  public void setManageEntitlementsPrivilege(ManageEntitlementsPrivilegeEnum manageEntitlementsPrivilege) {
-    this.manageEntitlementsPrivilege = manageEntitlementsPrivilege;
   }
 
   public RepositoryRequestPatch moveOwn(Boolean moveOwn) {
@@ -1037,42 +883,6 @@ public class RepositoryRequestPatch implements Serializable {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public RepositoryRequestPatch openSourceLicense(String openSourceLicense) {
-    this.openSourceLicense = openSourceLicense;
-    return this;
-  }
-
-   /**
-   * The SPDX identifier of the open source license.
-   * @return openSourceLicense
-  **/
-  @ApiModelProperty(value = "The SPDX identifier of the open source license.")
-  public String getOpenSourceLicense() {
-    return openSourceLicense;
-  }
-
-  public void setOpenSourceLicense(String openSourceLicense) {
-    this.openSourceLicense = openSourceLicense;
-  }
-
-  public RepositoryRequestPatch openSourceProjectUrl(String openSourceProjectUrl) {
-    this.openSourceProjectUrl = openSourceProjectUrl;
-    return this;
-  }
-
-   /**
-   * The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.
-   * @return openSourceProjectUrl
-  **/
- @Size(max=200)  @ApiModelProperty(value = "The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.")
-  public String getOpenSourceProjectUrl() {
-    return openSourceProjectUrl;
-  }
-
-  public void setOpenSourceProjectUrl(String openSourceProjectUrl) {
-    this.openSourceProjectUrl = openSourceProjectUrl;
   }
 
   public RepositoryRequestPatch proxyNpmjs(Boolean proxyNpmjs) {
@@ -1327,24 +1137,6 @@ public class RepositoryRequestPatch implements Serializable {
     this.strictNpmValidation = strictNpmValidation;
   }
 
-  public RepositoryRequestPatch tagPreReleasesAsLatest(Boolean tagPreReleasesAsLatest) {
-    this.tagPreReleasesAsLatest = tagPreReleasesAsLatest;
-    return this;
-  }
-
-   /**
-   * If checked, packages pushed with a pre-release component on that version will be marked with the &#39;latest&#39; tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools 
-   * @return tagPreReleasesAsLatest
-  **/
-  @ApiModelProperty(value = "If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools ")
-  public Boolean isTagPreReleasesAsLatest() {
-    return tagPreReleasesAsLatest;
-  }
-
-  public void setTagPreReleasesAsLatest(Boolean tagPreReleasesAsLatest) {
-    this.tagPreReleasesAsLatest = tagPreReleasesAsLatest;
-  }
-
   public RepositoryRequestPatch useDebianLabels(Boolean useDebianLabels) {
     this.useDebianLabels = useDebianLabels;
     return this;
@@ -1379,24 +1171,6 @@ public class RepositoryRequestPatch implements Serializable {
 
   public void setUseDefaultCargoUpstream(Boolean useDefaultCargoUpstream) {
     this.useDefaultCargoUpstream = useDefaultCargoUpstream;
-  }
-
-  public RepositoryRequestPatch useEntitlementsPrivilege(UseEntitlementsPrivilegeEnum useEntitlementsPrivilege) {
-    this.useEntitlementsPrivilege = useEntitlementsPrivilege;
-    return this;
-  }
-
-   /**
-   * This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can&#39;t use it).
-   * @return useEntitlementsPrivilege
-  **/
-  @ApiModelProperty(value = "This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).")
-  public UseEntitlementsPrivilegeEnum getUseEntitlementsPrivilege() {
-    return useEntitlementsPrivilege;
-  }
-
-  public void setUseEntitlementsPrivilege(UseEntitlementsPrivilegeEnum useEntitlementsPrivilege) {
-    this.useEntitlementsPrivilege = useEntitlementsPrivilege;
   }
 
   public RepositoryRequestPatch useNoarchPackages(Boolean useNoarchPackages) {
@@ -1509,14 +1283,10 @@ public class RepositoryRequestPatch implements Serializable {
         Objects.equals(this.description, repositoryRequestPatch.description) &&
         Objects.equals(this.distributes, repositoryRequestPatch.distributes) &&
         Objects.equals(this.dockerRefreshTokensEnabled, repositoryRequestPatch.dockerRefreshTokensEnabled) &&
-        Objects.equals(this.enforceEula, repositoryRequestPatch.enforceEula) &&
         Objects.equals(this.indexFiles, repositoryRequestPatch.indexFiles) &&
-        Objects.equals(this.manageEntitlementsPrivilege, repositoryRequestPatch.manageEntitlementsPrivilege) &&
         Objects.equals(this.moveOwn, repositoryRequestPatch.moveOwn) &&
         Objects.equals(this.movePackages, repositoryRequestPatch.movePackages) &&
         Objects.equals(this.name, repositoryRequestPatch.name) &&
-        Objects.equals(this.openSourceLicense, repositoryRequestPatch.openSourceLicense) &&
-        Objects.equals(this.openSourceProjectUrl, repositoryRequestPatch.openSourceProjectUrl) &&
         Objects.equals(this.proxyNpmjs, repositoryRequestPatch.proxyNpmjs) &&
         Objects.equals(this.proxyPypi, repositoryRequestPatch.proxyPypi) &&
         Objects.equals(this.rawPackageIndexEnabled, repositoryRequestPatch.rawPackageIndexEnabled) &&
@@ -1531,10 +1301,8 @@ public class RepositoryRequestPatch implements Serializable {
         Objects.equals(this.showSetupAll, repositoryRequestPatch.showSetupAll) &&
         Objects.equals(this.slug, repositoryRequestPatch.slug) &&
         Objects.equals(this.strictNpmValidation, repositoryRequestPatch.strictNpmValidation) &&
-        Objects.equals(this.tagPreReleasesAsLatest, repositoryRequestPatch.tagPreReleasesAsLatest) &&
         Objects.equals(this.useDebianLabels, repositoryRequestPatch.useDebianLabels) &&
         Objects.equals(this.useDefaultCargoUpstream, repositoryRequestPatch.useDefaultCargoUpstream) &&
-        Objects.equals(this.useEntitlementsPrivilege, repositoryRequestPatch.useEntitlementsPrivilege) &&
         Objects.equals(this.useNoarchPackages, repositoryRequestPatch.useNoarchPackages) &&
         Objects.equals(this.useSourcePackages, repositoryRequestPatch.useSourcePackages) &&
         Objects.equals(this.useVulnerabilityScanning, repositoryRequestPatch.useVulnerabilityScanning) &&
@@ -1544,7 +1312,7 @@ public class RepositoryRequestPatch implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, indexFiles, moveOwn, movePackages, name, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, useDebianLabels, useDefaultCargoUpstream, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1563,14 +1331,10 @@ public class RepositoryRequestPatch implements Serializable {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    distributes: ").append(toIndentedString(distributes)).append("\n");
     sb.append("    dockerRefreshTokensEnabled: ").append(toIndentedString(dockerRefreshTokensEnabled)).append("\n");
-    sb.append("    enforceEula: ").append(toIndentedString(enforceEula)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
-    sb.append("    manageEntitlementsPrivilege: ").append(toIndentedString(manageEntitlementsPrivilege)).append("\n");
     sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");
     sb.append("    movePackages: ").append(toIndentedString(movePackages)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    openSourceLicense: ").append(toIndentedString(openSourceLicense)).append("\n");
-    sb.append("    openSourceProjectUrl: ").append(toIndentedString(openSourceProjectUrl)).append("\n");
     sb.append("    proxyNpmjs: ").append(toIndentedString(proxyNpmjs)).append("\n");
     sb.append("    proxyPypi: ").append(toIndentedString(proxyPypi)).append("\n");
     sb.append("    rawPackageIndexEnabled: ").append(toIndentedString(rawPackageIndexEnabled)).append("\n");
@@ -1585,10 +1349,8 @@ public class RepositoryRequestPatch implements Serializable {
     sb.append("    showSetupAll: ").append(toIndentedString(showSetupAll)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    strictNpmValidation: ").append(toIndentedString(strictNpmValidation)).append("\n");
-    sb.append("    tagPreReleasesAsLatest: ").append(toIndentedString(tagPreReleasesAsLatest)).append("\n");
     sb.append("    useDebianLabels: ").append(toIndentedString(useDebianLabels)).append("\n");
     sb.append("    useDefaultCargoUpstream: ").append(toIndentedString(useDefaultCargoUpstream)).append("\n");
-    sb.append("    useEntitlementsPrivilege: ").append(toIndentedString(useEntitlementsPrivilege)).append("\n");
     sb.append("    useNoarchPackages: ").append(toIndentedString(useNoarchPackages)).append("\n");
     sb.append("    useSourcePackages: ").append(toIndentedString(useSourcePackages)).append("\n");
     sb.append("    useVulnerabilityScanning: ").append(toIndentedString(useVulnerabilityScanning)).append("\n");

@@ -215,13 +215,23 @@ public class PackageDependency implements Serializable {
     return depType;
   }
 
+  public PackageDependency name(String name) {
+    this.name = name;
+    return this;
+  }
+
    /**
-   * Get name
+   * The name of the package dependency.
    * @return name
   **/
- @Size(min=1,max=255)  @ApiModelProperty(value = "")
+  @NotNull
+ @Size(min=1,max=255)  @ApiModelProperty(required = true, value = "The name of the package dependency.")
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
    /**
@@ -233,13 +243,22 @@ public class PackageDependency implements Serializable {
     return operator;
   }
 
+  public PackageDependency version(String version) {
+    this.version = version;
+    return this;
+  }
+
    /**
-   * Get version
+   * The raw dependency version (if any).
    * @return version
   **/
- @Size(min=1,max=128)  @ApiModelProperty(value = "")
+ @Size(max=128)  @ApiModelProperty(value = "The raw dependency version (if any).")
   public String getVersion() {
     return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 

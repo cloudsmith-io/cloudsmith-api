@@ -84,28 +84,6 @@ describe 'RpmUpstreamRequest' do
     end
   end
 
-  describe 'test attribute "gpg_key_inline"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "gpg_key_url"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "gpg_verification"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Allow All", "Warn on Invalid", "Reject Invalid"])
-      # validator.allowable_values.each do |value|
-      #   expect { @instance.gpg_verification = value }.not_to raise_error
-      # end
-    end
-  end
-
   describe 'test attribute "include_sources"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

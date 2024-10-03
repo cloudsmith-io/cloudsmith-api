@@ -13,9 +13,6 @@
 
 package io.cloudsmith.api.apis;
 
-import io.cloudsmith.api.models.ComposerUpstream;
-import io.cloudsmith.api.models.ComposerUpstreamRequest;
-import io.cloudsmith.api.models.ComposerUpstreamRequestPatch;
 import io.cloudsmith.api.models.CranUpstream;
 import io.cloudsmith.api.models.CranUpstreamRequest;
 import io.cloudsmith.api.models.CranUpstreamRequestPatch;
@@ -32,9 +29,6 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.HelmUpstream;
 import io.cloudsmith.api.models.HelmUpstreamRequest;
 import io.cloudsmith.api.models.HelmUpstreamRequestPatch;
-import io.cloudsmith.api.models.HexUpstream;
-import io.cloudsmith.api.models.HexUpstreamRequest;
-import io.cloudsmith.api.models.HexUpstreamRequestPatch;
 import io.cloudsmith.api.models.MavenUpstream;
 import io.cloudsmith.api.models.MavenUpstreamRequest;
 import io.cloudsmith.api.models.MavenUpstreamRequestPatch;
@@ -50,12 +44,9 @@ import io.cloudsmith.api.models.PythonUpstreamRequestPatch;
 import io.cloudsmith.api.models.Repository;
 import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
-import io.cloudsmith.api.models.RepositoryEcdsaKey;
-import io.cloudsmith.api.models.RepositoryEcdsaKeyCreate;
 import io.cloudsmith.api.models.RepositoryGeoIpRules;
 import io.cloudsmith.api.models.RepositoryGeoIpRulesRequest;
 import io.cloudsmith.api.models.RepositoryGeoIpRulesRequestPatch;
-import io.cloudsmith.api.models.RepositoryGeoIpStatus;
 import io.cloudsmith.api.models.RepositoryGeoIpTestAddress;
 import io.cloudsmith.api.models.RepositoryGeoIpTestAddressResponse;
 import io.cloudsmith.api.models.RepositoryGpgKey;
@@ -64,11 +55,8 @@ import io.cloudsmith.api.models.RepositoryPrivilegeInput;
 import io.cloudsmith.api.models.RepositoryPrivilegeInputRequest;
 import io.cloudsmith.api.models.RepositoryPrivilegeInputRequestPatch;
 import io.cloudsmith.api.models.RepositoryRequestPatch;
-import io.cloudsmith.api.models.RepositoryRetentionRules;
-import io.cloudsmith.api.models.RepositoryRetentionRulesRequestPatch;
 import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
-import io.cloudsmith.api.models.RepositoryTransferRegionRequest;
 import io.cloudsmith.api.models.RespositoryGeoIpEnableDisableRequest;
 import io.cloudsmith.api.models.RpmUpstream;
 import io.cloudsmith.api.models.RpmUpstreamRequest;
@@ -96,58 +84,6 @@ public class ReposApiTest {
 
     private final ReposApi api = new ReposApi();
 
-    
-    /**
-     * Retrieve the GeoIP status for this repository.
-     *
-     * Retrieve the GeoIP status for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void apiReposGeoipStatusTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        RepositoryGeoIpStatus response = api.apiReposGeoipStatus(owner, identifier);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update the retention rules for the repository.
-     *
-     * Update the retention rules for the repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void repoRetentionPartialUpdateTest() throws Exception {
-        String owner = null;
-        String repo = null;
-        RepositoryRetentionRulesRequestPatch data = null;
-        RepositoryRetentionRules response = api.repoRetentionPartialUpdate(owner, repo, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Retrieve the retention rules for the repository.
-     *
-     * Retrieve the retention rules for the repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void repoRetentionReadTest() throws Exception {
-        String owner = null;
-        String repo = null;
-        RepositoryRetentionRules response = api.repoRetentionRead(owner, repo);
-
-        // TODO: test validations
-    }
     
     /**
      * Create a new repository in a given namespace.
@@ -179,58 +115,6 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         api.reposDelete(owner, identifier);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Set the active ECDSA key for the Repository.
-     *
-     * Set the active ECDSA key for the Repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposEcdsaCreateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        RepositoryEcdsaKeyCreate data = null;
-        RepositoryEcdsaKey response = api.reposEcdsaCreate(owner, identifier, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Retrieve the active ECDSA key for the Repository.
-     *
-     * Retrieve the active ECDSA key for the Repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposEcdsaListTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        RepositoryEcdsaKey response = api.reposEcdsaList(owner, identifier);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Regenerate ECDSA Key for the Repository.
-     *
-     * Regenerate ECDSA Key for the Repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposEcdsaRegenerateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        RepositoryEcdsaKey response = api.reposEcdsaRegenerate(owner, identifier);
 
         // TODO: test validations
     }
@@ -550,135 +434,6 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         RepositoryRsaKey response = api.reposRsaRegenerate(owner, identifier);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Transfer a repository to a different region.
-     *
-     * Transfer a repository to a different region.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposTransferRegionTest() throws Exception {
-        String owner = null;
-        String repo = null;
-        RepositoryTransferRegionRequest data = null;
-        api.reposTransferRegion(owner, repo, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Create a Composer upstream config for this repository.
-     *
-     * Create a Composer upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamComposerCreateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        ComposerUpstreamRequest data = null;
-        ComposerUpstream response = api.reposUpstreamComposerCreate(owner, identifier, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete a Composer upstream config for this repository.
-     *
-     * Delete a Composer upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamComposerDeleteTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        api.reposUpstreamComposerDelete(owner, identifier, slugPerm);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Composer upstream configs for this repository.
-     *
-     * List Composer upstream configs for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamComposerListTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        java.math.BigInteger page = null;
-        java.math.BigInteger pageSize = null;
-        List<ComposerUpstream> response = api.reposUpstreamComposerList(owner, identifier, page, pageSize);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Partially update a Composer upstream config for this repository.
-     *
-     * Partially update a Composer upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamComposerPartialUpdateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        ComposerUpstreamRequestPatch data = null;
-        ComposerUpstream response = api.reposUpstreamComposerPartialUpdate(owner, identifier, slugPerm, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Retrieve a Composer upstream config for this repository.
-     *
-     * Retrieve a Composer upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamComposerReadTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        ComposerUpstream response = api.reposUpstreamComposerRead(owner, identifier, slugPerm);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update a Composer upstream config for this repository.
-     *
-     * Update a Composer upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamComposerUpdateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        ComposerUpstreamRequest data = null;
-        ComposerUpstream response = api.reposUpstreamComposerUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }
@@ -1234,117 +989,6 @@ public class ReposApiTest {
         String slugPerm = null;
         HelmUpstreamRequest data = null;
         HelmUpstream response = api.reposUpstreamHelmUpdate(owner, identifier, slugPerm, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Create a Hex upstream config for this repository.
-     *
-     * Create a Hex upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamHexCreateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        HexUpstreamRequest data = null;
-        HexUpstream response = api.reposUpstreamHexCreate(owner, identifier, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete a Hex upstream config for this repository.
-     *
-     * Delete a Hex upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamHexDeleteTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        api.reposUpstreamHexDelete(owner, identifier, slugPerm);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List Hex upstream configs for this repository.
-     *
-     * List Hex upstream configs for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamHexListTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        java.math.BigInteger page = null;
-        java.math.BigInteger pageSize = null;
-        List<HexUpstream> response = api.reposUpstreamHexList(owner, identifier, page, pageSize);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Partially update a Hex upstream config for this repository.
-     *
-     * Partially update a Hex upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamHexPartialUpdateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        HexUpstreamRequestPatch data = null;
-        HexUpstream response = api.reposUpstreamHexPartialUpdate(owner, identifier, slugPerm, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Retrieve a Hex upstream config for this repository.
-     *
-     * Retrieve a Hex upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamHexReadTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        HexUpstream response = api.reposUpstreamHexRead(owner, identifier, slugPerm);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update a Hex upstream config for this repository.
-     *
-     * Update a Hex upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamHexUpdateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        HexUpstreamRequest data = null;
-        HexUpstream response = api.reposUpstreamHexUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

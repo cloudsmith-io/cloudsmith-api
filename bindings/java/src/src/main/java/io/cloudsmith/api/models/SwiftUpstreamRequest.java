@@ -110,9 +110,7 @@ public class SwiftUpstreamRequest implements Serializable {
    */
   @JsonAdapter(ModeEnum.Adapter.class)
   public enum ModeEnum {
-    PROXY_ONLY("Proxy Only"),
-    
-    CACHE_AND_PROXY("Cache and Proxy");
+    PROXY_ONLY("Proxy Only");
 
     private String value;
 

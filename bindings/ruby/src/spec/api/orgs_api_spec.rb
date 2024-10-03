@@ -32,18 +32,6 @@ describe 'OrgsApi' do
     end
   end
 
-  # unit tests for orgs_delete
-  # Delete the specified organization.
-  # Delete the specified organization.
-  # @param org 
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'orgs_delete test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for orgs_deny_policy_create
   # Create a package deny policy.
   # Create a package deny policy.
@@ -429,7 +417,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param [Hash] opts the optional parameters
   # @option opts [ProviderSettingsRequest] :data 
-  # @return [ProviderSettings]
+  # @return [nil]
   describe 'orgs_openid_connect_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -542,30 +530,6 @@ describe 'OrgsApi' do
     end
   end
 
-  # unit tests for orgs_saml_group_sync_disable
-  # Disable SAML Group Sync for this organization.
-  # Disable SAML Group Sync for this organization.
-  # @param org 
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'orgs_saml_group_sync_disable test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for orgs_saml_group_sync_enable
-  # Enable SAML Group Sync for this organization.
-  # Enable SAML Group Sync for this organization.
-  # @param org 
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'orgs_saml_group_sync_enable test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for orgs_saml_group_sync_list
   # Get the details of all SAML Group Sync mapping within an organization.
   # Get the details of all SAML Group Sync mapping within an organization.
@@ -575,18 +539,6 @@ describe 'OrgsApi' do
   # @option opts [Integer] :page_size Number of results to return per page.
   # @return [Array<OrganizationGroupSync>]
   describe 'orgs_saml_group_sync_list test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for orgs_saml_group_sync_status
-  # Retrieve the SAML Group Sync status for this organization.
-  # Retrieve the SAML Group Sync status for this organization.
-  # @param org 
-  # @param [Hash] opts the optional parameters
-  # @return [OrganizationGroupSyncStatus]
-  describe 'orgs_saml_group_sync_status test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -745,7 +697,6 @@ describe 'OrgsApi' do
   # @param org 
   # @param team 
   # @param [Hash] opts the optional parameters
-  # @option opts [OrganizationTeamMembers] :data 
   # @return [OrganizationTeamMembers]
   describe 'orgs_teams_members_update test' do
     it 'should work' do

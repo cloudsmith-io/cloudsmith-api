@@ -87,13 +87,12 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/2.0.14/java");
+        setUserAgent("Swagger-Codegen/2.0.13/java");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
         authentications.put("apikey", new ApiKeyAuth("header", "X-Api-Key"));
         authentications.put("basic", new HttpBasicAuth());
-        authentications.put("token", new ApiKeyAuth("header", "Authorization"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }

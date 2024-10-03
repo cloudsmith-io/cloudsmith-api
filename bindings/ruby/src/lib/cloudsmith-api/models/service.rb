@@ -14,12 +14,6 @@ require 'date'
 
 module CloudsmithApi
 class Service
-  attr_accessor :created_at
-
-  attr_accessor :created_by
-
-  attr_accessor :created_by_url
-
   # The description of the service
   attr_accessor :description
 
@@ -62,9 +56,6 @@ class Service
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'created_at' => :'created_at',
-      :'created_by' => :'created_by',
-      :'created_by_url' => :'created_by_url',
       :'description' => :'description',
       :'key' => :'key',
       :'name' => :'name',
@@ -77,9 +68,6 @@ class Service
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'created_at' => :'DateTime',
-      :'created_by' => :'String',
-      :'created_by_url' => :'String',
       :'description' => :'String',
       :'key' => :'String',
       :'name' => :'String',
@@ -96,18 +84,6 @@ class Service
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-    if attributes.has_key?(:'created_at')
-      self.created_at = attributes[:'created_at']
-    end
-
-    if attributes.has_key?(:'created_by')
-      self.created_by = attributes[:'created_by']
-    end
-
-    if attributes.has_key?(:'created_by_url')
-      self.created_by_url = attributes[:'created_by_url']
-    end
 
     if attributes.has_key?(:'description')
       self.description = attributes[:'description']
@@ -173,9 +149,6 @@ class Service
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        created_at == o.created_at &&
-        created_by == o.created_by &&
-        created_by_url == o.created_by_url &&
         description == o.description &&
         key == o.key &&
         name == o.name &&
@@ -193,7 +166,7 @@ class Service
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [created_at, created_by, created_by_url, description, key, name, role, slug, teams].hash
+    [description, key, name, role, slug, teams].hash
   end
 
     # Builds the object from hash

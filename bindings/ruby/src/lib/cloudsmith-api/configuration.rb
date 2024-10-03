@@ -210,13 +210,6 @@ module CloudsmithApi
             key: 'Authorization',
             value: basic_auth_token
           },
-        'token' =>
-          {
-            type: 'api_key',
-            in: 'header',
-            key: 'Authorization',
-            value: api_key_with_prefix('Authorization')
-          },
       }
     end
   end

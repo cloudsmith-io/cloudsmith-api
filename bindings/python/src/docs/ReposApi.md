@@ -4,14 +4,8 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_repos_geoip_status**](ReposApi.md#api_repos_geoip_status) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository.
-[**repo_retention_partial_update**](ReposApi.md#repo_retention_partial_update) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
-[**repo_retention_read**](ReposApi.md#repo_retention_read) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
-[**repos_ecdsa_create**](ReposApi.md#repos_ecdsa_create) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
-[**repos_ecdsa_list**](ReposApi.md#repos_ecdsa_list) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
-[**repos_ecdsa_regenerate**](ReposApi.md#repos_ecdsa_regenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
 [**repos_geoip_disable**](ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 [**repos_geoip_enable**](ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
 [**repos_geoip_partial_update**](ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
@@ -30,13 +24,6 @@ Method | HTTP request | Description
 [**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
 [**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
-[**repos_transfer_region**](ReposApi.md#repos_transfer_region) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
-[**repos_upstream_composer_create**](ReposApi.md#repos_upstream_composer_create) | **POST** /repos/{owner}/{identifier}/upstream/composer/ | Create a Composer upstream config for this repository.
-[**repos_upstream_composer_delete**](ReposApi.md#repos_upstream_composer_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Delete a Composer upstream config for this repository.
-[**repos_upstream_composer_list**](ReposApi.md#repos_upstream_composer_list) | **GET** /repos/{owner}/{identifier}/upstream/composer/ | List Composer upstream configs for this repository.
-[**repos_upstream_composer_partial_update**](ReposApi.md#repos_upstream_composer_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Partially update a Composer upstream config for this repository.
-[**repos_upstream_composer_read**](ReposApi.md#repos_upstream_composer_read) | **GET** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Retrieve a Composer upstream config for this repository.
-[**repos_upstream_composer_update**](ReposApi.md#repos_upstream_composer_update) | **PUT** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Update a Composer upstream config for this repository.
 [**repos_upstream_cran_create**](ReposApi.md#repos_upstream_cran_create) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository.
 [**repos_upstream_cran_delete**](ReposApi.md#repos_upstream_cran_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository.
 [**repos_upstream_cran_list**](ReposApi.md#repos_upstream_cran_list) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository.
@@ -67,12 +54,6 @@ Method | HTTP request | Description
 [**repos_upstream_helm_partial_update**](ReposApi.md#repos_upstream_helm_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Partially update a Helm upstream config for this repository.
 [**repos_upstream_helm_read**](ReposApi.md#repos_upstream_helm_read) | **GET** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Retrieve a Helm upstream config for this repository.
 [**repos_upstream_helm_update**](ReposApi.md#repos_upstream_helm_update) | **PUT** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Update a Helm upstream config for this repository.
-[**repos_upstream_hex_create**](ReposApi.md#repos_upstream_hex_create) | **POST** /repos/{owner}/{identifier}/upstream/hex/ | Create a Hex upstream config for this repository.
-[**repos_upstream_hex_delete**](ReposApi.md#repos_upstream_hex_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Delete a Hex upstream config for this repository.
-[**repos_upstream_hex_list**](ReposApi.md#repos_upstream_hex_list) | **GET** /repos/{owner}/{identifier}/upstream/hex/ | List Hex upstream configs for this repository.
-[**repos_upstream_hex_partial_update**](ReposApi.md#repos_upstream_hex_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Partially update a Hex upstream config for this repository.
-[**repos_upstream_hex_read**](ReposApi.md#repos_upstream_hex_read) | **GET** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Retrieve a Hex upstream config for this repository.
-[**repos_upstream_hex_update**](ReposApi.md#repos_upstream_hex_update) | **PUT** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Update a Hex upstream config for this repository.
 [**repos_upstream_maven_create**](ReposApi.md#repos_upstream_maven_create) | **POST** /repos/{owner}/{identifier}/upstream/maven/ | Create a Maven upstream config for this repository.
 [**repos_upstream_maven_delete**](ReposApi.md#repos_upstream_maven_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Delete a Maven upstream config for this repository.
 [**repos_upstream_maven_list**](ReposApi.md#repos_upstream_maven_list) | **GET** /repos/{owner}/{identifier}/upstream/maven/ | List Maven upstream configs for this repository.
@@ -118,203 +99,6 @@ Method | HTTP request | Description
 [**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
 
 
-# **api_repos_geoip_status**
-> RepositoryGeoIpStatus api_repos_geoip_status(owner, identifier)
-
-Retrieve the GeoIP status for this repository.
-
-Retrieve the GeoIP status for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-
-try:
-    # Retrieve the GeoIP status for this repository.
-    api_response = api_instance.api_repos_geoip_status(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->api_repos_geoip_status: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
-
-### Return type
-
-[**RepositoryGeoIpStatus**](RepositoryGeoIpStatus.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repo_retention_partial_update**
-> RepositoryRetentionRules repo_retention_partial_update(owner, repo, data=data)
-
-Update the retention rules for the repository.
-
-Update the retention rules for the repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RepositoryRetentionRulesRequestPatch() # RepositoryRetentionRulesRequestPatch |  (optional)
-
-try:
-    # Update the retention rules for the repository.
-    api_response = api_instance.repo_retention_partial_update(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repo_retention_partial_update: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **repo** | **str**|  | 
- **data** | [**RepositoryRetentionRulesRequestPatch**](RepositoryRetentionRulesRequestPatch.md)|  | [optional] 
-
-### Return type
-
-[**RepositoryRetentionRules**](RepositoryRetentionRules.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repo_retention_read**
-> RepositoryRetentionRules repo_retention_read(owner, repo)
-
-Retrieve the retention rules for the repository.
-
-Retrieve the retention rules for the repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-
-try:
-    # Retrieve the retention rules for the repository.
-    api_response = api_instance.repo_retention_read(owner, repo)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repo_retention_read: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **repo** | **str**|  | 
-
-### Return type
-
-[**RepositoryRetentionRules**](RepositoryRetentionRules.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **repos_create**
 > RepositoryCreate repos_create(owner, data=data)
 
@@ -335,15 +119,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -371,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -400,15 +175,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -435,204 +201,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_ecdsa_create**
-> RepositoryEcdsaKey repos_ecdsa_create(owner, identifier, data=data)
-
-Set the active ECDSA key for the Repository.
-
-Set the active ECDSA key for the Repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryEcdsaKeyCreate() # RepositoryEcdsaKeyCreate |  (optional)
-
-try:
-    # Set the active ECDSA key for the Repository.
-    api_response = api_instance.repos_ecdsa_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ecdsa_create: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **data** | [**RepositoryEcdsaKeyCreate**](RepositoryEcdsaKeyCreate.md)|  | [optional] 
-
-### Return type
-
-[**RepositoryEcdsaKey**](RepositoryEcdsaKey.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_ecdsa_list**
-> RepositoryEcdsaKey repos_ecdsa_list(owner, identifier)
-
-Retrieve the active ECDSA key for the Repository.
-
-Retrieve the active ECDSA key for the Repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-
-try:
-    # Retrieve the active ECDSA key for the Repository.
-    api_response = api_instance.repos_ecdsa_list(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ecdsa_list: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
-
-### Return type
-
-[**RepositoryEcdsaKey**](RepositoryEcdsaKey.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_ecdsa_regenerate**
-> RepositoryEcdsaKey repos_ecdsa_regenerate(owner, identifier)
-
-Regenerate ECDSA Key for the Repository.
-
-Regenerate ECDSA Key for the Repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-
-try:
-    # Regenerate ECDSA Key for the Repository.
-    api_response = api_instance.repos_ecdsa_regenerate(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ecdsa_regenerate: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
-
-### Return type
-
-[**RepositoryEcdsaKey**](RepositoryEcdsaKey.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -661,15 +230,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -698,7 +258,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -727,15 +287,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -764,7 +315,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -793,15 +344,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -831,7 +373,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -860,15 +402,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -896,7 +429,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -925,15 +458,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -963,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -992,15 +516,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1030,7 +545,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1059,15 +574,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1097,7 +603,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1126,15 +632,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1162,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1191,15 +688,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1227,7 +715,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1256,15 +744,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1294,7 +773,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1323,15 +802,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1361,7 +831,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1390,15 +860,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1430,7 +891,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1459,15 +920,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1496,7 +948,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1525,15 +977,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1562,7 +1005,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1591,15 +1034,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1627,7 +1061,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1656,15 +1090,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1694,7 +1119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1723,15 +1148,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1759,7 +1175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -1788,15 +1204,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -1824,480 +1231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_transfer_region**
-> repos_transfer_region(owner, repo, data=data)
-
-Transfer a repository to a different region.
-
-Transfer a repository to a different region.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RepositoryTransferRegionRequest() # RepositoryTransferRegionRequest |  (optional)
-
-try:
-    # Transfer a repository to a different region.
-    api_instance.repos_transfer_region(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_transfer_region: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **repo** | **str**|  | 
- **data** | [**RepositoryTransferRegionRequest**](RepositoryTransferRegionRequest.md)|  | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_composer_create**
-> ComposerUpstream repos_upstream_composer_create(owner, identifier, data=data)
-
-Create a Composer upstream config for this repository.
-
-Create a Composer upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ComposerUpstreamRequest() # ComposerUpstreamRequest |  (optional)
-
-try:
-    # Create a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_create: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **data** | [**ComposerUpstreamRequest**](ComposerUpstreamRequest.md)|  | [optional] 
-
-### Return type
-
-[**ComposerUpstream**](ComposerUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_composer_delete**
-> repos_upstream_composer_delete(owner, identifier, slug_perm)
-
-Delete a Composer upstream config for this repository.
-
-Delete a Composer upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-
-try:
-    # Delete a Composer upstream config for this repository.
-    api_instance.repos_upstream_composer_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_delete: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_composer_list**
-> list[ComposerUpstream] repos_upstream_composer_list(owner, identifier, page=page, page_size=page_size)
-
-List Composer upstream configs for this repository.
-
-List Composer upstream configs for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-
-try:
-    # List Composer upstream configs for this repository.
-    api_response = api_instance.repos_upstream_composer_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_list: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
-
-### Return type
-
-[**list[ComposerUpstream]**](ComposerUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_composer_partial_update**
-> ComposerUpstream repos_upstream_composer_partial_update(owner, identifier, slug_perm, data=data)
-
-Partially update a Composer upstream config for this repository.
-
-Partially update a Composer upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.ComposerUpstreamRequestPatch() # ComposerUpstreamRequestPatch |  (optional)
-
-try:
-    # Partially update a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_partial_update: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
- **data** | [**ComposerUpstreamRequestPatch**](ComposerUpstreamRequestPatch.md)|  | [optional] 
-
-### Return type
-
-[**ComposerUpstream**](ComposerUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_composer_read**
-> ComposerUpstream repos_upstream_composer_read(owner, identifier, slug_perm)
-
-Retrieve a Composer upstream config for this repository.
-
-Retrieve a Composer upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-
-try:
-    # Retrieve a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_read: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
-
-### Return type
-
-[**ComposerUpstream**](ComposerUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_composer_update**
-> ComposerUpstream repos_upstream_composer_update(owner, identifier, slug_perm, data=data)
-
-Update a Composer upstream config for this repository.
-
-Update a Composer upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.ComposerUpstreamRequest() # ComposerUpstreamRequest |  (optional)
-
-try:
-    # Update a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_update: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
- **data** | [**ComposerUpstreamRequest**](ComposerUpstreamRequest.md)|  | [optional] 
-
-### Return type
-
-[**ComposerUpstream**](ComposerUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2326,15 +1260,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2364,7 +1289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2393,15 +1318,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2430,7 +1346,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2459,15 +1375,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2499,7 +1406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2528,15 +1435,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2568,7 +1466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2597,15 +1495,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2635,7 +1524,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2664,15 +1553,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2704,7 +1584,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2733,15 +1613,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2771,7 +1642,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2800,15 +1671,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2837,7 +1699,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2866,15 +1728,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2906,7 +1759,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -2935,15 +1788,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -2975,7 +1819,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3004,15 +1848,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3042,7 +1877,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3071,15 +1906,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3111,7 +1937,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3140,15 +1966,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3178,7 +1995,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3207,15 +2024,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3244,7 +2052,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3273,15 +2081,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3313,7 +2112,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3342,15 +2141,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3382,7 +2172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3411,15 +2201,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3449,7 +2230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3478,15 +2259,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3518,7 +2290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3547,15 +2319,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3585,7 +2348,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3614,15 +2377,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3651,7 +2405,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3680,15 +2434,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3720,7 +2465,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3749,15 +2494,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3789,7 +2525,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3818,15 +2554,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3856,7 +2583,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3885,15 +2612,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3925,7 +2643,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -3954,15 +2672,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -3992,7 +2701,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4021,15 +2730,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4058,7 +2758,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4087,15 +2787,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4127,7 +2818,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4156,15 +2847,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4196,7 +2878,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4225,15 +2907,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4263,7 +2936,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4292,15 +2965,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4332,414 +2996,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_hex_create**
-> HexUpstream repos_upstream_hex_create(owner, identifier, data=data)
-
-Create a Hex upstream config for this repository.
-
-Create a Hex upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.HexUpstreamRequest() # HexUpstreamRequest |  (optional)
-
-try:
-    # Create a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_create: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **data** | [**HexUpstreamRequest**](HexUpstreamRequest.md)|  | [optional] 
-
-### Return type
-
-[**HexUpstream**](HexUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_hex_delete**
-> repos_upstream_hex_delete(owner, identifier, slug_perm)
-
-Delete a Hex upstream config for this repository.
-
-Delete a Hex upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-
-try:
-    # Delete a Hex upstream config for this repository.
-    api_instance.repos_upstream_hex_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_delete: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_hex_list**
-> list[HexUpstream] repos_upstream_hex_list(owner, identifier, page=page, page_size=page_size)
-
-List Hex upstream configs for this repository.
-
-List Hex upstream configs for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-
-try:
-    # List Hex upstream configs for this repository.
-    api_response = api_instance.repos_upstream_hex_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_list: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
-
-### Return type
-
-[**list[HexUpstream]**](HexUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_hex_partial_update**
-> HexUpstream repos_upstream_hex_partial_update(owner, identifier, slug_perm, data=data)
-
-Partially update a Hex upstream config for this repository.
-
-Partially update a Hex upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HexUpstreamRequestPatch() # HexUpstreamRequestPatch |  (optional)
-
-try:
-    # Partially update a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_partial_update: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
- **data** | [**HexUpstreamRequestPatch**](HexUpstreamRequestPatch.md)|  | [optional] 
-
-### Return type
-
-[**HexUpstream**](HexUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_hex_read**
-> HexUpstream repos_upstream_hex_read(owner, identifier, slug_perm)
-
-Retrieve a Hex upstream config for this repository.
-
-Retrieve a Hex upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-
-try:
-    # Retrieve a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_read: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
-
-### Return type
-
-[**HexUpstream**](HexUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **repos_upstream_hex_update**
-> HexUpstream repos_upstream_hex_update(owner, identifier, slug_perm, data=data)
-
-Update a Hex upstream config for this repository.
-
-Update a Hex upstream config for this repository.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudsmith_api
-from cloudsmith_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HexUpstreamRequest() # HexUpstreamRequest |  (optional)
-
-try:
-    # Update a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_update: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **identifier** | **str**|  | 
- **slug_perm** | **str**|  | 
- **data** | [**HexUpstreamRequest**](HexUpstreamRequest.md)|  | [optional] 
-
-### Return type
-
-[**HexUpstream**](HexUpstream.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4768,15 +3025,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4806,7 +3054,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4835,15 +3083,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4872,7 +3111,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4901,15 +3140,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -4941,7 +3171,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -4970,15 +3200,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5010,7 +3231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5039,15 +3260,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5077,7 +3289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5106,15 +3318,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5146,7 +3349,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5175,15 +3378,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5213,7 +3407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5242,15 +3436,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5279,7 +3464,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5308,15 +3493,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5348,7 +3524,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5377,15 +3553,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5417,7 +3584,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5446,15 +3613,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5484,7 +3642,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5513,15 +3671,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5553,7 +3702,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5582,15 +3731,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5620,7 +3760,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5649,15 +3789,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5686,7 +3817,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5715,15 +3846,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5755,7 +3877,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5784,15 +3906,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5824,7 +3937,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5853,15 +3966,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5891,7 +3995,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5920,15 +4024,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -5960,7 +4055,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -5989,15 +4084,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6027,7 +4113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6056,15 +4142,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6093,7 +4170,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6122,15 +4199,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6162,7 +4230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6191,15 +4259,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6231,7 +4290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6260,15 +4319,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6298,7 +4348,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6327,15 +4377,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6367,7 +4408,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6396,15 +4437,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6434,7 +4466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6463,15 +4495,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6500,7 +4523,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6529,15 +4552,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6569,7 +4583,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6598,15 +4612,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6638,7 +4643,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6667,15 +4672,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6705,7 +4701,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6734,15 +4730,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6774,7 +4761,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6803,15 +4790,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6841,7 +4819,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6870,15 +4848,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6907,7 +4876,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -6936,15 +4905,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -6976,7 +4936,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7005,15 +4965,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7045,7 +4996,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7074,15 +5025,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7112,7 +5054,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7141,15 +5083,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7181,7 +5114,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7210,15 +5143,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7248,7 +5172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7277,15 +5201,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7314,7 +5229,7 @@ void (empty response body)
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7343,15 +5258,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7383,7 +5289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7412,15 +5318,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7452,7 +5349,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7481,15 +5378,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7519,7 +5407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7548,15 +5436,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7588,7 +5467,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -7617,15 +5496,6 @@ configuration = cloudsmith_api.Configuration()
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-# Configure API key authorization: token
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
@@ -7653,7 +5523,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 

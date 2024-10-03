@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **dependencies_checksum_md5** | **str** | A checksum of all of the package&#39;s dependencies. | [optional] 
 **dependencies_url** | **str** |  | [optional] 
 **description** | **str** | A textual description of this package. | [optional] 
-**display_name** | **str** |  | [optional] 
 **distro** | [**Distribution**](Distribution.md) |  | [optional] 
 **distro_version** | [**DistributionVersion**](DistributionVersion.md) |  | [optional] 
 **downloads** | **int** |  | [optional] 

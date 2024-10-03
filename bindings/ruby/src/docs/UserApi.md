@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudsmith.io/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**user_self**](UserApi.md#user_self) | **GET** /user/self/ | Provide a brief for the current user (if any).
-[**user_token_create**](UserApi.md#user_token_create) | **POST** /user/token/ | Retrieve/Create API key/token for the authenticated user.
+[**user_token_create**](UserApi.md#user_token_create) | **POST** /user/token/ | Retrieve the API key/token for the authenticated user.
 
 
 # **user_self**
@@ -25,15 +25,6 @@ CloudsmithApi.configure do |config|
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-  # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: token
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
 api_instance = CloudsmithApi::UserApi.new
@@ -56,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apikey](../README.md#apikey), [basic](../README.md#basic), [token](../README.md#token)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 
@@ -68,9 +59,9 @@ This endpoint does not need any parameter.
 # **user_token_create**
 > UserAuthToken user_token_create(opts)
 
-Retrieve/Create API key/token for the authenticated user.
+Retrieve the API key/token for the authenticated user.
 
-Retrieve/Create API key/token for the authenticated user.
+Retrieve the API key/token for the authenticated user.
 
 ### Example
 ```ruby
@@ -78,9 +69,10 @@ Retrieve/Create API key/token for the authenticated user.
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
-  # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
 end
 
 api_instance = CloudsmithApi::UserApi.new
@@ -90,7 +82,7 @@ opts = {
 }
 
 begin
-  #Retrieve/Create API key/token for the authenticated user.
+  #Retrieve the API key/token for the authenticated user.
   result = api_instance.user_token_create(opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -110,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basic](../README.md#basic)
+[apikey](../README.md#apikey)
 
 ### HTTP request headers
 

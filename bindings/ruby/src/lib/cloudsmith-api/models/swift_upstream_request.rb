@@ -198,7 +198,7 @@ class SwiftUpstreamRequest
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
-    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
+    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only'])
     return false unless mode_validator.valid?(@mode)
     return false if @name.nil?
     return false if @upstream_url.nil?
@@ -218,7 +218,7 @@ class SwiftUpstreamRequest
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] mode Object to be assigned
   def mode=(mode)
-    validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
+    validator = EnumAttributeValidator.new('String', ['Proxy Only'])
     unless validator.valid?(mode)
       fail ArgumentError, 'invalid value for "mode", must be one of #{validator.allowable_values}.'
     end
