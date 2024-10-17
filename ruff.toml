@@ -1,0 +1,10 @@
+target-version = "py38"
+
+[lint]
+select = [
+    "W605",  # invalid-escape-sequence
+]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
