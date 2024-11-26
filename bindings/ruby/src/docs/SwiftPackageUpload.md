@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **origin_repository** | **String** |  | [optional] 
 **origin_repository_url** | **String** |  | [optional] 
 **package_type** | **Integer** | The type of package contents. | [optional] 
+**policy_violated** | **BOOLEAN** | Whether or not the package has violated any policy. | [optional] 
 **readme_url** | **String** | The URL of the readme for the package. | [optional] 
 **release** | **String** | The release of the package version (if any). | [optional] 
 **repository** | **String** |  | [optional] 

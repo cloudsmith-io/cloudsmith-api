@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **createdByUrl** | **String** |  |  [optional]
 **description** | **String** | The description of the service |  [optional]
 **key** | **String** | The API key of the service |  [optional]
+**keyExpiresAt** | [**OffsetDateTime**](OffsetDateTime.md) | The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy. |  [optional]
 **name** | **String** | The name of the service | 
 **role** | [**RoleEnum**](#RoleEnum) | The role of the service. |  [optional]
 **slug** | **String** | The slug of the service |  [optional]

@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **origin_repository** | **str** |  | [optional] 
 **origin_repository_url** | **str** |  | [optional] 
 **package_type** | **int** | The type of package contents. | [optional] 
+**policy_violated** | **bool** | Whether or not the package has violated any policy. | [optional] 
 **provider** | **str** | The virtual machine provider for the box. | 
 **release** | **str** | The release of the package version (if any). | [optional] 
 **repository** | **str** |  | [optional] 

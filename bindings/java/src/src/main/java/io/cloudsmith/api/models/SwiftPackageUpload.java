@@ -180,6 +180,9 @@ public class SwiftPackageUpload implements Serializable {
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
 
+  @SerializedName("policy_violated")
+  private Boolean policyViolated = null;
+
   @SerializedName("readme_url")
   private String readmeUrl = null;
 
@@ -817,6 +820,15 @@ public class SwiftPackageUpload implements Serializable {
     return packageType;
   }
 
+   /**
+   * Whether or not the package has violated any policy.
+   * @return policyViolated
+  **/
+  @ApiModelProperty(value = "Whether or not the package has violated any policy.")
+  public Boolean isPolicyViolated() {
+    return policyViolated;
+  }
+
   public SwiftPackageUpload readmeUrl(String readmeUrl) {
     this.readmeUrl = readmeUrl;
     return this;
@@ -1243,6 +1255,7 @@ public class SwiftPackageUpload implements Serializable {
         Objects.equals(this.originRepository, swiftPackageUpload.originRepository) &&
         Objects.equals(this.originRepositoryUrl, swiftPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, swiftPackageUpload.packageType) &&
+        Objects.equals(this.policyViolated, swiftPackageUpload.policyViolated) &&
         Objects.equals(this.readmeUrl, swiftPackageUpload.readmeUrl) &&
         Objects.equals(this.release, swiftPackageUpload.release) &&
         Objects.equals(this.repository, swiftPackageUpload.repository) &&
@@ -1282,7 +1295,7 @@ public class SwiftPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, authorName, authorOrg, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, licenseUrl, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, readmeUrl, release, repository, repositoryUrl, scope, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, authorName, authorOrg, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, licenseUrl, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, readmeUrl, release, repository, repositoryUrl, scope, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1337,6 +1350,7 @@ public class SwiftPackageUpload implements Serializable {
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    readmeUrl: ").append(toIndentedString(readmeUrl)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");

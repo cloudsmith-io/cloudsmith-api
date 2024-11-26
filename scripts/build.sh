@@ -6,6 +6,8 @@ self_dir=$(dirname $self)
 root_dir=$(readlink -f "$self_dir/..")
 . $root_dir/scripts/common.sh
 
+docker image pull -q "${swagger_codegen_cli_image:?}"
+
 build_language() {
   local language=$1
   echo "Building $language bindings ..."

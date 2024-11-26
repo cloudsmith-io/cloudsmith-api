@@ -48,6 +48,7 @@ import java.util.Map;
 
 public class QuotaApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public QuotaApi() {
         this(Configuration.getDefaultApiClient());
@@ -63,6 +64,10 @@ public class QuotaApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -112,6 +117,9 @@ public class QuotaApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -249,6 +257,9 @@ public class QuotaApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -386,6 +397,9 @@ public class QuotaApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -523,6 +537,9 @@ public class QuotaApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

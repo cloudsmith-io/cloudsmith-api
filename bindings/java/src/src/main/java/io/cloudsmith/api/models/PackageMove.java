@@ -171,6 +171,9 @@ public class PackageMove implements Serializable {
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
 
+  @SerializedName("policy_violated")
+  private Boolean policyViolated = null;
+
   @SerializedName("release")
   private String release = null;
 
@@ -742,6 +745,15 @@ public class PackageMove implements Serializable {
   }
 
    /**
+   * Whether or not the package has violated any policy.
+   * @return policyViolated
+  **/
+  @ApiModelProperty(value = "Whether or not the package has violated any policy.")
+  public Boolean isPolicyViolated() {
+    return policyViolated;
+  }
+
+   /**
    * The release of the package version (if any).
    * @return release
   **/
@@ -1127,6 +1139,7 @@ public class PackageMove implements Serializable {
         Objects.equals(this.originRepository, packageMove.originRepository) &&
         Objects.equals(this.originRepositoryUrl, packageMove.originRepositoryUrl) &&
         Objects.equals(this.packageType, packageMove.packageType) &&
+        Objects.equals(this.policyViolated, packageMove.policyViolated) &&
         Objects.equals(this.release, packageMove.release) &&
         Objects.equals(this.repository, packageMove.repository) &&
         Objects.equals(this.repositoryUrl, packageMove.repositoryUrl) &&
@@ -1165,7 +1178,7 @@ public class PackageMove implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tags, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tags, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1217,6 +1230,7 @@ public class PackageMove implements Serializable {
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");

@@ -47,6 +47,7 @@ import java.util.Map;
 
 public class NamespacesApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public NamespacesApi() {
         this(Configuration.getDefaultApiClient());
@@ -62,6 +63,10 @@ public class NamespacesApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -115,6 +120,9 @@ public class NamespacesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -255,6 +263,9 @@ public class NamespacesApi {
         }
 
         String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

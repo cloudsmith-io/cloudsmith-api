@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **originRepository** | **String** |  |  [optional]
 **originRepositoryUrl** | **String** |  |  [optional]
 **packageType** | **java.math.BigInteger** | The type of package contents. |  [optional]
+**policyViolated** | **Boolean** | Whether or not the package has violated any policy. |  [optional]
 **rVersion** | **String** | Binary package uploads should specify the version of R they were built for. |  [optional]
 **release** | **String** | The release of the package version (if any). |  [optional]
 **repository** | **String** |  |  [optional]

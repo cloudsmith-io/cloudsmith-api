@@ -180,6 +180,9 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("packaging")
   private String packaging = null;
 
+  @SerializedName("policy_violated")
+  private Boolean policyViolated = null;
+
   @SerializedName("release")
   private String release = null;
 
@@ -808,6 +811,15 @@ public class MavenPackageUpload implements Serializable {
   }
 
    /**
+   * Whether or not the package has violated any policy.
+   * @return policyViolated
+  **/
+  @ApiModelProperty(value = "Whether or not the package has violated any policy.")
+  public Boolean isPolicyViolated() {
+    return policyViolated;
+  }
+
+   /**
    * The release of the package version (if any).
    * @return release
   **/
@@ -1222,6 +1234,7 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.originRepositoryUrl, mavenPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, mavenPackageUpload.packageType) &&
         Objects.equals(this.packaging, mavenPackageUpload.packaging) &&
+        Objects.equals(this.policyViolated, mavenPackageUpload.policyViolated) &&
         Objects.equals(this.release, mavenPackageUpload.release) &&
         Objects.equals(this.repository, mavenPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, mavenPackageUpload.repositoryUrl) &&
@@ -1261,7 +1274,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, policyViolated, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1316,6 +1329,7 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
+    sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");

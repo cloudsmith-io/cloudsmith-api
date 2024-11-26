@@ -47,6 +47,7 @@ import java.util.Map;
 
 public class StatusApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public StatusApi() {
         this(Configuration.getDefaultApiClient());
@@ -62,6 +63,10 @@ public class StatusApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -109,6 +114,9 @@ public class StatusApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

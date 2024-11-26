@@ -79,6 +79,7 @@ class MavenPackageUpload(object):
         'origin_repository_url': 'str',
         'package_type': 'int',
         'packaging': 'str',
+        'policy_violated': 'bool',
         'release': 'str',
         'repository': 'str',
         'repository_url': 'str',
@@ -163,6 +164,7 @@ class MavenPackageUpload(object):
         'origin_repository_url': 'origin_repository_url',
         'package_type': 'package_type',
         'packaging': 'packaging',
+        'policy_violated': 'policy_violated',
         'release': 'release',
         'repository': 'repository',
         'repository_url': 'repository_url',
@@ -200,7 +202,7 @@ class MavenPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier_perm=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, packaging=None, release=None, repository=None, repository_url=None, sbt_version=None, scala_version=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, group_id=None, identifier_perm=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, packaging=None, policy_violated=None, release=None, repository=None, repository_url=None, sbt_version=None, scala_version=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """MavenPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -252,6 +254,7 @@ class MavenPackageUpload(object):
         self._origin_repository_url = None
         self._package_type = None
         self._packaging = None
+        self._policy_violated = None
         self._release = None
         self._repository = None
         self._repository_url = None
@@ -381,6 +384,8 @@ class MavenPackageUpload(object):
             self.package_type = package_type
         if packaging is not None:
             self.packaging = packaging
+        if policy_violated is not None:
+            self.policy_violated = policy_violated
         if release is not None:
             self.release = release
         if repository is not None:
@@ -1461,6 +1466,29 @@ class MavenPackageUpload(object):
             raise ValueError("Invalid value for `packaging`, length must be less than or equal to `64`")  # noqa: E501
 
         self._packaging = packaging
+
+    @property
+    def policy_violated(self):
+        """Gets the policy_violated of this MavenPackageUpload.
+
+        Whether or not the package has violated any policy.
+
+        :return: The policy_violated of this MavenPackageUpload.
+        :rtype: bool
+        """
+        return self._policy_violated
+
+    @policy_violated.setter
+    def policy_violated(self, policy_violated):
+        """Sets the policy_violated of this MavenPackageUpload.
+
+        Whether or not the package has violated any policy.
+
+        :param policy_violated: The policy_violated of this MavenPackageUpload.
+        :type: bool
+        """
+
+        self._policy_violated = policy_violated
 
     @property
     def release(self):
