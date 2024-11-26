@@ -58,11 +58,27 @@ jobs:
       - prepare_deploy_environment
       - deploy_bindings:
           language: <<parameters.language>>
+  pre_commit:
+    description: "Run pre-commit hooks"
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - run:
+          name: "Install dependencies"
+          command: |
+            python3 -m pip install --upgrade pip
+            pip install pre-commit
+      - run:
+          name: "Run pre-commit"
+          command: pre-commit run --all-files
+
 
 workflows:
   version: 2
   test_and_deploy:
     jobs:
+      - pre_commit
       - test:
           name: "Test Java"
           language: java
