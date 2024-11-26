@@ -53,6 +53,9 @@ public class Service implements Serializable {
   @SerializedName("key")
   private String key = null;
 
+  @SerializedName("key_expires_at")
+  private OffsetDateTime keyExpiresAt = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -167,6 +170,16 @@ public class Service implements Serializable {
     return key;
   }
 
+   /**
+   * The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
+   * @return keyExpiresAt
+  **/
+  @Valid
+  @ApiModelProperty(value = "The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.")
+  public OffsetDateTime getKeyExpiresAt() {
+    return keyExpiresAt;
+  }
+
   public Service name(String name) {
     this.name = name;
     return this;
@@ -255,6 +268,7 @@ public class Service implements Serializable {
         Objects.equals(this.createdByUrl, service.createdByUrl) &&
         Objects.equals(this.description, service.description) &&
         Objects.equals(this.key, service.key) &&
+        Objects.equals(this.keyExpiresAt, service.keyExpiresAt) &&
         Objects.equals(this.name, service.name) &&
         Objects.equals(this.role, service.role) &&
         Objects.equals(this.slug, service.slug) &&
@@ -263,7 +277,7 @@ public class Service implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdBy, createdByUrl, description, key, name, role, slug, teams);
+    return Objects.hash(createdAt, createdBy, createdByUrl, description, key, keyExpiresAt, name, role, slug, teams);
   }
 
 
@@ -277,6 +291,7 @@ public class Service implements Serializable {
     sb.append("    createdByUrl: ").append(toIndentedString(createdByUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    keyExpiresAt: ").append(toIndentedString(keyExpiresAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");

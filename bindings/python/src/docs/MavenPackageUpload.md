@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **origin_repository_url** | **str** |  | [optional] 
 **package_type** | **int** | The type of package contents. | [optional] 
 **packaging** | **str** | Artifact&#39;s Maven packaging type. | [optional] 
+**policy_violated** | **bool** | Whether or not the package has violated any policy. | [optional] 
 **release** | **str** | The release of the package version (if any). | [optional] 
 **repository** | **str** |  | [optional] 
 **repository_url** | **str** |  | [optional] 

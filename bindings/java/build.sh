@@ -45,11 +45,11 @@ cat > $build_json <<EOC
 }
 EOC
 
-$root_dir/bin/swagger-codegen-cli generate \
+docker container run --rm -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
     --type-mappings Integer=java.math.BigInteger \
-    -c $build_json \
+    -c /local/src/build.json \
     -i $openapi_url \
     -l java \
-    -o $src_dir \
-    -t $template_dir \
+    -o /local/src \
+    -t /local/templates \
     $common_codegen_options

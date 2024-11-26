@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **originRepository** | **String** |  |  [optional]
 **originRepositoryUrl** | **String** |  |  [optional]
 **packageType** | **java.math.BigInteger** | The type of package contents. |  [optional]
+**policyViolated** | **Boolean** | Whether or not the package has violated any policy. |  [optional]
 **repository** | **String** |  |  [optional]
 **repositoryUrl** | **String** |  |  [optional]
 **securityScanCompletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was completed. |  [optional]

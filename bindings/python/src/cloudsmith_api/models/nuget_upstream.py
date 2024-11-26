@@ -258,7 +258,7 @@ class NugetUpstream(object):
         :param disable_reason: The disable_reason of this NugetUpstream.
         :type: str
         """
-        allowed_values = ["N/A", "Upstream points to its own repository", "Missing upstream source"]  # noqa: E501
+        allowed_values = ["N/A", "Upstream points to its own repository", "Missing upstream source", "Upstream was disabled by request of user"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 disable_reason not in allowed_values):
             raise ValueError(

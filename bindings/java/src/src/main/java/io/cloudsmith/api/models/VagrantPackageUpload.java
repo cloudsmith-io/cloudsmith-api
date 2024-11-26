@@ -171,6 +171,9 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
 
+  @SerializedName("policy_violated")
+  private Boolean policyViolated = null;
+
   @SerializedName("provider")
   private String provider = null;
 
@@ -751,6 +754,15 @@ public class VagrantPackageUpload implements Serializable {
     return packageType;
   }
 
+   /**
+   * Whether or not the package has violated any policy.
+   * @return policyViolated
+  **/
+  @ApiModelProperty(value = "Whether or not the package has violated any policy.")
+  public Boolean isPolicyViolated() {
+    return policyViolated;
+  }
+
   public VagrantPackageUpload provider(String provider) {
     this.provider = provider;
     return this;
@@ -1147,6 +1159,7 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.originRepository, vagrantPackageUpload.originRepository) &&
         Objects.equals(this.originRepositoryUrl, vagrantPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, vagrantPackageUpload.packageType) &&
+        Objects.equals(this.policyViolated, vagrantPackageUpload.policyViolated) &&
         Objects.equals(this.provider, vagrantPackageUpload.provider) &&
         Objects.equals(this.release, vagrantPackageUpload.release) &&
         Objects.equals(this.repository, vagrantPackageUpload.repository) &&
@@ -1185,7 +1198,7 @@ public class VagrantPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1237,6 +1250,7 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");

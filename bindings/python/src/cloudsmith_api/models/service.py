@@ -38,6 +38,7 @@ class Service(object):
         'created_by_url': 'str',
         'description': 'str',
         'key': 'str',
+        'key_expires_at': 'datetime',
         'name': 'str',
         'role': 'str',
         'slug': 'str',
@@ -50,13 +51,14 @@ class Service(object):
         'created_by_url': 'created_by_url',
         'description': 'description',
         'key': 'key',
+        'key_expires_at': 'key_expires_at',
         'name': 'name',
         'role': 'role',
         'slug': 'slug',
         'teams': 'teams'
     }
 
-    def __init__(self, created_at=None, created_by=None, created_by_url=None, description=None, key=None, name=None, role='Member', slug=None, teams=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, created_by=None, created_by_url=None, description=None, key=None, key_expires_at=None, name=None, role='Member', slug=None, teams=None, _configuration=None):  # noqa: E501
         """Service - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -67,6 +69,7 @@ class Service(object):
         self._created_by_url = None
         self._description = None
         self._key = None
+        self._key_expires_at = None
         self._name = None
         self._role = None
         self._slug = None
@@ -83,6 +86,8 @@ class Service(object):
             self.description = description
         if key is not None:
             self.key = key
+        if key_expires_at is not None:
+            self.key_expires_at = key_expires_at
         self.name = name
         if role is not None:
             self.role = role
@@ -208,6 +213,29 @@ class Service(object):
         """
 
         self._key = key
+
+    @property
+    def key_expires_at(self):
+        """Gets the key_expires_at of this Service.
+
+        The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
+
+        :return: The key_expires_at of this Service.
+        :rtype: datetime
+        """
+        return self._key_expires_at
+
+    @key_expires_at.setter
+    def key_expires_at(self, key_expires_at):
+        """Sets the key_expires_at of this Service.
+
+        The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
+
+        :param key_expires_at: The key_expires_at of this Service.
+        :type: datetime
+        """
+
+        self._key_expires_at = key_expires_at
 
     @property
     def name(self):

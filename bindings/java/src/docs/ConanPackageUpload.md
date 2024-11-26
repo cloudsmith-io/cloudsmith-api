@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **originRepository** | **String** |  |  [optional]
 **originRepositoryUrl** | **String** |  |  [optional]
 **packageType** | **java.math.BigInteger** | The type of package contents. |  [optional]
+**policyViolated** | **Boolean** | Whether or not the package has violated any policy. |  [optional]
 **release** | **String** | The release of the package version (if any). |  [optional]
 **repository** | **String** |  |  [optional]
 **repositoryUrl** | **String** |  |  [optional]

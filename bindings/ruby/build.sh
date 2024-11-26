@@ -31,10 +31,10 @@ cat > $build_json <<EOC
 }
 EOC
 
-$root_dir/bin/swagger-codegen-cli generate \
-    -c $build_json \
+docker container run --rm -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
+    -c /local/src/build.json \
     -i $openapi_url \
     -l ruby \
-    -o $src_dir \
-    -t $template_dir \
+    -o /local/src \
+    -t /local/templates \
     $common_codegen_options

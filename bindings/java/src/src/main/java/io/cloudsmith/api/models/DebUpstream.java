@@ -108,7 +108,9 @@ public class DebUpstream implements Serializable {
     
     UPSTREAM_POINTS_TO_ITS_OWN_REPOSITORY("Upstream points to its own repository"),
     
-    MISSING_UPSTREAM_SOURCE("Missing upstream source");
+    MISSING_UPSTREAM_SOURCE("Missing upstream source"),
+    
+    UPSTREAM_WAS_DISABLED_BY_REQUEST_OF_USER("Upstream was disabled by request of user");
 
     private String value;
 

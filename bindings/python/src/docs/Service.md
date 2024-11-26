@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **created_by_url** | **str** |  | [optional] 
 **description** | **str** | The description of the service | [optional] 
 **key** | **str** | The API key of the service | [optional] 
+**key_expires_at** | **datetime** | The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy. | [optional] 
 **name** | **str** | The name of the service | 
 **role** | **str** | The role of the service. | [optional] [default to 'Member']
 **slug** | **str** | The slug of the service | [optional] 

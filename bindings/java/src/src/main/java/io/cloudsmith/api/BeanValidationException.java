@@ -1,7 +1,6 @@
 package io.cloudsmith.api;
 
 import java.util.Set;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.ValidationException;
 

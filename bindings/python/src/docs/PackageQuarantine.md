@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **origin_repository** | **str** |  | [optional] 
 **origin_repository_url** | **str** |  | [optional] 
 **package_type** | **int** | The type of package contents. | [optional] 
+**policy_violated** | **bool** | Whether or not the package has violated any policy. | [optional] 
 **repository** | **str** |  | [optional] 
 **repository_url** | **str** |  | [optional] 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] 

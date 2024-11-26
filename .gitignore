@@ -3,3 +3,6 @@
 
 # Virtualenv
 .venv
+
+# Jetbrains IDEs
+.idea
