@@ -108,6 +108,20 @@ workflows:
           language: ruby
           docker_image: cimg/ruby:2.6
       - test:
+          name: "Test Rust"
+          language: rust
+          docker_image: cimg/rust:1.85.0
+      - deploy_bindings:
+          requires:
+            - "Test Rust"
+          filters:
+            branches:
+             only:
+               - master
+          name: "Deploy Rust"
+          language: rust
+          docker_image: cimg/rust:1.85.0
+      - test:
           name: "Test Python 2.7"
           language: python
           extra_env: TOXENV=py27
