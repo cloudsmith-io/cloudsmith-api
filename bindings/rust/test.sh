@@ -9,4 +9,4 @@ root_dir=$(readlink -f "$self_dir/../..")
 src_dir="$self_dir/src"
 
 cd $src_dir
-RUSTFLAGS="-Awarnings" cargo test
+cargo test
