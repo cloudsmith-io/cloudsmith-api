@@ -135,11 +135,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/?{}", configuration.base_path, query_string, org=org);
 
@@ -207,11 +207,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/deny-policy/?{}", configuration.base_path, query_string, org=org);
 
@@ -286,11 +286,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/deny-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -358,13 +358,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/deny-policy/?{}", configuration.base_path, query_string, org=org);
 
@@ -435,11 +435,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/deny-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -514,11 +514,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/deny-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -589,11 +589,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/deny-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -668,11 +668,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/invites/?{}", configuration.base_path, query_string, org=org);
 
@@ -747,11 +747,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/invites/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -819,11 +819,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/invites/{slug_perm}/extend/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -894,13 +894,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/invites/?{}", configuration.base_path, query_string, org=org);
 
@@ -971,11 +971,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/invites/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -1050,11 +1050,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/invites/{slug_perm}/resend/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -1125,11 +1125,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/?{}", configuration.base_path, query_string, org=org);
 
@@ -1204,11 +1204,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -1276,11 +1276,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/?{}", configuration.base_path, query_string, org=org, policy_slug_perm=policy_slug_perm);
 
@@ -1355,13 +1355,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/?{}", configuration.base_path, query_string, org=org, policy_slug_perm=policy_slug_perm);
 
@@ -1432,11 +1432,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/?{}", configuration.base_path, query_string, org=org, policy_slug_perm=policy_slug_perm, slug_perm=slug_perm);
 
@@ -1507,13 +1507,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/?{}", configuration.base_path, query_string, org=org);
 
@@ -1584,11 +1584,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -1663,11 +1663,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -1738,11 +1738,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -1817,13 +1817,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("cursor", &cursor.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("cursor", &cursor.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/license-policy-violation/?{}", configuration.base_path, query_string, org=org);
 
@@ -1894,13 +1894,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/?{}", configuration.base_path, query_string);
 
@@ -1971,11 +1971,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/{member}/?{}", configuration.base_path, query_string, org=org, member=member);
 
@@ -2043,16 +2043,16 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
-            query.append_pair("is_active", &is_active.to_string());
-            query.append_pair("query", &query.to_string());
-            query.append_pair("sort", &sort.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
+            url_query_param.append_pair("is_active", &is_active.to_string());
+            url_query_param.append_pair("query", &query.to_string());
+            url_query_param.append_pair("sort", &sort.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/?{}", configuration.base_path, query_string, org=org);
 
@@ -2123,11 +2123,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/{member}/?{}", configuration.base_path, query_string, org=org, member=member);
 
@@ -2202,11 +2202,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/{member}/?{}", configuration.base_path, query_string, org=org, member=member);
 
@@ -2277,11 +2277,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/{member}/refresh/?{}", configuration.base_path, query_string, org=org, member=member);
 
@@ -2349,11 +2349,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/{member}/remove/?{}", configuration.base_path, query_string, org=org, member=member);
 
@@ -2421,11 +2421,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/{member}/update-role/?{}", configuration.base_path, query_string, org=org, member=member);
 
@@ -2500,11 +2500,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/members/{member}/update-visibility/?{}", configuration.base_path, query_string, org=org, member=member);
 
@@ -2579,11 +2579,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/openid-connect/?{}", configuration.base_path, query_string, org=org);
 
@@ -2658,11 +2658,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/openid-connect/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -2730,13 +2730,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/openid-connect/?{}", configuration.base_path, query_string, org=org);
 
@@ -2807,11 +2807,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/openid-connect/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -2886,11 +2886,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/openid-connect/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -2961,11 +2961,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/openid-connect/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -3040,11 +3040,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/?{}", configuration.base_path, query_string, org=org);
 
@@ -3115,11 +3115,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-authentication?{}", configuration.base_path, query_string, org=org);
 
@@ -3194,11 +3194,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-authentication?{}", configuration.base_path, query_string, org=org);
 
@@ -3269,11 +3269,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-group-sync/?{}", configuration.base_path, query_string, org=org);
 
@@ -3348,11 +3348,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-group-sync/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -3420,11 +3420,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-group-sync/disable/?{}", configuration.base_path, query_string, org=org);
 
@@ -3492,11 +3492,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-group-sync/enable/?{}", configuration.base_path, query_string, org=org);
 
@@ -3564,13 +3564,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-group-sync/?{}", configuration.base_path, query_string, org=org);
 
@@ -3641,11 +3641,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/saml-group-sync/status/?{}", configuration.base_path, query_string, org=org);
 
@@ -3716,11 +3716,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/services/?{}", configuration.base_path, query_string, org=org);
 
@@ -3795,11 +3795,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/services/{service}/?{}", configuration.base_path, query_string, org=org, service=service);
 
@@ -3867,13 +3867,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/services/?{}", configuration.base_path, query_string, org=org);
 
@@ -3944,11 +3944,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/services/{service}/?{}", configuration.base_path, query_string, org=org, service=service);
 
@@ -4023,11 +4023,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/services/{service}/?{}", configuration.base_path, query_string, org=org, service=service);
 
@@ -4098,11 +4098,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/services/{service}/refresh/?{}", configuration.base_path, query_string, org=org, service=service);
 
@@ -4173,11 +4173,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/?{}", configuration.base_path, query_string, org=org);
 
@@ -4252,11 +4252,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/{team}/?{}", configuration.base_path, query_string, org=org, team=team);
 
@@ -4324,13 +4324,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/?{}", configuration.base_path, query_string, org=org);
 
@@ -4401,11 +4401,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/{team}/members?{}", configuration.base_path, query_string, org=org, team=team);
 
@@ -4480,11 +4480,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/{team}/members?{}", configuration.base_path, query_string, org=org, team=team);
 
@@ -4555,11 +4555,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/{team}/members?{}", configuration.base_path, query_string, org=org, team=team);
 
@@ -4634,11 +4634,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/{team}/?{}", configuration.base_path, query_string, org=org, team=team);
 
@@ -4713,11 +4713,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/teams/{team}/?{}", configuration.base_path, query_string, org=org, team=team);
 
@@ -4788,11 +4788,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/?{}", configuration.base_path, query_string, org=org);
 
@@ -4867,11 +4867,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -4939,11 +4939,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/?{}", configuration.base_path, query_string, org=org, policy_slug_perm=policy_slug_perm);
 
@@ -5018,13 +5018,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/?{}", configuration.base_path, query_string, org=org, policy_slug_perm=policy_slug_perm);
 
@@ -5095,11 +5095,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/?{}", configuration.base_path, query_string, org=org, policy_slug_perm=policy_slug_perm, slug_perm=slug_perm);
 
@@ -5170,13 +5170,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/?{}", configuration.base_path, query_string, org=org);
 
@@ -5247,11 +5247,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -5326,11 +5326,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -5401,11 +5401,11 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy/{slug_perm}/?{}", configuration.base_path, query_string, org=org, slug_perm=slug_perm);
 
@@ -5480,13 +5480,13 @@ impl<C: hyper::client::Connect>OrgsApi for OrgsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("cursor", &cursor.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("cursor", &cursor.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/orgs/{org}/vulnerability-policy-violation/?{}", configuration.base_path, query_string, org=org);
 

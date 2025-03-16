@@ -125,11 +125,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/copy/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -204,11 +204,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -276,11 +276,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/dependencies/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -351,15 +351,15 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
-            query.append_pair("query", &query.to_string());
-            query.append_pair("sort", &sort.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
+            url_query_param.append_pair("query", &query.to_string());
+            url_query_param.append_pair("sort", &sort.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -430,11 +430,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/move/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -509,11 +509,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/quarantine/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -588,11 +588,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -663,11 +663,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/resync/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -738,11 +738,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/scan/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -813,11 +813,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/status/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -888,11 +888,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/{identifier}/tag/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -967,11 +967,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/alpine/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1046,11 +1046,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/cargo/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1125,11 +1125,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/cocoapods/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1204,11 +1204,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/composer/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1283,11 +1283,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/conan/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1362,11 +1362,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/conda/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1441,11 +1441,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/cran/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1520,11 +1520,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/dart/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1599,11 +1599,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/deb/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1678,11 +1678,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/docker/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1757,11 +1757,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/go/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1836,11 +1836,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/helm/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1915,11 +1915,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/hex/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -1994,11 +1994,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/luarocks/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2073,11 +2073,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/maven/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2152,11 +2152,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/npm/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2231,11 +2231,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/nuget/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2310,11 +2310,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/p2/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2389,11 +2389,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/python/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2468,11 +2468,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/raw/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2547,11 +2547,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/rpm/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2626,11 +2626,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/ruby/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2705,11 +2705,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/swift/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2784,11 +2784,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/terraform/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2863,11 +2863,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/upload/vagrant/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2942,11 +2942,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/alpine/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3018,11 +3018,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/cargo/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3094,11 +3094,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/cocoapods/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3170,11 +3170,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/composer/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3246,11 +3246,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/conan/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3322,11 +3322,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/conda/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3398,11 +3398,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/cran/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3474,11 +3474,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/dart/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3550,11 +3550,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/deb/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3626,11 +3626,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/docker/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3702,11 +3702,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/go/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3778,11 +3778,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/helm/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3854,11 +3854,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/hex/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -3930,11 +3930,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/luarocks/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4006,11 +4006,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/maven/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4082,11 +4082,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/npm/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4158,11 +4158,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/nuget/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4234,11 +4234,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/p2/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4310,11 +4310,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/python/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4386,11 +4386,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/raw/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4462,11 +4462,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/rpm/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4538,11 +4538,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/ruby/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4614,11 +4614,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/swift/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4690,11 +4690,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/terraform/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -4766,11 +4766,11 @@ impl<C: hyper::client::Connect>PackagesApi for PackagesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/packages/{owner}/{repo}/validate-upload/vagrant/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 

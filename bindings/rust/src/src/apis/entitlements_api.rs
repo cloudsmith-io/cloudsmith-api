@@ -74,12 +74,12 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("show_tokens", &show_tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("show_tokens", &show_tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -154,11 +154,11 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -226,11 +226,11 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/{identifier}/disable/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -298,11 +298,11 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/{identifier}/enable/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -370,16 +370,16 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
-            query.append_pair("show_tokens", &show_tokens.to_string());
-            query.append_pair("query", &query.to_string());
-            query.append_pair("active", &active.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
+            url_query_param.append_pair("show_tokens", &show_tokens.to_string());
+            url_query_param.append_pair("query", &query.to_string());
+            url_query_param.append_pair("active", &active.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -450,12 +450,12 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("show_tokens", &show_tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("show_tokens", &show_tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -530,13 +530,13 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("fuzzy", &fuzzy.to_string());
-            query.append_pair("show_tokens", &show_tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("fuzzy", &fuzzy.to_string());
+            url_query_param.append_pair("show_tokens", &show_tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -607,12 +607,12 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("show_tokens", &show_tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("show_tokens", &show_tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/{identifier}/refresh/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -687,12 +687,12 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("show_tokens", &show_tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("show_tokens", &show_tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/{identifier}/reset/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -760,12 +760,12 @@ impl<C: hyper::client::Connect>EntitlementsApi for EntitlementsApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("show_tokens", &show_tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("show_tokens", &show_tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/entitlements/{owner}/{repo}/sync/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 

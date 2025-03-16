@@ -69,11 +69,11 @@ impl<C: hyper::client::Connect>FilesApi for FilesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/files/{owner}/{repo}/{identifier}/abort/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -145,11 +145,11 @@ impl<C: hyper::client::Connect>FilesApi for FilesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/files/{owner}/{repo}/{identifier}/complete/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -224,11 +224,11 @@ impl<C: hyper::client::Connect>FilesApi for FilesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/files/{owner}/{repo}/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -303,13 +303,13 @@ impl<C: hyper::client::Connect>FilesApi for FilesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("filename", &filename.to_string());
-            query.append_pair("part_number", &part_number.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("filename", &filename.to_string());
+            url_query_param.append_pair("part_number", &part_number.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/files/{owner}/{repo}/{identifier}/info/?{}", configuration.base_path, query_string, owner=owner, repo=repo, identifier=identifier);
 
@@ -380,11 +380,11 @@ impl<C: hyper::client::Connect>FilesApi for FilesApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/files/{owner}/{repo}/validate/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 

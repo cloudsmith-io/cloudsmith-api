@@ -46,8 +46,8 @@ impl<C: hyper::client::Connect>StatusApi for StatusApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.finish()
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.finish()
         };
         let uri_str = format!("{}/status/check/basic/?{}", configuration.base_path, query_string);
 

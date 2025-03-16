@@ -65,22 +65,22 @@ impl<C: hyper::client::Connect>BadgesApi for BadgesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("badge_token", &badge_token.to_string());
-            query.append_pair("cacheSeconds", &cache_seconds.to_string());
-            query.append_pair("color", &color.to_string());
-            query.append_pair("label", &label.to_string());
-            query.append_pair("labelColor", &label_color.to_string());
-            query.append_pair("logoColor", &logo_color.to_string());
-            query.append_pair("logoWidth", &logo_width.to_string());
-            query.append_pair("render", &render.to_string());
-            query.append_pair("shields", &shields.to_string());
-            query.append_pair("show_latest", &show_latest.to_string());
-            query.append_pair("style", &style.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("badge_token", &badge_token.to_string());
+            url_query_param.append_pair("cacheSeconds", &cache_seconds.to_string());
+            url_query_param.append_pair("color", &color.to_string());
+            url_query_param.append_pair("label", &label.to_string());
+            url_query_param.append_pair("labelColor", &label_color.to_string());
+            url_query_param.append_pair("logoColor", &logo_color.to_string());
+            url_query_param.append_pair("logoWidth", &logo_width.to_string());
+            url_query_param.append_pair("render", &render.to_string());
+            url_query_param.append_pair("shields", &shields.to_string());
+            url_query_param.append_pair("show_latest", &show_latest.to_string());
+            url_query_param.append_pair("style", &style.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/?{}", configuration.base_path, query_string, owner=owner, repo=repo, package_format=package_format, package_name=package_name, package_version=package_version, package_identifiers=package_identifiers);
 

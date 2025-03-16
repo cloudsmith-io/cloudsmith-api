@@ -68,11 +68,11 @@ impl<C: hyper::client::Connect>QuotaApi for QuotaApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/quota/history/{owner}/?{}", configuration.base_path, query_string, owner=owner);
 
@@ -143,11 +143,11 @@ impl<C: hyper::client::Connect>QuotaApi for QuotaApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/quota/oss/history/{owner}/?{}", configuration.base_path, query_string, owner=owner);
 
@@ -218,11 +218,11 @@ impl<C: hyper::client::Connect>QuotaApi for QuotaApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/quota/oss/{owner}/?{}", configuration.base_path, query_string, owner=owner);
 
@@ -293,11 +293,11 @@ impl<C: hyper::client::Connect>QuotaApi for QuotaApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/quota/{owner}/?{}", configuration.base_path, query_string, owner=owner);
 

@@ -67,16 +67,16 @@ impl<C: hyper::client::Connect>MetricsApi for MetricsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
-            query.append_pair("finish", &finish.to_string());
-            query.append_pair("start", &start.to_string());
-            query.append_pair("tokens", &tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
+            url_query_param.append_pair("finish", &finish.to_string());
+            url_query_param.append_pair("start", &start.to_string());
+            url_query_param.append_pair("tokens", &tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/metrics/entitlements/{owner}/?{}", configuration.base_path, query_string, owner=owner);
 
@@ -147,16 +147,16 @@ impl<C: hyper::client::Connect>MetricsApi for MetricsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
-            query.append_pair("finish", &finish.to_string());
-            query.append_pair("start", &start.to_string());
-            query.append_pair("tokens", &tokens.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
+            url_query_param.append_pair("finish", &finish.to_string());
+            url_query_param.append_pair("start", &start.to_string());
+            url_query_param.append_pair("tokens", &tokens.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/metrics/entitlements/{owner}/{repo}/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -227,16 +227,16 @@ impl<C: hyper::client::Connect>MetricsApi for MetricsApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
-            query.append_pair("finish", &finish.to_string());
-            query.append_pair("packages", &packages.to_string());
-            query.append_pair("start", &start.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
+            url_query_param.append_pair("finish", &finish.to_string());
+            url_query_param.append_pair("packages", &packages.to_string());
+            url_query_param.append_pair("start", &start.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/metrics/packages/{owner}/{repo}/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 

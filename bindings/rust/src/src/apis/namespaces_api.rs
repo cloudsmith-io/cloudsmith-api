@@ -66,13 +66,13 @@ impl<C: hyper::client::Connect>NamespacesApi for NamespacesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/namespaces/?{}", configuration.base_path, query_string);
 
@@ -143,11 +143,11 @@ impl<C: hyper::client::Connect>NamespacesApi for NamespacesApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/namespaces/{slug}/?{}", configuration.base_path, query_string, slug=slug);
 

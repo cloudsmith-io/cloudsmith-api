@@ -178,11 +178,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/geoip/status/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -253,11 +253,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{repo}/retention/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -332,11 +332,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{repo}/retention/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -407,11 +407,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/?{}", configuration.base_path, query_string, owner=owner);
 
@@ -486,11 +486,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -558,11 +558,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/ecdsa/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -637,11 +637,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/ecdsa/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -712,11 +712,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/ecdsa/regenerate/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -787,11 +787,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/geoip/disable/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -863,11 +863,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/geoip/enable/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -939,11 +939,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/geoip?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1018,11 +1018,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/geoip?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1093,11 +1093,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/geoip/test/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1172,11 +1172,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/geoip?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1251,11 +1251,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/gpg/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1330,11 +1330,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/gpg/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1405,11 +1405,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/gpg/regenerate/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1480,13 +1480,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/?{}", configuration.base_path, query_string, owner=owner);
 
@@ -1557,11 +1557,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1636,13 +1636,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/privileges?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1713,11 +1713,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/privileges?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1789,11 +1789,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/privileges?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1865,11 +1865,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -1940,11 +1940,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/rsa/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -2019,11 +2019,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/rsa/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -2094,11 +2094,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/rsa/regenerate/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -2169,11 +2169,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{repo}/transfer-region/?{}", configuration.base_path, query_string, owner=owner, repo=repo);
 
@@ -2245,11 +2245,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/composer/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -2324,11 +2324,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -2396,13 +2396,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/composer/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -2473,11 +2473,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -2552,11 +2552,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -2627,11 +2627,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/composer/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -2706,11 +2706,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/cran/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -2785,11 +2785,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -2857,13 +2857,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/cran/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -2934,11 +2934,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3013,11 +3013,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3088,11 +3088,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/cran/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3167,11 +3167,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/dart/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -3246,11 +3246,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3318,13 +3318,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/dart/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -3395,11 +3395,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3474,11 +3474,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3549,11 +3549,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/dart/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3628,11 +3628,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/deb/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -3707,11 +3707,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3779,13 +3779,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/deb/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -3856,11 +3856,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -3935,11 +3935,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4010,11 +4010,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/deb/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4089,11 +4089,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/docker/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -4168,11 +4168,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4240,13 +4240,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/docker/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -4317,11 +4317,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4396,11 +4396,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4471,11 +4471,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/docker/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4550,11 +4550,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/helm/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -4629,11 +4629,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4701,13 +4701,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/helm/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -4778,11 +4778,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4857,11 +4857,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -4932,11 +4932,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/helm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5011,11 +5011,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/hex/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -5090,11 +5090,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5162,13 +5162,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/hex/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -5239,11 +5239,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5318,11 +5318,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5393,11 +5393,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/hex/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5472,11 +5472,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/maven/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -5551,11 +5551,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5623,13 +5623,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/maven/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -5700,11 +5700,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5779,11 +5779,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5854,11 +5854,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/maven/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -5933,11 +5933,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/npm/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -6012,11 +6012,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6084,13 +6084,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/npm/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -6161,11 +6161,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6240,11 +6240,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6315,11 +6315,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/npm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6394,11 +6394,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/nuget/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -6473,11 +6473,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6545,13 +6545,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/nuget/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -6622,11 +6622,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6701,11 +6701,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6776,11 +6776,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -6855,11 +6855,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/python/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -6934,11 +6934,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/python/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7006,13 +7006,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/python/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -7083,11 +7083,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/python/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7162,11 +7162,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/python/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7237,11 +7237,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/python/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7316,11 +7316,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/rpm/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -7395,11 +7395,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7467,13 +7467,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/rpm/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -7544,11 +7544,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7623,11 +7623,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7698,11 +7698,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7777,11 +7777,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/ruby/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -7856,11 +7856,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -7928,13 +7928,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/ruby/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -8005,11 +8005,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -8084,11 +8084,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -8159,11 +8159,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -8238,11 +8238,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Post;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/swift/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -8317,11 +8317,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Delete;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -8389,13 +8389,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/swift/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -8466,11 +8466,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Patch;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -8545,11 +8545,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -8620,11 +8620,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Put;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/upstream/swift/{slug_perm}/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier, slug_perm=slug_perm);
 
@@ -8699,13 +8699,13 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
-            query.append_pair("page", &page.to_string());
-            query.append_pair("page_size", &page_size.to_string());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
+            url_query_param.append_pair("page", &page.to_string());
+            url_query_param.append_pair("page_size", &page_size.to_string());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/?{}", configuration.base_path, query_string);
 
@@ -8776,11 +8776,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/x509-ecdsa/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
@@ -8851,11 +8851,11 @@ impl<C: hyper::client::Connect>ReposApi for ReposApiClient<C> {
         let method = hyper::Method::Get;
 
         let query_string = {
-            let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+            let mut url_query_param = ::url::form_urlencoded::Serializer::new(String::new());
             for (key, val) in &auth_query {
-                query.append_pair(key, val);
+                url_query_param.append_pair(key, val);
             }
-            query.finish()
+            url_query_param.finish()
         };
         let uri_str = format!("{}/repos/{owner}/{identifier}/x509-rsa/?{}", configuration.base_path, query_string, owner=owner, identifier=identifier);
 
