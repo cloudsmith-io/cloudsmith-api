@@ -32,10 +32,22 @@ describe 'DockerUpstreamRequest' do
       expect(@instance).to be_instance_of(CloudsmithApi::DockerUpstreamRequest)
     end
   end
+  describe 'test attribute "auth_certificate"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "auth_certificate_key"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "auth_mode"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["None", "Username and Password"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["None", "Username and Password", "Certificate and Key"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.auth_mode = value }.not_to raise_error
       # end

@@ -17,6 +17,9 @@ class MavenPackageUploadRequest
   # The ID of the artifact.
   attr_accessor :artifact_id
 
+  # Extra files to include in the package. This can be a single file or multiple files.
+  attr_accessor :extra_files
+
   # Artifact's group ID.
   attr_accessor :group_id
 
@@ -58,6 +61,7 @@ class MavenPackageUploadRequest
   def self.attribute_map
     {
       :'artifact_id' => :'artifact_id',
+      :'extra_files' => :'extra_files',
       :'group_id' => :'group_id',
       :'ivy_file' => :'ivy_file',
       :'javadoc_file' => :'javadoc_file',
@@ -78,6 +82,7 @@ class MavenPackageUploadRequest
   def self.swagger_types
     {
       :'artifact_id' => :'String',
+      :'extra_files' => :'Array<String>',
       :'group_id' => :'String',
       :'ivy_file' => :'String',
       :'javadoc_file' => :'String',
@@ -104,6 +109,12 @@ class MavenPackageUploadRequest
 
     if attributes.has_key?(:'artifact_id')
       self.artifact_id = attributes[:'artifact_id']
+    end
+
+    if attributes.has_key?(:'extra_files')
+      if (value = attributes[:'extra_files']).is_a?(Array)
+        self.extra_files = value
+      end
     end
 
     if attributes.has_key?(:'group_id')
@@ -183,6 +194,7 @@ class MavenPackageUploadRequest
     return true if self.equal?(o)
     self.class == o.class &&
         artifact_id == o.artifact_id &&
+        extra_files == o.extra_files &&
         group_id == o.group_id &&
         ivy_file == o.ivy_file &&
         javadoc_file == o.javadoc_file &&
@@ -207,7 +219,7 @@ class MavenPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [artifact_id, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sbt_version, scala_version, sources_file, tags, tests_file, version].hash
+    [artifact_id, extra_files, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sbt_version, scala_version, sources_file, tags, tests_file, version].hash
   end
 
     # Builds the object from hash

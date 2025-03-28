@@ -30,7 +30,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -102,11 +104,20 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("format_url")
   private String formatUrl = null;
 
+  @SerializedName("freeable_storage")
+  private java.math.BigInteger freeableStorage = null;
+
+  @SerializedName("fully_qualified_name")
+  private String fullyQualifiedName = null;
+
   @SerializedName("group_id")
   private String groupId = null;
 
   @SerializedName("identifier_perm")
   private String identifierPerm = null;
+
+  @SerializedName("identifiers")
+  private Map<String, String> identifiers = null;
 
   @SerializedName("indexed")
   private Boolean indexed = null;
@@ -558,6 +569,24 @@ public class MavenPackageUpload implements Serializable {
     return formatUrl;
   }
 
+   /**
+   * Amount of storage that will be freed if this package is deleted
+   * @return freeableStorage
+  **/
+  @ApiModelProperty(value = "Amount of storage that will be freed if this package is deleted")
+  public java.math.BigInteger getFreeableStorage() {
+    return freeableStorage;
+  }
+
+   /**
+   * Get fullyQualifiedName
+   * @return fullyQualifiedName
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "")
+  public String getFullyQualifiedName() {
+    return fullyQualifiedName;
+  }
+
   public MavenPackageUpload groupId(String groupId) {
     this.groupId = groupId;
     return this;
@@ -583,6 +612,15 @@ public class MavenPackageUpload implements Serializable {
  @Size(min=1)  @ApiModelProperty(value = "Unique and permanent identifier for the package.")
   public String getIdentifierPerm() {
     return identifierPerm;
+  }
+
+   /**
+   * Return a map of identifier field names and their values.
+   * @return identifiers
+  **/
+  @ApiModelProperty(value = "Return a map of identifier field names and their values.")
+  public Map<String, String> getIdentifiers() {
+    return identifiers;
   }
 
    /**
@@ -1208,8 +1246,11 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.files, mavenPackageUpload.files) &&
         Objects.equals(this.format, mavenPackageUpload.format) &&
         Objects.equals(this.formatUrl, mavenPackageUpload.formatUrl) &&
+        Objects.equals(this.freeableStorage, mavenPackageUpload.freeableStorage) &&
+        Objects.equals(this.fullyQualifiedName, mavenPackageUpload.fullyQualifiedName) &&
         Objects.equals(this.groupId, mavenPackageUpload.groupId) &&
         Objects.equals(this.identifierPerm, mavenPackageUpload.identifierPerm) &&
+        Objects.equals(this.identifiers, mavenPackageUpload.identifiers) &&
         Objects.equals(this.indexed, mavenPackageUpload.indexed) &&
         Objects.equals(this.isCancellable, mavenPackageUpload.isCancellable) &&
         Objects.equals(this.isCopyable, mavenPackageUpload.isCopyable) &&
@@ -1274,7 +1315,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, groupId, identifierPerm, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, policyViolated, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, groupId, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, policyViolated, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1303,8 +1344,11 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");
+    sb.append("    freeableStorage: ").append(toIndentedString(freeableStorage)).append("\n");
+    sb.append("    fullyQualifiedName: ").append(toIndentedString(fullyQualifiedName)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    identifierPerm: ").append(toIndentedString(identifierPerm)).append("\n");
+    sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("    indexed: ").append(toIndentedString(indexed)).append("\n");
     sb.append("    isCancellable: ").append(toIndentedString(isCancellable)).append("\n");
     sb.append("    isCopyable: ").append(toIndentedString(isCopyable)).append("\n");

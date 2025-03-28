@@ -69,6 +69,8 @@ import io.cloudsmith.api.models.RepositoryRetentionRulesRequestPatch;
 import io.cloudsmith.api.models.RepositoryRsaKey;
 import io.cloudsmith.api.models.RepositoryRsaKeyCreate;
 import io.cloudsmith.api.models.RepositoryTransferRegionRequest;
+import io.cloudsmith.api.models.RepositoryX509EcdsaCertificate;
+import io.cloudsmith.api.models.RepositoryX509RsaCertificate;
 import io.cloudsmith.api.models.RespositoryGeoIpEnableDisableRequest;
 import io.cloudsmith.api.models.RpmUpstream;
 import io.cloudsmith.api.models.RpmUpstreamRequest;
@@ -2139,6 +2141,40 @@ public class ReposApiTest {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
         List<Repository> response = api.reposUserList(page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the active X.509 ECDSA certificate for the Repository.
+     *
+     * Retrieve the active X.509 ECDSA certificate for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposX509EcdsaListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryX509EcdsaCertificate response = api.reposX509EcdsaList(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the active X.509 RSA certificate for the Repository.
+     *
+     * Retrieve the active X.509 RSA certificate for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposX509RsaListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryX509RsaCertificate response = api.reposX509RsaList(owner, identifier);
 
         // TODO: test validations
     }

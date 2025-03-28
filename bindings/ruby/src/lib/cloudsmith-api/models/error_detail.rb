@@ -17,17 +17,22 @@ class ErrorDetail
   # An extended message for the response.
   attr_accessor :detail
 
+  # A Dictionary of related errors where key: Field and value: Array of Errors related to that field
+  attr_accessor :fields
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'detail' => :'detail'
+      :'detail' => :'detail',
+      :'fields' => :'fields'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'detail' => :'String'
+      :'detail' => :'String',
+      :'fields' => :'Hash<String, Array<String>>'
     }
   end
 
@@ -41,6 +46,12 @@ class ErrorDetail
 
     if attributes.has_key?(:'detail')
       self.detail = attributes[:'detail']
+    end
+
+    if attributes.has_key?(:'fields')
+      if (value = attributes[:'fields']).is_a?(Hash)
+        self.fields = value
+      end
     end
   end
 
@@ -67,7 +78,8 @@ class ErrorDetail
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        detail == o.detail
+        detail == o.detail &&
+        fields == o.fields
   end
 
   # @see the `==` method
@@ -79,7 +91,7 @@ class ErrorDetail
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [detail].hash
+    [detail, fields].hash
   end
 
     # Builds the object from hash

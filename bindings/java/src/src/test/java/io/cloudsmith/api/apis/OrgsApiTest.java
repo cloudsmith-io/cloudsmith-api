@@ -23,12 +23,19 @@ import io.cloudsmith.api.models.OrganizationInviteExtend;
 import io.cloudsmith.api.models.OrganizationInviteRequest;
 import io.cloudsmith.api.models.OrganizationInviteUpdateRequestPatch;
 import io.cloudsmith.api.models.OrganizationMembership;
+import io.cloudsmith.api.models.OrganizationMembershipRequestPatch;
+import io.cloudsmith.api.models.OrganizationMembershipRoleUpdate;
+import io.cloudsmith.api.models.OrganizationMembershipRoleUpdateRequestPatch;
+import io.cloudsmith.api.models.OrganizationMembershipVisibilityUpdate;
+import io.cloudsmith.api.models.OrganizationMembershipVisibilityUpdateRequestPatch;
 import io.cloudsmith.api.models.OrganizationPackageLicensePolicy;
 import io.cloudsmith.api.models.OrganizationPackageLicensePolicyRequest;
 import io.cloudsmith.api.models.OrganizationPackageLicensePolicyRequestPatch;
 import io.cloudsmith.api.models.OrganizationPackageVulnerabilityPolicy;
 import io.cloudsmith.api.models.OrganizationPackageVulnerabilityPolicyRequest;
 import io.cloudsmith.api.models.OrganizationPackageVulnerabilityPolicyRequestPatch;
+import io.cloudsmith.api.models.OrganizationSAMLAuth;
+import io.cloudsmith.api.models.OrganizationSAMLAuthRequestPatch;
 import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
@@ -517,7 +524,27 @@ public class OrgsApiTest {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
         Boolean isActive = null;
-        List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize, isActive);
+        String query = null;
+        String sort = null;
+        List<OrganizationMembership> response = api.orgsMembersList(org, page, pageSize, isActive, query, sort);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Views for working with organization members.
+     *
+     * Views for working with organization members.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersPartialUpdateTest() throws Exception {
+        String org = null;
+        String member = null;
+        OrganizationMembershipRequestPatch data = null;
+        OrganizationMembership response = api.orgsMembersPartialUpdate(org, member, data);
 
         // TODO: test validations
     }
@@ -569,6 +596,42 @@ public class OrgsApiTest {
         String org = null;
         String member = null;
         api.orgsMembersRemove(org, member);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a member&#39;s role in the organization.
+     *
+     * Update a member&#39;s role in the organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersUpdateRoleTest() throws Exception {
+        String org = null;
+        String member = null;
+        OrganizationMembershipRoleUpdateRequestPatch data = null;
+        OrganizationMembershipRoleUpdate response = api.orgsMembersUpdateRole(org, member, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a member&#39;s visibility in the organization.
+     *
+     * Update a member&#39;s visibility in the organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsMembersUpdateVisibilityTest() throws Exception {
+        String org = null;
+        String member = null;
+        OrganizationMembershipVisibilityUpdateRequestPatch data = null;
+        OrganizationMembershipVisibilityUpdate response = api.orgsMembersUpdateVisibility(org, member, data);
 
         // TODO: test validations
     }
@@ -690,6 +753,39 @@ public class OrgsApiTest {
     public void orgsReadTest() throws Exception {
         String org = null;
         Organization response = api.orgsRead(org);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update the SAML Authentication settings for this Organization.
+     *
+     * Update the SAML Authentication settings for this Organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlAuthenticationPartialUpdateTest() throws Exception {
+        String org = null;
+        OrganizationSAMLAuthRequestPatch data = null;
+        OrganizationSAMLAuth response = api.orgsSamlAuthenticationPartialUpdate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the SAML Authentication settings for this Organization.
+     *
+     * Retrieve the SAML Authentication settings for this Organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsSamlAuthenticationReadTest() throws Exception {
+        String org = null;
+        OrganizationSAMLAuth response = api.orgsSamlAuthenticationRead(org);
 
         // TODO: test validations
     }

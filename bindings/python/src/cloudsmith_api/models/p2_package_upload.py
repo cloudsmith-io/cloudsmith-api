@@ -52,7 +52,10 @@ class P2PackageUpload(object):
         'files': 'list[PackageFile]',
         'format': 'str',
         'format_url': 'str',
+        'freeable_storage': 'int',
+        'fully_qualified_name': 'str',
         'identifier_perm': 'str',
+        'identifiers': 'dict(str, str)',
         'indexed': 'bool',
         'is_cancellable': 'bool',
         'is_copyable': 'bool',
@@ -132,7 +135,10 @@ class P2PackageUpload(object):
         'files': 'files',
         'format': 'format',
         'format_url': 'format_url',
+        'freeable_storage': 'freeable_storage',
+        'fully_qualified_name': 'fully_qualified_name',
         'identifier_perm': 'identifier_perm',
+        'identifiers': 'identifiers',
         'indexed': 'indexed',
         'is_cancellable': 'is_cancellable',
         'is_copyable': 'is_copyable',
@@ -192,7 +198,7 @@ class P2PackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, identifier_perm=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, policy_violated=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, policy_violated=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """P2PackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -217,7 +223,10 @@ class P2PackageUpload(object):
         self._files = None
         self._format = None
         self._format_url = None
+        self._freeable_storage = None
+        self._fully_qualified_name = None
         self._identifier_perm = None
+        self._identifiers = None
         self._indexed = None
         self._is_cancellable = None
         self._is_copyable = None
@@ -315,8 +324,14 @@ class P2PackageUpload(object):
             self.format = format
         if format_url is not None:
             self.format_url = format_url
+        if freeable_storage is not None:
+            self.freeable_storage = freeable_storage
+        if fully_qualified_name is not None:
+            self.fully_qualified_name = fully_qualified_name
         if identifier_perm is not None:
             self.identifier_perm = identifier_perm
+        if identifiers is not None:
+            self.identifiers = identifiers
         if indexed is not None:
             self.indexed = indexed
         if is_cancellable is not None:
@@ -844,6 +859,53 @@ class P2PackageUpload(object):
         self._format_url = format_url
 
     @property
+    def freeable_storage(self):
+        """Gets the freeable_storage of this P2PackageUpload.
+
+        Amount of storage that will be freed if this package is deleted
+
+        :return: The freeable_storage of this P2PackageUpload.
+        :rtype: int
+        """
+        return self._freeable_storage
+
+    @freeable_storage.setter
+    def freeable_storage(self, freeable_storage):
+        """Sets the freeable_storage of this P2PackageUpload.
+
+        Amount of storage that will be freed if this package is deleted
+
+        :param freeable_storage: The freeable_storage of this P2PackageUpload.
+        :type: int
+        """
+
+        self._freeable_storage = freeable_storage
+
+    @property
+    def fully_qualified_name(self):
+        """Gets the fully_qualified_name of this P2PackageUpload.
+
+
+        :return: The fully_qualified_name of this P2PackageUpload.
+        :rtype: str
+        """
+        return self._fully_qualified_name
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, fully_qualified_name):
+        """Sets the fully_qualified_name of this P2PackageUpload.
+
+
+        :param fully_qualified_name: The fully_qualified_name of this P2PackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                fully_qualified_name is not None and len(fully_qualified_name) < 1):
+            raise ValueError("Invalid value for `fully_qualified_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._fully_qualified_name = fully_qualified_name
+
+    @property
     def identifier_perm(self):
         """Gets the identifier_perm of this P2PackageUpload.
 
@@ -868,6 +930,29 @@ class P2PackageUpload(object):
             raise ValueError("Invalid value for `identifier_perm`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._identifier_perm = identifier_perm
+
+    @property
+    def identifiers(self):
+        """Gets the identifiers of this P2PackageUpload.
+
+        Return a map of identifier field names and their values.
+
+        :return: The identifiers of this P2PackageUpload.
+        :rtype: dict(str, str)
+        """
+        return self._identifiers
+
+    @identifiers.setter
+    def identifiers(self, identifiers):
+        """Sets the identifiers of this P2PackageUpload.
+
+        Return a map of identifier field names and their values.
+
+        :param identifiers: The identifiers of this P2PackageUpload.
+        :type: dict(str, str)
+        """
+
+        self._identifiers = identifiers
 
     @property
     def indexed(self):

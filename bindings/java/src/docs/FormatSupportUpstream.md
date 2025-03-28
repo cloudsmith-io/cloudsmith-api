@@ -18,6 +18,7 @@ Name | Value
 ---- | -----
 USERNAME_AND_PASSWORD | &quot;Username and Password&quot;
 TOKEN | &quot;Token&quot;
+CERTIFICATE_AND_KEY | &quot;Certificate and Key&quot;
 
 
 <a name="IndexingBehaviorEnum"></a>

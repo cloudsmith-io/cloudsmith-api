@@ -116,6 +116,8 @@ Method | HTTP request | Description
 [**repos_upstream_swift_read**](ReposApi.md#repos_upstream_swift_read) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
 [**repos_upstream_swift_update**](ReposApi.md#repos_upstream_swift_update) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
 [**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**repos_x509_ecdsa_list**](ReposApi.md#repos_x509_ecdsa_list) | **GET** /repos/{owner}/{identifier}/x509-ecdsa/ | Retrieve the active X.509 ECDSA certificate for the Repository.
+[**repos_x509_rsa_list**](ReposApi.md#repos_x509_rsa_list) | **GET** /repos/{owner}/{identifier}/x509-rsa/ | Retrieve the active X.509 RSA certificate for the Repository.
 
 
 # **api_repos_geoip_status**
@@ -7400,6 +7402,128 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Array&lt;Repository&gt;**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_x509_ecdsa_list**
+> RepositoryX509EcdsaCertificate repos_x509_ecdsa_list(owner, identifier)
+
+Retrieve the active X.509 ECDSA certificate for the Repository.
+
+Retrieve the active X.509 ECDSA certificate for the Repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+
+begin
+  #Retrieve the active X.509 ECDSA certificate for the Repository.
+  result = api_instance.repos_x509_ecdsa_list(owner, identifier)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_x509_ecdsa_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+[**RepositoryX509EcdsaCertificate**](RepositoryX509EcdsaCertificate.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_x509_rsa_list**
+> RepositoryX509RsaCertificate repos_x509_rsa_list(owner, identifier)
+
+Retrieve the active X.509 RSA certificate for the Repository.
+
+Retrieve the active X.509 RSA certificate for the Repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+
+begin
+  #Retrieve the active X.509 RSA certificate for the Repository.
+  result = api_instance.repos_x509_rsa_list(owner, identifier)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_x509_rsa_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+[**RepositoryX509RsaCertificate**](RepositoryX509RsaCertificate.md)
 
 ### Authorization
 

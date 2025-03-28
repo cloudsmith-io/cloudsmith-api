@@ -59,6 +59,7 @@ class Repository(object):
         'name': 'str',
         'namespace': 'str',
         'namespace_url': 'str',
+        'nuget_native_signing_enabled': 'bool',
         'num_downloads': 'int',
         'num_policy_violated_packages': 'int',
         'num_quarantined_packages': 'int',
@@ -125,6 +126,7 @@ class Repository(object):
         'name': 'name',
         'namespace': 'namespace',
         'namespace_url': 'namespace_url',
+        'nuget_native_signing_enabled': 'nuget_native_signing_enabled',
         'num_downloads': 'num_downloads',
         'num_policy_violated_packages': 'num_policy_violated_packages',
         'num_quarantined_packages': 'num_quarantined_packages',
@@ -164,7 +166,7 @@ class Repository(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """Repository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -196,6 +198,7 @@ class Repository(object):
         self._name = None
         self._namespace = None
         self._namespace_url = None
+        self._nuget_native_signing_enabled = None
         self._num_downloads = None
         self._num_policy_violated_packages = None
         self._num_quarantined_packages = None
@@ -286,6 +289,8 @@ class Repository(object):
             self.namespace = namespace
         if namespace_url is not None:
             self.namespace_url = namespace_url
+        if nuget_native_signing_enabled is not None:
+            self.nuget_native_signing_enabled = nuget_native_signing_enabled
         if num_downloads is not None:
             self.num_downloads = num_downloads
         if num_policy_violated_packages is not None:
@@ -1002,6 +1007,29 @@ class Repository(object):
         """
 
         self._namespace_url = namespace_url
+
+    @property
+    def nuget_native_signing_enabled(self):
+        """Gets the nuget_native_signing_enabled of this Repository.
+
+        When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.
+
+        :return: The nuget_native_signing_enabled of this Repository.
+        :rtype: bool
+        """
+        return self._nuget_native_signing_enabled
+
+    @nuget_native_signing_enabled.setter
+    def nuget_native_signing_enabled(self, nuget_native_signing_enabled):
+        """Sets the nuget_native_signing_enabled of this Repository.
+
+        When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.
+
+        :param nuget_native_signing_enabled: The nuget_native_signing_enabled of this Repository.
+        :type: bool
+        """
+
+        self._nuget_native_signing_enabled = nuget_native_signing_enabled
 
     @property
     def num_downloads(self):

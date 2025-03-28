@@ -378,6 +378,9 @@ public class RepositoryRequestPatch implements Serializable {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("nuget_native_signing_enabled")
+  private Boolean nugetNativeSigningEnabled = null;
+
   @SerializedName("open_source_license")
   private String openSourceLicense = null;
 
@@ -1039,6 +1042,24 @@ public class RepositoryRequestPatch implements Serializable {
     this.name = name;
   }
 
+  public RepositoryRequestPatch nugetNativeSigningEnabled(Boolean nugetNativeSigningEnabled) {
+    this.nugetNativeSigningEnabled = nugetNativeSigningEnabled;
+    return this;
+  }
+
+   /**
+   * When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository&#39;s X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository&#39;s signing certificates including the ones from configured upstreams.
+   * @return nugetNativeSigningEnabled
+  **/
+  @ApiModelProperty(value = "When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.")
+  public Boolean isNugetNativeSigningEnabled() {
+    return nugetNativeSigningEnabled;
+  }
+
+  public void setNugetNativeSigningEnabled(Boolean nugetNativeSigningEnabled) {
+    this.nugetNativeSigningEnabled = nugetNativeSigningEnabled;
+  }
+
   public RepositoryRequestPatch openSourceLicense(String openSourceLicense) {
     this.openSourceLicense = openSourceLicense;
     return this;
@@ -1515,6 +1536,7 @@ public class RepositoryRequestPatch implements Serializable {
         Objects.equals(this.moveOwn, repositoryRequestPatch.moveOwn) &&
         Objects.equals(this.movePackages, repositoryRequestPatch.movePackages) &&
         Objects.equals(this.name, repositoryRequestPatch.name) &&
+        Objects.equals(this.nugetNativeSigningEnabled, repositoryRequestPatch.nugetNativeSigningEnabled) &&
         Objects.equals(this.openSourceLicense, repositoryRequestPatch.openSourceLicense) &&
         Objects.equals(this.openSourceProjectUrl, repositoryRequestPatch.openSourceProjectUrl) &&
         Objects.equals(this.proxyNpmjs, repositoryRequestPatch.proxyNpmjs) &&
@@ -1544,7 +1566,7 @@ public class RepositoryRequestPatch implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1569,6 +1591,7 @@ public class RepositoryRequestPatch implements Serializable {
     sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");
     sb.append("    movePackages: ").append(toIndentedString(movePackages)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nugetNativeSigningEnabled: ").append(toIndentedString(nugetNativeSigningEnabled)).append("\n");
     sb.append("    openSourceLicense: ").append(toIndentedString(openSourceLicense)).append("\n");
     sb.append("    openSourceProjectUrl: ").append(toIndentedString(openSourceProjectUrl)).append("\n");
     sb.append("    proxyNpmjs: ").append(toIndentedString(proxyNpmjs)).append("\n");

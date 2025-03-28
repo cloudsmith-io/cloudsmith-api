@@ -32,6 +32,7 @@ USERNAME_AND_PASSWORD | &quot;Username and Password&quot;
 Name | Value
 ---- | -----
 PROXY_ONLY | &quot;Proxy Only&quot;
+CACHE_AND_PROXY | &quot;Cache and Proxy&quot;
 
 
 

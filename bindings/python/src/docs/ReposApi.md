@@ -116,6 +116,8 @@ Method | HTTP request | Description
 [**repos_upstream_swift_read**](ReposApi.md#repos_upstream_swift_read) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
 [**repos_upstream_swift_update**](ReposApi.md#repos_upstream_swift_update) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
 [**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**repos_x509_ecdsa_list**](ReposApi.md#repos_x509_ecdsa_list) | **GET** /repos/{owner}/{identifier}/x509-ecdsa/ | Retrieve the active X.509 ECDSA certificate for the Repository.
+[**repos_x509_rsa_list**](ReposApi.md#repos_x509_rsa_list) | **GET** /repos/{owner}/{identifier}/x509-rsa/ | Retrieve the active X.509 RSA certificate for the Repository.
 
 
 # **api_repos_geoip_status**
@@ -7090,6 +7092,126 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[Repository]**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_x509_ecdsa_list**
+> RepositoryX509EcdsaCertificate repos_x509_ecdsa_list(owner, identifier)
+
+Retrieve the active X.509 ECDSA certificate for the Repository.
+
+Retrieve the active X.509 ECDSA certificate for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Retrieve the active X.509 ECDSA certificate for the Repository.
+    api_response = api_instance.repos_x509_ecdsa_list(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_x509_ecdsa_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryX509EcdsaCertificate**](RepositoryX509EcdsaCertificate.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_x509_rsa_list**
+> RepositoryX509RsaCertificate repos_x509_rsa_list(owner, identifier)
+
+Retrieve the active X.509 RSA certificate for the Repository.
+
+Retrieve the active X.509 RSA certificate for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Retrieve the active X.509 RSA certificate for the Repository.
+    api_response = api_instance.repos_x509_rsa_list(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_x509_rsa_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryX509RsaCertificate**](RepositoryX509RsaCertificate.md)
 
 ### Authorization
 

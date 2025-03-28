@@ -211,6 +211,13 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_members_partial_update(self):
+        """Test case for orgs_members_partial_update
+
+        Views for working with organization members.  # noqa: E501
+        """
+        pass
+
     def test_orgs_members_read(self):
         """Test case for orgs_members_read
 
@@ -229,6 +236,20 @@ class TestOrgsApi(unittest.TestCase):
         """Test case for orgs_members_remove
 
         Removes a member from the organization (deprecated, use DELETE instead).  # noqa: E501
+        """
+        pass
+
+    def test_orgs_members_update_role(self):
+        """Test case for orgs_members_update_role
+
+        Update a member's role in the organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_members_update_visibility(self):
+        """Test case for orgs_members_update_visibility
+
+        Update a member's visibility in the organization.  # noqa: E501
         """
         pass
 
@@ -278,6 +299,20 @@ class TestOrgsApi(unittest.TestCase):
         """Test case for orgs_read
 
         Get the details for the specific organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_saml_authentication_partial_update(self):
+        """Test case for orgs_saml_authentication_partial_update
+
+        Update the SAML Authentication settings for this Organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_saml_authentication_read(self):
+        """Test case for orgs_saml_authentication_read
+
+        Retrieve the SAML Authentication settings for this Organization.  # noqa: E501
         """
         pass
 

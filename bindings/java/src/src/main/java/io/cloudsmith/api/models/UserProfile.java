@@ -149,7 +149,7 @@ public class UserProfile implements Serializable {
    * @return lastName
   **/
   @NotNull
- @Size(min=1,max=30)  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=120)  @ApiModelProperty(required = true, value = "")
   public String getLastName() {
     return lastName;
   }

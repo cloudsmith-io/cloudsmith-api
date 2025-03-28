@@ -35,7 +35,7 @@ describe 'FormatSupportUpstream' do
   describe 'test attribute "auth_modes"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["Username and Password", "Token"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["Username and Password", "Token", "Certificate and Key"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.auth_modes = value }.not_to raise_error
       # end

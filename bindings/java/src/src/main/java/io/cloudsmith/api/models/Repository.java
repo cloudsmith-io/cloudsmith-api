@@ -411,6 +411,9 @@ public class Repository implements Serializable {
   @SerializedName("namespace_url")
   private String namespaceUrl = null;
 
+  @SerializedName("nuget_native_signing_enabled")
+  private Boolean nugetNativeSigningEnabled = null;
+
   @SerializedName("num_downloads")
   private java.math.BigInteger numDownloads = null;
 
@@ -1203,6 +1206,24 @@ public class Repository implements Serializable {
     return namespaceUrl;
   }
 
+  public Repository nugetNativeSigningEnabled(Boolean nugetNativeSigningEnabled) {
+    this.nugetNativeSigningEnabled = nugetNativeSigningEnabled;
+    return this;
+  }
+
+   /**
+   * When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository&#39;s X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository&#39;s signing certificates including the ones from configured upstreams.
+   * @return nugetNativeSigningEnabled
+  **/
+  @ApiModelProperty(value = "When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.")
+  public Boolean isNugetNativeSigningEnabled() {
+    return nugetNativeSigningEnabled;
+  }
+
+  public void setNugetNativeSigningEnabled(Boolean nugetNativeSigningEnabled) {
+    this.nugetNativeSigningEnabled = nugetNativeSigningEnabled;
+  }
+
    /**
    * The number of downloads for packages in the repository.
    * @return numDownloads
@@ -1797,6 +1818,7 @@ public class Repository implements Serializable {
         Objects.equals(this.name, repository.name) &&
         Objects.equals(this.namespace, repository.namespace) &&
         Objects.equals(this.namespaceUrl, repository.namespaceUrl) &&
+        Objects.equals(this.nugetNativeSigningEnabled, repository.nugetNativeSigningEnabled) &&
         Objects.equals(this.numDownloads, repository.numDownloads) &&
         Objects.equals(this.numPolicyViolatedPackages, repository.numPolicyViolatedPackages) &&
         Objects.equals(this.numQuarantinedPackages, repository.numQuarantinedPackages) &&
@@ -1838,7 +1860,7 @@ public class Repository implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1873,6 +1895,7 @@ public class Repository implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    namespaceUrl: ").append(toIndentedString(namespaceUrl)).append("\n");
+    sb.append("    nugetNativeSigningEnabled: ").append(toIndentedString(nugetNativeSigningEnabled)).append("\n");
     sb.append("    numDownloads: ").append(toIndentedString(numDownloads)).append("\n");
     sb.append("    numPolicyViolatedPackages: ").append(toIndentedString(numPolicyViolatedPackages)).append("\n");
     sb.append("    numQuarantinedPackages: ").append(toIndentedString(numQuarantinedPackages)).append("\n");
