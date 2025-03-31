@@ -30,9 +30,12 @@ Method | HTTP request | Description
 [**orgs_list**](OrgsApi.md#orgs_list) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 [**orgs_members_delete**](OrgsApi.md#orgs_members_delete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgs_members_list**](OrgsApi.md#orgs_members_list) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
+[**orgs_members_partial_update**](OrgsApi.md#orgs_members_partial_update) | **PATCH** /orgs/{org}/members/{member}/ | Views for working with organization members.
 [**orgs_members_read**](OrgsApi.md#orgs_members_read) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 [**orgs_members_refresh**](OrgsApi.md#orgs_members_refresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 [**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+[**orgs_members_update_role**](OrgsApi.md#orgs_members_update_role) | **PATCH** /orgs/{org}/members/{member}/update-role/ | Update a member&#39;s role in the organization.
+[**orgs_members_update_visibility**](OrgsApi.md#orgs_members_update_visibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
 [**orgs_openid_connect_create**](OrgsApi.md#orgs_openid_connect_create) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
 [**orgs_openid_connect_delete**](OrgsApi.md#orgs_openid_connect_delete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
 [**orgs_openid_connect_list**](OrgsApi.md#orgs_openid_connect_list) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
@@ -40,6 +43,8 @@ Method | HTTP request | Description
 [**orgs_openid_connect_read**](OrgsApi.md#orgs_openid_connect_read) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
 [**orgs_openid_connect_update**](OrgsApi.md#orgs_openid_connect_update) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgs_read**](OrgsApi.md#orgs_read) | **GET** /orgs/{org}/ | Get the details for the specific organization.
+[**orgs_saml_authentication_partial_update**](OrgsApi.md#orgs_saml_authentication_partial_update) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization.
+[**orgs_saml_authentication_read**](OrgsApi.md#orgs_saml_authentication_read) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization.
 [**orgs_saml_group_sync_create**](OrgsApi.md#orgs_saml_group_sync_create) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgs_saml_group_sync_delete**](OrgsApi.md#orgs_saml_group_sync_delete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgs_saml_group_sync_disable**](OrgsApi.md#orgs_saml_group_sync_disable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization.
@@ -1667,7 +1672,9 @@ org = 'org_example' # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  is_active: false # BOOLEAN | Filter for active/inactive users.
+  is_active: false, # BOOLEAN | Filter for active/inactive users.
+  query: '', # String | A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role
+  sort: 'user_name' # String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-user_name`). Available options: user_name, role.
 }
 
 begin
@@ -1687,10 +1694,77 @@ Name | Type | Description  | Notes
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
  **is_active** | **BOOLEAN**| Filter for active/inactive users. | [optional] [default to false]
+ **query** | **String**| A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role. | [optional] [default to user_name]
 
 ### Return type
 
 [**Array&lt;OrganizationMembership&gt;**](OrganizationMembership.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_members_partial_update**
+> OrganizationMembership orgs_members_partial_update(org, member, opts)
+
+Views for working with organization members.
+
+Views for working with organization members.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+member = 'member_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationMembershipRequestPatch.new # OrganizationMembershipRequestPatch | 
+}
+
+begin
+  #Views for working with organization members.
+  result = api_instance.orgs_members_partial_update(org, member, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_members_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **member** | **String**|  | 
+ **data** | [**OrganizationMembershipRequestPatch**](OrganizationMembershipRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationMembership**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -1872,6 +1946,136 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_members_update_role**
+> OrganizationMembershipRoleUpdate orgs_members_update_role(org, member, opts)
+
+Update a member's role in the organization.
+
+Update a member's role in the organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+member = 'member_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationMembershipRoleUpdateRequestPatch.new # OrganizationMembershipRoleUpdateRequestPatch | 
+}
+
+begin
+  #Update a member's role in the organization.
+  result = api_instance.orgs_members_update_role(org, member, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_members_update_role: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **member** | **String**|  | 
+ **data** | [**OrganizationMembershipRoleUpdateRequestPatch**](OrganizationMembershipRoleUpdateRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationMembershipRoleUpdate**](OrganizationMembershipRoleUpdate.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_members_update_visibility**
+> OrganizationMembershipVisibilityUpdate orgs_members_update_visibility(org, member, opts)
+
+Update a member's visibility in the organization.
+
+Update a member's visibility in the organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+member = 'member_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationMembershipVisibilityUpdateRequestPatch.new # OrganizationMembershipVisibilityUpdateRequestPatch | 
+}
+
+begin
+  #Update a member's visibility in the organization.
+  result = api_instance.orgs_members_update_visibility(org, member, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_members_update_visibility: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **member** | **String**|  | 
+ **data** | [**OrganizationMembershipVisibilityUpdateRequestPatch**](OrganizationMembershipVisibilityUpdateRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationMembershipVisibilityUpdate**](OrganizationMembershipVisibilityUpdate.md)
 
 ### Authorization
 
@@ -2307,6 +2511,126 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Organization**](Organization.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_saml_authentication_partial_update**
+> OrganizationSAMLAuth orgs_saml_authentication_partial_update(org, opts)
+
+Update the SAML Authentication settings for this Organization.
+
+Update the SAML Authentication settings for this Organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationSAMLAuthRequestPatch.new # OrganizationSAMLAuthRequestPatch | 
+}
+
+begin
+  #Update the SAML Authentication settings for this Organization.
+  result = api_instance.orgs_saml_authentication_partial_update(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_saml_authentication_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **data** | [**OrganizationSAMLAuthRequestPatch**](OrganizationSAMLAuthRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationSAMLAuth**](OrganizationSAMLAuth.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_saml_authentication_read**
+> OrganizationSAMLAuth orgs_saml_authentication_read(org)
+
+Retrieve the SAML Authentication settings for this Organization.
+
+Retrieve the SAML Authentication settings for this Organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+
+begin
+  #Retrieve the SAML Authentication settings for this Organization.
+  result = api_instance.orgs_saml_authentication_read(org)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_saml_authentication_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+
+### Return type
+
+[**OrganizationSAMLAuth**](OrganizationSAMLAuth.md)
 
 ### Authorization
 

@@ -30,9 +30,12 @@ Method | HTTP request | Description
 [**orgs_list**](OrgsApi.md#orgs_list) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 [**orgs_members_delete**](OrgsApi.md#orgs_members_delete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgs_members_list**](OrgsApi.md#orgs_members_list) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
+[**orgs_members_partial_update**](OrgsApi.md#orgs_members_partial_update) | **PATCH** /orgs/{org}/members/{member}/ | Views for working with organization members.
 [**orgs_members_read**](OrgsApi.md#orgs_members_read) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 [**orgs_members_refresh**](OrgsApi.md#orgs_members_refresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 [**orgs_members_remove**](OrgsApi.md#orgs_members_remove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+[**orgs_members_update_role**](OrgsApi.md#orgs_members_update_role) | **PATCH** /orgs/{org}/members/{member}/update-role/ | Update a member&#39;s role in the organization.
+[**orgs_members_update_visibility**](OrgsApi.md#orgs_members_update_visibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
 [**orgs_openid_connect_create**](OrgsApi.md#orgs_openid_connect_create) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
 [**orgs_openid_connect_delete**](OrgsApi.md#orgs_openid_connect_delete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
 [**orgs_openid_connect_list**](OrgsApi.md#orgs_openid_connect_list) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
@@ -40,6 +43,8 @@ Method | HTTP request | Description
 [**orgs_openid_connect_read**](OrgsApi.md#orgs_openid_connect_read) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
 [**orgs_openid_connect_update**](OrgsApi.md#orgs_openid_connect_update) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgs_read**](OrgsApi.md#orgs_read) | **GET** /orgs/{org}/ | Get the details for the specific organization.
+[**orgs_saml_authentication_partial_update**](OrgsApi.md#orgs_saml_authentication_partial_update) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization.
+[**orgs_saml_authentication_read**](OrgsApi.md#orgs_saml_authentication_read) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization.
 [**orgs_saml_group_sync_create**](OrgsApi.md#orgs_saml_group_sync_create) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgs_saml_group_sync_delete**](OrgsApi.md#orgs_saml_group_sync_delete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgs_saml_group_sync_disable**](OrgsApi.md#orgs_saml_group_sync_disable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization.
@@ -1592,7 +1597,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_members_list**
-> list[OrganizationMembership] orgs_members_list(org, page=page, page_size=page_size, is_active=is_active)
+> list[OrganizationMembership] orgs_members_list(org, page=page, page_size=page_size, is_active=is_active, query=query, sort=sort)
 
 Get the details for all organization members.
 
@@ -1622,10 +1627,12 @@ org = 'org_example' # str |
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 is_active = false # bool | Filter for active/inactive users. (optional) (default to false)
+query = '' # str | A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role (optional) (default to )
+sort = 'user_name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-user_name`). Available options: user_name, role. (optional) (default to user_name)
 
 try:
     # Get the details for all organization members.
-    api_response = api_instance.orgs_members_list(org, page=page, page_size=page_size, is_active=is_active)
+    api_response = api_instance.orgs_members_list(org, page=page, page_size=page_size, is_active=is_active, query=query, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_members_list: %s\n" % e)
@@ -1639,10 +1646,74 @@ Name | Type | Description  | Notes
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **is_active** | **bool**| Filter for active/inactive users. | [optional] [default to false]
+ **query** | **str**| A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role | [optional] [default to ]
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role. | [optional] [default to user_name]
 
 ### Return type
 
 [**list[OrganizationMembership]**](OrganizationMembership.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_members_partial_update**
+> OrganizationMembership orgs_members_partial_update(org, member, data=data)
+
+Views for working with organization members.
+
+Views for working with organization members.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+member = 'member_example' # str | 
+data = cloudsmith_api.OrganizationMembershipRequestPatch() # OrganizationMembershipRequestPatch |  (optional)
+
+try:
+    # Views for working with organization members.
+    api_response = api_instance.orgs_members_partial_update(org, member, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_members_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **member** | **str**|  | 
+ **data** | [**OrganizationMembershipRequestPatch**](OrganizationMembershipRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationMembership**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -1821,6 +1892,130 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_members_update_role**
+> OrganizationMembershipRoleUpdate orgs_members_update_role(org, member, data=data)
+
+Update a member's role in the organization.
+
+Update a member's role in the organization.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+member = 'member_example' # str | 
+data = cloudsmith_api.OrganizationMembershipRoleUpdateRequestPatch() # OrganizationMembershipRoleUpdateRequestPatch |  (optional)
+
+try:
+    # Update a member's role in the organization.
+    api_response = api_instance.orgs_members_update_role(org, member, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_members_update_role: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **member** | **str**|  | 
+ **data** | [**OrganizationMembershipRoleUpdateRequestPatch**](OrganizationMembershipRoleUpdateRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationMembershipRoleUpdate**](OrganizationMembershipRoleUpdate.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_members_update_visibility**
+> OrganizationMembershipVisibilityUpdate orgs_members_update_visibility(org, member, data=data)
+
+Update a member's visibility in the organization.
+
+Update a member's visibility in the organization.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+member = 'member_example' # str | 
+data = cloudsmith_api.OrganizationMembershipVisibilityUpdateRequestPatch() # OrganizationMembershipVisibilityUpdateRequestPatch |  (optional)
+
+try:
+    # Update a member's visibility in the organization.
+    api_response = api_instance.orgs_members_update_visibility(org, member, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_members_update_visibility: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **member** | **str**|  | 
+ **data** | [**OrganizationMembershipVisibilityUpdateRequestPatch**](OrganizationMembershipVisibilityUpdateRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationMembershipVisibilityUpdate**](OrganizationMembershipVisibilityUpdate.md)
 
 ### Authorization
 
@@ -2244,6 +2439,124 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Organization**](Organization.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_saml_authentication_partial_update**
+> OrganizationSAMLAuth orgs_saml_authentication_partial_update(org, data=data)
+
+Update the SAML Authentication settings for this Organization.
+
+Update the SAML Authentication settings for this Organization.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+data = cloudsmith_api.OrganizationSAMLAuthRequestPatch() # OrganizationSAMLAuthRequestPatch |  (optional)
+
+try:
+    # Update the SAML Authentication settings for this Organization.
+    api_response = api_instance.orgs_saml_authentication_partial_update(org, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_saml_authentication_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **data** | [**OrganizationSAMLAuthRequestPatch**](OrganizationSAMLAuthRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationSAMLAuth**](OrganizationSAMLAuth.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_saml_authentication_read**
+> OrganizationSAMLAuth orgs_saml_authentication_read(org)
+
+Retrieve the SAML Authentication settings for this Organization.
+
+Retrieve the SAML Authentication settings for this Organization.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+
+try:
+    # Retrieve the SAML Authentication settings for this Organization.
+    api_response = api_instance.orgs_saml_authentication_read(org)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_saml_authentication_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+
+### Return type
+
+[**OrganizationSAMLAuth**](OrganizationSAMLAuth.md)
 
 ### Authorization
 

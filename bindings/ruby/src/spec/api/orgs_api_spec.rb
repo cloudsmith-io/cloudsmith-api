@@ -377,8 +377,24 @@ describe 'OrgsApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [BOOLEAN] :is_active Filter for active/inactive users.
+  # @option opts [String] :query A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role.
   # @return [Array<OrganizationMembership>]
   describe 'orgs_members_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_members_partial_update
+  # Views for working with organization members.
+  # Views for working with organization members.
+  # @param org 
+  # @param member 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationMembershipRequestPatch] :data 
+  # @return [OrganizationMembership]
+  describe 'orgs_members_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -418,6 +434,34 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'orgs_members_remove test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_members_update_role
+  # Update a member&#39;s role in the organization.
+  # Update a member&#39;s role in the organization.
+  # @param org 
+  # @param member 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationMembershipRoleUpdateRequestPatch] :data 
+  # @return [OrganizationMembershipRoleUpdate]
+  describe 'orgs_members_update_role test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_members_update_visibility
+  # Update a member&#39;s visibility in the organization.
+  # Update a member&#39;s visibility in the organization.
+  # @param org 
+  # @param member 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationMembershipVisibilityUpdateRequestPatch] :data 
+  # @return [OrganizationMembershipVisibilityUpdate]
+  describe 'orgs_members_update_visibility test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -511,6 +555,31 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @return [Organization]
   describe 'orgs_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_saml_authentication_partial_update
+  # Update the SAML Authentication settings for this Organization.
+  # Update the SAML Authentication settings for this Organization.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationSAMLAuthRequestPatch] :data 
+  # @return [OrganizationSAMLAuth]
+  describe 'orgs_saml_authentication_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_saml_authentication_read
+  # Retrieve the SAML Authentication settings for this Organization.
+  # Retrieve the SAML Authentication settings for this Organization.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @return [OrganizationSAMLAuth]
+  describe 'orgs_saml_authentication_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

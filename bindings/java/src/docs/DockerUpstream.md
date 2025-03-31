@@ -30,6 +30,7 @@ Name | Value
 ---- | -----
 NONE | &quot;None&quot;
 USERNAME_AND_PASSWORD | &quot;Username and Password&quot;
+CERTIFICATE_AND_KEY | &quot;Certificate and Key&quot;
 
 
 <a name="DisableReasonEnum"></a>

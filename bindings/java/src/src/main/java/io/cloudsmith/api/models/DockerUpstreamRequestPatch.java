@@ -34,6 +34,12 @@ import javax.validation.Valid;
 public class DockerUpstreamRequestPatch implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("auth_certificate")
+  private String authCertificate = null;
+
+  @SerializedName("auth_certificate_key")
+  private String authCertificateKey = null;
+
   /**
    * The authentication mode to use when accessing this upstream. 
    */
@@ -41,7 +47,9 @@ public class DockerUpstreamRequestPatch implements Serializable {
   public enum AuthModeEnum {
     NONE("None"),
     
-    USERNAME_AND_PASSWORD("Username and Password");
+    USERNAME_AND_PASSWORD("Username and Password"),
+    
+    CERTIFICATE_AND_KEY("Certificate and Key");
 
     private String value;
 
@@ -166,6 +174,42 @@ public class DockerUpstreamRequestPatch implements Serializable {
 
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
+
+  public DockerUpstreamRequestPatch authCertificate(String authCertificate) {
+    this.authCertificate = authCertificate;
+    return this;
+  }
+
+   /**
+   * X.509 Certificate to use for mTLS authentication against the upstream
+   * @return authCertificate
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "X.509 Certificate to use for mTLS authentication against the upstream")
+  public String getAuthCertificate() {
+    return authCertificate;
+  }
+
+  public void setAuthCertificate(String authCertificate) {
+    this.authCertificate = authCertificate;
+  }
+
+  public DockerUpstreamRequestPatch authCertificateKey(String authCertificateKey) {
+    this.authCertificateKey = authCertificateKey;
+    return this;
+  }
+
+   /**
+   * Certificate key to use for mTLS authentication against the upstream
+   * @return authCertificateKey
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Certificate key to use for mTLS authentication against the upstream")
+  public String getAuthCertificateKey() {
+    return authCertificateKey;
+  }
+
+  public void setAuthCertificateKey(String authCertificateKey) {
+    this.authCertificateKey = authCertificateKey;
+  }
 
   public DockerUpstreamRequestPatch authMode(AuthModeEnum authMode) {
     this.authMode = authMode;
@@ -413,7 +457,9 @@ public class DockerUpstreamRequestPatch implements Serializable {
       return false;
     }
     DockerUpstreamRequestPatch dockerUpstreamRequestPatch = (DockerUpstreamRequestPatch) o;
-    return Objects.equals(this.authMode, dockerUpstreamRequestPatch.authMode) &&
+    return Objects.equals(this.authCertificate, dockerUpstreamRequestPatch.authCertificate) &&
+        Objects.equals(this.authCertificateKey, dockerUpstreamRequestPatch.authCertificateKey) &&
+        Objects.equals(this.authMode, dockerUpstreamRequestPatch.authMode) &&
         Objects.equals(this.authSecret, dockerUpstreamRequestPatch.authSecret) &&
         Objects.equals(this.authUsername, dockerUpstreamRequestPatch.authUsername) &&
         Objects.equals(this.extraHeader1, dockerUpstreamRequestPatch.extraHeader1) &&
@@ -430,7 +476,7 @@ public class DockerUpstreamRequestPatch implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, upstreamUrl, verifySsl);
+    return Objects.hash(authCertificate, authCertificateKey, authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, upstreamUrl, verifySsl);
   }
 
 
@@ -439,6 +485,8 @@ public class DockerUpstreamRequestPatch implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class DockerUpstreamRequestPatch {\n");
     
+    sb.append("    authCertificate: ").append(toIndentedString(authCertificate)).append("\n");
+    sb.append("    authCertificateKey: ").append(toIndentedString(authCertificateKey)).append("\n");
     sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");

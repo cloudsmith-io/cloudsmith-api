@@ -49,6 +49,7 @@ class RepositoryCreateRequest(object):
         'move_own': 'bool',
         'move_packages': 'str',
         'name': 'str',
+        'nuget_native_signing_enabled': 'bool',
         'open_source_license': 'str',
         'open_source_project_url': 'str',
         'proxy_npmjs': 'bool',
@@ -94,6 +95,7 @@ class RepositoryCreateRequest(object):
         'move_own': 'move_own',
         'move_packages': 'move_packages',
         'name': 'name',
+        'nuget_native_signing_enabled': 'nuget_native_signing_enabled',
         'open_source_license': 'open_source_license',
         'open_source_project_url': 'open_source_project_url',
         'proxy_npmjs': 'proxy_npmjs',
@@ -122,7 +124,7 @@ class RepositoryCreateRequest(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, index_files=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, index_files=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryCreateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -144,6 +146,7 @@ class RepositoryCreateRequest(object):
         self._move_own = None
         self._move_packages = None
         self._name = None
+        self._nuget_native_signing_enabled = None
         self._open_source_license = None
         self._open_source_project_url = None
         self._proxy_npmjs = None
@@ -203,6 +206,8 @@ class RepositoryCreateRequest(object):
         if move_packages is not None:
             self.move_packages = move_packages
         self.name = name
+        if nuget_native_signing_enabled is not None:
+            self.nuget_native_signing_enabled = nuget_native_signing_enabled
         if open_source_license is not None:
             self.open_source_license = open_source_license
         if open_source_project_url is not None:
@@ -676,6 +681,29 @@ class RepositoryCreateRequest(object):
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def nuget_native_signing_enabled(self):
+        """Gets the nuget_native_signing_enabled of this RepositoryCreateRequest.
+
+        When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.
+
+        :return: The nuget_native_signing_enabled of this RepositoryCreateRequest.
+        :rtype: bool
+        """
+        return self._nuget_native_signing_enabled
+
+    @nuget_native_signing_enabled.setter
+    def nuget_native_signing_enabled(self, nuget_native_signing_enabled):
+        """Sets the nuget_native_signing_enabled of this RepositoryCreateRequest.
+
+        When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.
+
+        :param nuget_native_signing_enabled: The nuget_native_signing_enabled of this RepositoryCreateRequest.
+        :type: bool
+        """
+
+        self._nuget_native_signing_enabled = nuget_native_signing_enabled
 
     @property
     def open_source_license(self):

@@ -1521,6 +1521,8 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [BOOLEAN] :is_active Filter for active/inactive users. (default to false)
+    # @option opts [String] :query A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role (default to )
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role. (default to user_name)
     # @return [Array<OrganizationMembership>]
     def orgs_members_list(org, opts = {})
       data, _status_code, _headers = orgs_members_list_with_http_info(org, opts)
@@ -1534,6 +1536,8 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [BOOLEAN] :is_active Filter for active/inactive users.
+    # @option opts [String] :query A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role.
     # @return [Array<(Array<OrganizationMembership>, Fixnum, Hash)>] Array<OrganizationMembership> data, response status code and response headers
     def orgs_members_list_with_http_info(org, opts = {})
       if @api_client.config.debugging
@@ -1551,6 +1555,8 @@ module CloudsmithApi
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'is_active'] = opts[:'is_active'] if !opts[:'is_active'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -1574,6 +1580,68 @@ module CloudsmithApi
         :return_type => 'Array<OrganizationMembership>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_members_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Views for working with organization members.
+    # Views for working with organization members.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationMembershipRequestPatch] :data 
+    # @return [OrganizationMembership]
+    def orgs_members_partial_update(org, member, opts = {})
+      data, _status_code, _headers = orgs_members_partial_update_with_http_info(org, member, opts)
+      data
+    end
+
+    # Views for working with organization members.
+    # Views for working with organization members.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationMembershipRequestPatch] :data 
+    # @return [Array<(OrganizationMembership, Fixnum, Hash)>] OrganizationMembership data, response status code and response headers
+    def orgs_members_partial_update_with_http_info(org, member, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_partial_update"
+      end
+      # verify the required parameter 'member' is set
+      if @api_client.config.client_side_validation && member.nil?
+        fail ArgumentError, "Missing the required parameter 'member' when calling OrgsApi.orgs_members_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/members/{member}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'member' + '}', member.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationMembership')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1752,6 +1820,130 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_members_remove\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a member's role in the organization.
+    # Update a member's role in the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationMembershipRoleUpdateRequestPatch] :data 
+    # @return [OrganizationMembershipRoleUpdate]
+    def orgs_members_update_role(org, member, opts = {})
+      data, _status_code, _headers = orgs_members_update_role_with_http_info(org, member, opts)
+      data
+    end
+
+    # Update a member&#39;s role in the organization.
+    # Update a member&#39;s role in the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationMembershipRoleUpdateRequestPatch] :data 
+    # @return [Array<(OrganizationMembershipRoleUpdate, Fixnum, Hash)>] OrganizationMembershipRoleUpdate data, response status code and response headers
+    def orgs_members_update_role_with_http_info(org, member, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_update_role ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_update_role"
+      end
+      # verify the required parameter 'member' is set
+      if @api_client.config.client_side_validation && member.nil?
+        fail ArgumentError, "Missing the required parameter 'member' when calling OrgsApi.orgs_members_update_role"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/members/{member}/update-role/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'member' + '}', member.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationMembershipRoleUpdate')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_update_role\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a member's visibility in the organization.
+    # Update a member's visibility in the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationMembershipVisibilityUpdateRequestPatch] :data 
+    # @return [OrganizationMembershipVisibilityUpdate]
+    def orgs_members_update_visibility(org, member, opts = {})
+      data, _status_code, _headers = orgs_members_update_visibility_with_http_info(org, member, opts)
+      data
+    end
+
+    # Update a member&#39;s visibility in the organization.
+    # Update a member&#39;s visibility in the organization.
+    # @param org 
+    # @param member 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationMembershipVisibilityUpdateRequestPatch] :data 
+    # @return [Array<(OrganizationMembershipVisibilityUpdate, Fixnum, Hash)>] OrganizationMembershipVisibilityUpdate data, response status code and response headers
+    def orgs_members_update_visibility_with_http_info(org, member, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_members_update_visibility ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_members_update_visibility"
+      end
+      # verify the required parameter 'member' is set
+      if @api_client.config.client_side_validation && member.nil?
+        fail ArgumentError, "Missing the required parameter 'member' when calling OrgsApi.orgs_members_update_visibility"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/members/{member}/update-visibility/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'member' + '}', member.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationMembershipVisibilityUpdate')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_members_update_visibility\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2165,6 +2357,116 @@ module CloudsmithApi
         :return_type => 'Organization')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update the SAML Authentication settings for this Organization.
+    # Update the SAML Authentication settings for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationSAMLAuthRequestPatch] :data 
+    # @return [OrganizationSAMLAuth]
+    def orgs_saml_authentication_partial_update(org, opts = {})
+      data, _status_code, _headers = orgs_saml_authentication_partial_update_with_http_info(org, opts)
+      data
+    end
+
+    # Update the SAML Authentication settings for this Organization.
+    # Update the SAML Authentication settings for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationSAMLAuthRequestPatch] :data 
+    # @return [Array<(OrganizationSAMLAuth, Fixnum, Hash)>] OrganizationSAMLAuth data, response status code and response headers
+    def orgs_saml_authentication_partial_update_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_saml_authentication_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_saml_authentication_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/saml-authentication'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationSAMLAuth')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_authentication_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the SAML Authentication settings for this Organization.
+    # Retrieve the SAML Authentication settings for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationSAMLAuth]
+    def orgs_saml_authentication_read(org, opts = {})
+      data, _status_code, _headers = orgs_saml_authentication_read_with_http_info(org, opts)
+      data
+    end
+
+    # Retrieve the SAML Authentication settings for this Organization.
+    # Retrieve the SAML Authentication settings for this Organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationSAMLAuth, Fixnum, Hash)>] OrganizationSAMLAuth data, response status code and response headers
+    def orgs_saml_authentication_read_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_saml_authentication_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_saml_authentication_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/saml-authentication'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationSAMLAuth')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_saml_authentication_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -55,8 +55,16 @@ class HelmPackageUpload
 
   attr_accessor :format_url
 
+  # Amount of storage that will be freed if this package is deleted
+  attr_accessor :freeable_storage
+
+  attr_accessor :fully_qualified_name
+
   # Unique and permanent identifier for the package.
   attr_accessor :identifier_perm
+
+  # Return a map of identifier field names and their values.
+  attr_accessor :identifiers
 
   attr_accessor :indexed
 
@@ -236,7 +244,10 @@ class HelmPackageUpload
       :'files' => :'files',
       :'format' => :'format',
       :'format_url' => :'format_url',
+      :'freeable_storage' => :'freeable_storage',
+      :'fully_qualified_name' => :'fully_qualified_name',
       :'identifier_perm' => :'identifier_perm',
+      :'identifiers' => :'identifiers',
       :'indexed' => :'indexed',
       :'is_cancellable' => :'is_cancellable',
       :'is_copyable' => :'is_copyable',
@@ -319,7 +330,10 @@ class HelmPackageUpload
       :'files' => :'Array<PackageFile>',
       :'format' => :'String',
       :'format_url' => :'String',
+      :'freeable_storage' => :'Integer',
+      :'fully_qualified_name' => :'String',
       :'identifier_perm' => :'String',
+      :'identifiers' => :'Hash<String, String>',
       :'indexed' => :'BOOLEAN',
       :'is_cancellable' => :'BOOLEAN',
       :'is_copyable' => :'BOOLEAN',
@@ -468,8 +482,22 @@ class HelmPackageUpload
       self.format_url = attributes[:'format_url']
     end
 
+    if attributes.has_key?(:'freeable_storage')
+      self.freeable_storage = attributes[:'freeable_storage']
+    end
+
+    if attributes.has_key?(:'fully_qualified_name')
+      self.fully_qualified_name = attributes[:'fully_qualified_name']
+    end
+
     if attributes.has_key?(:'identifier_perm')
       self.identifier_perm = attributes[:'identifier_perm']
+    end
+
+    if attributes.has_key?(:'identifiers')
+      if (value = attributes[:'identifiers']).is_a?(Hash)
+        self.identifiers = value
+      end
     end
 
     if attributes.has_key?(:'indexed')
@@ -752,7 +780,10 @@ class HelmPackageUpload
         files == o.files &&
         format == o.format &&
         format_url == o.format_url &&
+        freeable_storage == o.freeable_storage &&
+        fully_qualified_name == o.fully_qualified_name &&
         identifier_perm == o.identifier_perm &&
+        identifiers == o.identifiers &&
         indexed == o.indexed &&
         is_cancellable == o.is_cancellable &&
         is_copyable == o.is_copyable &&
@@ -821,7 +852,7 @@ class HelmPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, identifier_perm, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, policy_violated, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, policy_violated, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

@@ -33,6 +33,8 @@ class DockerUpstreamRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'auth_certificate': 'str',
+        'auth_certificate_key': 'str',
         'auth_mode': 'str',
         'auth_secret': 'str',
         'auth_username': 'str',
@@ -49,6 +51,8 @@ class DockerUpstreamRequest(object):
     }
 
     attribute_map = {
+        'auth_certificate': 'auth_certificate',
+        'auth_certificate_key': 'auth_certificate_key',
         'auth_mode': 'auth_mode',
         'auth_secret': 'auth_secret',
         'auth_username': 'auth_username',
@@ -64,12 +68,14 @@ class DockerUpstreamRequest(object):
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, priority=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_certificate=None, auth_certificate_key=None, auth_mode='None', auth_secret=None, auth_username=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, priority=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """DockerUpstreamRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._auth_certificate = None
+        self._auth_certificate_key = None
         self._auth_mode = None
         self._auth_secret = None
         self._auth_username = None
@@ -85,6 +91,10 @@ class DockerUpstreamRequest(object):
         self._verify_ssl = None
         self.discriminator = None
 
+        if auth_certificate is not None:
+            self.auth_certificate = auth_certificate
+        if auth_certificate_key is not None:
+            self.auth_certificate_key = auth_certificate_key
         if auth_mode is not None:
             self.auth_mode = auth_mode
         if auth_secret is not None:
@@ -111,6 +121,58 @@ class DockerUpstreamRequest(object):
             self.verify_ssl = verify_ssl
 
     @property
+    def auth_certificate(self):
+        """Gets the auth_certificate of this DockerUpstreamRequest.
+
+        X.509 Certificate to use for mTLS authentication against the upstream
+
+        :return: The auth_certificate of this DockerUpstreamRequest.
+        :rtype: str
+        """
+        return self._auth_certificate
+
+    @auth_certificate.setter
+    def auth_certificate(self, auth_certificate):
+        """Sets the auth_certificate of this DockerUpstreamRequest.
+
+        X.509 Certificate to use for mTLS authentication against the upstream
+
+        :param auth_certificate: The auth_certificate of this DockerUpstreamRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                auth_certificate is not None and len(auth_certificate) < 1):
+            raise ValueError("Invalid value for `auth_certificate`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._auth_certificate = auth_certificate
+
+    @property
+    def auth_certificate_key(self):
+        """Gets the auth_certificate_key of this DockerUpstreamRequest.
+
+        Certificate key to use for mTLS authentication against the upstream
+
+        :return: The auth_certificate_key of this DockerUpstreamRequest.
+        :rtype: str
+        """
+        return self._auth_certificate_key
+
+    @auth_certificate_key.setter
+    def auth_certificate_key(self, auth_certificate_key):
+        """Sets the auth_certificate_key of this DockerUpstreamRequest.
+
+        Certificate key to use for mTLS authentication against the upstream
+
+        :param auth_certificate_key: The auth_certificate_key of this DockerUpstreamRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                auth_certificate_key is not None and len(auth_certificate_key) < 1):
+            raise ValueError("Invalid value for `auth_certificate_key`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._auth_certificate_key = auth_certificate_key
+
+    @property
     def auth_mode(self):
         """Gets the auth_mode of this DockerUpstreamRequest.
 
@@ -130,7 +192,7 @@ class DockerUpstreamRequest(object):
         :param auth_mode: The auth_mode of this DockerUpstreamRequest.
         :type: str
         """
-        allowed_values = ["None", "Username and Password"]  # noqa: E501
+        allowed_values = ["None", "Username and Password", "Certificate and Key"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 auth_mode not in allowed_values):
             raise ValueError(

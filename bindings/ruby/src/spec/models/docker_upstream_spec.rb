@@ -35,7 +35,7 @@ describe 'DockerUpstream' do
   describe 'test attribute "auth_mode"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["None", "Username and Password"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["None", "Username and Password", "Certificate and Key"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.auth_mode = value }.not_to raise_error
       # end

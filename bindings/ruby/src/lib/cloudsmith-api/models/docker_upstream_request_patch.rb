@@ -14,6 +14,12 @@ require 'date'
 
 module CloudsmithApi
 class DockerUpstreamRequestPatch
+  # X.509 Certificate to use for mTLS authentication against the upstream
+  attr_accessor :auth_certificate
+
+  # Certificate key to use for mTLS authentication against the upstream
+  attr_accessor :auth_certificate_key
+
   # The authentication mode to use when accessing this upstream. 
   attr_accessor :auth_mode
 
@@ -78,6 +84,8 @@ class DockerUpstreamRequestPatch
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'auth_certificate' => :'auth_certificate',
+      :'auth_certificate_key' => :'auth_certificate_key',
       :'auth_mode' => :'auth_mode',
       :'auth_secret' => :'auth_secret',
       :'auth_username' => :'auth_username',
@@ -97,6 +105,8 @@ class DockerUpstreamRequestPatch
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'auth_certificate' => :'String',
+      :'auth_certificate_key' => :'String',
       :'auth_mode' => :'String',
       :'auth_secret' => :'String',
       :'auth_username' => :'String',
@@ -120,6 +130,14 @@ class DockerUpstreamRequestPatch
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'auth_certificate')
+      self.auth_certificate = attributes[:'auth_certificate']
+    end
+
+    if attributes.has_key?(:'auth_certificate_key')
+      self.auth_certificate_key = attributes[:'auth_certificate_key']
+    end
 
     if attributes.has_key?(:'auth_mode')
       self.auth_mode = attributes[:'auth_mode']
@@ -188,7 +206,7 @@ class DockerUpstreamRequestPatch
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
+    auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password', 'Certificate and Key'])
     return false unless auth_mode_validator.valid?(@auth_mode)
     mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
     return false unless mode_validator.valid?(@mode)
@@ -198,7 +216,7 @@ class DockerUpstreamRequestPatch
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] auth_mode Object to be assigned
   def auth_mode=(auth_mode)
-    validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
+    validator = EnumAttributeValidator.new('String', ['None', 'Username and Password', 'Certificate and Key'])
     unless validator.valid?(auth_mode)
       fail ArgumentError, 'invalid value for "auth_mode", must be one of #{validator.allowable_values}.'
     end
@@ -220,6 +238,8 @@ class DockerUpstreamRequestPatch
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        auth_certificate == o.auth_certificate &&
+        auth_certificate_key == o.auth_certificate_key &&
         auth_mode == o.auth_mode &&
         auth_secret == o.auth_secret &&
         auth_username == o.auth_username &&
@@ -244,7 +264,7 @@ class DockerUpstreamRequestPatch
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_mode, auth_secret, auth_username, extra_header_1, extra_header_2, extra_value_1, extra_value_2, is_active, mode, name, priority, upstream_url, verify_ssl].hash
+    [auth_certificate, auth_certificate_key, auth_mode, auth_secret, auth_username, extra_header_1, extra_header_2, extra_value_1, extra_value_2, is_active, mode, name, priority, upstream_url, verify_ssl].hash
   end
 
     # Builds the object from hash

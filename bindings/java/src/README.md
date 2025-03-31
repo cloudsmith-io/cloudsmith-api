@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.16</version>
+  <version>2.0.17</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.16"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.17"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.16.jar`
+* `target/cloudsmith-api-2.0.17.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -172,9 +172,12 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsList**](docs/OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 *OrgsApi* | [**orgsMembersDelete**](docs/OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 *OrgsApi* | [**orgsMembersList**](docs/OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
+*OrgsApi* | [**orgsMembersPartialUpdate**](docs/OrgsApi.md#orgsMembersPartialUpdate) | **PATCH** /orgs/{org}/members/{member}/ | Views for working with organization members.
 *OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 *OrgsApi* | [**orgsMembersRefresh**](docs/OrgsApi.md#orgsMembersRefresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 *OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+*OrgsApi* | [**orgsMembersUpdateRole**](docs/OrgsApi.md#orgsMembersUpdateRole) | **PATCH** /orgs/{org}/members/{member}/update-role/ | Update a member&#39;s role in the organization.
+*OrgsApi* | [**orgsMembersUpdateVisibility**](docs/OrgsApi.md#orgsMembersUpdateVisibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
 *OrgsApi* | [**orgsOpenidConnectCreate**](docs/OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
 *OrgsApi* | [**orgsOpenidConnectDelete**](docs/OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
 *OrgsApi* | [**orgsOpenidConnectList**](docs/OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
@@ -182,6 +185,8 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsOpenidConnectRead**](docs/OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
 *OrgsApi* | [**orgsOpenidConnectUpdate**](docs/OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
+*OrgsApi* | [**orgsSamlAuthenticationPartialUpdate**](docs/OrgsApi.md#orgsSamlAuthenticationPartialUpdate) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization.
+*OrgsApi* | [**orgsSamlAuthenticationRead**](docs/OrgsApi.md#orgsSamlAuthenticationRead) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization.
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDelete**](docs/OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 *OrgsApi* | [**orgsSamlGroupSyncDisable**](docs/OrgsApi.md#orgsSamlGroupSyncDisable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization.
@@ -390,6 +395,8 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposUpstreamSwiftRead**](docs/ReposApi.md#reposUpstreamSwiftRead) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
 *ReposApi* | [**reposUpstreamSwiftUpdate**](docs/ReposApi.md#reposUpstreamSwiftUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
 *ReposApi* | [**reposUserList**](docs/ReposApi.md#reposUserList) | **GET** /repos/ | Get a list of all repositories associated with current user.
+*ReposApi* | [**reposX509EcdsaList**](docs/ReposApi.md#reposX509EcdsaList) | **GET** /repos/{owner}/{identifier}/x509-ecdsa/ | Retrieve the active X.509 ECDSA certificate for the Repository.
+*ReposApi* | [**reposX509RsaList**](docs/ReposApi.md#reposX509RsaList) | **GET** /repos/{owner}/{identifier}/x509-rsa/ | Retrieve the active X.509 RSA certificate for the Repository.
 *StatusApi* | [**statusCheckBasic**](docs/StatusApi.md#statusCheckBasic) | **GET** /status/check/basic/ | Endpoint to check basic API connectivity.
 *StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
 *StorageRegionsApi* | [**storageRegionsRead**](docs/StorageRegionsApi.md#storageRegionsRead) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
@@ -510,12 +517,19 @@ Class | Method | HTTP request | Description
  - [OrganizationInviteUpdate](docs/OrganizationInviteUpdate.md)
  - [OrganizationInviteUpdateRequestPatch](docs/OrganizationInviteUpdateRequestPatch.md)
  - [OrganizationMembership](docs/OrganizationMembership.md)
+ - [OrganizationMembershipRequestPatch](docs/OrganizationMembershipRequestPatch.md)
+ - [OrganizationMembershipRoleUpdate](docs/OrganizationMembershipRoleUpdate.md)
+ - [OrganizationMembershipRoleUpdateRequestPatch](docs/OrganizationMembershipRoleUpdateRequestPatch.md)
+ - [OrganizationMembershipVisibilityUpdate](docs/OrganizationMembershipVisibilityUpdate.md)
+ - [OrganizationMembershipVisibilityUpdateRequestPatch](docs/OrganizationMembershipVisibilityUpdateRequestPatch.md)
  - [OrganizationPackageLicensePolicy](docs/OrganizationPackageLicensePolicy.md)
  - [OrganizationPackageLicensePolicyRequest](docs/OrganizationPackageLicensePolicyRequest.md)
  - [OrganizationPackageLicensePolicyRequestPatch](docs/OrganizationPackageLicensePolicyRequestPatch.md)
  - [OrganizationPackageVulnerabilityPolicy](docs/OrganizationPackageVulnerabilityPolicy.md)
  - [OrganizationPackageVulnerabilityPolicyRequest](docs/OrganizationPackageVulnerabilityPolicyRequest.md)
  - [OrganizationPackageVulnerabilityPolicyRequestPatch](docs/OrganizationPackageVulnerabilityPolicyRequestPatch.md)
+ - [OrganizationSAMLAuth](docs/OrganizationSAMLAuth.md)
+ - [OrganizationSAMLAuthRequestPatch](docs/OrganizationSAMLAuthRequestPatch.md)
  - [OrganizationTeam](docs/OrganizationTeam.md)
  - [OrganizationTeamInvite](docs/OrganizationTeamInvite.md)
  - [OrganizationTeamMembers](docs/OrganizationTeamMembers.md)
@@ -606,6 +620,8 @@ Class | Method | HTTP request | Description
  - [RepositoryWebhook](docs/RepositoryWebhook.md)
  - [RepositoryWebhookRequest](docs/RepositoryWebhookRequest.md)
  - [RepositoryWebhookRequestPatch](docs/RepositoryWebhookRequestPatch.md)
+ - [RepositoryX509EcdsaCertificate](docs/RepositoryX509EcdsaCertificate.md)
+ - [RepositoryX509RsaCertificate](docs/RepositoryX509RsaCertificate.md)
  - [ResourcesRateCheck](docs/ResourcesRateCheck.md)
  - [RespositoryGeoIpEnableDisable](docs/RespositoryGeoIpEnableDisable.md)
  - [RespositoryGeoIpEnableDisableRequest](docs/RespositoryGeoIpEnableDisableRequest.md)

@@ -34,6 +34,12 @@ import javax.validation.Valid;
 public class DockerUpstreamRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("auth_certificate")
+  private String authCertificate = null;
+
+  @SerializedName("auth_certificate_key")
+  private String authCertificateKey = null;
+
   /**
    * The authentication mode to use when accessing this upstream. 
    */
@@ -41,7 +47,9 @@ public class DockerUpstreamRequest implements Serializable {
   public enum AuthModeEnum {
     NONE("None"),
     
-    USERNAME_AND_PASSWORD("Username and Password");
+    USERNAME_AND_PASSWORD("Username and Password"),
+    
+    CERTIFICATE_AND_KEY("Certificate and Key");
 
     private String value;
 
@@ -166,6 +174,42 @@ public class DockerUpstreamRequest implements Serializable {
 
   @SerializedName("verify_ssl")
   private Boolean verifySsl = null;
+
+  public DockerUpstreamRequest authCertificate(String authCertificate) {
+    this.authCertificate = authCertificate;
+    return this;
+  }
+
+   /**
+   * X.509 Certificate to use for mTLS authentication against the upstream
+   * @return authCertificate
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "X.509 Certificate to use for mTLS authentication against the upstream")
+  public String getAuthCertificate() {
+    return authCertificate;
+  }
+
+  public void setAuthCertificate(String authCertificate) {
+    this.authCertificate = authCertificate;
+  }
+
+  public DockerUpstreamRequest authCertificateKey(String authCertificateKey) {
+    this.authCertificateKey = authCertificateKey;
+    return this;
+  }
+
+   /**
+   * Certificate key to use for mTLS authentication against the upstream
+   * @return authCertificateKey
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Certificate key to use for mTLS authentication against the upstream")
+  public String getAuthCertificateKey() {
+    return authCertificateKey;
+  }
+
+  public void setAuthCertificateKey(String authCertificateKey) {
+    this.authCertificateKey = authCertificateKey;
+  }
 
   public DockerUpstreamRequest authMode(AuthModeEnum authMode) {
     this.authMode = authMode;
@@ -415,7 +459,9 @@ public class DockerUpstreamRequest implements Serializable {
       return false;
     }
     DockerUpstreamRequest dockerUpstreamRequest = (DockerUpstreamRequest) o;
-    return Objects.equals(this.authMode, dockerUpstreamRequest.authMode) &&
+    return Objects.equals(this.authCertificate, dockerUpstreamRequest.authCertificate) &&
+        Objects.equals(this.authCertificateKey, dockerUpstreamRequest.authCertificateKey) &&
+        Objects.equals(this.authMode, dockerUpstreamRequest.authMode) &&
         Objects.equals(this.authSecret, dockerUpstreamRequest.authSecret) &&
         Objects.equals(this.authUsername, dockerUpstreamRequest.authUsername) &&
         Objects.equals(this.extraHeader1, dockerUpstreamRequest.extraHeader1) &&
@@ -432,7 +478,7 @@ public class DockerUpstreamRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, upstreamUrl, verifySsl);
+    return Objects.hash(authCertificate, authCertificateKey, authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, upstreamUrl, verifySsl);
   }
 
 
@@ -441,6 +487,8 @@ public class DockerUpstreamRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class DockerUpstreamRequest {\n");
     
+    sb.append("    authCertificate: ").append(toIndentedString(authCertificate)).append("\n");
+    sb.append("    authCertificateKey: ").append(toIndentedString(authCertificateKey)).append("\n");
     sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");

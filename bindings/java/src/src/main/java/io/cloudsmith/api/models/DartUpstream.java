@@ -168,7 +168,9 @@ public class DartUpstream implements Serializable {
    */
   @JsonAdapter(ModeEnum.Adapter.class)
   public enum ModeEnum {
-    PROXY_ONLY("Proxy Only");
+    PROXY_ONLY("Proxy Only"),
+    
+    CACHE_AND_PROXY("Cache and Proxy");
 
     private String value;
 

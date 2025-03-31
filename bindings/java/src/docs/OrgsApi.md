@@ -30,9 +30,12 @@ Method | HTTP request | Description
 [**orgsList**](OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
 [**orgsMembersDelete**](OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
 [**orgsMembersList**](OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
+[**orgsMembersPartialUpdate**](OrgsApi.md#orgsMembersPartialUpdate) | **PATCH** /orgs/{org}/members/{member}/ | Views for working with organization members.
 [**orgsMembersRead**](OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 [**orgsMembersRefresh**](OrgsApi.md#orgsMembersRefresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
 [**orgsMembersRemove**](OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+[**orgsMembersUpdateRole**](OrgsApi.md#orgsMembersUpdateRole) | **PATCH** /orgs/{org}/members/{member}/update-role/ | Update a member&#39;s role in the organization.
+[**orgsMembersUpdateVisibility**](OrgsApi.md#orgsMembersUpdateVisibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
 [**orgsOpenidConnectCreate**](OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
 [**orgsOpenidConnectDelete**](OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
 [**orgsOpenidConnectList**](OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
@@ -40,6 +43,8 @@ Method | HTTP request | Description
 [**orgsOpenidConnectRead**](OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
 [**orgsOpenidConnectUpdate**](OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgsRead**](OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
+[**orgsSamlAuthenticationPartialUpdate**](OrgsApi.md#orgsSamlAuthenticationPartialUpdate) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization.
+[**orgsSamlAuthenticationRead**](OrgsApi.md#orgsSamlAuthenticationRead) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization.
 [**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
 [**orgsSamlGroupSyncDelete**](OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
 [**orgsSamlGroupSyncDisable**](OrgsApi.md#orgsSamlGroupSyncDisable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization.
@@ -1643,7 +1648,7 @@ null (empty response body)
 
 <a name="orgsMembersList"></a>
 # **orgsMembersList**
-> List&lt;OrganizationMembership&gt; orgsMembersList(org, page, pageSize, isActive)
+> List&lt;OrganizationMembership&gt; orgsMembersList(org, page, pageSize, isActive, query, sort)
 
 Get the details for all organization members.
 
@@ -1676,8 +1681,10 @@ String org = "org_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 Boolean isActive = false; // Boolean | Filter for active/inactive users.
+String query = ""; // String | A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role
+String sort = "user_name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-user_name`). Available options: user_name, role.
 try {
-    List<OrganizationMembership> result = apiInstance.orgsMembersList(org, page, pageSize, isActive);
+    List<OrganizationMembership> result = apiInstance.orgsMembersList(org, page, pageSize, isActive, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsMembersList");
@@ -1693,10 +1700,76 @@ Name | Type | Description  | Notes
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **isActive** | **Boolean**| Filter for active/inactive users. | [optional] [default to false]
+ **query** | **String**| A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role. | [optional] [default to user_name]
 
 ### Return type
 
 [**List&lt;OrganizationMembership&gt;**](OrganizationMembership.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsMembersPartialUpdate"></a>
+# **orgsMembersPartialUpdate**
+> OrganizationMembership orgsMembersPartialUpdate(org, member, data)
+
+Views for working with organization members.
+
+Views for working with organization members.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String member = "member_example"; // String | 
+OrganizationMembershipRequestPatch data = new OrganizationMembershipRequestPatch(); // OrganizationMembershipRequestPatch | 
+try {
+    OrganizationMembership result = apiInstance.orgsMembersPartialUpdate(org, member, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsMembersPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **member** | **String**|  |
+ **data** | [**OrganizationMembershipRequestPatch**](OrganizationMembershipRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**OrganizationMembership**](OrganizationMembership.md)
 
 ### Authorization
 
@@ -1881,6 +1954,134 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsMembersUpdateRole"></a>
+# **orgsMembersUpdateRole**
+> OrganizationMembershipRoleUpdate orgsMembersUpdateRole(org, member, data)
+
+Update a member&#39;s role in the organization.
+
+Update a member&#39;s role in the organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String member = "member_example"; // String | 
+OrganizationMembershipRoleUpdateRequestPatch data = new OrganizationMembershipRoleUpdateRequestPatch(); // OrganizationMembershipRoleUpdateRequestPatch | 
+try {
+    OrganizationMembershipRoleUpdate result = apiInstance.orgsMembersUpdateRole(org, member, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsMembersUpdateRole");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **member** | **String**|  |
+ **data** | [**OrganizationMembershipRoleUpdateRequestPatch**](OrganizationMembershipRoleUpdateRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**OrganizationMembershipRoleUpdate**](OrganizationMembershipRoleUpdate.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsMembersUpdateVisibility"></a>
+# **orgsMembersUpdateVisibility**
+> OrganizationMembershipVisibilityUpdate orgsMembersUpdateVisibility(org, member, data)
+
+Update a member&#39;s visibility in the organization.
+
+Update a member&#39;s visibility in the organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String member = "member_example"; // String | 
+OrganizationMembershipVisibilityUpdateRequestPatch data = new OrganizationMembershipVisibilityUpdateRequestPatch(); // OrganizationMembershipVisibilityUpdateRequestPatch | 
+try {
+    OrganizationMembershipVisibilityUpdate result = apiInstance.orgsMembersUpdateVisibility(org, member, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsMembersUpdateVisibility");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **member** | **String**|  |
+ **data** | [**OrganizationMembershipVisibilityUpdateRequestPatch**](OrganizationMembershipVisibilityUpdateRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**OrganizationMembershipVisibilityUpdate**](OrganizationMembershipVisibilityUpdate.md)
 
 ### Authorization
 
@@ -2318,6 +2519,128 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Organization**](Organization.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsSamlAuthenticationPartialUpdate"></a>
+# **orgsSamlAuthenticationPartialUpdate**
+> OrganizationSAMLAuth orgsSamlAuthenticationPartialUpdate(org, data)
+
+Update the SAML Authentication settings for this Organization.
+
+Update the SAML Authentication settings for this Organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+OrganizationSAMLAuthRequestPatch data = new OrganizationSAMLAuthRequestPatch(); // OrganizationSAMLAuthRequestPatch | 
+try {
+    OrganizationSAMLAuth result = apiInstance.orgsSamlAuthenticationPartialUpdate(org, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsSamlAuthenticationPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **data** | [**OrganizationSAMLAuthRequestPatch**](OrganizationSAMLAuthRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**OrganizationSAMLAuth**](OrganizationSAMLAuth.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsSamlAuthenticationRead"></a>
+# **orgsSamlAuthenticationRead**
+> OrganizationSAMLAuth orgsSamlAuthenticationRead(org)
+
+Retrieve the SAML Authentication settings for this Organization.
+
+Retrieve the SAML Authentication settings for this Organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+try {
+    OrganizationSAMLAuth result = apiInstance.orgsSamlAuthenticationRead(org);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsSamlAuthenticationRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+
+### Return type
+
+[**OrganizationSAMLAuth**](OrganizationSAMLAuth.md)
 
 ### Authorization
 

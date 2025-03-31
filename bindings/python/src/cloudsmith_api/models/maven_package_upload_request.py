@@ -34,6 +34,7 @@ class MavenPackageUploadRequest(object):
     """
     swagger_types = {
         'artifact_id': 'str',
+        'extra_files': 'list[str]',
         'group_id': 'str',
         'ivy_file': 'str',
         'javadoc_file': 'str',
@@ -51,6 +52,7 @@ class MavenPackageUploadRequest(object):
 
     attribute_map = {
         'artifact_id': 'artifact_id',
+        'extra_files': 'extra_files',
         'group_id': 'group_id',
         'ivy_file': 'ivy_file',
         'javadoc_file': 'javadoc_file',
@@ -66,13 +68,14 @@ class MavenPackageUploadRequest(object):
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sbt_version=None, scala_version=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, artifact_id=None, extra_files=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sbt_version=None, scala_version=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
         """MavenPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._artifact_id = None
+        self._extra_files = None
         self._group_id = None
         self._ivy_file = None
         self._javadoc_file = None
@@ -90,6 +93,8 @@ class MavenPackageUploadRequest(object):
 
         if artifact_id is not None:
             self.artifact_id = artifact_id
+        if extra_files is not None:
+            self.extra_files = extra_files
         if group_id is not None:
             self.group_id = group_id
         if ivy_file is not None:
@@ -141,6 +146,29 @@ class MavenPackageUploadRequest(object):
             raise ValueError("Invalid value for `artifact_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._artifact_id = artifact_id
+
+    @property
+    def extra_files(self):
+        """Gets the extra_files of this MavenPackageUploadRequest.
+
+        Extra files to include in the package. This can be a single file or multiple files.
+
+        :return: The extra_files of this MavenPackageUploadRequest.
+        :rtype: list[str]
+        """
+        return self._extra_files
+
+    @extra_files.setter
+    def extra_files(self, extra_files):
+        """Sets the extra_files of this MavenPackageUploadRequest.
+
+        Extra files to include in the package. This can be a single file or multiple files.
+
+        :param extra_files: The extra_files of this MavenPackageUploadRequest.
+        :type: list[str]
+        """
+
+        self._extra_files = extra_files
 
     @property
     def group_id(self):

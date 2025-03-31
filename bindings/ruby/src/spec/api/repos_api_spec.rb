@@ -1630,4 +1630,30 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_x509_ecdsa_list
+  # Retrieve the active X.509 ECDSA certificate for the Repository.
+  # Retrieve the active X.509 ECDSA certificate for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryX509EcdsaCertificate]
+  describe 'repos_x509_ecdsa_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_x509_rsa_list
+  # Retrieve the active X.509 RSA certificate for the Repository.
+  # Retrieve the active X.509 RSA certificate for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryX509RsaCertificate]
+  describe 'repos_x509_rsa_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

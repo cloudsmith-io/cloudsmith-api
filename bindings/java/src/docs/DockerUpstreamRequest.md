@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**authCertificate** | **String** | X.509 Certificate to use for mTLS authentication against the upstream |  [optional]
+**authCertificateKey** | **String** | Certificate key to use for mTLS authentication against the upstream |  [optional]
 **authMode** | [**AuthModeEnum**](#AuthModeEnum) | The authentication mode to use when accessing this upstream.  |  [optional]
 **authSecret** | **String** | Secret to provide with requests to upstream. |  [optional]
 **authUsername** | **String** | Username to provide with requests to upstream. |  [optional]
@@ -25,6 +27,7 @@ Name | Value
 ---- | -----
 NONE | &quot;None&quot;
 USERNAME_AND_PASSWORD | &quot;Username and Password&quot;
+CERTIFICATE_AND_KEY | &quot;Certificate and Key&quot;
 
 
 <a name="ModeEnum"></a>

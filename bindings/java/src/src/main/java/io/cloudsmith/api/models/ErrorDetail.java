@@ -23,6 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -36,6 +39,9 @@ public class ErrorDetail implements Serializable {
 
   @SerializedName("detail")
   private String detail = null;
+
+  @SerializedName("fields")
+  private Map<String, List<String>> fields = null;
 
   public ErrorDetail detail(String detail) {
     this.detail = detail;
@@ -56,6 +62,33 @@ public class ErrorDetail implements Serializable {
     this.detail = detail;
   }
 
+  public ErrorDetail fields(Map<String, List<String>> fields) {
+    this.fields = fields;
+    return this;
+  }
+
+  public ErrorDetail putFieldsItem(String key, List<String> fieldsItem) {
+    if (this.fields == null) {
+      this.fields = new HashMap<>();
+    }
+    this.fields.put(key, fieldsItem);
+    return this;
+  }
+
+   /**
+   * A Dictionary of related errors where key: Field and value: Array of Errors related to that field
+   * @return fields
+  **/
+  @Valid
+  @ApiModelProperty(value = "A Dictionary of related errors where key: Field and value: Array of Errors related to that field")
+  public Map<String, List<String>> getFields() {
+    return fields;
+  }
+
+  public void setFields(Map<String, List<String>> fields) {
+    this.fields = fields;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -66,12 +99,13 @@ public class ErrorDetail implements Serializable {
       return false;
     }
     ErrorDetail errorDetail = (ErrorDetail) o;
-    return Objects.equals(this.detail, errorDetail.detail);
+    return Objects.equals(this.detail, errorDetail.detail) &&
+        Objects.equals(this.fields, errorDetail.fields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail);
+    return Objects.hash(detail, fields);
   }
 
 
@@ -81,6 +115,7 @@ public class ErrorDetail implements Serializable {
     sb.append("class ErrorDetail {\n");
     
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("}");
     return sb.toString();
   }

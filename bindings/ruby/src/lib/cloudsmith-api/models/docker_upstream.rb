@@ -240,7 +240,7 @@ class DockerUpstream
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
+    auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password', 'Certificate and Key'])
     return false unless auth_mode_validator.valid?(@auth_mode)
     disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'Upstream was disabled by request of user'])
     return false unless disable_reason_validator.valid?(@disable_reason)
@@ -254,7 +254,7 @@ class DockerUpstream
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] auth_mode Object to be assigned
   def auth_mode=(auth_mode)
-    validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
+    validator = EnumAttributeValidator.new('String', ['None', 'Username and Password', 'Certificate and Key'])
     unless validator.valid?(auth_mode)
       fail ArgumentError, 'invalid value for "auth_mode", must be one of #{validator.allowable_values}.'
     end

@@ -33,23 +33,28 @@ class ErrorDetail(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'detail': 'str'
+        'detail': 'str',
+        'fields': 'dict(str, list[str])'
     }
 
     attribute_map = {
-        'detail': 'detail'
+        'detail': 'detail',
+        'fields': 'fields'
     }
 
-    def __init__(self, detail=None, _configuration=None):  # noqa: E501
+    def __init__(self, detail=None, fields=None, _configuration=None):  # noqa: E501
         """ErrorDetail - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._detail = None
+        self._fields = None
         self.discriminator = None
 
         self.detail = detail
+        if fields is not None:
+            self.fields = fields
 
     @property
     def detail(self):
@@ -78,6 +83,29 @@ class ErrorDetail(object):
             raise ValueError("Invalid value for `detail`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._detail = detail
+
+    @property
+    def fields(self):
+        """Gets the fields of this ErrorDetail.
+
+        A Dictionary of related errors where key: Field and value: Array of Errors related to that field
+
+        :return: The fields of this ErrorDetail.
+        :rtype: dict(str, list[str])
+        """
+        return self._fields
+
+    @fields.setter
+    def fields(self, fields):
+        """Sets the fields of this ErrorDetail.
+
+        A Dictionary of related errors where key: Field and value: Array of Errors related to that field
+
+        :param fields: The fields of this ErrorDetail.
+        :type: dict(str, list[str])
+        """
+
+        self._fields = fields
 
     def to_dict(self):
         """Returns the model properties as a dict"""

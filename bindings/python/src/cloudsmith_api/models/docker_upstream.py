@@ -155,7 +155,7 @@ class DockerUpstream(object):
         :param auth_mode: The auth_mode of this DockerUpstream.
         :type: str
         """
-        allowed_values = ["None", "Username and Password"]  # noqa: E501
+        allowed_values = ["None", "Username and Password", "Certificate and Key"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 auth_mode not in allowed_values):
             raise ValueError(

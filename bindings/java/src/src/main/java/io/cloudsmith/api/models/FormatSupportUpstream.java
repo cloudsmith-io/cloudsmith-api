@@ -44,7 +44,9 @@ public class FormatSupportUpstream implements Serializable {
   public enum AuthModesEnum {
     USERNAME_AND_PASSWORD("Username and Password"),
     
-    TOKEN("Token");
+    TOKEN("Token"),
+    
+    CERTIFICATE_AND_KEY("Certificate and Key");
 
     private String value;
 

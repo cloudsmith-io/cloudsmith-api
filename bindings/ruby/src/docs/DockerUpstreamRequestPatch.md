@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**auth_certificate** | **String** | X.509 Certificate to use for mTLS authentication against the upstream | [optional] 
+**auth_certificate_key** | **String** | Certificate key to use for mTLS authentication against the upstream | [optional] 
 **auth_mode** | **String** | The authentication mode to use when accessing this upstream.  | [optional] [default to &#39;None&#39;]
 **auth_secret** | **String** | Secret to provide with requests to upstream. | [optional] 
 **auth_username** | **String** | Username to provide with requests to upstream. | [optional] 

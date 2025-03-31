@@ -95,7 +95,7 @@ class FormatSupportUpstream(object):
         """
         if self._configuration.client_side_validation and auth_modes is None:
             raise ValueError("Invalid value for `auth_modes`, must not be `None`")  # noqa: E501
-        allowed_values = ["Username and Password", "Token"]  # noqa: E501
+        allowed_values = ["Username and Password", "Token", "Certificate and Key"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 not set(auth_modes).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

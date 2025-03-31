@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **name** | **String** | A descriptive name for the repository. | 
 **namespace** | **String** | Namespace to which this repository belongs. |  [optional]
 **namespaceUrl** | **String** | API endpoint where data about this namespace can be retrieved. |  [optional]
+**nugetNativeSigningEnabled** | **Boolean** | When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository&#39;s X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository&#39;s signing certificates including the ones from configured upstreams. |  [optional]
 **numDownloads** | **java.math.BigInteger** | The number of downloads for packages in the repository. |  [optional]
 **numPolicyViolatedPackages** | **java.math.BigInteger** | Number of packages with policy violations in a repository. |  [optional]
 **numQuarantinedPackages** | **java.math.BigInteger** | Number of quarantined packages in a repository. |  [optional]

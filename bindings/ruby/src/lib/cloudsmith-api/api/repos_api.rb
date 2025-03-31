@@ -7245,5 +7245,125 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Retrieve the active X.509 ECDSA certificate for the Repository.
+    # Retrieve the active X.509 ECDSA certificate for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryX509EcdsaCertificate]
+    def repos_x509_ecdsa_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_x509_ecdsa_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Retrieve the active X.509 ECDSA certificate for the Repository.
+    # Retrieve the active X.509 ECDSA certificate for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryX509EcdsaCertificate, Fixnum, Hash)>] RepositoryX509EcdsaCertificate data, response status code and response headers
+    def repos_x509_ecdsa_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_x509_ecdsa_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_x509_ecdsa_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_x509_ecdsa_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/x509-ecdsa/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryX509EcdsaCertificate')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_x509_ecdsa_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the active X.509 RSA certificate for the Repository.
+    # Retrieve the active X.509 RSA certificate for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryX509RsaCertificate]
+    def repos_x509_rsa_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_x509_rsa_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Retrieve the active X.509 RSA certificate for the Repository.
+    # Retrieve the active X.509 RSA certificate for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryX509RsaCertificate, Fixnum, Hash)>] RepositoryX509RsaCertificate data, response status code and response headers
+    def repos_x509_rsa_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_x509_rsa_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_x509_rsa_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_x509_rsa_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/x509-rsa/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryX509RsaCertificate')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_x509_rsa_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

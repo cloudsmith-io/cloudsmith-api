@@ -813,6 +813,20 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_x509_ecdsa_list(self):
+        """Test case for repos_x509_ecdsa_list
+
+        Retrieve the active X.509 ECDSA certificate for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_x509_rsa_list(self):
+        """Test case for repos_x509_rsa_list
+
+        Retrieve the active X.509 RSA certificate for the Repository.  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

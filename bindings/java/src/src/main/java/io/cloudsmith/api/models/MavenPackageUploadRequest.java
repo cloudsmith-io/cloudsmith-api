@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -36,6 +38,9 @@ public class MavenPackageUploadRequest implements Serializable {
 
   @SerializedName("artifact_id")
   private String artifactId = null;
+
+  @SerializedName("extra_files")
+  private List<String> extraFiles = null;
 
   @SerializedName("group_id")
   private String groupId = null;
@@ -92,6 +97,32 @@ public class MavenPackageUploadRequest implements Serializable {
 
   public void setArtifactId(String artifactId) {
     this.artifactId = artifactId;
+  }
+
+  public MavenPackageUploadRequest extraFiles(List<String> extraFiles) {
+    this.extraFiles = extraFiles;
+    return this;
+  }
+
+  public MavenPackageUploadRequest addExtraFilesItem(String extraFilesItem) {
+    if (this.extraFiles == null) {
+      this.extraFiles = new ArrayList<>();
+    }
+    this.extraFiles.add(extraFilesItem);
+    return this;
+  }
+
+   /**
+   * Extra files to include in the package. This can be a single file or multiple files.
+   * @return extraFiles
+  **/
+  @ApiModelProperty(value = "Extra files to include in the package. This can be a single file or multiple files.")
+  public List<String> getExtraFiles() {
+    return extraFiles;
+  }
+
+  public void setExtraFiles(List<String> extraFiles) {
+    this.extraFiles = extraFiles;
   }
 
   public MavenPackageUploadRequest groupId(String groupId) {
@@ -340,6 +371,7 @@ public class MavenPackageUploadRequest implements Serializable {
     }
     MavenPackageUploadRequest mavenPackageUploadRequest = (MavenPackageUploadRequest) o;
     return Objects.equals(this.artifactId, mavenPackageUploadRequest.artifactId) &&
+        Objects.equals(this.extraFiles, mavenPackageUploadRequest.extraFiles) &&
         Objects.equals(this.groupId, mavenPackageUploadRequest.groupId) &&
         Objects.equals(this.ivyFile, mavenPackageUploadRequest.ivyFile) &&
         Objects.equals(this.javadocFile, mavenPackageUploadRequest.javadocFile) &&
@@ -357,7 +389,7 @@ public class MavenPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sbtVersion, scalaVersion, sourcesFile, tags, testsFile, version);
+    return Objects.hash(artifactId, extraFiles, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sbtVersion, scalaVersion, sourcesFile, tags, testsFile, version);
   }
 
 
@@ -367,6 +399,7 @@ public class MavenPackageUploadRequest implements Serializable {
     sb.append("class MavenPackageUploadRequest {\n");
     
     sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
+    sb.append("    extraFiles: ").append(toIndentedString(extraFiles)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    ivyFile: ").append(toIndentedString(ivyFile)).append("\n");
     sb.append("    javadocFile: ").append(toIndentedString(javadocFile)).append("\n");

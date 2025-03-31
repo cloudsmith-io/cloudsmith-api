@@ -116,6 +116,8 @@ Method | HTTP request | Description
 [**reposUpstreamSwiftRead**](ReposApi.md#reposUpstreamSwiftRead) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
 [**reposUpstreamSwiftUpdate**](ReposApi.md#reposUpstreamSwiftUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
 [**reposUserList**](ReposApi.md#reposUserList) | **GET** /repos/ | Get a list of all repositories associated with current user.
+[**reposX509EcdsaList**](ReposApi.md#reposX509EcdsaList) | **GET** /repos/{owner}/{identifier}/x509-ecdsa/ | Retrieve the active X.509 ECDSA certificate for the Repository.
+[**reposX509RsaList**](ReposApi.md#reposX509RsaList) | **GET** /repos/{owner}/{identifier}/x509-rsa/ | Retrieve the active X.509 RSA certificate for the Repository.
 
 
 <a name="apiReposGeoipStatus"></a>
@@ -7316,6 +7318,130 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;Repository&gt;**](Repository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposX509EcdsaList"></a>
+# **reposX509EcdsaList**
+> RepositoryX509EcdsaCertificate reposX509EcdsaList(owner, identifier)
+
+Retrieve the active X.509 ECDSA certificate for the Repository.
+
+Retrieve the active X.509 ECDSA certificate for the Repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+try {
+    RepositoryX509EcdsaCertificate result = apiInstance.reposX509EcdsaList(owner, identifier);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposX509EcdsaList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+
+### Return type
+
+[**RepositoryX509EcdsaCertificate**](RepositoryX509EcdsaCertificate.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposX509RsaList"></a>
+# **reposX509RsaList**
+> RepositoryX509RsaCertificate reposX509RsaList(owner, identifier)
+
+Retrieve the active X.509 RSA certificate for the Repository.
+
+Retrieve the active X.509 RSA certificate for the Repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+try {
+    RepositoryX509RsaCertificate result = apiInstance.reposX509RsaList(owner, identifier);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposX509RsaList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+
+### Return type
+
+[**RepositoryX509RsaCertificate**](RepositoryX509RsaCertificate.md)
 
 ### Authorization
 

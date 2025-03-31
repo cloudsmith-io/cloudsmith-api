@@ -42,7 +42,9 @@ public class DockerUpstream implements Serializable {
   public enum AuthModeEnum {
     NONE("None"),
     
-    USERNAME_AND_PASSWORD("Username and Password");
+    USERNAME_AND_PASSWORD("Username and Password"),
+    
+    CERTIFICATE_AND_KEY("Certificate and Key");
 
     private String value;
 
