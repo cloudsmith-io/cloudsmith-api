@@ -264,7 +264,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **entitlements_list**
-> list[RepositoryToken] entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active)
+> list[RepositoryToken] entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active, sort=sort)
 
 Get a list of all entitlements in a repository.
 
@@ -297,10 +297,11 @@ page_size = 56 # int | Number of results to return per page. (optional)
 show_tokens = false # bool | Show entitlement token strings in results (optional) (default to false)
 query = 'query_example' # str | A search term for querying names of entitlements. (optional)
 active = false # bool | If true, only include active tokens (optional) (default to false)
+sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name. (optional) (default to name)
 
 try:
     # Get a list of all entitlements in a repository.
-    api_response = api_instance.entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active)
+    api_response = api_instance.entitlements_list(owner, repo, page=page, page_size=page_size, show_tokens=show_tokens, query=query, active=active, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntitlementsApi->entitlements_list: %s\n" % e)
@@ -317,6 +318,7 @@ Name | Type | Description  | Notes
  **show_tokens** | **bool**| Show entitlement token strings in results | [optional] [default to false]
  **query** | **str**| A search term for querying names of entitlements. | [optional] 
  **active** | **bool**| If true, only include active tokens | [optional] [default to false]
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name]
 
 ### Return type
 

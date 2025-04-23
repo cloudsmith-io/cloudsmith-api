@@ -146,6 +146,9 @@ public class RepositoryCreateRequest implements Serializable {
   @SerializedName("copy_packages")
   private CopyPackagesEnum copyPackages = CopyPackagesEnum.READ;
 
+  @SerializedName("cosign_signing_enabled")
+  private Boolean cosignSigningEnabled = null;
+
   /**
    * This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
    */
@@ -819,6 +822,24 @@ public class RepositoryCreateRequest implements Serializable {
 
   public void setCopyPackages(CopyPackagesEnum copyPackages) {
     this.copyPackages = copyPackages;
+  }
+
+  public RepositoryCreateRequest cosignSigningEnabled(Boolean cosignSigningEnabled) {
+    this.cosignSigningEnabled = cosignSigningEnabled;
+    return this;
+  }
+
+   /**
+   * When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository&#39;s ECDSA key. This generates a distinct cosign signature artifact per artifact.
+   * @return cosignSigningEnabled
+  **/
+  @ApiModelProperty(value = "When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key. This generates a distinct cosign signature artifact per artifact.")
+  public Boolean isCosignSigningEnabled() {
+    return cosignSigningEnabled;
+  }
+
+  public void setCosignSigningEnabled(Boolean cosignSigningEnabled) {
+    this.cosignSigningEnabled = cosignSigningEnabled;
   }
 
   public RepositoryCreateRequest defaultPrivilege(DefaultPrivilegeEnum defaultPrivilege) {
@@ -1546,6 +1567,7 @@ public class RepositoryCreateRequest implements Serializable {
         Objects.equals(this.contextualAuthRealm, repositoryCreateRequest.contextualAuthRealm) &&
         Objects.equals(this.copyOwn, repositoryCreateRequest.copyOwn) &&
         Objects.equals(this.copyPackages, repositoryCreateRequest.copyPackages) &&
+        Objects.equals(this.cosignSigningEnabled, repositoryCreateRequest.cosignSigningEnabled) &&
         Objects.equals(this.defaultPrivilege, repositoryCreateRequest.defaultPrivilege) &&
         Objects.equals(this.deleteOwn, repositoryCreateRequest.deleteOwn) &&
         Objects.equals(this.deletePackages, repositoryCreateRequest.deletePackages) &&
@@ -1589,7 +1611,7 @@ public class RepositoryCreateRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1602,6 +1624,7 @@ public class RepositoryCreateRequest implements Serializable {
     sb.append("    contextualAuthRealm: ").append(toIndentedString(contextualAuthRealm)).append("\n");
     sb.append("    copyOwn: ").append(toIndentedString(copyOwn)).append("\n");
     sb.append("    copyPackages: ").append(toIndentedString(copyPackages)).append("\n");
+    sb.append("    cosignSigningEnabled: ").append(toIndentedString(cosignSigningEnabled)).append("\n");
     sb.append("    defaultPrivilege: ").append(toIndentedString(defaultPrivilege)).append("\n");
     sb.append("    deleteOwn: ").append(toIndentedString(deleteOwn)).append("\n");
     sb.append("    deletePackages: ").append(toIndentedString(deletePackages)).append("\n");

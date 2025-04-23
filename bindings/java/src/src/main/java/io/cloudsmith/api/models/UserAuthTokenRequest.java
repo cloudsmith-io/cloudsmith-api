@@ -40,6 +40,9 @@ public class UserAuthTokenRequest implements Serializable {
   @SerializedName("password")
   private String password = null;
 
+  @SerializedName("totp_token")
+  private String totpToken = null;
+
   public UserAuthTokenRequest email(String email) {
     this.email = email;
     return this;
@@ -76,6 +79,24 @@ public class UserAuthTokenRequest implements Serializable {
     this.password = password;
   }
 
+  public UserAuthTokenRequest totpToken(String totpToken) {
+    this.totpToken = totpToken;
+    return this;
+  }
+
+   /**
+   * Two-factor authentication code
+   * @return totpToken
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Two-factor authentication code")
+  public String getTotpToken() {
+    return totpToken;
+  }
+
+  public void setTotpToken(String totpToken) {
+    this.totpToken = totpToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,12 +108,13 @@ public class UserAuthTokenRequest implements Serializable {
     }
     UserAuthTokenRequest userAuthTokenRequest = (UserAuthTokenRequest) o;
     return Objects.equals(this.email, userAuthTokenRequest.email) &&
-        Objects.equals(this.password, userAuthTokenRequest.password);
+        Objects.equals(this.password, userAuthTokenRequest.password) &&
+        Objects.equals(this.totpToken, userAuthTokenRequest.totpToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, password);
+    return Objects.hash(email, password, totpToken);
   }
 
 
@@ -103,6 +125,7 @@ public class UserAuthTokenRequest implements Serializable {
     
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    totpToken: ").append(toIndentedString(totpToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

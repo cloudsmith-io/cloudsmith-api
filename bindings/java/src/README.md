@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.17</version>
+  <version>2.0.18</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.17"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.18"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.17.jar`
+* `target/cloudsmith-api-2.0.18.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -401,7 +401,10 @@ Class | Method | HTTP request | Description
 *StorageRegionsApi* | [**storageRegionsList**](docs/StorageRegionsApi.md#storageRegionsList) | **GET** /storage-regions/ | Get a list of all available storage regions.
 *StorageRegionsApi* | [**storageRegionsRead**](docs/StorageRegionsApi.md#storageRegionsRead) | **GET** /storage-regions/{slug}/ | Get a specific storage region.
 *UserApi* | [**userSelf**](docs/UserApi.md#userSelf) | **GET** /user/self/ | Provide a brief for the current user (if any).
-*UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Retrieve/Create API key/token for the authenticated user.
+*UserApi* | [**userTokenCreate**](docs/UserApi.md#userTokenCreate) | **POST** /user/token/ | Create or retrieve API token for a user.
+*UserApi* | [**userTokensCreate**](docs/UserApi.md#userTokensCreate) | **POST** /user/tokens/ | Create an API key for the user that is currently authenticated.
+*UserApi* | [**userTokensList**](docs/UserApi.md#userTokensList) | **GET** /user/tokens/ | Retrieve the API key assigned to the user that is currently authenticated.
+*UserApi* | [**userTokensRefresh**](docs/UserApi.md#userTokensRefresh) | **PUT** /user/tokens/{slug_perm}/refresh/ | Refresh the specified API key for the user that is currently authenticated.
 *UsersApi* | [**usersProfileRead**](docs/UsersApi.md#usersProfileRead) | **GET** /users/profile/{slug}/ | Provide a brief for the specified user (if any).
 *VulnerabilitiesApi* | [**vulnerabilitiesNamespaceList**](docs/VulnerabilitiesApi.md#vulnerabilitiesNamespaceList) | **GET** /vulnerabilities/{owner}/ | Lists scan results for a specific namespace.
 *VulnerabilitiesApi* | [**vulnerabilitiesPackageList**](docs/VulnerabilitiesApi.md#vulnerabilitiesPackageList) | **GET** /vulnerabilities/{owner}/{repo}/{package}/ | Lists scan results for a specific package.
@@ -484,6 +487,7 @@ Class | Method | HTTP request | Description
  - [History](docs/History.md)
  - [HistoryFieldset](docs/HistoryFieldset.md)
  - [HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -660,6 +664,7 @@ Class | Method | HTTP request | Description
  - [UsageRaw](docs/UsageRaw.md)
  - [UserAuthToken](docs/UserAuthToken.md)
  - [UserAuthTokenRequest](docs/UserAuthTokenRequest.md)
+ - [UserAuthenticationToken](docs/UserAuthenticationToken.md)
  - [UserBrief](docs/UserBrief.md)
  - [UserProfile](docs/UserProfile.md)
  - [VagrantPackageUpload](docs/VagrantPackageUpload.md)

@@ -83,6 +83,7 @@ from cloudsmith_api.models.hex_upstream_request_patch import HexUpstreamRequestP
 from cloudsmith_api.models.history import History
 from cloudsmith_api.models.history_fieldset import HistoryFieldset
 from cloudsmith_api.models.history_fieldset_raw import HistoryFieldsetRaw
+from cloudsmith_api.models.inline_response200 import InlineResponse200
 from cloudsmith_api.models.luarocks_package_upload import LuarocksPackageUpload
 from cloudsmith_api.models.luarocks_package_upload_request import LuarocksPackageUploadRequest
 from cloudsmith_api.models.maven_package_upload import MavenPackageUpload
@@ -259,6 +260,7 @@ from cloudsmith_api.models.usage_limits_raw import UsageLimitsRaw
 from cloudsmith_api.models.usage_raw import UsageRaw
 from cloudsmith_api.models.user_auth_token import UserAuthToken
 from cloudsmith_api.models.user_auth_token_request import UserAuthTokenRequest
+from cloudsmith_api.models.user_authentication_token import UserAuthenticationToken
 from cloudsmith_api.models.user_brief import UserBrief
 from cloudsmith_api.models.user_profile import UserProfile
 from cloudsmith_api.models.vagrant_package_upload import VagrantPackageUpload

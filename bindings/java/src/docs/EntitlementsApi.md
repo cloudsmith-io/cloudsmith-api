@@ -273,7 +273,7 @@ null (empty response body)
 
 <a name="entitlementsList"></a>
 # **entitlementsList**
-> List&lt;RepositoryToken&gt; entitlementsList(owner, repo, page, pageSize, showTokens, query, active)
+> List&lt;RepositoryToken&gt; entitlementsList(owner, repo, page, pageSize, showTokens, query, active, sort)
 
 Get a list of all entitlements in a repository.
 
@@ -309,8 +309,9 @@ java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInte
 Boolean showTokens = false; // Boolean | Show entitlement token strings in results
 String query = "query_example"; // String | A search term for querying names of entitlements.
 Boolean active = false; // Boolean | If true, only include active tokens
+String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
 try {
-    List<RepositoryToken> result = apiInstance.entitlementsList(owner, repo, page, pageSize, showTokens, query, active);
+    List<RepositoryToken> result = apiInstance.entitlementsList(owner, repo, page, pageSize, showTokens, query, active, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EntitlementsApi#entitlementsList");
@@ -329,6 +330,7 @@ Name | Type | Description  | Notes
  **showTokens** | **Boolean**| Show entitlement token strings in results | [optional] [default to false]
  **query** | **String**| A search term for querying names of entitlements. | [optional]
  **active** | **Boolean**| If true, only include active tokens | [optional] [default to false]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name]
 
 ### Return type
 

@@ -39,7 +39,28 @@ class TestUserApi(unittest.TestCase):
     def test_user_token_create(self):
         """Test case for user_token_create
 
-        Retrieve/Create API key/token for the authenticated user.  # noqa: E501
+        Create or retrieve API token for a user.  # noqa: E501
+        """
+        pass
+
+    def test_user_tokens_create(self):
+        """Test case for user_tokens_create
+
+        Create an API key for the user that is currently authenticated.  # noqa: E501
+        """
+        pass
+
+    def test_user_tokens_list(self):
+        """Test case for user_tokens_list
+
+        Retrieve the API key assigned to the user that is currently authenticated.  # noqa: E501
+        """
+        pass
+
+    def test_user_tokens_refresh(self):
+        """Test case for user_tokens_refresh
+
+        Refresh the specified API key for the user that is currently authenticated.  # noqa: E501
         """
         pass
 

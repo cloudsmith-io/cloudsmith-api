@@ -33,24 +33,34 @@ class UserAuthToken(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'token': 'str'
+        'token': 'str',
+        'two_factor_required': 'bool',
+        'two_factor_token': 'str'
     }
 
     attribute_map = {
-        'token': 'token'
+        'token': 'token',
+        'two_factor_required': 'two_factor_required',
+        'two_factor_token': 'two_factor_token'
     }
 
-    def __init__(self, token=None, _configuration=None):  # noqa: E501
+    def __init__(self, token=None, two_factor_required=None, two_factor_token=None, _configuration=None):  # noqa: E501
         """UserAuthToken - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._token = None
+        self._two_factor_required = None
+        self._two_factor_token = None
         self.discriminator = None
 
         if token is not None:
             self.token = token
+        if two_factor_required is not None:
+            self.two_factor_required = two_factor_required
+        if two_factor_token is not None:
+            self.two_factor_token = two_factor_token
 
     @property
     def token(self):
@@ -77,6 +87,55 @@ class UserAuthToken(object):
             raise ValueError("Invalid value for `token`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._token = token
+
+    @property
+    def two_factor_required(self):
+        """Gets the two_factor_required of this UserAuthToken.
+
+        Flag indicating whether a 2FA code is required to complete authentication
+
+        :return: The two_factor_required of this UserAuthToken.
+        :rtype: bool
+        """
+        return self._two_factor_required
+
+    @two_factor_required.setter
+    def two_factor_required(self, two_factor_required):
+        """Sets the two_factor_required of this UserAuthToken.
+
+        Flag indicating whether a 2FA code is required to complete authentication
+
+        :param two_factor_required: The two_factor_required of this UserAuthToken.
+        :type: bool
+        """
+
+        self._two_factor_required = two_factor_required
+
+    @property
+    def two_factor_token(self):
+        """Gets the two_factor_token of this UserAuthToken.
+
+        Token to use when providing 2FA code
+
+        :return: The two_factor_token of this UserAuthToken.
+        :rtype: str
+        """
+        return self._two_factor_token
+
+    @two_factor_token.setter
+    def two_factor_token(self, two_factor_token):
+        """Sets the two_factor_token of this UserAuthToken.
+
+        Token to use when providing 2FA code
+
+        :param two_factor_token: The two_factor_token of this UserAuthToken.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                two_factor_token is not None and len(two_factor_token) < 1):
+            raise ValueError("Invalid value for `two_factor_token`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._two_factor_token = two_factor_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

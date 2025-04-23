@@ -37,6 +37,12 @@ public class UserAuthToken implements Serializable {
   @SerializedName("token")
   private String token = null;
 
+  @SerializedName("two_factor_required")
+  private Boolean twoFactorRequired = null;
+
+  @SerializedName("two_factor_token")
+  private String twoFactorToken = null;
+
    /**
    * API token for the authenticated user
    * @return token
@@ -44,6 +50,24 @@ public class UserAuthToken implements Serializable {
  @Size(min=1)  @ApiModelProperty(value = "API token for the authenticated user")
   public String getToken() {
     return token;
+  }
+
+   /**
+   * Flag indicating whether a 2FA code is required to complete authentication
+   * @return twoFactorRequired
+  **/
+  @ApiModelProperty(value = "Flag indicating whether a 2FA code is required to complete authentication")
+  public Boolean isTwoFactorRequired() {
+    return twoFactorRequired;
+  }
+
+   /**
+   * Token to use when providing 2FA code
+   * @return twoFactorToken
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Token to use when providing 2FA code")
+  public String getTwoFactorToken() {
+    return twoFactorToken;
   }
 
 
@@ -56,12 +80,14 @@ public class UserAuthToken implements Serializable {
       return false;
     }
     UserAuthToken userAuthToken = (UserAuthToken) o;
-    return Objects.equals(this.token, userAuthToken.token);
+    return Objects.equals(this.token, userAuthToken.token) &&
+        Objects.equals(this.twoFactorRequired, userAuthToken.twoFactorRequired) &&
+        Objects.equals(this.twoFactorToken, userAuthToken.twoFactorToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return Objects.hash(token, twoFactorRequired, twoFactorToken);
   }
 
 
@@ -71,6 +97,8 @@ public class UserAuthToken implements Serializable {
     sb.append("class UserAuthToken {\n");
     
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
+    sb.append("    twoFactorToken: ").append(toIndentedString(twoFactorToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

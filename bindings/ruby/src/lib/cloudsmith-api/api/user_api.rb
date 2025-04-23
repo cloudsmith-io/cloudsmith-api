@@ -67,8 +67,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Retrieve/Create API key/token for the authenticated user.
-    # Retrieve/Create API key/token for the authenticated user.
+    # Create or retrieve API token for a user.
+    # Handles both: - Users authenticating with basic credentials to get a token - Two-factor authentication flow
     # @param [Hash] opts the optional parameters
     # @option opts [UserAuthTokenRequest] :data 
     # @return [UserAuthToken]
@@ -77,8 +77,8 @@ module CloudsmithApi
       data
     end
 
-    # Retrieve/Create API key/token for the authenticated user.
-    # Retrieve/Create API key/token for the authenticated user.
+    # Create or retrieve API token for a user.
+    # Handles both: - Users authenticating with basic credentials to get a token - Two-factor authentication flow
     # @param [Hash] opts the optional parameters
     # @option opts [UserAuthTokenRequest] :data 
     # @return [Array<(UserAuthToken, Fixnum, Hash)>] UserAuthToken data, response status code and response headers
@@ -114,6 +114,162 @@ module CloudsmithApi
         :return_type => 'UserAuthToken')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#user_token_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create an API key for the user that is currently authenticated.
+    # Create an API key for the user that is currently authenticated.
+    # @param [Hash] opts the optional parameters
+    # @return [UserAuthenticationToken]
+    def user_tokens_create(opts = {})
+      data, _status_code, _headers = user_tokens_create_with_http_info(opts)
+      data
+    end
+
+    # Create an API key for the user that is currently authenticated.
+    # Create an API key for the user that is currently authenticated.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UserAuthenticationToken, Fixnum, Hash)>] UserAuthenticationToken data, response status code and response headers
+    def user_tokens_create_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.user_tokens_create ...'
+      end
+      # resource path
+      local_var_path = '/user/tokens/'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UserAuthenticationToken')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#user_tokens_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the API key assigned to the user that is currently authenticated.
+    # Retrieve the API key assigned to the user that is currently authenticated.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [InlineResponse200]
+    def user_tokens_list(opts = {})
+      data, _status_code, _headers = user_tokens_list_with_http_info(opts)
+      data
+    end
+
+    # Retrieve the API key assigned to the user that is currently authenticated.
+    # Retrieve the API key assigned to the user that is currently authenticated.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    def user_tokens_list_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.user_tokens_list ...'
+      end
+      # resource path
+      local_var_path = '/user/tokens/'
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse200')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#user_tokens_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Refresh the specified API key for the user that is currently authenticated.
+    # Refresh the specified API key for the user that is currently authenticated.
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [UserAuthenticationToken]
+    def user_tokens_refresh(slug_perm, opts = {})
+      data, _status_code, _headers = user_tokens_refresh_with_http_info(slug_perm, opts)
+      data
+    end
+
+    # Refresh the specified API key for the user that is currently authenticated.
+    # Refresh the specified API key for the user that is currently authenticated.
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UserAuthenticationToken, Fixnum, Hash)>] UserAuthenticationToken data, response status code and response headers
+    def user_tokens_refresh_with_http_info(slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserApi.user_tokens_refresh ...'
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling UserApi.user_tokens_refresh"
+      end
+      # resource path
+      local_var_path = '/user/tokens/{slug_perm}/refresh/'.sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UserAuthenticationToken')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserApi#user_tokens_refresh\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
