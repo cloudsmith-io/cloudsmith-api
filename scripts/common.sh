@@ -13,7 +13,7 @@ location=$(curl -s $openapi_url | grep Location | cut -d' ' -f2)
   openapi_url="${openapi_scheme}://${openapi_hostname}${location}"
 }
 
-# Bindings attributes/config
+# Bindings attributes/config 
 allow_unicode_identifiers="true"
 author="Cloudsmith Ltd"
 author_email="support@cloudsmith.io"
