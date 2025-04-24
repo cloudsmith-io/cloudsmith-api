@@ -500,6 +500,8 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [String] :query A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name.
   # @return [Array<ProviderSettings>]
   describe 'orgs_openid_connect_list test' do
     it 'should work' do
@@ -694,6 +696,8 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [String] :query A search term for querying of services within an Organization.Available options are: name, role
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-created_at&#x60;). Available options: created_at, name, role.
   # @return [Array<Service>]
   describe 'orgs_services_list test' do
     it 'should work' do
@@ -774,6 +778,9 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [BOOLEAN] :for_user Filter for teams that you are a member of.
+  # @option opts [String] :query A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, members.
   # @return [Array<OrganizationTeam>]
   describe 'orgs_teams_list test' do
     it 'should work' do

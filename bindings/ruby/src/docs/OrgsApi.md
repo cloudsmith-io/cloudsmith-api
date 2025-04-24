@@ -2239,7 +2239,9 @@ org = 'org_example' # String |
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
+  page_size: 56, # Integer | Number of results to return per page.
+  query: '', # String | A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account
+  sort: 'name' # String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
 }
 
 begin
@@ -2258,6 +2260,8 @@ Name | Type | Description  | Notes
  **org** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **query** | **String**| A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name]
 
 ### Return type
 
@@ -3152,7 +3156,9 @@ org = 'org_example' # String |
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
+  page_size: 56, # Integer | Number of results to return per page.
+  query: '', # String | A search term for querying of services within an Organization.Available options are: name, role
+  sort: 'created_at' # String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-created_at`). Available options: created_at, name, role.
 }
 
 begin
@@ -3171,6 +3177,8 @@ Name | Type | Description  | Notes
  **org** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **query** | **String**| A search term for querying of services within an Organization.Available options are: name, role | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-created_at&#x60;). Available options: created_at, name, role. | [optional] [default to created_at]
 
 ### Return type
 
@@ -3525,7 +3533,10 @@ org = 'org_example' # String |
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
+  page_size: 56, # Integer | Number of results to return per page.
+  for_user: false, # BOOLEAN | Filter for teams that you are a member of.
+  query: '', # String | A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug
+  sort: 'name' # String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, members.
 }
 
 begin
@@ -3544,6 +3555,9 @@ Name | Type | Description  | Notes
  **org** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **for_user** | **BOOLEAN**| Filter for teams that you are a member of. | [optional] [default to false]
+ **query** | **String**| A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, members. | [optional] [default to name]
 
 ### Return type
 

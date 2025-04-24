@@ -29,6 +29,9 @@ class Repository
   # This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.
   attr_accessor :copy_packages
 
+  # When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key. This generates a distinct cosign signature artifact per artifact.
+  attr_accessor :cosign_signing_enabled
+
   attr_accessor :created_at
 
   # This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.
@@ -230,6 +233,7 @@ class Repository
       :'contextual_auth_realm' => :'contextual_auth_realm',
       :'copy_own' => :'copy_own',
       :'copy_packages' => :'copy_packages',
+      :'cosign_signing_enabled' => :'cosign_signing_enabled',
       :'created_at' => :'created_at',
       :'default_privilege' => :'default_privilege',
       :'delete_own' => :'delete_own',
@@ -300,6 +304,7 @@ class Repository
       :'contextual_auth_realm' => :'BOOLEAN',
       :'copy_own' => :'BOOLEAN',
       :'copy_packages' => :'String',
+      :'cosign_signing_enabled' => :'BOOLEAN',
       :'created_at' => :'DateTime',
       :'default_privilege' => :'String',
       :'delete_own' => :'BOOLEAN',
@@ -392,6 +397,10 @@ class Repository
       self.copy_packages = attributes[:'copy_packages']
     else
       self.copy_packages = 'Read'
+    end
+
+    if attributes.has_key?(:'cosign_signing_enabled')
+      self.cosign_signing_enabled = attributes[:'cosign_signing_enabled']
     end
 
     if attributes.has_key?(:'created_at')
@@ -831,6 +840,7 @@ class Repository
         contextual_auth_realm == o.contextual_auth_realm &&
         copy_own == o.copy_own &&
         copy_packages == o.copy_packages &&
+        cosign_signing_enabled == o.cosign_signing_enabled &&
         created_at == o.created_at &&
         default_privilege == o.default_privilege &&
         delete_own == o.delete_own &&
@@ -901,7 +911,7 @@ class Repository
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, gpg_keys, index_files, is_open_source, is_private, is_public, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    [cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, gpg_keys, index_files, is_open_source, is_private, is_public, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
   end
 
     # Builds the object from hash

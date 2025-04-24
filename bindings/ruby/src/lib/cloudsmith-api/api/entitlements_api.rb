@@ -289,6 +289,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results (default to false)
     # @option opts [String] :query A search term for querying names of entitlements.
     # @option opts [BOOLEAN] :active If true, only include active tokens (default to false)
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. (default to name)
     # @return [Array<RepositoryToken>]
     def entitlements_list(owner, repo, opts = {})
       data, _status_code, _headers = entitlements_list_with_http_info(owner, repo, opts)
@@ -305,6 +306,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
     # @option opts [String] :query A search term for querying names of entitlements.
     # @option opts [BOOLEAN] :active If true, only include active tokens
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name.
     # @return [Array<(Array<RepositoryToken>, Fixnum, Hash)>] Array<RepositoryToken> data, response status code and response headers
     def entitlements_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
@@ -328,6 +330,7 @@ module CloudsmithApi
       query_params[:'show_tokens'] = opts[:'show_tokens'] if !opts[:'show_tokens'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'active'] = opts[:'active'] if !opts[:'active'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}

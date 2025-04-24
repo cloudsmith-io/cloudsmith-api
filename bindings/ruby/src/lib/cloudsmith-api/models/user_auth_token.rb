@@ -17,17 +17,27 @@ class UserAuthToken
   # API token for the authenticated user
   attr_accessor :token
 
+  # Flag indicating whether a 2FA code is required to complete authentication
+  attr_accessor :two_factor_required
+
+  # Token to use when providing 2FA code
+  attr_accessor :two_factor_token
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'token' => :'token'
+      :'token' => :'token',
+      :'two_factor_required' => :'two_factor_required',
+      :'two_factor_token' => :'two_factor_token'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'token' => :'String'
+      :'token' => :'String',
+      :'two_factor_required' => :'BOOLEAN',
+      :'two_factor_token' => :'String'
     }
   end
 
@@ -41,6 +51,14 @@ class UserAuthToken
 
     if attributes.has_key?(:'token')
       self.token = attributes[:'token']
+    end
+
+    if attributes.has_key?(:'two_factor_required')
+      self.two_factor_required = attributes[:'two_factor_required']
+    end
+
+    if attributes.has_key?(:'two_factor_token')
+      self.two_factor_token = attributes[:'two_factor_token']
     end
   end
 
@@ -62,7 +80,9 @@ class UserAuthToken
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        token == o.token
+        token == o.token &&
+        two_factor_required == o.two_factor_required &&
+        two_factor_token == o.two_factor_token
   end
 
   # @see the `==` method
@@ -74,7 +94,7 @@ class UserAuthToken
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [token].hash
+    [token, two_factor_required, two_factor_token].hash
   end
 
     # Builds the object from hash

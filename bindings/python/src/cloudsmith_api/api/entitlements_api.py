@@ -510,6 +510,7 @@ class EntitlementsApi(object):
         :param bool show_tokens: Show entitlement token strings in results
         :param str query: A search term for querying names of entitlements.
         :param bool active: If true, only include active tokens
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
         :return: list[RepositoryToken]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -538,12 +539,13 @@ class EntitlementsApi(object):
         :param bool show_tokens: Show entitlement token strings in results
         :param str query: A search term for querying names of entitlements.
         :param bool active: If true, only include active tokens
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
         :return: list[RepositoryToken]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'page', 'page_size', 'show_tokens', 'query', 'active']  # noqa: E501
+        all_params = ['owner', 'repo', 'page', 'page_size', 'show_tokens', 'query', 'active', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -586,6 +588,8 @@ class EntitlementsApi(object):
             query_params.append(('query', params['query']))  # noqa: E501
         if 'active' in params:
             query_params.append(('active', params['active']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
 
         header_params = {}
 

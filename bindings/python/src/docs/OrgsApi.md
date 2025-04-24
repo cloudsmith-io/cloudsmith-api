@@ -2148,7 +2148,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_openid_connect_list**
-> list[ProviderSettings] orgs_openid_connect_list(org, page=page, page_size=page_size)
+> list[ProviderSettings] orgs_openid_connect_list(org, page=page, page_size=page_size, query=query, sort=sort)
 
 Retrieve the list of OpenID Connect provider settings for the org.
 
@@ -2177,10 +2177,12 @@ api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+query = '' # str | A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account (optional) (default to )
+sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name. (optional) (default to name)
 
 try:
     # Retrieve the list of OpenID Connect provider settings for the org.
-    api_response = api_instance.orgs_openid_connect_list(org, page=page, page_size=page_size)
+    api_response = api_instance.orgs_openid_connect_list(org, page=page, page_size=page_size, query=query, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_openid_connect_list: %s\n" % e)
@@ -2193,6 +2195,8 @@ Name | Type | Description  | Notes
  **org** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **query** | **str**| A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account | [optional] [default to ]
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name]
 
 ### Return type
 
@@ -3042,7 +3046,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_services_list**
-> list[Service] orgs_services_list(org, page=page, page_size=page_size)
+> list[Service] orgs_services_list(org, page=page, page_size=page_size, query=query, sort=sort)
 
 Get a list of all services within an organization.
 
@@ -3071,10 +3075,12 @@ api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+query = '' # str | A search term for querying of services within an Organization.Available options are: name, role (optional) (default to )
+sort = 'created_at' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-created_at`). Available options: created_at, name, role. (optional) (default to created_at)
 
 try:
     # Get a list of all services within an organization.
-    api_response = api_instance.orgs_services_list(org, page=page, page_size=page_size)
+    api_response = api_instance.orgs_services_list(org, page=page, page_size=page_size, query=query, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_services_list: %s\n" % e)
@@ -3087,6 +3093,8 @@ Name | Type | Description  | Notes
  **org** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **query** | **str**| A search term for querying of services within an Organization.Available options are: name, role | [optional] [default to ]
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-created_at&#x60;). Available options: created_at, name, role. | [optional] [default to created_at]
 
 ### Return type
 
@@ -3405,7 +3413,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_teams_list**
-> list[OrganizationTeam] orgs_teams_list(org, page=page, page_size=page_size)
+> list[OrganizationTeam] orgs_teams_list(org, page=page, page_size=page_size, for_user=for_user, query=query, sort=sort)
 
 Get the details of all teams within an organization.
 
@@ -3434,10 +3442,13 @@ api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 org = 'org_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+for_user = false # bool | Filter for teams that you are a member of. (optional) (default to false)
+query = '' # str | A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug (optional) (default to )
+sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, members. (optional) (default to name)
 
 try:
     # Get the details of all teams within an organization.
-    api_response = api_instance.orgs_teams_list(org, page=page, page_size=page_size)
+    api_response = api_instance.orgs_teams_list(org, page=page, page_size=page_size, for_user=for_user, query=query, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_teams_list: %s\n" % e)
@@ -3450,6 +3461,9 @@ Name | Type | Description  | Notes
  **org** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **for_user** | **bool**| Filter for teams that you are a member of. | [optional] [default to false]
+ **query** | **str**| A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug | [optional] [default to ]
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, members. | [optional] [default to name]
 
 ### Return type
 

@@ -44,12 +44,48 @@ describe 'UserApi' do
   end
 
   # unit tests for user_token_create
-  # Retrieve/Create API key/token for the authenticated user.
-  # Retrieve/Create API key/token for the authenticated user.
+  # Create or retrieve API token for a user.
+  # Handles both: - Users authenticating with basic credentials to get a token - Two-factor authentication flow
   # @param [Hash] opts the optional parameters
   # @option opts [UserAuthTokenRequest] :data 
   # @return [UserAuthToken]
   describe 'user_token_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for user_tokens_create
+  # Create an API key for the user that is currently authenticated.
+  # Create an API key for the user that is currently authenticated.
+  # @param [Hash] opts the optional parameters
+  # @return [UserAuthenticationToken]
+  describe 'user_tokens_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for user_tokens_list
+  # Retrieve the API key assigned to the user that is currently authenticated.
+  # Retrieve the API key assigned to the user that is currently authenticated.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [InlineResponse200]
+  describe 'user_tokens_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for user_tokens_refresh
+  # Refresh the specified API key for the user that is currently authenticated.
+  # Refresh the specified API key for the user that is currently authenticated.
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [UserAuthenticationToken]
+  describe 'user_tokens_refresh test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

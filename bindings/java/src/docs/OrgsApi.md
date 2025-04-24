@@ -2217,7 +2217,7 @@ null (empty response body)
 
 <a name="orgsOpenidConnectList"></a>
 # **orgsOpenidConnectList**
-> List&lt;ProviderSettings&gt; orgsOpenidConnectList(org, page, pageSize)
+> List&lt;ProviderSettings&gt; orgsOpenidConnectList(org, page, pageSize, query, sort)
 
 Retrieve the list of OpenID Connect provider settings for the org.
 
@@ -2249,8 +2249,10 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+String query = ""; // String | A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account
+String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
 try {
-    List<ProviderSettings> result = apiInstance.orgsOpenidConnectList(org, page, pageSize);
+    List<ProviderSettings> result = apiInstance.orgsOpenidConnectList(org, page, pageSize, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsOpenidConnectList");
@@ -2265,6 +2267,8 @@ Name | Type | Description  | Notes
  **org** | **String**|  |
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **query** | **String**| A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name]
 
 ### Return type
 
@@ -3141,7 +3145,7 @@ null (empty response body)
 
 <a name="orgsServicesList"></a>
 # **orgsServicesList**
-> List&lt;Service&gt; orgsServicesList(org, page, pageSize)
+> List&lt;Service&gt; orgsServicesList(org, page, pageSize, query, sort)
 
 Get a list of all services within an organization.
 
@@ -3173,8 +3177,10 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+String query = ""; // String | A search term for querying of services within an Organization.Available options are: name, role
+String sort = "created_at"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-created_at`). Available options: created_at, name, role.
 try {
-    List<Service> result = apiInstance.orgsServicesList(org, page, pageSize);
+    List<Service> result = apiInstance.orgsServicesList(org, page, pageSize, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsServicesList");
@@ -3189,6 +3195,8 @@ Name | Type | Description  | Notes
  **org** | **String**|  |
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **query** | **String**| A search term for querying of services within an Organization.Available options are: name, role | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-created_at&#x60;). Available options: created_at, name, role. | [optional] [default to created_at]
 
 ### Return type
 
@@ -3516,7 +3524,7 @@ null (empty response body)
 
 <a name="orgsTeamsList"></a>
 # **orgsTeamsList**
-> List&lt;OrganizationTeam&gt; orgsTeamsList(org, page, pageSize)
+> List&lt;OrganizationTeam&gt; orgsTeamsList(org, page, pageSize, forUser, query, sort)
 
 Get the details of all teams within an organization.
 
@@ -3548,8 +3556,11 @@ OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+Boolean forUser = false; // Boolean | Filter for teams that you are a member of.
+String query = ""; // String | A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug
+String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, members.
 try {
-    List<OrganizationTeam> result = apiInstance.orgsTeamsList(org, page, pageSize);
+    List<OrganizationTeam> result = apiInstance.orgsTeamsList(org, page, pageSize, forUser, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsList");
@@ -3564,6 +3575,9 @@ Name | Type | Description  | Notes
  **org** | **String**|  |
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **forUser** | **Boolean**| Filter for teams that you are a member of. | [optional] [default to false]
+ **query** | **String**| A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, members. | [optional] [default to name]
 
 ### Return type
 

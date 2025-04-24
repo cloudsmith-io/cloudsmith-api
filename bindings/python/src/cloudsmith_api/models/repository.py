@@ -38,6 +38,7 @@ class Repository(object):
         'contextual_auth_realm': 'bool',
         'copy_own': 'bool',
         'copy_packages': 'str',
+        'cosign_signing_enabled': 'bool',
         'created_at': 'datetime',
         'default_privilege': 'str',
         'delete_own': 'bool',
@@ -105,6 +106,7 @@ class Repository(object):
         'contextual_auth_realm': 'contextual_auth_realm',
         'copy_own': 'copy_own',
         'copy_packages': 'copy_packages',
+        'cosign_signing_enabled': 'cosign_signing_enabled',
         'created_at': 'created_at',
         'default_privilege': 'default_privilege',
         'delete_own': 'delete_own',
@@ -166,7 +168,7 @@ class Repository(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """Repository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -177,6 +179,7 @@ class Repository(object):
         self._contextual_auth_realm = None
         self._copy_own = None
         self._copy_packages = None
+        self._cosign_signing_enabled = None
         self._created_at = None
         self._default_privilege = None
         self._delete_own = None
@@ -248,6 +251,8 @@ class Repository(object):
             self.copy_own = copy_own
         if copy_packages is not None:
             self.copy_packages = copy_packages
+        if cosign_signing_enabled is not None:
+            self.cosign_signing_enabled = cosign_signing_enabled
         if created_at is not None:
             self.created_at = created_at
         if default_privilege is not None:
@@ -494,6 +499,29 @@ class Repository(object):
             )
 
         self._copy_packages = copy_packages
+
+    @property
+    def cosign_signing_enabled(self):
+        """Gets the cosign_signing_enabled of this Repository.
+
+        When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key. This generates a distinct cosign signature artifact per artifact.
+
+        :return: The cosign_signing_enabled of this Repository.
+        :rtype: bool
+        """
+        return self._cosign_signing_enabled
+
+    @cosign_signing_enabled.setter
+    def cosign_signing_enabled(self, cosign_signing_enabled):
+        """Sets the cosign_signing_enabled of this Repository.
+
+        When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key. This generates a distinct cosign signature artifact per artifact.
+
+        :param cosign_signing_enabled: The cosign_signing_enabled of this Repository.
+        :type: bool
+        """
+
+        self._cosign_signing_enabled = cosign_signing_enabled
 
     @property
     def created_at(self):

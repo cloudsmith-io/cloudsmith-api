@@ -3716,6 +3716,8 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param str query: A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
         :return: list[ProviderSettings]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -3740,12 +3742,14 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param str query: A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
         :return: list[ProviderSettings]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'page', 'page_size']  # noqa: E501
+        all_params = ['org', 'page', 'page_size', 'query', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3776,6 +3780,10 @@ class OrgsApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'page_size' in params:
             query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if 'query' in params:
+            query_params.append(('query', params['query']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
 
         header_params = {}
 
@@ -5277,6 +5285,8 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param str query: A search term for querying of services within an Organization.Available options are: name, role
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-created_at`). Available options: created_at, name, role.
         :return: list[Service]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5301,12 +5311,14 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param str query: A search term for querying of services within an Organization.Available options are: name, role
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-created_at`). Available options: created_at, name, role.
         :return: list[Service]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'page', 'page_size']  # noqa: E501
+        all_params = ['org', 'page', 'page_size', 'query', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5337,6 +5349,10 @@ class OrgsApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'page_size' in params:
             query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if 'query' in params:
+            query_params.append(('query', params['query']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
 
         header_params = {}
 
@@ -5919,6 +5935,9 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param bool for_user: Filter for teams that you are a member of.
+        :param str query: A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, members.
         :return: list[OrganizationTeam]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -5943,12 +5962,15 @@ class OrgsApi(object):
         :param str org: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param bool for_user: Filter for teams that you are a member of.
+        :param str query: A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug
+        :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, members.
         :return: list[OrganizationTeam]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'page', 'page_size']  # noqa: E501
+        all_params = ['org', 'page', 'page_size', 'for_user', 'query', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5979,6 +6001,12 @@ class OrgsApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'page_size' in params:
             query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if 'for_user' in params:
+            query_params.append(('for_user', params['for_user']))  # noqa: E501
+        if 'query' in params:
+            query_params.append(('query', params['query']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
 
         header_params = {}
 

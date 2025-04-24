@@ -20,11 +20,15 @@ class UserAuthTokenRequest
   # Password to authenticate with
   attr_accessor :password
 
+  # Two-factor authentication code
+  attr_accessor :totp_token
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'email' => :'email',
-      :'password' => :'password'
+      :'password' => :'password',
+      :'totp_token' => :'totp_token'
     }
   end
 
@@ -32,7 +36,8 @@ class UserAuthTokenRequest
   def self.swagger_types
     {
       :'email' => :'String',
-      :'password' => :'String'
+      :'password' => :'String',
+      :'totp_token' => :'String'
     }
   end
 
@@ -50,6 +55,10 @@ class UserAuthTokenRequest
 
     if attributes.has_key?(:'password')
       self.password = attributes[:'password']
+    end
+
+    if attributes.has_key?(:'totp_token')
+      self.totp_token = attributes[:'totp_token']
     end
   end
 
@@ -72,7 +81,8 @@ class UserAuthTokenRequest
     return true if self.equal?(o)
     self.class == o.class &&
         email == o.email &&
-        password == o.password
+        password == o.password &&
+        totp_token == o.totp_token
   end
 
   # @see the `==` method
@@ -84,7 +94,7 @@ class UserAuthTokenRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [email, password].hash
+    [email, password, totp_token].hash
   end
 
     # Builds the object from hash

@@ -100,6 +100,7 @@ describe 'EntitlementsApi' do
   # @option opts [BOOLEAN] :show_tokens Show entitlement token strings in results
   # @option opts [String] :query A search term for querying names of entitlements.
   # @option opts [BOOLEAN] :active If true, only include active tokens
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name.
   # @return [Array<RepositoryToken>]
   describe 'entitlements_list test' do
     it 'should work' do

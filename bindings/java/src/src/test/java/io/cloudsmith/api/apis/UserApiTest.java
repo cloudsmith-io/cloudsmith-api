@@ -14,8 +14,10 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.UserAuthToken;
 import io.cloudsmith.api.models.UserAuthTokenRequest;
+import io.cloudsmith.api.models.UserAuthenticationToken;
 import io.cloudsmith.api.models.UserBrief;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -51,9 +53,9 @@ public class UserApiTest {
     }
     
     /**
-     * Retrieve/Create API key/token for the authenticated user.
+     * Create or retrieve API token for a user.
      *
-     * Retrieve/Create API key/token for the authenticated user.
+     * Handles both: - Users authenticating with basic credentials to get a token - Two-factor authentication flow
      *
      * @throws Exception
      *          if the Api call fails
@@ -62,6 +64,54 @@ public class UserApiTest {
     public void userTokenCreateTest() throws Exception {
         UserAuthTokenRequest data = null;
         UserAuthToken response = api.userTokenCreate(data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create an API key for the user that is currently authenticated.
+     *
+     * Create an API key for the user that is currently authenticated.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void userTokensCreateTest() throws Exception {
+        UserAuthenticationToken response = api.userTokensCreate();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the API key assigned to the user that is currently authenticated.
+     *
+     * Retrieve the API key assigned to the user that is currently authenticated.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void userTokensListTest() throws Exception {
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        InlineResponse200 response = api.userTokensList(page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Refresh the specified API key for the user that is currently authenticated.
+     *
+     * Refresh the specified API key for the user that is currently authenticated.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void userTokensRefreshTest() throws Exception {
+        String slugPerm = null;
+        UserAuthenticationToken response = api.userTokensRefresh(slugPerm);
 
         // TODO: test validations
     }

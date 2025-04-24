@@ -34,15 +34,17 @@ class UserAuthTokenRequest(object):
     """
     swagger_types = {
         'email': 'str',
-        'password': 'str'
+        'password': 'str',
+        'totp_token': 'str'
     }
 
     attribute_map = {
         'email': 'email',
-        'password': 'password'
+        'password': 'password',
+        'totp_token': 'totp_token'
     }
 
-    def __init__(self, email=None, password=None, _configuration=None):  # noqa: E501
+    def __init__(self, email=None, password=None, totp_token=None, _configuration=None):  # noqa: E501
         """UserAuthTokenRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -50,12 +52,15 @@ class UserAuthTokenRequest(object):
 
         self._email = None
         self._password = None
+        self._totp_token = None
         self.discriminator = None
 
         if email is not None:
             self.email = email
         if password is not None:
             self.password = password
+        if totp_token is not None:
+            self.totp_token = totp_token
 
     @property
     def email(self):
@@ -108,6 +113,32 @@ class UserAuthTokenRequest(object):
             raise ValueError("Invalid value for `password`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._password = password
+
+    @property
+    def totp_token(self):
+        """Gets the totp_token of this UserAuthTokenRequest.
+
+        Two-factor authentication code
+
+        :return: The totp_token of this UserAuthTokenRequest.
+        :rtype: str
+        """
+        return self._totp_token
+
+    @totp_token.setter
+    def totp_token(self, totp_token):
+        """Sets the totp_token of this UserAuthTokenRequest.
+
+        Two-factor authentication code
+
+        :param totp_token: The totp_token of this UserAuthTokenRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                totp_token is not None and len(totp_token) < 1):
+            raise ValueError("Invalid value for `totp_token`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._totp_token = totp_token
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -683,7 +683,9 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<ProviderSettings> response = api.orgsOpenidConnectList(org, page, pageSize);
+        String query = null;
+        String sort = null;
+        List<ProviderSettings> response = api.orgsOpenidConnectList(org, page, pageSize, query, sort);
 
         // TODO: test validations
     }
@@ -937,7 +939,9 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<Service> response = api.orgsServicesList(org, page, pageSize);
+        String query = null;
+        String sort = null;
+        List<Service> response = api.orgsServicesList(org, page, pageSize, query, sort);
 
         // TODO: test validations
     }
@@ -1041,7 +1045,10 @@ public class OrgsApiTest {
         String org = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<OrganizationTeam> response = api.orgsTeamsList(org, page, pageSize);
+        Boolean forUser = null;
+        String query = null;
+        String sort = null;
+        List<OrganizationTeam> response = api.orgsTeamsList(org, page, pageSize, forUser, query, sort);
 
         // TODO: test validations
     }
