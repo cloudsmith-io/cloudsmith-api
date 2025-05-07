@@ -1,4 +1,14 @@
 version: 2.1
+
+parameters:
+  run-workflow:
+    type: boolean
+    default: true
+  release-version:
+    type: string
+    default: ""
+    description: "Version to release (e.g., 1.2.3)"
+
 commands:
   test_bindings:
     description: "Test the bindings for a language"
@@ -72,11 +82,93 @@ jobs:
       - run:
           name: "Run pre-commit"
           command: pre-commit run --all-files
-
+  update_version:
+    description: "Update the API version in configuration files"
+    docker:
+      - image: cimg/base:2022.06
+    steps:
+      - checkout
+      - run:
+          name: Update Version
+          command: |
+            if [ -z "<< pipeline.parameters.release-version >>" ]; then
+              echo "Error: release-version parameter is required"
+              exit 1
+            fi
+            
+            # Update package_version in scripts/common.sh
+            sed -i "s/package_version=.*/package_version=\"<< pipeline.parameters.release-version >>\"/" scripts/common.sh
+            
+            echo "Updated package_version to << pipeline.parameters.release-version >> in scripts/common.sh"
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  generate_bindings:
+    description: "Generate bindings with the updated version"
+    docker:
+      - image: cimg/base:2022.06
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Generate Bindings
+          command: |
+            ./scripts/build.sh
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  create_pr:
+    description: "Create a PR with the updated bindings"
+    docker:
+      - image: cimg/base:2022.06
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install GitHub CLI
+          command: |
+            curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+            sudo apt update
+            sudo apt install gh -y
+      - run:
+          name: Create PR
+          command: |
+            # Get API version from common.sh
+            PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
+            
+            # Set up git config
+            git config --global user.email "ci@yourdomain.com"
+            git config --global user.name "CircleCI Automation"
+            
+            # Create branch
+            BRANCH_NAME="update-api-bindings-v${PACKAGE_VERSION}"
+            git checkout -b ${BRANCH_NAME}
+            
+            # Check if there are changes to commit
+            if git diff --quiet; then
+              echo "No changes detected. Skipping PR creation."
+              exit 0
+            fi
+            
+            # Commit changes
+            git add .
+            git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
+            
+            # Push to remote
+            git push origin ${BRANCH_NAME}
+            
+            # Create PR
+            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
+          environment:
+            GH_TOKEN: ${{ secrets.GH_TOKEN }} # CHECK THIS. IS THIS RIGHT?
 
 workflows:
   version: 2
   test_and_deploy:
+    when: << pipeline.parameters.run-workflow >>
     jobs:
       - pre_commit
       - test:
@@ -128,3 +220,18 @@ workflows:
           name: "Deploy Python"
           language: python
           docker_image: cimg/python:3.7
+  
+  release_api_bindings:
+    when:
+      and:
+        - << pipeline.parameters.run-workflow >>
+        - not:
+            equal: [ "", << pipeline.parameters.release-version >> ]
+    jobs:
+      - update_version
+      - generate_bindings:
+          requires:
+            - update_version
+      - create_pr:
+          requires:
+            - generate_bindings
