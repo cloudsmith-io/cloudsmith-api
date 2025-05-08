@@ -8,6 +8,10 @@ parameters:
     type: string
     default: ""
     description: "Version to release (e.g., 1.2.3)"
+  dry-run:
+    type: boolean
+    default: false
+    description: "If true, show what would happen but don't make actual changes"
 
 commands:
   test_bindings:
@@ -85,7 +89,7 @@ jobs:
   update_version:
     description: "Update the API version in configuration files"
     docker:
-      - image: cimg/base:2022.06
+      - image: cimg/base:stable-20.04
     steps:
       - checkout
       - run:
@@ -96,7 +100,6 @@ jobs:
               exit 1
             fi
             
-            # Update package_version in scripts/common.sh
             sed -i "s/package_version=.*/package_version=\"<< pipeline.parameters.release-version >>\"/" scripts/common.sh
             
             echo "Updated package_version to << pipeline.parameters.release-version >> in scripts/common.sh"
@@ -107,7 +110,7 @@ jobs:
   generate_bindings:
     description: "Generate bindings with the updated version"
     docker:
-      - image: cimg/base:2022.06
+      - image: cimg/base:stable-20.04
     steps:
       - attach_workspace:
           at: .
@@ -122,7 +125,7 @@ jobs:
   create_pr:
     description: "Create a PR with the updated bindings"
     docker:
-      - image: cimg/base:2022.06
+      - image: cimg/base:stable-20.04
     steps:
       - attach_workspace:
           at: .
@@ -134,36 +137,49 @@ jobs:
             sudo apt update
             sudo apt install gh -y
       - run:
-          name: Create PR
-          command: |
-            # Get API version from common.sh
-            PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
-            
-            # Set up git config
-            git config --global user.email "ci@yourdomain.com"
-            git config --global user.name "CircleCI Automation"
-            
-            # Create branch
-            BRANCH_NAME="update-api-bindings-v${PACKAGE_VERSION}"
-            git checkout -b ${BRANCH_NAME}
-            
-            # Check if there are changes to commit
-            if git diff --quiet; then
-              echo "No changes detected. Skipping PR creation."
-              exit 0
-            fi
-            
-            # Commit changes
-            git add .
-            git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
-            
-            # Push to remote
-            git push origin ${BRANCH_NAME}
-            
-            # Create PR
-            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
-          environment:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }} # CHECK THIS. IS THIS RIGHT?
+    name: Create PR
+    command: |
+      # Get API version from common.sh
+      PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
+      
+      # Set up git config
+      git config --global user.email "cloudsmith-robot@cloudsmith.io"
+      git config --global user.name "Cloudsmith Bot"
+      
+      # Check for dry run mode
+      if [ "${DRY_RUN}" == "true" ]; then
+        echo "🔍 DRY RUN MODE: Would perform the following actions:"
+        echo "- Create branch: update-api-bindings-v${PACKAGE_VERSION}"
+        echo "- Commit and push changes"
+        echo "- Create PR with title: Update API bindings to version ${PACKAGE_VERSION}"
+        echo "- PR body: This PR updates the API bindings to version ${PACKAGE_VERSION}."
+        echo "- Target repo: https://github.com/cloudsmith-io/cloudsmith-api"
+        echo "⚠️ No actual changes will be made in dry run mode"
+        exit 0
+      fi
+      
+      # Create branch
+      BRANCH_NAME="update-api-bindings-v${PACKAGE_VERSION}"
+      git checkout -b ${BRANCH_NAME}
+      
+      # Check if there are changes to commit
+      if git diff --quiet; then
+        echo "No changes detected. Skipping PR creation."
+        exit 0
+      fi
+      
+      # Commit changes
+      git add .
+      git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
+      
+      # Push to remote
+      git push origin ${BRANCH_NAME}
+      
+      # Create PR
+      gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
+    environment:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }} # NEED TO ADD THIS TO THIS PROJECT'S ENV VARS
+      DRY_RUN: << pipeline.parameters.dry-run >>
 
 workflows:
   version: 2
