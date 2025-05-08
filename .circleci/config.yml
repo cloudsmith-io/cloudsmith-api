@@ -137,49 +137,49 @@ jobs:
             sudo apt update
             sudo apt install gh -y
       - run:
-    name: Create PR
-    command: |
-      # Get API version from common.sh
-      PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
-      
-      # Set up git config
-      git config --global user.email "cloudsmith-robot@cloudsmith.io"
-      git config --global user.name "Cloudsmith Bot"
-      
-      # Check for dry run mode
-      if [ "${DRY_RUN}" == "true" ]; then
-        echo "🔍 DRY RUN MODE: Would perform the following actions:"
-        echo "- Create branch: update-api-bindings-v${PACKAGE_VERSION}"
-        echo "- Commit and push changes"
-        echo "- Create PR with title: Update API bindings to version ${PACKAGE_VERSION}"
-        echo "- PR body: This PR updates the API bindings to version ${PACKAGE_VERSION}."
-        echo "- Target repo: https://github.com/cloudsmith-io/cloudsmith-api"
-        echo "⚠️ No actual changes will be made in dry run mode"
-        exit 0
-      fi
-      
-      # Create branch
-      BRANCH_NAME="update-api-bindings-v${PACKAGE_VERSION}"
-      git checkout -b ${BRANCH_NAME}
-      
-      # Check if there are changes to commit
-      if git diff --quiet; then
-        echo "No changes detected. Skipping PR creation."
-        exit 0
-      fi
-      
-      # Commit changes
-      git add .
-      git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
-      
-      # Push to remote
-      git push origin ${BRANCH_NAME}
-      
-      # Create PR
-      gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
-    environment:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }} # NEED TO ADD THIS TO THIS PROJECT'S ENV VARS
-      DRY_RUN: << pipeline.parameters.dry-run >>
+          name: Create PR
+          command: |
+            # Get API version from common.sh
+            PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
+            
+            # Set up git config
+            git config --global user.email "cloudsmith-robot@cloudsmith.io"
+            git config --global user.name "Cloudsmith Bot"
+            
+            # Check for dry run mode
+            if [ "${DRY_RUN}" == "true" ]; then
+              echo "🔍 DRY RUN MODE: Would perform the following actions:"
+              echo "- Create branch: update-api-bindings-v${PACKAGE_VERSION}"
+              echo "- Commit and push changes"
+              echo "- Create PR with title: Update API bindings to version ${PACKAGE_VERSION}"
+              echo "- PR body: This PR updates the API bindings to version ${PACKAGE_VERSION}."
+              echo "- Target repo: https://github.com/cloudsmith-io/cloudsmith-api"
+              echo "⚠️ No actual changes will be made in dry run mode"
+              exit 0
+            fi
+            
+            # Create branch
+            BRANCH_NAME="update-api-bindings-v${PACKAGE_VERSION}"
+            git checkout -b ${BRANCH_NAME}
+            
+            # Check if there are changes to commit
+            if git diff --quiet; then
+              echo "No changes detected. Skipping PR creation."
+              exit 0
+            fi
+            
+            # Commit changes
+            git add .
+            git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
+            
+            # Push to remote
+            git push origin ${BRANCH_NAME}
+            
+            # Create PR
+            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
+          environment:
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+            DRY_RUN: << pipeline.parameters.dry-run >>
 
 workflows:
   version: 2
