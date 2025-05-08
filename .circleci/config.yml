@@ -109,8 +109,8 @@ jobs:
             - .
   generate_bindings:
     description: "Generate bindings with the updated version"
-    docker:
-      - image: cimg/base:stable-20.04
+    machine:
+      image: ubuntu-2004:current
     steps:
       - attach_workspace:
           at: .
