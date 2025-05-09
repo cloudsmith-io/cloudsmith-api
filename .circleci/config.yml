@@ -137,13 +137,31 @@ jobs:
             sudo apt update
             sudo apt install gh -y
       - run:
+          name: Setup GitHub Authentication
+          command: |
+            # Add GitHub to known hosts to avoid SSH prompts
+            mkdir -p ~/.ssh
+            echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
+            echo "github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=" >> ~/.ssh/known_hosts
+            echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" >> ~/.ssh/known_hosts
+            
+            # Use HTTPS instead of SSH for git operations
+            git config --global url."https://github.com/".insteadOf "git@github.com:"
+            
+            # Use the GitHub token for HTTPS authentication
+            git config --global credential.helper store
+            echo "https://${GH_TOKEN}:x-oauth-basic@github.com" > ~/.git-credentials
+            
+            # Set git user identity
+            git config --global user.email "${GH_USER_EMAIL}"
+            git config --global user.name "${GH_USER}"
+      - run:
           name: Extract Package Version and Create PR
           command: |
             set -x
             
             # Get API version from common.sh using a more compatible method
             echo "Extracting package_version from scripts/common.sh"
-            # Method 1: Using sed
             PACKAGE_VERSION=$(sed -n 's/package_version="\(.*\)"/\1/p' scripts/common.sh)
             
             # If sed fails, try method 2: Using cut and grep
@@ -161,10 +179,6 @@ jobs:
             fi
             
             echo "Found package_version: $PACKAGE_VERSION"
-            
-            # Set up git config
-            git config --global user.email "${GH_USER_EMAIL}"
-            git config --global user.name "${GH_USER}"
             
             # Check for dry run mode
             if [ "${DRY_RUN}" == "true" ]; then
@@ -199,11 +213,14 @@ jobs:
             
             # Push to remote
             echo "Pushing to remote"
-            git push origin ${BRANCH_NAME}
+            git push -u origin ${BRANCH_NAME}
+            
+            # Authenticate GitHub CLI with token
+            echo "${GH_TOKEN}" | gh auth login --with-token
             
             # Create PR
             echo "Creating PR"
-            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
+            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo cloudsmith-io/cloudsmith-api
           environment:
             GH_TOKEN: ${GH_TOKEN}
             DRY_RUN: << pipeline.parameters.dry-run >>
