@@ -137,28 +137,11 @@ jobs:
             sudo apt update
             sudo apt install gh -y
       - run:
-          name: Setup GitHub Authentication
-          command: |
-            # Add GitHub to known hosts to avoid SSH prompts
-            mkdir -p ~/.ssh
-            echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
-            
-            # Set up git user identity using environment variables
-            git config --global user.email "${GH_USER}@users.noreply.github.com"
-            git config --global user.name "${GH_USER}"
-            
-            # Authenticate GitHub CLI with token for later PR creation
-            echo "${GH_TOKEN}" | gh auth login --with-token
-            
-            # Configure remote URL with embedded token for pushing
-            REPO_URL="https://${GH_TOKEN}@github.com/cloudsmith-io/cloudsmith-api.git"
-            git remote set-url origin "${REPO_URL}"
-      - run:
           name: Extract Package Version and Create PR
           command: |
             set -x
             
-            # Get API version from common.sh using a more compatible method
+            # Get API version from common.sh
             echo "Extracting package_version from scripts/common.sh"
             PACKAGE_VERSION=$(sed -n 's/package_version="\(.*\)"/\1/p' scripts/common.sh)
             
@@ -177,6 +160,10 @@ jobs:
             fi
             
             echo "Found package_version: $PACKAGE_VERSION"
+            
+            # Set up git user identity
+            git config --global user.email "${GH_USER}@users.noreply.github.com"
+            git config --global user.name "${GH_USER}"
             
             # Check for dry run mode
             if [ "${DRY_RUN}" == "true" ]; then
@@ -209,13 +196,21 @@ jobs:
             git add .
             git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
             
-            # Push to remote (using the URL with embedded token set above)
+            # Configure remote URL with embedded token for pushing
+            REPO_URL="https://${GH_TOKEN}@github.com/cloudsmith-io/cloudsmith-api.git"
+            git remote set-url origin "${REPO_URL}"
+            
+            # Push to remote
             echo "Pushing to remote"
             git push -u origin ${BRANCH_NAME}
             
-            # Create PR using authenticated GitHub CLI
+            # For GitHub CLI - use a different environment variable to avoid conflict
+            # Store token in a temporary file for auth
+            GITHUB_TOKEN="${GH_TOKEN}" gh auth status
+            
+            # Create PR using GitHub CLI
             echo "Creating PR"
-            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo cloudsmith-io/cloudsmith-api
+            GITHUB_TOKEN="${GH_TOKEN}" gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo cloudsmith-io/cloudsmith-api
           environment:
             GH_TOKEN: ${GH_TOKEN}
             GH_USER: ${GH_USER}
