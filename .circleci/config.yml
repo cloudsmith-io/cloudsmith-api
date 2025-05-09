@@ -136,62 +136,35 @@ jobs:
             echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
             sudo apt update
             sudo apt install gh -y
-      # Add debugging step before the main step
       - run:
-          name: Debug Environment
+          name: Extract Package Version and Create PR
           command: |
             set -x
-            echo "=== Checking Environment Variables ==="
-            if [ -n "$GH_TOKEN" ]; then echo "GH_TOKEN exists"; else echo "GH_TOKEN is missing"; fi
-            if [ -n "$DRY_RUN" ]; then echo "DRY_RUN value: $DRY_RUN"; else echo "DRY_RUN is missing"; fi
             
-            echo "=== Checking GitHub CLI ==="
-            gh --version
+            # Get API version from common.sh using a more compatible method
+            echo "Extracting package_version from scripts/common.sh"
+            # Method 1: Using sed
+            PACKAGE_VERSION=$(sed -n 's/package_version="\(.*\)"/\1/p' scripts/common.sh)
             
-            echo "=== Checking Files ==="
-            ls -la
+            # If sed fails, try method 2: Using cut and grep
+            if [ -z "$PACKAGE_VERSION" ]; then
+              echo "Sed extraction failed, trying alternative method"
+              PACKAGE_VERSION=$(grep "package_version=" scripts/common.sh | cut -d'"' -f2)
+            fi
             
-            echo "=== Checking scripts directory ==="
-            ls -la scripts/ || echo "scripts directory does not exist"
+            # Verify we got the version
+            if [ -z "$PACKAGE_VERSION" ]; then
+              echo "Failed to extract package_version from scripts/common.sh"
+              echo "Content of scripts/common.sh:"
+              cat scripts/common.sh
+              exit 1
+            fi
             
-            echo "=== Checking common.sh ==="
-            cat scripts/common.sh || echo "common.sh not found"
-      # Break down the PR creation into smaller steps
-      - run:
-          name: Prepare Git Config
-          command: |
-            set -x
+            echo "Found package_version: $PACKAGE_VERSION"
+            
             # Set up git config
             git config --global user.email "cloudsmith-robot@cloudsmith.io"
             git config --global user.name "Cloudsmith Bot"
-            echo "Git configuration:"
-            git config --global --list
-      - run:
-          name: Extract Package Version
-          command: |
-            set -x
-            # Get API version from common.sh
-            echo "Trying to extract package_version from scripts/common.sh"
-            cat scripts/common.sh | grep "package_version"
-            PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
-            echo "Found package_version: $PACKAGE_VERSION"
-      - run:
-          name: Check for Changes
-          command: |
-            set -x
-            # Check if there are any changes
-            echo "Git status:"
-            git status
-            
-            echo "Git diff:"
-            git diff --stat
-      - run:
-          name: Create PR
-          command: |
-            set -x
-            # Get API version from common.sh
-            PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
-            echo "Found package_version: $PACKAGE_VERSION"
             
             # Check for dry run mode
             if [ "${DRY_RUN}" == "true" ]; then
@@ -211,6 +184,9 @@ jobs:
             git checkout -b ${BRANCH_NAME}
             
             # Check if there are changes to commit
+            echo "Checking for changes"
+            git status
+            
             if git diff --quiet; then
               echo "No changes detected. Skipping PR creation."
               exit 0
@@ -227,11 +203,10 @@ jobs:
             
             # Create PR
             echo "Creating PR"
-            GH_DEBUG=1 gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
+            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
           environment:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+            GH_TOKEN: ${GH_TOKEN}
             DRY_RUN: << pipeline.parameters.dry-run >>
-
 
 workflows:
   version: 2
