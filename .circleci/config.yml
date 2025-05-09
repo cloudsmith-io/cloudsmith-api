@@ -163,8 +163,8 @@ jobs:
             echo "Found package_version: $PACKAGE_VERSION"
             
             # Set up git config
-            git config --global user.email "cloudsmith-robot@cloudsmith.io"
-            git config --global user.name "Cloudsmith Bot"
+            git config --global user.email "${GH_USER_EMAIL}"
+            git config --global user.name "${GH_USER}"
             
             # Check for dry run mode
             if [ "${DRY_RUN}" == "true" ]; then
