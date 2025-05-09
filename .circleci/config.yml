@@ -141,6 +141,10 @@ jobs:
           command: |
             set -x
             
+            # Debug environment
+            echo "GH_TOKEN is set: $([[ -n $GH_TOKEN ]] && echo 'YES' || echo 'NO')"
+            echo "GH_USER is set: $([[ -n $GH_USER ]] && echo 'YES' || echo 'NO')"
+            
             # Get API version from common.sh
             echo "Extracting package_version from scripts/common.sh"
             PACKAGE_VERSION=$(sed -n 's/package_version="\(.*\)"/\1/p' scripts/common.sh)
@@ -184,7 +188,7 @@ jobs:
             
             # Check if there are changes to commit
             echo "Checking for changes"
-            git status
+            git diff --stat
             
             if git diff --quiet; then
               echo "No changes detected. Skipping PR creation."
@@ -196,21 +200,21 @@ jobs:
             git add .
             git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
             
-            # Configure remote URL with embedded token for pushing
-            REPO_URL="https://${GH_TOKEN}@github.com/cloudsmith-io/cloudsmith-api.git"
-            git remote set-url origin "${REPO_URL}"
+            # Try different push method
+            echo "Pushing directly with HTTPS token auth"
+            git push "https://$GH_TOKEN@github.com/cloudsmith-io/cloudsmith-api.git" ${BRANCH_NAME}:${BRANCH_NAME}
             
-            # Push to remote
-            echo "Pushing to remote"
-            git push -u origin ${BRANCH_NAME}
+            # Configure for GitHub CLI
+            echo "Setting up GitHub CLI"
+            export GITHUB_TOKEN="$GH_TOKEN"
             
-            # For GitHub CLI - use a different environment variable to avoid conflict
-            # Store token in a temporary file for auth
-            GITHUB_TOKEN="${GH_TOKEN}" gh auth status
+            # Verify GitHub CLI auth
+            echo "Verifying GitHub CLI auth"
+            gh auth status
             
-            # Create PR using GitHub CLI
+            # Create PR
             echo "Creating PR"
-            GITHUB_TOKEN="${GH_TOKEN}" gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo cloudsmith-io/cloudsmith-api
+            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo cloudsmith-io/cloudsmith-api
           environment:
             GH_TOKEN: ${GH_TOKEN}
             GH_USER: ${GH_USER}
