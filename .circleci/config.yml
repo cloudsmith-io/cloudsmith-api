@@ -136,15 +136,62 @@ jobs:
             echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
             sudo apt update
             sudo apt install gh -y
+      # Add debugging step before the main step
+      - run:
+          name: Debug Environment
+          command: |
+            set -x
+            echo "=== Checking Environment Variables ==="
+            if [ -n "$GH_TOKEN" ]; then echo "GH_TOKEN exists"; else echo "GH_TOKEN is missing"; fi
+            if [ -n "$DRY_RUN" ]; then echo "DRY_RUN value: $DRY_RUN"; else echo "DRY_RUN is missing"; fi
+            
+            echo "=== Checking GitHub CLI ==="
+            gh --version
+            
+            echo "=== Checking Files ==="
+            ls -la
+            
+            echo "=== Checking scripts directory ==="
+            ls -la scripts/ || echo "scripts directory does not exist"
+            
+            echo "=== Checking common.sh ==="
+            cat scripts/common.sh || echo "common.sh not found"
+      # Break down the PR creation into smaller steps
+      - run:
+          name: Prepare Git Config
+          command: |
+            set -x
+            # Set up git config
+            git config --global user.email "cloudsmith-robot@cloudsmith.io"
+            git config --global user.name "Cloudsmith Bot"
+            echo "Git configuration:"
+            git config --global --list
+      - run:
+          name: Extract Package Version
+          command: |
+            set -x
+            # Get API version from common.sh
+            echo "Trying to extract package_version from scripts/common.sh"
+            cat scripts/common.sh | grep "package_version"
+            PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
+            echo "Found package_version: $PACKAGE_VERSION"
+      - run:
+          name: Check for Changes
+          command: |
+            set -x
+            # Check if there are any changes
+            echo "Git status:"
+            git status
+            
+            echo "Git diff:"
+            git diff --stat
       - run:
           name: Create PR
           command: |
+            set -x
             # Get API version from common.sh
             PACKAGE_VERSION=$(grep -oP 'package_version=\K[^"]+' scripts/common.sh)
-            
-            # Set up git config
-            git config --global user.email "${{ secrets.GH_USER_EMAIL }}" 
-            git config --global user.name "${{ secrets.GH_USER }}" 
+            echo "Found package_version: $PACKAGE_VERSION"
             
             # Check for dry run mode
             if [ "${DRY_RUN}" == "true" ]; then
@@ -160,6 +207,7 @@ jobs:
             
             # Create branch
             BRANCH_NAME="update-api-bindings-v${PACKAGE_VERSION}"
+            echo "Creating branch: $BRANCH_NAME"
             git checkout -b ${BRANCH_NAME}
             
             # Check if there are changes to commit
@@ -169,17 +217,21 @@ jobs:
             fi
             
             # Commit changes
+            echo "Committing changes"
             git add .
             git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
             
             # Push to remote
+            echo "Pushing to remote"
             git push origin ${BRANCH_NAME}
             
             # Create PR
-            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
+            echo "Creating PR"
+            GH_DEBUG=1 gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo https://github.com/cloudsmith-io/cloudsmith-api
           environment:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }} 
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
             DRY_RUN: << pipeline.parameters.dry-run >>
+
 
 workflows:
   version: 2
