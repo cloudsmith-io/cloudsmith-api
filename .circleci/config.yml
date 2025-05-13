@@ -199,22 +199,13 @@ jobs:
             echo "Committing changes"
             git add .
             git commit -m "Update API bindings to version ${PACKAGE_VERSION}"
-            
-            # Try different push method
-            echo "Pushing directly with HTTPS token auth"
-            git push "https://$GH_TOKEN@github.com/cloudsmith-io/cloudsmith-api.git" ${BRANCH_NAME}:${BRANCH_NAME}
-            
-            # Configure for GitHub CLI
-            echo "Setting up GitHub CLI"
-            export GITHUB_TOKEN="$GH_TOKEN"
-            
-            # Verify GitHub CLI auth
-            echo "Verifying GitHub CLI auth"
-            gh auth status
-            
-            # Create PR
-            echo "Creating PR"
-            gh pr create --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo cloudsmith-io/cloudsmith-api
+
+            # Push branch to github
+            git push --set-upstream origin ${BRANCH_NAME}
+
+            # Create the PR
+            gh pr create --base main --head ${BRANCH_NAME} --title "Update API bindings to version ${PACKAGE_VERSION}" --body "This PR updates the API bindings to version ${PACKAGE_VERSION}." --repo cloudsmith-io/cloudsmith-api
+
           environment:
             GH_TOKEN: ${GH_TOKEN}
             GH_USER: ${GH_USER}
