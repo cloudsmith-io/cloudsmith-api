@@ -137,6 +137,9 @@ jobs:
             sudo apt update
             sudo apt install gh -y
       - run:
+          name: Add github.com to known hosts
+          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run:
           name: Extract Package Version and Create PR
           command: |
             set -x
