@@ -15,19 +15,20 @@ install_dependencies() {
 
 build_distribution() {
   echo "Building distribution ..."
-  python setup.py bdist_wheel --universal
+  python setup.py sdist bdist_wheel --universal
 }
 
 upload_to_pypi() {
   echo "Uploading to PyPi ..."
 
   distribution_filepath="dist/${project_underscore}-${package_version}-py2.py3-none-any.whl"
+  sdist_filepath="dist/${project_underscore}-${package_version}.tar.gz"
 
   if [[ "$CI" == "true" ]]
   then
-    twine upload -u __token__ -p "$PYPI_PASSWORD" --skip-existing --non-interactive "$distribution_filepath"
+    twine upload -u __token__ -p "$PYPI_PASSWORD" --skip-existing --non-interactive "$distribution_filepath" "$sdist_filepath"
   else
-    twine upload --skip-existing --non-interactive "$distribution_filepath"
+    twine upload --skip-existing --non-interactive "$distribution_filepath" "$sdist_filepath"
   fi
 }
 
