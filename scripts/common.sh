@@ -3,7 +3,7 @@ language=${1:-""}
 api_url=${2:-${api_url:-"https://api.cloudsmith.io/"}}
 api_version=$(curl -s "${api_url}status/check/basic/" | jq -r '.version')
 openapi_url="${api_url}?format=openapi"
-package_version="2.0.18"
+package_version="2.0.999"
 swagger_codegen_cli_image="swaggerapi/swagger-codegen-cli:2.4.43"
 
 location=$(curl -s $openapi_url | grep Location | cut -d' ' -f2)

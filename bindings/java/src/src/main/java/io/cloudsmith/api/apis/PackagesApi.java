@@ -63,6 +63,7 @@ import io.cloudsmith.api.models.HelmPackageUpload;
 import io.cloudsmith.api.models.HelmPackageUploadRequest;
 import io.cloudsmith.api.models.HexPackageUpload;
 import io.cloudsmith.api.models.HexPackageUploadRequest;
+import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -576,6 +577,181 @@ public class PackagesApi {
 
         com.squareup.okhttp.Call call = packagesDependenciesValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PackageDependencies>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesGroupsList
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesGroupsListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/groups/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+        if (groupBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("group_by", groupBy));
+        if (query != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesGroupsListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, page, pageSize, groupBy, query, sort };
+            Method method = this.getClass().getMethod("packagesGroupsListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class, String.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesGroupsListCall(owner, repo, page, pageSize, groupBy, query, sort, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Return a list of Package Groups in a repository.
+     * Return a list of Package Groups in a repository.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
+     * @return InlineResponse200
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse200 packagesGroupsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, String query, String sort) throws ApiException {
+        ApiResponse<InlineResponse200> resp = packagesGroupsListWithHttpInfo(owner, repo, page, pageSize, groupBy, query, sort);
+        return resp.getData();
+    }
+
+    /**
+     * Return a list of Package Groups in a repository.
+     * Return a list of Package Groups in a repository.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
+     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse200> packagesGroupsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String groupBy,  String query,  String sort) throws ApiException {
+        com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, query, sort, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Return a list of Package Groups in a repository. (asynchronously)
+     * Return a list of Package Groups in a repository.
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesGroupsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, String query, String sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, query, sort, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

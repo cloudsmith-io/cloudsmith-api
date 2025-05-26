@@ -218,6 +218,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_cargo_create(self):
+        """Test case for repos_upstream_cargo_create
+
+        Create a Cargo upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cargo_delete(self):
+        """Test case for repos_upstream_cargo_delete
+
+        Delete a Cargo upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cargo_list(self):
+        """Test case for repos_upstream_cargo_list
+
+        List Cargo upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cargo_partial_update(self):
+        """Test case for repos_upstream_cargo_partial_update
+
+        Partially update a Cargo upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cargo_read(self):
+        """Test case for repos_upstream_cargo_read
+
+        Retrieve a Cargo upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_cargo_update(self):
+        """Test case for repos_upstream_cargo_update
+
+        Update a Cargo upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_upstream_composer_create(self):
         """Test case for repos_upstream_composer_create
 
@@ -425,6 +467,48 @@ class TestReposApi(unittest.TestCase):
         """Test case for repos_upstream_docker_update
 
         Update a Docker upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_go_create(self):
+        """Test case for repos_upstream_go_create
+
+        Create a Go upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_go_delete(self):
+        """Test case for repos_upstream_go_delete
+
+        Delete a Go upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_go_list(self):
+        """Test case for repos_upstream_go_list
+
+        List Go upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_go_partial_update(self):
+        """Test case for repos_upstream_go_partial_update
+
+        Partially update a Go upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_go_read(self):
+        """Test case for repos_upstream_go_read
+
+        Retrieve a Go upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_go_update(self):
+        """Test case for repos_upstream_go_update
+
+        Update a Go upstream config for this repository.  # noqa: E501
         """
         pass
 

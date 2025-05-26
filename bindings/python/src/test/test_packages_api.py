@@ -50,6 +50,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_groups_list(self):
+        """Test case for packages_groups_list
+
+        Return a list of Package Groups in a repository.  # noqa: E501
+        """
+        pass
+
     def test_packages_list(self):
         """Test case for packages_list
 
