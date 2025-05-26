@@ -226,11 +226,6 @@ create_pull_request() {
 ### Deployment:
 Once this PR is merged, the bindings will be automatically deployed via CircleCI.
 
-### Testing:
-- [ ] Bindings generated successfully
-- [ ] No compilation errors
-- [ ] Ready for deployment
-
 ---
 *This PR was created automatically by the update script.*"
     
