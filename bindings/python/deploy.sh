@@ -21,14 +21,11 @@ build_distribution() {
 upload_to_pypi() {
   echo "Uploading to PyPi ..."
 
-  distribution_filepath="dist/${project_underscore}-${package_version}-py2.py3-none-any.whl"
-  sdist_filepath="dist/${project_underscore}-${package_version}.tar.gz"
-
   if [[ "$CI" == "true" ]]
   then
-    twine upload -u __token__ -p "$PYPI_PASSWORD" --skip-existing --non-interactive "$distribution_filepath" "$sdist_filepath"
+    twine upload -u __token__ -p "$PYPI_PASSWORD" --skip-existing --non-interactive "dist/*"
   else
-    twine upload --skip-existing --non-interactive "$distribution_filepath" "$sdist_filepath"
+    twine upload --skip-existing --non-interactive "dist/*"
   fi
 }
 
