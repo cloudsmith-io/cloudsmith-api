@@ -82,12 +82,12 @@ get_current_version() {
 
 get_api_version() {
     local api_url="https://api.cloudsmith.io/"
-    log_info "Fetching current API version from CloudSmith..."
+    log_info "Fetching current API version from CloudSmith..." >&2
     
     local api_version=$(curl -s "${api_url}status/check/basic/" 2>/dev/null | jq -r '.version' 2>/dev/null)
     
     if [ "$api_version" = "null" ] || [ -z "$api_version" ]; then
-        log_warning "Could not fetch API version from CloudSmith API"
+        log_warning "Could not fetch API version from CloudSmith API" >&2
         return 1
     fi
     
