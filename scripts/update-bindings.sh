@@ -14,7 +14,6 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-# Logging functions
 log_info() {
     echo -e "${BLUE}[INFO]${NC} $1"
 }
@@ -62,6 +61,15 @@ validate_version() {
     fi
 }
 
+check_repository() {
+    if [ ! -f "$COMMON_SCRIPT" ] || [ ! -f "$BUILD_SCRIPT" ]; then
+        log_error "This doesn't appear to be the cloudsmith-api repository"
+        log_error "Required files not found: $COMMON_SCRIPT, $BUILD_SCRIPT"
+        exit 1
+    fi
+    log_success "Repository validation passed"
+}
+
 get_current_version() {
     if [ ! -f "$COMMON_SCRIPT" ]; then
         log_error "File $COMMON_SCRIPT not found"
@@ -70,6 +78,20 @@ get_current_version() {
     
     local current_version=$(grep -E "^package_version=" "$COMMON_SCRIPT" | cut -d'=' -f2 | tr -d '"' | tr -d "'")
     echo "$current_version"
+}
+
+get_api_version() {
+    local api_url="https://api.cloudsmith.io/"
+    log_info "Fetching current API version from CloudSmith..."
+    
+    local api_version=$(curl -s "${api_url}status/check/basic/" 2>/dev/null | jq -r '.version' 2>/dev/null)
+    
+    if [ "$api_version" = "null" ] || [ -z "$api_version" ]; then
+        log_warning "Could not fetch API version from CloudSmith API"
+        return 1
+    fi
+    
+    echo "$api_version"
 }
 
 update_version() {
@@ -84,10 +106,8 @@ update_version() {
         exit 1
     }
     
-    # Create backup
     cp "$COMMON_SCRIPT" "$COMMON_SCRIPT.backup"
     
-    # Use a more reliable approach with awk
     awk -v new_ver="$new_version" '
         /^package_version=/ {
             print "package_version=\"" new_ver "\""
@@ -96,45 +116,22 @@ update_version() {
         { print }
     ' "$COMMON_SCRIPT" > "$COMMON_SCRIPT.tmp" && mv "$COMMON_SCRIPT.tmp" "$COMMON_SCRIPT"
     
-    # Alternative: If awk fails, try perl
-    if [ $? -ne 0 ]; then
-        log_warning "awk failed, trying perl..."
-        cp "$COMMON_SCRIPT.backup" "$COMMON_SCRIPT"
-        
-        if command -v perl &> /dev/null; then
-            perl -i -pe "s/^package_version=.*/package_version=\"$new_version\"/" "$COMMON_SCRIPT"
-        else
-            log_error "Neither awk nor perl worked, trying basic sed..."
-            # Very basic sed approach
-            if [[ "$OSTYPE" == "darwin"* ]]; then
-                sed -i '' "s/package_version=\".*\"/package_version=\"$new_version\"/" "$COMMON_SCRIPT"
-            else
-                sed -i "s/package_version=\".*\"/package_version=\"$new_version\"/" "$COMMON_SCRIPT"
-            fi
-        fi
-    fi
-    
-    # Verify the update
     local updated_version=$(get_current_version)
     if [ "$updated_version" != "$new_version" ]; then
         log_error "Failed to update version in $COMMON_SCRIPT"
         log_error "Expected: $new_version, Got: $updated_version"
         
-        # Show what's actually in the file for debugging
         log_error "Updated package_version line:"
         grep "package_version" "$COMMON_SCRIPT" || log_error "No package_version line found"
         
-        # Restore backup
         mv "$COMMON_SCRIPT.backup" "$COMMON_SCRIPT"
         exit 1
     fi
     
-    # Remove backup
     rm "$COMMON_SCRIPT.backup"
     log_success "Version updated successfully"
 }
 
-# Function to generate bindings
 generate_bindings() {
     log_info "Generating bindings..."
     
@@ -143,7 +140,6 @@ generate_bindings() {
         chmod +x "$BUILD_SCRIPT"
     fi
     
-    # Run the build script
     if ./"$BUILD_SCRIPT"; then
         log_success "Bindings generated successfully"
     else
@@ -152,47 +148,60 @@ generate_bindings() {
     fi
 }
 
-# Function to create and push branch
 create_and_push_branch() {
     local version="$1"
     local branch_name="${BRANCH_PREFIX}-v${version}"
     
     log_info "Creating branch: $branch_name"
     
-    # Check if branch already exists
     if git show-ref --verify --quiet "refs/heads/$branch_name"; then
         log_warning "Branch $branch_name already exists locally. Deleting it."
         git branch -D "$branch_name"
     fi
     
-    # Create new branch
-    git checkout -b "$branch_name"
+    if git ls-remote --heads origin "$branch_name" | grep -q "$branch_name"; then
+        log_warning "Branch $branch_name already exists on remote."
+        read -p "Do you want to delete the remote branch and create a new one? (y/N): " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            log_info "Deleting remote branch $branch_name..."
+            git push origin --delete "$branch_name" || {
+                log_warning "Could not delete remote branch (it might not exist or you might not have permissions)"
+            }
+        else
+            local timestamp=$(date +"%Y%m%d-%H%M%S")
+            branch_name="${BRANCH_PREFIX}-v${version}-${timestamp}"
+            log_info "Using unique branch name: $branch_name"
+        fi
+    fi
     
-    # Add all changes
+    git checkout -b "$branch_name"
     git add .
     
-    # Check if there are changes to commit
     if git diff --staged --quiet; then
         log_warning "No changes to commit. The bindings might already be up to date."
         return 1
     fi
     
-    # Commit changes
     git commit -m "Update API bindings to version $version
 
 - Updated package_version in scripts/common.sh
 - Regenerated bindings for Python, Ruby, and Java
 - Ready for automated deployment via CircleCI"
     
-    # Push branch
     log_info "Pushing branch to origin..."
-    git push origin "$branch_name"
+    if ! git push origin "$branch_name"; then
+        log_warning "Normal push failed, trying force push..."
+        git push origin "$branch_name" --force-with-lease || {
+            log_error "Failed to push branch even with force. Check your permissions."
+            exit 1
+        }
+    fi
     
     log_success "Branch created and pushed successfully"
     echo "$branch_name"
 }
 
-# Function to create pull request
 create_pull_request() {
     local version="$1"
     local branch_name="$2"
@@ -225,7 +234,6 @@ Once this PR is merged, the bindings will be automatically deployed via CircleCI
 ---
 *This PR was created automatically by the update script.*"
     
-    # Create PR using GitHub CLI
     local pr_url
     if pr_url=$(gh pr create --title "$pr_title" --body "$pr_body" --head "$branch_name" --base "main" 2>/dev/null); then
         log_success "Pull request created: $pr_url"
@@ -240,25 +248,31 @@ Once this PR is merged, the bindings will be automatically deployed via CircleCI
     fi
 }
 
-# Function to display usage
 usage() {
     echo "Usage: $0 [OPTIONS]"
     echo ""
     echo "Options:"
-    echo "  -v, --version VERSION    New binding version (required)"
-    echo "  -a, --api-version VERSION API version (optional, defaults to binding version)"
-    echo "  -h, --help              Show this help message"
+    echo "  -v, --version VERSION       New binding version (required)"
+    echo "  -a, --api-version VERSION   API version (required, unless --auto-api is used)"
+    echo "      --auto-api              Auto-fetch current API version from CloudSmith API"
+    echo "  -h, --help                  Show this help message"
     echo ""
     echo "Examples:"
-    echo "  $0 -v 1.2.3"
-    echo "  $0 --version 1.2.3 --api-version 2.1.0"
+    echo "  $0 -v 2.0.19 -a 1.697.0                    # Specify both versions explicitly"
+    echo "  $0 -v 2.0.19 --auto-api                    # Auto-fetch API version"
+    echo "  $0 --version 2.0.19 --api-version 1.697.0  # Long form"
+    echo ""
+    echo "Note:"
+    echo "  - Binding version: Version of your generated client library"
+    echo "  - API version: Version of the CloudSmith API specification"
+    echo "  - These are different things and should not be the same!"
 }
 
 main() {
     local new_version=""
     local api_version=""
+    local auto_fetch_api_version=false
     
-    # Parse command line arguments
     while [[ $# -gt 0 ]]; do
         case $1 in
             -v|--version)
@@ -268,6 +282,10 @@ main() {
             -a|--api-version)
                 api_version="$2"
                 shift 2
+                ;;
+            --auto-api)
+                auto_fetch_api_version=true
+                shift
                 ;;
             -h|--help)
                 usage
@@ -281,16 +299,27 @@ main() {
         esac
     done
     
-    # Check if version is provided
     if [ -z "$new_version" ]; then
-        log_error "Version is required"
+        log_error "Binding version is required"
         usage
         exit 1
     fi
     
-    # Default API version to binding version if not provided
     if [ -z "$api_version" ]; then
-        api_version="$new_version"
+        if [ "$auto_fetch_api_version" = true ]; then
+            if api_version=$(get_api_version); then
+                log_info "Auto-fetched API version: $api_version"
+            else
+                log_error "Failed to auto-fetch API version"
+                log_error "Please specify API version manually with -a or --api-version"
+                exit 1
+            fi
+        else
+            log_error "API version is required. Either:"
+            log_error "  1. Specify it manually: -a 1.697.0"
+            log_error "  2. Auto-fetch from API: --auto-api"
+            exit 1
+        fi
     fi
     
     validate_version "$new_version"
@@ -301,8 +330,8 @@ main() {
     log_info "API version: $api_version"
     
     check_dependencies
+    check_repository
     
-    # Get current version for comparison
     local current_version=$(get_current_version)
     log_info "Current version: $current_version"
     
@@ -316,24 +345,44 @@ main() {
         fi
     fi
     
-    # Ensure we're on master branch
     local current_branch=$(git branch --show-current)
-    if [[ "$current_branch" != "master" ]]; then
-        log_info "Switching to master branch..."
-        git checkout master 2>/dev/null || {
-            log_error "Could not switch to master branch"
+    log_info "Current branch: $current_branch"
+    
+    if [[ "$current_branch" == "main" || "$current_branch" == "master" ]]; then
+        log_info "Already on main branch ($current_branch)"
+    else
+        if ! git diff-index --quiet HEAD --; then
+            log_error "You have uncommitted changes. Please commit or stash them first:"
+            git status --short
             exit 1
-        }
+        fi
+        
+        log_info "Switching to main branch..."
+        
+        if git show-ref --verify --quiet refs/heads/main; then
+            git checkout main || {
+                log_error "Could not switch to main branch"
+                exit 1
+            }
+        elif git show-ref --verify --quiet refs/heads/master; then
+            git checkout master || {
+                log_error "Could not switch to master branch"
+                exit 1
+            }
+        else
+            log_error "Neither 'main' nor 'master' branch found"
+            log_error "Available branches:"
+            git branch -a
+            exit 1
+        fi
     fi
     
     log_info "Pulling latest changes..."
     git pull origin $(git branch --show-current)
     
     update_version "$new_version"
-    
     generate_bindings
     
-    # Create branch, push & create PR
     local branch_name
     if branch_name=$(create_and_push_branch "$new_version"); then
         local pr_url
