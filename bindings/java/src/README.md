@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.18</version>
+  <version>2.0.9991</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.18"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.9991"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.18.jar`
+* `target/cloudsmith-api-2.0.9991.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -220,6 +220,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesCopy**](docs/PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 *PackagesApi* | [**packagesDelete**](docs/PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 *PackagesApi* | [**packagesDependencies**](docs/PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the list of dependencies for a package. Transitive dependencies are included where supported.
+*PackagesApi* | [**packagesGroupsList**](docs/PackagesApi.md#packagesGroupsList) | **GET** /packages/{owner}/{repo}/groups/ | Return a list of Package Groups in a repository.
 *PackagesApi* | [**packagesList**](docs/PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 *PackagesApi* | [**packagesMove**](docs/PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 *PackagesApi* | [**packagesQuarantine**](docs/PackagesApi.md#packagesQuarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or release a package.
@@ -310,6 +311,12 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposRsaList**](docs/ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 *ReposApi* | [**reposRsaRegenerate**](docs/ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 *ReposApi* | [**reposTransferRegion**](docs/ReposApi.md#reposTransferRegion) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
+*ReposApi* | [**reposUpstreamCargoCreate**](docs/ReposApi.md#reposUpstreamCargoCreate) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository.
+*ReposApi* | [**reposUpstreamCargoDelete**](docs/ReposApi.md#reposUpstreamCargoDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository.
+*ReposApi* | [**reposUpstreamCargoList**](docs/ReposApi.md#reposUpstreamCargoList) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository.
+*ReposApi* | [**reposUpstreamCargoPartialUpdate**](docs/ReposApi.md#reposUpstreamCargoPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Partially update a Cargo upstream config for this repository.
+*ReposApi* | [**reposUpstreamCargoRead**](docs/ReposApi.md#reposUpstreamCargoRead) | **GET** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Retrieve a Cargo upstream config for this repository.
+*ReposApi* | [**reposUpstreamCargoUpdate**](docs/ReposApi.md#reposUpstreamCargoUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Update a Cargo upstream config for this repository.
 *ReposApi* | [**reposUpstreamComposerCreate**](docs/ReposApi.md#reposUpstreamComposerCreate) | **POST** /repos/{owner}/{identifier}/upstream/composer/ | Create a Composer upstream config for this repository.
 *ReposApi* | [**reposUpstreamComposerDelete**](docs/ReposApi.md#reposUpstreamComposerDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Delete a Composer upstream config for this repository.
 *ReposApi* | [**reposUpstreamComposerList**](docs/ReposApi.md#reposUpstreamComposerList) | **GET** /repos/{owner}/{identifier}/upstream/composer/ | List Composer upstream configs for this repository.
@@ -340,6 +347,12 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposUpstreamDockerPartialUpdate**](docs/ReposApi.md#reposUpstreamDockerPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
 *ReposApi* | [**reposUpstreamDockerRead**](docs/ReposApi.md#reposUpstreamDockerRead) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
 *ReposApi* | [**reposUpstreamDockerUpdate**](docs/ReposApi.md#reposUpstreamDockerUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+*ReposApi* | [**reposUpstreamGoCreate**](docs/ReposApi.md#reposUpstreamGoCreate) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
+*ReposApi* | [**reposUpstreamGoDelete**](docs/ReposApi.md#reposUpstreamGoDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
+*ReposApi* | [**reposUpstreamGoList**](docs/ReposApi.md#reposUpstreamGoList) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
+*ReposApi* | [**reposUpstreamGoPartialUpdate**](docs/ReposApi.md#reposUpstreamGoPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Partially update a Go upstream config for this repository.
+*ReposApi* | [**reposUpstreamGoRead**](docs/ReposApi.md#reposUpstreamGoRead) | **GET** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Retrieve a Go upstream config for this repository.
+*ReposApi* | [**reposUpstreamGoUpdate**](docs/ReposApi.md#reposUpstreamGoUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Update a Go upstream config for this repository.
 *ReposApi* | [**reposUpstreamHelmCreate**](docs/ReposApi.md#reposUpstreamHelmCreate) | **POST** /repos/{owner}/{identifier}/upstream/helm/ | Create a Helm upstream config for this repository.
 *ReposApi* | [**reposUpstreamHelmDelete**](docs/ReposApi.md#reposUpstreamHelmDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Delete a Helm upstream config for this repository.
 *ReposApi* | [**reposUpstreamHelmList**](docs/ReposApi.md#reposUpstreamHelmList) | **GET** /repos/{owner}/{identifier}/upstream/helm/ | List Helm upstream configs for this repository.
@@ -426,6 +439,9 @@ Class | Method | HTTP request | Description
  - [Architecture](docs/Architecture.md)
  - [CargoPackageUpload](docs/CargoPackageUpload.md)
  - [CargoPackageUploadRequest](docs/CargoPackageUploadRequest.md)
+ - [CargoUpstream](docs/CargoUpstream.md)
+ - [CargoUpstreamRequest](docs/CargoUpstreamRequest.md)
+ - [CargoUpstreamRequestPatch](docs/CargoUpstreamRequestPatch.md)
  - [CocoapodsPackageUpload](docs/CocoapodsPackageUpload.md)
  - [CocoapodsPackageUploadRequest](docs/CocoapodsPackageUploadRequest.md)
  - [CommonBandwidthMetrics](docs/CommonBandwidthMetrics.md)
@@ -474,6 +490,9 @@ Class | Method | HTTP request | Description
  - [GeoIpLocation](docs/GeoIpLocation.md)
  - [GoPackageUpload](docs/GoPackageUpload.md)
  - [GoPackageUploadRequest](docs/GoPackageUploadRequest.md)
+ - [GoUpstream](docs/GoUpstream.md)
+ - [GoUpstreamRequest](docs/GoUpstreamRequest.md)
+ - [GoUpstreamRequestPatch](docs/GoUpstreamRequestPatch.md)
  - [HelmPackageUpload](docs/HelmPackageUpload.md)
  - [HelmPackageUploadRequest](docs/HelmPackageUploadRequest.md)
  - [HelmUpstream](docs/HelmUpstream.md)
@@ -488,6 +507,7 @@ Class | Method | HTTP request | Description
  - [HistoryFieldset](docs/HistoryFieldset.md)
  - [HistoryFieldsetRaw](docs/HistoryFieldsetRaw.md)
  - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
  - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -553,6 +573,7 @@ Class | Method | HTTP request | Description
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
  - [PackageFileUploadRequest](docs/PackageFileUploadRequest.md)
+ - [PackageGroup](docs/PackageGroup.md)
  - [PackageLicensePolicyEvaluationRequest](docs/PackageLicensePolicyEvaluationRequest.md)
  - [PackageLicensePolicyEvaluationRequestRequest](docs/PackageLicensePolicyEvaluationRequestRequest.md)
  - [PackageLicensePolicyViolationLog](docs/PackageLicensePolicyViolationLog.md)

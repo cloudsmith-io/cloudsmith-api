@@ -31,6 +31,12 @@ Method | HTTP request | Description
 [**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 [**repos_transfer_region**](ReposApi.md#repos_transfer_region) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
+[**repos_upstream_cargo_create**](ReposApi.md#repos_upstream_cargo_create) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository.
+[**repos_upstream_cargo_delete**](ReposApi.md#repos_upstream_cargo_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository.
+[**repos_upstream_cargo_list**](ReposApi.md#repos_upstream_cargo_list) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository.
+[**repos_upstream_cargo_partial_update**](ReposApi.md#repos_upstream_cargo_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Partially update a Cargo upstream config for this repository.
+[**repos_upstream_cargo_read**](ReposApi.md#repos_upstream_cargo_read) | **GET** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Retrieve a Cargo upstream config for this repository.
+[**repos_upstream_cargo_update**](ReposApi.md#repos_upstream_cargo_update) | **PUT** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Update a Cargo upstream config for this repository.
 [**repos_upstream_composer_create**](ReposApi.md#repos_upstream_composer_create) | **POST** /repos/{owner}/{identifier}/upstream/composer/ | Create a Composer upstream config for this repository.
 [**repos_upstream_composer_delete**](ReposApi.md#repos_upstream_composer_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Delete a Composer upstream config for this repository.
 [**repos_upstream_composer_list**](ReposApi.md#repos_upstream_composer_list) | **GET** /repos/{owner}/{identifier}/upstream/composer/ | List Composer upstream configs for this repository.
@@ -61,6 +67,12 @@ Method | HTTP request | Description
 [**repos_upstream_docker_partial_update**](ReposApi.md#repos_upstream_docker_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
 [**repos_upstream_docker_read**](ReposApi.md#repos_upstream_docker_read) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
 [**repos_upstream_docker_update**](ReposApi.md#repos_upstream_docker_update) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+[**repos_upstream_go_create**](ReposApi.md#repos_upstream_go_create) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
+[**repos_upstream_go_delete**](ReposApi.md#repos_upstream_go_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
+[**repos_upstream_go_list**](ReposApi.md#repos_upstream_go_list) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
+[**repos_upstream_go_partial_update**](ReposApi.md#repos_upstream_go_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Partially update a Go upstream config for this repository.
+[**repos_upstream_go_read**](ReposApi.md#repos_upstream_go_read) | **GET** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Retrieve a Go upstream config for this repository.
+[**repos_upstream_go_update**](ReposApi.md#repos_upstream_go_update) | **PUT** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Update a Go upstream config for this repository.
 [**repos_upstream_helm_create**](ReposApi.md#repos_upstream_helm_create) | **POST** /repos/{owner}/{identifier}/upstream/helm/ | Create a Helm upstream config for this repository.
 [**repos_upstream_helm_delete**](ReposApi.md#repos_upstream_helm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Delete a Helm upstream config for this repository.
 [**repos_upstream_helm_list**](ReposApi.md#repos_upstream_helm_list) | **GET** /repos/{owner}/{identifier}/upstream/helm/ | List Helm upstream configs for this repository.
@@ -1754,6 +1766,383 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_cargo_create**
+> CargoUpstream repos_upstream_cargo_create(owner, identifier, data=data)
+
+Create a Cargo upstream config for this repository.
+
+Create a Cargo upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.CargoUpstreamRequest() # CargoUpstreamRequest |  (optional)
+
+try:
+    # Create a Cargo upstream config for this repository.
+    api_response = api_instance.repos_upstream_cargo_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_cargo_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**CargoUpstreamRequest**](CargoUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**CargoUpstream**](CargoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_cargo_delete**
+> repos_upstream_cargo_delete(owner, identifier, slug_perm)
+
+Delete a Cargo upstream config for this repository.
+
+Delete a Cargo upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a Cargo upstream config for this repository.
+    api_instance.repos_upstream_cargo_delete(owner, identifier, slug_perm)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_cargo_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_cargo_list**
+> list[CargoUpstream] repos_upstream_cargo_list(owner, identifier, page=page, page_size=page_size)
+
+List Cargo upstream configs for this repository.
+
+List Cargo upstream configs for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List Cargo upstream configs for this repository.
+    api_response = api_instance.repos_upstream_cargo_list(owner, identifier, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_cargo_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[CargoUpstream]**](CargoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_cargo_partial_update**
+> CargoUpstream repos_upstream_cargo_partial_update(owner, identifier, slug_perm, data=data)
+
+Partially update a Cargo upstream config for this repository.
+
+Partially update a Cargo upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.CargoUpstreamRequestPatch() # CargoUpstreamRequestPatch |  (optional)
+
+try:
+    # Partially update a Cargo upstream config for this repository.
+    api_response = api_instance.repos_upstream_cargo_partial_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_cargo_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**CargoUpstreamRequestPatch**](CargoUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**CargoUpstream**](CargoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_cargo_read**
+> CargoUpstream repos_upstream_cargo_read(owner, identifier, slug_perm)
+
+Retrieve a Cargo upstream config for this repository.
+
+Retrieve a Cargo upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a Cargo upstream config for this repository.
+    api_response = api_instance.repos_upstream_cargo_read(owner, identifier, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_cargo_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**CargoUpstream**](CargoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_cargo_update**
+> CargoUpstream repos_upstream_cargo_update(owner, identifier, slug_perm, data=data)
+
+Update a Cargo upstream config for this repository.
+
+Update a Cargo upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.CargoUpstreamRequest() # CargoUpstreamRequest |  (optional)
+
+try:
+    # Update a Cargo upstream config for this repository.
+    api_response = api_instance.repos_upstream_cargo_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_cargo_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**CargoUpstreamRequest**](CargoUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**CargoUpstream**](CargoUpstream.md)
 
 ### Authorization
 
@@ -3639,6 +4028,383 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DockerUpstream**](DockerUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_go_create**
+> GoUpstream repos_upstream_go_create(owner, identifier, data=data)
+
+Create a Go upstream config for this repository.
+
+Create a Go upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.GoUpstreamRequest() # GoUpstreamRequest |  (optional)
+
+try:
+    # Create a Go upstream config for this repository.
+    api_response = api_instance.repos_upstream_go_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_go_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**GoUpstreamRequest**](GoUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**GoUpstream**](GoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_go_delete**
+> repos_upstream_go_delete(owner, identifier, slug_perm)
+
+Delete a Go upstream config for this repository.
+
+Delete a Go upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a Go upstream config for this repository.
+    api_instance.repos_upstream_go_delete(owner, identifier, slug_perm)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_go_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_go_list**
+> list[GoUpstream] repos_upstream_go_list(owner, identifier, page=page, page_size=page_size)
+
+List Go upstream configs for this repository.
+
+List Go upstream configs for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List Go upstream configs for this repository.
+    api_response = api_instance.repos_upstream_go_list(owner, identifier, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_go_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[GoUpstream]**](GoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_go_partial_update**
+> GoUpstream repos_upstream_go_partial_update(owner, identifier, slug_perm, data=data)
+
+Partially update a Go upstream config for this repository.
+
+Partially update a Go upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.GoUpstreamRequestPatch() # GoUpstreamRequestPatch |  (optional)
+
+try:
+    # Partially update a Go upstream config for this repository.
+    api_response = api_instance.repos_upstream_go_partial_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_go_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**GoUpstreamRequestPatch**](GoUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**GoUpstream**](GoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_go_read**
+> GoUpstream repos_upstream_go_read(owner, identifier, slug_perm)
+
+Retrieve a Go upstream config for this repository.
+
+Retrieve a Go upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a Go upstream config for this repository.
+    api_response = api_instance.repos_upstream_go_read(owner, identifier, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_go_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**GoUpstream**](GoUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_go_update**
+> GoUpstream repos_upstream_go_update(owner, identifier, slug_perm, data=data)
+
+Update a Go upstream config for this repository.
+
+Update a Go upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.GoUpstreamRequest() # GoUpstreamRequest |  (optional)
+
+try:
+    # Update a Go upstream config for this repository.
+    api_response = api_instance.repos_upstream_go_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_go_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**GoUpstreamRequest**](GoUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**GoUpstream**](GoUpstream.md)
 
 ### Authorization
 
