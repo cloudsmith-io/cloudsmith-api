@@ -227,7 +227,7 @@ create_pull_request() {
 Once this PR is merged, the bindings will be automatically deployed via CircleCI.
 
 ---
-*This PR was created automatically by the update script.*"
+*This PR was created automatically by the update-bindings.sh script.*"
     
     local pr_url
     if pr_url=$(gh pr create --title "$pr_title" --body "$pr_body" --head "$branch_name" --base "main" 2>/dev/null); then
@@ -380,22 +380,8 @@ main() {
     
     local branch_name
     if branch_name=$(create_and_push_branch "$new_version"); then
-        local pr_url
-        pr_url=$(create_pull_request "$new_version" "$branch_name" "$api_version")
-        
+        create_pull_request "$new_version" "$branch_name" "$api_version"
         log_success "Automation completed successfully!"
-        echo ""
-        echo "Summary:"
-        echo "- Version updated from $current_version to $new_version"
-        echo "- Bindings regenerated"
-        echo "- Branch created: $branch_name"
-        echo "- Pull request: $pr_url"
-        echo ""
-        echo "Next steps:"
-        echo "1. Review the pull request"
-        echo "2. Get approval from team members"
-        echo "3. Merge the PR"
-        echo "4. CircleCI will automatically deploy the bindings"
     else
         log_warning "No changes detected. The bindings may already be up to date."
     fi
