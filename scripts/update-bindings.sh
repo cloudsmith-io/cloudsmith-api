@@ -129,6 +129,15 @@ generate_bindings() {
     
     if ./"$BUILD_SCRIPT"; then
         log_success "Bindings generated successfully"
+        
+        log_info "Running linting and formatting..."
+        if command -v ruff &> /dev/null; then
+            find . -name "*.py" -path "./bindings/*" -exec ruff format {} + 2>/dev/null || true
+            find . -name "*.py" -path "./bindings/*" -exec ruff check --fix {} + 2>/dev/null || true
+            log_success "Code formatting completed"
+        else
+            log_warning "ruff not found, skipping code formatting"
+        fi
     else
         log_error "Failed to generate bindings"
         exit 1
