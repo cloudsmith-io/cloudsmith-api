@@ -67,6 +67,15 @@ get_current_version() {
     echo "$current_version"
 }
 
+increment_patch_version() {
+    local version="$1"
+    local major minor patch
+    
+    IFS='.' read -r major minor patch <<< "$version"
+    patch=$((patch + 1))
+    echo "${major}.${minor}.${patch}"
+}
+
 get_api_version() {
     local api_url="https://api.cloudsmith.io/"
     log_info "Fetching current API version from CloudSmith..." >&2
@@ -196,41 +205,35 @@ CloudSmith API version: $api_version
 usage() {
     echo "Usage: $0 [OPTIONS]"
     echo ""
+    echo "Preferred usage (no arguments - auto-increments patch version):"
+    echo "  $0                                          # Auto-increment patch version and fetch latest API version"
+    echo ""
     echo "Options:"
-    echo "  -v, --version VERSION       New binding version (required)"
-    echo "  -a, --api-version VERSION   API version (required, unless --auto-api is used)"
-    echo "      --auto-api              Auto-fetch current API version from CloudSmith API"
+    echo "  -v, --version VERSION       Specific binding version (optional)"
     echo "  -h, --help                  Show this help message"
     echo ""
     echo "Examples:"
-    echo "  $0 -v 2.0.19 -a 1.697.0                    # Specify both versions explicitly"
-    echo "  $0 -v 2.0.19 --auto-api                    # Auto-fetch API version"
-    echo "  $0 --version 2.0.19 --api-version 1.697.0  # Long form"
+    echo "  $0                                          # Preferred: auto-increment patch version"
+    echo "  $0 -v 2.1.0                                # Specify custom version (e.g. minor/major bump)"
+    echo "  $0 --version 2.0.19                        # Long form"
     echo ""
     echo "Note:"
-    echo "  - Binding version: Version of your generated client library"
-    echo "  - API version: Version of the CloudSmith API specification"
-    echo "  - These are different things and likely should not be the same!"
+    echo "  - When run without arguments, the script will:"
+    echo "    * Auto-increment the patch version (e.g. 2.0.18 -> 2.0.19)"
+    echo "    * Auto-fetch the latest CloudSmith API version"
+    echo "  - Use -v only for larger version increments (minor/major bumps)"
 }
 
 main() {
     local new_version=""
-    local api_version=""
-    local auto_fetch_api_version=false
+    local auto_increment=true
     
     while [[ $# -gt 0 ]]; do
         case $1 in
             -v|--version)
                 new_version="$2"
+                auto_increment=false
                 shift 2
-                ;;
-            -a|--api-version)
-                api_version="$2"
-                shift 2
-                ;;
-            --auto-api)
-                auto_fetch_api_version=true
-                shift
                 ;;
             -h|--help)
                 usage
@@ -244,27 +247,25 @@ main() {
         esac
     done
     
-    if [ -z "$new_version" ]; then
-        log_error "Binding version is required"
-        usage
-        exit 1
+    check_dependencies
+    
+    local current_version=$(get_current_version)
+    log_info "Current version: $current_version"
+    
+    if [ "$auto_increment" = true ]; then
+        new_version=$(increment_patch_version "$current_version")
+        log_info "Auto-incrementing patch version to: $new_version"
+    else
+        validate_version "$new_version"
+        log_info "Using specified version: $new_version"
     fi
     
-    if [ -z "$api_version" ]; then
-        if [ "$auto_fetch_api_version" = true ]; then
-            if api_version=$(get_api_version); then
-                log_info "Auto-fetched API version: $api_version"
-            else
-                log_error "Failed to auto-fetch API version"
-                log_error "Please specify API version manually with -a or --api-version"
-                exit 1
-            fi
-        else
-            log_error "API version is required. Either:"
-            log_error "  1. Specify it manually: -a 1.697.0"
-            log_error "  2. Auto-fetch from API: --auto-api"
-            exit 1
-        fi
+    local api_version
+    if api_version=$(get_api_version); then
+        log_info "Auto-fetched API version: $api_version"
+    else
+        log_error "Failed to auto-fetch API version"
+        exit 1
     fi
     
     validate_version "$new_version"
@@ -273,11 +274,6 @@ main() {
     log_info "Starting CloudSmith API bindings update process..."
     log_info "New binding version: $new_version"
     log_info "API version: $api_version"
-    
-    check_dependencies
-    
-    local current_version=$(get_current_version)
-    log_info "Current version: $current_version"
     
     if [ "$current_version" = "$new_version" ]; then
         log_warning "Version $new_version is the same as current version"
