@@ -39,10 +39,6 @@ check_dependencies() {
         missing_deps+=("git")
     fi
     
-    if ! command -v gh &> /dev/null; then
-        missing_deps+=("gh (GitHub CLI)")
-    fi
-    
     if [ ${#missing_deps[@]} -ne 0 ]; then
         log_error "Missing dependencies: ${missing_deps[*]}"
         log_error "Please install the missing dependencies and try again."
@@ -59,15 +55,6 @@ validate_version() {
         log_error "Version should be in format: X.Y.Z (e.g., 1.2.3)"
         exit 1
     fi
-}
-
-check_repository() {
-    if [ ! -f "$COMMON_SCRIPT" ] || [ ! -f "$BUILD_SCRIPT" ]; then
-        log_error "This doesn't appear to be the cloudsmith-api repository"
-        log_error "Required files not found: $COMMON_SCRIPT, $BUILD_SCRIPT"
-        exit 1
-    fi
-    log_success "Repository validation passed"
 }
 
 get_current_version() {
@@ -150,6 +137,7 @@ generate_bindings() {
 
 create_and_push_branch() {
     local version="$1"
+    local api_version="$2"
     local branch_name="${BRANCH_PREFIX}-v${version}"
     
     log_info "Creating branch: $branch_name"
@@ -185,6 +173,9 @@ create_and_push_branch() {
     
     git commit -m "Update API bindings to version $version
 
+Binding version: $version
+CloudSmith API version: $api_version
+
 - Updated package_version in scripts/common.sh
 - Regenerated bindings for Python, Ruby, and Java
 - Ready for automated deployment via CircleCI"
@@ -200,47 +191,6 @@ create_and_push_branch() {
     
     log_success "Branch created and pushed successfully"
     echo "$branch_name"
-}
-
-create_pull_request() {
-    local version="$1"
-    local branch_name="$2"
-    local api_version="$3"
-    
-    log_info "Creating pull request..."
-    
-    local pr_title="Update API bindings to version $version"
-    local pr_body="## API Bindings Update
-
-**API Version:** $api_version
-**Binding Version:** $version
-
-### Changes Made:
-- Updated \`package_version\` in \`scripts/common.sh\` to \`$version\`
-- Regenerated bindings using \`./scripts/build.sh\`
-- Updated bindings for:
-  - Python
-  - Ruby  
-  - Java
-
-### Deployment:
-Once this PR is merged, the bindings will be automatically deployed via CircleCI.
-
----
-*This PR was created automatically by the update-bindings.sh script.*"
-    
-    local pr_url
-    if pr_url=$(gh pr create --title "$pr_title" --body "$pr_body" --head "$branch_name" --base "main" 2>/dev/null); then
-        log_success "Pull request created: $pr_url"
-        echo "$pr_url"
-    elif pr_url=$(gh pr create --title "$pr_title" --body "$pr_body" --head "$branch_name" --base "master" 2>/dev/null); then
-        log_success "Pull request created: $pr_url"
-        echo "$pr_url"
-    else
-        log_error "Failed to create pull request"
-        log_error "Please create the PR manually or check your GitHub CLI authentication"
-        exit 1
-    fi
 }
 
 usage() {
@@ -325,7 +275,6 @@ main() {
     log_info "API version: $api_version"
     
     check_dependencies
-    check_repository
     
     local current_version=$(get_current_version)
     log_info "Current version: $current_version"
@@ -379,8 +328,7 @@ main() {
     generate_bindings
     
     local branch_name
-    if branch_name=$(create_and_push_branch "$new_version"); then
-        create_pull_request "$new_version" "$branch_name" "$api_version"
+    if branch_name=$(create_and_push_branch "$new_version" "$api_version"); then
         log_success "Automation completed successfully!"
     else
         log_warning "No changes detected. The bindings may already be up to date."
