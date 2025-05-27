@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**packagesCopy**](PackagesApi.md#packagesCopy) | **POST** /packages/{owner}/{repo}/{identifier}/copy/ | Copy a package to another repository.
 [**packagesDelete**](PackagesApi.md#packagesDelete) | **DELETE** /packages/{owner}/{repo}/{identifier}/ | Delete a specific package in a repository.
 [**packagesDependencies**](PackagesApi.md#packagesDependencies) | **GET** /packages/{owner}/{repo}/{identifier}/dependencies/ | Get the list of dependencies for a package. Transitive dependencies are included where supported.
+[**packagesGroupsList**](PackagesApi.md#packagesGroupsList) | **GET** /packages/{owner}/{repo}/groups/ | Return a list of Package Groups in a repository.
 [**packagesList**](PackagesApi.md#packagesList) | **GET** /packages/{owner}/{repo}/ | Get a list of all packages associated with repository.
 [**packagesMove**](PackagesApi.md#packagesMove) | **POST** /packages/{owner}/{repo}/{identifier}/move/ | Move a package to another repository.
 [**packagesQuarantine**](PackagesApi.md#packagesQuarantine) | **POST** /packages/{owner}/{repo}/{identifier}/quarantine/ | Quarantine or release a package.
@@ -250,6 +251,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PackageDependencies**](PackageDependencies.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="packagesGroupsList"></a>
+# **packagesGroupsList**
+> InlineResponse200 packagesGroupsList(owner, repo, page, pageSize, groupBy, query, sort)
+
+Return a list of Package Groups in a repository.
+
+Return a list of Package Groups in a repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+String groupBy = "name"; // String | A field to group packages by. Available options: name, backend_kind.
+String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
+String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
+try {
+    InlineResponse200 result = apiInstance.packagesGroupsList(owner, repo, page, pageSize, groupBy, query, sort);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesGroupsList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **groupBy** | **String**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to name]
+ **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to name]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

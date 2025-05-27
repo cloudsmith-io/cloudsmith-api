@@ -170,7 +170,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [InlineResponse200]
+    # @return [InlineResponse2001]
     def user_tokens_list(opts = {})
       data, _status_code, _headers = user_tokens_list_with_http_info(opts)
       data
@@ -181,7 +181,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    # @return [Array<(InlineResponse2001, Fixnum, Hash)>] InlineResponse2001 data, response status code and response headers
     def user_tokens_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserApi.user_tokens_list ...'
@@ -213,7 +213,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse200')
+        :return_type => 'InlineResponse2001')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserApi#user_tokens_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
