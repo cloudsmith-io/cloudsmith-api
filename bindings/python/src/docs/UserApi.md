@@ -173,7 +173,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_tokens_list**
-> InlineResponse200 user_tokens_list(page=page, page_size=page_size)
+> InlineResponse2001 user_tokens_list(page=page, page_size=page_size)
 
 Retrieve the API key assigned to the user that is currently authenticated.
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

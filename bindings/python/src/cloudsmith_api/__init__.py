@@ -47,6 +47,9 @@ from cloudsmith_api.models.alpine_package_upload_request import AlpinePackageUpl
 from cloudsmith_api.models.architecture import Architecture
 from cloudsmith_api.models.cargo_package_upload import CargoPackageUpload
 from cloudsmith_api.models.cargo_package_upload_request import CargoPackageUploadRequest
+from cloudsmith_api.models.cargo_upstream import CargoUpstream
+from cloudsmith_api.models.cargo_upstream_request import CargoUpstreamRequest
+from cloudsmith_api.models.cargo_upstream_request_patch import CargoUpstreamRequestPatch
 from cloudsmith_api.models.cocoapods_package_upload import CocoapodsPackageUpload
 from cloudsmith_api.models.cocoapods_package_upload_request import CocoapodsPackageUploadRequest
 from cloudsmith_api.models.common_bandwidth_metrics import CommonBandwidthMetrics
@@ -95,6 +98,9 @@ from cloudsmith_api.models.format_support_upstream import FormatSupportUpstream
 from cloudsmith_api.models.geo_ip_location import GeoIpLocation
 from cloudsmith_api.models.go_package_upload import GoPackageUpload
 from cloudsmith_api.models.go_package_upload_request import GoPackageUploadRequest
+from cloudsmith_api.models.go_upstream import GoUpstream
+from cloudsmith_api.models.go_upstream_request import GoUpstreamRequest
+from cloudsmith_api.models.go_upstream_request_patch import GoUpstreamRequestPatch
 from cloudsmith_api.models.helm_package_upload import HelmPackageUpload
 from cloudsmith_api.models.helm_package_upload_request import HelmPackageUploadRequest
 from cloudsmith_api.models.helm_upstream import HelmUpstream
@@ -109,6 +115,7 @@ from cloudsmith_api.models.history import History
 from cloudsmith_api.models.history_fieldset import HistoryFieldset
 from cloudsmith_api.models.history_fieldset_raw import HistoryFieldsetRaw
 from cloudsmith_api.models.inline_response200 import InlineResponse200
+from cloudsmith_api.models.inline_response2001 import InlineResponse2001
 from cloudsmith_api.models.luarocks_package_upload import LuarocksPackageUpload
 from cloudsmith_api.models.luarocks_package_upload_request import LuarocksPackageUploadRequest
 from cloudsmith_api.models.maven_package_upload import MavenPackageUpload
@@ -174,6 +181,7 @@ from cloudsmith_api.models.package_file import PackageFile
 from cloudsmith_api.models.package_file_parts_upload import PackageFilePartsUpload
 from cloudsmith_api.models.package_file_upload import PackageFileUpload
 from cloudsmith_api.models.package_file_upload_request import PackageFileUploadRequest
+from cloudsmith_api.models.package_group import PackageGroup
 from cloudsmith_api.models.package_license_policy_evaluation_request import PackageLicensePolicyEvaluationRequest
 from cloudsmith_api.models.package_license_policy_evaluation_request_request import PackageLicensePolicyEvaluationRequestRequest
 from cloudsmith_api.models.package_license_policy_violation_log import PackageLicensePolicyViolationLog

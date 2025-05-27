@@ -399,6 +399,93 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_upstream_cargo_create
+  # Create a Cargo upstream config for this repository.
+  # Create a Cargo upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [CargoUpstreamRequest] :data 
+  # @return [CargoUpstream]
+  describe 'repos_upstream_cargo_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_cargo_delete
+  # Delete a Cargo upstream config for this repository.
+  # Delete a Cargo upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_cargo_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_cargo_list
+  # List Cargo upstream configs for this repository.
+  # List Cargo upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<CargoUpstream>]
+  describe 'repos_upstream_cargo_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_cargo_partial_update
+  # Partially update a Cargo upstream config for this repository.
+  # Partially update a Cargo upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [CargoUpstreamRequestPatch] :data 
+  # @return [CargoUpstream]
+  describe 'repos_upstream_cargo_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_cargo_read
+  # Retrieve a Cargo upstream config for this repository.
+  # Retrieve a Cargo upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [CargoUpstream]
+  describe 'repos_upstream_cargo_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_cargo_update
+  # Update a Cargo upstream config for this repository.
+  # Update a Cargo upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [CargoUpstreamRequest] :data 
+  # @return [CargoUpstream]
+  describe 'repos_upstream_cargo_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_upstream_composer_create
   # Create a Composer upstream config for this repository.
   # Create a Composer upstream config for this repository.
@@ -829,6 +916,93 @@ describe 'ReposApi' do
   # @option opts [DockerUpstreamRequest] :data 
   # @return [DockerUpstream]
   describe 'repos_upstream_docker_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_go_create
+  # Create a Go upstream config for this repository.
+  # Create a Go upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GoUpstreamRequest] :data 
+  # @return [GoUpstream]
+  describe 'repos_upstream_go_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_go_delete
+  # Delete a Go upstream config for this repository.
+  # Delete a Go upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_go_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_go_list
+  # List Go upstream configs for this repository.
+  # List Go upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<GoUpstream>]
+  describe 'repos_upstream_go_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_go_partial_update
+  # Partially update a Go upstream config for this repository.
+  # Partially update a Go upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GoUpstreamRequestPatch] :data 
+  # @return [GoUpstream]
+  describe 'repos_upstream_go_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_go_read
+  # Retrieve a Go upstream config for this repository.
+  # Retrieve a Go upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [GoUpstream]
+  describe 'repos_upstream_go_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_go_update
+  # Update a Go upstream config for this repository.
+  # Update a Go upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GoUpstreamRequest] :data 
+  # @return [GoUpstream]
+  describe 'repos_upstream_go_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
