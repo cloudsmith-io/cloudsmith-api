@@ -4,9 +4,18 @@ Please refer to Cloudsmith's standard guide on [Open-Source Contributing](https:
 
 ## Updating bindings
 
+### Manual approach
+
 * Update `package_version` in `scripts/common.sh`
 * Run `./scripts/build.sh` to generate bindings
 * Create a PR specifing API and binding version
+
+### Automated approach
+
+* Run `./scripts/update-bindings.sh` to automatically update the bindings.
+* This will then provide you with the URL for the PR to release the updated bindings.
+* Preferred usage: `./scripts/update-bindings.sh`
+* For full options and usage examples, run: `./scripts/update-bindings.sh --help`
 
 ## Contributor License Agreement
 
