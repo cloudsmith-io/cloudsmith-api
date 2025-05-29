@@ -40,6 +40,7 @@ import io.cloudsmith.api.models.HelmPackageUpload;
 import io.cloudsmith.api.models.HelmPackageUploadRequest;
 import io.cloudsmith.api.models.HexPackageUpload;
 import io.cloudsmith.api.models.HexPackageUploadRequest;
+import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -144,6 +145,28 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         PackageDependencies response = api.packagesDependencies(owner, repo, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Return a list of Package Groups in a repository.
+     *
+     * Return a list of Package Groups in a repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesGroupsListTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        String groupBy = null;
+        String query = null;
+        String sort = null;
+        InlineResponse200 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, query, sort);
 
         // TODO: test validations
     }

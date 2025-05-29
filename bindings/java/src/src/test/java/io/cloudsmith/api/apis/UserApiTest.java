@@ -14,7 +14,7 @@
 package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.InlineResponse200;
+import io.cloudsmith.api.models.InlineResponse2001;
 import io.cloudsmith.api.models.UserAuthToken;
 import io.cloudsmith.api.models.UserAuthTokenRequest;
 import io.cloudsmith.api.models.UserAuthenticationToken;
@@ -95,7 +95,7 @@ public class UserApiTest {
     public void userTokensListTest() throws Exception {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        InlineResponse200 response = api.userTokensList(page, pageSize);
+        InlineResponse2001 response = api.userTokensList(page, pageSize);
 
         // TODO: test validations
     }

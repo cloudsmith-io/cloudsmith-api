@@ -13,6 +13,9 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.CargoUpstream;
+import io.cloudsmith.api.models.CargoUpstreamRequest;
+import io.cloudsmith.api.models.CargoUpstreamRequestPatch;
 import io.cloudsmith.api.models.ComposerUpstream;
 import io.cloudsmith.api.models.ComposerUpstreamRequest;
 import io.cloudsmith.api.models.ComposerUpstreamRequestPatch;
@@ -29,6 +32,9 @@ import io.cloudsmith.api.models.DockerUpstream;
 import io.cloudsmith.api.models.DockerUpstreamRequest;
 import io.cloudsmith.api.models.DockerUpstreamRequestPatch;
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.GoUpstream;
+import io.cloudsmith.api.models.GoUpstreamRequest;
+import io.cloudsmith.api.models.GoUpstreamRequestPatch;
 import io.cloudsmith.api.models.HelmUpstream;
 import io.cloudsmith.api.models.HelmUpstreamRequest;
 import io.cloudsmith.api.models.HelmUpstreamRequestPatch;
@@ -570,6 +576,117 @@ public class ReposApiTest {
         String repo = null;
         RepositoryTransferRegionRequest data = null;
         api.reposTransferRegion(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Cargo upstream config for this repository.
+     *
+     * Create a Cargo upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCargoCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        CargoUpstreamRequest data = null;
+        CargoUpstream response = api.reposUpstreamCargoCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Cargo upstream config for this repository.
+     *
+     * Delete a Cargo upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCargoDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamCargoDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Cargo upstream configs for this repository.
+     *
+     * List Cargo upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCargoListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<CargoUpstream> response = api.reposUpstreamCargoList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Cargo upstream config for this repository.
+     *
+     * Partially update a Cargo upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCargoPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CargoUpstreamRequestPatch data = null;
+        CargoUpstream response = api.reposUpstreamCargoPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Cargo upstream config for this repository.
+     *
+     * Retrieve a Cargo upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCargoReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CargoUpstream response = api.reposUpstreamCargoRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Cargo upstream config for this repository.
+     *
+     * Update a Cargo upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCargoUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CargoUpstreamRequest data = null;
+        CargoUpstream response = api.reposUpstreamCargoUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }
@@ -1125,6 +1242,117 @@ public class ReposApiTest {
         String slugPerm = null;
         DockerUpstreamRequest data = null;
         DockerUpstream response = api.reposUpstreamDockerUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Go upstream config for this repository.
+     *
+     * Create a Go upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGoCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        GoUpstreamRequest data = null;
+        GoUpstream response = api.reposUpstreamGoCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Go upstream config for this repository.
+     *
+     * Delete a Go upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGoDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamGoDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Go upstream configs for this repository.
+     *
+     * List Go upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGoListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<GoUpstream> response = api.reposUpstreamGoList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Go upstream config for this repository.
+     *
+     * Partially update a Go upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGoPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        GoUpstreamRequestPatch data = null;
+        GoUpstream response = api.reposUpstreamGoPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Go upstream config for this repository.
+     *
+     * Retrieve a Go upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGoReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        GoUpstream response = api.reposUpstreamGoRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Go upstream config for this repository.
+     *
+     * Update a Go upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGoUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        GoUpstreamRequest data = null;
+        GoUpstream response = api.reposUpstreamGoUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

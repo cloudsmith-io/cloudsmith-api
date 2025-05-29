@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**Array&lt;UserAuthenticationToken&gt;**](UserAuthenticationToken.md) |  | 
+**results** | [**Array&lt;PackageGroup&gt;**](PackageGroup.md) |  | 
 
 
