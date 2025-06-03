@@ -68,6 +68,12 @@ describe 'RepositoryRetentionRules' do
     end
   end
 
+  describe 'test attribute "retention_package_query_string"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "retention_size_limit"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

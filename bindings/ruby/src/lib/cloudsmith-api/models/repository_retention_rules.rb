@@ -32,6 +32,9 @@ class RepositoryRetentionRules
   # If checked, retention will apply to packages by package type (e.g. by binary, by source, etc.), rather than across all package types for one or more formats. <br>For example, when retaining by a limit of 1 and you upload DebPackage 1.0 and DebSourcePackage 1.0, no packages are deleted because they are different package types, binary and source respectively.
   attr_accessor :retention_group_by_package_type
 
+  # A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will prevent any packages tagged 'latest' from being deleted.<br>Refer to the Cloudsmith documentation for package query syntax.
+  attr_accessor :retention_package_query_string
+
   # The maximum X total size (in bytes) of packages to retain.
   attr_accessor :retention_size_limit
 
@@ -44,6 +47,7 @@ class RepositoryRetentionRules
       :'retention_group_by_format' => :'retention_group_by_format',
       :'retention_group_by_name' => :'retention_group_by_name',
       :'retention_group_by_package_type' => :'retention_group_by_package_type',
+      :'retention_package_query_string' => :'retention_package_query_string',
       :'retention_size_limit' => :'retention_size_limit'
     }
   end
@@ -57,6 +61,7 @@ class RepositoryRetentionRules
       :'retention_group_by_format' => :'BOOLEAN',
       :'retention_group_by_name' => :'BOOLEAN',
       :'retention_group_by_package_type' => :'BOOLEAN',
+      :'retention_package_query_string' => :'String',
       :'retention_size_limit' => :'Integer'
     }
   end
@@ -93,6 +98,10 @@ class RepositoryRetentionRules
       self.retention_group_by_package_type = attributes[:'retention_group_by_package_type']
     end
 
+    if attributes.has_key?(:'retention_package_query_string')
+      self.retention_package_query_string = attributes[:'retention_package_query_string']
+    end
+
     if attributes.has_key?(:'retention_size_limit')
       self.retention_size_limit = attributes[:'retention_size_limit']
     end
@@ -122,6 +131,7 @@ class RepositoryRetentionRules
         retention_group_by_format == o.retention_group_by_format &&
         retention_group_by_name == o.retention_group_by_name &&
         retention_group_by_package_type == o.retention_group_by_package_type &&
+        retention_package_query_string == o.retention_package_query_string &&
         retention_size_limit == o.retention_size_limit
   end
 
@@ -134,7 +144,7 @@ class RepositoryRetentionRules
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [retention_count_limit, retention_days_limit, retention_enabled, retention_group_by_format, retention_group_by_name, retention_group_by_package_type, retention_size_limit].hash
+    [retention_count_limit, retention_days_limit, retention_enabled, retention_group_by_format, retention_group_by_name, retention_group_by_package_type, retention_package_query_string, retention_size_limit].hash
   end
 
     # Builds the object from hash

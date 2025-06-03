@@ -170,7 +170,7 @@ This endpoint does not need any parameter.
 
 
 # **user_tokens_list**
-> InlineResponse200 user_tokens_list(opts)
+> InlineResponse2001 user_tokens_list(opts)
 
 Retrieve the API key assigned to the user that is currently authenticated.
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

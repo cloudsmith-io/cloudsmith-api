@@ -75,6 +75,24 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_groups_list
+  # Return a list of Package Groups in a repository.
+  # Return a list of Package Groups in a repository.
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [String] :group_by A field to group packages by. Available options: name, backend_kind.
+  # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind.
+  # @return [InlineResponse200]
+  describe 'packages_groups_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_list
   # Get a list of all packages associated with repository.
   # Get a list of all packages associated with repository.
