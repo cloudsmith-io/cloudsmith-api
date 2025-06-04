@@ -17,7 +17,7 @@ cat > $build_json <<EOC
 {
     "hideGenerationTimestamp": $hide_generation_timestamp,
     "packageName": "$project_underscore",
-    "projectName": "$project_dash",
+    "projectName": "$project_underscore",
     "packageVersion": "$package_version",
     "packageUrl": "$openapi_url",
     "sortParamsByRequiredFlag": $sort_params
