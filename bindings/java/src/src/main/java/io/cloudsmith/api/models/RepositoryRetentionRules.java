@@ -52,6 +52,9 @@ public class RepositoryRetentionRules implements Serializable {
   @SerializedName("retention_group_by_package_type")
   private Boolean retentionGroupByPackageType = null;
 
+  @SerializedName("retention_package_query_string")
+  private String retentionPackageQueryString = null;
+
   @SerializedName("retention_size_limit")
   private java.math.BigInteger retentionSizeLimit = null;
 
@@ -167,6 +170,24 @@ public class RepositoryRetentionRules implements Serializable {
     this.retentionGroupByPackageType = retentionGroupByPackageType;
   }
 
+  public RepositoryRetentionRules retentionPackageQueryString(String retentionPackageQueryString) {
+    this.retentionPackageQueryString = retentionPackageQueryString;
+    return this;
+  }
+
+   /**
+   * A package search expression which, if provided, filters the packages to be deleted.&lt;br&gt;For example, a search expression of &#x60;name:foo&#x60; will result in only packages called &#39;foo&#39; being deleted, or a search expression of &#x60;tag:~latest&#x60; will prevent any packages tagged &#39;latest&#39; from being deleted.&lt;br&gt;Refer to the Cloudsmith documentation for package query syntax.
+   * @return retentionPackageQueryString
+  **/
+  @ApiModelProperty(value = "A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will prevent any packages tagged 'latest' from being deleted.<br>Refer to the Cloudsmith documentation for package query syntax.")
+  public String getRetentionPackageQueryString() {
+    return retentionPackageQueryString;
+  }
+
+  public void setRetentionPackageQueryString(String retentionPackageQueryString) {
+    this.retentionPackageQueryString = retentionPackageQueryString;
+  }
+
   public RepositoryRetentionRules retentionSizeLimit(java.math.BigInteger retentionSizeLimit) {
     this.retentionSizeLimit = retentionSizeLimit;
     return this;
@@ -203,12 +224,13 @@ public class RepositoryRetentionRules implements Serializable {
         Objects.equals(this.retentionGroupByFormat, repositoryRetentionRules.retentionGroupByFormat) &&
         Objects.equals(this.retentionGroupByName, repositoryRetentionRules.retentionGroupByName) &&
         Objects.equals(this.retentionGroupByPackageType, repositoryRetentionRules.retentionGroupByPackageType) &&
+        Objects.equals(this.retentionPackageQueryString, repositoryRetentionRules.retentionPackageQueryString) &&
         Objects.equals(this.retentionSizeLimit, repositoryRetentionRules.retentionSizeLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(retentionCountLimit, retentionDaysLimit, retentionEnabled, retentionGroupByFormat, retentionGroupByName, retentionGroupByPackageType, retentionSizeLimit);
+    return Objects.hash(retentionCountLimit, retentionDaysLimit, retentionEnabled, retentionGroupByFormat, retentionGroupByName, retentionGroupByPackageType, retentionPackageQueryString, retentionSizeLimit);
   }
 
 
@@ -223,6 +245,7 @@ public class RepositoryRetentionRules implements Serializable {
     sb.append("    retentionGroupByFormat: ").append(toIndentedString(retentionGroupByFormat)).append("\n");
     sb.append("    retentionGroupByName: ").append(toIndentedString(retentionGroupByName)).append("\n");
     sb.append("    retentionGroupByPackageType: ").append(toIndentedString(retentionGroupByPackageType)).append("\n");
+    sb.append("    retentionPackageQueryString: ").append(toIndentedString(retentionPackageQueryString)).append("\n");
     sb.append("    retentionSizeLimit: ").append(toIndentedString(retentionSizeLimit)).append("\n");
     sb.append("}");
     return sb.toString();

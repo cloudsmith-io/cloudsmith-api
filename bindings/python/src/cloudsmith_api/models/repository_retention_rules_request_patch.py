@@ -39,6 +39,7 @@ class RepositoryRetentionRulesRequestPatch(object):
         'retention_group_by_format': 'bool',
         'retention_group_by_name': 'bool',
         'retention_group_by_package_type': 'bool',
+        'retention_package_query_string': 'str',
         'retention_size_limit': 'int'
     }
 
@@ -49,10 +50,11 @@ class RepositoryRetentionRulesRequestPatch(object):
         'retention_group_by_format': 'retention_group_by_format',
         'retention_group_by_name': 'retention_group_by_name',
         'retention_group_by_package_type': 'retention_group_by_package_type',
+        'retention_package_query_string': 'retention_package_query_string',
         'retention_size_limit': 'retention_size_limit'
     }
 
-    def __init__(self, retention_count_limit=None, retention_days_limit=None, retention_enabled=None, retention_group_by_format=None, retention_group_by_name=None, retention_group_by_package_type=None, retention_size_limit=None, _configuration=None):  # noqa: E501
+    def __init__(self, retention_count_limit=None, retention_days_limit=None, retention_enabled=None, retention_group_by_format=None, retention_group_by_name=None, retention_group_by_package_type=None, retention_package_query_string=None, retention_size_limit=None, _configuration=None):  # noqa: E501
         """RepositoryRetentionRulesRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -64,6 +66,7 @@ class RepositoryRetentionRulesRequestPatch(object):
         self._retention_group_by_format = None
         self._retention_group_by_name = None
         self._retention_group_by_package_type = None
+        self._retention_package_query_string = None
         self._retention_size_limit = None
         self.discriminator = None
 
@@ -79,6 +82,8 @@ class RepositoryRetentionRulesRequestPatch(object):
             self.retention_group_by_name = retention_group_by_name
         if retention_group_by_package_type is not None:
             self.retention_group_by_package_type = retention_group_by_package_type
+        if retention_package_query_string is not None:
+            self.retention_package_query_string = retention_package_query_string
         if retention_size_limit is not None:
             self.retention_size_limit = retention_size_limit
 
@@ -231,6 +236,29 @@ class RepositoryRetentionRulesRequestPatch(object):
         """
 
         self._retention_group_by_package_type = retention_group_by_package_type
+
+    @property
+    def retention_package_query_string(self):
+        """Gets the retention_package_query_string of this RepositoryRetentionRulesRequestPatch.
+
+        A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will prevent any packages tagged 'latest' from being deleted.<br>Refer to the Cloudsmith documentation for package query syntax.
+
+        :return: The retention_package_query_string of this RepositoryRetentionRulesRequestPatch.
+        :rtype: str
+        """
+        return self._retention_package_query_string
+
+    @retention_package_query_string.setter
+    def retention_package_query_string(self, retention_package_query_string):
+        """Sets the retention_package_query_string of this RepositoryRetentionRulesRequestPatch.
+
+        A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will prevent any packages tagged 'latest' from being deleted.<br>Refer to the Cloudsmith documentation for package query syntax.
+
+        :param retention_package_query_string: The retention_package_query_string of this RepositoryRetentionRulesRequestPatch.
+        :type: str
+        """
+
+        self._retention_package_query_string = retention_package_query_string
 
     @property
     def retention_size_limit(self):
