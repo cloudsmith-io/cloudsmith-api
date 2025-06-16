@@ -1,0 +1,13 @@
+# PackageLicensePolicyViolationLog
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**event_at** | **String** |  | [optional] [default to null]
+**package** | [***::models::PackageVulnerability**](PackageVulnerability.md) |  | [default to null]
+**policy** | [***::models::NestedLicensePolicy**](NestedLicensePolicy.md) |  | [default to null]
+**reasons** | **Vec<String>** |  | [default to null]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
