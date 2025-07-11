@@ -207,7 +207,7 @@ class OrganizationMembershipRoleUpdate(object):
         :param last_login_method: The last_login_method of this OrganizationMembershipRoleUpdate.
         :type: str
         """
-        allowed_values = ["Unknown", "Password", "Social", "SAML"]  # noqa: E501
+        allowed_values = ["Unknown", "Password", "Social", "SAML", "OIDC"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 last_login_method not in allowed_values):
             raise ValueError(
