@@ -26,6 +26,7 @@ UNKNOWN | &quot;Unknown&quot;
 PASSWORD | &quot;Password&quot;
 SOCIAL | &quot;Social&quot;
 SAML | &quot;SAML&quot;
+OIDC | &quot;OIDC&quot;
 
 
 <a name="RoleEnum"></a>

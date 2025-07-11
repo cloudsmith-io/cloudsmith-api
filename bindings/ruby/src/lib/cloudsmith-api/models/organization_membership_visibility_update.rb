@@ -161,7 +161,7 @@ class OrganizationMembershipVisibilityUpdate
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    last_login_method_validator = EnumAttributeValidator.new('String', ['Unknown', 'Password', 'Social', 'SAML'])
+    last_login_method_validator = EnumAttributeValidator.new('String', ['Unknown', 'Password', 'Social', 'SAML', 'OIDC'])
     return false unless last_login_method_validator.valid?(@last_login_method)
     role_validator = EnumAttributeValidator.new('String', ['Owner', 'Manager', 'Member', 'Collaborator'])
     return false unless role_validator.valid?(@role)
@@ -173,7 +173,7 @@ class OrganizationMembershipVisibilityUpdate
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] last_login_method Object to be assigned
   def last_login_method=(last_login_method)
-    validator = EnumAttributeValidator.new('String', ['Unknown', 'Password', 'Social', 'SAML'])
+    validator = EnumAttributeValidator.new('String', ['Unknown', 'Password', 'Social', 'SAML', 'OIDC'])
     unless validator.valid?(last_login_method)
       fail ArgumentError, 'invalid value for "last_login_method", must be one of #{validator.allowable_values}.'
     end

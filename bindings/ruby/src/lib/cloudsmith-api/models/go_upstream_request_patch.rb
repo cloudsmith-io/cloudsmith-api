@@ -190,7 +190,7 @@ class GoUpstreamRequestPatch
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
-    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only'])
+    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
     return false unless mode_validator.valid?(@mode)
     true
   end
@@ -208,7 +208,7 @@ class GoUpstreamRequestPatch
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] mode Object to be assigned
   def mode=(mode)
-    validator = EnumAttributeValidator.new('String', ['Proxy Only'])
+    validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
     unless validator.valid?(mode)
       fail ArgumentError, 'invalid value for "mode", must be one of #{validator.allowable_values}.'
     end

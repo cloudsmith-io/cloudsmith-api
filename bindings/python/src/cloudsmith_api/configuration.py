@@ -40,7 +40,7 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = "https://api.cloudsmith.io/v1"
+        self.host = "https://api.cloudsmith.io"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -261,5 +261,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v1\n"\
-               "SDK Package Version: 2.0.20".\
+               "SDK Package Version: 2.0.21".\
                format(env=sys.platform, pyversion=sys.version)

@@ -61,7 +61,9 @@ public class OrganizationMembership implements Serializable {
     
     SOCIAL("Social"),
     
-    SAML("SAML");
+    SAML("SAML"),
+    
+    OIDC("OIDC");
 
     private String value;
 
