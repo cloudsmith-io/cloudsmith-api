@@ -47,6 +47,7 @@ UPSTREAM_WAS_DISABLED_BY_REQUEST_OF_USER | &quot;Upstream was disabled by reques
 Name | Value
 ---- | -----
 PROXY_ONLY | &quot;Proxy Only&quot;
+CACHE_AND_PROXY | &quot;Cache and Proxy&quot;
 
 
 
