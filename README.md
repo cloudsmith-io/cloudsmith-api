@@ -16,7 +16,7 @@ Releases for each language (where supported) are uploaded to the [Cloudsmith API
 - Python (also on [PyPi](https://pypi.python.org/pypi/cloudsmith-api))
 - Ruby (also on [RubyGems](https://rubygems.org/gems/cloudsmith-api/))
 
-If you need a different binding, [contact us](contact-us)!
+If you need a different binding, [contact us](https://cloudsmith.com/company/contact-us)!
 
 
 ## Getting Started
