@@ -2451,6 +2451,401 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create a Conda upstream config for this repository.
+    # Create a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [CondaUpstreamRequest] :data 
+    # @return [CondaUpstream]
+    def repos_upstream_conda_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_conda_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Conda upstream config for this repository.
+    # Create a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [CondaUpstreamRequest] :data 
+    # @return [Array<(CondaUpstream, Fixnum, Hash)>] CondaUpstream data, response status code and response headers
+    def repos_upstream_conda_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_conda_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_conda_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_conda_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/conda/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CondaUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_conda_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Conda upstream config for this repository.
+    # Delete a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_conda_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_conda_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Conda upstream config for this repository.
+    # Delete a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_conda_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_conda_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_conda_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_conda_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_conda_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_conda_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Conda upstream configs for this repository.
+    # List Conda upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<CondaUpstream>]
+    def repos_upstream_conda_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_conda_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Conda upstream configs for this repository.
+    # List Conda upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<CondaUpstream>, Fixnum, Hash)>] Array<CondaUpstream> data, response status code and response headers
+    def repos_upstream_conda_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_conda_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_conda_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_conda_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/conda/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<CondaUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_conda_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Conda upstream config for this repository.
+    # Partially update a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [CondaUpstreamRequestPatch] :data 
+    # @return [CondaUpstream]
+    def repos_upstream_conda_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_conda_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Conda upstream config for this repository.
+    # Partially update a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [CondaUpstreamRequestPatch] :data 
+    # @return [Array<(CondaUpstream, Fixnum, Hash)>] CondaUpstream data, response status code and response headers
+    def repos_upstream_conda_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_conda_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_conda_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_conda_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_conda_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CondaUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_conda_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Conda upstream config for this repository.
+    # Retrieve a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [CondaUpstream]
+    def repos_upstream_conda_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_conda_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Conda upstream config for this repository.
+    # Retrieve a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CondaUpstream, Fixnum, Hash)>] CondaUpstream data, response status code and response headers
+    def repos_upstream_conda_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_conda_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_conda_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_conda_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_conda_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CondaUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_conda_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Conda upstream config for this repository.
+    # Update a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [CondaUpstreamRequest] :data 
+    # @return [CondaUpstream]
+    def repos_upstream_conda_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_conda_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Conda upstream config for this repository.
+    # Update a Conda upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [CondaUpstreamRequest] :data 
+    # @return [Array<(CondaUpstream, Fixnum, Hash)>] CondaUpstream data, response status code and response headers
+    def repos_upstream_conda_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_conda_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_conda_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_conda_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_conda_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/conda/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CondaUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_conda_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Create a CRAN upstream config for this repository.
     # Create a CRAN upstream config for this repository.
     # @param owner 
@@ -5213,6 +5608,401 @@ module CloudsmithApi
         :return_type => 'HexUpstream')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_upstream_hex_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Hugging Face upstream config for this repository.
+    # Create a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfaceUpstreamRequest] :data 
+    # @return [HuggingfaceUpstream]
+    def repos_upstream_huggingface_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_huggingface_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a Hugging Face upstream config for this repository.
+    # Create a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfaceUpstreamRequest] :data 
+    # @return [Array<(HuggingfaceUpstream, Fixnum, Hash)>] HuggingfaceUpstream data, response status code and response headers
+    def repos_upstream_huggingface_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_huggingface_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_huggingface_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_huggingface_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/huggingface/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HuggingfaceUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_huggingface_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a Hugging Face upstream config for this repository.
+    # Delete a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_huggingface_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_huggingface_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a Hugging Face upstream config for this repository.
+    # Delete a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_huggingface_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_huggingface_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_huggingface_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_huggingface_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_huggingface_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_huggingface_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Hugging Face upstream configs for this repository.
+    # List Hugging Face upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<HuggingfaceUpstream>]
+    def repos_upstream_huggingface_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_huggingface_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Hugging Face upstream configs for this repository.
+    # List Hugging Face upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<HuggingfaceUpstream>, Fixnum, Hash)>] Array<HuggingfaceUpstream> data, response status code and response headers
+    def repos_upstream_huggingface_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_huggingface_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_huggingface_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_huggingface_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/huggingface/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<HuggingfaceUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_huggingface_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a Hugging Face upstream config for this repository.
+    # Partially update a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfaceUpstreamRequestPatch] :data 
+    # @return [HuggingfaceUpstream]
+    def repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_huggingface_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a Hugging Face upstream config for this repository.
+    # Partially update a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfaceUpstreamRequestPatch] :data 
+    # @return [Array<(HuggingfaceUpstream, Fixnum, Hash)>] HuggingfaceUpstream data, response status code and response headers
+    def repos_upstream_huggingface_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_huggingface_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_huggingface_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_huggingface_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_huggingface_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HuggingfaceUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_huggingface_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a Hugging Face upstream config for this repository.
+    # Retrieve a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [HuggingfaceUpstream]
+    def repos_upstream_huggingface_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_huggingface_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a Hugging Face upstream config for this repository.
+    # Retrieve a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(HuggingfaceUpstream, Fixnum, Hash)>] HuggingfaceUpstream data, response status code and response headers
+    def repos_upstream_huggingface_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_huggingface_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_huggingface_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_huggingface_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_huggingface_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HuggingfaceUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_huggingface_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a Hugging Face upstream config for this repository.
+    # Update a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfaceUpstreamRequest] :data 
+    # @return [HuggingfaceUpstream]
+    def repos_upstream_huggingface_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_huggingface_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a Hugging Face upstream config for this repository.
+    # Update a Hugging Face upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfaceUpstreamRequest] :data 
+    # @return [Array<(HuggingfaceUpstream, Fixnum, Hash)>] HuggingfaceUpstream data, response status code and response headers
+    def repos_upstream_huggingface_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_huggingface_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_huggingface_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_huggingface_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_huggingface_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HuggingfaceUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_huggingface_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

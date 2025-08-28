@@ -43,6 +43,12 @@ Method | HTTP request | Description
 [**repos_upstream_composer_partial_update**](ReposApi.md#repos_upstream_composer_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Partially update a Composer upstream config for this repository.
 [**repos_upstream_composer_read**](ReposApi.md#repos_upstream_composer_read) | **GET** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Retrieve a Composer upstream config for this repository.
 [**repos_upstream_composer_update**](ReposApi.md#repos_upstream_composer_update) | **PUT** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Update a Composer upstream config for this repository.
+[**repos_upstream_conda_create**](ReposApi.md#repos_upstream_conda_create) | **POST** /repos/{owner}/{identifier}/upstream/conda/ | Create a Conda upstream config for this repository.
+[**repos_upstream_conda_delete**](ReposApi.md#repos_upstream_conda_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Delete a Conda upstream config for this repository.
+[**repos_upstream_conda_list**](ReposApi.md#repos_upstream_conda_list) | **GET** /repos/{owner}/{identifier}/upstream/conda/ | List Conda upstream configs for this repository.
+[**repos_upstream_conda_partial_update**](ReposApi.md#repos_upstream_conda_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Partially update a Conda upstream config for this repository.
+[**repos_upstream_conda_read**](ReposApi.md#repos_upstream_conda_read) | **GET** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Retrieve a Conda upstream config for this repository.
+[**repos_upstream_conda_update**](ReposApi.md#repos_upstream_conda_update) | **PUT** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Update a Conda upstream config for this repository.
 [**repos_upstream_cran_create**](ReposApi.md#repos_upstream_cran_create) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository.
 [**repos_upstream_cran_delete**](ReposApi.md#repos_upstream_cran_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository.
 [**repos_upstream_cran_list**](ReposApi.md#repos_upstream_cran_list) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository.
@@ -85,6 +91,12 @@ Method | HTTP request | Description
 [**repos_upstream_hex_partial_update**](ReposApi.md#repos_upstream_hex_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Partially update a Hex upstream config for this repository.
 [**repos_upstream_hex_read**](ReposApi.md#repos_upstream_hex_read) | **GET** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Retrieve a Hex upstream config for this repository.
 [**repos_upstream_hex_update**](ReposApi.md#repos_upstream_hex_update) | **PUT** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Update a Hex upstream config for this repository.
+[**repos_upstream_huggingface_create**](ReposApi.md#repos_upstream_huggingface_create) | **POST** /repos/{owner}/{identifier}/upstream/huggingface/ | Create a Hugging Face upstream config for this repository.
+[**repos_upstream_huggingface_delete**](ReposApi.md#repos_upstream_huggingface_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Delete a Hugging Face upstream config for this repository.
+[**repos_upstream_huggingface_list**](ReposApi.md#repos_upstream_huggingface_list) | **GET** /repos/{owner}/{identifier}/upstream/huggingface/ | List Hugging Face upstream configs for this repository.
+[**repos_upstream_huggingface_partial_update**](ReposApi.md#repos_upstream_huggingface_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Partially update a Hugging Face upstream config for this repository.
+[**repos_upstream_huggingface_read**](ReposApi.md#repos_upstream_huggingface_read) | **GET** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Retrieve a Hugging Face upstream config for this repository.
+[**repos_upstream_huggingface_update**](ReposApi.md#repos_upstream_huggingface_update) | **PUT** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Update a Hugging Face upstream config for this repository.
 [**repos_upstream_maven_create**](ReposApi.md#repos_upstream_maven_create) | **POST** /repos/{owner}/{identifier}/upstream/maven/ | Create a Maven upstream config for this repository.
 [**repos_upstream_maven_delete**](ReposApi.md#repos_upstream_maven_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Delete a Maven upstream config for this repository.
 [**repos_upstream_maven_list**](ReposApi.md#repos_upstream_maven_list) | **GET** /repos/{owner}/{identifier}/upstream/maven/ | List Maven upstream configs for this repository.
@@ -2520,6 +2532,383 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ComposerUpstream**](ComposerUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_conda_create**
+> CondaUpstream repos_upstream_conda_create(owner, identifier, data=data)
+
+Create a Conda upstream config for this repository.
+
+Create a Conda upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.CondaUpstreamRequest() # CondaUpstreamRequest |  (optional)
+
+try:
+    # Create a Conda upstream config for this repository.
+    api_response = api_instance.repos_upstream_conda_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_conda_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**CondaUpstreamRequest**](CondaUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**CondaUpstream**](CondaUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_conda_delete**
+> repos_upstream_conda_delete(owner, identifier, slug_perm)
+
+Delete a Conda upstream config for this repository.
+
+Delete a Conda upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a Conda upstream config for this repository.
+    api_instance.repos_upstream_conda_delete(owner, identifier, slug_perm)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_conda_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_conda_list**
+> list[CondaUpstream] repos_upstream_conda_list(owner, identifier, page=page, page_size=page_size)
+
+List Conda upstream configs for this repository.
+
+List Conda upstream configs for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List Conda upstream configs for this repository.
+    api_response = api_instance.repos_upstream_conda_list(owner, identifier, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_conda_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[CondaUpstream]**](CondaUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_conda_partial_update**
+> CondaUpstream repos_upstream_conda_partial_update(owner, identifier, slug_perm, data=data)
+
+Partially update a Conda upstream config for this repository.
+
+Partially update a Conda upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.CondaUpstreamRequestPatch() # CondaUpstreamRequestPatch |  (optional)
+
+try:
+    # Partially update a Conda upstream config for this repository.
+    api_response = api_instance.repos_upstream_conda_partial_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_conda_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**CondaUpstreamRequestPatch**](CondaUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**CondaUpstream**](CondaUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_conda_read**
+> CondaUpstream repos_upstream_conda_read(owner, identifier, slug_perm)
+
+Retrieve a Conda upstream config for this repository.
+
+Retrieve a Conda upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a Conda upstream config for this repository.
+    api_response = api_instance.repos_upstream_conda_read(owner, identifier, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_conda_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**CondaUpstream**](CondaUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_conda_update**
+> CondaUpstream repos_upstream_conda_update(owner, identifier, slug_perm, data=data)
+
+Update a Conda upstream config for this repository.
+
+Update a Conda upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.CondaUpstreamRequest() # CondaUpstreamRequest |  (optional)
+
+try:
+    # Update a Conda upstream config for this repository.
+    api_response = api_instance.repos_upstream_conda_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_conda_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**CondaUpstreamRequest**](CondaUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**CondaUpstream**](CondaUpstream.md)
 
 ### Authorization
 
@@ -5159,6 +5548,383 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**HexUpstream**](HexUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_huggingface_create**
+> HuggingfaceUpstream repos_upstream_huggingface_create(owner, identifier, data=data)
+
+Create a Hugging Face upstream config for this repository.
+
+Create a Hugging Face upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.HuggingfaceUpstreamRequest() # HuggingfaceUpstreamRequest |  (optional)
+
+try:
+    # Create a Hugging Face upstream config for this repository.
+    api_response = api_instance.repos_upstream_huggingface_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_huggingface_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**HuggingfaceUpstreamRequest**](HuggingfaceUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**HuggingfaceUpstream**](HuggingfaceUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_huggingface_delete**
+> repos_upstream_huggingface_delete(owner, identifier, slug_perm)
+
+Delete a Hugging Face upstream config for this repository.
+
+Delete a Hugging Face upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a Hugging Face upstream config for this repository.
+    api_instance.repos_upstream_huggingface_delete(owner, identifier, slug_perm)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_huggingface_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_huggingface_list**
+> list[HuggingfaceUpstream] repos_upstream_huggingface_list(owner, identifier, page=page, page_size=page_size)
+
+List Hugging Face upstream configs for this repository.
+
+List Hugging Face upstream configs for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List Hugging Face upstream configs for this repository.
+    api_response = api_instance.repos_upstream_huggingface_list(owner, identifier, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_huggingface_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[HuggingfaceUpstream]**](HuggingfaceUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_huggingface_partial_update**
+> HuggingfaceUpstream repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, data=data)
+
+Partially update a Hugging Face upstream config for this repository.
+
+Partially update a Hugging Face upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.HuggingfaceUpstreamRequestPatch() # HuggingfaceUpstreamRequestPatch |  (optional)
+
+try:
+    # Partially update a Hugging Face upstream config for this repository.
+    api_response = api_instance.repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_huggingface_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**HuggingfaceUpstreamRequestPatch**](HuggingfaceUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**HuggingfaceUpstream**](HuggingfaceUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_huggingface_read**
+> HuggingfaceUpstream repos_upstream_huggingface_read(owner, identifier, slug_perm)
+
+Retrieve a Hugging Face upstream config for this repository.
+
+Retrieve a Hugging Face upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a Hugging Face upstream config for this repository.
+    api_response = api_instance.repos_upstream_huggingface_read(owner, identifier, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_huggingface_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**HuggingfaceUpstream**](HuggingfaceUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_huggingface_update**
+> HuggingfaceUpstream repos_upstream_huggingface_update(owner, identifier, slug_perm, data=data)
+
+Update a Hugging Face upstream config for this repository.
+
+Update a Hugging Face upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.HuggingfaceUpstreamRequest() # HuggingfaceUpstreamRequest |  (optional)
+
+try:
+    # Update a Hugging Face upstream config for this repository.
+    api_response = api_instance.repos_upstream_huggingface_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_huggingface_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**HuggingfaceUpstreamRequest**](HuggingfaceUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**HuggingfaceUpstream**](HuggingfaceUpstream.md)
 
 ### Authorization
 

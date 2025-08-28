@@ -42,6 +42,9 @@ public class ProviderSettings implements Serializable {
   @SerializedName("enabled")
   private Boolean enabled = null;
 
+  @SerializedName("mapping_claim")
+  private String mappingClaim = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -49,7 +52,7 @@ public class ProviderSettings implements Serializable {
   private String providerUrl = null;
 
   @SerializedName("service_accounts")
-  private List<String> serviceAccounts = new ArrayList<>();
+  private List<String> serviceAccounts = null;
 
   @SerializedName("slug")
   private String slug = null;
@@ -93,6 +96,24 @@ public class ProviderSettings implements Serializable {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public ProviderSettings mappingClaim(String mappingClaim) {
+    this.mappingClaim = mappingClaim;
+    return this;
+  }
+
+   /**
+   * The OIDC claim to use for mapping to service accounts in dynamic_mappings.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
+   * @return mappingClaim
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The OIDC claim to use for mapping to service accounts in dynamic_mappings.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
+  public String getMappingClaim() {
+    return mappingClaim;
+  }
+
+  public void setMappingClaim(String mappingClaim) {
+    this.mappingClaim = mappingClaim;
   }
 
   public ProviderSettings name(String name) {
@@ -139,16 +160,18 @@ public class ProviderSettings implements Serializable {
   }
 
   public ProviderSettings addServiceAccountsItem(String serviceAccountsItem) {
+    if (this.serviceAccounts == null) {
+      this.serviceAccounts = new ArrayList<>();
+    }
     this.serviceAccounts.add(serviceAccountsItem);
     return this;
   }
 
    /**
-   * The service accounts associated with these provider settings
+   * The service accounts associated with these provider settings.
    * @return serviceAccounts
   **/
-  @NotNull
-  @ApiModelProperty(required = true, value = "The service accounts associated with these provider settings")
+  @ApiModelProperty(value = "The service accounts associated with these provider settings.")
   public List<String> getServiceAccounts() {
     return serviceAccounts;
   }
@@ -187,6 +210,7 @@ public class ProviderSettings implements Serializable {
     ProviderSettings providerSettings = (ProviderSettings) o;
     return Objects.equals(this.claims, providerSettings.claims) &&
         Objects.equals(this.enabled, providerSettings.enabled) &&
+        Objects.equals(this.mappingClaim, providerSettings.mappingClaim) &&
         Objects.equals(this.name, providerSettings.name) &&
         Objects.equals(this.providerUrl, providerSettings.providerUrl) &&
         Objects.equals(this.serviceAccounts, providerSettings.serviceAccounts) &&
@@ -196,7 +220,7 @@ public class ProviderSettings implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(claims, enabled, name, providerUrl, serviceAccounts, slug, slugPerm);
+    return Objects.hash(claims, enabled, mappingClaim, name, providerUrl, serviceAccounts, slug, slugPerm);
   }
 
 
@@ -207,6 +231,7 @@ public class ProviderSettings implements Serializable {
     
     sb.append("    claims: ").append(toIndentedString(claims)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    mappingClaim: ").append(toIndentedString(mappingClaim)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerUrl: ").append(toIndentedString(providerUrl)).append("\n");
     sb.append("    serviceAccounts: ").append(toIndentedString(serviceAccounts)).append("\n");

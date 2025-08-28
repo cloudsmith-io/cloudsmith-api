@@ -260,7 +260,7 @@ public class SwiftPackageUploadRequest implements Serializable {
    * @return version
   **/
   @NotNull
- @Size(max=128)  @ApiModelProperty(required = true, value = "The raw version for this package.")
+ @Size(max=255)  @ApiModelProperty(required = true, value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }

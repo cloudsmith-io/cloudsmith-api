@@ -294,8 +294,8 @@ class RawPackageUploadRequest(object):
         :type: str
         """
         if (self._configuration.client_side_validation and
-                version is not None and len(version) > 128):
-            raise ValueError("Invalid value for `version`, length must be less than or equal to `128`")  # noqa: E501
+                version is not None and len(version) > 255):
+            raise ValueError("Invalid value for `version`, length must be less than or equal to `255`")  # noqa: E501
 
         self._version = version
 
