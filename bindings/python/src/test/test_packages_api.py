@@ -204,6 +204,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_huggingface(self):
+        """Test case for packages_upload_huggingface
+
+        Create a new Hugging Face package  # noqa: E501
+        """
+        pass
+
     def test_packages_upload_luarocks(self):
         """Test case for packages_upload_luarocks
 
@@ -376,6 +383,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_hex
 
         Validate parameters for create Hex package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_huggingface(self):
+        """Test case for packages_validate_upload_huggingface
+
+        Validate parameters for create Hugging Face package  # noqa: E501
         """
         pass
 

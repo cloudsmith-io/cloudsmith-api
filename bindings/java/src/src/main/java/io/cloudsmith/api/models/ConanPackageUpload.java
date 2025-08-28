@@ -1135,7 +1135,7 @@ public class ConanPackageUpload implements Serializable {
    * The raw version for this package.
    * @return version
   **/
- @Size(max=128)  @ApiModelProperty(value = "The raw version for this package.")
+ @Size(max=255)  @ApiModelProperty(value = "The raw version for this package.")
   public String getVersion() {
     return version;
   }

@@ -19,6 +19,9 @@ import io.cloudsmith.api.models.CargoUpstreamRequestPatch;
 import io.cloudsmith.api.models.ComposerUpstream;
 import io.cloudsmith.api.models.ComposerUpstreamRequest;
 import io.cloudsmith.api.models.ComposerUpstreamRequestPatch;
+import io.cloudsmith.api.models.CondaUpstream;
+import io.cloudsmith.api.models.CondaUpstreamRequest;
+import io.cloudsmith.api.models.CondaUpstreamRequestPatch;
 import io.cloudsmith.api.models.CranUpstream;
 import io.cloudsmith.api.models.CranUpstreamRequest;
 import io.cloudsmith.api.models.CranUpstreamRequestPatch;
@@ -41,6 +44,9 @@ import io.cloudsmith.api.models.HelmUpstreamRequestPatch;
 import io.cloudsmith.api.models.HexUpstream;
 import io.cloudsmith.api.models.HexUpstreamRequest;
 import io.cloudsmith.api.models.HexUpstreamRequestPatch;
+import io.cloudsmith.api.models.HuggingfaceUpstream;
+import io.cloudsmith.api.models.HuggingfaceUpstreamRequest;
+import io.cloudsmith.api.models.HuggingfaceUpstreamRequestPatch;
 import io.cloudsmith.api.models.MavenUpstream;
 import io.cloudsmith.api.models.MavenUpstreamRequest;
 import io.cloudsmith.api.models.MavenUpstreamRequestPatch;
@@ -798,6 +804,117 @@ public class ReposApiTest {
         String slugPerm = null;
         ComposerUpstreamRequest data = null;
         ComposerUpstream response = api.reposUpstreamComposerUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Conda upstream config for this repository.
+     *
+     * Create a Conda upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCondaCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        CondaUpstreamRequest data = null;
+        CondaUpstream response = api.reposUpstreamCondaCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Conda upstream config for this repository.
+     *
+     * Delete a Conda upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCondaDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamCondaDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Conda upstream configs for this repository.
+     *
+     * List Conda upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCondaListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<CondaUpstream> response = api.reposUpstreamCondaList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Conda upstream config for this repository.
+     *
+     * Partially update a Conda upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCondaPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CondaUpstreamRequestPatch data = null;
+        CondaUpstream response = api.reposUpstreamCondaPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Conda upstream config for this repository.
+     *
+     * Retrieve a Conda upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCondaReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CondaUpstream response = api.reposUpstreamCondaRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Conda upstream config for this repository.
+     *
+     * Update a Conda upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamCondaUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        CondaUpstreamRequest data = null;
+        CondaUpstream response = api.reposUpstreamCondaUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }
@@ -1575,6 +1692,117 @@ public class ReposApiTest {
         String slugPerm = null;
         HexUpstreamRequest data = null;
         HexUpstream response = api.reposUpstreamHexUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Hugging Face upstream config for this repository.
+     *
+     * Create a Hugging Face upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHuggingfaceCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        HuggingfaceUpstreamRequest data = null;
+        HuggingfaceUpstream response = api.reposUpstreamHuggingfaceCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Hugging Face upstream config for this repository.
+     *
+     * Delete a Hugging Face upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHuggingfaceDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamHuggingfaceDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Hugging Face upstream configs for this repository.
+     *
+     * List Hugging Face upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHuggingfaceListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<HuggingfaceUpstream> response = api.reposUpstreamHuggingfaceList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Hugging Face upstream config for this repository.
+     *
+     * Partially update a Hugging Face upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHuggingfacePartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        HuggingfaceUpstreamRequestPatch data = null;
+        HuggingfaceUpstream response = api.reposUpstreamHuggingfacePartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Hugging Face upstream config for this repository.
+     *
+     * Retrieve a Hugging Face upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHuggingfaceReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        HuggingfaceUpstream response = api.reposUpstreamHuggingfaceRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Hugging Face upstream config for this repository.
+     *
+     * Update a Hugging Face upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamHuggingfaceUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        HuggingfaceUpstreamRequest data = null;
+        HuggingfaceUpstream response = api.reposUpstreamHuggingfaceUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

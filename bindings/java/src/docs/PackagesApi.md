@@ -29,6 +29,7 @@ Method | HTTP request | Description
 [**packagesUploadGo**](PackagesApi.md#packagesUploadGo) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 [**packagesUploadHelm**](PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 [**packagesUploadHex**](PackagesApi.md#packagesUploadHex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
+[**packagesUploadHuggingface**](PackagesApi.md#packagesUploadHuggingface) | **POST** /packages/{owner}/{repo}/upload/huggingface/ | Create a new Hugging Face package
 [**packagesUploadLuarocks**](PackagesApi.md#packagesUploadLuarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 [**packagesUploadMaven**](PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packagesUploadNpm**](PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -54,6 +55,7 @@ Method | HTTP request | Description
 [**packagesValidateUploadGo**](PackagesApi.md#packagesValidateUploadGo) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 [**packagesValidateUploadHelm**](PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 [**packagesValidateUploadHex**](PackagesApi.md#packagesValidateUploadHex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
+[**packagesValidateUploadHuggingface**](PackagesApi.md#packagesValidateUploadHuggingface) | **POST** /packages/{owner}/{repo}/validate-upload/huggingface/ | Validate parameters for create Hugging Face package
 [**packagesValidateUploadLuarocks**](PackagesApi.md#packagesValidateUploadLuarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 [**packagesValidateUploadMaven**](PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packagesValidateUploadNpm**](PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -263,7 +265,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesGroupsList"></a>
 # **packagesGroupsList**
-> InlineResponse200 packagesGroupsList(owner, repo, page, pageSize, groupBy, query, sort)
+> InlineResponse200 packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort)
 
 Return a list of Package Groups in a repository.
 
@@ -297,10 +299,11 @@ String repo = "repo_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String groupBy = "name"; // String | A field to group packages by. Available options: name, backend_kind.
+Boolean hideSubcomponents = false; // Boolean | Whether to hide packages which are subcomponents of another package in the results
 String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
 String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
 try {
-    InlineResponse200 result = apiInstance.packagesGroupsList(owner, repo, page, pageSize, groupBy, query, sort);
+    InlineResponse200 result = apiInstance.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesGroupsList");
@@ -317,6 +320,7 @@ Name | Type | Description  | Notes
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **groupBy** | **String**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to name]
+ **hideSubcomponents** | **Boolean**| Whether to hide packages which are subcomponents of another package in the results | [optional] [default to false]
  **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] [default to ]
  **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to name]
 
@@ -1679,6 +1683,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**HexPackageUpload**](HexPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="packagesUploadHuggingface"></a>
+# **packagesUploadHuggingface**
+> HuggingfacePackageUpload packagesUploadHuggingface(owner, repo, data)
+
+Create a new Hugging Face package
+
+Create a new Hugging Face package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+HuggingfacePackageUploadRequest data = new HuggingfacePackageUploadRequest(); // HuggingfacePackageUploadRequest | 
+try {
+    HuggingfacePackageUpload result = apiInstance.packagesUploadHuggingface(owner, repo, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesUploadHuggingface");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**HuggingfacePackageUploadRequest**](HuggingfacePackageUploadRequest.md)|  | [optional]
+
+### Return type
+
+[**HuggingfacePackageUpload**](HuggingfacePackageUpload.md)
 
 ### Authorization
 
@@ -3262,6 +3330,69 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **data** | [**HexPackageUploadRequest**](HexPackageUploadRequest.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="packagesValidateUploadHuggingface"></a>
+# **packagesValidateUploadHuggingface**
+> packagesValidateUploadHuggingface(owner, repo, data)
+
+Validate parameters for create Hugging Face package
+
+Validate parameters for create Hugging Face package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+HuggingfacePackageUploadRequest data = new HuggingfacePackageUploadRequest(); // HuggingfacePackageUploadRequest | 
+try {
+    apiInstance.packagesValidateUploadHuggingface(owner, repo, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesValidateUploadHuggingface");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**HuggingfacePackageUploadRequest**](HuggingfacePackageUploadRequest.md)|  | [optional]
 
 ### Return type
 

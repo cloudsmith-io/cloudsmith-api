@@ -40,6 +40,8 @@ import io.cloudsmith.api.models.HelmPackageUpload;
 import io.cloudsmith.api.models.HelmPackageUploadRequest;
 import io.cloudsmith.api.models.HexPackageUpload;
 import io.cloudsmith.api.models.HexPackageUploadRequest;
+import io.cloudsmith.api.models.HuggingfacePackageUpload;
+import io.cloudsmith.api.models.HuggingfacePackageUploadRequest;
 import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
@@ -164,9 +166,10 @@ public class PackagesApiTest {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
         String groupBy = null;
+        Boolean hideSubcomponents = null;
         String query = null;
         String sort = null;
-        InlineResponse200 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, query, sort);
+        InlineResponse200 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort);
 
         // TODO: test validations
     }
@@ -551,6 +554,24 @@ public class PackagesApiTest {
         String repo = null;
         HexPackageUploadRequest data = null;
         HexPackageUpload response = api.packagesUploadHex(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Hugging Face package
+     *
+     * Create a new Hugging Face package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadHuggingfaceTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        HuggingfacePackageUploadRequest data = null;
+        HuggingfacePackageUpload response = api.packagesUploadHuggingface(owner, repo, data);
 
         // TODO: test validations
     }
@@ -1001,6 +1022,24 @@ public class PackagesApiTest {
         String repo = null;
         HexPackageUploadRequest data = null;
         api.packagesValidateUploadHex(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Hugging Face package
+     *
+     * Validate parameters for create Hugging Face package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadHuggingfaceTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        HuggingfacePackageUploadRequest data = null;
+        api.packagesValidateUploadHuggingface(owner, repo, data);
 
         // TODO: test validations
     }
