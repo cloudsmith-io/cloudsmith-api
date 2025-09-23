@@ -198,6 +198,8 @@ class SwiftPackageUpload
   # Synchronisation progress (from 0-100)
   attr_accessor :sync_progress
 
+  attr_accessor :tags_automatic
+
   attr_accessor :tags_immutable
 
   attr_accessor :type_display
@@ -318,6 +320,7 @@ class SwiftPackageUpload
       :'summary' => :'summary',
       :'sync_finished_at' => :'sync_finished_at',
       :'sync_progress' => :'sync_progress',
+      :'tags_automatic' => :'tags_automatic',
       :'tags_immutable' => :'tags_immutable',
       :'type_display' => :'type_display',
       :'uploaded_at' => :'uploaded_at',
@@ -409,6 +412,7 @@ class SwiftPackageUpload
       :'summary' => :'String',
       :'sync_finished_at' => :'DateTime',
       :'sync_progress' => :'Integer',
+      :'tags_automatic' => :'Tags',
       :'tags_immutable' => :'Tags',
       :'type_display' => :'String',
       :'uploaded_at' => :'DateTime',
@@ -744,6 +748,10 @@ class SwiftPackageUpload
       self.sync_progress = attributes[:'sync_progress']
     end
 
+    if attributes.has_key?(:'tags_automatic')
+      self.tags_automatic = attributes[:'tags_automatic']
+    end
+
     if attributes.has_key?(:'tags_immutable')
       self.tags_immutable = attributes[:'tags_immutable']
     end
@@ -899,6 +907,7 @@ class SwiftPackageUpload
         summary == o.summary &&
         sync_finished_at == o.sync_finished_at &&
         sync_progress == o.sync_progress &&
+        tags_automatic == o.tags_automatic &&
         tags_immutable == o.tags_immutable &&
         type_display == o.type_display &&
         uploaded_at == o.uploaded_at &&
@@ -918,7 +927,7 @@ class SwiftPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, author_name, author_org, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, license_url, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, policy_violated, readme_url, release, repository, repository_url, scope, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, author_name, author_org, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, license_url, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, policy_violated, readme_url, release, repository, repository_url, scope, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

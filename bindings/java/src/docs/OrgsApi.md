@@ -38,6 +38,8 @@ Method | HTTP request | Description
 [**orgsMembersUpdateVisibility**](OrgsApi.md#orgsMembersUpdateVisibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
 [**orgsOpenidConnectCreate**](OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
 [**orgsOpenidConnectDelete**](OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
+[**orgsOpenidConnectDynamicMappingsList**](OrgsApi.md#orgsOpenidConnectDynamicMappingsList) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/ | Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+[**orgsOpenidConnectDynamicMappingsRead**](OrgsApi.md#orgsOpenidConnectDynamicMappingsRead) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/ | Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
 [**orgsOpenidConnectList**](OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
 [**orgsOpenidConnectPartialUpdate**](OrgsApi.md#orgsOpenidConnectPartialUpdate) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgsOpenidConnectRead**](OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
@@ -2094,7 +2096,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsOpenidConnectCreate"></a>
 # **orgsOpenidConnectCreate**
-> ProviderSettings orgsOpenidConnectCreate(org, data)
+> ProviderSettingsWrite orgsOpenidConnectCreate(org, data)
 
 Create the OpenID Connect provider settings for the org.
 
@@ -2124,9 +2126,9 @@ basic.setPassword("YOUR PASSWORD");
 
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
-ProviderSettingsRequest data = new ProviderSettingsRequest(); // ProviderSettingsRequest | 
+ProviderSettingsWriteRequest data = new ProviderSettingsWriteRequest(); // ProviderSettingsWriteRequest | 
 try {
-    ProviderSettings result = apiInstance.orgsOpenidConnectCreate(org, data);
+    ProviderSettingsWrite result = apiInstance.orgsOpenidConnectCreate(org, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsOpenidConnectCreate");
@@ -2139,11 +2141,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
- **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional]
+ **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional]
 
 ### Return type
 
-[**ProviderSettings**](ProviderSettings.md)
+[**ProviderSettingsWrite**](ProviderSettingsWrite.md)
 
 ### Authorization
 
@@ -2205,6 +2207,136 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectDynamicMappingsList"></a>
+# **orgsOpenidConnectDynamicMappingsList**
+> List&lt;DynamicMapping&gt; orgsOpenidConnectDynamicMappingsList(org, providerSetting, page, pageSize)
+
+Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+
+Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String providerSetting = "providerSetting_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<DynamicMapping> result = apiInstance.orgsOpenidConnectDynamicMappingsList(org, providerSetting, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDynamicMappingsList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **providerSetting** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;DynamicMapping&gt;**](DynamicMapping.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsOpenidConnectDynamicMappingsRead"></a>
+# **orgsOpenidConnectDynamicMappingsRead**
+> DynamicMapping orgsOpenidConnectDynamicMappingsRead(org, providerSetting, claimValue)
+
+Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+
+Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String providerSetting = "providerSetting_example"; // String | 
+String claimValue = "claimValue_example"; // String | 
+try {
+    DynamicMapping result = apiInstance.orgsOpenidConnectDynamicMappingsRead(org, providerSetting, claimValue);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDynamicMappingsRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **providerSetting** | **String**|  |
+ **claimValue** | **String**|  |
+
+### Return type
+
+[**DynamicMapping**](DynamicMapping.md)
 
 ### Authorization
 
@@ -2285,7 +2417,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsOpenidConnectPartialUpdate"></a>
 # **orgsOpenidConnectPartialUpdate**
-> ProviderSettings orgsOpenidConnectPartialUpdate(org, slugPerm, data)
+> ProviderSettingsWrite orgsOpenidConnectPartialUpdate(org, slugPerm, data)
 
 Update a specific OpenID Connect provider setting for the org.
 
@@ -2316,9 +2448,9 @@ basic.setPassword("YOUR PASSWORD");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
-ProviderSettingsRequestPatch data = new ProviderSettingsRequestPatch(); // ProviderSettingsRequestPatch | 
+ProviderSettingsWriteRequestPatch data = new ProviderSettingsWriteRequestPatch(); // ProviderSettingsWriteRequestPatch | 
 try {
-    ProviderSettings result = apiInstance.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
+    ProviderSettingsWrite result = apiInstance.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsOpenidConnectPartialUpdate");
@@ -2332,11 +2464,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **slugPerm** | **String**|  |
- **data** | [**ProviderSettingsRequestPatch**](ProviderSettingsRequestPatch.md)|  | [optional]
+ **data** | [**ProviderSettingsWriteRequestPatch**](ProviderSettingsWriteRequestPatch.md)|  | [optional]
 
 ### Return type
 
-[**ProviderSettings**](ProviderSettings.md)
+[**ProviderSettingsWrite**](ProviderSettingsWrite.md)
 
 ### Authorization
 
@@ -2411,7 +2543,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsOpenidConnectUpdate"></a>
 # **orgsOpenidConnectUpdate**
-> ProviderSettings orgsOpenidConnectUpdate(org, slugPerm, data)
+> ProviderSettingsWrite orgsOpenidConnectUpdate(org, slugPerm, data)
 
 Update a specific OpenID Connect provider setting for the org.
 
@@ -2442,9 +2574,9 @@ basic.setPassword("YOUR PASSWORD");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String slugPerm = "slugPerm_example"; // String | 
-ProviderSettingsRequest data = new ProviderSettingsRequest(); // ProviderSettingsRequest | 
+ProviderSettingsWriteRequest data = new ProviderSettingsWriteRequest(); // ProviderSettingsWriteRequest | 
 try {
-    ProviderSettings result = apiInstance.orgsOpenidConnectUpdate(org, slugPerm, data);
+    ProviderSettingsWrite result = apiInstance.orgsOpenidConnectUpdate(org, slugPerm, data);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsOpenidConnectUpdate");
@@ -2458,11 +2590,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **slugPerm** | **String**|  |
- **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional]
+ **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional]
 
 ### Return type
 
-[**ProviderSettings**](ProviderSettings.md)
+[**ProviderSettingsWrite**](ProviderSettingsWrite.md)
 
 ### Authorization
 
@@ -3658,7 +3790,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsTeamsMembersList"></a>
 # **orgsTeamsMembersList**
-> OrganizationTeamMembers orgsTeamsMembersList(org, team)
+> OrganizationTeamMembers orgsTeamsMembersList(org, team, userKind)
 
 List all members for the team.
 
@@ -3689,8 +3821,9 @@ basic.setPassword("YOUR PASSWORD");
 OrgsApi apiInstance = new OrgsApi();
 String org = "org_example"; // String | 
 String team = "team_example"; // String | 
+String userKind = ""; // String | Filter accounts by type. Possible values are 'user' and 'service'. If not provided, only users are returned.
 try {
-    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersList(org, team);
+    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersList(org, team, userKind);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsTeamsMembersList");
@@ -3704,6 +3837,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  |
  **team** | **String**|  |
+ **userKind** | **String**| Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. | [optional] [default to ]
 
 ### Return type
 

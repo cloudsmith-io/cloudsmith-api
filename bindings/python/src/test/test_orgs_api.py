@@ -267,6 +267,20 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_openid_connect_dynamic_mappings_list(self):
+        """Test case for orgs_openid_connect_dynamic_mappings_list
+
+        Retrieve the list of OpenID Connect dynamic mappings for the provider setting.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_openid_connect_dynamic_mappings_read(self):
+        """Test case for orgs_openid_connect_dynamic_mappings_read
+
+        Retrieve a specific OpenID Connect dynamic mapping for the provider setting.  # noqa: E501
+        """
+        pass
+
     def test_orgs_openid_connect_list(self):
         """Test case for orgs_openid_connect_list
 

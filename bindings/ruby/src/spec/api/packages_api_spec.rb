@@ -84,6 +84,7 @@ describe 'PackagesApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :group_by A field to group packages by. Available options: name, backend_kind.
+  # @option opts [BOOLEAN] :hide_subcomponents Whether to hide packages which are subcomponents of another package in the results
   # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
   # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind.
   # @return [InlineResponse200]
@@ -206,6 +207,21 @@ describe 'PackagesApi' do
   # @option opts [PackageTagRequest] :data 
   # @return [Package]
   describe 'packages_tag test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_update_license
+  # Update the license for a package.
+  # Update the license for a package.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackageLicenseRequestPatch] :data 
+  # @return [Package]
+  describe 'packages_update_license test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -388,6 +404,20 @@ describe 'PackagesApi' do
   # @option opts [HexPackageUploadRequest] :data 
   # @return [HexPackageUpload]
   describe 'packages_upload_hex test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_upload_huggingface
+  # Create a new HuggingFace package
+  # Create a new HuggingFace package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [HuggingfacePackageUploadRequest] :data 
+  # @return [HuggingfacePackageUpload]
+  describe 'packages_upload_huggingface test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -738,6 +768,20 @@ describe 'PackagesApi' do
   # @option opts [HexPackageUploadRequest] :data 
   # @return [nil]
   describe 'packages_validate_upload_hex test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_huggingface
+  # Validate parameters for create HuggingFace package
+  # Validate parameters for create HuggingFace package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [HuggingfacePackageUploadRequest] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_huggingface test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

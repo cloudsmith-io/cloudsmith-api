@@ -13,6 +13,7 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.DynamicMapping;
 import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationGroupSync;
@@ -50,8 +51,9 @@ import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.ProviderSettings;
-import io.cloudsmith.api.models.ProviderSettingsRequest;
-import io.cloudsmith.api.models.ProviderSettingsRequestPatch;
+import io.cloudsmith.api.models.ProviderSettingsWrite;
+import io.cloudsmith.api.models.ProviderSettingsWriteRequest;
+import io.cloudsmith.api.models.ProviderSettingsWriteRequestPatch;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
@@ -647,8 +649,8 @@ public class OrgsApiTest {
     @Test
     public void orgsOpenidConnectCreateTest() throws Exception {
         String org = null;
-        ProviderSettingsRequest data = null;
-        ProviderSettings response = api.orgsOpenidConnectCreate(org, data);
+        ProviderSettingsWriteRequest data = null;
+        ProviderSettingsWrite response = api.orgsOpenidConnectCreate(org, data);
 
         // TODO: test validations
     }
@@ -666,6 +668,43 @@ public class OrgsApiTest {
         String org = null;
         String slugPerm = null;
         api.orgsOpenidConnectDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+     *
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectDynamicMappingsListTest() throws Exception {
+        String org = null;
+        String providerSetting = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<DynamicMapping> response = api.orgsOpenidConnectDynamicMappingsList(org, providerSetting, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+     *
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsOpenidConnectDynamicMappingsReadTest() throws Exception {
+        String org = null;
+        String providerSetting = null;
+        String claimValue = null;
+        DynamicMapping response = api.orgsOpenidConnectDynamicMappingsRead(org, providerSetting, claimValue);
 
         // TODO: test validations
     }
@@ -702,8 +741,8 @@ public class OrgsApiTest {
     public void orgsOpenidConnectPartialUpdateTest() throws Exception {
         String org = null;
         String slugPerm = null;
-        ProviderSettingsRequestPatch data = null;
-        ProviderSettings response = api.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
+        ProviderSettingsWriteRequestPatch data = null;
+        ProviderSettingsWrite response = api.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
 
         // TODO: test validations
     }
@@ -737,8 +776,8 @@ public class OrgsApiTest {
     public void orgsOpenidConnectUpdateTest() throws Exception {
         String org = null;
         String slugPerm = null;
-        ProviderSettingsRequest data = null;
-        ProviderSettings response = api.orgsOpenidConnectUpdate(org, slugPerm, data);
+        ProviderSettingsWriteRequest data = null;
+        ProviderSettingsWrite response = api.orgsOpenidConnectUpdate(org, slugPerm, data);
 
         // TODO: test validations
     }
@@ -1083,7 +1122,8 @@ public class OrgsApiTest {
     public void orgsTeamsMembersListTest() throws Exception {
         String org = null;
         String team = null;
-        OrganizationTeamMembers response = api.orgsTeamsMembersList(org, team);
+        String userKind = null;
+        OrganizationTeamMembers response = api.orgsTeamsMembersList(org, team, userKind);
 
         // TODO: test validations
     }

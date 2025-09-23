@@ -573,6 +573,93 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_upstream_conda_create
+  # Create a Conda upstream config for this repository.
+  # Create a Conda upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [CondaUpstreamRequest] :data 
+  # @return [CondaUpstream]
+  describe 'repos_upstream_conda_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_conda_delete
+  # Delete a Conda upstream config for this repository.
+  # Delete a Conda upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_conda_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_conda_list
+  # List Conda upstream configs for this repository.
+  # List Conda upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<CondaUpstream>]
+  describe 'repos_upstream_conda_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_conda_partial_update
+  # Partially update a Conda upstream config for this repository.
+  # Partially update a Conda upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [CondaUpstreamRequestPatch] :data 
+  # @return [CondaUpstream]
+  describe 'repos_upstream_conda_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_conda_read
+  # Retrieve a Conda upstream config for this repository.
+  # Retrieve a Conda upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [CondaUpstream]
+  describe 'repos_upstream_conda_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_conda_update
+  # Update a Conda upstream config for this repository.
+  # Update a Conda upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [CondaUpstreamRequest] :data 
+  # @return [CondaUpstream]
+  describe 'repos_upstream_conda_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_upstream_cran_create
   # Create a CRAN upstream config for this repository.
   # Create a CRAN upstream config for this repository.
@@ -1177,6 +1264,93 @@ describe 'ReposApi' do
   # @option opts [HexUpstreamRequest] :data 
   # @return [HexUpstream]
   describe 'repos_upstream_hex_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_huggingface_create
+  # Create a HuggingFace upstream config for this repository.
+  # Create a HuggingFace upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [HuggingfaceUpstreamRequest] :data 
+  # @return [HuggingfaceUpstream]
+  describe 'repos_upstream_huggingface_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_huggingface_delete
+  # Delete a HuggingFace upstream config for this repository.
+  # Delete a HuggingFace upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_huggingface_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_huggingface_list
+  # List HuggingFace upstream configs for this repository.
+  # List HuggingFace upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<HuggingfaceUpstream>]
+  describe 'repos_upstream_huggingface_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_huggingface_partial_update
+  # Partially update a HuggingFace upstream config for this repository.
+  # Partially update a HuggingFace upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [HuggingfaceUpstreamRequestPatch] :data 
+  # @return [HuggingfaceUpstream]
+  describe 'repos_upstream_huggingface_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_huggingface_read
+  # Retrieve a HuggingFace upstream config for this repository.
+  # Retrieve a HuggingFace upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [HuggingfaceUpstream]
+  describe 'repos_upstream_huggingface_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_huggingface_update
+  # Update a HuggingFace upstream config for this repository.
+  # Update a HuggingFace upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [HuggingfaceUpstreamRequest] :data 
+  # @return [HuggingfaceUpstream]
+  describe 'repos_upstream_huggingface_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

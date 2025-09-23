@@ -1951,8 +1951,8 @@ module CloudsmithApi
     # Create the OpenID Connect provider settings for the org.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [ProviderSettingsRequest] :data 
-    # @return [ProviderSettings]
+    # @option opts [ProviderSettingsWriteRequest] :data 
+    # @return [ProviderSettingsWrite]
     def orgs_openid_connect_create(org, opts = {})
       data, _status_code, _headers = orgs_openid_connect_create_with_http_info(org, opts)
       data
@@ -1962,8 +1962,8 @@ module CloudsmithApi
     # Create the OpenID Connect provider settings for the org.
     # @param org 
     # @param [Hash] opts the optional parameters
-    # @option opts [ProviderSettingsRequest] :data 
-    # @return [Array<(ProviderSettings, Fixnum, Hash)>] ProviderSettings data, response status code and response headers
+    # @option opts [ProviderSettingsWriteRequest] :data 
+    # @return [Array<(ProviderSettingsWrite, Fixnum, Hash)>] ProviderSettingsWrite data, response status code and response headers
     def orgs_openid_connect_create_with_http_info(org, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_create ...'
@@ -1997,7 +1997,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ProviderSettings')
+        :return_type => 'ProviderSettingsWrite')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2059,6 +2059,138 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+    # Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+    # @param org 
+    # @param provider_setting 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<DynamicMapping>]
+    def orgs_openid_connect_dynamic_mappings_list(org, provider_setting, opts = {})
+      data, _status_code, _headers = orgs_openid_connect_dynamic_mappings_list_with_http_info(org, provider_setting, opts)
+      data
+    end
+
+    # Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+    # Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+    # @param org 
+    # @param provider_setting 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<DynamicMapping>, Fixnum, Hash)>] Array<DynamicMapping> data, response status code and response headers
+    def orgs_openid_connect_dynamic_mappings_list_with_http_info(org, provider_setting, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_dynamic_mappings_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_dynamic_mappings_list"
+      end
+      # verify the required parameter 'provider_setting' is set
+      if @api_client.config.client_side_validation && provider_setting.nil?
+        fail ArgumentError, "Missing the required parameter 'provider_setting' when calling OrgsApi.orgs_openid_connect_dynamic_mappings_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'provider_setting' + '}', provider_setting.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<DynamicMapping>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_dynamic_mappings_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+    # Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+    # @param org 
+    # @param provider_setting 
+    # @param claim_value 
+    # @param [Hash] opts the optional parameters
+    # @return [DynamicMapping]
+    def orgs_openid_connect_dynamic_mappings_read(org, provider_setting, claim_value, opts = {})
+      data, _status_code, _headers = orgs_openid_connect_dynamic_mappings_read_with_http_info(org, provider_setting, claim_value, opts)
+      data
+    end
+
+    # Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+    # Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+    # @param org 
+    # @param provider_setting 
+    # @param claim_value 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DynamicMapping, Fixnum, Hash)>] DynamicMapping data, response status code and response headers
+    def orgs_openid_connect_dynamic_mappings_read_with_http_info(org, provider_setting, claim_value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_dynamic_mappings_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_openid_connect_dynamic_mappings_read"
+      end
+      # verify the required parameter 'provider_setting' is set
+      if @api_client.config.client_side_validation && provider_setting.nil?
+        fail ArgumentError, "Missing the required parameter 'provider_setting' when calling OrgsApi.orgs_openid_connect_dynamic_mappings_read"
+      end
+      # verify the required parameter 'claim_value' is set
+      if @api_client.config.client_side_validation && claim_value.nil?
+        fail ArgumentError, "Missing the required parameter 'claim_value' when calling OrgsApi.orgs_openid_connect_dynamic_mappings_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'provider_setting' + '}', provider_setting.to_s).sub('{' + 'claim_value' + '}', claim_value.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DynamicMapping')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_dynamic_mappings_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2133,8 +2265,8 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @option opts [ProviderSettingsRequestPatch] :data 
-    # @return [ProviderSettings]
+    # @option opts [ProviderSettingsWriteRequestPatch] :data 
+    # @return [ProviderSettingsWrite]
     def orgs_openid_connect_partial_update(org, slug_perm, opts = {})
       data, _status_code, _headers = orgs_openid_connect_partial_update_with_http_info(org, slug_perm, opts)
       data
@@ -2145,8 +2277,8 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @option opts [ProviderSettingsRequestPatch] :data 
-    # @return [Array<(ProviderSettings, Fixnum, Hash)>] ProviderSettings data, response status code and response headers
+    # @option opts [ProviderSettingsWriteRequestPatch] :data 
+    # @return [Array<(ProviderSettingsWrite, Fixnum, Hash)>] ProviderSettingsWrite data, response status code and response headers
     def orgs_openid_connect_partial_update_with_http_info(org, slug_perm, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_partial_update ...'
@@ -2184,7 +2316,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ProviderSettings')
+        :return_type => 'ProviderSettingsWrite')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2255,8 +2387,8 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @option opts [ProviderSettingsRequest] :data 
-    # @return [ProviderSettings]
+    # @option opts [ProviderSettingsWriteRequest] :data 
+    # @return [ProviderSettingsWrite]
     def orgs_openid_connect_update(org, slug_perm, opts = {})
       data, _status_code, _headers = orgs_openid_connect_update_with_http_info(org, slug_perm, opts)
       data
@@ -2267,8 +2399,8 @@ module CloudsmithApi
     # @param org 
     # @param slug_perm 
     # @param [Hash] opts the optional parameters
-    # @option opts [ProviderSettingsRequest] :data 
-    # @return [Array<(ProviderSettings, Fixnum, Hash)>] ProviderSettings data, response status code and response headers
+    # @option opts [ProviderSettingsWriteRequest] :data 
+    # @return [Array<(ProviderSettingsWrite, Fixnum, Hash)>] ProviderSettingsWrite data, response status code and response headers
     def orgs_openid_connect_update_with_http_info(org, slug_perm, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_openid_connect_update ...'
@@ -2306,7 +2438,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ProviderSettings')
+        :return_type => 'ProviderSettingsWrite')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_openid_connect_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3425,6 +3557,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :user_kind Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. (default to )
     # @return [OrganizationTeamMembers]
     def orgs_teams_members_list(org, team, opts = {})
       data, _status_code, _headers = orgs_teams_members_list_with_http_info(org, team, opts)
@@ -3436,6 +3569,7 @@ module CloudsmithApi
     # @param org 
     # @param team 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :user_kind Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned.
     # @return [Array<(OrganizationTeamMembers, Fixnum, Hash)>] OrganizationTeamMembers data, response status code and response headers
     def orgs_teams_members_list_with_http_info(org, team, opts = {})
       if @api_client.config.debugging
@@ -3454,6 +3588,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'user_kind'] = opts[:'user_kind'] if !opts[:'user_kind'].nil?
 
       # header parameters
       header_params = {}

@@ -472,8 +472,8 @@ describe 'OrgsApi' do
   # Create the OpenID Connect provider settings for the org.
   # @param org 
   # @param [Hash] opts the optional parameters
-  # @option opts [ProviderSettingsRequest] :data 
-  # @return [ProviderSettings]
+  # @option opts [ProviderSettingsWriteRequest] :data 
+  # @return [ProviderSettingsWrite]
   describe 'orgs_openid_connect_create test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -488,6 +488,35 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'orgs_openid_connect_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_openid_connect_dynamic_mappings_list
+  # Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+  # Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+  # @param org 
+  # @param provider_setting 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<DynamicMapping>]
+  describe 'orgs_openid_connect_dynamic_mappings_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_openid_connect_dynamic_mappings_read
+  # Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+  # Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+  # @param org 
+  # @param provider_setting 
+  # @param claim_value 
+  # @param [Hash] opts the optional parameters
+  # @return [DynamicMapping]
+  describe 'orgs_openid_connect_dynamic_mappings_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -515,8 +544,8 @@ describe 'OrgsApi' do
   # @param org 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
-  # @option opts [ProviderSettingsRequestPatch] :data 
-  # @return [ProviderSettings]
+  # @option opts [ProviderSettingsWriteRequestPatch] :data 
+  # @return [ProviderSettingsWrite]
   describe 'orgs_openid_connect_partial_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -542,8 +571,8 @@ describe 'OrgsApi' do
   # @param org 
   # @param slug_perm 
   # @param [Hash] opts the optional parameters
-  # @option opts [ProviderSettingsRequest] :data 
-  # @return [ProviderSettings]
+  # @option opts [ProviderSettingsWriteRequest] :data 
+  # @return [ProviderSettingsWrite]
   describe 'orgs_openid_connect_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -808,6 +837,7 @@ describe 'OrgsApi' do
   # @param org 
   # @param team 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :user_kind Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned.
   # @return [OrganizationTeamMembers]
   describe 'orgs_teams_members_list test' do
     it 'should work' do

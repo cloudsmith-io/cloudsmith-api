@@ -322,6 +322,9 @@ public class PackageTag implements Serializable {
   @SerializedName("sync_progress")
   private java.math.BigInteger syncProgress = null;
 
+  @SerializedName("tags_automatic")
+  private Tags tagsAutomatic = null;
+
   @SerializedName("tags_immutable")
   private Tags tagsImmutable = null;
 
@@ -1040,6 +1043,25 @@ public class PackageTag implements Serializable {
     return syncProgress;
   }
 
+  public PackageTag tagsAutomatic(Tags tagsAutomatic) {
+    this.tagsAutomatic = tagsAutomatic;
+    return this;
+  }
+
+   /**
+   * Get tagsAutomatic
+   * @return tagsAutomatic
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public Tags getTagsAutomatic() {
+    return tagsAutomatic;
+  }
+
+  public void setTagsAutomatic(Tags tagsAutomatic) {
+    this.tagsAutomatic = tagsAutomatic;
+  }
+
   public PackageTag tagsImmutable(Tags tagsImmutable) {
     this.tagsImmutable = tagsImmutable;
     return this;
@@ -1206,6 +1228,7 @@ public class PackageTag implements Serializable {
         Objects.equals(this.summary, packageTag.summary) &&
         Objects.equals(this.syncFinishedAt, packageTag.syncFinishedAt) &&
         Objects.equals(this.syncProgress, packageTag.syncProgress) &&
+        Objects.equals(this.tagsAutomatic, packageTag.tagsAutomatic) &&
         Objects.equals(this.tagsImmutable, packageTag.tagsImmutable) &&
         Objects.equals(this.typeDisplay, packageTag.typeDisplay) &&
         Objects.equals(this.uploadedAt, packageTag.uploadedAt) &&
@@ -1218,7 +1241,7 @@ public class PackageTag implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isImmutable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isImmutable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1300,6 +1323,7 @@ public class PackageTag implements Serializable {
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
+    sb.append("    tagsAutomatic: ").append(toIndentedString(tagsAutomatic)).append("\n");
     sb.append("    tagsImmutable: ").append(toIndentedString(tagsImmutable)).append("\n");
     sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
