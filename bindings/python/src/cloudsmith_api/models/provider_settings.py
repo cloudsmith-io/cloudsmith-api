@@ -35,6 +35,7 @@ class ProviderSettings(object):
     swagger_types = {
         'claims': 'object',
         'enabled': 'bool',
+        'mapping_claim': 'str',
         'name': 'str',
         'provider_url': 'str',
         'service_accounts': 'list[str]',
@@ -45,6 +46,7 @@ class ProviderSettings(object):
     attribute_map = {
         'claims': 'claims',
         'enabled': 'enabled',
+        'mapping_claim': 'mapping_claim',
         'name': 'name',
         'provider_url': 'provider_url',
         'service_accounts': 'service_accounts',
@@ -52,7 +54,7 @@ class ProviderSettings(object):
         'slug_perm': 'slug_perm'
     }
 
-    def __init__(self, claims=None, enabled=None, name=None, provider_url=None, service_accounts=None, slug=None, slug_perm=None, _configuration=None):  # noqa: E501
+    def __init__(self, claims=None, enabled=None, mapping_claim=None, name=None, provider_url=None, service_accounts=None, slug=None, slug_perm=None, _configuration=None):  # noqa: E501
         """ProviderSettings - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -60,6 +62,7 @@ class ProviderSettings(object):
 
         self._claims = None
         self._enabled = None
+        self._mapping_claim = None
         self._name = None
         self._provider_url = None
         self._service_accounts = None
@@ -69,9 +72,12 @@ class ProviderSettings(object):
 
         self.claims = claims
         self.enabled = enabled
+        if mapping_claim is not None:
+            self.mapping_claim = mapping_claim
         self.name = name
         self.provider_url = provider_url
-        self.service_accounts = service_accounts
+        if service_accounts is not None:
+            self.service_accounts = service_accounts
         if slug is not None:
             self.slug = slug
         if slug_perm is not None:
@@ -126,6 +132,32 @@ class ProviderSettings(object):
             raise ValueError("Invalid value for `enabled`, must not be `None`")  # noqa: E501
 
         self._enabled = enabled
+
+    @property
+    def mapping_claim(self):
+        """Gets the mapping_claim of this ProviderSettings.
+
+        The OIDC claim to use for mapping to service accounts in dynamic_mappings.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
+
+        :return: The mapping_claim of this ProviderSettings.
+        :rtype: str
+        """
+        return self._mapping_claim
+
+    @mapping_claim.setter
+    def mapping_claim(self, mapping_claim):
+        """Sets the mapping_claim of this ProviderSettings.
+
+        The OIDC claim to use for mapping to service accounts in dynamic_mappings.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
+
+        :param mapping_claim: The mapping_claim of this ProviderSettings.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                mapping_claim is not None and len(mapping_claim) < 1):
+            raise ValueError("Invalid value for `mapping_claim`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._mapping_claim = mapping_claim
 
     @property
     def name(self):
@@ -187,7 +219,7 @@ class ProviderSettings(object):
     def service_accounts(self):
         """Gets the service_accounts of this ProviderSettings.
 
-        The service accounts associated with these provider settings
+        The service accounts associated with these provider settings.
 
         :return: The service_accounts of this ProviderSettings.
         :rtype: list[str]
@@ -198,13 +230,11 @@ class ProviderSettings(object):
     def service_accounts(self, service_accounts):
         """Sets the service_accounts of this ProviderSettings.
 
-        The service accounts associated with these provider settings
+        The service accounts associated with these provider settings.
 
         :param service_accounts: The service_accounts of this ProviderSettings.
         :type: list[str]
         """
-        if self._configuration.client_side_validation and service_accounts is None:
-            raise ValueError("Invalid value for `service_accounts`, must not be `None`")  # noqa: E501
 
         self._service_accounts = service_accounts
 

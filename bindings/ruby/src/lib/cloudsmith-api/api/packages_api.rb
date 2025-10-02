@@ -226,6 +226,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :group_by A field to group packages by. Available options: name, backend_kind. (default to name)
+    # @option opts [BOOLEAN] :hide_subcomponents Whether to hide packages which are subcomponents of another package in the results (default to false)
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (default to )
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (default to name)
     # @return [InlineResponse200]
@@ -242,6 +243,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :group_by A field to group packages by. Available options: name, backend_kind.
+    # @option opts [BOOLEAN] :hide_subcomponents Whether to hide packages which are subcomponents of another package in the results
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind.
     # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
@@ -265,6 +267,7 @@ module CloudsmithApi
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'group_by'] = opts[:'group_by'] if !opts[:'group_by'].nil?
+      query_params[:'hide_subcomponents'] = opts[:'hide_subcomponents'] if !opts[:'hide_subcomponents'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
@@ -830,6 +833,74 @@ module CloudsmithApi
         :return_type => 'Package')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_tag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update the license for a package.
+    # Update the license for a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageLicenseRequestPatch] :data 
+    # @return [Package]
+    def packages_update_license(owner, repo, identifier, opts = {})
+      data, _status_code, _headers = packages_update_license_with_http_info(owner, repo, identifier, opts)
+      data
+    end
+
+    # Update the license for a package.
+    # Update the license for a package.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageLicenseRequestPatch] :data 
+    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    def packages_update_license_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PackagesApi.packages_update_license ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_update_license"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_update_license"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling PackagesApi.packages_update_license"
+      end
+      # resource path
+      local_var_path = '/packages/{owner}/{repo}/{identifier}/update-license/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Package')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_update_license\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1636,6 +1707,68 @@ module CloudsmithApi
         :return_type => 'HexPackageUpload')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_upload_hex\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a new HuggingFace package
+    # Create a new HuggingFace package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfacePackageUploadRequest] :data 
+    # @return [HuggingfacePackageUpload]
+    def packages_upload_huggingface(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_huggingface_with_http_info(owner, repo, opts)
+      data
+    end
+
+    # Create a new HuggingFace package
+    # Create a new HuggingFace package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfacePackageUploadRequest] :data 
+    # @return [Array<(HuggingfacePackageUpload, Fixnum, Hash)>] HuggingfacePackageUpload data, response status code and response headers
+    def packages_upload_huggingface_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_huggingface ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_huggingface"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_huggingface"
+      end
+      # resource path
+      local_var_path = '/packages/{owner}/{repo}/upload/huggingface/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HuggingfacePackageUpload')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_huggingface\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3173,6 +3306,67 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_hex\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Validate parameters for create HuggingFace package
+    # Validate parameters for create HuggingFace package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfacePackageUploadRequest] :data 
+    # @return [nil]
+    def packages_validate_upload_huggingface(owner, repo, opts = {})
+      packages_validate_upload_huggingface_with_http_info(owner, repo, opts)
+      nil
+    end
+
+    # Validate parameters for create HuggingFace package
+    # Validate parameters for create HuggingFace package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [HuggingfacePackageUploadRequest] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_huggingface_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PackagesApi.packages_validate_upload_huggingface ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_huggingface"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_huggingface"
+      end
+      # resource path
+      local_var_path = '/packages/{owner}/{repo}/validate-upload/huggingface/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_huggingface\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

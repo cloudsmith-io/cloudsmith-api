@@ -36,6 +36,7 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import io.cloudsmith.api.models.DynamicMapping;
 import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationGroupSync;
@@ -73,8 +74,9 @@ import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyEvaluationRequestRequest;
 import io.cloudsmith.api.models.PackageVulnerabilityPolicyViolationLogCursorPage;
 import io.cloudsmith.api.models.ProviderSettings;
-import io.cloudsmith.api.models.ProviderSettingsRequest;
-import io.cloudsmith.api.models.ProviderSettingsRequestPatch;
+import io.cloudsmith.api.models.ProviderSettingsWrite;
+import io.cloudsmith.api.models.ProviderSettingsWriteRequest;
+import io.cloudsmith.api.models.ProviderSettingsWriteRequestPatch;
 import io.cloudsmith.api.models.Service;
 import io.cloudsmith.api.models.ServiceRequest;
 import io.cloudsmith.api.models.ServiceRequestPatch;
@@ -4830,7 +4832,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsOpenidConnectCreateCall(String org, ProviderSettingsRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsOpenidConnectCreateCall(String org, ProviderSettingsWriteRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -4876,13 +4878,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsOpenidConnectCreateValidateBeforeCall(String org, ProviderSettingsRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsOpenidConnectCreateValidateBeforeCall(String org, ProviderSettingsWriteRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, data };
-            Method method = this.getClass().getMethod("orgsOpenidConnectCreateWithHttpInfo", String.class, ProviderSettingsRequest.class);
+            Method method = this.getClass().getMethod("orgsOpenidConnectCreateWithHttpInfo", String.class, ProviderSettingsWriteRequest.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -4908,11 +4910,11 @@ public class OrgsApi {
      * Create the OpenID Connect provider settings for the org.
      * @param org  (required)
      * @param data  (optional)
-     * @return ProviderSettings
+     * @return ProviderSettingsWrite
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProviderSettings orgsOpenidConnectCreate(String org, ProviderSettingsRequest data) throws ApiException {
-        ApiResponse<ProviderSettings> resp = orgsOpenidConnectCreateWithHttpInfo(org, data);
+    public ProviderSettingsWrite orgsOpenidConnectCreate(String org, ProviderSettingsWriteRequest data) throws ApiException {
+        ApiResponse<ProviderSettingsWrite> resp = orgsOpenidConnectCreateWithHttpInfo(org, data);
         return resp.getData();
     }
 
@@ -4921,12 +4923,12 @@ public class OrgsApi {
      * Create the OpenID Connect provider settings for the org.
      * @param org  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;ProviderSettings&gt;
+     * @return ApiResponse&lt;ProviderSettingsWrite&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ProviderSettings> orgsOpenidConnectCreateWithHttpInfo( @NotNull String org,  ProviderSettingsRequest data) throws ApiException {
+    public ApiResponse<ProviderSettingsWrite> orgsOpenidConnectCreateWithHttpInfo( @NotNull String org,  ProviderSettingsWriteRequest data) throws ApiException {
         com.squareup.okhttp.Call call = orgsOpenidConnectCreateValidateBeforeCall(org, data, null, null);
-        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProviderSettingsWrite>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -4939,7 +4941,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsOpenidConnectCreateAsync(String org, ProviderSettingsRequest data, final ApiCallback<ProviderSettings> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsOpenidConnectCreateAsync(String org, ProviderSettingsWriteRequest data, final ApiCallback<ProviderSettingsWrite> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4961,7 +4963,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsOpenidConnectCreateValidateBeforeCall(org, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProviderSettingsWrite>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5104,6 +5106,313 @@ public class OrgsApi {
 
         com.squareup.okhttp.Call call = orgsOpenidConnectDeleteValidateBeforeCall(org, slugPerm, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsOpenidConnectDynamicMappingsList
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsOpenidConnectDynamicMappingsListCall(String org, String providerSetting, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "provider_setting" + "\\}", apiClient.escapeString(providerSetting.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsOpenidConnectDynamicMappingsListValidateBeforeCall(String org, String providerSetting, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, providerSetting, page, pageSize };
+            Method method = this.getClass().getMethod("orgsOpenidConnectDynamicMappingsListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsOpenidConnectDynamicMappingsListCall(org, providerSetting, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;DynamicMapping&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<DynamicMapping> orgsOpenidConnectDynamicMappingsList(String org, String providerSetting, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<DynamicMapping>> resp = orgsOpenidConnectDynamicMappingsListWithHttpInfo(org, providerSetting, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;DynamicMapping&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<DynamicMapping>> orgsOpenidConnectDynamicMappingsListWithHttpInfo( @NotNull String org,  @NotNull String providerSetting,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = orgsOpenidConnectDynamicMappingsListValidateBeforeCall(org, providerSetting, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<DynamicMapping>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting. (asynchronously)
+     * Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsOpenidConnectDynamicMappingsListAsync(String org, String providerSetting, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<DynamicMapping>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsOpenidConnectDynamicMappingsListValidateBeforeCall(org, providerSetting, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<DynamicMapping>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for orgsOpenidConnectDynamicMappingsRead
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param claimValue  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsOpenidConnectDynamicMappingsReadCall(String org, String providerSetting, String claimValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()))
+            .replaceAll("\\{" + "provider_setting" + "\\}", apiClient.escapeString(providerSetting.toString()))
+            .replaceAll("\\{" + "claim_value" + "\\}", apiClient.escapeString(claimValue.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsOpenidConnectDynamicMappingsReadValidateBeforeCall(String org, String providerSetting, String claimValue, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, providerSetting, claimValue };
+            Method method = this.getClass().getMethod("orgsOpenidConnectDynamicMappingsReadWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsOpenidConnectDynamicMappingsReadCall(org, providerSetting, claimValue, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param claimValue  (required)
+     * @return DynamicMapping
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DynamicMapping orgsOpenidConnectDynamicMappingsRead(String org, String providerSetting, String claimValue) throws ApiException {
+        ApiResponse<DynamicMapping> resp = orgsOpenidConnectDynamicMappingsReadWithHttpInfo(org, providerSetting, claimValue);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param claimValue  (required)
+     * @return ApiResponse&lt;DynamicMapping&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DynamicMapping> orgsOpenidConnectDynamicMappingsReadWithHttpInfo( @NotNull String org,  @NotNull String providerSetting,  @NotNull String claimValue) throws ApiException {
+        com.squareup.okhttp.Call call = orgsOpenidConnectDynamicMappingsReadValidateBeforeCall(org, providerSetting, claimValue, null, null);
+        Type localVarReturnType = new TypeToken<DynamicMapping>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting. (asynchronously)
+     * Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+     * @param org  (required)
+     * @param providerSetting  (required)
+     * @param claimValue  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsOpenidConnectDynamicMappingsReadAsync(String org, String providerSetting, String claimValue, final ApiCallback<DynamicMapping> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsOpenidConnectDynamicMappingsReadValidateBeforeCall(org, providerSetting, claimValue, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DynamicMapping>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -5280,7 +5589,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsOpenidConnectPartialUpdateCall(String org, String slugPerm, ProviderSettingsRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsOpenidConnectPartialUpdateCall(String org, String slugPerm, ProviderSettingsWriteRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5327,13 +5636,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsOpenidConnectPartialUpdateValidateBeforeCall(String org, String slugPerm, ProviderSettingsRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsOpenidConnectPartialUpdateValidateBeforeCall(String org, String slugPerm, ProviderSettingsWriteRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, slugPerm, data };
-            Method method = this.getClass().getMethod("orgsOpenidConnectPartialUpdateWithHttpInfo", String.class, String.class, ProviderSettingsRequestPatch.class);
+            Method method = this.getClass().getMethod("orgsOpenidConnectPartialUpdateWithHttpInfo", String.class, String.class, ProviderSettingsWriteRequestPatch.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5360,11 +5669,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param slugPerm  (required)
      * @param data  (optional)
-     * @return ProviderSettings
+     * @return ProviderSettingsWrite
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProviderSettings orgsOpenidConnectPartialUpdate(String org, String slugPerm, ProviderSettingsRequestPatch data) throws ApiException {
-        ApiResponse<ProviderSettings> resp = orgsOpenidConnectPartialUpdateWithHttpInfo(org, slugPerm, data);
+    public ProviderSettingsWrite orgsOpenidConnectPartialUpdate(String org, String slugPerm, ProviderSettingsWriteRequestPatch data) throws ApiException {
+        ApiResponse<ProviderSettingsWrite> resp = orgsOpenidConnectPartialUpdateWithHttpInfo(org, slugPerm, data);
         return resp.getData();
     }
 
@@ -5374,12 +5683,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param slugPerm  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;ProviderSettings&gt;
+     * @return ApiResponse&lt;ProviderSettingsWrite&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ProviderSettings> orgsOpenidConnectPartialUpdateWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  ProviderSettingsRequestPatch data) throws ApiException {
+    public ApiResponse<ProviderSettingsWrite> orgsOpenidConnectPartialUpdateWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  ProviderSettingsWriteRequestPatch data) throws ApiException {
         com.squareup.okhttp.Call call = orgsOpenidConnectPartialUpdateValidateBeforeCall(org, slugPerm, data, null, null);
-        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProviderSettingsWrite>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -5393,7 +5702,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsOpenidConnectPartialUpdateAsync(String org, String slugPerm, ProviderSettingsRequestPatch data, final ApiCallback<ProviderSettings> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsOpenidConnectPartialUpdateAsync(String org, String slugPerm, ProviderSettingsWriteRequestPatch data, final ApiCallback<ProviderSettingsWrite> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5415,7 +5724,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsOpenidConnectPartialUpdateValidateBeforeCall(org, slugPerm, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProviderSettingsWrite>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5574,7 +5883,7 @@ public class OrgsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsOpenidConnectUpdateCall(String org, String slugPerm, ProviderSettingsRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsOpenidConnectUpdateCall(String org, String slugPerm, ProviderSettingsWriteRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = data;
 
         // create path and map variables
@@ -5621,13 +5930,13 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsOpenidConnectUpdateValidateBeforeCall(String org, String slugPerm, ProviderSettingsRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsOpenidConnectUpdateValidateBeforeCall(String org, String slugPerm, ProviderSettingsWriteRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { org, slugPerm, data };
-            Method method = this.getClass().getMethod("orgsOpenidConnectUpdateWithHttpInfo", String.class, String.class, ProviderSettingsRequest.class);
+            Method method = this.getClass().getMethod("orgsOpenidConnectUpdateWithHttpInfo", String.class, String.class, ProviderSettingsWriteRequest.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -5654,11 +5963,11 @@ public class OrgsApi {
      * @param org  (required)
      * @param slugPerm  (required)
      * @param data  (optional)
-     * @return ProviderSettings
+     * @return ProviderSettingsWrite
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProviderSettings orgsOpenidConnectUpdate(String org, String slugPerm, ProviderSettingsRequest data) throws ApiException {
-        ApiResponse<ProviderSettings> resp = orgsOpenidConnectUpdateWithHttpInfo(org, slugPerm, data);
+    public ProviderSettingsWrite orgsOpenidConnectUpdate(String org, String slugPerm, ProviderSettingsWriteRequest data) throws ApiException {
+        ApiResponse<ProviderSettingsWrite> resp = orgsOpenidConnectUpdateWithHttpInfo(org, slugPerm, data);
         return resp.getData();
     }
 
@@ -5668,12 +5977,12 @@ public class OrgsApi {
      * @param org  (required)
      * @param slugPerm  (required)
      * @param data  (optional)
-     * @return ApiResponse&lt;ProviderSettings&gt;
+     * @return ApiResponse&lt;ProviderSettingsWrite&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ProviderSettings> orgsOpenidConnectUpdateWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  ProviderSettingsRequest data) throws ApiException {
+    public ApiResponse<ProviderSettingsWrite> orgsOpenidConnectUpdateWithHttpInfo( @NotNull String org,  @NotNull String slugPerm,  ProviderSettingsWriteRequest data) throws ApiException {
         com.squareup.okhttp.Call call = orgsOpenidConnectUpdateValidateBeforeCall(org, slugPerm, data, null, null);
-        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProviderSettingsWrite>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -5687,7 +5996,7 @@ public class OrgsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsOpenidConnectUpdateAsync(String org, String slugPerm, ProviderSettingsRequest data, final ApiCallback<ProviderSettings> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsOpenidConnectUpdateAsync(String org, String slugPerm, ProviderSettingsWriteRequest data, final ApiCallback<ProviderSettingsWrite> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5709,7 +6018,7 @@ public class OrgsApi {
         }
 
         com.squareup.okhttp.Call call = orgsOpenidConnectUpdateValidateBeforeCall(org, slugPerm, data, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProviderSettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProviderSettingsWrite>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -8482,12 +8791,13 @@ public class OrgsApi {
      * Build call for orgsTeamsMembersList
      * @param org  (required)
      * @param team  (required)
+     * @param userKind Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersListCall(String org, String team, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsMembersListCall(String org, String team, String userKind, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8497,6 +8807,8 @@ public class OrgsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (userKind != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("user_kind", userKind));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -8534,18 +8846,18 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsTeamsMembersListValidateBeforeCall(String org, String team, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsTeamsMembersListValidateBeforeCall(String org, String team, String userKind, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { org, team };
-            Method method = this.getClass().getMethod("orgsTeamsMembersListWithHttpInfo", String.class, String.class);
+            Object[] parameterValues = { org, team, userKind };
+            Method method = this.getClass().getMethod("orgsTeamsMembersListWithHttpInfo", String.class, String.class, String.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = orgsTeamsMembersListCall(org, team, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = orgsTeamsMembersListCall(org, team, userKind, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -8566,11 +8878,12 @@ public class OrgsApi {
      * List all members for the team.
      * @param org  (required)
      * @param team  (required)
+     * @param userKind Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. (optional, default to )
      * @return OrganizationTeamMembers
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrganizationTeamMembers orgsTeamsMembersList(String org, String team) throws ApiException {
-        ApiResponse<OrganizationTeamMembers> resp = orgsTeamsMembersListWithHttpInfo(org, team);
+    public OrganizationTeamMembers orgsTeamsMembersList(String org, String team, String userKind) throws ApiException {
+        ApiResponse<OrganizationTeamMembers> resp = orgsTeamsMembersListWithHttpInfo(org, team, userKind);
         return resp.getData();
     }
 
@@ -8579,11 +8892,12 @@ public class OrgsApi {
      * List all members for the team.
      * @param org  (required)
      * @param team  (required)
+     * @param userKind Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. (optional, default to )
      * @return ApiResponse&lt;OrganizationTeamMembers&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrganizationTeamMembers> orgsTeamsMembersListWithHttpInfo( @NotNull String org,  @NotNull String team) throws ApiException {
-        com.squareup.okhttp.Call call = orgsTeamsMembersListValidateBeforeCall(org, team, null, null);
+    public ApiResponse<OrganizationTeamMembers> orgsTeamsMembersListWithHttpInfo( @NotNull String org,  @NotNull String team,  String userKind) throws ApiException {
+        com.squareup.okhttp.Call call = orgsTeamsMembersListValidateBeforeCall(org, team, userKind, null, null);
         Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -8593,11 +8907,12 @@ public class OrgsApi {
      * List all members for the team.
      * @param org  (required)
      * @param team  (required)
+     * @param userKind Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsTeamsMembersListAsync(String org, String team, final ApiCallback<OrganizationTeamMembers> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsTeamsMembersListAsync(String org, String team, String userKind, final ApiCallback<OrganizationTeamMembers> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8618,7 +8933,7 @@ public class OrgsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = orgsTeamsMembersListValidateBeforeCall(org, team, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = orgsTeamsMembersListValidateBeforeCall(org, team, userKind, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrganizationTeamMembers>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -397,6 +397,7 @@ class PackagesApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str group_by: A field to group packages by. Available options: name, backend_kind.
+        :param bool hide_subcomponents: Whether to hide packages which are subcomponents of another package in the results
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
         :return: InlineResponse200
@@ -425,6 +426,7 @@ class PackagesApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str group_by: A field to group packages by. Available options: name, backend_kind.
+        :param bool hide_subcomponents: Whether to hide packages which are subcomponents of another package in the results
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
         :return: InlineResponse200
@@ -432,7 +434,7 @@ class PackagesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'page', 'page_size', 'group_by', 'query', 'sort']  # noqa: E501
+        all_params = ['owner', 'repo', 'page', 'page_size', 'group_by', 'hide_subcomponents', 'query', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -471,6 +473,8 @@ class PackagesApi(object):
             query_params.append(('page_size', params['page_size']))  # noqa: E501
         if 'group_by' in params:
             query_params.append(('group_by', params['group_by']))  # noqa: E501
+        if 'hide_subcomponents' in params:
+            query_params.append(('hide_subcomponents', params['hide_subcomponents']))  # noqa: E501
         if 'query' in params:
             query_params.append(('query', params['query']))  # noqa: E501
         if 'sort' in params:
@@ -1435,6 +1439,125 @@ class PackagesApi(object):
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/{identifier}/tag/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Package',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def packages_update_license(self, owner, repo, identifier, **kwargs):  # noqa: E501
+        """Update the license for a package.  # noqa: E501
+
+        Update the license for a package.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_update_license(owner, repo, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageLicenseRequestPatch data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.packages_update_license_with_http_info(owner, repo, identifier, **kwargs)  # noqa: E501
+        else:
+            (data) = self.packages_update_license_with_http_info(owner, repo, identifier, **kwargs)  # noqa: E501
+            return data
+
+    def packages_update_license_with_http_info(self, owner, repo, identifier, **kwargs):  # noqa: E501
+        """Update the license for a package.  # noqa: E501
+
+        Update the license for a package.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_update_license_with_http_info(owner, repo, identifier, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str repo: (required)
+        :param str identifier: (required)
+        :param PackageLicenseRequestPatch data:
+        :return: Package
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'identifier', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_update_license" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `packages_update_license`")  # noqa: E501
+        # verify the required parameter 'repo' is set
+        if self.api_client.client_side_validation and ('repo' not in params or
+                                                       params['repo'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `repo` when calling `packages_update_license`")  # noqa: E501
+        # verify the required parameter 'identifier' is set
+        if self.api_client.client_side_validation and ('identifier' not in params or
+                                                       params['identifier'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `identifier` when calling `packages_update_license`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'repo' in params:
+            path_params['repo'] = params['repo']  # noqa: E501
+        if 'identifier' in params:
+            path_params['identifier'] = params['identifier']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/packages/{owner}/{repo}/{identifier}/update-license/', 'PATCH',
             path_params,
             query_params,
             header_params,
@@ -2885,6 +3008,117 @@ class PackagesApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='HexPackageUpload',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def packages_upload_huggingface(self, owner, repo, **kwargs):  # noqa: E501
+        """Create a new HuggingFace package  # noqa: E501
+
+        Create a new HuggingFace package  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_upload_huggingface(owner, repo, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HuggingfacePackageUploadRequest data:
+        :return: HuggingfacePackageUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.packages_upload_huggingface_with_http_info(owner, repo, **kwargs)  # noqa: E501
+        else:
+            (data) = self.packages_upload_huggingface_with_http_info(owner, repo, **kwargs)  # noqa: E501
+            return data
+
+    def packages_upload_huggingface_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
+        """Create a new HuggingFace package  # noqa: E501
+
+        Create a new HuggingFace package  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_upload_huggingface_with_http_info(owner, repo, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HuggingfacePackageUploadRequest data:
+        :return: HuggingfacePackageUpload
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_upload_huggingface" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `packages_upload_huggingface`")  # noqa: E501
+        # verify the required parameter 'repo' is set
+        if self.api_client.client_side_validation and ('repo' not in params or
+                                                       params['repo'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `repo` when calling `packages_upload_huggingface`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'repo' in params:
+            path_params['repo'] = params['repo']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/packages/{owner}/{repo}/upload/huggingface/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='HuggingfacePackageUpload',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5653,6 +5887,117 @@ class PackagesApi(object):
 
         return self.api_client.call_api(
             '/packages/{owner}/{repo}/validate-upload/hex/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def packages_validate_upload_huggingface(self, owner, repo, **kwargs):  # noqa: E501
+        """Validate parameters for create HuggingFace package  # noqa: E501
+
+        Validate parameters for create HuggingFace package  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_validate_upload_huggingface(owner, repo, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HuggingfacePackageUploadRequest data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.packages_validate_upload_huggingface_with_http_info(owner, repo, **kwargs)  # noqa: E501
+        else:
+            (data) = self.packages_validate_upload_huggingface_with_http_info(owner, repo, **kwargs)  # noqa: E501
+            return data
+
+    def packages_validate_upload_huggingface_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
+        """Validate parameters for create HuggingFace package  # noqa: E501
+
+        Validate parameters for create HuggingFace package  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.packages_validate_upload_huggingface_with_http_info(owner, repo, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str owner: (required)
+        :param str repo: (required)
+        :param HuggingfacePackageUploadRequest data:
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['owner', 'repo', 'data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method packages_validate_upload_huggingface" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'owner' is set
+        if self.api_client.client_side_validation and ('owner' not in params or
+                                                       params['owner'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `owner` when calling `packages_validate_upload_huggingface`")  # noqa: E501
+        # verify the required parameter 'repo' is set
+        if self.api_client.client_side_validation and ('repo' not in params or
+                                                       params['repo'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `repo` when calling `packages_validate_upload_huggingface`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'owner' in params:
+            path_params['owner'] = params['owner']  # noqa: E501
+        if 'repo' in params:
+            path_params['repo'] = params['repo']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/packages/{owner}/{repo}/validate-upload/huggingface/', 'POST',
             path_params,
             query_params,
             header_params,

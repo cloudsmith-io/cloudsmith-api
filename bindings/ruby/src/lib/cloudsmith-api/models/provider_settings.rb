@@ -20,13 +20,16 @@ class ProviderSettings
   # Whether the provider settings should be used for incoming OIDC requests.
   attr_accessor :enabled
 
+  # The OIDC claim to use for mapping to service accounts in dynamic_mappings.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
+  attr_accessor :mapping_claim
+
   # The name of the provider settings are being configured for
   attr_accessor :name
 
   # The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
   attr_accessor :provider_url
 
-  # The service accounts associated with these provider settings
+  # The service accounts associated with these provider settings.
   attr_accessor :service_accounts
 
   # The slug of the provider settings
@@ -40,6 +43,7 @@ class ProviderSettings
     {
       :'claims' => :'claims',
       :'enabled' => :'enabled',
+      :'mapping_claim' => :'mapping_claim',
       :'name' => :'name',
       :'provider_url' => :'provider_url',
       :'service_accounts' => :'service_accounts',
@@ -53,6 +57,7 @@ class ProviderSettings
     {
       :'claims' => :'Object',
       :'enabled' => :'BOOLEAN',
+      :'mapping_claim' => :'String',
       :'name' => :'String',
       :'provider_url' => :'String',
       :'service_accounts' => :'Array<String>',
@@ -75,6 +80,10 @@ class ProviderSettings
 
     if attributes.has_key?(:'enabled')
       self.enabled = attributes[:'enabled']
+    end
+
+    if attributes.has_key?(:'mapping_claim')
+      self.mapping_claim = attributes[:'mapping_claim']
     end
 
     if attributes.has_key?(:'name')
@@ -120,10 +129,6 @@ class ProviderSettings
       invalid_properties.push('invalid value for "provider_url", provider_url cannot be nil.')
     end
 
-    if @service_accounts.nil?
-      invalid_properties.push('invalid value for "service_accounts", service_accounts cannot be nil.')
-    end
-
     invalid_properties
   end
 
@@ -134,7 +139,6 @@ class ProviderSettings
     return false if @enabled.nil?
     return false if @name.nil?
     return false if @provider_url.nil?
-    return false if @service_accounts.nil?
     true
   end
 
@@ -145,6 +149,7 @@ class ProviderSettings
     self.class == o.class &&
         claims == o.claims &&
         enabled == o.enabled &&
+        mapping_claim == o.mapping_claim &&
         name == o.name &&
         provider_url == o.provider_url &&
         service_accounts == o.service_accounts &&
@@ -161,7 +166,7 @@ class ProviderSettings
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [claims, enabled, name, provider_url, service_accounts, slug, slug_perm].hash
+    [claims, enabled, mapping_claim, name, provider_url, service_accounts, slug, slug_perm].hash
   end
 
     # Builds the object from hash

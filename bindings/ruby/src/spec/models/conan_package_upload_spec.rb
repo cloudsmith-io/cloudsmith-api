@@ -480,6 +480,12 @@ describe 'ConanPackageUpload' do
     end
   end
 
+  describe 'test attribute "tags_automatic"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "tags_immutable"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

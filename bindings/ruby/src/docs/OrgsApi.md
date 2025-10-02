@@ -38,6 +38,8 @@ Method | HTTP request | Description
 [**orgs_members_update_visibility**](OrgsApi.md#orgs_members_update_visibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
 [**orgs_openid_connect_create**](OrgsApi.md#orgs_openid_connect_create) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
 [**orgs_openid_connect_delete**](OrgsApi.md#orgs_openid_connect_delete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
+[**orgs_openid_connect_dynamic_mappings_list**](OrgsApi.md#orgs_openid_connect_dynamic_mappings_list) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/ | Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+[**orgs_openid_connect_dynamic_mappings_read**](OrgsApi.md#orgs_openid_connect_dynamic_mappings_read) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/ | Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
 [**orgs_openid_connect_list**](OrgsApi.md#orgs_openid_connect_list) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
 [**orgs_openid_connect_partial_update**](OrgsApi.md#orgs_openid_connect_partial_update) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgs_openid_connect_read**](OrgsApi.md#orgs_openid_connect_read) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
@@ -2089,7 +2091,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_openid_connect_create**
-> ProviderSettings orgs_openid_connect_create(org, opts)
+> ProviderSettingsWrite orgs_openid_connect_create(org, opts)
 
 Create the OpenID Connect provider settings for the org.
 
@@ -2116,7 +2118,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ProviderSettingsRequest.new # ProviderSettingsRequest | 
+  data: CloudsmithApi::ProviderSettingsWriteRequest.new # ProviderSettingsWriteRequest | 
 }
 
 begin
@@ -2133,11 +2135,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
- **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional] 
+ **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional] 
 
 ### Return type
 
-[**ProviderSettings**](ProviderSettings.md)
+[**ProviderSettingsWrite**](ProviderSettingsWrite.md)
 
 ### Authorization
 
@@ -2198,6 +2200,137 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_dynamic_mappings_list**
+> Array&lt;DynamicMapping&gt; orgs_openid_connect_dynamic_mappings_list(org, provider_setting, opts)
+
+Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+
+Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+provider_setting = 'provider_setting_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
+  result = api_instance.orgs_openid_connect_dynamic_mappings_list(org, provider_setting, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_dynamic_mappings_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **provider_setting** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;DynamicMapping&gt;**](DynamicMapping.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_openid_connect_dynamic_mappings_read**
+> DynamicMapping orgs_openid_connect_dynamic_mappings_read(org, provider_setting, claim_value)
+
+Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+
+Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+provider_setting = 'provider_setting_example' # String | 
+
+claim_value = 'claim_value_example' # String | 
+
+
+begin
+  #Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
+  result = api_instance.orgs_openid_connect_dynamic_mappings_read(org, provider_setting, claim_value)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_openid_connect_dynamic_mappings_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **provider_setting** | **String**|  | 
+ **claim_value** | **String**|  | 
+
+### Return type
+
+[**DynamicMapping**](DynamicMapping.md)
 
 ### Authorization
 
@@ -2279,7 +2412,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_openid_connect_partial_update**
-> ProviderSettings orgs_openid_connect_partial_update(org, slug_perm, opts)
+> ProviderSettingsWrite orgs_openid_connect_partial_update(org, slug_perm, opts)
 
 Update a specific OpenID Connect provider setting for the org.
 
@@ -2308,7 +2441,7 @@ org = 'org_example' # String |
 slug_perm = 'slug_perm_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ProviderSettingsRequestPatch.new # ProviderSettingsRequestPatch | 
+  data: CloudsmithApi::ProviderSettingsWriteRequestPatch.new # ProviderSettingsWriteRequestPatch | 
 }
 
 begin
@@ -2326,11 +2459,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
  **slug_perm** | **String**|  | 
- **data** | [**ProviderSettingsRequestPatch**](ProviderSettingsRequestPatch.md)|  | [optional] 
+ **data** | [**ProviderSettingsWriteRequestPatch**](ProviderSettingsWriteRequestPatch.md)|  | [optional] 
 
 ### Return type
 
-[**ProviderSettings**](ProviderSettings.md)
+[**ProviderSettingsWrite**](ProviderSettingsWrite.md)
 
 ### Authorization
 
@@ -2405,7 +2538,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_openid_connect_update**
-> ProviderSettings orgs_openid_connect_update(org, slug_perm, opts)
+> ProviderSettingsWrite orgs_openid_connect_update(org, slug_perm, opts)
 
 Update a specific OpenID Connect provider setting for the org.
 
@@ -2434,7 +2567,7 @@ org = 'org_example' # String |
 slug_perm = 'slug_perm_example' # String | 
 
 opts = { 
-  data: CloudsmithApi::ProviderSettingsRequest.new # ProviderSettingsRequest | 
+  data: CloudsmithApi::ProviderSettingsWriteRequest.new # ProviderSettingsWriteRequest | 
 }
 
 begin
@@ -2452,11 +2585,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
  **slug_perm** | **String**|  | 
- **data** | [**ProviderSettingsRequest**](ProviderSettingsRequest.md)|  | [optional] 
+ **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional] 
 
 ### Return type
 
-[**ProviderSettings**](ProviderSettings.md)
+[**ProviderSettingsWrite**](ProviderSettingsWrite.md)
 
 ### Authorization
 
@@ -3640,7 +3773,7 @@ Name | Type | Description  | Notes
 
 
 # **orgs_teams_members_list**
-> OrganizationTeamMembers orgs_teams_members_list(org, team)
+> OrganizationTeamMembers orgs_teams_members_list(org, team, opts)
 
 List all members for the team.
 
@@ -3668,10 +3801,13 @@ org = 'org_example' # String |
 
 team = 'team_example' # String | 
 
+opts = { 
+  user_kind: '' # String | Filter accounts by type. Possible values are 'user' and 'service'. If not provided, only users are returned.
+}
 
 begin
   #List all members for the team.
-  result = api_instance.orgs_teams_members_list(org, team)
+  result = api_instance.orgs_teams_members_list(org, team, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling OrgsApi->orgs_teams_members_list: #{e}"
@@ -3684,6 +3820,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org** | **String**|  | 
  **team** | **String**|  | 
+ **user_kind** | **String**| Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. | [optional] [default to ]
 
 ### Return type
 

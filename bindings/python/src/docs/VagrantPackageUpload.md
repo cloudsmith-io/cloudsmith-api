@@ -76,6 +76,7 @@ Name | Type | Description | Notes
 **summary** | **str** | A one-liner synopsis of this package. | [optional] 
 **sync_finished_at** | **datetime** | The datetime the package sync was finished at. | [optional] 
 **sync_progress** | **int** | Synchronisation progress (from 0-100) | [optional] 
+**tags_automatic** | [**Tags**](Tags.md) |  | [optional] 
 **tags_immutable** | [**Tags**](Tags.md) |  | [optional] 
 **type_display** | **str** |  | [optional] 
 **uploaded_at** | **datetime** | The date this package was uploaded. | [optional] 

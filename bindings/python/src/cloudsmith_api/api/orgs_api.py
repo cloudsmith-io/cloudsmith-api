@@ -3504,8 +3504,8 @@ class OrgsApi(object):
 
         :param async_req bool
         :param str org: (required)
-        :param ProviderSettingsRequest data:
-        :return: ProviderSettings
+        :param ProviderSettingsWriteRequest data:
+        :return: ProviderSettingsWrite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3527,8 +3527,8 @@ class OrgsApi(object):
 
         :param async_req bool
         :param str org: (required)
-        :param ProviderSettingsRequest data:
-        :return: ProviderSettings
+        :param ProviderSettingsWriteRequest data:
+        :return: ProviderSettingsWrite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3588,7 +3588,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProviderSettings',  # noqa: E501
+            response_type='ProviderSettingsWrite',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3696,6 +3696,236 @@ class OrgsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_openid_connect_dynamic_mappings_list(self, org, provider_setting, **kwargs):  # noqa: E501
+        """Retrieve the list of OpenID Connect dynamic mappings for the provider setting.  # noqa: E501
+
+        Retrieve the list of OpenID Connect dynamic mappings for the provider setting.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_openid_connect_dynamic_mappings_list(org, provider_setting, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str provider_setting: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[DynamicMapping]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_openid_connect_dynamic_mappings_list_with_http_info(org, provider_setting, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_openid_connect_dynamic_mappings_list_with_http_info(org, provider_setting, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_openid_connect_dynamic_mappings_list_with_http_info(self, org, provider_setting, **kwargs):  # noqa: E501
+        """Retrieve the list of OpenID Connect dynamic mappings for the provider setting.  # noqa: E501
+
+        Retrieve the list of OpenID Connect dynamic mappings for the provider setting.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_openid_connect_dynamic_mappings_list_with_http_info(org, provider_setting, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str provider_setting: (required)
+        :param int page: A page number within the paginated result set.
+        :param int page_size: Number of results to return per page.
+        :return: list[DynamicMapping]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'provider_setting', 'page', 'page_size']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_openid_connect_dynamic_mappings_list" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_openid_connect_dynamic_mappings_list`")  # noqa: E501
+        # verify the required parameter 'provider_setting' is set
+        if self.api_client.client_side_validation and ('provider_setting' not in params or
+                                                       params['provider_setting'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `provider_setting` when calling `orgs_openid_connect_dynamic_mappings_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'provider_setting' in params:
+            path_params['provider_setting'] = params['provider_setting']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'page_size' in params:
+            query_params.append(('page_size', params['page_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[DynamicMapping]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def orgs_openid_connect_dynamic_mappings_read(self, org, provider_setting, claim_value, **kwargs):  # noqa: E501
+        """Retrieve a specific OpenID Connect dynamic mapping for the provider setting.  # noqa: E501
+
+        Retrieve a specific OpenID Connect dynamic mapping for the provider setting.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_openid_connect_dynamic_mappings_read(org, provider_setting, claim_value, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str provider_setting: (required)
+        :param str claim_value: (required)
+        :return: DynamicMapping
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.orgs_openid_connect_dynamic_mappings_read_with_http_info(org, provider_setting, claim_value, **kwargs)  # noqa: E501
+        else:
+            (data) = self.orgs_openid_connect_dynamic_mappings_read_with_http_info(org, provider_setting, claim_value, **kwargs)  # noqa: E501
+            return data
+
+    def orgs_openid_connect_dynamic_mappings_read_with_http_info(self, org, provider_setting, claim_value, **kwargs):  # noqa: E501
+        """Retrieve a specific OpenID Connect dynamic mapping for the provider setting.  # noqa: E501
+
+        Retrieve a specific OpenID Connect dynamic mapping for the provider setting.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orgs_openid_connect_dynamic_mappings_read_with_http_info(org, provider_setting, claim_value, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str org: (required)
+        :param str provider_setting: (required)
+        :param str claim_value: (required)
+        :return: DynamicMapping
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['org', 'provider_setting', 'claim_value']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orgs_openid_connect_dynamic_mappings_read" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'org' is set
+        if self.api_client.client_side_validation and ('org' not in params or
+                                                       params['org'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `org` when calling `orgs_openid_connect_dynamic_mappings_read`")  # noqa: E501
+        # verify the required parameter 'provider_setting' is set
+        if self.api_client.client_side_validation and ('provider_setting' not in params or
+                                                       params['provider_setting'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `provider_setting` when calling `orgs_openid_connect_dynamic_mappings_read`")  # noqa: E501
+        # verify the required parameter 'claim_value' is set
+        if self.api_client.client_side_validation and ('claim_value' not in params or
+                                                       params['claim_value'] is None):  # noqa: E501
+            raise ValueError("Missing the required parameter `claim_value` when calling `orgs_openid_connect_dynamic_mappings_read`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'org' in params:
+            path_params['org'] = params['org']  # noqa: E501
+        if 'provider_setting' in params:
+            path_params['provider_setting'] = params['provider_setting']  # noqa: E501
+        if 'claim_value' in params:
+            path_params['claim_value'] = params['claim_value']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['apikey', 'basic']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DynamicMapping',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3830,8 +4060,8 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :param ProviderSettingsRequestPatch data:
-        :return: ProviderSettings
+        :param ProviderSettingsWriteRequestPatch data:
+        :return: ProviderSettingsWrite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3854,8 +4084,8 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :param ProviderSettingsRequestPatch data:
-        :return: ProviderSettings
+        :param ProviderSettingsWriteRequestPatch data:
+        :return: ProviderSettingsWrite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3921,7 +4151,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProviderSettings',  # noqa: E501
+            response_type='ProviderSettingsWrite',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4048,8 +4278,8 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :param ProviderSettingsRequest data:
-        :return: ProviderSettings
+        :param ProviderSettingsWriteRequest data:
+        :return: ProviderSettingsWrite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4072,8 +4302,8 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str slug_perm: (required)
-        :param ProviderSettingsRequest data:
-        :return: ProviderSettings
+        :param ProviderSettingsWriteRequest data:
+        :return: ProviderSettingsWrite
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4139,7 +4369,7 @@ class OrgsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProviderSettings',  # noqa: E501
+            response_type='ProviderSettingsWrite',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6164,6 +6394,7 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
+        :param str user_kind: Filter accounts by type. Possible values are 'user' and 'service'. If not provided, only users are returned.
         :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6187,12 +6418,13 @@ class OrgsApi(object):
         :param async_req bool
         :param str org: (required)
         :param str team: (required)
+        :param str user_kind: Filter accounts by type. Possible values are 'user' and 'service'. If not provided, only users are returned.
         :return: OrganizationTeamMembers
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['org', 'team']  # noqa: E501
+        all_params = ['org', 'team', 'user_kind']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6225,6 +6457,8 @@ class OrgsApi(object):
             path_params['team'] = params['team']  # noqa: E501
 
         query_params = []
+        if 'user_kind' in params:
+            query_params.append(('user_kind', params['user_kind']))  # noqa: E501
 
         header_params = {}
 

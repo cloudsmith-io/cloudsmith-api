@@ -77,6 +77,7 @@ Name | Type | Description | Notes
 **summary** | **String** | A one-liner synopsis of this package. |  [optional]
 **syncFinishedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the package sync was finished at. |  [optional]
 **syncProgress** | **java.math.BigInteger** | Synchronisation progress (from 0-100) |  [optional]
+**tagsAutomatic** | [**Tags**](Tags.md) |  |  [optional]
 **tagsImmutable** | [**Tags**](Tags.md) |  |  [optional]
 **typeDisplay** | **String** |  |  [optional]
 **uploadedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date this package was uploaded. |  [optional]

@@ -113,6 +113,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_update_license(self):
+        """Test case for packages_update_license
+
+        Update the license for a package.  # noqa: E501
+        """
+        pass
+
     def test_packages_upload_alpine(self):
         """Test case for packages_upload_alpine
 
@@ -201,6 +208,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_upload_hex
 
         Create a new Hex package  # noqa: E501
+        """
+        pass
+
+    def test_packages_upload_huggingface(self):
+        """Test case for packages_upload_huggingface
+
+        Create a new HuggingFace package  # noqa: E501
         """
         pass
 
@@ -376,6 +390,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_hex
 
         Validate parameters for create Hex package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_huggingface(self):
+        """Test case for packages_validate_upload_huggingface
+
+        Validate parameters for create HuggingFace package  # noqa: E501
         """
         pass
 

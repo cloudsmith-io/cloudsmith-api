@@ -302,6 +302,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_conda_create(self):
+        """Test case for repos_upstream_conda_create
+
+        Create a Conda upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_conda_delete(self):
+        """Test case for repos_upstream_conda_delete
+
+        Delete a Conda upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_conda_list(self):
+        """Test case for repos_upstream_conda_list
+
+        List Conda upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_conda_partial_update(self):
+        """Test case for repos_upstream_conda_partial_update
+
+        Partially update a Conda upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_conda_read(self):
+        """Test case for repos_upstream_conda_read
+
+        Retrieve a Conda upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_conda_update(self):
+        """Test case for repos_upstream_conda_update
+
+        Update a Conda upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_upstream_cran_create(self):
         """Test case for repos_upstream_cran_create
 
@@ -593,6 +635,48 @@ class TestReposApi(unittest.TestCase):
         """Test case for repos_upstream_hex_update
 
         Update a Hex upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_huggingface_create(self):
+        """Test case for repos_upstream_huggingface_create
+
+        Create a HuggingFace upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_huggingface_delete(self):
+        """Test case for repos_upstream_huggingface_delete
+
+        Delete a HuggingFace upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_huggingface_list(self):
+        """Test case for repos_upstream_huggingface_list
+
+        List HuggingFace upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_huggingface_partial_update(self):
+        """Test case for repos_upstream_huggingface_partial_update
+
+        Partially update a HuggingFace upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_huggingface_read(self):
+        """Test case for repos_upstream_huggingface_read
+
+        Retrieve a HuggingFace upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_huggingface_update(self):
+        """Test case for repos_upstream_huggingface_update
+
+        Update a HuggingFace upstream config for this repository.  # noqa: E501
         """
         pass
 

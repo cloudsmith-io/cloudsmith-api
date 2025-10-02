@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**packages_scan**](PackagesApi.md#packages_scan) | **POST** /packages/{owner}/{repo}/{identifier}/scan/ | Schedule a package for scanning.
 [**packages_status**](PackagesApi.md#packages_status) | **GET** /packages/{owner}/{repo}/{identifier}/status/ | Get the synchronization status for a package.
 [**packages_tag**](PackagesApi.md#packages_tag) | **POST** /packages/{owner}/{repo}/{identifier}/tag/ | Add/Replace/Remove tags for a package.
+[**packages_update_license**](PackagesApi.md#packages_update_license) | **PATCH** /packages/{owner}/{repo}/{identifier}/update-license/ | Update the license for a package.
 [**packages_upload_alpine**](PackagesApi.md#packages_upload_alpine) | **POST** /packages/{owner}/{repo}/upload/alpine/ | Create a new Alpine package
 [**packages_upload_cargo**](PackagesApi.md#packages_upload_cargo) | **POST** /packages/{owner}/{repo}/upload/cargo/ | Create a new Cargo package
 [**packages_upload_cocoapods**](PackagesApi.md#packages_upload_cocoapods) | **POST** /packages/{owner}/{repo}/upload/cocoapods/ | Create a new CocoaPods package
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**packages_upload_go**](PackagesApi.md#packages_upload_go) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 [**packages_upload_helm**](PackagesApi.md#packages_upload_helm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 [**packages_upload_hex**](PackagesApi.md#packages_upload_hex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
+[**packages_upload_huggingface**](PackagesApi.md#packages_upload_huggingface) | **POST** /packages/{owner}/{repo}/upload/huggingface/ | Create a new HuggingFace package
 [**packages_upload_luarocks**](PackagesApi.md#packages_upload_luarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packages_upload_npm**](PackagesApi.md#packages_upload_npm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
@@ -54,6 +56,7 @@ Method | HTTP request | Description
 [**packages_validate_upload_go**](PackagesApi.md#packages_validate_upload_go) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 [**packages_validate_upload_helm**](PackagesApi.md#packages_validate_upload_helm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 [**packages_validate_upload_hex**](PackagesApi.md#packages_validate_upload_hex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
+[**packages_validate_upload_huggingface**](PackagesApi.md#packages_validate_upload_huggingface) | **POST** /packages/{owner}/{repo}/validate-upload/huggingface/ | Validate parameters for create HuggingFace package
 [**packages_validate_upload_luarocks**](PackagesApi.md#packages_validate_upload_luarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packages_validate_upload_npm**](PackagesApi.md#packages_validate_upload_npm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
@@ -256,7 +259,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_groups_list**
-> InlineResponse200 packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, query=query, sort=sort)
+> InlineResponse200 packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, query=query, sort=sort)
 
 Return a list of Package Groups in a repository.
 
@@ -287,12 +290,13 @@ repo = 'repo_example' # str |
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 group_by = 'name' # str | A field to group packages by. Available options: name, backend_kind. (optional) (default to name)
+hide_subcomponents = false # bool | Whether to hide packages which are subcomponents of another package in the results (optional) (default to false)
 query = '' # str | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional) (default to )
 sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional) (default to name)
 
 try:
     # Return a list of Package Groups in a repository.
-    api_response = api_instance.packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, query=query, sort=sort)
+    api_response = api_instance.packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, query=query, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_groups_list: %s\n" % e)
@@ -307,6 +311,7 @@ Name | Type | Description  | Notes
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **group_by** | **str**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to name]
+ **hide_subcomponents** | **bool**| Whether to hide packages which are subcomponents of another package in the results | [optional] [default to false]
  **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] [default to ]
  **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to name]
 
@@ -817,6 +822,70 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
  **data** | [**PackageTagRequest**](PackageTagRequest.md)|  | [optional] 
+
+### Return type
+
+[**Package**](Package.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_update_license**
+> Package packages_update_license(owner, repo, identifier, data=data)
+
+Update the license for a package.
+
+Update the license for a package.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.PackageLicenseRequestPatch() # PackageLicenseRequestPatch |  (optional)
+
+try:
+    # Update the license for a package.
+    api_response = api_instance.packages_update_license(owner, repo, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_update_license: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**PackageLicenseRequestPatch**](PackageLicenseRequestPatch.md)|  | [optional] 
 
 ### Return type
 
@@ -1627,6 +1696,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**HexPackageUpload**](HexPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_upload_huggingface**
+> HuggingfacePackageUpload packages_upload_huggingface(owner, repo, data=data)
+
+Create a new HuggingFace package
+
+Create a new HuggingFace package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.HuggingfacePackageUploadRequest() # HuggingfacePackageUploadRequest |  (optional)
+
+try:
+    # Create a new HuggingFace package
+    api_response = api_instance.packages_upload_huggingface(owner, repo, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_upload_huggingface: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**HuggingfacePackageUploadRequest**](HuggingfacePackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+[**HuggingfacePackageUpload**](HuggingfacePackageUpload.md)
 
 ### Authorization
 
@@ -3160,6 +3291,67 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **data** | [**HexPackageUploadRequest**](HexPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_validate_upload_huggingface**
+> packages_validate_upload_huggingface(owner, repo, data=data)
+
+Validate parameters for create HuggingFace package
+
+Validate parameters for create HuggingFace package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.HuggingfacePackageUploadRequest() # HuggingfacePackageUploadRequest |  (optional)
+
+try:
+    # Validate parameters for create HuggingFace package
+    api_instance.packages_validate_upload_huggingface(owner, repo, data=data)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_validate_upload_huggingface: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**HuggingfacePackageUploadRequest**](HuggingfacePackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 
