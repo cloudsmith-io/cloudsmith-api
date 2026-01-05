@@ -36,6 +36,9 @@ import javax.validation.Valid;
 public class RepositoryTokenRefresh implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("access_private_broadcasts")
+  private Boolean accessPrivateBroadcasts = null;
+
   @SerializedName("clients")
   private java.math.BigInteger clients = null;
 
@@ -274,6 +277,24 @@ public class RepositoryTokenRefresh implements Serializable {
 
   @SerializedName("user_url")
   private String userUrl = null;
+
+  public RepositoryTokenRefresh accessPrivateBroadcasts(Boolean accessPrivateBroadcasts) {
+    this.accessPrivateBroadcasts = accessPrivateBroadcasts;
+    return this;
+  }
+
+   /**
+   * If enabled, this token can be used for private broadcasts
+   * @return accessPrivateBroadcasts
+  **/
+  @ApiModelProperty(value = "If enabled, this token can be used for private broadcasts")
+  public Boolean isAccessPrivateBroadcasts() {
+    return accessPrivateBroadcasts;
+  }
+
+  public void setAccessPrivateBroadcasts(Boolean accessPrivateBroadcasts) {
+    this.accessPrivateBroadcasts = accessPrivateBroadcasts;
+  }
 
    /**
    * Get clients
@@ -784,7 +805,8 @@ public class RepositoryTokenRefresh implements Serializable {
       return false;
     }
     RepositoryTokenRefresh repositoryTokenRefresh = (RepositoryTokenRefresh) o;
-    return Objects.equals(this.clients, repositoryTokenRefresh.clients) &&
+    return Objects.equals(this.accessPrivateBroadcasts, repositoryTokenRefresh.accessPrivateBroadcasts) &&
+        Objects.equals(this.clients, repositoryTokenRefresh.clients) &&
         Objects.equals(this.createdAt, repositoryTokenRefresh.createdAt) &&
         Objects.equals(this.createdBy, repositoryTokenRefresh.createdBy) &&
         Objects.equals(this.createdByUrl, repositoryTokenRefresh.createdByUrl) &&
@@ -827,7 +849,7 @@ public class RepositoryTokenRefresh implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clients, createdAt, createdBy, createdByUrl, _default, disableUrl, downloads, enableUrl, eulaAccepted, eulaAcceptedAt, eulaAcceptedFrom, eulaRequired, hasLimits, identifier, isActive, isLimited, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, resetUrl, scheduledResetAt, scheduledResetPeriod, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
+    return Objects.hash(accessPrivateBroadcasts, clients, createdAt, createdBy, createdByUrl, _default, disableUrl, downloads, enableUrl, eulaAccepted, eulaAcceptedAt, eulaAcceptedFrom, eulaRequired, hasLimits, identifier, isActive, isLimited, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, name, refreshUrl, resetUrl, scheduledResetAt, scheduledResetPeriod, selfUrl, slugPerm, token, updatedAt, updatedBy, updatedByUrl, usage, user, userUrl);
   }
 
 
@@ -836,6 +858,7 @@ public class RepositoryTokenRefresh implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepositoryTokenRefresh {\n");
     
+    sb.append("    accessPrivateBroadcasts: ").append(toIndentedString(accessPrivateBroadcasts)).append("\n");
     sb.append("    clients: ").append(toIndentedString(clients)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");

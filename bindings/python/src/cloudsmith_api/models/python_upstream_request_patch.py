@@ -44,6 +44,7 @@ class PythonUpstreamRequestPatch(object):
         'mode': 'str',
         'name': 'str',
         'priority': 'int',
+        'trust_level': 'str',
         'upstream_url': 'str',
         'verify_ssl': 'bool'
     }
@@ -60,11 +61,12 @@ class PythonUpstreamRequestPatch(object):
         'mode': 'mode',
         'name': 'name',
         'priority': 'priority',
+        'trust_level': 'trust_level',
         'upstream_url': 'upstream_url',
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, priority=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, priority=None, trust_level='Trusted', upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """PythonUpstreamRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,6 +83,7 @@ class PythonUpstreamRequestPatch(object):
         self._mode = None
         self._name = None
         self._priority = None
+        self._trust_level = None
         self._upstream_url = None
         self._verify_ssl = None
         self.discriminator = None
@@ -107,6 +110,8 @@ class PythonUpstreamRequestPatch(object):
             self.name = name
         if priority is not None:
             self.priority = priority
+        if trust_level is not None:
+            self.trust_level = trust_level
         if upstream_url is not None:
             self.upstream_url = upstream_url
         if verify_ssl is not None:
@@ -390,7 +395,7 @@ class PythonUpstreamRequestPatch(object):
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                name is not None and not re.search('^\\w[\\w \\-\'\\.\\/()]+$', name)):  # noqa: E501
+                name is not None and not re.search('^\\w[\\w \\-\'\\.\/()]+$', name)):  # noqa: E501
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
@@ -423,6 +428,36 @@ class PythonUpstreamRequestPatch(object):
             raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._priority = priority
+
+    @property
+    def trust_level(self):
+        """Gets the trust_level of this PythonUpstreamRequestPatch.
+
+        Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+
+        :return: The trust_level of this PythonUpstreamRequestPatch.
+        :rtype: str
+        """
+        return self._trust_level
+
+    @trust_level.setter
+    def trust_level(self, trust_level):
+        """Sets the trust_level of this PythonUpstreamRequestPatch.
+
+        Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+
+        :param trust_level: The trust_level of this PythonUpstreamRequestPatch.
+        :type: str
+        """
+        allowed_values = ["Trusted", "Untrusted"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                trust_level not in allowed_values):
+            raise ValueError(
+                "Invalid value for `trust_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(trust_level, allowed_values)
+            )
+
+        self._trust_level = trust_level
 
     @property
     def upstream_url(self):

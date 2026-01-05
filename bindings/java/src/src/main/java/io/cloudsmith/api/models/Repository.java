@@ -39,6 +39,62 @@ import javax.validation.Valid;
 public class Repository implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * Broadcasting status of a repository.
+   */
+  @JsonAdapter(BroadcastStateEnum.Adapter.class)
+  public enum BroadcastStateEnum {
+    OFF("Off"),
+    
+    PRIVATE("Private"),
+    
+    INTERNAL("Internal"),
+    
+    PUBLIC("Public"),
+    
+    OPEN_SOURCE("Open-Source");
+
+    private String value;
+
+    BroadcastStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static BroadcastStateEnum fromValue(String text) {
+      for (BroadcastStateEnum b : BroadcastStateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<BroadcastStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BroadcastStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BroadcastStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BroadcastStateEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("broadcast_state")
+  private BroadcastStateEnum broadcastState = BroadcastStateEnum.OFF;
+
   @SerializedName("cdn_url")
   private String cdnUrl = null;
 
@@ -283,6 +339,9 @@ public class Repository implements Serializable {
   @SerializedName("enforce_eula")
   private Boolean enforceEula = null;
 
+  @SerializedName("generic_package_index_enabled")
+  private Boolean genericPackageIndexEnabled = null;
+
   @SerializedName("gpg_keys")
   private List<RepositoryGpgKey> gpgKeys = null;
 
@@ -434,6 +493,9 @@ public class Repository implements Serializable {
 
   @SerializedName("package_count")
   private java.math.BigInteger packageCount = null;
+
+  @SerializedName("package_count_excl_subcomponents")
+  private java.math.BigInteger packageCountExclSubcomponents = null;
 
   @SerializedName("package_group_count")
   private java.math.BigInteger packageGroupCount = null;
@@ -818,6 +880,24 @@ public class Repository implements Serializable {
   @SerializedName("view_statistics")
   private ViewStatisticsEnum viewStatistics = ViewStatisticsEnum.READ;
 
+  public Repository broadcastState(BroadcastStateEnum broadcastState) {
+    this.broadcastState = broadcastState;
+    return this;
+  }
+
+   /**
+   * Broadcasting status of a repository.
+   * @return broadcastState
+  **/
+  @ApiModelProperty(value = "Broadcasting status of a repository.")
+  public BroadcastStateEnum getBroadcastState() {
+    return broadcastState;
+  }
+
+  public void setBroadcastState(BroadcastStateEnum broadcastState) {
+    this.broadcastState = broadcastState;
+  }
+
    /**
    * Base URL from which packages and other artifacts are downloaded.
    * @return cdnUrl
@@ -1081,6 +1161,24 @@ public class Repository implements Serializable {
     this.enforceEula = enforceEula;
   }
 
+  public Repository genericPackageIndexEnabled(Boolean genericPackageIndexEnabled) {
+    this.genericPackageIndexEnabled = genericPackageIndexEnabled;
+    return this;
+  }
+
+   /**
+   * If checked, HTML indexes will be generated that list all available generic packages in the repository.
+   * @return genericPackageIndexEnabled
+  **/
+  @ApiModelProperty(value = "If checked, HTML indexes will be generated that list all available generic packages in the repository.")
+  public Boolean isGenericPackageIndexEnabled() {
+    return genericPackageIndexEnabled;
+  }
+
+  public void setGenericPackageIndexEnabled(Boolean genericPackageIndexEnabled) {
+    this.genericPackageIndexEnabled = genericPackageIndexEnabled;
+  }
+
    /**
    * Get gpgKeys
    * @return gpgKeys
@@ -1315,6 +1413,15 @@ public class Repository implements Serializable {
   @ApiModelProperty(value = "The number of packages in the repository.")
   public java.math.BigInteger getPackageCount() {
     return packageCount;
+  }
+
+   /**
+   * The number of packages in the repository excluding subcomponents.
+   * @return packageCountExclSubcomponents
+  **/
+  @ApiModelProperty(value = "The number of packages in the repository excluding subcomponents.")
+  public java.math.BigInteger getPackageCountExclSubcomponents() {
+    return packageCountExclSubcomponents;
   }
 
    /**
@@ -1813,7 +1920,8 @@ public class Repository implements Serializable {
       return false;
     }
     Repository repository = (Repository) o;
-    return Objects.equals(this.cdnUrl, repository.cdnUrl) &&
+    return Objects.equals(this.broadcastState, repository.broadcastState) &&
+        Objects.equals(this.cdnUrl, repository.cdnUrl) &&
         Objects.equals(this.contentKind, repository.contentKind) &&
         Objects.equals(this.contextualAuthRealm, repository.contextualAuthRealm) &&
         Objects.equals(this.copyOwn, repository.copyOwn) &&
@@ -1829,6 +1937,7 @@ public class Repository implements Serializable {
         Objects.equals(this.dockerRefreshTokensEnabled, repository.dockerRefreshTokensEnabled) &&
         Objects.equals(this.ecdsaKeys, repository.ecdsaKeys) &&
         Objects.equals(this.enforceEula, repository.enforceEula) &&
+        Objects.equals(this.genericPackageIndexEnabled, repository.genericPackageIndexEnabled) &&
         Objects.equals(this.gpgKeys, repository.gpgKeys) &&
         Objects.equals(this.indexFiles, repository.indexFiles) &&
         Objects.equals(this.isOpenSource, repository.isOpenSource) &&
@@ -1847,6 +1956,7 @@ public class Repository implements Serializable {
         Objects.equals(this.openSourceLicense, repository.openSourceLicense) &&
         Objects.equals(this.openSourceProjectUrl, repository.openSourceProjectUrl) &&
         Objects.equals(this.packageCount, repository.packageCount) &&
+        Objects.equals(this.packageCountExclSubcomponents, repository.packageCountExclSubcomponents) &&
         Objects.equals(this.packageGroupCount, repository.packageGroupCount) &&
         Objects.equals(this.proxyNpmjs, repository.proxyNpmjs) &&
         Objects.equals(this.proxyPypi, repository.proxyPypi) &&
@@ -1882,7 +1992,7 @@ public class Repository implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(broadcastState, cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, genericPackageIndexEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageCountExclSubcomponents, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1891,6 +2001,7 @@ public class Repository implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Repository {\n");
     
+    sb.append("    broadcastState: ").append(toIndentedString(broadcastState)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    contentKind: ").append(toIndentedString(contentKind)).append("\n");
     sb.append("    contextualAuthRealm: ").append(toIndentedString(contextualAuthRealm)).append("\n");
@@ -1907,6 +2018,7 @@ public class Repository implements Serializable {
     sb.append("    dockerRefreshTokensEnabled: ").append(toIndentedString(dockerRefreshTokensEnabled)).append("\n");
     sb.append("    ecdsaKeys: ").append(toIndentedString(ecdsaKeys)).append("\n");
     sb.append("    enforceEula: ").append(toIndentedString(enforceEula)).append("\n");
+    sb.append("    genericPackageIndexEnabled: ").append(toIndentedString(genericPackageIndexEnabled)).append("\n");
     sb.append("    gpgKeys: ").append(toIndentedString(gpgKeys)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
     sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
@@ -1925,6 +2037,7 @@ public class Repository implements Serializable {
     sb.append("    openSourceLicense: ").append(toIndentedString(openSourceLicense)).append("\n");
     sb.append("    openSourceProjectUrl: ").append(toIndentedString(openSourceProjectUrl)).append("\n");
     sb.append("    packageCount: ").append(toIndentedString(packageCount)).append("\n");
+    sb.append("    packageCountExclSubcomponents: ").append(toIndentedString(packageCountExclSubcomponents)).append("\n");
     sb.append("    packageGroupCount: ").append(toIndentedString(packageGroupCount)).append("\n");
     sb.append("    proxyNpmjs: ").append(toIndentedString(proxyNpmjs)).append("\n");
     sb.append("    proxyPypi: ").append(toIndentedString(proxyPypi)).append("\n");

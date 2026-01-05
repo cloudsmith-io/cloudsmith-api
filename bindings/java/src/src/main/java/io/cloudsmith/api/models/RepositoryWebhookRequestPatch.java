@@ -319,7 +319,7 @@ public class RepositoryWebhookRequestPatch implements Serializable {
    * The destination URL that webhook payloads will be POST&#39;ed to.
    * @return targetUrl
   **/
- @Size(min=1,max=255)  @ApiModelProperty(value = "The destination URL that webhook payloads will be POST'ed to.")
+ @Size(min=1,max=2000)  @ApiModelProperty(value = "The destination URL that webhook payloads will be POST'ed to.")
   public String getTargetUrl() {
     return targetUrl;
   }

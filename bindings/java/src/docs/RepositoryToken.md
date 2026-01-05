@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessPrivateBroadcasts** | **Boolean** | If enabled, this token can be used for private broadcasts |  [optional]
 **clients** | **java.math.BigInteger** |  |  [optional]
 **createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the token was updated at. |  [optional]
 **createdBy** | **String** |  |  [optional]

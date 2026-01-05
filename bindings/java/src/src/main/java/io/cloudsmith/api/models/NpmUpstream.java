@@ -93,6 +93,12 @@ public class NpmUpstream implements Serializable {
   @SerializedName("auth_username")
   private String authUsername = null;
 
+  @SerializedName("available")
+  private String available = null;
+
+  @SerializedName("can_reindex")
+  private String canReindex = null;
+
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
@@ -150,6 +156,9 @@ public class NpmUpstream implements Serializable {
   @SerializedName("disable_reason")
   private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
 
+  @SerializedName("disable_reason_text")
+  private String disableReasonText = null;
+
   @SerializedName("extra_header_1")
   private String extraHeader1 = null;
 
@@ -162,8 +171,20 @@ public class NpmUpstream implements Serializable {
   @SerializedName("extra_value_2")
   private String extraValue2 = null;
 
+  @SerializedName("has_failed_signature_verification")
+  private String hasFailedSignatureVerification = null;
+
+  @SerializedName("index_package_count")
+  private String indexPackageCount = null;
+
+  @SerializedName("index_status")
+  private String indexStatus = null;
+
   @SerializedName("is_active")
   private Boolean isActive = null;
+
+  @SerializedName("last_indexed")
+  private String lastIndexed = null;
 
   /**
    * The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.
@@ -291,6 +312,24 @@ public class NpmUpstream implements Serializable {
   }
 
    /**
+   * Get available
+   * @return available
+  **/
+  @ApiModelProperty(value = "")
+  public String getAvailable() {
+    return available;
+  }
+
+   /**
+   * Get canReindex
+   * @return canReindex
+  **/
+  @ApiModelProperty(value = "")
+  public String getCanReindex() {
+    return canReindex;
+  }
+
+   /**
    * The datetime the upstream source was created.
    * @return createdAt
   **/
@@ -307,6 +346,15 @@ public class NpmUpstream implements Serializable {
   @ApiModelProperty(value = "")
   public DisableReasonEnum getDisableReason() {
     return disableReason;
+  }
+
+   /**
+   * Human-readable explanation of why this upstream is disabled
+   * @return disableReasonText
+  **/
+  @ApiModelProperty(value = "Human-readable explanation of why this upstream is disabled")
+  public String getDisableReasonText() {
+    return disableReasonText;
   }
 
   public NpmUpstream extraHeader1(String extraHeader1) {
@@ -381,6 +429,33 @@ public class NpmUpstream implements Serializable {
     this.extraValue2 = extraValue2;
   }
 
+   /**
+   * Get hasFailedSignatureVerification
+   * @return hasFailedSignatureVerification
+  **/
+  @ApiModelProperty(value = "")
+  public String getHasFailedSignatureVerification() {
+    return hasFailedSignatureVerification;
+  }
+
+   /**
+   * The number of packages available in this upstream source
+   * @return indexPackageCount
+  **/
+  @ApiModelProperty(value = "The number of packages available in this upstream source")
+  public String getIndexPackageCount() {
+    return indexPackageCount;
+  }
+
+   /**
+   * The current indexing status of this upstream source
+   * @return indexStatus
+  **/
+  @ApiModelProperty(value = "The current indexing status of this upstream source")
+  public String getIndexStatus() {
+    return indexStatus;
+  }
+
   public NpmUpstream isActive(Boolean isActive) {
     this.isActive = isActive;
     return this;
@@ -397,6 +472,15 @@ public class NpmUpstream implements Serializable {
 
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
+  }
+
+   /**
+   * The last time this upstream source was indexed
+   * @return lastIndexed
+  **/
+  @ApiModelProperty(value = "The last time this upstream source was indexed")
+  public String getLastIndexed() {
+    return lastIndexed;
   }
 
   public NpmUpstream mode(ModeEnum mode) {
@@ -534,13 +618,20 @@ public class NpmUpstream implements Serializable {
     return Objects.equals(this.authMode, npmUpstream.authMode) &&
         Objects.equals(this.authSecret, npmUpstream.authSecret) &&
         Objects.equals(this.authUsername, npmUpstream.authUsername) &&
+        Objects.equals(this.available, npmUpstream.available) &&
+        Objects.equals(this.canReindex, npmUpstream.canReindex) &&
         Objects.equals(this.createdAt, npmUpstream.createdAt) &&
         Objects.equals(this.disableReason, npmUpstream.disableReason) &&
+        Objects.equals(this.disableReasonText, npmUpstream.disableReasonText) &&
         Objects.equals(this.extraHeader1, npmUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, npmUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, npmUpstream.extraValue1) &&
         Objects.equals(this.extraValue2, npmUpstream.extraValue2) &&
+        Objects.equals(this.hasFailedSignatureVerification, npmUpstream.hasFailedSignatureVerification) &&
+        Objects.equals(this.indexPackageCount, npmUpstream.indexPackageCount) &&
+        Objects.equals(this.indexStatus, npmUpstream.indexStatus) &&
         Objects.equals(this.isActive, npmUpstream.isActive) &&
+        Objects.equals(this.lastIndexed, npmUpstream.lastIndexed) &&
         Objects.equals(this.mode, npmUpstream.mode) &&
         Objects.equals(this.name, npmUpstream.name) &&
         Objects.equals(this.pendingValidation, npmUpstream.pendingValidation) &&
@@ -553,7 +644,7 @@ public class NpmUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, createdAt, disableReason, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
   }
 
 
@@ -565,13 +656,20 @@ public class NpmUpstream implements Serializable {
     sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
+    sb.append("    available: ").append(toIndentedString(available)).append("\n");
+    sb.append("    canReindex: ").append(toIndentedString(canReindex)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
+    sb.append("    disableReasonText: ").append(toIndentedString(disableReasonText)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
     sb.append("    extraValue2: ").append(toIndentedString(extraValue2)).append("\n");
+    sb.append("    hasFailedSignatureVerification: ").append(toIndentedString(hasFailedSignatureVerification)).append("\n");
+    sb.append("    indexPackageCount: ").append(toIndentedString(indexPackageCount)).append("\n");
+    sb.append("    indexStatus: ").append(toIndentedString(indexStatus)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    lastIndexed: ").append(toIndentedString(lastIndexed)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");

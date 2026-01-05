@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**access_private_broadcasts** | **BOOLEAN** | If enabled, this token can be used for private broadcasts | [optional] 
 **clients** | **Integer** |  | [optional] 
 **created_at** | **DateTime** | The datetime the token was updated at. | [optional] 
 **created_by** | **String** |  | [optional] 

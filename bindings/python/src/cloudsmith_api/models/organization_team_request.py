@@ -97,6 +97,7 @@ class OrganizationTeamRequest(object):
     def name(self):
         """Gets the name of this OrganizationTeamRequest.
 
+        A descriptive name for the team.
 
         :return: The name of this OrganizationTeamRequest.
         :rtype: str
@@ -107,6 +108,7 @@ class OrganizationTeamRequest(object):
     def name(self, name):
         """Sets the name of this OrganizationTeamRequest.
 
+        A descriptive name for the team.
 
         :param name: The name of this OrganizationTeamRequest.
         :type: str
@@ -114,8 +116,14 @@ class OrganizationTeamRequest(object):
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
+                name is not None and len(name) > 200):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
+        if (self._configuration.client_side_validation and
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                name is not None and not re.search('^\\w[\\w \\-\'\\.\/()]+$', name)):  # noqa: E501
+            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
 

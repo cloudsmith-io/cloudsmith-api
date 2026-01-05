@@ -33,6 +33,7 @@ class RepositoryCreate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'broadcast_state': 'str',
         'cdn_url': 'str',
         'content_kind': 'str',
         'contextual_auth_realm': 'bool',
@@ -49,6 +50,7 @@ class RepositoryCreate(object):
         'docker_refresh_tokens_enabled': 'bool',
         'ecdsa_keys': 'list[RepositoryEcdsaKey]',
         'enforce_eula': 'bool',
+        'generic_package_index_enabled': 'bool',
         'gpg_keys': 'list[RepositoryGpgKey]',
         'index_files': 'bool',
         'is_open_source': 'bool',
@@ -67,6 +69,7 @@ class RepositoryCreate(object):
         'open_source_license': 'str',
         'open_source_project_url': 'str',
         'package_count': 'int',
+        'package_count_excl_subcomponents': 'int',
         'package_group_count': 'int',
         'proxy_npmjs': 'bool',
         'proxy_pypi': 'bool',
@@ -101,6 +104,7 @@ class RepositoryCreate(object):
     }
 
     attribute_map = {
+        'broadcast_state': 'broadcast_state',
         'cdn_url': 'cdn_url',
         'content_kind': 'content_kind',
         'contextual_auth_realm': 'contextual_auth_realm',
@@ -117,6 +121,7 @@ class RepositoryCreate(object):
         'docker_refresh_tokens_enabled': 'docker_refresh_tokens_enabled',
         'ecdsa_keys': 'ecdsa_keys',
         'enforce_eula': 'enforce_eula',
+        'generic_package_index_enabled': 'generic_package_index_enabled',
         'gpg_keys': 'gpg_keys',
         'index_files': 'index_files',
         'is_open_source': 'is_open_source',
@@ -135,6 +140,7 @@ class RepositoryCreate(object):
         'open_source_license': 'open_source_license',
         'open_source_project_url': 'open_source_project_url',
         'package_count': 'package_count',
+        'package_count_excl_subcomponents': 'package_count_excl_subcomponents',
         'package_group_count': 'package_group_count',
         'proxy_npmjs': 'proxy_npmjs',
         'proxy_pypi': 'proxy_pypi',
@@ -168,12 +174,13 @@ class RepositoryCreate(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, broadcast_state='Off', cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, generic_package_index_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_count_excl_subcomponents=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryCreate - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._broadcast_state = None
         self._cdn_url = None
         self._content_kind = None
         self._contextual_auth_realm = None
@@ -190,6 +197,7 @@ class RepositoryCreate(object):
         self._docker_refresh_tokens_enabled = None
         self._ecdsa_keys = None
         self._enforce_eula = None
+        self._generic_package_index_enabled = None
         self._gpg_keys = None
         self._index_files = None
         self._is_open_source = None
@@ -208,6 +216,7 @@ class RepositoryCreate(object):
         self._open_source_license = None
         self._open_source_project_url = None
         self._package_count = None
+        self._package_count_excl_subcomponents = None
         self._package_group_count = None
         self._proxy_npmjs = None
         self._proxy_pypi = None
@@ -241,6 +250,8 @@ class RepositoryCreate(object):
         self._view_statistics = None
         self.discriminator = None
 
+        if broadcast_state is not None:
+            self.broadcast_state = broadcast_state
         if cdn_url is not None:
             self.cdn_url = cdn_url
         if content_kind is not None:
@@ -273,6 +284,8 @@ class RepositoryCreate(object):
             self.ecdsa_keys = ecdsa_keys
         if enforce_eula is not None:
             self.enforce_eula = enforce_eula
+        if generic_package_index_enabled is not None:
+            self.generic_package_index_enabled = generic_package_index_enabled
         if gpg_keys is not None:
             self.gpg_keys = gpg_keys
         if index_files is not None:
@@ -308,6 +321,8 @@ class RepositoryCreate(object):
             self.open_source_project_url = open_source_project_url
         if package_count is not None:
             self.package_count = package_count
+        if package_count_excl_subcomponents is not None:
+            self.package_count_excl_subcomponents = package_count_excl_subcomponents
         if package_group_count is not None:
             self.package_group_count = package_group_count
         if proxy_npmjs is not None:
@@ -370,6 +385,36 @@ class RepositoryCreate(object):
             self.user_entitlements_enabled = user_entitlements_enabled
         if view_statistics is not None:
             self.view_statistics = view_statistics
+
+    @property
+    def broadcast_state(self):
+        """Gets the broadcast_state of this RepositoryCreate.
+
+        Broadcasting status of a repository.
+
+        :return: The broadcast_state of this RepositoryCreate.
+        :rtype: str
+        """
+        return self._broadcast_state
+
+    @broadcast_state.setter
+    def broadcast_state(self, broadcast_state):
+        """Sets the broadcast_state of this RepositoryCreate.
+
+        Broadcasting status of a repository.
+
+        :param broadcast_state: The broadcast_state of this RepositoryCreate.
+        :type: str
+        """
+        allowed_values = ["Off", "Private", "Internal", "Public", "Open-Source"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                broadcast_state not in allowed_values):
+            raise ValueError(
+                "Invalid value for `broadcast_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(broadcast_state, allowed_values)
+            )
+
+        self._broadcast_state = broadcast_state
 
     @property
     def cdn_url(self):
@@ -764,6 +809,29 @@ class RepositoryCreate(object):
         self._enforce_eula = enforce_eula
 
     @property
+    def generic_package_index_enabled(self):
+        """Gets the generic_package_index_enabled of this RepositoryCreate.
+
+        If checked, HTML indexes will be generated that list all available generic packages in the repository.
+
+        :return: The generic_package_index_enabled of this RepositoryCreate.
+        :rtype: bool
+        """
+        return self._generic_package_index_enabled
+
+    @generic_package_index_enabled.setter
+    def generic_package_index_enabled(self, generic_package_index_enabled):
+        """Sets the generic_package_index_enabled of this RepositoryCreate.
+
+        If checked, HTML indexes will be generated that list all available generic packages in the repository.
+
+        :param generic_package_index_enabled: The generic_package_index_enabled of this RepositoryCreate.
+        :type: bool
+        """
+
+        self._generic_package_index_enabled = generic_package_index_enabled
+
+    @property
     def gpg_keys(self):
         """Gets the gpg_keys of this RepositoryCreate.
 
@@ -982,7 +1050,7 @@ class RepositoryCreate(object):
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                name is not None and not re.search('^\\w[\\w \\-\'\\.\\/()]+$', name)):  # noqa: E501
+                name is not None and not re.search('^\\w[\\w \\-\'\\.\/()]+$', name)):  # noqa: E501
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
@@ -1199,6 +1267,29 @@ class RepositoryCreate(object):
         """
 
         self._package_count = package_count
+
+    @property
+    def package_count_excl_subcomponents(self):
+        """Gets the package_count_excl_subcomponents of this RepositoryCreate.
+
+        The number of packages in the repository excluding subcomponents.
+
+        :return: The package_count_excl_subcomponents of this RepositoryCreate.
+        :rtype: int
+        """
+        return self._package_count_excl_subcomponents
+
+    @package_count_excl_subcomponents.setter
+    def package_count_excl_subcomponents(self, package_count_excl_subcomponents):
+        """Sets the package_count_excl_subcomponents of this RepositoryCreate.
+
+        The number of packages in the repository excluding subcomponents.
+
+        :param package_count_excl_subcomponents: The package_count_excl_subcomponents of this RepositoryCreate.
+        :type: int
+        """
+
+        self._package_count_excl_subcomponents = package_count_excl_subcomponents
 
     @property
     def package_group_count(self):

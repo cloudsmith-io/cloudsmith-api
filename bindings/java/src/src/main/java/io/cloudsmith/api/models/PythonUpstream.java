@@ -91,6 +91,12 @@ public class PythonUpstream implements Serializable {
   @SerializedName("auth_username")
   private String authUsername = null;
 
+  @SerializedName("available")
+  private String available = null;
+
+  @SerializedName("can_reindex")
+  private String canReindex = null;
+
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
@@ -148,6 +154,9 @@ public class PythonUpstream implements Serializable {
   @SerializedName("disable_reason")
   private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
 
+  @SerializedName("disable_reason_text")
+  private String disableReasonText = null;
+
   @SerializedName("extra_header_1")
   private String extraHeader1 = null;
 
@@ -160,8 +169,20 @@ public class PythonUpstream implements Serializable {
   @SerializedName("extra_value_2")
   private String extraValue2 = null;
 
+  @SerializedName("has_failed_signature_verification")
+  private String hasFailedSignatureVerification = null;
+
+  @SerializedName("index_package_count")
+  private String indexPackageCount = null;
+
+  @SerializedName("index_status")
+  private String indexStatus = null;
+
   @SerializedName("is_active")
   private Boolean isActive = null;
+
+  @SerializedName("last_indexed")
+  private String lastIndexed = null;
 
   /**
    * The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.
@@ -224,6 +245,56 @@ public class PythonUpstream implements Serializable {
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
+
+  /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   */
+  @JsonAdapter(TrustLevelEnum.Adapter.class)
+  public enum TrustLevelEnum {
+    TRUSTED("Trusted"),
+    
+    UNTRUSTED("Untrusted");
+
+    private String value;
+
+    TrustLevelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TrustLevelEnum fromValue(String text) {
+      for (TrustLevelEnum b : TrustLevelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TrustLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TrustLevelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TrustLevelEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TrustLevelEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("trust_level")
+  private TrustLevelEnum trustLevel = TrustLevelEnum.TRUSTED;
 
   @SerializedName("updated_at")
   private OffsetDateTime updatedAt = null;
@@ -289,6 +360,24 @@ public class PythonUpstream implements Serializable {
   }
 
    /**
+   * Get available
+   * @return available
+  **/
+  @ApiModelProperty(value = "")
+  public String getAvailable() {
+    return available;
+  }
+
+   /**
+   * Get canReindex
+   * @return canReindex
+  **/
+  @ApiModelProperty(value = "")
+  public String getCanReindex() {
+    return canReindex;
+  }
+
+   /**
    * The datetime the upstream source was created.
    * @return createdAt
   **/
@@ -305,6 +394,15 @@ public class PythonUpstream implements Serializable {
   @ApiModelProperty(value = "")
   public DisableReasonEnum getDisableReason() {
     return disableReason;
+  }
+
+   /**
+   * Human-readable explanation of why this upstream is disabled
+   * @return disableReasonText
+  **/
+  @ApiModelProperty(value = "Human-readable explanation of why this upstream is disabled")
+  public String getDisableReasonText() {
+    return disableReasonText;
   }
 
   public PythonUpstream extraHeader1(String extraHeader1) {
@@ -379,6 +477,33 @@ public class PythonUpstream implements Serializable {
     this.extraValue2 = extraValue2;
   }
 
+   /**
+   * Get hasFailedSignatureVerification
+   * @return hasFailedSignatureVerification
+  **/
+  @ApiModelProperty(value = "")
+  public String getHasFailedSignatureVerification() {
+    return hasFailedSignatureVerification;
+  }
+
+   /**
+   * The number of packages available in this upstream source
+   * @return indexPackageCount
+  **/
+  @ApiModelProperty(value = "The number of packages available in this upstream source")
+  public String getIndexPackageCount() {
+    return indexPackageCount;
+  }
+
+   /**
+   * The current indexing status of this upstream source
+   * @return indexStatus
+  **/
+  @ApiModelProperty(value = "The current indexing status of this upstream source")
+  public String getIndexStatus() {
+    return indexStatus;
+  }
+
   public PythonUpstream isActive(Boolean isActive) {
     this.isActive = isActive;
     return this;
@@ -395,6 +520,15 @@ public class PythonUpstream implements Serializable {
 
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
+  }
+
+   /**
+   * The last time this upstream source was indexed
+   * @return lastIndexed
+  **/
+  @ApiModelProperty(value = "The last time this upstream source was indexed")
+  public String getLastIndexed() {
+    return lastIndexed;
   }
 
   public PythonUpstream mode(ModeEnum mode) {
@@ -472,6 +606,24 @@ public class PythonUpstream implements Serializable {
     return slugPerm;
   }
 
+  public PythonUpstream trustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+    return this;
+  }
+
+   /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   * @return trustLevel
+  **/
+  @ApiModelProperty(value = "Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
+  public TrustLevelEnum getTrustLevel() {
+    return trustLevel;
+  }
+
+  public void setTrustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+  }
+
    /**
    * Get updatedAt
    * @return updatedAt
@@ -532,18 +684,26 @@ public class PythonUpstream implements Serializable {
     return Objects.equals(this.authMode, pythonUpstream.authMode) &&
         Objects.equals(this.authSecret, pythonUpstream.authSecret) &&
         Objects.equals(this.authUsername, pythonUpstream.authUsername) &&
+        Objects.equals(this.available, pythonUpstream.available) &&
+        Objects.equals(this.canReindex, pythonUpstream.canReindex) &&
         Objects.equals(this.createdAt, pythonUpstream.createdAt) &&
         Objects.equals(this.disableReason, pythonUpstream.disableReason) &&
+        Objects.equals(this.disableReasonText, pythonUpstream.disableReasonText) &&
         Objects.equals(this.extraHeader1, pythonUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, pythonUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, pythonUpstream.extraValue1) &&
         Objects.equals(this.extraValue2, pythonUpstream.extraValue2) &&
+        Objects.equals(this.hasFailedSignatureVerification, pythonUpstream.hasFailedSignatureVerification) &&
+        Objects.equals(this.indexPackageCount, pythonUpstream.indexPackageCount) &&
+        Objects.equals(this.indexStatus, pythonUpstream.indexStatus) &&
         Objects.equals(this.isActive, pythonUpstream.isActive) &&
+        Objects.equals(this.lastIndexed, pythonUpstream.lastIndexed) &&
         Objects.equals(this.mode, pythonUpstream.mode) &&
         Objects.equals(this.name, pythonUpstream.name) &&
         Objects.equals(this.pendingValidation, pythonUpstream.pendingValidation) &&
         Objects.equals(this.priority, pythonUpstream.priority) &&
         Objects.equals(this.slugPerm, pythonUpstream.slugPerm) &&
+        Objects.equals(this.trustLevel, pythonUpstream.trustLevel) &&
         Objects.equals(this.updatedAt, pythonUpstream.updatedAt) &&
         Objects.equals(this.upstreamUrl, pythonUpstream.upstreamUrl) &&
         Objects.equals(this.verifySsl, pythonUpstream.verifySsl);
@@ -551,7 +711,7 @@ public class PythonUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, createdAt, disableReason, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, trustLevel, updatedAt, upstreamUrl, verifySsl);
   }
 
 
@@ -563,18 +723,26 @@ public class PythonUpstream implements Serializable {
     sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
+    sb.append("    available: ").append(toIndentedString(available)).append("\n");
+    sb.append("    canReindex: ").append(toIndentedString(canReindex)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
+    sb.append("    disableReasonText: ").append(toIndentedString(disableReasonText)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
     sb.append("    extraValue2: ").append(toIndentedString(extraValue2)).append("\n");
+    sb.append("    hasFailedSignatureVerification: ").append(toIndentedString(hasFailedSignatureVerification)).append("\n");
+    sb.append("    indexPackageCount: ").append(toIndentedString(indexPackageCount)).append("\n");
+    sb.append("    indexStatus: ").append(toIndentedString(indexStatus)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    lastIndexed: ").append(toIndentedString(lastIndexed)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    trustLevel: ").append(toIndentedString(trustLevel)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");
     sb.append("    verifySsl: ").append(toIndentedString(verifySsl)).append("\n");

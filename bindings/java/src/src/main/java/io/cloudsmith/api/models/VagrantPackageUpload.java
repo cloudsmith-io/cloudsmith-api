@@ -188,6 +188,9 @@ public class VagrantPackageUpload implements Serializable {
   @SerializedName("provider")
   private String provider = null;
 
+  @SerializedName("raw_license")
+  private String rawLicense = null;
+
   @SerializedName("release")
   private String release = null;
 
@@ -285,6 +288,9 @@ public class VagrantPackageUpload implements Serializable {
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
+
+  @SerializedName("spdx_license")
+  private String spdxLicense = null;
 
   @SerializedName("stage")
   private java.math.BigInteger stage = null;
@@ -824,6 +830,15 @@ public class VagrantPackageUpload implements Serializable {
   }
 
    /**
+   * The raw license string.
+   * @return rawLicense
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The raw license string.")
+  public String getRawLicense() {
+    return rawLicense;
+  }
+
+   /**
    * The release of the package version (if any).
    * @return release
   **/
@@ -941,6 +956,15 @@ public class VagrantPackageUpload implements Serializable {
  @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
+  }
+
+   /**
+   * The SPDX license identifier for this package.
+   * @return spdxLicense
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The SPDX license identifier for this package.")
+  public String getSpdxLicense() {
+    return spdxLicense;
   }
 
    /**
@@ -1224,6 +1248,7 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.packageType, vagrantPackageUpload.packageType) &&
         Objects.equals(this.policyViolated, vagrantPackageUpload.policyViolated) &&
         Objects.equals(this.provider, vagrantPackageUpload.provider) &&
+        Objects.equals(this.rawLicense, vagrantPackageUpload.rawLicense) &&
         Objects.equals(this.release, vagrantPackageUpload.release) &&
         Objects.equals(this.repository, vagrantPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, vagrantPackageUpload.repositoryUrl) &&
@@ -1237,6 +1262,7 @@ public class VagrantPackageUpload implements Serializable {
         Objects.equals(this.size, vagrantPackageUpload.size) &&
         Objects.equals(this.slug, vagrantPackageUpload.slug) &&
         Objects.equals(this.slugPerm, vagrantPackageUpload.slugPerm) &&
+        Objects.equals(this.spdxLicense, vagrantPackageUpload.spdxLicense) &&
         Objects.equals(this.stage, vagrantPackageUpload.stage) &&
         Objects.equals(this.stageStr, vagrantPackageUpload.stageStr) &&
         Objects.equals(this.stageUpdatedAt, vagrantPackageUpload.stageUpdatedAt) &&
@@ -1262,7 +1288,7 @@ public class VagrantPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, provider, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, provider, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1319,6 +1345,7 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
     sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    rawLicense: ").append(toIndentedString(rawLicense)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
@@ -1332,6 +1359,7 @@ public class VagrantPackageUpload implements Serializable {
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    spdxLicense: ").append(toIndentedString(spdxLicense)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
     sb.append("    stageUpdatedAt: ").append(toIndentedString(stageUpdatedAt)).append("\n");

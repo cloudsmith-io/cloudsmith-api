@@ -161,6 +161,56 @@ public class PythonUpstreamRequestPatch implements Serializable {
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
 
+  /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   */
+  @JsonAdapter(TrustLevelEnum.Adapter.class)
+  public enum TrustLevelEnum {
+    TRUSTED("Trusted"),
+    
+    UNTRUSTED("Untrusted");
+
+    private String value;
+
+    TrustLevelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TrustLevelEnum fromValue(String text) {
+      for (TrustLevelEnum b : TrustLevelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TrustLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TrustLevelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TrustLevelEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TrustLevelEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("trust_level")
+  private TrustLevelEnum trustLevel = TrustLevelEnum.TRUSTED;
+
   @SerializedName("upstream_url")
   private String upstreamUrl = null;
 
@@ -367,6 +417,24 @@ public class PythonUpstreamRequestPatch implements Serializable {
     this.priority = priority;
   }
 
+  public PythonUpstreamRequestPatch trustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+    return this;
+  }
+
+   /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   * @return trustLevel
+  **/
+  @ApiModelProperty(value = "Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
+  public TrustLevelEnum getTrustLevel() {
+    return trustLevel;
+  }
+
+  public void setTrustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+  }
+
   public PythonUpstreamRequestPatch upstreamUrl(String upstreamUrl) {
     this.upstreamUrl = upstreamUrl;
     return this;
@@ -424,13 +492,14 @@ public class PythonUpstreamRequestPatch implements Serializable {
         Objects.equals(this.mode, pythonUpstreamRequestPatch.mode) &&
         Objects.equals(this.name, pythonUpstreamRequestPatch.name) &&
         Objects.equals(this.priority, pythonUpstreamRequestPatch.priority) &&
+        Objects.equals(this.trustLevel, pythonUpstreamRequestPatch.trustLevel) &&
         Objects.equals(this.upstreamUrl, pythonUpstreamRequestPatch.upstreamUrl) &&
         Objects.equals(this.verifySsl, pythonUpstreamRequestPatch.verifySsl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, trustLevel, upstreamUrl, verifySsl);
   }
 
 
@@ -450,6 +519,7 @@ public class PythonUpstreamRequestPatch implements Serializable {
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    trustLevel: ").append(toIndentedString(trustLevel)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");
     sb.append("    verifySsl: ").append(toIndentedString(verifySsl)).append("\n");
     sb.append("}");

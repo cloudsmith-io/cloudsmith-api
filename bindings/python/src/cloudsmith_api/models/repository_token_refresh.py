@@ -33,6 +33,7 @@ class RepositoryTokenRefresh(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_private_broadcasts': 'bool',
         'clients': 'int',
         'created_at': 'datetime',
         'created_by': 'str',
@@ -75,6 +76,7 @@ class RepositoryTokenRefresh(object):
     }
 
     attribute_map = {
+        'access_private_broadcasts': 'access_private_broadcasts',
         'clients': 'clients',
         'created_at': 'created_at',
         'created_by': 'created_by',
@@ -116,12 +118,13 @@ class RepositoryTokenRefresh(object):
         'user_url': 'user_url'
     }
 
-    def __init__(self, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, disable_url=None, downloads=None, enable_url=None, eula_accepted=None, eula_accepted_at=None, eula_accepted_from=None, eula_required=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit='Byte', limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, reset_url=None, scheduled_reset_at=None, scheduled_reset_period='Never Reset', self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_private_broadcasts=None, clients=None, created_at=None, created_by=None, created_by_url=None, default=None, disable_url=None, downloads=None, enable_url=None, eula_accepted=None, eula_accepted_at=None, eula_accepted_from=None, eula_required=None, has_limits=None, identifier=None, is_active=None, is_limited=None, limit_bandwidth=None, limit_bandwidth_unit='Byte', limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, refresh_url=None, reset_url=None, scheduled_reset_at=None, scheduled_reset_period='Never Reset', self_url=None, slug_perm=None, token=None, updated_at=None, updated_by=None, updated_by_url=None, usage=None, user=None, user_url=None, _configuration=None):  # noqa: E501
         """RepositoryTokenRefresh - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_private_broadcasts = None
         self._clients = None
         self._created_at = None
         self._created_by = None
@@ -163,6 +166,8 @@ class RepositoryTokenRefresh(object):
         self._user_url = None
         self.discriminator = None
 
+        if access_private_broadcasts is not None:
+            self.access_private_broadcasts = access_private_broadcasts
         if clients is not None:
             self.clients = clients
         if created_at is not None:
@@ -241,6 +246,29 @@ class RepositoryTokenRefresh(object):
             self.user = user
         if user_url is not None:
             self.user_url = user_url
+
+    @property
+    def access_private_broadcasts(self):
+        """Gets the access_private_broadcasts of this RepositoryTokenRefresh.
+
+        If enabled, this token can be used for private broadcasts
+
+        :return: The access_private_broadcasts of this RepositoryTokenRefresh.
+        :rtype: bool
+        """
+        return self._access_private_broadcasts
+
+    @access_private_broadcasts.setter
+    def access_private_broadcasts(self, access_private_broadcasts):
+        """Sets the access_private_broadcasts of this RepositoryTokenRefresh.
+
+        If enabled, this token can be used for private broadcasts
+
+        :param access_private_broadcasts: The access_private_broadcasts of this RepositoryTokenRefresh.
+        :type: bool
+        """
+
+        self._access_private_broadcasts = access_private_broadcasts
 
     @property
     def clients(self):
