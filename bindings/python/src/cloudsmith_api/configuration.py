@@ -62,8 +62,6 @@ class Configuration(object):
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         # Log format
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
-        # Log stream handler
-        self.logger_stream_handler = None
         # Log file handler
         self.logger_file_handler = None
         # Debug file location
@@ -107,9 +105,6 @@ class Configuration(object):
     def logger_file(self):
         """The logger file.
 
-        If the logger_file is None, then add stream handler and remove file
-        handler. Otherwise, add file handler and remove stream handler.
-
         :param value: The logger_file path.
         :type: str
         """
@@ -119,29 +114,22 @@ class Configuration(object):
     def logger_file(self, value):
         """The logger file.
 
-        If the logger_file is None, then add stream handler and remove file
-        handler. Otherwise, add file handler and remove stream handler.
+        If the logger_file is None, then remove file
+        handler. Otherwise, add file handler.
 
         :param value: The logger_file path.
         :type: str
         """
         self.__logger_file = value
         if self.__logger_file:
-            # If set logging file,
-            # then add file handler and remove stream handler.
+            # If set logging file, then add file handler.
             self.logger_file_handler = logging.FileHandler(self.__logger_file)
             self.logger_file_handler.setFormatter(self.logger_formatter)
             for _, logger in six.iteritems(self.logger):
                 logger.addHandler(self.logger_file_handler)
-                if self.logger_stream_handler:
-                    logger.removeHandler(self.logger_stream_handler)
         else:
-            # If not set logging file,
-            # then add stream handler and remove file handler.
-            self.logger_stream_handler = logging.StreamHandler()
-            self.logger_stream_handler.setFormatter(self.logger_formatter)
+            # If not, remove file handler.
             for _, logger in six.iteritems(self.logger):
-                logger.addHandler(self.logger_stream_handler)
                 if self.logger_file_handler:
                     logger.removeHandler(self.logger_file_handler)
 
@@ -261,5 +249,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v1\n"\
-               "SDK Package Version: 2.0.22".\
+               "SDK Package Version: 2.0.23".\
                format(env=sys.platform, pyversion=sys.version)

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**broadcast_state** | **str** | Broadcasting status of a repository. | [optional] [default to 'Off']
 **cdn_url** | **str** | Base URL from which packages and other artifacts are downloaded. | [optional] 
 **content_kind** | **str** | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. | [optional] [default to 'Standard']
 **contextual_auth_realm** | **bool** | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials. | [optional] 
@@ -19,6 +20,7 @@ Name | Type | Description | Notes
 **docker_refresh_tokens_enabled** | **bool** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. | [optional] 
 **ecdsa_keys** | [**list[RepositoryEcdsaKey]**](RepositoryEcdsaKey.md) |  | [optional] 
 **enforce_eula** | **bool** | If checked, downloads will explicitly require acceptance of an EULA. | [optional] 
+**generic_package_index_enabled** | **bool** | If checked, HTML indexes will be generated that list all available generic packages in the repository. | [optional] 
 **gpg_keys** | [**list[RepositoryGpgKey]**](RepositoryGpgKey.md) |  | [optional] 
 **index_files** | **bool** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. | [optional] 
 **is_open_source** | **bool** |  | [optional] 
@@ -37,6 +39,7 @@ Name | Type | Description | Notes
 **open_source_license** | **str** | The SPDX identifier of the open source license. | [optional] 
 **open_source_project_url** | **str** | The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source. | [optional] 
 **package_count** | **int** | The number of packages in the repository. | [optional] 
+**package_count_excl_subcomponents** | **int** | The number of packages in the repository excluding subcomponents. | [optional] 
 **package_group_count** | **int** | The number of groups in the repository. | [optional] 
 **proxy_npmjs** | **bool** | If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied. | [optional] 
 **proxy_pypi** | **bool** | If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied. | [optional] 

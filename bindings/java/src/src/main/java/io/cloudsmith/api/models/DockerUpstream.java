@@ -93,6 +93,9 @@ public class DockerUpstream implements Serializable {
   @SerializedName("auth_username")
   private String authUsername = null;
 
+  @SerializedName("available")
+  private String available = null;
+
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
@@ -150,6 +153,9 @@ public class DockerUpstream implements Serializable {
   @SerializedName("disable_reason")
   private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
 
+  @SerializedName("disable_reason_text")
+  private String disableReasonText = null;
+
   @SerializedName("extra_header_1")
   private String extraHeader1 = null;
 
@@ -161,6 +167,9 @@ public class DockerUpstream implements Serializable {
 
   @SerializedName("extra_value_2")
   private String extraValue2 = null;
+
+  @SerializedName("has_failed_signature_verification")
+  private String hasFailedSignatureVerification = null;
 
   @SerializedName("is_active")
   private Boolean isActive = null;
@@ -291,6 +300,15 @@ public class DockerUpstream implements Serializable {
   }
 
    /**
+   * Get available
+   * @return available
+  **/
+  @ApiModelProperty(value = "")
+  public String getAvailable() {
+    return available;
+  }
+
+   /**
    * The datetime the upstream source was created.
    * @return createdAt
   **/
@@ -307,6 +325,15 @@ public class DockerUpstream implements Serializable {
   @ApiModelProperty(value = "")
   public DisableReasonEnum getDisableReason() {
     return disableReason;
+  }
+
+   /**
+   * Human-readable explanation of why this upstream is disabled
+   * @return disableReasonText
+  **/
+  @ApiModelProperty(value = "Human-readable explanation of why this upstream is disabled")
+  public String getDisableReasonText() {
+    return disableReasonText;
   }
 
   public DockerUpstream extraHeader1(String extraHeader1) {
@@ -379,6 +406,15 @@ public class DockerUpstream implements Serializable {
 
   public void setExtraValue2(String extraValue2) {
     this.extraValue2 = extraValue2;
+  }
+
+   /**
+   * Get hasFailedSignatureVerification
+   * @return hasFailedSignatureVerification
+  **/
+  @ApiModelProperty(value = "")
+  public String getHasFailedSignatureVerification() {
+    return hasFailedSignatureVerification;
   }
 
   public DockerUpstream isActive(Boolean isActive) {
@@ -534,12 +570,15 @@ public class DockerUpstream implements Serializable {
     return Objects.equals(this.authMode, dockerUpstream.authMode) &&
         Objects.equals(this.authSecret, dockerUpstream.authSecret) &&
         Objects.equals(this.authUsername, dockerUpstream.authUsername) &&
+        Objects.equals(this.available, dockerUpstream.available) &&
         Objects.equals(this.createdAt, dockerUpstream.createdAt) &&
         Objects.equals(this.disableReason, dockerUpstream.disableReason) &&
+        Objects.equals(this.disableReasonText, dockerUpstream.disableReasonText) &&
         Objects.equals(this.extraHeader1, dockerUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, dockerUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, dockerUpstream.extraValue1) &&
         Objects.equals(this.extraValue2, dockerUpstream.extraValue2) &&
+        Objects.equals(this.hasFailedSignatureVerification, dockerUpstream.hasFailedSignatureVerification) &&
         Objects.equals(this.isActive, dockerUpstream.isActive) &&
         Objects.equals(this.mode, dockerUpstream.mode) &&
         Objects.equals(this.name, dockerUpstream.name) &&
@@ -553,7 +592,7 @@ public class DockerUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, createdAt, disableReason, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, available, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, hasFailedSignatureVerification, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
   }
 
 
@@ -565,12 +604,15 @@ public class DockerUpstream implements Serializable {
     sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
+    sb.append("    available: ").append(toIndentedString(available)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
+    sb.append("    disableReasonText: ").append(toIndentedString(disableReasonText)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
     sb.append("    extraValue2: ").append(toIndentedString(extraValue2)).append("\n");
+    sb.append("    hasFailedSignatureVerification: ").append(toIndentedString(hasFailedSignatureVerification)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

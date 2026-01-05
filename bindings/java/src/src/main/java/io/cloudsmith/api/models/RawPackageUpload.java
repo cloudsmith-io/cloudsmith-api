@@ -185,6 +185,9 @@ public class RawPackageUpload implements Serializable {
   @SerializedName("policy_violated")
   private Boolean policyViolated = null;
 
+  @SerializedName("raw_license")
+  private String rawLicense = null;
+
   @SerializedName("release")
   private String release = null;
 
@@ -282,6 +285,9 @@ public class RawPackageUpload implements Serializable {
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
+
+  @SerializedName("spdx_license")
+  private String spdxLicense = null;
 
   @SerializedName("stage")
   private java.math.BigInteger stage = null;
@@ -810,6 +816,15 @@ public class RawPackageUpload implements Serializable {
   }
 
    /**
+   * The raw license string.
+   * @return rawLicense
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The raw license string.")
+  public String getRawLicense() {
+    return rawLicense;
+  }
+
+   /**
    * The release of the package version (if any).
    * @return release
   **/
@@ -927,6 +942,15 @@ public class RawPackageUpload implements Serializable {
  @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "")
   public String getSlugPerm() {
     return slugPerm;
+  }
+
+   /**
+   * The SPDX license identifier for this package.
+   * @return spdxLicense
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The SPDX license identifier for this package.")
+  public String getSpdxLicense() {
+    return spdxLicense;
   }
 
    /**
@@ -1217,6 +1241,7 @@ public class RawPackageUpload implements Serializable {
         Objects.equals(this.originRepositoryUrl, rawPackageUpload.originRepositoryUrl) &&
         Objects.equals(this.packageType, rawPackageUpload.packageType) &&
         Objects.equals(this.policyViolated, rawPackageUpload.policyViolated) &&
+        Objects.equals(this.rawLicense, rawPackageUpload.rawLicense) &&
         Objects.equals(this.release, rawPackageUpload.release) &&
         Objects.equals(this.repository, rawPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, rawPackageUpload.repositoryUrl) &&
@@ -1230,6 +1255,7 @@ public class RawPackageUpload implements Serializable {
         Objects.equals(this.size, rawPackageUpload.size) &&
         Objects.equals(this.slug, rawPackageUpload.slug) &&
         Objects.equals(this.slugPerm, rawPackageUpload.slugPerm) &&
+        Objects.equals(this.spdxLicense, rawPackageUpload.spdxLicense) &&
         Objects.equals(this.stage, rawPackageUpload.stage) &&
         Objects.equals(this.stageStr, rawPackageUpload.stageStr) &&
         Objects.equals(this.stageUpdatedAt, rawPackageUpload.stageUpdatedAt) &&
@@ -1255,7 +1281,7 @@ public class RawPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1311,6 +1337,7 @@ public class RawPackageUpload implements Serializable {
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
     sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
+    sb.append("    rawLicense: ").append(toIndentedString(rawLicense)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
@@ -1324,6 +1351,7 @@ public class RawPackageUpload implements Serializable {
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    spdxLicense: ").append(toIndentedString(spdxLicense)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    stageStr: ").append(toIndentedString(stageStr)).append("\n");
     sb.append("    stageUpdatedAt: ").append(toIndentedString(stageUpdatedAt)).append("\n");

@@ -83,6 +83,7 @@ class MavenPackageUpload(object):
         'package_type': 'int',
         'packaging': 'str',
         'policy_violated': 'bool',
+        'raw_license': 'str',
         'release': 'str',
         'repository': 'str',
         'repository_url': 'str',
@@ -98,6 +99,7 @@ class MavenPackageUpload(object):
         'size': 'int',
         'slug': 'str',
         'slug_perm': 'str',
+        'spdx_license': 'str',
         'stage': 'int',
         'stage_str': 'str',
         'stage_updated_at': 'datetime',
@@ -172,6 +174,7 @@ class MavenPackageUpload(object):
         'package_type': 'package_type',
         'packaging': 'packaging',
         'policy_violated': 'policy_violated',
+        'raw_license': 'raw_license',
         'release': 'release',
         'repository': 'repository',
         'repository_url': 'repository_url',
@@ -187,6 +190,7 @@ class MavenPackageUpload(object):
         'size': 'size',
         'slug': 'slug',
         'slug_perm': 'slug_perm',
+        'spdx_license': 'spdx_license',
         'stage': 'stage',
         'stage_str': 'stage_str',
         'stage_updated_at': 'stage_updated_at',
@@ -210,7 +214,7 @@ class MavenPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, group_id=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, packaging=None, policy_violated=None, release=None, repository=None, repository_url=None, sbt_version=None, scala_version=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, artifact_id=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, group_id=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, packaging=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, sbt_version=None, scala_version=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """MavenPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -266,6 +270,7 @@ class MavenPackageUpload(object):
         self._package_type = None
         self._packaging = None
         self._policy_violated = None
+        self._raw_license = None
         self._release = None
         self._repository = None
         self._repository_url = None
@@ -281,6 +286,7 @@ class MavenPackageUpload(object):
         self._size = None
         self._slug = None
         self._slug_perm = None
+        self._spdx_license = None
         self._stage = None
         self._stage_str = None
         self._stage_updated_at = None
@@ -404,6 +410,8 @@ class MavenPackageUpload(object):
             self.packaging = packaging
         if policy_violated is not None:
             self.policy_violated = policy_violated
+        if raw_license is not None:
+            self.raw_license = raw_license
         if release is not None:
             self.release = release
         if repository is not None:
@@ -434,6 +442,8 @@ class MavenPackageUpload(object):
             self.slug = slug
         if slug_perm is not None:
             self.slug_perm = slug_perm
+        if spdx_license is not None:
+            self.spdx_license = spdx_license
         if stage is not None:
             self.stage = stage
         if stage_str is not None:
@@ -1581,6 +1591,32 @@ class MavenPackageUpload(object):
         self._policy_violated = policy_violated
 
     @property
+    def raw_license(self):
+        """Gets the raw_license of this MavenPackageUpload.
+
+        The raw license string.
+
+        :return: The raw_license of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._raw_license
+
+    @raw_license.setter
+    def raw_license(self, raw_license):
+        """Sets the raw_license of this MavenPackageUpload.
+
+        The raw license string.
+
+        :param raw_license: The raw_license of this MavenPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                raw_license is not None and len(raw_license) < 1):
+            raise ValueError("Invalid value for `raw_license`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._raw_license = raw_license
+
+    @property
     def release(self):
         """Gets the release of this MavenPackageUpload.
 
@@ -1937,6 +1973,32 @@ class MavenPackageUpload(object):
             raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
+
+    @property
+    def spdx_license(self):
+        """Gets the spdx_license of this MavenPackageUpload.
+
+        The SPDX license identifier for this package.
+
+        :return: The spdx_license of this MavenPackageUpload.
+        :rtype: str
+        """
+        return self._spdx_license
+
+    @spdx_license.setter
+    def spdx_license(self, spdx_license):
+        """Sets the spdx_license of this MavenPackageUpload.
+
+        The SPDX license identifier for this package.
+
+        :param spdx_license: The spdx_license of this MavenPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                spdx_license is not None and len(spdx_license) < 1):
+            raise ValueError("Invalid value for `spdx_license`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._spdx_license = spdx_license
 
     @property
     def stage(self):

@@ -117,10 +117,10 @@ public class OrganizationTeamRequestPatch implements Serializable {
   }
 
    /**
-   * Get name
+   * A descriptive name for the team.
    * @return name
   **/
- @Size(min=1)  @ApiModelProperty(value = "")
+ @Pattern(regexp="^\\w[\\w \\-'\\./()]+$") @Size(min=1,max=200)  @ApiModelProperty(value = "A descriptive name for the team.")
   public String getName() {
     return name;
   }

@@ -33,6 +33,7 @@ class RepositoryTokenRequestPatch(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'access_private_broadcasts': 'bool',
         'eula_required': 'bool',
         'is_active': 'bool',
         'limit_bandwidth': 'int',
@@ -51,6 +52,7 @@ class RepositoryTokenRequestPatch(object):
     }
 
     attribute_map = {
+        'access_private_broadcasts': 'access_private_broadcasts',
         'eula_required': 'eula_required',
         'is_active': 'is_active',
         'limit_bandwidth': 'limit_bandwidth',
@@ -68,12 +70,13 @@ class RepositoryTokenRequestPatch(object):
         'token': 'token'
     }
 
-    def __init__(self, eula_required=None, is_active=None, limit_bandwidth=None, limit_bandwidth_unit='Byte', limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, scheduled_reset_at=None, scheduled_reset_period='Never Reset', token=None, _configuration=None):  # noqa: E501
+    def __init__(self, access_private_broadcasts=None, eula_required=None, is_active=None, limit_bandwidth=None, limit_bandwidth_unit='Byte', limit_date_range_from=None, limit_date_range_to=None, limit_num_clients=None, limit_num_downloads=None, limit_package_query=None, limit_path_query=None, metadata=None, name=None, scheduled_reset_at=None, scheduled_reset_period='Never Reset', token=None, _configuration=None):  # noqa: E501
         """RepositoryTokenRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._access_private_broadcasts = None
         self._eula_required = None
         self._is_active = None
         self._limit_bandwidth = None
@@ -91,6 +94,8 @@ class RepositoryTokenRequestPatch(object):
         self._token = None
         self.discriminator = None
 
+        if access_private_broadcasts is not None:
+            self.access_private_broadcasts = access_private_broadcasts
         if eula_required is not None:
             self.eula_required = eula_required
         if is_active is not None:
@@ -121,6 +126,29 @@ class RepositoryTokenRequestPatch(object):
             self.scheduled_reset_period = scheduled_reset_period
         if token is not None:
             self.token = token
+
+    @property
+    def access_private_broadcasts(self):
+        """Gets the access_private_broadcasts of this RepositoryTokenRequestPatch.
+
+        If enabled, this token can be used for private broadcasts
+
+        :return: The access_private_broadcasts of this RepositoryTokenRequestPatch.
+        :rtype: bool
+        """
+        return self._access_private_broadcasts
+
+    @access_private_broadcasts.setter
+    def access_private_broadcasts(self, access_private_broadcasts):
+        """Sets the access_private_broadcasts of this RepositoryTokenRequestPatch.
+
+        If enabled, this token can be used for private broadcasts
+
+        :param access_private_broadcasts: The access_private_broadcasts of this RepositoryTokenRequestPatch.
+        :type: bool
+        """
+
+        self._access_private_broadcasts = access_private_broadcasts
 
     @property
     def eula_required(self):

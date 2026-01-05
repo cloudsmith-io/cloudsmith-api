@@ -18,6 +18,7 @@ from __future__ import absolute_import
 # import apis into sdk package
 from cloudsmith_api.api.audit_log_api import AuditLogApi
 from cloudsmith_api.api.badges_api import BadgesApi
+from cloudsmith_api.api.broadcasts_api import BroadcastsApi
 from cloudsmith_api.api.distros_api import DistrosApi
 from cloudsmith_api.api.entitlements_api import EntitlementsApi
 from cloudsmith_api.api.files_api import FilesApi
@@ -45,6 +46,8 @@ from cloudsmith_api.models.allocated_limit_raw import AllocatedLimitRaw
 from cloudsmith_api.models.alpine_package_upload import AlpinePackageUpload
 from cloudsmith_api.models.alpine_package_upload_request import AlpinePackageUploadRequest
 from cloudsmith_api.models.architecture import Architecture
+from cloudsmith_api.models.broadcast_token import BroadcastToken
+from cloudsmith_api.models.broadcast_token_input import BroadcastTokenInput
 from cloudsmith_api.models.cargo_package_upload import CargoPackageUpload
 from cloudsmith_api.models.cargo_package_upload_request import CargoPackageUploadRequest
 from cloudsmith_api.models.cargo_upstream import CargoUpstream

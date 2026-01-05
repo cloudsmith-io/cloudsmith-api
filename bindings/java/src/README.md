@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.22</version>
+  <version>2.0.23</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.22"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.23"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.22.jar`
+* `target/cloudsmith-api-2.0.23.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
 *AuditLogApi* | [**auditLogNamespaceList**](docs/AuditLogApi.md#auditLogNamespaceList) | **GET** /audit-log/{owner}/ | Lists audit log entries for a specific namespace.
 *AuditLogApi* | [**auditLogRepoList**](docs/AuditLogApi.md#auditLogRepoList) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 *BadgesApi* | [**badgesVersionList**](docs/BadgesApi.md#badgesVersionList) | **GET** /badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/ | Get latest package version for a package or package group.
+*BroadcastsApi* | [**broadcastsCreateBroadcastToken**](docs/BroadcastsApi.md#broadcastsCreateBroadcastToken) | **POST** /broadcasts/{org}/broadcast-token/ | Create a broadcast token.
 *DistrosApi* | [**distrosList**](docs/DistrosApi.md#distrosList) | **GET** /distros/ | Get a list of all supported distributions.
 *DistrosApi* | [**distrosRead**](docs/DistrosApi.md#distrosRead) | **GET** /distros/{slug}/ | View for viewing/listing distributions.
 *EntitlementsApi* | [**entitlementsCreate**](docs/EntitlementsApi.md#entitlementsCreate) | **POST** /entitlements/{owner}/{repo}/ | Create a specific entitlement in a repository.
@@ -454,6 +455,8 @@ Class | Method | HTTP request | Description
  - [AlpinePackageUpload](docs/AlpinePackageUpload.md)
  - [AlpinePackageUploadRequest](docs/AlpinePackageUploadRequest.md)
  - [Architecture](docs/Architecture.md)
+ - [BroadcastToken](docs/BroadcastToken.md)
+ - [BroadcastTokenInput](docs/BroadcastTokenInput.md)
  - [CargoPackageUpload](docs/CargoPackageUpload.md)
  - [CargoPackageUploadRequest](docs/CargoPackageUploadRequest.md)
  - [CargoUpstream](docs/CargoUpstream.md)

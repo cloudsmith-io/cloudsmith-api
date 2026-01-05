@@ -91,6 +91,12 @@ public class MavenUpstream implements Serializable {
   @SerializedName("auth_username")
   private String authUsername = null;
 
+  @SerializedName("available")
+  private String available = null;
+
+  @SerializedName("can_reindex")
+  private String canReindex = null;
+
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
@@ -148,6 +154,9 @@ public class MavenUpstream implements Serializable {
   @SerializedName("disable_reason")
   private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
 
+  @SerializedName("disable_reason_text")
+  private String disableReasonText = null;
+
   @SerializedName("extra_header_1")
   private String extraHeader1 = null;
 
@@ -159,6 +168,9 @@ public class MavenUpstream implements Serializable {
 
   @SerializedName("extra_value_2")
   private String extraValue2 = null;
+
+  @SerializedName("gpg_key_fingerprint_short")
+  private String gpgKeyFingerprintShort = null;
 
   @SerializedName("gpg_key_inline")
   private String gpgKeyInline = null;
@@ -218,8 +230,20 @@ public class MavenUpstream implements Serializable {
   @SerializedName("gpg_verification")
   private GpgVerificationEnum gpgVerification = GpgVerificationEnum.ALLOW_ALL;
 
+  @SerializedName("has_failed_signature_verification")
+  private String hasFailedSignatureVerification = null;
+
+  @SerializedName("index_package_count")
+  private String indexPackageCount = null;
+
+  @SerializedName("index_status")
+  private String indexStatus = null;
+
   @SerializedName("is_active")
   private Boolean isActive = null;
+
+  @SerializedName("last_indexed")
+  private String lastIndexed = null;
 
   /**
    * The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.
@@ -403,6 +427,24 @@ public class MavenUpstream implements Serializable {
   }
 
    /**
+   * Get available
+   * @return available
+  **/
+  @ApiModelProperty(value = "")
+  public String getAvailable() {
+    return available;
+  }
+
+   /**
+   * Get canReindex
+   * @return canReindex
+  **/
+  @ApiModelProperty(value = "")
+  public String getCanReindex() {
+    return canReindex;
+  }
+
+   /**
    * The datetime the upstream source was created.
    * @return createdAt
   **/
@@ -419,6 +461,15 @@ public class MavenUpstream implements Serializable {
   @ApiModelProperty(value = "")
   public DisableReasonEnum getDisableReason() {
     return disableReason;
+  }
+
+   /**
+   * Human-readable explanation of why this upstream is disabled
+   * @return disableReasonText
+  **/
+  @ApiModelProperty(value = "Human-readable explanation of why this upstream is disabled")
+  public String getDisableReasonText() {
+    return disableReasonText;
   }
 
   public MavenUpstream extraHeader1(String extraHeader1) {
@@ -493,6 +544,15 @@ public class MavenUpstream implements Serializable {
     this.extraValue2 = extraValue2;
   }
 
+   /**
+   * Get gpgKeyFingerprintShort
+   * @return gpgKeyFingerprintShort
+  **/
+  @ApiModelProperty(value = "")
+  public String getGpgKeyFingerprintShort() {
+    return gpgKeyFingerprintShort;
+  }
+
   public MavenUpstream gpgKeyInline(String gpgKeyInline) {
     this.gpgKeyInline = gpgKeyInline;
     return this;
@@ -547,6 +607,33 @@ public class MavenUpstream implements Serializable {
     this.gpgVerification = gpgVerification;
   }
 
+   /**
+   * Get hasFailedSignatureVerification
+   * @return hasFailedSignatureVerification
+  **/
+  @ApiModelProperty(value = "")
+  public String getHasFailedSignatureVerification() {
+    return hasFailedSignatureVerification;
+  }
+
+   /**
+   * The number of packages available in this upstream source
+   * @return indexPackageCount
+  **/
+  @ApiModelProperty(value = "The number of packages available in this upstream source")
+  public String getIndexPackageCount() {
+    return indexPackageCount;
+  }
+
+   /**
+   * The current indexing status of this upstream source
+   * @return indexStatus
+  **/
+  @ApiModelProperty(value = "The current indexing status of this upstream source")
+  public String getIndexStatus() {
+    return indexStatus;
+  }
+
   public MavenUpstream isActive(Boolean isActive) {
     this.isActive = isActive;
     return this;
@@ -563,6 +650,15 @@ public class MavenUpstream implements Serializable {
 
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
+  }
+
+   /**
+   * The last time this upstream source was indexed
+   * @return lastIndexed
+  **/
+  @ApiModelProperty(value = "The last time this upstream source was indexed")
+  public String getLastIndexed() {
+    return lastIndexed;
   }
 
   public MavenUpstream mode(ModeEnum mode) {
@@ -709,16 +805,24 @@ public class MavenUpstream implements Serializable {
     return Objects.equals(this.authMode, mavenUpstream.authMode) &&
         Objects.equals(this.authSecret, mavenUpstream.authSecret) &&
         Objects.equals(this.authUsername, mavenUpstream.authUsername) &&
+        Objects.equals(this.available, mavenUpstream.available) &&
+        Objects.equals(this.canReindex, mavenUpstream.canReindex) &&
         Objects.equals(this.createdAt, mavenUpstream.createdAt) &&
         Objects.equals(this.disableReason, mavenUpstream.disableReason) &&
+        Objects.equals(this.disableReasonText, mavenUpstream.disableReasonText) &&
         Objects.equals(this.extraHeader1, mavenUpstream.extraHeader1) &&
         Objects.equals(this.extraHeader2, mavenUpstream.extraHeader2) &&
         Objects.equals(this.extraValue1, mavenUpstream.extraValue1) &&
         Objects.equals(this.extraValue2, mavenUpstream.extraValue2) &&
+        Objects.equals(this.gpgKeyFingerprintShort, mavenUpstream.gpgKeyFingerprintShort) &&
         Objects.equals(this.gpgKeyInline, mavenUpstream.gpgKeyInline) &&
         Objects.equals(this.gpgKeyUrl, mavenUpstream.gpgKeyUrl) &&
         Objects.equals(this.gpgVerification, mavenUpstream.gpgVerification) &&
+        Objects.equals(this.hasFailedSignatureVerification, mavenUpstream.hasFailedSignatureVerification) &&
+        Objects.equals(this.indexPackageCount, mavenUpstream.indexPackageCount) &&
+        Objects.equals(this.indexStatus, mavenUpstream.indexStatus) &&
         Objects.equals(this.isActive, mavenUpstream.isActive) &&
+        Objects.equals(this.lastIndexed, mavenUpstream.lastIndexed) &&
         Objects.equals(this.mode, mavenUpstream.mode) &&
         Objects.equals(this.name, mavenUpstream.name) &&
         Objects.equals(this.pendingValidation, mavenUpstream.pendingValidation) &&
@@ -732,7 +836,7 @@ public class MavenUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, createdAt, disableReason, extraHeader1, extraHeader2, extraValue1, extraValue2, gpgKeyInline, gpgKeyUrl, gpgVerification, isActive, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verificationStatus, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, gpgKeyFingerprintShort, gpgKeyInline, gpgKeyUrl, gpgVerification, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verificationStatus, verifySsl);
   }
 
 
@@ -744,16 +848,24 @@ public class MavenUpstream implements Serializable {
     sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    authSecret: ").append(toIndentedString(authSecret)).append("\n");
     sb.append("    authUsername: ").append(toIndentedString(authUsername)).append("\n");
+    sb.append("    available: ").append(toIndentedString(available)).append("\n");
+    sb.append("    canReindex: ").append(toIndentedString(canReindex)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
+    sb.append("    disableReasonText: ").append(toIndentedString(disableReasonText)).append("\n");
     sb.append("    extraHeader1: ").append(toIndentedString(extraHeader1)).append("\n");
     sb.append("    extraHeader2: ").append(toIndentedString(extraHeader2)).append("\n");
     sb.append("    extraValue1: ").append(toIndentedString(extraValue1)).append("\n");
     sb.append("    extraValue2: ").append(toIndentedString(extraValue2)).append("\n");
+    sb.append("    gpgKeyFingerprintShort: ").append(toIndentedString(gpgKeyFingerprintShort)).append("\n");
     sb.append("    gpgKeyInline: ").append(toIndentedString(gpgKeyInline)).append("\n");
     sb.append("    gpgKeyUrl: ").append(toIndentedString(gpgKeyUrl)).append("\n");
     sb.append("    gpgVerification: ").append(toIndentedString(gpgVerification)).append("\n");
+    sb.append("    hasFailedSignatureVerification: ").append(toIndentedString(hasFailedSignatureVerification)).append("\n");
+    sb.append("    indexPackageCount: ").append(toIndentedString(indexPackageCount)).append("\n");
+    sb.append("    indexStatus: ").append(toIndentedString(indexStatus)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    lastIndexed: ").append(toIndentedString(lastIndexed)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");

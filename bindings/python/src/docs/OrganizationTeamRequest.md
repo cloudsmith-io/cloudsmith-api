@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | [optional] 
-**name** | **str** |  | 
+**name** | **str** | A descriptive name for the team. | 
 **slug** | **str** |  | [optional] 
 **visibility** | **str** |  | [optional] [default to 'Visible']
 

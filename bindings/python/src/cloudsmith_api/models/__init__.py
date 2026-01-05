@@ -20,6 +20,8 @@ from cloudsmith_api.models.allocated_limit_raw import AllocatedLimitRaw
 from cloudsmith_api.models.alpine_package_upload import AlpinePackageUpload
 from cloudsmith_api.models.alpine_package_upload_request import AlpinePackageUploadRequest
 from cloudsmith_api.models.architecture import Architecture
+from cloudsmith_api.models.broadcast_token import BroadcastToken
+from cloudsmith_api.models.broadcast_token_input import BroadcastTokenInput
 from cloudsmith_api.models.cargo_package_upload import CargoPackageUpload
 from cloudsmith_api.models.cargo_package_upload_request import CargoPackageUploadRequest
 from cloudsmith_api.models.cargo_upstream import CargoUpstream
