@@ -11,5 +11,7 @@ src_dir="$self_dir/src"
 cd $src_dir
 rm -f *.gem
 gem install bundler --user-install
-bundle install --path vendor/bundle --clean
+bundle config set clean true
+bundle config set path 'vendor/bundle'
+bundle install
 bundle exec rake spec
