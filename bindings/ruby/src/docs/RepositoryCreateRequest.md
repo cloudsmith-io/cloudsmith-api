@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**broadcast_state** | **String** | Broadcasting status of a repository. | [optional] [default to &#39;Off&#39;]
 **content_kind** | **String** | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. | [optional] [default to &#39;Standard&#39;]
 **contextual_auth_realm** | **BOOLEAN** | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials. | [optional] 
 **copy_own** | **BOOLEAN** | If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **distributes** | **Array&lt;String&gt;** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. | [optional] 
 **docker_refresh_tokens_enabled** | **BOOLEAN** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. | [optional] 
 **enforce_eula** | **BOOLEAN** | If checked, downloads will explicitly require acceptance of an EULA. | [optional] 
+**generic_package_index_enabled** | **BOOLEAN** | If checked, HTML indexes will be generated that list all available generic packages in the repository. | [optional] 
 **index_files** | **BOOLEAN** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. | [optional] 
 **manage_entitlements_privilege** | **String** | This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository. | [optional] [default to &#39;Admin&#39;]
 **move_own** | **BOOLEAN** | If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 

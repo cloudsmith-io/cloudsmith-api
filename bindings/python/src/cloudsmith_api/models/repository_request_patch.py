@@ -33,6 +33,7 @@ class RepositoryRequestPatch(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'broadcast_state': 'str',
         'content_kind': 'str',
         'contextual_auth_realm': 'bool',
         'copy_own': 'bool',
@@ -45,6 +46,7 @@ class RepositoryRequestPatch(object):
         'distributes': 'list[str]',
         'docker_refresh_tokens_enabled': 'bool',
         'enforce_eula': 'bool',
+        'generic_package_index_enabled': 'bool',
         'index_files': 'bool',
         'manage_entitlements_privilege': 'str',
         'move_own': 'bool',
@@ -79,6 +81,7 @@ class RepositoryRequestPatch(object):
     }
 
     attribute_map = {
+        'broadcast_state': 'broadcast_state',
         'content_kind': 'content_kind',
         'contextual_auth_realm': 'contextual_auth_realm',
         'copy_own': 'copy_own',
@@ -91,6 +94,7 @@ class RepositoryRequestPatch(object):
         'distributes': 'distributes',
         'docker_refresh_tokens_enabled': 'docker_refresh_tokens_enabled',
         'enforce_eula': 'enforce_eula',
+        'generic_package_index_enabled': 'generic_package_index_enabled',
         'index_files': 'index_files',
         'manage_entitlements_privilege': 'manage_entitlements_privilege',
         'move_own': 'move_own',
@@ -124,12 +128,13 @@ class RepositoryRequestPatch(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, index_files=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, broadcast_state='Off', content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, generic_package_index_enabled=None, index_files=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._broadcast_state = None
         self._content_kind = None
         self._contextual_auth_realm = None
         self._copy_own = None
@@ -142,6 +147,7 @@ class RepositoryRequestPatch(object):
         self._distributes = None
         self._docker_refresh_tokens_enabled = None
         self._enforce_eula = None
+        self._generic_package_index_enabled = None
         self._index_files = None
         self._manage_entitlements_privilege = None
         self._move_own = None
@@ -175,6 +181,8 @@ class RepositoryRequestPatch(object):
         self._view_statistics = None
         self.discriminator = None
 
+        if broadcast_state is not None:
+            self.broadcast_state = broadcast_state
         if content_kind is not None:
             self.content_kind = content_kind
         if contextual_auth_realm is not None:
@@ -199,6 +207,8 @@ class RepositoryRequestPatch(object):
             self.docker_refresh_tokens_enabled = docker_refresh_tokens_enabled
         if enforce_eula is not None:
             self.enforce_eula = enforce_eula
+        if generic_package_index_enabled is not None:
+            self.generic_package_index_enabled = generic_package_index_enabled
         if index_files is not None:
             self.index_files = index_files
         if manage_entitlements_privilege is not None:
@@ -261,6 +271,36 @@ class RepositoryRequestPatch(object):
             self.user_entitlements_enabled = user_entitlements_enabled
         if view_statistics is not None:
             self.view_statistics = view_statistics
+
+    @property
+    def broadcast_state(self):
+        """Gets the broadcast_state of this RepositoryRequestPatch.
+
+        Broadcasting status of a repository.
+
+        :return: The broadcast_state of this RepositoryRequestPatch.
+        :rtype: str
+        """
+        return self._broadcast_state
+
+    @broadcast_state.setter
+    def broadcast_state(self, broadcast_state):
+        """Sets the broadcast_state of this RepositoryRequestPatch.
+
+        Broadcasting status of a repository.
+
+        :param broadcast_state: The broadcast_state of this RepositoryRequestPatch.
+        :type: str
+        """
+        allowed_values = ["Off", "Private", "Internal", "Public", "Open-Source"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                broadcast_state not in allowed_values):
+            raise ValueError(
+                "Invalid value for `broadcast_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(broadcast_state, allowed_values)
+            )
+
+        self._broadcast_state = broadcast_state
 
     @property
     def content_kind(self):
@@ -565,6 +605,29 @@ class RepositoryRequestPatch(object):
         """
 
         self._enforce_eula = enforce_eula
+
+    @property
+    def generic_package_index_enabled(self):
+        """Gets the generic_package_index_enabled of this RepositoryRequestPatch.
+
+        If checked, HTML indexes will be generated that list all available generic packages in the repository.
+
+        :return: The generic_package_index_enabled of this RepositoryRequestPatch.
+        :rtype: bool
+        """
+        return self._generic_package_index_enabled
+
+    @generic_package_index_enabled.setter
+    def generic_package_index_enabled(self, generic_package_index_enabled):
+        """Sets the generic_package_index_enabled of this RepositoryRequestPatch.
+
+        If checked, HTML indexes will be generated that list all available generic packages in the repository.
+
+        :param generic_package_index_enabled: The generic_package_index_enabled of this RepositoryRequestPatch.
+        :type: bool
+        """
+
+        self._generic_package_index_enabled = generic_package_index_enabled
 
     @property
     def index_files(self):

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **String** |  |  [optional]
-**name** | **String** |  | 
+**name** | **String** | A descriptive name for the team. | 
 **slug** | **String** |  |  [optional]
 **slugPerm** | **String** |  |  [optional]
 **visibility** | [**VisibilityEnum**](#VisibilityEnum) |  |  [optional]

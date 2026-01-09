@@ -68,7 +68,7 @@ public class Architecture implements Serializable {
    * @return name
   **/
   @NotNull
- @Size(min=1,max=32)  @ApiModelProperty(required = true, value = "")
+ @Size(min=1,max=128)  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
   }

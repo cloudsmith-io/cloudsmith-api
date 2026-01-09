@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**broadcastState** | [**BroadcastStateEnum**](#BroadcastStateEnum) | Broadcasting status of a repository. |  [optional]
 **contentKind** | [**ContentKindEnum**](#ContentKindEnum) | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. |  [optional]
 **contextualAuthRealm** | **Boolean** | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials. |  [optional]
 **copyOwn** | **Boolean** | If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **distributes** | **List&lt;String&gt;** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. |  [optional]
 **dockerRefreshTokensEnabled** | **Boolean** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. |  [optional]
 **enforceEula** | **Boolean** | If checked, downloads will explicitly require acceptance of an EULA. |  [optional]
+**genericPackageIndexEnabled** | **Boolean** | If checked, HTML indexes will be generated that list all available generic packages in the repository. |  [optional]
 **indexFiles** | **Boolean** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. |  [optional]
 **manageEntitlementsPrivilege** | [**ManageEntitlementsPrivilegeEnum**](#ManageEntitlementsPrivilegeEnum) | This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository. |  [optional]
 **moveOwn** | **Boolean** | If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
@@ -47,6 +49,17 @@ Name | Type | Description | Notes
 **useVulnerabilityScanning** | **Boolean** | If checked, vulnerability scanning will be enabled for all supported packages within this repository. |  [optional]
 **userEntitlementsEnabled** | **Boolean** | If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users. |  [optional]
 **viewStatistics** | [**ViewStatisticsEnum**](#ViewStatisticsEnum) | This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI. |  [optional]
+
+
+<a name="BroadcastStateEnum"></a>
+## Enum: BroadcastStateEnum
+Name | Value
+---- | -----
+OFF | &quot;Off&quot;
+PRIVATE | &quot;Private&quot;
+INTERNAL | &quot;Internal&quot;
+PUBLIC | &quot;Public&quot;
+OPEN_SOURCE | &quot;Open-Source&quot;
 
 
 <a name="ContentKindEnum"></a>

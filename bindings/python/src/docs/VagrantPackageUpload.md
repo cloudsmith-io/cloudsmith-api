@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **package_type** | **int** | The type of package contents. | [optional] 
 **policy_violated** | **bool** | Whether or not the package has violated any policy. | [optional] 
 **provider** | **str** | The virtual machine provider for the box. | 
+**raw_license** | **str** | The raw license string. | [optional] 
 **release** | **str** | The release of the package version (if any). | [optional] 
 **repository** | **str** |  | [optional] 
 **repository_url** | **str** |  | [optional] 
@@ -64,6 +65,7 @@ Name | Type | Description | Notes
 **size** | **int** | The calculated size of the package. | [optional] 
 **slug** | **str** | The public unique identifier for the package. | [optional] 
 **slug_perm** | **str** |  | [optional] 
+**spdx_license** | **str** | The SPDX license identifier for this package. | [optional] 
 **stage** | **int** | The synchronisation (in progress) stage of the package. | [optional] 
 **stage_str** | **str** |  | [optional] 
 **stage_updated_at** | **datetime** | The datetime the package stage was updated at. | [optional] 

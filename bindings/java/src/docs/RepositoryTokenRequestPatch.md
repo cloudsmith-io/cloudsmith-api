@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessPrivateBroadcasts** | **Boolean** | If enabled, this token can be used for private broadcasts |  [optional]
 **eulaRequired** | **Boolean** | If checked, a EULA acceptance is required for this token. |  [optional]
 **isActive** | **Boolean** | If enabled, the token will allow downloads based on configured restrictions (if any). |  [optional]
 **limitBandwidth** | **java.math.BigInteger** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  |  [optional]

@@ -36,13 +36,20 @@ class RubyUpstream(object):
         'auth_mode': 'str',
         'auth_secret': 'str',
         'auth_username': 'str',
+        'available': 'str',
+        'can_reindex': 'str',
         'created_at': 'datetime',
         'disable_reason': 'str',
+        'disable_reason_text': 'str',
         'extra_header_1': 'str',
         'extra_header_2': 'str',
         'extra_value_1': 'str',
         'extra_value_2': 'str',
+        'has_failed_signature_verification': 'str',
+        'index_package_count': 'str',
+        'index_status': 'str',
         'is_active': 'bool',
+        'last_indexed': 'str',
         'mode': 'str',
         'name': 'str',
         'pending_validation': 'bool',
@@ -57,13 +64,20 @@ class RubyUpstream(object):
         'auth_mode': 'auth_mode',
         'auth_secret': 'auth_secret',
         'auth_username': 'auth_username',
+        'available': 'available',
+        'can_reindex': 'can_reindex',
         'created_at': 'created_at',
         'disable_reason': 'disable_reason',
+        'disable_reason_text': 'disable_reason_text',
         'extra_header_1': 'extra_header_1',
         'extra_header_2': 'extra_header_2',
         'extra_value_1': 'extra_value_1',
         'extra_value_2': 'extra_value_2',
+        'has_failed_signature_verification': 'has_failed_signature_verification',
+        'index_package_count': 'index_package_count',
+        'index_status': 'index_status',
         'is_active': 'is_active',
+        'last_indexed': 'last_indexed',
         'mode': 'mode',
         'name': 'name',
         'pending_validation': 'pending_validation',
@@ -74,7 +88,7 @@ class RubyUpstream(object):
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, created_at=None, disable_reason='N/A', extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, is_active=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, available=None, can_reindex=None, created_at=None, disable_reason='N/A', disable_reason_text=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, has_failed_signature_verification=None, index_package_count=None, index_status=None, is_active=None, last_indexed=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """RubyUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -83,13 +97,20 @@ class RubyUpstream(object):
         self._auth_mode = None
         self._auth_secret = None
         self._auth_username = None
+        self._available = None
+        self._can_reindex = None
         self._created_at = None
         self._disable_reason = None
+        self._disable_reason_text = None
         self._extra_header_1 = None
         self._extra_header_2 = None
         self._extra_value_1 = None
         self._extra_value_2 = None
+        self._has_failed_signature_verification = None
+        self._index_package_count = None
+        self._index_status = None
         self._is_active = None
+        self._last_indexed = None
         self._mode = None
         self._name = None
         self._pending_validation = None
@@ -106,10 +127,16 @@ class RubyUpstream(object):
             self.auth_secret = auth_secret
         if auth_username is not None:
             self.auth_username = auth_username
+        if available is not None:
+            self.available = available
+        if can_reindex is not None:
+            self.can_reindex = can_reindex
         if created_at is not None:
             self.created_at = created_at
         if disable_reason is not None:
             self.disable_reason = disable_reason
+        if disable_reason_text is not None:
+            self.disable_reason_text = disable_reason_text
         if extra_header_1 is not None:
             self.extra_header_1 = extra_header_1
         if extra_header_2 is not None:
@@ -118,8 +145,16 @@ class RubyUpstream(object):
             self.extra_value_1 = extra_value_1
         if extra_value_2 is not None:
             self.extra_value_2 = extra_value_2
+        if has_failed_signature_verification is not None:
+            self.has_failed_signature_verification = has_failed_signature_verification
+        if index_package_count is not None:
+            self.index_package_count = index_package_count
+        if index_status is not None:
+            self.index_status = index_status
         if is_active is not None:
             self.is_active = is_active
+        if last_indexed is not None:
+            self.last_indexed = last_indexed
         if mode is not None:
             self.mode = mode
         self.name = name
@@ -218,6 +253,48 @@ class RubyUpstream(object):
         self._auth_username = auth_username
 
     @property
+    def available(self):
+        """Gets the available of this RubyUpstream.
+
+
+        :return: The available of this RubyUpstream.
+        :rtype: str
+        """
+        return self._available
+
+    @available.setter
+    def available(self, available):
+        """Sets the available of this RubyUpstream.
+
+
+        :param available: The available of this RubyUpstream.
+        :type: str
+        """
+
+        self._available = available
+
+    @property
+    def can_reindex(self):
+        """Gets the can_reindex of this RubyUpstream.
+
+
+        :return: The can_reindex of this RubyUpstream.
+        :rtype: str
+        """
+        return self._can_reindex
+
+    @can_reindex.setter
+    def can_reindex(self, can_reindex):
+        """Sets the can_reindex of this RubyUpstream.
+
+
+        :param can_reindex: The can_reindex of this RubyUpstream.
+        :type: str
+        """
+
+        self._can_reindex = can_reindex
+
+    @property
     def created_at(self):
         """Gets the created_at of this RubyUpstream.
 
@@ -267,6 +344,29 @@ class RubyUpstream(object):
             )
 
         self._disable_reason = disable_reason
+
+    @property
+    def disable_reason_text(self):
+        """Gets the disable_reason_text of this RubyUpstream.
+
+        Human-readable explanation of why this upstream is disabled
+
+        :return: The disable_reason_text of this RubyUpstream.
+        :rtype: str
+        """
+        return self._disable_reason_text
+
+    @disable_reason_text.setter
+    def disable_reason_text(self, disable_reason_text):
+        """Sets the disable_reason_text of this RubyUpstream.
+
+        Human-readable explanation of why this upstream is disabled
+
+        :param disable_reason_text: The disable_reason_text of this RubyUpstream.
+        :type: str
+        """
+
+        self._disable_reason_text = disable_reason_text
 
     @property
     def extra_header_1(self):
@@ -385,6 +485,73 @@ class RubyUpstream(object):
         self._extra_value_2 = extra_value_2
 
     @property
+    def has_failed_signature_verification(self):
+        """Gets the has_failed_signature_verification of this RubyUpstream.
+
+
+        :return: The has_failed_signature_verification of this RubyUpstream.
+        :rtype: str
+        """
+        return self._has_failed_signature_verification
+
+    @has_failed_signature_verification.setter
+    def has_failed_signature_verification(self, has_failed_signature_verification):
+        """Sets the has_failed_signature_verification of this RubyUpstream.
+
+
+        :param has_failed_signature_verification: The has_failed_signature_verification of this RubyUpstream.
+        :type: str
+        """
+
+        self._has_failed_signature_verification = has_failed_signature_verification
+
+    @property
+    def index_package_count(self):
+        """Gets the index_package_count of this RubyUpstream.
+
+        The number of packages available in this upstream source
+
+        :return: The index_package_count of this RubyUpstream.
+        :rtype: str
+        """
+        return self._index_package_count
+
+    @index_package_count.setter
+    def index_package_count(self, index_package_count):
+        """Sets the index_package_count of this RubyUpstream.
+
+        The number of packages available in this upstream source
+
+        :param index_package_count: The index_package_count of this RubyUpstream.
+        :type: str
+        """
+
+        self._index_package_count = index_package_count
+
+    @property
+    def index_status(self):
+        """Gets the index_status of this RubyUpstream.
+
+        The current indexing status of this upstream source
+
+        :return: The index_status of this RubyUpstream.
+        :rtype: str
+        """
+        return self._index_status
+
+    @index_status.setter
+    def index_status(self, index_status):
+        """Sets the index_status of this RubyUpstream.
+
+        The current indexing status of this upstream source
+
+        :param index_status: The index_status of this RubyUpstream.
+        :type: str
+        """
+
+        self._index_status = index_status
+
+    @property
     def is_active(self):
         """Gets the is_active of this RubyUpstream.
 
@@ -406,6 +573,29 @@ class RubyUpstream(object):
         """
 
         self._is_active = is_active
+
+    @property
+    def last_indexed(self):
+        """Gets the last_indexed of this RubyUpstream.
+
+        The last time this upstream source was indexed
+
+        :return: The last_indexed of this RubyUpstream.
+        :rtype: str
+        """
+        return self._last_indexed
+
+    @last_indexed.setter
+    def last_indexed(self, last_indexed):
+        """Sets the last_indexed of this RubyUpstream.
+
+        The last time this upstream source was indexed
+
+        :param last_indexed: The last_indexed of this RubyUpstream.
+        :type: str
+        """
+
+        self._last_indexed = last_indexed
 
     @property
     def mode(self):

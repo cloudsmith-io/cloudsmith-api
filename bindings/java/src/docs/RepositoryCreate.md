@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**broadcastState** | [**BroadcastStateEnum**](#BroadcastStateEnum) | Broadcasting status of a repository. |  [optional]
 **cdnUrl** | **String** | Base URL from which packages and other artifacts are downloaded. |  [optional]
 **contentKind** | [**ContentKindEnum**](#ContentKindEnum) | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. |  [optional]
 **contextualAuthRealm** | **Boolean** | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials. |  [optional]
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **dockerRefreshTokensEnabled** | **Boolean** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. |  [optional]
 **ecdsaKeys** | [**List&lt;RepositoryEcdsaKey&gt;**](RepositoryEcdsaKey.md) |  |  [optional]
 **enforceEula** | **Boolean** | If checked, downloads will explicitly require acceptance of an EULA. |  [optional]
+**genericPackageIndexEnabled** | **Boolean** | If checked, HTML indexes will be generated that list all available generic packages in the repository. |  [optional]
 **gpgKeys** | [**List&lt;RepositoryGpgKey&gt;**](RepositoryGpgKey.md) |  |  [optional]
 **indexFiles** | **Boolean** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. |  [optional]
 **isOpenSource** | **Boolean** |  |  [optional]
@@ -38,6 +40,7 @@ Name | Type | Description | Notes
 **openSourceLicense** | **String** | The SPDX identifier of the open source license. |  [optional]
 **openSourceProjectUrl** | **String** | The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source. |  [optional]
 **packageCount** | **java.math.BigInteger** | The number of packages in the repository. |  [optional]
+**packageCountExclSubcomponents** | **java.math.BigInteger** | The number of packages in the repository excluding subcomponents. |  [optional]
 **packageGroupCount** | **java.math.BigInteger** | The number of groups in the repository. |  [optional]
 **proxyNpmjs** | **Boolean** | If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied. |  [optional]
 **proxyPypi** | **Boolean** | If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied. |  [optional]
@@ -69,6 +72,17 @@ Name | Type | Description | Notes
 **useVulnerabilityScanning** | **Boolean** | If checked, vulnerability scanning will be enabled for all supported packages within this repository. |  [optional]
 **userEntitlementsEnabled** | **Boolean** | If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users. |  [optional]
 **viewStatistics** | [**ViewStatisticsEnum**](#ViewStatisticsEnum) | This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI. |  [optional]
+
+
+<a name="BroadcastStateEnum"></a>
+## Enum: BroadcastStateEnum
+Name | Value
+---- | -----
+OFF | &quot;Off&quot;
+PRIVATE | &quot;Private&quot;
+INTERNAL | &quot;Internal&quot;
+PUBLIC | &quot;Public&quot;
+OPEN_SOURCE | &quot;Open-Source&quot;
 
 
 <a name="ContentKindEnum"></a>

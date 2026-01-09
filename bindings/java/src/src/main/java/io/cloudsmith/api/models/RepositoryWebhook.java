@@ -455,7 +455,7 @@ public class RepositoryWebhook implements Serializable {
    * @return targetUrl
   **/
   @NotNull
- @Size(min=1,max=255)  @ApiModelProperty(required = true, value = "The destination URL that webhook payloads will be POST'ed to.")
+ @Size(min=1,max=2000)  @ApiModelProperty(required = true, value = "The destination URL that webhook payloads will be POST'ed to.")
   public String getTargetUrl() {
     return targetUrl;
   }

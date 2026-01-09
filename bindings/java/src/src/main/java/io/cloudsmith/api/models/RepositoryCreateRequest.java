@@ -37,6 +37,62 @@ public class RepositoryCreateRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
+   * Broadcasting status of a repository.
+   */
+  @JsonAdapter(BroadcastStateEnum.Adapter.class)
+  public enum BroadcastStateEnum {
+    OFF("Off"),
+    
+    PRIVATE("Private"),
+    
+    INTERNAL("Internal"),
+    
+    PUBLIC("Public"),
+    
+    OPEN_SOURCE("Open-Source");
+
+    private String value;
+
+    BroadcastStateEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static BroadcastStateEnum fromValue(String text) {
+      for (BroadcastStateEnum b : BroadcastStateEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<BroadcastStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BroadcastStateEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BroadcastStateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BroadcastStateEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("broadcast_state")
+  private BroadcastStateEnum broadcastState = BroadcastStateEnum.OFF;
+
+  /**
    * The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.
    */
   @JsonAdapter(ContentKindEnum.Adapter.class)
@@ -267,6 +323,9 @@ public class RepositoryCreateRequest implements Serializable {
 
   @SerializedName("enforce_eula")
   private Boolean enforceEula = null;
+
+  @SerializedName("generic_package_index_enabled")
+  private Boolean genericPackageIndexEnabled = null;
 
   @SerializedName("index_files")
   private Boolean indexFiles = null;
@@ -752,6 +811,24 @@ public class RepositoryCreateRequest implements Serializable {
   @SerializedName("view_statistics")
   private ViewStatisticsEnum viewStatistics = ViewStatisticsEnum.READ;
 
+  public RepositoryCreateRequest broadcastState(BroadcastStateEnum broadcastState) {
+    this.broadcastState = broadcastState;
+    return this;
+  }
+
+   /**
+   * Broadcasting status of a repository.
+   * @return broadcastState
+  **/
+  @ApiModelProperty(value = "Broadcasting status of a repository.")
+  public BroadcastStateEnum getBroadcastState() {
+    return broadcastState;
+  }
+
+  public void setBroadcastState(BroadcastStateEnum broadcastState) {
+    this.broadcastState = broadcastState;
+  }
+
   public RepositoryCreateRequest contentKind(ContentKindEnum contentKind) {
     this.contentKind = contentKind;
     return this;
@@ -974,6 +1051,24 @@ public class RepositoryCreateRequest implements Serializable {
 
   public void setEnforceEula(Boolean enforceEula) {
     this.enforceEula = enforceEula;
+  }
+
+  public RepositoryCreateRequest genericPackageIndexEnabled(Boolean genericPackageIndexEnabled) {
+    this.genericPackageIndexEnabled = genericPackageIndexEnabled;
+    return this;
+  }
+
+   /**
+   * If checked, HTML indexes will be generated that list all available generic packages in the repository.
+   * @return genericPackageIndexEnabled
+  **/
+  @ApiModelProperty(value = "If checked, HTML indexes will be generated that list all available generic packages in the repository.")
+  public Boolean isGenericPackageIndexEnabled() {
+    return genericPackageIndexEnabled;
+  }
+
+  public void setGenericPackageIndexEnabled(Boolean genericPackageIndexEnabled) {
+    this.genericPackageIndexEnabled = genericPackageIndexEnabled;
   }
 
   public RepositoryCreateRequest indexFiles(Boolean indexFiles) {
@@ -1563,7 +1658,8 @@ public class RepositoryCreateRequest implements Serializable {
       return false;
     }
     RepositoryCreateRequest repositoryCreateRequest = (RepositoryCreateRequest) o;
-    return Objects.equals(this.contentKind, repositoryCreateRequest.contentKind) &&
+    return Objects.equals(this.broadcastState, repositoryCreateRequest.broadcastState) &&
+        Objects.equals(this.contentKind, repositoryCreateRequest.contentKind) &&
         Objects.equals(this.contextualAuthRealm, repositoryCreateRequest.contextualAuthRealm) &&
         Objects.equals(this.copyOwn, repositoryCreateRequest.copyOwn) &&
         Objects.equals(this.copyPackages, repositoryCreateRequest.copyPackages) &&
@@ -1575,6 +1671,7 @@ public class RepositoryCreateRequest implements Serializable {
         Objects.equals(this.distributes, repositoryCreateRequest.distributes) &&
         Objects.equals(this.dockerRefreshTokensEnabled, repositoryCreateRequest.dockerRefreshTokensEnabled) &&
         Objects.equals(this.enforceEula, repositoryCreateRequest.enforceEula) &&
+        Objects.equals(this.genericPackageIndexEnabled, repositoryCreateRequest.genericPackageIndexEnabled) &&
         Objects.equals(this.indexFiles, repositoryCreateRequest.indexFiles) &&
         Objects.equals(this.manageEntitlementsPrivilege, repositoryCreateRequest.manageEntitlementsPrivilege) &&
         Objects.equals(this.moveOwn, repositoryCreateRequest.moveOwn) &&
@@ -1611,7 +1708,7 @@ public class RepositoryCreateRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(broadcastState, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, genericPackageIndexEnabled, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1620,6 +1717,7 @@ public class RepositoryCreateRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepositoryCreateRequest {\n");
     
+    sb.append("    broadcastState: ").append(toIndentedString(broadcastState)).append("\n");
     sb.append("    contentKind: ").append(toIndentedString(contentKind)).append("\n");
     sb.append("    contextualAuthRealm: ").append(toIndentedString(contextualAuthRealm)).append("\n");
     sb.append("    copyOwn: ").append(toIndentedString(copyOwn)).append("\n");
@@ -1632,6 +1730,7 @@ public class RepositoryCreateRequest implements Serializable {
     sb.append("    distributes: ").append(toIndentedString(distributes)).append("\n");
     sb.append("    dockerRefreshTokensEnabled: ").append(toIndentedString(dockerRefreshTokensEnabled)).append("\n");
     sb.append("    enforceEula: ").append(toIndentedString(enforceEula)).append("\n");
+    sb.append("    genericPackageIndexEnabled: ").append(toIndentedString(genericPackageIndexEnabled)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
     sb.append("    manageEntitlementsPrivilege: ").append(toIndentedString(manageEntitlementsPrivilege)).append("\n");
     sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");
