@@ -49,9 +49,6 @@ class ComposerPackageUpload
 
   attr_accessor :filename
 
-  # Full path to the file, including filename e.g. bin/utils/tool.tar.gz
-  attr_accessor :filepath
-
   attr_accessor :files
 
   attr_accessor :format
@@ -252,7 +249,6 @@ class ComposerPackageUpload
       :'epoch' => :'epoch',
       :'extension' => :'extension',
       :'filename' => :'filename',
-      :'filepath' => :'filepath',
       :'files' => :'files',
       :'format' => :'format',
       :'format_url' => :'format_url',
@@ -342,7 +338,6 @@ class ComposerPackageUpload
       :'epoch' => :'Integer',
       :'extension' => :'String',
       :'filename' => :'String',
-      :'filepath' => :'String',
       :'files' => :'Array<PackageFile>',
       :'format' => :'String',
       :'format_url' => :'String',
@@ -485,10 +480,6 @@ class ComposerPackageUpload
 
     if attributes.has_key?(:'filename')
       self.filename = attributes[:'filename']
-    end
-
-    if attributes.has_key?(:'filepath')
-      self.filepath = attributes[:'filepath']
     end
 
     if attributes.has_key?(:'files')
@@ -812,7 +803,6 @@ class ComposerPackageUpload
         epoch == o.epoch &&
         extension == o.extension &&
         filename == o.filename &&
-        filepath == o.filepath &&
         files == o.files &&
         format == o.format &&
         format_url == o.format_url &&
@@ -891,7 +881,7 @@ class ComposerPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, filepath, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, policy_violated, raw_license, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, policy_violated, raw_license, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

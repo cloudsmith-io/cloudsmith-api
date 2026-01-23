@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **epoch** | **java.math.BigInteger** | The epoch of the package version (if any). |  [optional]
 **extension** | **String** |  |  [optional]
 **filename** | **String** |  |  [optional]
-**filepath** | **String** | Full path to the file, including filename e.g. bin/utils/tool.tar.gz |  [optional]
 **files** | [**List&lt;PackageFile&gt;**](PackageFile.md) |  |  [optional]
 **format** | **String** |  |  [optional]
 **formatUrl** | **String** |  |  [optional]
