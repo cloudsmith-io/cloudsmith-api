@@ -190,6 +190,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_generic(self):
+        """Test case for packages_upload_generic
+
+        Create a new Generic package  # noqa: E501
+        """
+        pass
+
     def test_packages_upload_go(self):
         """Test case for packages_upload_go
 
@@ -369,6 +376,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_docker
 
         Validate parameters for create Docker package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_generic(self):
+        """Test case for packages_validate_upload_generic
+
+        Validate parameters for create Generic package  # noqa: E501
         """
         pass
 

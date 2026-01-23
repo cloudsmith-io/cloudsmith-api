@@ -60,6 +60,7 @@ class PackageCopyRequest(object):
     def destination(self):
         """Gets the destination of this PackageCopyRequest.
 
+        The name of the destination repository without the namespace.
 
         :return: The destination of this PackageCopyRequest.
         :rtype: str
@@ -70,6 +71,7 @@ class PackageCopyRequest(object):
     def destination(self, destination):
         """Sets the destination of this PackageCopyRequest.
 
+        The name of the destination repository without the namespace.
 
         :param destination: The destination of this PackageCopyRequest.
         :type: str

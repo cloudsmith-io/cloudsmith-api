@@ -34,6 +34,8 @@ import io.cloudsmith.api.models.DebPackageUploadRequest;
 import io.cloudsmith.api.models.DockerPackageUpload;
 import io.cloudsmith.api.models.DockerPackageUploadRequest;
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.GenericPackageUpload;
+import io.cloudsmith.api.models.GenericPackageUploadRequest;
 import io.cloudsmith.api.models.GoPackageUpload;
 import io.cloudsmith.api.models.GoPackageUploadRequest;
 import io.cloudsmith.api.models.HelmPackageUpload;
@@ -525,6 +527,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new Generic package
+     *
+     * Create a new Generic package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadGenericTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        GenericPackageUploadRequest data = null;
+        GenericPackageUpload response = api.packagesUploadGeneric(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new Go package
      *
      * Create a new Go package
@@ -988,6 +1008,24 @@ public class PackagesApiTest {
         String repo = null;
         DockerPackageUploadRequest data = null;
         api.packagesValidateUploadDocker(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Generic package
+     *
+     * Validate parameters for create Generic package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadGenericTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        GenericPackageUploadRequest data = null;
+        api.packagesValidateUploadGeneric(owner, repo, data);
 
         // TODO: test validations
     }

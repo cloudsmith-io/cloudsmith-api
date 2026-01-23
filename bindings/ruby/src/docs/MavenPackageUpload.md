@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **epoch** | **Integer** | The epoch of the package version (if any). | [optional] 
 **extension** | **String** |  | [optional] 
 **filename** | **String** |  | [optional] 
+**filepath** | **String** | Full path to the file, including filename e.g. bin/utils/tool.tar.gz | [optional] 
 **files** | [**Array&lt;PackageFile&gt;**](PackageFile.md) |  | [optional] 
 **format** | **String** |  | [optional] 
 **format_url** | **String** |  | [optional] 

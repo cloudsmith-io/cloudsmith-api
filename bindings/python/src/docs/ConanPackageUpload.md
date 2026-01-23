@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **epoch** | **int** | The epoch of the package version (if any). | [optional] 
 **extension** | **str** |  | [optional] 
 **filename** | **str** |  | [optional] 
+**filepath** | **str** | Full path to the file, including filename e.g. bin/utils/tool.tar.gz | [optional] 
 **files** | [**list[PackageFile]**](PackageFile.md) |  | [optional] 
 **format** | **str** |  | [optional] 
 **format_url** | **str** |  | [optional] 

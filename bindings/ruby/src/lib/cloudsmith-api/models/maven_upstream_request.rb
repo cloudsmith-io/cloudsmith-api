@@ -56,6 +56,9 @@ class MavenUpstreamRequest
   # Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
   attr_accessor :priority
 
+  # Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+  attr_accessor :trust_level
+
   # The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. 
   attr_accessor :upstream_url
 
@@ -101,6 +104,7 @@ class MavenUpstreamRequest
       :'mode' => :'mode',
       :'name' => :'name',
       :'priority' => :'priority',
+      :'trust_level' => :'trust_level',
       :'upstream_url' => :'upstream_url',
       :'verify_ssl' => :'verify_ssl'
     }
@@ -123,6 +127,7 @@ class MavenUpstreamRequest
       :'mode' => :'String',
       :'name' => :'String',
       :'priority' => :'Integer',
+      :'trust_level' => :'String',
       :'upstream_url' => :'String',
       :'verify_ssl' => :'BOOLEAN'
     }
@@ -198,6 +203,12 @@ class MavenUpstreamRequest
       self.priority = attributes[:'priority']
     end
 
+    if attributes.has_key?(:'trust_level')
+      self.trust_level = attributes[:'trust_level']
+    else
+      self.trust_level = 'Trusted'
+    end
+
     if attributes.has_key?(:'upstream_url')
       self.upstream_url = attributes[:'upstream_url']
     end
@@ -232,6 +243,8 @@ class MavenUpstreamRequest
     mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy', 'Cache Only'])
     return false unless mode_validator.valid?(@mode)
     return false if @name.nil?
+    trust_level_validator = EnumAttributeValidator.new('String', ['Trusted', 'Untrusted'])
+    return false unless trust_level_validator.valid?(@trust_level)
     return false if @upstream_url.nil?
     true
   end
@@ -266,6 +279,16 @@ class MavenUpstreamRequest
     @mode = mode
   end
 
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] trust_level Object to be assigned
+  def trust_level=(trust_level)
+    validator = EnumAttributeValidator.new('String', ['Trusted', 'Untrusted'])
+    unless validator.valid?(trust_level)
+      fail ArgumentError, 'invalid value for "trust_level", must be one of #{validator.allowable_values}.'
+    end
+    @trust_level = trust_level
+  end
+
   # Checks equality by comparing each attribute.
   # @param [Object] Object to be compared
   def ==(o)
@@ -285,6 +308,7 @@ class MavenUpstreamRequest
         mode == o.mode &&
         name == o.name &&
         priority == o.priority &&
+        trust_level == o.trust_level &&
         upstream_url == o.upstream_url &&
         verify_ssl == o.verify_ssl
   end
@@ -298,7 +322,7 @@ class MavenUpstreamRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_mode, auth_secret, auth_username, extra_header_1, extra_header_2, extra_value_1, extra_value_2, gpg_key_inline, gpg_key_url, gpg_verification, is_active, mode, name, priority, upstream_url, verify_ssl].hash
+    [auth_mode, auth_secret, auth_username, extra_header_1, extra_header_2, extra_value_1, extra_value_2, gpg_key_inline, gpg_key_url, gpg_verification, is_active, mode, name, priority, trust_level, upstream_url, verify_ssl].hash
   end
 
     # Builds the object from hash

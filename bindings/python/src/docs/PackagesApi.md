@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**packages_upload_dart**](PackagesApi.md#packages_upload_dart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 [**packages_upload_deb**](PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packages_upload_docker**](PackagesApi.md#packages_upload_docker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
+[**packages_upload_generic**](PackagesApi.md#packages_upload_generic) | **POST** /packages/{owner}/{repo}/upload/generic/ | Create a new Generic package
 [**packages_upload_go**](PackagesApi.md#packages_upload_go) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 [**packages_upload_helm**](PackagesApi.md#packages_upload_helm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 [**packages_upload_hex**](PackagesApi.md#packages_upload_hex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
@@ -53,6 +54,7 @@ Method | HTTP request | Description
 [**packages_validate_upload_dart**](PackagesApi.md#packages_validate_upload_dart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 [**packages_validate_upload_deb**](PackagesApi.md#packages_validate_upload_deb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packages_validate_upload_docker**](PackagesApi.md#packages_validate_upload_docker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
+[**packages_validate_upload_generic**](PackagesApi.md#packages_validate_upload_generic) | **POST** /packages/{owner}/{repo}/validate-upload/generic/ | Validate parameters for create Generic package
 [**packages_validate_upload_go**](PackagesApi.md#packages_validate_upload_go) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 [**packages_validate_upload_helm**](PackagesApi.md#packages_validate_upload_helm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 [**packages_validate_upload_hex**](PackagesApi.md#packages_validate_upload_hex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
@@ -1510,6 +1512,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DockerPackageUpload**](DockerPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_upload_generic**
+> GenericPackageUpload packages_upload_generic(owner, repo, data=data)
+
+Create a new Generic package
+
+Create a new Generic package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.GenericPackageUploadRequest() # GenericPackageUploadRequest |  (optional)
+
+try:
+    # Create a new Generic package
+    api_response = api_instance.packages_upload_generic(owner, repo, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_upload_generic: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**GenericPackageUploadRequest**](GenericPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+[**GenericPackageUpload**](GenericPackageUpload.md)
 
 ### Authorization
 
@@ -3108,6 +3172,67 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_validate_upload_generic**
+> packages_validate_upload_generic(owner, repo, data=data)
+
+Validate parameters for create Generic package
+
+Validate parameters for create Generic package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.GenericPackageUploadRequest() # GenericPackageUploadRequest |  (optional)
+
+try:
+    # Validate parameters for create Generic package
+    api_instance.packages_validate_upload_generic(owner, repo, data=data)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_validate_upload_generic: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**GenericPackageUploadRequest**](GenericPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 

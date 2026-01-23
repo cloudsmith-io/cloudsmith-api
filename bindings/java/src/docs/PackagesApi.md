@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**packagesUploadDart**](PackagesApi.md#packagesUploadDart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 [**packagesUploadDeb**](PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 [**packagesUploadDocker**](PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
+[**packagesUploadGeneric**](PackagesApi.md#packagesUploadGeneric) | **POST** /packages/{owner}/{repo}/upload/generic/ | Create a new Generic package
 [**packagesUploadGo**](PackagesApi.md#packagesUploadGo) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 [**packagesUploadHelm**](PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 [**packagesUploadHex**](PackagesApi.md#packagesUploadHex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
@@ -53,6 +54,7 @@ Method | HTTP request | Description
 [**packagesValidateUploadDart**](PackagesApi.md#packagesValidateUploadDart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 [**packagesValidateUploadDeb**](PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 [**packagesValidateUploadDocker**](PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
+[**packagesValidateUploadGeneric**](PackagesApi.md#packagesValidateUploadGeneric) | **POST** /packages/{owner}/{repo}/validate-upload/generic/ | Validate parameters for create Generic package
 [**packagesValidateUploadGo**](PackagesApi.md#packagesValidateUploadGo) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 [**packagesValidateUploadHelm**](PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 [**packagesValidateUploadHex**](PackagesApi.md#packagesValidateUploadHex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
@@ -1558,6 +1560,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DockerPackageUpload**](DockerPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="packagesUploadGeneric"></a>
+# **packagesUploadGeneric**
+> GenericPackageUpload packagesUploadGeneric(owner, repo, data)
+
+Create a new Generic package
+
+Create a new Generic package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+GenericPackageUploadRequest data = new GenericPackageUploadRequest(); // GenericPackageUploadRequest | 
+try {
+    GenericPackageUpload result = apiInstance.packagesUploadGeneric(owner, repo, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesUploadGeneric");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**GenericPackageUploadRequest**](GenericPackageUploadRequest.md)|  | [optional]
+
+### Return type
+
+[**GenericPackageUpload**](GenericPackageUpload.md)
 
 ### Authorization
 
@@ -3208,6 +3274,69 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **data** | [**DockerPackageUploadRequest**](DockerPackageUploadRequest.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="packagesValidateUploadGeneric"></a>
+# **packagesValidateUploadGeneric**
+> packagesValidateUploadGeneric(owner, repo, data)
+
+Validate parameters for create Generic package
+
+Validate parameters for create Generic package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+GenericPackageUploadRequest data = new GenericPackageUploadRequest(); // GenericPackageUploadRequest | 
+try {
+    apiInstance.packagesValidateUploadGeneric(owner, repo, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesValidateUploadGeneric");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**GenericPackageUploadRequest**](GenericPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 

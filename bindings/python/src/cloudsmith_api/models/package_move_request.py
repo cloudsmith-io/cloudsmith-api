@@ -55,6 +55,7 @@ class PackageMoveRequest(object):
     def destination(self):
         """Gets the destination of this PackageMoveRequest.
 
+        The name of the destination repository without the namespace.
 
         :return: The destination of this PackageMoveRequest.
         :rtype: str
@@ -65,6 +66,7 @@ class PackageMoveRequest(object):
     def destination(self, destination):
         """Sets the destination of this PackageMoveRequest.
 
+        The name of the destination repository without the namespace.
 
         :param destination: The destination of this PackageMoveRequest.
         :type: str

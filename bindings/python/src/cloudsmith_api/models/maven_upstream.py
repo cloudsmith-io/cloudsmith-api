@@ -59,6 +59,7 @@ class MavenUpstream(object):
         'pending_validation': 'bool',
         'priority': 'int',
         'slug_perm': 'str',
+        'trust_level': 'str',
         'updated_at': 'datetime',
         'upstream_url': 'str',
         'verification_status': 'str',
@@ -92,13 +93,14 @@ class MavenUpstream(object):
         'pending_validation': 'pending_validation',
         'priority': 'priority',
         'slug_perm': 'slug_perm',
+        'trust_level': 'trust_level',
         'updated_at': 'updated_at',
         'upstream_url': 'upstream_url',
         'verification_status': 'verification_status',
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, available=None, can_reindex=None, created_at=None, disable_reason='N/A', disable_reason_text=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, gpg_key_fingerprint_short=None, gpg_key_inline=None, gpg_key_url=None, gpg_verification='Allow All', has_failed_signature_verification=None, index_package_count=None, index_status=None, is_active=None, last_indexed=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, updated_at=None, upstream_url=None, verification_status='Unknown', verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, available=None, can_reindex=None, created_at=None, disable_reason='N/A', disable_reason_text=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, gpg_key_fingerprint_short=None, gpg_key_inline=None, gpg_key_url=None, gpg_verification='Allow All', has_failed_signature_verification=None, index_package_count=None, index_status=None, is_active=None, last_indexed=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, trust_level='Trusted', updated_at=None, upstream_url=None, verification_status='Unknown', verify_ssl=None, _configuration=None):  # noqa: E501
         """MavenUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -130,6 +132,7 @@ class MavenUpstream(object):
         self._pending_validation = None
         self._priority = None
         self._slug_perm = None
+        self._trust_level = None
         self._updated_at = None
         self._upstream_url = None
         self._verification_status = None
@@ -187,6 +190,8 @@ class MavenUpstream(object):
             self.priority = priority
         if slug_perm is not None:
             self.slug_perm = slug_perm
+        if trust_level is not None:
+            self.trust_level = trust_level
         if updated_at is not None:
             self.updated_at = updated_at
         self.upstream_url = upstream_url
@@ -864,6 +869,36 @@ class MavenUpstream(object):
             raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
+
+    @property
+    def trust_level(self):
+        """Gets the trust_level of this MavenUpstream.
+
+        Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+
+        :return: The trust_level of this MavenUpstream.
+        :rtype: str
+        """
+        return self._trust_level
+
+    @trust_level.setter
+    def trust_level(self, trust_level):
+        """Sets the trust_level of this MavenUpstream.
+
+        Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+
+        :param trust_level: The trust_level of this MavenUpstream.
+        :type: str
+        """
+        allowed_values = ["Trusted", "Untrusted"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                trust_level not in allowed_values):
+            raise ValueError(
+                "Invalid value for `trust_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(trust_level, allowed_values)
+            )
+
+        self._trust_level = trust_level
 
     @property
     def updated_at(self):

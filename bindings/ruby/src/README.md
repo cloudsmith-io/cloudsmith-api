@@ -217,6 +217,7 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::PackagesApi* | [**packages_upload_dart**](docs/PackagesApi.md#packages_upload_dart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 *CloudsmithApi::PackagesApi* | [**packages_upload_deb**](docs/PackagesApi.md#packages_upload_deb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 *CloudsmithApi::PackagesApi* | [**packages_upload_docker**](docs/PackagesApi.md#packages_upload_docker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
+*CloudsmithApi::PackagesApi* | [**packages_upload_generic**](docs/PackagesApi.md#packages_upload_generic) | **POST** /packages/{owner}/{repo}/upload/generic/ | Create a new Generic package
 *CloudsmithApi::PackagesApi* | [**packages_upload_go**](docs/PackagesApi.md#packages_upload_go) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 *CloudsmithApi::PackagesApi* | [**packages_upload_helm**](docs/PackagesApi.md#packages_upload_helm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 *CloudsmithApi::PackagesApi* | [**packages_upload_hex**](docs/PackagesApi.md#packages_upload_hex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
@@ -243,6 +244,7 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_dart**](docs/PackagesApi.md#packages_validate_upload_dart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_deb**](docs/PackagesApi.md#packages_validate_upload_deb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_docker**](docs/PackagesApi.md#packages_validate_upload_docker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
+*CloudsmithApi::PackagesApi* | [**packages_validate_upload_generic**](docs/PackagesApi.md#packages_validate_upload_generic) | **POST** /packages/{owner}/{repo}/validate-upload/generic/ | Validate parameters for create Generic package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_go**](docs/PackagesApi.md#packages_validate_upload_go) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_helm**](docs/PackagesApi.md#packages_validate_upload_helm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_hex**](docs/PackagesApi.md#packages_validate_upload_hex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
@@ -333,6 +335,12 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::ReposApi* | [**repos_upstream_docker_partial_update**](docs/ReposApi.md#repos_upstream_docker_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_docker_read**](docs/ReposApi.md#repos_upstream_docker_read) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_docker_update**](docs/ReposApi.md#repos_upstream_docker_update) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_generic_create**](docs/ReposApi.md#repos_upstream_generic_create) | **POST** /repos/{owner}/{identifier}/upstream/generic/ | Create a Generic upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_generic_delete**](docs/ReposApi.md#repos_upstream_generic_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Delete a Generic upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_generic_list**](docs/ReposApi.md#repos_upstream_generic_list) | **GET** /repos/{owner}/{identifier}/upstream/generic/ | List Generic upstream configs for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_generic_partial_update**](docs/ReposApi.md#repos_upstream_generic_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Partially update a Generic upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_generic_read**](docs/ReposApi.md#repos_upstream_generic_read) | **GET** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Retrieve a Generic upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_generic_update**](docs/ReposApi.md#repos_upstream_generic_update) | **PUT** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Update a Generic upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_go_create**](docs/ReposApi.md#repos_upstream_go_create) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_go_delete**](docs/ReposApi.md#repos_upstream_go_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_go_list**](docs/ReposApi.md#repos_upstream_go_list) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
@@ -485,6 +493,11 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::Format](docs/Format.md)
  - [CloudsmithApi::FormatSupport](docs/FormatSupport.md)
  - [CloudsmithApi::FormatSupportUpstream](docs/FormatSupportUpstream.md)
+ - [CloudsmithApi::GenericPackageUpload](docs/GenericPackageUpload.md)
+ - [CloudsmithApi::GenericPackageUploadRequest](docs/GenericPackageUploadRequest.md)
+ - [CloudsmithApi::GenericUpstream](docs/GenericUpstream.md)
+ - [CloudsmithApi::GenericUpstreamRequest](docs/GenericUpstreamRequest.md)
+ - [CloudsmithApi::GenericUpstreamRequestPatch](docs/GenericUpstreamRequestPatch.md)
  - [CloudsmithApi::GeoIpLocation](docs/GeoIpLocation.md)
  - [CloudsmithApi::GoPackageUpload](docs/GoPackageUpload.md)
  - [CloudsmithApi::GoPackageUploadRequest](docs/GoPackageUploadRequest.md)

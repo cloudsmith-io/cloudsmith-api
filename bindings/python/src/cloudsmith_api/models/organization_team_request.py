@@ -70,6 +70,7 @@ class OrganizationTeamRequest(object):
     def description(self):
         """Gets the description of this OrganizationTeamRequest.
 
+        A detailed description of the team.
 
         :return: The description of this OrganizationTeamRequest.
         :rtype: str
@@ -80,16 +81,14 @@ class OrganizationTeamRequest(object):
     def description(self, description):
         """Sets the description of this OrganizationTeamRequest.
 
+        A detailed description of the team.
 
         :param description: The description of this OrganizationTeamRequest.
         :type: str
         """
         if (self._configuration.client_side_validation and
-                description is not None and len(description) > 140):
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `140`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                description is not None and len(description) < 1):
-            raise ValueError("Invalid value for `description`, length must be greater than or equal to `1`")  # noqa: E501
+                description is not None and len(description) > 200):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `200`")  # noqa: E501
 
         self._description = description
 

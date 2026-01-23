@@ -14,6 +14,7 @@ require 'date'
 
 module CloudsmithApi
 class OrganizationTeamRequest
+  # A detailed description of the team.
   attr_accessor :description
 
   # A descriptive name for the team.

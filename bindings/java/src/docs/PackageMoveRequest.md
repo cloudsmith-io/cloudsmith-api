@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**destination** | **String** |  | 
+**destination** | **String** | The name of the destination repository without the namespace. | 
 
 
 

@@ -73,6 +73,12 @@ Method | HTTP request | Description
 [**repos_upstream_docker_partial_update**](ReposApi.md#repos_upstream_docker_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
 [**repos_upstream_docker_read**](ReposApi.md#repos_upstream_docker_read) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
 [**repos_upstream_docker_update**](ReposApi.md#repos_upstream_docker_update) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+[**repos_upstream_generic_create**](ReposApi.md#repos_upstream_generic_create) | **POST** /repos/{owner}/{identifier}/upstream/generic/ | Create a Generic upstream config for this repository.
+[**repos_upstream_generic_delete**](ReposApi.md#repos_upstream_generic_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Delete a Generic upstream config for this repository.
+[**repos_upstream_generic_list**](ReposApi.md#repos_upstream_generic_list) | **GET** /repos/{owner}/{identifier}/upstream/generic/ | List Generic upstream configs for this repository.
+[**repos_upstream_generic_partial_update**](ReposApi.md#repos_upstream_generic_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Partially update a Generic upstream config for this repository.
+[**repos_upstream_generic_read**](ReposApi.md#repos_upstream_generic_read) | **GET** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Retrieve a Generic upstream config for this repository.
+[**repos_upstream_generic_update**](ReposApi.md#repos_upstream_generic_update) | **PUT** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Update a Generic upstream config for this repository.
 [**repos_upstream_go_create**](ReposApi.md#repos_upstream_go_create) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
 [**repos_upstream_go_delete**](ReposApi.md#repos_upstream_go_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
 [**repos_upstream_go_list**](ReposApi.md#repos_upstream_go_list) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
@@ -4417,6 +4423,383 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DockerUpstream**](DockerUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_generic_create**
+> GenericUpstream repos_upstream_generic_create(owner, identifier, data=data)
+
+Create a Generic upstream config for this repository.
+
+Create a Generic upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.GenericUpstreamRequest() # GenericUpstreamRequest |  (optional)
+
+try:
+    # Create a Generic upstream config for this repository.
+    api_response = api_instance.repos_upstream_generic_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_generic_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_generic_delete**
+> repos_upstream_generic_delete(owner, identifier, slug_perm)
+
+Delete a Generic upstream config for this repository.
+
+Delete a Generic upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a Generic upstream config for this repository.
+    api_instance.repos_upstream_generic_delete(owner, identifier, slug_perm)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_generic_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_generic_list**
+> list[GenericUpstream] repos_upstream_generic_list(owner, identifier, page=page, page_size=page_size)
+
+List Generic upstream configs for this repository.
+
+List Generic upstream configs for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List Generic upstream configs for this repository.
+    api_response = api_instance.repos_upstream_generic_list(owner, identifier, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_generic_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[GenericUpstream]**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_generic_partial_update**
+> GenericUpstream repos_upstream_generic_partial_update(owner, identifier, slug_perm, data=data)
+
+Partially update a Generic upstream config for this repository.
+
+Partially update a Generic upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.GenericUpstreamRequestPatch() # GenericUpstreamRequestPatch |  (optional)
+
+try:
+    # Partially update a Generic upstream config for this repository.
+    api_response = api_instance.repos_upstream_generic_partial_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_generic_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**GenericUpstreamRequestPatch**](GenericUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_generic_read**
+> GenericUpstream repos_upstream_generic_read(owner, identifier, slug_perm)
+
+Retrieve a Generic upstream config for this repository.
+
+Retrieve a Generic upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a Generic upstream config for this repository.
+    api_response = api_instance.repos_upstream_generic_read(owner, identifier, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_generic_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_generic_update**
+> GenericUpstream repos_upstream_generic_update(owner, identifier, slug_perm, data=data)
+
+Update a Generic upstream config for this repository.
+
+Update a Generic upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.GenericUpstreamRequest() # GenericUpstreamRequest |  (optional)
+
+try:
+    # Update a Generic upstream config for this repository.
+    api_response = api_instance.repos_upstream_generic_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_generic_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
 
 ### Authorization
 

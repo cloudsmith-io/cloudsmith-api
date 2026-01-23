@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **String** |  |  [optional]
+**description** | **String** | A detailed description of the team. |  [optional]
 **name** | **String** | A descriptive name for the team. | 
 **slug** | **String** |  |  [optional]
 **visibility** | [**VisibilityEnum**](#VisibilityEnum) |  |  [optional]

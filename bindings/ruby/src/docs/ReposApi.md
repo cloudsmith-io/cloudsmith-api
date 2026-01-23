@@ -73,6 +73,12 @@ Method | HTTP request | Description
 [**repos_upstream_docker_partial_update**](ReposApi.md#repos_upstream_docker_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
 [**repos_upstream_docker_read**](ReposApi.md#repos_upstream_docker_read) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
 [**repos_upstream_docker_update**](ReposApi.md#repos_upstream_docker_update) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+[**repos_upstream_generic_create**](ReposApi.md#repos_upstream_generic_create) | **POST** /repos/{owner}/{identifier}/upstream/generic/ | Create a Generic upstream config for this repository.
+[**repos_upstream_generic_delete**](ReposApi.md#repos_upstream_generic_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Delete a Generic upstream config for this repository.
+[**repos_upstream_generic_list**](ReposApi.md#repos_upstream_generic_list) | **GET** /repos/{owner}/{identifier}/upstream/generic/ | List Generic upstream configs for this repository.
+[**repos_upstream_generic_partial_update**](ReposApi.md#repos_upstream_generic_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Partially update a Generic upstream config for this repository.
+[**repos_upstream_generic_read**](ReposApi.md#repos_upstream_generic_read) | **GET** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Retrieve a Generic upstream config for this repository.
+[**repos_upstream_generic_update**](ReposApi.md#repos_upstream_generic_update) | **PUT** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Update a Generic upstream config for this repository.
 [**repos_upstream_go_create**](ReposApi.md#repos_upstream_go_create) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
 [**repos_upstream_go_delete**](ReposApi.md#repos_upstream_go_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
 [**repos_upstream_go_list**](ReposApi.md#repos_upstream_go_list) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
@@ -4600,6 +4606,401 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DockerUpstream**](DockerUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_generic_create**
+> GenericUpstream repos_upstream_generic_create(owner, identifier, opts)
+
+Create a Generic upstream config for this repository.
+
+Create a Generic upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::GenericUpstreamRequest.new # GenericUpstreamRequest | 
+}
+
+begin
+  #Create a Generic upstream config for this repository.
+  result = api_instance.repos_upstream_generic_create(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_generic_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_generic_delete**
+> repos_upstream_generic_delete(owner, identifier, slug_perm)
+
+Delete a Generic upstream config for this repository.
+
+Delete a Generic upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete a Generic upstream config for this repository.
+  api_instance.repos_upstream_generic_delete(owner, identifier, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_generic_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_generic_list**
+> Array&lt;GenericUpstream&gt; repos_upstream_generic_list(owner, identifier, opts)
+
+List Generic upstream configs for this repository.
+
+List Generic upstream configs for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #List Generic upstream configs for this repository.
+  result = api_instance.repos_upstream_generic_list(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_generic_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;GenericUpstream&gt;**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_generic_partial_update**
+> GenericUpstream repos_upstream_generic_partial_update(owner, identifier, slug_perm, opts)
+
+Partially update a Generic upstream config for this repository.
+
+Partially update a Generic upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::GenericUpstreamRequestPatch.new # GenericUpstreamRequestPatch | 
+}
+
+begin
+  #Partially update a Generic upstream config for this repository.
+  result = api_instance.repos_upstream_generic_partial_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_generic_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**GenericUpstreamRequestPatch**](GenericUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_generic_read**
+> GenericUpstream repos_upstream_generic_read(owner, identifier, slug_perm)
+
+Retrieve a Generic upstream config for this repository.
+
+Retrieve a Generic upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve a Generic upstream config for this repository.
+  result = api_instance.repos_upstream_generic_read(owner, identifier, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_generic_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_generic_update**
+> GenericUpstream repos_upstream_generic_update(owner, identifier, slug_perm, opts)
+
+Update a Generic upstream config for this repository.
+
+Update a Generic upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::GenericUpstreamRequest.new # GenericUpstreamRequest | 
+}
+
+begin
+  #Update a Generic upstream config for this repository.
+  result = api_instance.repos_upstream_generic_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_generic_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
 
 ### Authorization
 

@@ -92,6 +92,9 @@ public class AlpinePackageUpload implements Serializable {
   @SerializedName("filename")
   private String filename = null;
 
+  @SerializedName("filepath")
+  private String filepath = null;
+
   @SerializedName("files")
   private List<PackageFile> files = null;
 
@@ -515,6 +518,15 @@ public class AlpinePackageUpload implements Serializable {
  @Size(min=1)  @ApiModelProperty(value = "")
   public String getFilename() {
     return filename;
+  }
+
+   /**
+   * Full path to the file, including filename e.g. bin/utils/tool.tar.gz
+   * @return filepath
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Full path to the file, including filename e.g. bin/utils/tool.tar.gz")
+  public String getFilepath() {
+    return filepath;
   }
 
    /**
@@ -1174,6 +1186,7 @@ public class AlpinePackageUpload implements Serializable {
         Objects.equals(this.epoch, alpinePackageUpload.epoch) &&
         Objects.equals(this.extension, alpinePackageUpload.extension) &&
         Objects.equals(this.filename, alpinePackageUpload.filename) &&
+        Objects.equals(this.filepath, alpinePackageUpload.filepath) &&
         Objects.equals(this.files, alpinePackageUpload.files) &&
         Objects.equals(this.format, alpinePackageUpload.format) &&
         Objects.equals(this.formatUrl, alpinePackageUpload.formatUrl) &&
@@ -1245,7 +1258,7 @@ public class AlpinePackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1270,6 +1283,7 @@ public class AlpinePackageUpload implements Serializable {
     sb.append("    epoch: ").append(toIndentedString(epoch)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    filepath: ").append(toIndentedString(filepath)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    formatUrl: ").append(toIndentedString(formatUrl)).append("\n");

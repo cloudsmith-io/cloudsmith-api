@@ -309,6 +309,56 @@ public class MavenUpstream implements Serializable {
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
+  /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   */
+  @JsonAdapter(TrustLevelEnum.Adapter.class)
+  public enum TrustLevelEnum {
+    TRUSTED("Trusted"),
+    
+    UNTRUSTED("Untrusted");
+
+    private String value;
+
+    TrustLevelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TrustLevelEnum fromValue(String text) {
+      for (TrustLevelEnum b : TrustLevelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TrustLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TrustLevelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TrustLevelEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TrustLevelEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("trust_level")
+  private TrustLevelEnum trustLevel = TrustLevelEnum.TRUSTED;
+
   @SerializedName("updated_at")
   private OffsetDateTime updatedAt = null;
 
@@ -736,6 +786,24 @@ public class MavenUpstream implements Serializable {
     return slugPerm;
   }
 
+  public MavenUpstream trustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+    return this;
+  }
+
+   /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   * @return trustLevel
+  **/
+  @ApiModelProperty(value = "Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
+  public TrustLevelEnum getTrustLevel() {
+    return trustLevel;
+  }
+
+  public void setTrustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+  }
+
    /**
    * Get updatedAt
    * @return updatedAt
@@ -828,6 +896,7 @@ public class MavenUpstream implements Serializable {
         Objects.equals(this.pendingValidation, mavenUpstream.pendingValidation) &&
         Objects.equals(this.priority, mavenUpstream.priority) &&
         Objects.equals(this.slugPerm, mavenUpstream.slugPerm) &&
+        Objects.equals(this.trustLevel, mavenUpstream.trustLevel) &&
         Objects.equals(this.updatedAt, mavenUpstream.updatedAt) &&
         Objects.equals(this.upstreamUrl, mavenUpstream.upstreamUrl) &&
         Objects.equals(this.verificationStatus, mavenUpstream.verificationStatus) &&
@@ -836,7 +905,7 @@ public class MavenUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, gpgKeyFingerprintShort, gpgKeyInline, gpgKeyUrl, gpgVerification, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verificationStatus, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, gpgKeyFingerprintShort, gpgKeyInline, gpgKeyUrl, gpgVerification, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, trustLevel, updatedAt, upstreamUrl, verificationStatus, verifySsl);
   }
 
 
@@ -871,6 +940,7 @@ public class MavenUpstream implements Serializable {
     sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    trustLevel: ").append(toIndentedString(trustLevel)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");

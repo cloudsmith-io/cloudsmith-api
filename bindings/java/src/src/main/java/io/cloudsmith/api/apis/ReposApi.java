@@ -58,6 +58,9 @@ import io.cloudsmith.api.models.DockerUpstream;
 import io.cloudsmith.api.models.DockerUpstreamRequest;
 import io.cloudsmith.api.models.DockerUpstreamRequestPatch;
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.GenericUpstream;
+import io.cloudsmith.api.models.GenericUpstreamRequest;
+import io.cloudsmith.api.models.GenericUpstreamRequestPatch;
 import io.cloudsmith.api.models.GoUpstream;
 import io.cloudsmith.api.models.GoUpstreamRequest;
 import io.cloudsmith.api.models.GoUpstreamRequestPatch;
@@ -10475,6 +10478,916 @@ public class ReposApi {
 
         com.squareup.okhttp.Call call = reposUpstreamDockerUpdateValidateBeforeCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DockerUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamGenericCreate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericCreateCall(String owner, String identifier, GenericUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/generic/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamGenericCreateValidateBeforeCall(String owner, String identifier, GenericUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, data };
+            Method method = this.getClass().getMethod("reposUpstreamGenericCreateWithHttpInfo", String.class, String.class, GenericUpstreamRequest.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamGenericCreateCall(owner, identifier, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create a Generic upstream config for this repository.
+     * Create a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return GenericUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GenericUpstream reposUpstreamGenericCreate(String owner, String identifier, GenericUpstreamRequest data) throws ApiException {
+        ApiResponse<GenericUpstream> resp = reposUpstreamGenericCreateWithHttpInfo(owner, identifier, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a Generic upstream config for this repository.
+     * Create a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;GenericUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GenericUpstream> reposUpstreamGenericCreateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  GenericUpstreamRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamGenericCreateValidateBeforeCall(owner, identifier, data, null, null);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a Generic upstream config for this repository. (asynchronously)
+     * Create a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericCreateAsync(String owner, String identifier, GenericUpstreamRequest data, final ApiCallback<GenericUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamGenericCreateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamGenericDelete
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericDeleteCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/generic/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamGenericDeleteValidateBeforeCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm };
+            Method method = this.getClass().getMethod("reposUpstreamGenericDeleteWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamGenericDeleteCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Delete a Generic upstream config for this repository.
+     * Delete a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void reposUpstreamGenericDelete(String owner, String identifier, String slugPerm) throws ApiException {
+        reposUpstreamGenericDeleteWithHttpInfo(owner, identifier, slugPerm);
+    }
+
+    /**
+     * Delete a Generic upstream config for this repository.
+     * Delete a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> reposUpstreamGenericDeleteWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamGenericDeleteValidateBeforeCall(owner, identifier, slugPerm, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a Generic upstream config for this repository. (asynchronously)
+     * Delete a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericDeleteAsync(String owner, String identifier, String slugPerm, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamGenericDeleteValidateBeforeCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamGenericList
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericListCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/generic/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamGenericListValidateBeforeCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, page, pageSize };
+            Method method = this.getClass().getMethod("reposUpstreamGenericListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamGenericListCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * List Generic upstream configs for this repository.
+     * List Generic upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;GenericUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<GenericUpstream> reposUpstreamGenericList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<GenericUpstream>> resp = reposUpstreamGenericListWithHttpInfo(owner, identifier, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * List Generic upstream configs for this repository.
+     * List Generic upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;GenericUpstream&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<GenericUpstream>> reposUpstreamGenericListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamGenericListValidateBeforeCall(owner, identifier, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<GenericUpstream>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Generic upstream configs for this repository. (asynchronously)
+     * List Generic upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<GenericUpstream>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamGenericListValidateBeforeCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<GenericUpstream>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamGenericPartialUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericPartialUpdateCall(String owner, String identifier, String slugPerm, GenericUpstreamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/generic/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamGenericPartialUpdateValidateBeforeCall(String owner, String identifier, String slugPerm, GenericUpstreamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm, data };
+            Method method = this.getClass().getMethod("reposUpstreamGenericPartialUpdateWithHttpInfo", String.class, String.class, String.class, GenericUpstreamRequestPatch.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamGenericPartialUpdateCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Partially update a Generic upstream config for this repository.
+     * Partially update a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return GenericUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GenericUpstream reposUpstreamGenericPartialUpdate(String owner, String identifier, String slugPerm, GenericUpstreamRequestPatch data) throws ApiException {
+        ApiResponse<GenericUpstream> resp = reposUpstreamGenericPartialUpdateWithHttpInfo(owner, identifier, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Partially update a Generic upstream config for this repository.
+     * Partially update a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;GenericUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GenericUpstream> reposUpstreamGenericPartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm,  GenericUpstreamRequestPatch data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamGenericPartialUpdateValidateBeforeCall(owner, identifier, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Partially update a Generic upstream config for this repository. (asynchronously)
+     * Partially update a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericPartialUpdateAsync(String owner, String identifier, String slugPerm, GenericUpstreamRequestPatch data, final ApiCallback<GenericUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamGenericPartialUpdateValidateBeforeCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamGenericRead
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericReadCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/generic/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamGenericReadValidateBeforeCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm };
+            Method method = this.getClass().getMethod("reposUpstreamGenericReadWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamGenericReadCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve a Generic upstream config for this repository.
+     * Retrieve a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return GenericUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GenericUpstream reposUpstreamGenericRead(String owner, String identifier, String slugPerm) throws ApiException {
+        ApiResponse<GenericUpstream> resp = reposUpstreamGenericReadWithHttpInfo(owner, identifier, slugPerm);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve a Generic upstream config for this repository.
+     * Retrieve a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;GenericUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GenericUpstream> reposUpstreamGenericReadWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamGenericReadValidateBeforeCall(owner, identifier, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a Generic upstream config for this repository. (asynchronously)
+     * Retrieve a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericReadAsync(String owner, String identifier, String slugPerm, final ApiCallback<GenericUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamGenericReadValidateBeforeCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamGenericUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericUpdateCall(String owner, String identifier, String slugPerm, GenericUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/generic/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamGenericUpdateValidateBeforeCall(String owner, String identifier, String slugPerm, GenericUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm, data };
+            Method method = this.getClass().getMethod("reposUpstreamGenericUpdateWithHttpInfo", String.class, String.class, String.class, GenericUpstreamRequest.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamGenericUpdateCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Update a Generic upstream config for this repository.
+     * Update a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return GenericUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GenericUpstream reposUpstreamGenericUpdate(String owner, String identifier, String slugPerm, GenericUpstreamRequest data) throws ApiException {
+        ApiResponse<GenericUpstream> resp = reposUpstreamGenericUpdateWithHttpInfo(owner, identifier, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Update a Generic upstream config for this repository.
+     * Update a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;GenericUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GenericUpstream> reposUpstreamGenericUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm,  GenericUpstreamRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamGenericUpdateValidateBeforeCall(owner, identifier, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update a Generic upstream config for this repository. (asynchronously)
+     * Update a Generic upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamGenericUpdateAsync(String owner, String identifier, String slugPerm, GenericUpstreamRequest data, final ApiCallback<GenericUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamGenericUpdateValidateBeforeCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GenericUpstream>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

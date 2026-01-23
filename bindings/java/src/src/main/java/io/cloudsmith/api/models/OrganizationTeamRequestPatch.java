@@ -99,10 +99,10 @@ public class OrganizationTeamRequestPatch implements Serializable {
   }
 
    /**
-   * Get description
+   * A detailed description of the team.
    * @return description
   **/
- @Size(min=1,max=140)  @ApiModelProperty(value = "")
+ @Size(max=200)  @ApiModelProperty(value = "A detailed description of the team.")
   public String getDescription() {
     return description;
   }
