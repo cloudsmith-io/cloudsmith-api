@@ -14,6 +14,7 @@ require 'date'
 
 module CloudsmithApi
 class PackageCopyRequest
+  # The name of the destination repository without the namespace.
   attr_accessor :destination
 
   # If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.

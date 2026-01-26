@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **mode** | [**ModeEnum**](#ModeEnum) | The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode. |  [optional]
 **name** | **String** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. |  [optional]
 **priority** | **java.math.BigInteger** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |  [optional]
+**trustLevel** | [**TrustLevelEnum**](#TrustLevelEnum) | Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors. |  [optional]
 **upstreamUrl** | **String** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  |  [optional]
 **verifySsl** | **Boolean** | If enabled, SSL certificates are verified when requests are made to this upstream. It&#39;s recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams. |  [optional]
 
@@ -46,6 +47,14 @@ Name | Value
 PROXY_ONLY | &quot;Proxy Only&quot;
 CACHE_AND_PROXY | &quot;Cache and Proxy&quot;
 CACHE_ONLY | &quot;Cache Only&quot;
+
+
+<a name="TrustLevelEnum"></a>
+## Enum: TrustLevelEnum
+Name | Value
+---- | -----
+TRUSTED | &quot;Trusted&quot;
+UNTRUSTED | &quot;Untrusted&quot;
 
 
 

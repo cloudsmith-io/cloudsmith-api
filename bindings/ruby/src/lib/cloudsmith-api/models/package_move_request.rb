@@ -14,6 +14,7 @@ require 'date'
 
 module CloudsmithApi
 class PackageMoveRequest
+  # The name of the destination repository without the namespace.
   attr_accessor :destination
 
   # Attribute mapping from ruby-style variable name to JSON key.

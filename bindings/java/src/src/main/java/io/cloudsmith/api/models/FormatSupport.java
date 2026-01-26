@@ -45,6 +45,9 @@ public class FormatSupport implements Serializable {
   @SerializedName("file_lists")
   private Boolean fileLists = null;
 
+  @SerializedName("filepaths")
+  private Boolean filepaths = null;
+
   @SerializedName("metadata")
   private Boolean metadata = null;
 
@@ -109,6 +112,25 @@ public class FormatSupport implements Serializable {
 
   public void setFileLists(Boolean fileLists) {
     this.fileLists = fileLists;
+  }
+
+  public FormatSupport filepaths(Boolean filepaths) {
+    this.filepaths = filepaths;
+    return this;
+  }
+
+   /**
+   * If true the package format supports filepaths
+   * @return filepaths
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "If true the package format supports filepaths")
+  public Boolean isFilepaths() {
+    return filepaths;
+  }
+
+  public void setFilepaths(Boolean filepaths) {
+    this.filepaths = filepaths;
   }
 
   public FormatSupport metadata(Boolean metadata) {
@@ -182,6 +204,7 @@ public class FormatSupport implements Serializable {
     return Objects.equals(this.dependencies, formatSupport.dependencies) &&
         Objects.equals(this.distributions, formatSupport.distributions) &&
         Objects.equals(this.fileLists, formatSupport.fileLists) &&
+        Objects.equals(this.filepaths, formatSupport.filepaths) &&
         Objects.equals(this.metadata, formatSupport.metadata) &&
         Objects.equals(this.upstreams, formatSupport.upstreams) &&
         Objects.equals(this.versioning, formatSupport.versioning);
@@ -189,7 +212,7 @@ public class FormatSupport implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dependencies, distributions, fileLists, metadata, upstreams, versioning);
+    return Objects.hash(dependencies, distributions, fileLists, filepaths, metadata, upstreams, versioning);
   }
 
 
@@ -201,6 +224,7 @@ public class FormatSupport implements Serializable {
     sb.append("    dependencies: ").append(toIndentedString(dependencies)).append("\n");
     sb.append("    distributions: ").append(toIndentedString(distributions)).append("\n");
     sb.append("    fileLists: ").append(toIndentedString(fileLists)).append("\n");
+    sb.append("    filepaths: ").append(toIndentedString(filepaths)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    upstreams: ").append(toIndentedString(upstreams)).append("\n");
     sb.append("    versioning: ").append(toIndentedString(versioning)).append("\n");

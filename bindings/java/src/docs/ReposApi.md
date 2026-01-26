@@ -73,6 +73,12 @@ Method | HTTP request | Description
 [**reposUpstreamDockerPartialUpdate**](ReposApi.md#reposUpstreamDockerPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
 [**reposUpstreamDockerRead**](ReposApi.md#reposUpstreamDockerRead) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
 [**reposUpstreamDockerUpdate**](ReposApi.md#reposUpstreamDockerUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+[**reposUpstreamGenericCreate**](ReposApi.md#reposUpstreamGenericCreate) | **POST** /repos/{owner}/{identifier}/upstream/generic/ | Create a Generic upstream config for this repository.
+[**reposUpstreamGenericDelete**](ReposApi.md#reposUpstreamGenericDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Delete a Generic upstream config for this repository.
+[**reposUpstreamGenericList**](ReposApi.md#reposUpstreamGenericList) | **GET** /repos/{owner}/{identifier}/upstream/generic/ | List Generic upstream configs for this repository.
+[**reposUpstreamGenericPartialUpdate**](ReposApi.md#reposUpstreamGenericPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Partially update a Generic upstream config for this repository.
+[**reposUpstreamGenericRead**](ReposApi.md#reposUpstreamGenericRead) | **GET** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Retrieve a Generic upstream config for this repository.
+[**reposUpstreamGenericUpdate**](ReposApi.md#reposUpstreamGenericUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Update a Generic upstream config for this repository.
 [**reposUpstreamGoCreate**](ReposApi.md#reposUpstreamGoCreate) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
 [**reposUpstreamGoDelete**](ReposApi.md#reposUpstreamGoDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
 [**reposUpstreamGoList**](ReposApi.md#reposUpstreamGoList) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
@@ -4557,6 +4563,395 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DockerUpstream**](DockerUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamGenericCreate"></a>
+# **reposUpstreamGenericCreate**
+> GenericUpstream reposUpstreamGenericCreate(owner, identifier, data)
+
+Create a Generic upstream config for this repository.
+
+Create a Generic upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+GenericUpstreamRequest data = new GenericUpstreamRequest(); // GenericUpstreamRequest | 
+try {
+    GenericUpstream result = apiInstance.reposUpstreamGenericCreate(owner, identifier, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamGenericCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamGenericDelete"></a>
+# **reposUpstreamGenericDelete**
+> reposUpstreamGenericDelete(owner, identifier, slugPerm)
+
+Delete a Generic upstream config for this repository.
+
+Delete a Generic upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    apiInstance.reposUpstreamGenericDelete(owner, identifier, slugPerm);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamGenericDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamGenericList"></a>
+# **reposUpstreamGenericList**
+> List&lt;GenericUpstream&gt; reposUpstreamGenericList(owner, identifier, page, pageSize)
+
+List Generic upstream configs for this repository.
+
+List Generic upstream configs for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<GenericUpstream> result = apiInstance.reposUpstreamGenericList(owner, identifier, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamGenericList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;GenericUpstream&gt;**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamGenericPartialUpdate"></a>
+# **reposUpstreamGenericPartialUpdate**
+> GenericUpstream reposUpstreamGenericPartialUpdate(owner, identifier, slugPerm, data)
+
+Partially update a Generic upstream config for this repository.
+
+Partially update a Generic upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+GenericUpstreamRequestPatch data = new GenericUpstreamRequestPatch(); // GenericUpstreamRequestPatch | 
+try {
+    GenericUpstream result = apiInstance.reposUpstreamGenericPartialUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamGenericPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**GenericUpstreamRequestPatch**](GenericUpstreamRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamGenericRead"></a>
+# **reposUpstreamGenericRead**
+> GenericUpstream reposUpstreamGenericRead(owner, identifier, slugPerm)
+
+Retrieve a Generic upstream config for this repository.
+
+Retrieve a Generic upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    GenericUpstream result = apiInstance.reposUpstreamGenericRead(owner, identifier, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamGenericRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamGenericUpdate"></a>
+# **reposUpstreamGenericUpdate**
+> GenericUpstream reposUpstreamGenericUpdate(owner, identifier, slugPerm, data)
+
+Update a Generic upstream config for this repository.
+
+Update a Generic upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+GenericUpstreamRequest data = new GenericUpstreamRequest(); // GenericUpstreamRequest | 
+try {
+    GenericUpstream result = apiInstance.reposUpstreamGenericUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamGenericUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**GenericUpstream**](GenericUpstream.md)
 
 ### Authorization
 

@@ -36,6 +36,7 @@ class FormatSupport(object):
         'dependencies': 'bool',
         'distributions': 'bool',
         'file_lists': 'bool',
+        'filepaths': 'bool',
         'metadata': 'bool',
         'upstreams': 'FormatSupportUpstream',
         'versioning': 'bool'
@@ -45,12 +46,13 @@ class FormatSupport(object):
         'dependencies': 'dependencies',
         'distributions': 'distributions',
         'file_lists': 'file_lists',
+        'filepaths': 'filepaths',
         'metadata': 'metadata',
         'upstreams': 'upstreams',
         'versioning': 'versioning'
     }
 
-    def __init__(self, dependencies=None, distributions=None, file_lists=None, metadata=None, upstreams=None, versioning=None, _configuration=None):  # noqa: E501
+    def __init__(self, dependencies=None, distributions=None, file_lists=None, filepaths=None, metadata=None, upstreams=None, versioning=None, _configuration=None):  # noqa: E501
         """FormatSupport - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class FormatSupport(object):
         self._dependencies = None
         self._distributions = None
         self._file_lists = None
+        self._filepaths = None
         self._metadata = None
         self._upstreams = None
         self._versioning = None
@@ -67,6 +70,7 @@ class FormatSupport(object):
         self.dependencies = dependencies
         self.distributions = distributions
         self.file_lists = file_lists
+        self.filepaths = filepaths
         self.metadata = metadata
         self.upstreams = upstreams
         self.versioning = versioning
@@ -145,6 +149,31 @@ class FormatSupport(object):
             raise ValueError("Invalid value for `file_lists`, must not be `None`")  # noqa: E501
 
         self._file_lists = file_lists
+
+    @property
+    def filepaths(self):
+        """Gets the filepaths of this FormatSupport.
+
+        If true the package format supports filepaths
+
+        :return: The filepaths of this FormatSupport.
+        :rtype: bool
+        """
+        return self._filepaths
+
+    @filepaths.setter
+    def filepaths(self, filepaths):
+        """Sets the filepaths of this FormatSupport.
+
+        If true the package format supports filepaths
+
+        :param filepaths: The filepaths of this FormatSupport.
+        :type: bool
+        """
+        if self._configuration.client_side_validation and filepaths is None:
+            raise ValueError("Invalid value for `filepaths`, must not be `None`")  # noqa: E501
+
+        self._filepaths = filepaths
 
     @property
     def metadata(self):

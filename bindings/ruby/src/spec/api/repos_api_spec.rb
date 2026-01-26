@@ -1008,6 +1008,93 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_upstream_generic_create
+  # Create a Generic upstream config for this repository.
+  # Create a Generic upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GenericUpstreamRequest] :data 
+  # @return [GenericUpstream]
+  describe 'repos_upstream_generic_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_generic_delete
+  # Delete a Generic upstream config for this repository.
+  # Delete a Generic upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_generic_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_generic_list
+  # List Generic upstream configs for this repository.
+  # List Generic upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<GenericUpstream>]
+  describe 'repos_upstream_generic_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_generic_partial_update
+  # Partially update a Generic upstream config for this repository.
+  # Partially update a Generic upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GenericUpstreamRequestPatch] :data 
+  # @return [GenericUpstream]
+  describe 'repos_upstream_generic_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_generic_read
+  # Retrieve a Generic upstream config for this repository.
+  # Retrieve a Generic upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [GenericUpstream]
+  describe 'repos_upstream_generic_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_generic_update
+  # Update a Generic upstream config for this repository.
+  # Update a Generic upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GenericUpstreamRequest] :data 
+  # @return [GenericUpstream]
+  describe 'repos_upstream_generic_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_upstream_go_create
   # Create a Go upstream config for this repository.
   # Create a Go upstream config for this repository.

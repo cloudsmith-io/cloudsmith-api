@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** |  | [optional] 
+**description** | **str** | A detailed description of the team. | [optional] 
 **name** | **str** | A descriptive name for the team. | 
 **slug** | **str** |  | [optional] 
 **slug_perm** | **str** |  | [optional] 

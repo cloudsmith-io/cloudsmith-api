@@ -367,6 +367,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_generic
+  # Create a new Generic package
+  # Create a new Generic package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GenericPackageUploadRequest] :data 
+  # @return [GenericPackageUpload]
+  describe 'packages_upload_generic test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_go
   # Create a new Go package
   # Create a new Go package
@@ -726,6 +740,20 @@ describe 'PackagesApi' do
   # @option opts [DockerPackageUploadRequest] :data 
   # @return [nil]
   describe 'packages_validate_upload_docker test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_generic
+  # Validate parameters for create Generic package
+  # Validate parameters for create Generic package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [GenericPackageUploadRequest] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_generic test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

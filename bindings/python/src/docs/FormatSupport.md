@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **dependencies** | **bool** | If true the package format supports dependencies | 
 **distributions** | **bool** | If true the package format supports distributions | 
 **file_lists** | **bool** | If true the package format supports file lists | 
+**filepaths** | **bool** | If true the package format supports filepaths | 
 **metadata** | **bool** | If true the package format supports metadata | 
 **upstreams** | [**FormatSupportUpstream**](FormatSupportUpstream.md) |  | 
 **versioning** | **bool** | If true the package format supports versioning | 

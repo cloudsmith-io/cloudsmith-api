@@ -24,6 +24,9 @@ class FormatSupport
   # If true the package format supports file lists
   attr_accessor :file_lists
 
+  # If true the package format supports filepaths
+  attr_accessor :filepaths
+
   # If true the package format supports metadata
   attr_accessor :metadata
 
@@ -38,6 +41,7 @@ class FormatSupport
       :'dependencies' => :'dependencies',
       :'distributions' => :'distributions',
       :'file_lists' => :'file_lists',
+      :'filepaths' => :'filepaths',
       :'metadata' => :'metadata',
       :'upstreams' => :'upstreams',
       :'versioning' => :'versioning'
@@ -50,6 +54,7 @@ class FormatSupport
       :'dependencies' => :'BOOLEAN',
       :'distributions' => :'BOOLEAN',
       :'file_lists' => :'BOOLEAN',
+      :'filepaths' => :'BOOLEAN',
       :'metadata' => :'BOOLEAN',
       :'upstreams' => :'FormatSupportUpstream',
       :'versioning' => :'BOOLEAN'
@@ -74,6 +79,10 @@ class FormatSupport
 
     if attributes.has_key?(:'file_lists')
       self.file_lists = attributes[:'file_lists']
+    end
+
+    if attributes.has_key?(:'filepaths')
+      self.filepaths = attributes[:'filepaths']
     end
 
     if attributes.has_key?(:'metadata')
@@ -105,6 +114,10 @@ class FormatSupport
       invalid_properties.push('invalid value for "file_lists", file_lists cannot be nil.')
     end
 
+    if @filepaths.nil?
+      invalid_properties.push('invalid value for "filepaths", filepaths cannot be nil.')
+    end
+
     if @metadata.nil?
       invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
     end
@@ -126,6 +139,7 @@ class FormatSupport
     return false if @dependencies.nil?
     return false if @distributions.nil?
     return false if @file_lists.nil?
+    return false if @filepaths.nil?
     return false if @metadata.nil?
     return false if @upstreams.nil?
     return false if @versioning.nil?
@@ -140,6 +154,7 @@ class FormatSupport
         dependencies == o.dependencies &&
         distributions == o.distributions &&
         file_lists == o.file_lists &&
+        filepaths == o.filepaths &&
         metadata == o.metadata &&
         upstreams == o.upstreams &&
         versioning == o.versioning
@@ -154,7 +169,7 @@ class FormatSupport
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [dependencies, distributions, file_lists, metadata, upstreams, versioning].hash
+    [dependencies, distributions, file_lists, filepaths, metadata, upstreams, versioning].hash
   end
 
     # Builds the object from hash

@@ -243,6 +243,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadDart**](docs/PackagesApi.md#packagesUploadDart) | **POST** /packages/{owner}/{repo}/upload/dart/ | Create a new Dart package
 *PackagesApi* | [**packagesUploadDeb**](docs/PackagesApi.md#packagesUploadDeb) | **POST** /packages/{owner}/{repo}/upload/deb/ | Create a new Debian package
 *PackagesApi* | [**packagesUploadDocker**](docs/PackagesApi.md#packagesUploadDocker) | **POST** /packages/{owner}/{repo}/upload/docker/ | Create a new Docker package
+*PackagesApi* | [**packagesUploadGeneric**](docs/PackagesApi.md#packagesUploadGeneric) | **POST** /packages/{owner}/{repo}/upload/generic/ | Create a new Generic package
 *PackagesApi* | [**packagesUploadGo**](docs/PackagesApi.md#packagesUploadGo) | **POST** /packages/{owner}/{repo}/upload/go/ | Create a new Go package
 *PackagesApi* | [**packagesUploadHelm**](docs/PackagesApi.md#packagesUploadHelm) | **POST** /packages/{owner}/{repo}/upload/helm/ | Create a new Helm package
 *PackagesApi* | [**packagesUploadHex**](docs/PackagesApi.md#packagesUploadHex) | **POST** /packages/{owner}/{repo}/upload/hex/ | Create a new Hex package
@@ -269,6 +270,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadDart**](docs/PackagesApi.md#packagesValidateUploadDart) | **POST** /packages/{owner}/{repo}/validate-upload/dart/ | Validate parameters for create Dart package
 *PackagesApi* | [**packagesValidateUploadDeb**](docs/PackagesApi.md#packagesValidateUploadDeb) | **POST** /packages/{owner}/{repo}/validate-upload/deb/ | Validate parameters for create Debian package
 *PackagesApi* | [**packagesValidateUploadDocker**](docs/PackagesApi.md#packagesValidateUploadDocker) | **POST** /packages/{owner}/{repo}/validate-upload/docker/ | Validate parameters for create Docker package
+*PackagesApi* | [**packagesValidateUploadGeneric**](docs/PackagesApi.md#packagesValidateUploadGeneric) | **POST** /packages/{owner}/{repo}/validate-upload/generic/ | Validate parameters for create Generic package
 *PackagesApi* | [**packagesValidateUploadGo**](docs/PackagesApi.md#packagesValidateUploadGo) | **POST** /packages/{owner}/{repo}/validate-upload/go/ | Validate parameters for create Go package
 *PackagesApi* | [**packagesValidateUploadHelm**](docs/PackagesApi.md#packagesValidateUploadHelm) | **POST** /packages/{owner}/{repo}/validate-upload/helm/ | Validate parameters for create Helm package
 *PackagesApi* | [**packagesValidateUploadHex**](docs/PackagesApi.md#packagesValidateUploadHex) | **POST** /packages/{owner}/{repo}/validate-upload/hex/ | Validate parameters for create Hex package
@@ -359,6 +361,12 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposUpstreamDockerPartialUpdate**](docs/ReposApi.md#reposUpstreamDockerPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
 *ReposApi* | [**reposUpstreamDockerRead**](docs/ReposApi.md#reposUpstreamDockerRead) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
 *ReposApi* | [**reposUpstreamDockerUpdate**](docs/ReposApi.md#reposUpstreamDockerUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
+*ReposApi* | [**reposUpstreamGenericCreate**](docs/ReposApi.md#reposUpstreamGenericCreate) | **POST** /repos/{owner}/{identifier}/upstream/generic/ | Create a Generic upstream config for this repository.
+*ReposApi* | [**reposUpstreamGenericDelete**](docs/ReposApi.md#reposUpstreamGenericDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Delete a Generic upstream config for this repository.
+*ReposApi* | [**reposUpstreamGenericList**](docs/ReposApi.md#reposUpstreamGenericList) | **GET** /repos/{owner}/{identifier}/upstream/generic/ | List Generic upstream configs for this repository.
+*ReposApi* | [**reposUpstreamGenericPartialUpdate**](docs/ReposApi.md#reposUpstreamGenericPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Partially update a Generic upstream config for this repository.
+*ReposApi* | [**reposUpstreamGenericRead**](docs/ReposApi.md#reposUpstreamGenericRead) | **GET** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Retrieve a Generic upstream config for this repository.
+*ReposApi* | [**reposUpstreamGenericUpdate**](docs/ReposApi.md#reposUpstreamGenericUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Update a Generic upstream config for this repository.
 *ReposApi* | [**reposUpstreamGoCreate**](docs/ReposApi.md#reposUpstreamGoCreate) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
 *ReposApi* | [**reposUpstreamGoDelete**](docs/ReposApi.md#reposUpstreamGoDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
 *ReposApi* | [**reposUpstreamGoList**](docs/ReposApi.md#reposUpstreamGoList) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
@@ -511,6 +519,11 @@ Class | Method | HTTP request | Description
  - [Format](docs/Format.md)
  - [FormatSupport](docs/FormatSupport.md)
  - [FormatSupportUpstream](docs/FormatSupportUpstream.md)
+ - [GenericPackageUpload](docs/GenericPackageUpload.md)
+ - [GenericPackageUploadRequest](docs/GenericPackageUploadRequest.md)
+ - [GenericUpstream](docs/GenericUpstream.md)
+ - [GenericUpstreamRequest](docs/GenericUpstreamRequest.md)
+ - [GenericUpstreamRequestPatch](docs/GenericUpstreamRequestPatch.md)
  - [GeoIpLocation](docs/GeoIpLocation.md)
  - [GoPackageUpload](docs/GoPackageUpload.md)
  - [GoPackageUploadRequest](docs/GoPackageUploadRequest.md)

@@ -76,6 +76,11 @@ from cloudsmith_api.models.eula import Eula
 from cloudsmith_api.models.format import Format
 from cloudsmith_api.models.format_support import FormatSupport
 from cloudsmith_api.models.format_support_upstream import FormatSupportUpstream
+from cloudsmith_api.models.generic_package_upload import GenericPackageUpload
+from cloudsmith_api.models.generic_package_upload_request import GenericPackageUploadRequest
+from cloudsmith_api.models.generic_upstream import GenericUpstream
+from cloudsmith_api.models.generic_upstream_request import GenericUpstreamRequest
+from cloudsmith_api.models.generic_upstream_request_patch import GenericUpstreamRequestPatch
 from cloudsmith_api.models.geo_ip_location import GeoIpLocation
 from cloudsmith_api.models.go_package_upload import GoPackageUpload
 from cloudsmith_api.models.go_package_upload_request import GoPackageUploadRequest

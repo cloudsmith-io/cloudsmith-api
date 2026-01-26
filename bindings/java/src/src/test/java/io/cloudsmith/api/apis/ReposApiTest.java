@@ -35,6 +35,9 @@ import io.cloudsmith.api.models.DockerUpstream;
 import io.cloudsmith.api.models.DockerUpstreamRequest;
 import io.cloudsmith.api.models.DockerUpstreamRequestPatch;
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.GenericUpstream;
+import io.cloudsmith.api.models.GenericUpstreamRequest;
+import io.cloudsmith.api.models.GenericUpstreamRequestPatch;
 import io.cloudsmith.api.models.GoUpstream;
 import io.cloudsmith.api.models.GoUpstreamRequest;
 import io.cloudsmith.api.models.GoUpstreamRequestPatch;
@@ -1359,6 +1362,117 @@ public class ReposApiTest {
         String slugPerm = null;
         DockerUpstreamRequest data = null;
         DockerUpstream response = api.reposUpstreamDockerUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Generic upstream config for this repository.
+     *
+     * Create a Generic upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGenericCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        GenericUpstreamRequest data = null;
+        GenericUpstream response = api.reposUpstreamGenericCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Generic upstream config for this repository.
+     *
+     * Delete a Generic upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGenericDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamGenericDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Generic upstream configs for this repository.
+     *
+     * List Generic upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGenericListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<GenericUpstream> response = api.reposUpstreamGenericList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Generic upstream config for this repository.
+     *
+     * Partially update a Generic upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGenericPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        GenericUpstreamRequestPatch data = null;
+        GenericUpstream response = api.reposUpstreamGenericPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Generic upstream config for this repository.
+     *
+     * Retrieve a Generic upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGenericReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        GenericUpstream response = api.reposUpstreamGenericRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Generic upstream config for this repository.
+     *
+     * Update a Generic upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamGenericUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        GenericUpstreamRequest data = null;
+        GenericUpstream response = api.reposUpstreamGenericUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

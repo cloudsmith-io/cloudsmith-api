@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **pending_validation** | **bool** | When true, this upstream source is pending validation. | [optional] 
 **priority** | **int** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. | [optional] 
 **slug_perm** | **str** |  | [optional] 
+**trust_level** | **str** | Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors. | [optional] [default to 'Trusted']
 **updated_at** | **datetime** |  | [optional] 
 **upstream_url** | **str** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  | 
 **verification_status** | **str** | The signature verification status for this upstream. | [optional] [default to 'Unknown']

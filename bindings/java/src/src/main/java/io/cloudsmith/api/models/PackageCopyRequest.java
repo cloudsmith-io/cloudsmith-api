@@ -46,11 +46,11 @@ public class PackageCopyRequest implements Serializable {
   }
 
    /**
-   * Get destination
+   * The name of the destination repository without the namespace.
    * @return destination
   **/
   @NotNull
- @Size(min=1)  @ApiModelProperty(required = true, value = "")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "The name of the destination repository without the namespace.")
   public String getDestination() {
     return destination;
   }

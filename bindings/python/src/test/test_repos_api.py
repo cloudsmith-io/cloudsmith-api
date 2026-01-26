@@ -512,6 +512,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_generic_create(self):
+        """Test case for repos_upstream_generic_create
+
+        Create a Generic upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_generic_delete(self):
+        """Test case for repos_upstream_generic_delete
+
+        Delete a Generic upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_generic_list(self):
+        """Test case for repos_upstream_generic_list
+
+        List Generic upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_generic_partial_update(self):
+        """Test case for repos_upstream_generic_partial_update
+
+        Partially update a Generic upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_generic_read(self):
+        """Test case for repos_upstream_generic_read
+
+        Retrieve a Generic upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_generic_update(self):
+        """Test case for repos_upstream_generic_update
+
+        Update a Generic upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_upstream_go_create(self):
         """Test case for repos_upstream_go_create
 

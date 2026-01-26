@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **pendingValidation** | **Boolean** | When true, this upstream source is pending validation. |  [optional]
 **priority** | **java.math.BigInteger** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |  [optional]
 **slugPerm** | **String** |  |  [optional]
+**trustLevel** | [**TrustLevelEnum**](#TrustLevelEnum) | Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors. |  [optional]
 **updatedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **upstreamUrl** | **String** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  | 
 **verificationStatus** | [**VerificationStatusEnum**](#VerificationStatusEnum) | The signature verification status for this upstream. |  [optional]
@@ -70,6 +71,14 @@ Name | Value
 PROXY_ONLY | &quot;Proxy Only&quot;
 CACHE_AND_PROXY | &quot;Cache and Proxy&quot;
 CACHE_ONLY | &quot;Cache Only&quot;
+
+
+<a name="TrustLevelEnum"></a>
+## Enum: TrustLevelEnum
+Name | Value
+---- | -----
+TRUSTED | &quot;Trusted&quot;
+UNTRUSTED | &quot;Untrusted&quot;
 
 
 <a name="VerificationStatusEnum"></a>
