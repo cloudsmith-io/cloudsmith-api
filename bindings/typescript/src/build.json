@@ -1,0 +1,14 @@
+{
+    "allowUnicodeIdentifiers": true,
+    "ensureUniqueParams": true,
+    "hideGenerationTimestamp": true,
+    "npmName": "cloudsmith-api",
+    "npmVersion": "2.0.23",
+    "sortParamsByRequiredFlag": true,
+    "supportsES6": true,
+    "typescriptThreePlus": true,
+    "withInterfaces": true,
+    "modelPropertyNaming": "original",
+    "enumPropertyNaming": "original",
+    "paramNaming": "original"
+}
