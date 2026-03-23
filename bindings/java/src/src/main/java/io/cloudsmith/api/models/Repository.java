@@ -357,6 +357,9 @@ public class Repository implements Serializable {
   @SerializedName("is_public")
   private Boolean isPublic = null;
 
+  @SerializedName("is_public_hidden")
+  private Boolean isPublicHidden = null;
+
   /**
    * This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
    */
@@ -733,6 +736,9 @@ public class Repository implements Serializable {
 
   @SerializedName("self_url")
   private String selfUrl = null;
+
+  @SerializedName("self_webapp_url")
+  private String selfWebappUrl = null;
 
   @SerializedName("show_setup_all")
   private Boolean showSetupAll = null;
@@ -1234,6 +1240,24 @@ public class Repository implements Serializable {
     return isPublic;
   }
 
+  public Repository isPublicHidden(Boolean isPublicHidden) {
+    this.isPublicHidden = isPublicHidden;
+    return this;
+  }
+
+   /**
+   * If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+   * @return isPublicHidden
+  **/
+  @ApiModelProperty(value = "If checked, this repository will be hidden from the list of public broadcasts for the workspace.")
+  public Boolean isIsPublicHidden() {
+    return isPublicHidden;
+  }
+
+  public void setIsPublicHidden(Boolean isPublicHidden) {
+    this.isPublicHidden = isPublicHidden;
+  }
+
   public Repository manageEntitlementsPrivilege(ManageEntitlementsPrivilegeEnum manageEntitlementsPrivilege) {
     this.manageEntitlementsPrivilege = manageEntitlementsPrivilege;
     return this;
@@ -1658,6 +1682,15 @@ public class Repository implements Serializable {
     return selfUrl;
   }
 
+   /**
+   * Webapp URL for this repository.
+   * @return selfWebappUrl
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Webapp URL for this repository.")
+  public String getSelfWebappUrl() {
+    return selfWebappUrl;
+  }
+
   public Repository showSetupAll(Boolean showSetupAll) {
     this.showSetupAll = showSetupAll;
     return this;
@@ -1943,6 +1976,7 @@ public class Repository implements Serializable {
         Objects.equals(this.isOpenSource, repository.isOpenSource) &&
         Objects.equals(this.isPrivate, repository.isPrivate) &&
         Objects.equals(this.isPublic, repository.isPublic) &&
+        Objects.equals(this.isPublicHidden, repository.isPublicHidden) &&
         Objects.equals(this.manageEntitlementsPrivilege, repository.manageEntitlementsPrivilege) &&
         Objects.equals(this.moveOwn, repository.moveOwn) &&
         Objects.equals(this.movePackages, repository.movePackages) &&
@@ -1972,6 +2006,7 @@ public class Repository implements Serializable {
         Objects.equals(this.scanPackages, repository.scanPackages) &&
         Objects.equals(this.selfHtmlUrl, repository.selfHtmlUrl) &&
         Objects.equals(this.selfUrl, repository.selfUrl) &&
+        Objects.equals(this.selfWebappUrl, repository.selfWebappUrl) &&
         Objects.equals(this.showSetupAll, repository.showSetupAll) &&
         Objects.equals(this.size, repository.size) &&
         Objects.equals(this.sizeStr, repository.sizeStr) &&
@@ -1992,7 +2027,7 @@ public class Repository implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadcastState, cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, genericPackageIndexEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageCountExclSubcomponents, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(broadcastState, cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, genericPackageIndexEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageCountExclSubcomponents, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, selfWebappUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -2024,6 +2059,7 @@ public class Repository implements Serializable {
     sb.append("    isOpenSource: ").append(toIndentedString(isOpenSource)).append("\n");
     sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
+    sb.append("    isPublicHidden: ").append(toIndentedString(isPublicHidden)).append("\n");
     sb.append("    manageEntitlementsPrivilege: ").append(toIndentedString(manageEntitlementsPrivilege)).append("\n");
     sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");
     sb.append("    movePackages: ").append(toIndentedString(movePackages)).append("\n");
@@ -2053,6 +2089,7 @@ public class Repository implements Serializable {
     sb.append("    scanPackages: ").append(toIndentedString(scanPackages)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    selfWebappUrl: ").append(toIndentedString(selfWebappUrl)).append("\n");
     sb.append("    showSetupAll: ").append(toIndentedString(showSetupAll)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    sizeStr: ").append(toIndentedString(sizeStr)).append("\n");

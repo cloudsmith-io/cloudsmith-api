@@ -32,7 +32,7 @@ import javax.validation.Valid;
  */
 @ApiModel(description = "The team members")
 
-public class OrganizationTeamMembership implements Serializable {
+public class OrganizationTeamServiceMember implements Serializable {
   private static final long serialVersionUID = 1L;
 
   /**
@@ -88,7 +88,57 @@ public class OrganizationTeamMembership implements Serializable {
   @SerializedName("user")
   private String user = null;
 
-  public OrganizationTeamMembership role(RoleEnum role) {
+  /**
+   * Gets or Sets userKind
+   */
+  @JsonAdapter(UserKindEnum.Adapter.class)
+  public enum UserKindEnum {
+    USER("User"),
+    
+    SERVICE("Service");
+
+    private String value;
+
+    UserKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UserKindEnum fromValue(String text) {
+      for (UserKindEnum b : UserKindEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<UserKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UserKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UserKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return UserKindEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("user_kind")
+  private UserKindEnum userKind = UserKindEnum.USER;
+
+  public OrganizationTeamServiceMember role(RoleEnum role) {
     this.role = role;
     return this;
   }
@@ -107,7 +157,7 @@ public class OrganizationTeamMembership implements Serializable {
     this.role = role;
   }
 
-  public OrganizationTeamMembership user(String user) {
+  public OrganizationTeamServiceMember user(String user) {
     this.user = user;
     return this;
   }
@@ -126,6 +176,24 @@ public class OrganizationTeamMembership implements Serializable {
     this.user = user;
   }
 
+  public OrganizationTeamServiceMember userKind(UserKindEnum userKind) {
+    this.userKind = userKind;
+    return this;
+  }
+
+   /**
+   * Get userKind
+   * @return userKind
+  **/
+  @ApiModelProperty(value = "")
+  public UserKindEnum getUserKind() {
+    return userKind;
+  }
+
+  public void setUserKind(UserKindEnum userKind) {
+    this.userKind = userKind;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -135,24 +203,26 @@ public class OrganizationTeamMembership implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrganizationTeamMembership organizationTeamMembership = (OrganizationTeamMembership) o;
-    return Objects.equals(this.role, organizationTeamMembership.role) &&
-        Objects.equals(this.user, organizationTeamMembership.user);
+    OrganizationTeamServiceMember organizationTeamServiceMember = (OrganizationTeamServiceMember) o;
+    return Objects.equals(this.role, organizationTeamServiceMember.role) &&
+        Objects.equals(this.user, organizationTeamServiceMember.user) &&
+        Objects.equals(this.userKind, organizationTeamServiceMember.userKind);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, user);
+    return Objects.hash(role, user, userKind);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrganizationTeamMembership {\n");
+    sb.append("class OrganizationTeamServiceMember {\n");
     
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    userKind: ").append(toIndentedString(userKind)).append("\n");
     sb.append("}");
     return sb.toString();
   }

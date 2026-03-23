@@ -13,47 +13,31 @@ Swagger Codegen version: 2.4.50
 require 'date'
 
 module CloudsmithApi
-# The team members
-class OrganizationTeamMembership
-  attr_accessor :role
+class VsxPackageUploadRequest
+  # The primary file for the package.
+  attr_accessor :package_file
 
-  attr_accessor :user
+  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
+  attr_accessor :republish
 
-  class EnumAttributeValidator
-    attr_reader :datatype
-    attr_reader :allowable_values
-
-    def initialize(datatype, allowable_values)
-      @allowable_values = allowable_values.map do |value|
-        case datatype.to_s
-        when /Integer/i
-          value.to_i
-        when /Float/i
-          value.to_f
-        else
-          value
-        end
-      end
-    end
-
-    def valid?(value)
-      !value || allowable_values.include?(value)
-    end
-  end
+  # A comma-separated values list of tags to add to the package.
+  attr_accessor :tags
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'role' => :'role',
-      :'user' => :'user'
+      :'package_file' => :'package_file',
+      :'republish' => :'republish',
+      :'tags' => :'tags'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'role' => :'String',
-      :'user' => :'String'
+      :'package_file' => :'String',
+      :'republish' => :'BOOLEAN',
+      :'tags' => :'String'
     }
   end
 
@@ -65,12 +49,16 @@ class OrganizationTeamMembership
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'role')
-      self.role = attributes[:'role']
+    if attributes.has_key?(:'package_file')
+      self.package_file = attributes[:'package_file']
     end
 
-    if attributes.has_key?(:'user')
-      self.user = attributes[:'user']
+    if attributes.has_key?(:'republish')
+      self.republish = attributes[:'republish']
+    end
+
+    if attributes.has_key?(:'tags')
+      self.tags = attributes[:'tags']
     end
   end
 
@@ -78,12 +66,8 @@ class OrganizationTeamMembership
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if @role.nil?
-      invalid_properties.push('invalid value for "role", role cannot be nil.')
-    end
-
-    if @user.nil?
-      invalid_properties.push('invalid value for "user", user cannot be nil.')
+    if @package_file.nil?
+      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
     end
 
     invalid_properties
@@ -92,21 +76,8 @@ class OrganizationTeamMembership
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if @role.nil?
-    role_validator = EnumAttributeValidator.new('String', ['Manager', 'Member'])
-    return false unless role_validator.valid?(@role)
-    return false if @user.nil?
+    return false if @package_file.nil?
     true
-  end
-
-  # Custom attribute writer method checking allowed values (enum).
-  # @param [Object] role Object to be assigned
-  def role=(role)
-    validator = EnumAttributeValidator.new('String', ['Manager', 'Member'])
-    unless validator.valid?(role)
-      fail ArgumentError, 'invalid value for "role", must be one of #{validator.allowable_values}.'
-    end
-    @role = role
   end
 
   # Checks equality by comparing each attribute.
@@ -114,8 +85,9 @@ class OrganizationTeamMembership
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        role == o.role &&
-        user == o.user
+        package_file == o.package_file &&
+        republish == o.republish &&
+        tags == o.tags
   end
 
   # @see the `==` method
@@ -127,7 +99,7 @@ class OrganizationTeamMembership
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [role, user].hash
+    [package_file, republish, tags].hash
   end
 
     # Builds the object from hash

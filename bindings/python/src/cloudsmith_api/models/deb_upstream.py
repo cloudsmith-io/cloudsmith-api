@@ -36,8 +36,8 @@ class DebUpstream(object):
         'auth_mode': 'str',
         'auth_secret': 'str',
         'auth_username': 'str',
-        'available': 'str',
-        'can_reindex': 'str',
+        'available': 'bool',
+        'can_reindex': 'bool',
         'component': 'str',
         'created_at': 'datetime',
         'disable_reason': 'str',
@@ -51,9 +51,9 @@ class DebUpstream(object):
         'gpg_key_inline': 'str',
         'gpg_key_url': 'str',
         'gpg_verification': 'str',
-        'has_failed_signature_verification': 'str',
+        'has_failed_signature_verification': 'bool',
         'include_sources': 'bool',
-        'index_package_count': 'str',
+        'index_package_count': 'int',
         'index_status': 'str',
         'is_active': 'bool',
         'last_indexed': 'str',
@@ -300,9 +300,10 @@ class DebUpstream(object):
     def available(self):
         """Gets the available of this DebUpstream.
 
+        Whether the upstream is available for use.
 
         :return: The available of this DebUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._available
 
@@ -310,9 +311,10 @@ class DebUpstream(object):
     def available(self, available):
         """Sets the available of this DebUpstream.
 
+        Whether the upstream is available for use.
 
         :param available: The available of this DebUpstream.
-        :type: str
+        :type: bool
         """
 
         self._available = available
@@ -321,9 +323,10 @@ class DebUpstream(object):
     def can_reindex(self):
         """Gets the can_reindex of this DebUpstream.
 
+        Whether the upstream can be reindexed.
 
         :return: The can_reindex of this DebUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._can_reindex
 
@@ -331,9 +334,10 @@ class DebUpstream(object):
     def can_reindex(self, can_reindex):
         """Sets the can_reindex of this DebUpstream.
 
+        Whether the upstream can be reindexed.
 
         :param can_reindex: The can_reindex of this DebUpstream.
-        :type: str
+        :type: bool
         """
 
         self._can_reindex = can_reindex
@@ -686,9 +690,10 @@ class DebUpstream(object):
     def has_failed_signature_verification(self):
         """Gets the has_failed_signature_verification of this DebUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :return: The has_failed_signature_verification of this DebUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._has_failed_signature_verification
 
@@ -696,9 +701,10 @@ class DebUpstream(object):
     def has_failed_signature_verification(self, has_failed_signature_verification):
         """Sets the has_failed_signature_verification of this DebUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :param has_failed_signature_verification: The has_failed_signature_verification of this DebUpstream.
-        :type: str
+        :type: bool
         """
 
         self._has_failed_signature_verification = has_failed_signature_verification
@@ -733,7 +739,7 @@ class DebUpstream(object):
         The number of packages available in this upstream source
 
         :return: The index_package_count of this DebUpstream.
-        :rtype: str
+        :rtype: int
         """
         return self._index_package_count
 
@@ -744,7 +750,7 @@ class DebUpstream(object):
         The number of packages available in this upstream source
 
         :param index_package_count: The index_package_count of this DebUpstream.
-        :type: str
+        :type: int
         """
 
         self._index_package_count = index_package_count

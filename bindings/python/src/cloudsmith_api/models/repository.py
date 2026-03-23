@@ -56,6 +56,7 @@ class Repository(object):
         'is_open_source': 'bool',
         'is_private': 'bool',
         'is_public': 'bool',
+        'is_public_hidden': 'bool',
         'manage_entitlements_privilege': 'str',
         'move_own': 'bool',
         'move_packages': 'str',
@@ -85,6 +86,7 @@ class Repository(object):
         'scan_packages': 'str',
         'self_html_url': 'str',
         'self_url': 'str',
+        'self_webapp_url': 'str',
         'show_setup_all': 'bool',
         'size': 'int',
         'size_str': 'str',
@@ -127,6 +129,7 @@ class Repository(object):
         'is_open_source': 'is_open_source',
         'is_private': 'is_private',
         'is_public': 'is_public',
+        'is_public_hidden': 'is_public_hidden',
         'manage_entitlements_privilege': 'manage_entitlements_privilege',
         'move_own': 'move_own',
         'move_packages': 'move_packages',
@@ -156,6 +159,7 @@ class Repository(object):
         'scan_packages': 'scan_packages',
         'self_html_url': 'self_html_url',
         'self_url': 'self_url',
+        'self_webapp_url': 'self_webapp_url',
         'show_setup_all': 'show_setup_all',
         'size': 'size',
         'size_str': 'size_str',
@@ -174,7 +178,7 @@ class Repository(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, broadcast_state='Off', cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, generic_package_index_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_count_excl_subcomponents=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, broadcast_state='Off', cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, generic_package_index_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_count_excl_subcomponents=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, self_webapp_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """Repository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -203,6 +207,7 @@ class Repository(object):
         self._is_open_source = None
         self._is_private = None
         self._is_public = None
+        self._is_public_hidden = None
         self._manage_entitlements_privilege = None
         self._move_own = None
         self._move_packages = None
@@ -232,6 +237,7 @@ class Repository(object):
         self._scan_packages = None
         self._self_html_url = None
         self._self_url = None
+        self._self_webapp_url = None
         self._show_setup_all = None
         self._size = None
         self._size_str = None
@@ -296,6 +302,8 @@ class Repository(object):
             self.is_private = is_private
         if is_public is not None:
             self.is_public = is_public
+        if is_public_hidden is not None:
+            self.is_public_hidden = is_public_hidden
         if manage_entitlements_privilege is not None:
             self.manage_entitlements_privilege = manage_entitlements_privilege
         if move_own is not None:
@@ -353,6 +361,8 @@ class Repository(object):
             self.self_html_url = self_html_url
         if self_url is not None:
             self.self_url = self_url
+        if self_webapp_url is not None:
+            self.self_webapp_url = self_webapp_url
         if show_setup_all is not None:
             self.show_setup_all = show_setup_all
         if size is not None:
@@ -937,6 +947,29 @@ class Repository(object):
         """
 
         self._is_public = is_public
+
+    @property
+    def is_public_hidden(self):
+        """Gets the is_public_hidden of this Repository.
+
+        If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+
+        :return: The is_public_hidden of this Repository.
+        :rtype: bool
+        """
+        return self._is_public_hidden
+
+    @is_public_hidden.setter
+    def is_public_hidden(self, is_public_hidden):
+        """Sets the is_public_hidden of this Repository.
+
+        If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+
+        :param is_public_hidden: The is_public_hidden of this Repository.
+        :type: bool
+        """
+
+        self._is_public_hidden = is_public_hidden
 
     @property
     def manage_entitlements_privilege(self):
@@ -1666,6 +1699,32 @@ class Repository(object):
         """
 
         self._self_url = self_url
+
+    @property
+    def self_webapp_url(self):
+        """Gets the self_webapp_url of this Repository.
+
+        Webapp URL for this repository.
+
+        :return: The self_webapp_url of this Repository.
+        :rtype: str
+        """
+        return self._self_webapp_url
+
+    @self_webapp_url.setter
+    def self_webapp_url(self, self_webapp_url):
+        """Sets the self_webapp_url of this Repository.
+
+        Webapp URL for this repository.
+
+        :param self_webapp_url: The self_webapp_url of this Repository.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                self_webapp_url is not None and len(self_webapp_url) < 1):
+            raise ValueError("Invalid value for `self_webapp_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._self_webapp_url = self_webapp_url
 
     @property
     def show_setup_all(self):

@@ -31,6 +31,12 @@ Method | HTTP request | Description
 [**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 [**repos_transfer_region**](ReposApi.md#repos_transfer_region) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
+[**repos_upstream_alpine_create**](ReposApi.md#repos_upstream_alpine_create) | **POST** /repos/{owner}/{identifier}/upstream/alpine/ | Create an Alpine upstream config for this repository.
+[**repos_upstream_alpine_delete**](ReposApi.md#repos_upstream_alpine_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Delete an Alpine upstream config for this repository.
+[**repos_upstream_alpine_list**](ReposApi.md#repos_upstream_alpine_list) | **GET** /repos/{owner}/{identifier}/upstream/alpine/ | List Alpine upstream configs for this repository.
+[**repos_upstream_alpine_partial_update**](ReposApi.md#repos_upstream_alpine_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Partially update an Alpine upstream config for this repository.
+[**repos_upstream_alpine_read**](ReposApi.md#repos_upstream_alpine_read) | **GET** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Retrieve an Alpine upstream config for this repository.
+[**repos_upstream_alpine_update**](ReposApi.md#repos_upstream_alpine_update) | **PUT** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Update an Alpine upstream config for this repository.
 [**repos_upstream_cargo_create**](ReposApi.md#repos_upstream_cargo_create) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository.
 [**repos_upstream_cargo_delete**](ReposApi.md#repos_upstream_cargo_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository.
 [**repos_upstream_cargo_list**](ReposApi.md#repos_upstream_cargo_list) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository.
@@ -1246,7 +1252,9 @@ owner = 'owner_example' # String |
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
+  page_size: 56, # Integer | Number of results to return per page.
+  query: '', # String | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
+  sort: '-created_at' # String | A field for sorting objects in ascending or descending order.
 }
 
 begin
@@ -1265,6 +1273,8 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **query** | **String**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -created_at]
 
 ### Return type
 
@@ -1841,6 +1851,401 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_alpine_create**
+> AlpineUpstream repos_upstream_alpine_create(owner, identifier, opts)
+
+Create an Alpine upstream config for this repository.
+
+Create an Alpine upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::AlpineUpstreamRequest.new # AlpineUpstreamRequest | 
+}
+
+begin
+  #Create an Alpine upstream config for this repository.
+  result = api_instance.repos_upstream_alpine_create(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_alpine_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_alpine_delete**
+> repos_upstream_alpine_delete(owner, identifier, slug_perm)
+
+Delete an Alpine upstream config for this repository.
+
+Delete an Alpine upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete an Alpine upstream config for this repository.
+  api_instance.repos_upstream_alpine_delete(owner, identifier, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_alpine_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_alpine_list**
+> Array&lt;AlpineUpstream&gt; repos_upstream_alpine_list(owner, identifier, opts)
+
+List Alpine upstream configs for this repository.
+
+List Alpine upstream configs for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #List Alpine upstream configs for this repository.
+  result = api_instance.repos_upstream_alpine_list(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_alpine_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;AlpineUpstream&gt;**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_alpine_partial_update**
+> AlpineUpstream repos_upstream_alpine_partial_update(owner, identifier, slug_perm, opts)
+
+Partially update an Alpine upstream config for this repository.
+
+Partially update an Alpine upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::AlpineUpstreamRequestPatch.new # AlpineUpstreamRequestPatch | 
+}
+
+begin
+  #Partially update an Alpine upstream config for this repository.
+  result = api_instance.repos_upstream_alpine_partial_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_alpine_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**AlpineUpstreamRequestPatch**](AlpineUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_alpine_read**
+> AlpineUpstream repos_upstream_alpine_read(owner, identifier, slug_perm)
+
+Retrieve an Alpine upstream config for this repository.
+
+Retrieve an Alpine upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve an Alpine upstream config for this repository.
+  result = api_instance.repos_upstream_alpine_read(owner, identifier, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_alpine_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_alpine_update**
+> AlpineUpstream repos_upstream_alpine_update(owner, identifier, slug_perm, opts)
+
+Update an Alpine upstream config for this repository.
+
+Update an Alpine upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::AlpineUpstreamRequest.new # AlpineUpstreamRequest | 
+}
+
+begin
+  #Update an Alpine upstream config for this repository.
+  result = api_instance.repos_upstream_alpine_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_alpine_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
 
 ### Authorization
 

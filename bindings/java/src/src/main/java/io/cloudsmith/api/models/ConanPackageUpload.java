@@ -280,6 +280,9 @@ public class ConanPackageUpload implements Serializable {
   @SerializedName("self_url")
   private String selfUrl = null;
 
+  @SerializedName("self_webapp_url")
+  private String selfWebappUrl = null;
+
   @SerializedName("signature_url")
   private String signatureUrl = null;
 
@@ -942,6 +945,15 @@ public class ConanPackageUpload implements Serializable {
   }
 
    /**
+   * Get selfWebappUrl
+   * @return selfWebappUrl
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "")
+  public String getSelfWebappUrl() {
+    return selfWebappUrl;
+  }
+
+   /**
    * Get signatureUrl
    * @return signatureUrl
   **/
@@ -1277,6 +1289,7 @@ public class ConanPackageUpload implements Serializable {
         Objects.equals(this.securityScanStatusUpdatedAt, conanPackageUpload.securityScanStatusUpdatedAt) &&
         Objects.equals(this.selfHtmlUrl, conanPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.selfUrl, conanPackageUpload.selfUrl) &&
+        Objects.equals(this.selfWebappUrl, conanPackageUpload.selfWebappUrl) &&
         Objects.equals(this.signatureUrl, conanPackageUpload.signatureUrl) &&
         Objects.equals(this.size, conanPackageUpload.size) &&
         Objects.equals(this.slug, conanPackageUpload.slug) &&
@@ -1307,7 +1320,7 @@ public class ConanPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1375,6 +1388,7 @@ public class ConanPackageUpload implements Serializable {
     sb.append("    securityScanStatusUpdatedAt: ").append(toIndentedString(securityScanStatusUpdatedAt)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    selfWebappUrl: ").append(toIndentedString(selfWebappUrl)).append("\n");
     sb.append("    signatureUrl: ").append(toIndentedString(signatureUrl)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");

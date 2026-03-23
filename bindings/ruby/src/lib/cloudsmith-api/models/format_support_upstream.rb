@@ -33,6 +33,9 @@ class FormatSupportUpstream
   # The signature verification supported by the upstream format
   attr_accessor :signature_verification
 
+  # If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.
+  attr_accessor :trust
+
   class EnumAttributeValidator
     attr_reader :datatype
     attr_reader :allowable_values
@@ -63,7 +66,8 @@ class FormatSupportUpstream
       :'indexing' => :'indexing',
       :'indexing_behavior' => :'indexing_behavior',
       :'proxying' => :'proxying',
-      :'signature_verification' => :'signature_verification'
+      :'signature_verification' => :'signature_verification',
+      :'trust' => :'trust'
     }
   end
 
@@ -75,7 +79,8 @@ class FormatSupportUpstream
       :'indexing' => :'BOOLEAN',
       :'indexing_behavior' => :'String',
       :'proxying' => :'BOOLEAN',
-      :'signature_verification' => :'String'
+      :'signature_verification' => :'String',
+      :'trust' => :'BOOLEAN'
     }
   end
 
@@ -116,6 +121,10 @@ class FormatSupportUpstream
     else
       self.signature_verification = 'Unsupported'
     end
+
+    if attributes.has_key?(:'trust')
+      self.trust = attributes[:'trust']
+    end
   end
 
   # Show invalid properties with the reasons. Usually used together with valid?
@@ -138,6 +147,10 @@ class FormatSupportUpstream
       invalid_properties.push('invalid value for "proxying", proxying cannot be nil.')
     end
 
+    if @trust.nil?
+      invalid_properties.push('invalid value for "trust", trust cannot be nil.')
+    end
+
     invalid_properties
   end
 
@@ -152,6 +165,7 @@ class FormatSupportUpstream
     return false if @proxying.nil?
     signature_verification_validator = EnumAttributeValidator.new('String', ['Unsupported', 'Repository Metadata', 'Packages', 'Repository Metadata and Packages'])
     return false unless signature_verification_validator.valid?(@signature_verification)
+    return false if @trust.nil?
     true
   end
 
@@ -185,7 +199,8 @@ class FormatSupportUpstream
         indexing == o.indexing &&
         indexing_behavior == o.indexing_behavior &&
         proxying == o.proxying &&
-        signature_verification == o.signature_verification
+        signature_verification == o.signature_verification &&
+        trust == o.trust
   end
 
   # @see the `==` method
@@ -197,7 +212,7 @@ class FormatSupportUpstream
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_modes, caching, indexing, indexing_behavior, proxying, signature_verification].hash
+    [auth_modes, caching, indexing, indexing_behavior, proxying, signature_verification, trust].hash
   end
 
     # Builds the object from hash

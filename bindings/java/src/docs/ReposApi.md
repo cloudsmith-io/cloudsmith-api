@@ -31,6 +31,12 @@ Method | HTTP request | Description
 [**reposRsaList**](ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 [**reposRsaRegenerate**](ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 [**reposTransferRegion**](ReposApi.md#reposTransferRegion) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
+[**reposUpstreamAlpineCreate**](ReposApi.md#reposUpstreamAlpineCreate) | **POST** /repos/{owner}/{identifier}/upstream/alpine/ | Create an Alpine upstream config for this repository.
+[**reposUpstreamAlpineDelete**](ReposApi.md#reposUpstreamAlpineDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Delete an Alpine upstream config for this repository.
+[**reposUpstreamAlpineList**](ReposApi.md#reposUpstreamAlpineList) | **GET** /repos/{owner}/{identifier}/upstream/alpine/ | List Alpine upstream configs for this repository.
+[**reposUpstreamAlpinePartialUpdate**](ReposApi.md#reposUpstreamAlpinePartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Partially update an Alpine upstream config for this repository.
+[**reposUpstreamAlpineRead**](ReposApi.md#reposUpstreamAlpineRead) | **GET** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Retrieve an Alpine upstream config for this repository.
+[**reposUpstreamAlpineUpdate**](ReposApi.md#reposUpstreamAlpineUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Update an Alpine upstream config for this repository.
 [**reposUpstreamCargoCreate**](ReposApi.md#reposUpstreamCargoCreate) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository.
 [**reposUpstreamCargoDelete**](ReposApi.md#reposUpstreamCargoDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository.
 [**reposUpstreamCargoList**](ReposApi.md#reposUpstreamCargoList) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository.
@@ -1219,7 +1225,7 @@ Name | Type | Description  | Notes
 
 <a name="reposNamespaceList"></a>
 # **reposNamespaceList**
-> List&lt;Repository&gt; reposNamespaceList(owner, page, pageSize)
+> List&lt;Repository&gt; reposNamespaceList(owner, page, pageSize, query, sort)
 
 Get a list of all repositories within a namespace.
 
@@ -1251,8 +1257,10 @@ ReposApi apiInstance = new ReposApi();
 String owner = "owner_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+String query = ""; // String | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
+String sort = "-created_at"; // String | A field for sorting objects in ascending or descending order.
 try {
-    List<Repository> result = apiInstance.reposNamespaceList(owner, page, pageSize);
+    List<Repository> result = apiInstance.reposNamespaceList(owner, page, pageSize, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposNamespaceList");
@@ -1267,6 +1275,8 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **query** | **String**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] [default to ]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -created_at]
 
 ### Return type
 
@@ -1840,6 +1850,395 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamAlpineCreate"></a>
+# **reposUpstreamAlpineCreate**
+> AlpineUpstream reposUpstreamAlpineCreate(owner, identifier, data)
+
+Create an Alpine upstream config for this repository.
+
+Create an Alpine upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+AlpineUpstreamRequest data = new AlpineUpstreamRequest(); // AlpineUpstreamRequest | 
+try {
+    AlpineUpstream result = apiInstance.reposUpstreamAlpineCreate(owner, identifier, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamAlpineCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamAlpineDelete"></a>
+# **reposUpstreamAlpineDelete**
+> reposUpstreamAlpineDelete(owner, identifier, slugPerm)
+
+Delete an Alpine upstream config for this repository.
+
+Delete an Alpine upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    apiInstance.reposUpstreamAlpineDelete(owner, identifier, slugPerm);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamAlpineDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamAlpineList"></a>
+# **reposUpstreamAlpineList**
+> List&lt;AlpineUpstream&gt; reposUpstreamAlpineList(owner, identifier, page, pageSize)
+
+List Alpine upstream configs for this repository.
+
+List Alpine upstream configs for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<AlpineUpstream> result = apiInstance.reposUpstreamAlpineList(owner, identifier, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamAlpineList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;AlpineUpstream&gt;**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamAlpinePartialUpdate"></a>
+# **reposUpstreamAlpinePartialUpdate**
+> AlpineUpstream reposUpstreamAlpinePartialUpdate(owner, identifier, slugPerm, data)
+
+Partially update an Alpine upstream config for this repository.
+
+Partially update an Alpine upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+AlpineUpstreamRequestPatch data = new AlpineUpstreamRequestPatch(); // AlpineUpstreamRequestPatch | 
+try {
+    AlpineUpstream result = apiInstance.reposUpstreamAlpinePartialUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamAlpinePartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**AlpineUpstreamRequestPatch**](AlpineUpstreamRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamAlpineRead"></a>
+# **reposUpstreamAlpineRead**
+> AlpineUpstream reposUpstreamAlpineRead(owner, identifier, slugPerm)
+
+Retrieve an Alpine upstream config for this repository.
+
+Retrieve an Alpine upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    AlpineUpstream result = apiInstance.reposUpstreamAlpineRead(owner, identifier, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamAlpineRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="reposUpstreamAlpineUpdate"></a>
+# **reposUpstreamAlpineUpdate**
+> AlpineUpstream reposUpstreamAlpineUpdate(owner, identifier, slugPerm, data)
+
+Update an Alpine upstream config for this repository.
+
+Update an Alpine upstream config for this repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.ReposApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ReposApi apiInstance = new ReposApi();
+String owner = "owner_example"; // String | 
+String identifier = "identifier_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+AlpineUpstreamRequest data = new AlpineUpstreamRequest(); // AlpineUpstreamRequest | 
+try {
+    AlpineUpstream result = apiInstance.reposUpstreamAlpineUpdate(owner, identifier, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReposApi#reposUpstreamAlpineUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **identifier** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md)|  | [optional]
+
+### Return type
+
+[**AlpineUpstream**](AlpineUpstream.md)
 
 ### Authorization
 

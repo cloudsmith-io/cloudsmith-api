@@ -55,7 +55,7 @@ public class NpmPackageUploadRequest implements Serializable {
    * The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
    * @return npmDistTag
   **/
- @Size(min=1,max=255)  @ApiModelProperty(value = "The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.")
+ @Size(max=255)  @ApiModelProperty(value = "The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.")
   public String getNpmDistTag() {
     return npmDistTag;
   }

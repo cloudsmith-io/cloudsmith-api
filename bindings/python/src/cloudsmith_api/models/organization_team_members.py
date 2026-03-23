@@ -33,7 +33,7 @@ class OrganizationTeamMembers(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'members': 'list[OrganizationTeamMembership]'
+        'members': 'list[OrganizationTeamServiceMember]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class OrganizationTeamMembers(object):
         The team members
 
         :return: The members of this OrganizationTeamMembers.
-        :rtype: list[OrganizationTeamMembership]
+        :rtype: list[OrganizationTeamServiceMember]
         """
         return self._members
 
@@ -69,7 +69,7 @@ class OrganizationTeamMembers(object):
         The team members
 
         :param members: The members of this OrganizationTeamMembers.
-        :type: list[OrganizationTeamMembership]
+        :type: list[OrganizationTeamServiceMember]
         """
         if self._configuration.client_side_validation and members is None:
             raise ValueError("Invalid value for `members`, must not be `None`")  # noqa: E501

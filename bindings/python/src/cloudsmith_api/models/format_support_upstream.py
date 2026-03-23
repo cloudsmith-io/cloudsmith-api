@@ -38,7 +38,8 @@ class FormatSupportUpstream(object):
         'indexing': 'bool',
         'indexing_behavior': 'str',
         'proxying': 'bool',
-        'signature_verification': 'str'
+        'signature_verification': 'str',
+        'trust': 'bool'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class FormatSupportUpstream(object):
         'indexing': 'indexing',
         'indexing_behavior': 'indexing_behavior',
         'proxying': 'proxying',
-        'signature_verification': 'signature_verification'
+        'signature_verification': 'signature_verification',
+        'trust': 'trust'
     }
 
-    def __init__(self, auth_modes=None, caching=None, indexing=None, indexing_behavior='Unsupported', proxying=None, signature_verification='Unsupported', _configuration=None):  # noqa: E501
+    def __init__(self, auth_modes=None, caching=None, indexing=None, indexing_behavior='Unsupported', proxying=None, signature_verification='Unsupported', trust=None, _configuration=None):  # noqa: E501
         """FormatSupportUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class FormatSupportUpstream(object):
         self._indexing_behavior = None
         self._proxying = None
         self._signature_verification = None
+        self._trust = None
         self.discriminator = None
 
         self.auth_modes = auth_modes
@@ -72,6 +75,7 @@ class FormatSupportUpstream(object):
         self.proxying = proxying
         if signature_verification is not None:
             self.signature_verification = signature_verification
+        self.trust = trust
 
     @property
     def auth_modes(self):
@@ -240,6 +244,31 @@ class FormatSupportUpstream(object):
             )
 
         self._signature_verification = signature_verification
+
+    @property
+    def trust(self):
+        """Gets the trust of this FormatSupportUpstream.
+
+        If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.
+
+        :return: The trust of this FormatSupportUpstream.
+        :rtype: bool
+        """
+        return self._trust
+
+    @trust.setter
+    def trust(self, trust):
+        """Sets the trust of this FormatSupportUpstream.
+
+        If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.
+
+        :param trust: The trust of this FormatSupportUpstream.
+        :type: bool
+        """
+        if self._configuration.client_side_validation and trust is None:
+            raise ValueError("Invalid value for `trust`, must not be `None`")  # noqa: E501
+
+        self._trust = trust
 
     def to_dict(self):
         """Returns the model properties as a dict"""

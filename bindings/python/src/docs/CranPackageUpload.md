@@ -61,6 +61,7 @@ Name | Type | Description | Notes
 **security_scan_status_updated_at** | **datetime** | The datetime the security scanning status was updated. | [optional] 
 **self_html_url** | **str** |  | [optional] 
 **self_url** | **str** |  | [optional] 
+**self_webapp_url** | **str** |  | [optional] 
 **signature_url** | **str** |  | [optional] 
 **size** | **int** | The calculated size of the package. | [optional] 
 **slug** | **str** | The public unique identifier for the package. | [optional] 

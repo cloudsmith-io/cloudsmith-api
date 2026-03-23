@@ -1054,6 +1054,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (default to )
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. (default to -created_at)
     # @return [Array<Repository>]
     def repos_namespace_list(owner, opts = {})
       data, _status_code, _headers = repos_namespace_list_with_http_info(owner, opts)
@@ -1066,6 +1068,8 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order.
     # @return [Array<(Array<Repository>, Fixnum, Hash)>] Array<Repository> data, response status code and response headers
     def repos_namespace_list_with_http_info(owner, opts = {})
       if @api_client.config.debugging
@@ -1082,6 +1086,8 @@ module CloudsmithApi
       query_params = {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -1658,6 +1664,401 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_transfer_region\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create an Alpine upstream config for this repository.
+    # Create an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [AlpineUpstreamRequest] :data 
+    # @return [AlpineUpstream]
+    def repos_upstream_alpine_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_alpine_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create an Alpine upstream config for this repository.
+    # Create an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [AlpineUpstreamRequest] :data 
+    # @return [Array<(AlpineUpstream, Fixnum, Hash)>] AlpineUpstream data, response status code and response headers
+    def repos_upstream_alpine_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_alpine_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_alpine_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_alpine_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/alpine/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AlpineUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_alpine_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete an Alpine upstream config for this repository.
+    # Delete an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_upstream_alpine_delete(owner, identifier, slug_perm, opts = {})
+      repos_upstream_alpine_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete an Alpine upstream config for this repository.
+    # Delete an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_upstream_alpine_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_alpine_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_alpine_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_alpine_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_alpine_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_alpine_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List Alpine upstream configs for this repository.
+    # List Alpine upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<AlpineUpstream>]
+    def repos_upstream_alpine_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_upstream_alpine_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List Alpine upstream configs for this repository.
+    # List Alpine upstream configs for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(Array<AlpineUpstream>, Fixnum, Hash)>] Array<AlpineUpstream> data, response status code and response headers
+    def repos_upstream_alpine_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_alpine_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_alpine_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_alpine_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/alpine/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<AlpineUpstream>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_alpine_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update an Alpine upstream config for this repository.
+    # Partially update an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [AlpineUpstreamRequestPatch] :data 
+    # @return [AlpineUpstream]
+    def repos_upstream_alpine_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_alpine_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update an Alpine upstream config for this repository.
+    # Partially update an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [AlpineUpstreamRequestPatch] :data 
+    # @return [Array<(AlpineUpstream, Fixnum, Hash)>] AlpineUpstream data, response status code and response headers
+    def repos_upstream_alpine_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_alpine_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_alpine_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_alpine_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_alpine_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AlpineUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_alpine_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve an Alpine upstream config for this repository.
+    # Retrieve an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [AlpineUpstream]
+    def repos_upstream_alpine_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_alpine_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve an Alpine upstream config for this repository.
+    # Retrieve an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AlpineUpstream, Fixnum, Hash)>] AlpineUpstream data, response status code and response headers
+    def repos_upstream_alpine_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_alpine_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_alpine_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_alpine_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_alpine_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AlpineUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_alpine_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update an Alpine upstream config for this repository.
+    # Update an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [AlpineUpstreamRequest] :data 
+    # @return [AlpineUpstream]
+    def repos_upstream_alpine_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_upstream_alpine_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update an Alpine upstream config for this repository.
+    # Update an Alpine upstream config for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [AlpineUpstreamRequest] :data 
+    # @return [Array<(AlpineUpstream, Fixnum, Hash)>] AlpineUpstream data, response status code and response headers
+    def repos_upstream_alpine_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_upstream_alpine_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_upstream_alpine_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_upstream_alpine_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_upstream_alpine_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AlpineUpstream')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_upstream_alpine_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

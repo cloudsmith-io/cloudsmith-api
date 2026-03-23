@@ -289,6 +289,9 @@ public class MavenPackageUpload implements Serializable {
   @SerializedName("self_url")
   private String selfUrl = null;
 
+  @SerializedName("self_webapp_url")
+  private String selfWebappUrl = null;
+
   @SerializedName("signature_url")
   private String signatureUrl = null;
 
@@ -996,6 +999,15 @@ public class MavenPackageUpload implements Serializable {
   }
 
    /**
+   * Get selfWebappUrl
+   * @return selfWebappUrl
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "")
+  public String getSelfWebappUrl() {
+    return selfWebappUrl;
+  }
+
+   /**
    * Get signatureUrl
    * @return signatureUrl
   **/
@@ -1334,6 +1346,7 @@ public class MavenPackageUpload implements Serializable {
         Objects.equals(this.securityScanStatusUpdatedAt, mavenPackageUpload.securityScanStatusUpdatedAt) &&
         Objects.equals(this.selfHtmlUrl, mavenPackageUpload.selfHtmlUrl) &&
         Objects.equals(this.selfUrl, mavenPackageUpload.selfUrl) &&
+        Objects.equals(this.selfWebappUrl, mavenPackageUpload.selfWebappUrl) &&
         Objects.equals(this.signatureUrl, mavenPackageUpload.signatureUrl) &&
         Objects.equals(this.size, mavenPackageUpload.size) &&
         Objects.equals(this.slug, mavenPackageUpload.slug) &&
@@ -1364,7 +1377,7 @@ public class MavenPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, groupId, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, policyViolated, rawLicense, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, artifactId, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, groupId, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, packaging, policyViolated, rawLicense, release, repository, repositoryUrl, sbtVersion, scalaVersion, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1435,6 +1448,7 @@ public class MavenPackageUpload implements Serializable {
     sb.append("    securityScanStatusUpdatedAt: ").append(toIndentedString(securityScanStatusUpdatedAt)).append("\n");
     sb.append("    selfHtmlUrl: ").append(toIndentedString(selfHtmlUrl)).append("\n");
     sb.append("    selfUrl: ").append(toIndentedString(selfUrl)).append("\n");
+    sb.append("    selfWebappUrl: ").append(toIndentedString(selfWebappUrl)).append("\n");
     sb.append("    signatureUrl: ").append(toIndentedString(signatureUrl)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");

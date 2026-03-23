@@ -218,6 +218,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_alpine_create(self):
+        """Test case for repos_upstream_alpine_create
+
+        Create an Alpine upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_alpine_delete(self):
+        """Test case for repos_upstream_alpine_delete
+
+        Delete an Alpine upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_alpine_list(self):
+        """Test case for repos_upstream_alpine_list
+
+        List Alpine upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_alpine_partial_update(self):
+        """Test case for repos_upstream_alpine_partial_update
+
+        Partially update an Alpine upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_alpine_read(self):
+        """Test case for repos_upstream_alpine_read
+
+        Retrieve an Alpine upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_alpine_update(self):
+        """Test case for repos_upstream_alpine_update
+
+        Update an Alpine upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_upstream_cargo_create(self):
         """Test case for repos_upstream_cargo_create
 

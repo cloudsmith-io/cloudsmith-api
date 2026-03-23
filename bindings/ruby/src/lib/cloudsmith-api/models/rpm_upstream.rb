@@ -23,8 +23,10 @@ class RpmUpstream
   # Username to provide with requests to upstream.
   attr_accessor :auth_username
 
+  # Whether the upstream is available for use.
   attr_accessor :available
 
+  # Whether the upstream can be reindexed.
   attr_accessor :can_reindex
 
   # The datetime the upstream source was created.
@@ -61,6 +63,7 @@ class RpmUpstream
   # The GPG signature verification mode for this upstream.
   attr_accessor :gpg_verification
 
+  # Whether the upstream has failed signature verification.
   attr_accessor :has_failed_signature_verification
 
   # When checked, source packages will be available from this upstream.
@@ -169,8 +172,8 @@ class RpmUpstream
       :'auth_mode' => :'String',
       :'auth_secret' => :'String',
       :'auth_username' => :'String',
-      :'available' => :'String',
-      :'can_reindex' => :'String',
+      :'available' => :'BOOLEAN',
+      :'can_reindex' => :'BOOLEAN',
       :'created_at' => :'DateTime',
       :'disable_reason' => :'String',
       :'disable_reason_text' => :'String',
@@ -183,9 +186,9 @@ class RpmUpstream
       :'gpg_key_inline' => :'String',
       :'gpg_key_url' => :'String',
       :'gpg_verification' => :'String',
-      :'has_failed_signature_verification' => :'String',
+      :'has_failed_signature_verification' => :'BOOLEAN',
       :'include_sources' => :'BOOLEAN',
-      :'index_package_count' => :'String',
+      :'index_package_count' => :'Integer',
       :'index_status' => :'String',
       :'is_active' => :'BOOLEAN',
       :'last_indexed' => :'String',

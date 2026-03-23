@@ -6,6 +6,7 @@ from __future__ import absolute_import
 from cloudsmith_api.api.audit_log_api import AuditLogApi
 from cloudsmith_api.api.badges_api import BadgesApi
 from cloudsmith_api.api.broadcasts_api import BroadcastsApi
+from cloudsmith_api.api.bulk_action_api import BulkActionApi
 from cloudsmith_api.api.distros_api import DistrosApi
 from cloudsmith_api.api.entitlements_api import EntitlementsApi
 from cloudsmith_api.api.files_api import FilesApi

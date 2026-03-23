@@ -23,8 +23,10 @@ class GenericUpstream
   # Username to provide with requests to upstream.
   attr_accessor :auth_username
 
+  # Whether the upstream is available for use.
   attr_accessor :available
 
+  # Whether the upstream can be reindexed.
   attr_accessor :can_reindex
 
   # The datetime the upstream source was created.
@@ -47,6 +49,7 @@ class GenericUpstream
   # The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.
   attr_accessor :extra_value_2
 
+  # Whether the upstream has failed signature verification.
   attr_accessor :has_failed_signature_verification
 
   # The number of packages available in this upstream source
@@ -146,8 +149,8 @@ class GenericUpstream
       :'auth_mode' => :'String',
       :'auth_secret' => :'String',
       :'auth_username' => :'String',
-      :'available' => :'String',
-      :'can_reindex' => :'String',
+      :'available' => :'BOOLEAN',
+      :'can_reindex' => :'BOOLEAN',
       :'created_at' => :'DateTime',
       :'disable_reason' => :'String',
       :'disable_reason_text' => :'String',
@@ -155,8 +158,8 @@ class GenericUpstream
       :'extra_header_2' => :'String',
       :'extra_value_1' => :'String',
       :'extra_value_2' => :'String',
-      :'has_failed_signature_verification' => :'String',
-      :'index_package_count' => :'String',
+      :'has_failed_signature_verification' => :'BOOLEAN',
+      :'index_package_count' => :'Integer',
       :'index_status' => :'String',
       :'is_active' => :'BOOLEAN',
       :'last_indexed' => :'String',

@@ -268,6 +268,8 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [String] :query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order.
   # @return [Array<Repository>]
   describe 'repos_namespace_list test' do
     it 'should work' do
@@ -394,6 +396,93 @@ describe 'ReposApi' do
   # @option opts [RepositoryTransferRegionRequest] :data 
   # @return [nil]
   describe 'repos_transfer_region test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_alpine_create
+  # Create an Alpine upstream config for this repository.
+  # Create an Alpine upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [AlpineUpstreamRequest] :data 
+  # @return [AlpineUpstream]
+  describe 'repos_upstream_alpine_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_alpine_delete
+  # Delete an Alpine upstream config for this repository.
+  # Delete an Alpine upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_alpine_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_alpine_list
+  # List Alpine upstream configs for this repository.
+  # List Alpine upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<AlpineUpstream>]
+  describe 'repos_upstream_alpine_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_alpine_partial_update
+  # Partially update an Alpine upstream config for this repository.
+  # Partially update an Alpine upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [AlpineUpstreamRequestPatch] :data 
+  # @return [AlpineUpstream]
+  describe 'repos_upstream_alpine_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_alpine_read
+  # Retrieve an Alpine upstream config for this repository.
+  # Retrieve an Alpine upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [AlpineUpstream]
+  describe 'repos_upstream_alpine_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_alpine_update
+  # Update an Alpine upstream config for this repository.
+  # Update an Alpine upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [AlpineUpstreamRequest] :data 
+  # @return [AlpineUpstream]
+  describe 'repos_upstream_alpine_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

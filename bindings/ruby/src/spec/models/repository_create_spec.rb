@@ -190,6 +190,12 @@ describe 'RepositoryCreate' do
     end
   end
 
+  describe 'test attribute "is_public_hidden"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "manage_entitlements_privilege"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -383,6 +389,12 @@ describe 'RepositoryCreate' do
   end
 
   describe 'test attribute "self_url"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "self_webapp_url"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

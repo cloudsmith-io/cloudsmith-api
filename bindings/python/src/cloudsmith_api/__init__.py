@@ -19,6 +19,7 @@ from __future__ import absolute_import
 from cloudsmith_api.api.audit_log_api import AuditLogApi
 from cloudsmith_api.api.badges_api import BadgesApi
 from cloudsmith_api.api.broadcasts_api import BroadcastsApi
+from cloudsmith_api.api.bulk_action_api import BulkActionApi
 from cloudsmith_api.api.distros_api import DistrosApi
 from cloudsmith_api.api.entitlements_api import EntitlementsApi
 from cloudsmith_api.api.files_api import FilesApi
@@ -45,6 +46,9 @@ from cloudsmith_api.models.allocated_limit import AllocatedLimit
 from cloudsmith_api.models.allocated_limit_raw import AllocatedLimitRaw
 from cloudsmith_api.models.alpine_package_upload import AlpinePackageUpload
 from cloudsmith_api.models.alpine_package_upload_request import AlpinePackageUploadRequest
+from cloudsmith_api.models.alpine_upstream import AlpineUpstream
+from cloudsmith_api.models.alpine_upstream_request import AlpineUpstreamRequest
+from cloudsmith_api.models.alpine_upstream_request_patch import AlpineUpstreamRequestPatch
 from cloudsmith_api.models.architecture import Architecture
 from cloudsmith_api.models.broadcast_token import BroadcastToken
 from cloudsmith_api.models.broadcast_token_input import BroadcastTokenInput
@@ -181,12 +185,14 @@ from cloudsmith_api.models.organization_saml_auth_request_patch import Organizat
 from cloudsmith_api.models.organization_team import OrganizationTeam
 from cloudsmith_api.models.organization_team_invite import OrganizationTeamInvite
 from cloudsmith_api.models.organization_team_members import OrganizationTeamMembers
-from cloudsmith_api.models.organization_team_membership import OrganizationTeamMembership
 from cloudsmith_api.models.organization_team_request import OrganizationTeamRequest
 from cloudsmith_api.models.organization_team_request_patch import OrganizationTeamRequestPatch
+from cloudsmith_api.models.organization_team_service_member import OrganizationTeamServiceMember
 from cloudsmith_api.models.p2_package_upload import P2PackageUpload
 from cloudsmith_api.models.p2_package_upload_request import P2PackageUploadRequest
 from cloudsmith_api.models.package import Package
+from cloudsmith_api.models.package_bulk_action import PackageBulkAction
+from cloudsmith_api.models.package_bulk_action_response import PackageBulkActionResponse
 from cloudsmith_api.models.package_copy import PackageCopy
 from cloudsmith_api.models.package_copy_request import PackageCopyRequest
 from cloudsmith_api.models.package_deny_policy import PackageDenyPolicy
@@ -318,6 +324,8 @@ from cloudsmith_api.models.user_brief import UserBrief
 from cloudsmith_api.models.user_profile import UserProfile
 from cloudsmith_api.models.vagrant_package_upload import VagrantPackageUpload
 from cloudsmith_api.models.vagrant_package_upload_request import VagrantPackageUploadRequest
+from cloudsmith_api.models.vsx_package_upload import VsxPackageUpload
+from cloudsmith_api.models.vsx_package_upload_request import VsxPackageUploadRequest
 from cloudsmith_api.models.vulnerability import Vulnerability
 from cloudsmith_api.models.vulnerability_scan import VulnerabilityScan
 from cloudsmith_api.models.vulnerability_scan_results import VulnerabilityScanResults

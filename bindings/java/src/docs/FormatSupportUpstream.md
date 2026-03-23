@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **indexingBehavior** | [**IndexingBehaviorEnum**](#IndexingBehaviorEnum) | The behavior of the upstream when indexing |  [optional]
 **proxying** | **Boolean** | If true the upstream format supports proxying | 
 **signatureVerification** | [**SignatureVerificationEnum**](#SignatureVerificationEnum) | The signature verification supported by the upstream format |  [optional]
+**trust** | **Boolean** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | 
 
 
 <a name="List<AuthModesEnum>"></a>

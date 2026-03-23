@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **auth_mode** | **str** | The authentication mode to use when accessing this upstream.  | [optional] [default to 'None']
 **auth_secret** | **str** | Secret to provide with requests to upstream. | [optional] 
 **auth_username** | **str** | Username to provide with requests to upstream. | [optional] 
-**available** | **str** |  | [optional] 
+**available** | **bool** | Whether the upstream is available for use. | [optional] 
 **created_at** | **datetime** | The datetime the upstream source was created. | [optional] 
 **disable_reason** | **str** |  | [optional] [default to 'N/A']
 **disable_reason_text** | **str** | Human-readable explanation of why this upstream is disabled | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **extra_header_2** | **str** | The key for extra header #2 to send to upstream. | [optional] 
 **extra_value_1** | **str** | The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted. | [optional] 
 **extra_value_2** | **str** | The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted. | [optional] 
-**has_failed_signature_verification** | **str** |  | [optional] 
+**has_failed_signature_verification** | **bool** | Whether the upstream has failed signature verification. | [optional] 
 **is_active** | **bool** | Whether or not this upstream is active and ready for requests. | [optional] 
 **mode** | **str** | The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode. | [optional] [default to 'Proxy Only']
 **name** | **str** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. | 

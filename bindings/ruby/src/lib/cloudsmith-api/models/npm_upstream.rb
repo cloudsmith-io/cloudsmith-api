@@ -23,8 +23,10 @@ class NpmUpstream
   # Username to provide with requests to upstream.
   attr_accessor :auth_username
 
+  # Whether the upstream is available for use.
   attr_accessor :available
 
+  # Whether the upstream can be reindexed.
   attr_accessor :can_reindex
 
   # The datetime the upstream source was created.
@@ -47,6 +49,7 @@ class NpmUpstream
   # The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.
   attr_accessor :extra_value_2
 
+  # Whether the upstream has failed signature verification.
   attr_accessor :has_failed_signature_verification
 
   # The number of packages available in this upstream source
@@ -74,6 +77,9 @@ class NpmUpstream
   attr_accessor :priority
 
   attr_accessor :slug_perm
+
+  # Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+  attr_accessor :trust_level
 
   attr_accessor :updated_at
 
@@ -130,6 +136,7 @@ class NpmUpstream
       :'pending_validation' => :'pending_validation',
       :'priority' => :'priority',
       :'slug_perm' => :'slug_perm',
+      :'trust_level' => :'trust_level',
       :'updated_at' => :'updated_at',
       :'upstream_url' => :'upstream_url',
       :'verify_ssl' => :'verify_ssl'
@@ -142,8 +149,8 @@ class NpmUpstream
       :'auth_mode' => :'String',
       :'auth_secret' => :'String',
       :'auth_username' => :'String',
-      :'available' => :'String',
-      :'can_reindex' => :'String',
+      :'available' => :'BOOLEAN',
+      :'can_reindex' => :'BOOLEAN',
       :'created_at' => :'DateTime',
       :'disable_reason' => :'String',
       :'disable_reason_text' => :'String',
@@ -151,8 +158,8 @@ class NpmUpstream
       :'extra_header_2' => :'String',
       :'extra_value_1' => :'String',
       :'extra_value_2' => :'String',
-      :'has_failed_signature_verification' => :'String',
-      :'index_package_count' => :'String',
+      :'has_failed_signature_verification' => :'BOOLEAN',
+      :'index_package_count' => :'Integer',
       :'index_status' => :'String',
       :'is_active' => :'BOOLEAN',
       :'last_indexed' => :'String',
@@ -161,6 +168,7 @@ class NpmUpstream
       :'pending_validation' => :'BOOLEAN',
       :'priority' => :'Integer',
       :'slug_perm' => :'String',
+      :'trust_level' => :'String',
       :'updated_at' => :'DateTime',
       :'upstream_url' => :'String',
       :'verify_ssl' => :'BOOLEAN'
@@ -269,6 +277,12 @@ class NpmUpstream
       self.slug_perm = attributes[:'slug_perm']
     end
 
+    if attributes.has_key?(:'trust_level')
+      self.trust_level = attributes[:'trust_level']
+    else
+      self.trust_level = 'Trusted'
+    end
+
     if attributes.has_key?(:'updated_at')
       self.updated_at = attributes[:'updated_at']
     end
@@ -307,6 +321,8 @@ class NpmUpstream
     mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
     return false unless mode_validator.valid?(@mode)
     return false if @name.nil?
+    trust_level_validator = EnumAttributeValidator.new('String', ['Trusted', 'Untrusted'])
+    return false unless trust_level_validator.valid?(@trust_level)
     return false if @upstream_url.nil?
     true
   end
@@ -341,6 +357,16 @@ class NpmUpstream
     @mode = mode
   end
 
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] trust_level Object to be assigned
+  def trust_level=(trust_level)
+    validator = EnumAttributeValidator.new('String', ['Trusted', 'Untrusted'])
+    unless validator.valid?(trust_level)
+      fail ArgumentError, 'invalid value for "trust_level", must be one of #{validator.allowable_values}.'
+    end
+    @trust_level = trust_level
+  end
+
   # Checks equality by comparing each attribute.
   # @param [Object] Object to be compared
   def ==(o)
@@ -368,6 +394,7 @@ class NpmUpstream
         pending_validation == o.pending_validation &&
         priority == o.priority &&
         slug_perm == o.slug_perm &&
+        trust_level == o.trust_level &&
         updated_at == o.updated_at &&
         upstream_url == o.upstream_url &&
         verify_ssl == o.verify_ssl
@@ -382,7 +409,7 @@ class NpmUpstream
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_mode, auth_secret, auth_username, available, can_reindex, created_at, disable_reason, disable_reason_text, extra_header_1, extra_header_2, extra_value_1, extra_value_2, has_failed_signature_verification, index_package_count, index_status, is_active, last_indexed, mode, name, pending_validation, priority, slug_perm, updated_at, upstream_url, verify_ssl].hash
+    [auth_mode, auth_secret, auth_username, available, can_reindex, created_at, disable_reason, disable_reason_text, extra_header_1, extra_header_2, extra_value_1, extra_value_2, has_failed_signature_verification, index_package_count, index_status, is_active, last_indexed, mode, name, pending_validation, priority, slug_perm, trust_level, updated_at, upstream_url, verify_ssl].hash
   end
 
     # Builds the object from hash
