@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import cloudsmith_api
-from cloudsmith_api.models.organization_team_membership import OrganizationTeamMembership  # noqa: E501
+from cloudsmith_api.models.alpine_upstream import AlpineUpstream  # noqa: E501
 from cloudsmith_api.rest import ApiException
 
 
-class TestOrganizationTeamMembership(unittest.TestCase):
-    """OrganizationTeamMembership unit test stubs"""
+class TestAlpineUpstream(unittest.TestCase):
+    """AlpineUpstream unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestOrganizationTeamMembership(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testOrganizationTeamMembership(self):
-        """Test OrganizationTeamMembership"""
+    def testAlpineUpstream(self):
+        """Test AlpineUpstream"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = cloudsmith_api.models.organization_team_membership.OrganizationTeamMembership()  # noqa: E501
+        # model = cloudsmith_api.models.alpine_upstream.AlpineUpstream()  # noqa: E501
         pass
 
 

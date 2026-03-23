@@ -48,6 +48,7 @@ class RepositoryRequestPatch(object):
         'enforce_eula': 'bool',
         'generic_package_index_enabled': 'bool',
         'index_files': 'bool',
+        'is_public_hidden': 'bool',
         'manage_entitlements_privilege': 'str',
         'move_own': 'bool',
         'move_packages': 'str',
@@ -96,6 +97,7 @@ class RepositoryRequestPatch(object):
         'enforce_eula': 'enforce_eula',
         'generic_package_index_enabled': 'generic_package_index_enabled',
         'index_files': 'index_files',
+        'is_public_hidden': 'is_public_hidden',
         'manage_entitlements_privilege': 'manage_entitlements_privilege',
         'move_own': 'move_own',
         'move_packages': 'move_packages',
@@ -128,7 +130,7 @@ class RepositoryRequestPatch(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, broadcast_state='Off', content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, generic_package_index_enabled=None, index_files=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, broadcast_state='Off', content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, generic_package_index_enabled=None, index_files=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -149,6 +151,7 @@ class RepositoryRequestPatch(object):
         self._enforce_eula = None
         self._generic_package_index_enabled = None
         self._index_files = None
+        self._is_public_hidden = None
         self._manage_entitlements_privilege = None
         self._move_own = None
         self._move_packages = None
@@ -211,6 +214,8 @@ class RepositoryRequestPatch(object):
             self.generic_package_index_enabled = generic_package_index_enabled
         if index_files is not None:
             self.index_files = index_files
+        if is_public_hidden is not None:
+            self.is_public_hidden = is_public_hidden
         if manage_entitlements_privilege is not None:
             self.manage_entitlements_privilege = manage_entitlements_privilege
         if move_own is not None:
@@ -651,6 +656,29 @@ class RepositoryRequestPatch(object):
         """
 
         self._index_files = index_files
+
+    @property
+    def is_public_hidden(self):
+        """Gets the is_public_hidden of this RepositoryRequestPatch.
+
+        If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+
+        :return: The is_public_hidden of this RepositoryRequestPatch.
+        :rtype: bool
+        """
+        return self._is_public_hidden
+
+    @is_public_hidden.setter
+    def is_public_hidden(self, is_public_hidden):
+        """Sets the is_public_hidden of this RepositoryRequestPatch.
+
+        If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+
+        :param is_public_hidden: The is_public_hidden of this RepositoryRequestPatch.
+        :type: bool
+        """
+
+        self._is_public_hidden = is_public_hidden
 
     @property
     def manage_entitlements_privilege(self):

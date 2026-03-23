@@ -204,6 +204,9 @@ public class FormatSupportUpstream implements Serializable {
   @SerializedName("signature_verification")
   private SignatureVerificationEnum signatureVerification = SignatureVerificationEnum.UNSUPPORTED;
 
+  @SerializedName("trust")
+  private Boolean trust = null;
+
   public FormatSupportUpstream authModes(List<AuthModesEnum> authModes) {
     this.authModes = authModes;
     return this;
@@ -321,6 +324,25 @@ public class FormatSupportUpstream implements Serializable {
     this.signatureVerification = signatureVerification;
   }
 
+  public FormatSupportUpstream trust(Boolean trust) {
+    this.trust = trust;
+    return this;
+  }
+
+   /**
+   * If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.
+   * @return trust
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.")
+  public Boolean isTrust() {
+    return trust;
+  }
+
+  public void setTrust(Boolean trust) {
+    this.trust = trust;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -336,12 +358,13 @@ public class FormatSupportUpstream implements Serializable {
         Objects.equals(this.indexing, formatSupportUpstream.indexing) &&
         Objects.equals(this.indexingBehavior, formatSupportUpstream.indexingBehavior) &&
         Objects.equals(this.proxying, formatSupportUpstream.proxying) &&
-        Objects.equals(this.signatureVerification, formatSupportUpstream.signatureVerification);
+        Objects.equals(this.signatureVerification, formatSupportUpstream.signatureVerification) &&
+        Objects.equals(this.trust, formatSupportUpstream.trust);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authModes, caching, indexing, indexingBehavior, proxying, signatureVerification);
+    return Objects.hash(authModes, caching, indexing, indexingBehavior, proxying, signatureVerification, trust);
   }
 
 
@@ -356,6 +379,7 @@ public class FormatSupportUpstream implements Serializable {
     sb.append("    indexingBehavior: ").append(toIndentedString(indexingBehavior)).append("\n");
     sb.append("    proxying: ").append(toIndentedString(proxying)).append("\n");
     sb.append("    signatureVerification: ").append(toIndentedString(signatureVerification)).append("\n");
+    sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**members** | [**list[OrganizationTeamMembership]**](OrganizationTeamMembership.md) | The team members | 
+**members** | [**list[OrganizationTeamServiceMember]**](OrganizationTeamServiceMember.md) | The team members | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

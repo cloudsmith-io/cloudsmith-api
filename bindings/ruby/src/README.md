@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::AuditLogApi* | [**audit_log_repo_list**](docs/AuditLogApi.md#audit_log_repo_list) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 *CloudsmithApi::BadgesApi* | [**badges_version_list**](docs/BadgesApi.md#badges_version_list) | **GET** /badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/ | Get latest package version for a package or package group.
 *CloudsmithApi::BroadcastsApi* | [**broadcasts_create_broadcast_token**](docs/BroadcastsApi.md#broadcasts_create_broadcast_token) | **POST** /broadcasts/{org}/broadcast-token/ | Create a broadcast token.
+*CloudsmithApi::BulkActionApi* | [**bulk_action**](docs/BulkActionApi.md#bulk_action) | **POST** /bulk-action/{owner}/ | 
 *CloudsmithApi::DistrosApi* | [**distros_list**](docs/DistrosApi.md#distros_list) | **GET** /distros/ | Get a list of all supported distributions.
 *CloudsmithApi::DistrosApi* | [**distros_read**](docs/DistrosApi.md#distros_read) | **GET** /distros/{slug}/ | View for viewing/listing distributions.
 *CloudsmithApi::EntitlementsApi* | [**entitlements_create**](docs/EntitlementsApi.md#entitlements_create) | **POST** /entitlements/{owner}/{repo}/ | Create a specific entitlement in a repository.
@@ -234,6 +235,7 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::PackagesApi* | [**packages_upload_swift**](docs/PackagesApi.md#packages_upload_swift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 *CloudsmithApi::PackagesApi* | [**packages_upload_terraform**](docs/PackagesApi.md#packages_upload_terraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 *CloudsmithApi::PackagesApi* | [**packages_upload_vagrant**](docs/PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+*CloudsmithApi::PackagesApi* | [**packages_upload_vsx**](docs/PackagesApi.md#packages_upload_vsx) | **POST** /packages/{owner}/{repo}/upload/vsx/ | Create a new VSX package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_alpine**](docs/PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_cargo**](docs/PackagesApi.md#packages_validate_upload_cargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_cocoapods**](docs/PackagesApi.md#packages_validate_upload_cocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
@@ -261,6 +263,7 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_swift**](docs/PackagesApi.md#packages_validate_upload_swift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_terraform**](docs/PackagesApi.md#packages_validate_upload_terraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *CloudsmithApi::PackagesApi* | [**packages_validate_upload_vagrant**](docs/PackagesApi.md#packages_validate_upload_vagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
+*CloudsmithApi::PackagesApi* | [**packages_validate_upload_vsx**](docs/PackagesApi.md#packages_validate_upload_vsx) | **POST** /packages/{owner}/{repo}/validate-upload/vsx/ | Validate parameters for create VSX package
 *CloudsmithApi::QuotaApi* | [**quota_history_read**](docs/QuotaApi.md#quota_history_read) | **GET** /quota/history/{owner}/ | Quota history for a given namespace.
 *CloudsmithApi::QuotaApi* | [**quota_oss_history_read**](docs/QuotaApi.md#quota_oss_history_read) | **GET** /quota/oss/history/{owner}/ | Open-source Quota history for a given namespace.
 *CloudsmithApi::QuotaApi* | [**quota_oss_read**](docs/QuotaApi.md#quota_oss_read) | **GET** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
@@ -293,6 +296,12 @@ Class | Method | HTTP request | Description
 *CloudsmithApi::ReposApi* | [**repos_rsa_list**](docs/ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 *CloudsmithApi::ReposApi* | [**repos_rsa_regenerate**](docs/ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 *CloudsmithApi::ReposApi* | [**repos_transfer_region**](docs/ReposApi.md#repos_transfer_region) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
+*CloudsmithApi::ReposApi* | [**repos_upstream_alpine_create**](docs/ReposApi.md#repos_upstream_alpine_create) | **POST** /repos/{owner}/{identifier}/upstream/alpine/ | Create an Alpine upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_alpine_delete**](docs/ReposApi.md#repos_upstream_alpine_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Delete an Alpine upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_alpine_list**](docs/ReposApi.md#repos_upstream_alpine_list) | **GET** /repos/{owner}/{identifier}/upstream/alpine/ | List Alpine upstream configs for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_alpine_partial_update**](docs/ReposApi.md#repos_upstream_alpine_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Partially update an Alpine upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_alpine_read**](docs/ReposApi.md#repos_upstream_alpine_read) | **GET** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Retrieve an Alpine upstream config for this repository.
+*CloudsmithApi::ReposApi* | [**repos_upstream_alpine_update**](docs/ReposApi.md#repos_upstream_alpine_update) | **PUT** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Update an Alpine upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_cargo_create**](docs/ReposApi.md#repos_upstream_cargo_create) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_cargo_delete**](docs/ReposApi.md#repos_upstream_cargo_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository.
 *CloudsmithApi::ReposApi* | [**repos_upstream_cargo_list**](docs/ReposApi.md#repos_upstream_cargo_list) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository.
@@ -436,6 +445,9 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::AllocatedLimitRaw](docs/AllocatedLimitRaw.md)
  - [CloudsmithApi::AlpinePackageUpload](docs/AlpinePackageUpload.md)
  - [CloudsmithApi::AlpinePackageUploadRequest](docs/AlpinePackageUploadRequest.md)
+ - [CloudsmithApi::AlpineUpstream](docs/AlpineUpstream.md)
+ - [CloudsmithApi::AlpineUpstreamRequest](docs/AlpineUpstreamRequest.md)
+ - [CloudsmithApi::AlpineUpstreamRequestPatch](docs/AlpineUpstreamRequestPatch.md)
  - [CloudsmithApi::Architecture](docs/Architecture.md)
  - [CloudsmithApi::BroadcastToken](docs/BroadcastToken.md)
  - [CloudsmithApi::BroadcastTokenInput](docs/BroadcastTokenInput.md)
@@ -572,12 +584,14 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::OrganizationTeam](docs/OrganizationTeam.md)
  - [CloudsmithApi::OrganizationTeamInvite](docs/OrganizationTeamInvite.md)
  - [CloudsmithApi::OrganizationTeamMembers](docs/OrganizationTeamMembers.md)
- - [CloudsmithApi::OrganizationTeamMembership](docs/OrganizationTeamMembership.md)
  - [CloudsmithApi::OrganizationTeamRequest](docs/OrganizationTeamRequest.md)
  - [CloudsmithApi::OrganizationTeamRequestPatch](docs/OrganizationTeamRequestPatch.md)
+ - [CloudsmithApi::OrganizationTeamServiceMember](docs/OrganizationTeamServiceMember.md)
  - [CloudsmithApi::P2PackageUpload](docs/P2PackageUpload.md)
  - [CloudsmithApi::P2PackageUploadRequest](docs/P2PackageUploadRequest.md)
  - [CloudsmithApi::Package](docs/Package.md)
+ - [CloudsmithApi::PackageBulkAction](docs/PackageBulkAction.md)
+ - [CloudsmithApi::PackageBulkActionResponse](docs/PackageBulkActionResponse.md)
  - [CloudsmithApi::PackageCopy](docs/PackageCopy.md)
  - [CloudsmithApi::PackageCopyRequest](docs/PackageCopyRequest.md)
  - [CloudsmithApi::PackageDenyPolicy](docs/PackageDenyPolicy.md)
@@ -709,6 +723,8 @@ Class | Method | HTTP request | Description
  - [CloudsmithApi::UserProfile](docs/UserProfile.md)
  - [CloudsmithApi::VagrantPackageUpload](docs/VagrantPackageUpload.md)
  - [CloudsmithApi::VagrantPackageUploadRequest](docs/VagrantPackageUploadRequest.md)
+ - [CloudsmithApi::VsxPackageUpload](docs/VsxPackageUpload.md)
+ - [CloudsmithApi::VsxPackageUploadRequest](docs/VsxPackageUploadRequest.md)
  - [CloudsmithApi::Vulnerability](docs/Vulnerability.md)
  - [CloudsmithApi::VulnerabilityScan](docs/VulnerabilityScan.md)
  - [CloudsmithApi::VulnerabilityScanResults](docs/VulnerabilityScanResults.md)

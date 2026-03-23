@@ -330,6 +330,9 @@ public class RepositoryRequestPatch implements Serializable {
   @SerializedName("index_files")
   private Boolean indexFiles = null;
 
+  @SerializedName("is_public_hidden")
+  private Boolean isPublicHidden = null;
+
   /**
    * This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
    */
@@ -1086,6 +1089,24 @@ public class RepositoryRequestPatch implements Serializable {
     this.indexFiles = indexFiles;
   }
 
+  public RepositoryRequestPatch isPublicHidden(Boolean isPublicHidden) {
+    this.isPublicHidden = isPublicHidden;
+    return this;
+  }
+
+   /**
+   * If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+   * @return isPublicHidden
+  **/
+  @ApiModelProperty(value = "If checked, this repository will be hidden from the list of public broadcasts for the workspace.")
+  public Boolean isIsPublicHidden() {
+    return isPublicHidden;
+  }
+
+  public void setIsPublicHidden(Boolean isPublicHidden) {
+    this.isPublicHidden = isPublicHidden;
+  }
+
   public RepositoryRequestPatch manageEntitlementsPrivilege(ManageEntitlementsPrivilegeEnum manageEntitlementsPrivilege) {
     this.manageEntitlementsPrivilege = manageEntitlementsPrivilege;
     return this;
@@ -1651,6 +1672,7 @@ public class RepositoryRequestPatch implements Serializable {
         Objects.equals(this.enforceEula, repositoryRequestPatch.enforceEula) &&
         Objects.equals(this.genericPackageIndexEnabled, repositoryRequestPatch.genericPackageIndexEnabled) &&
         Objects.equals(this.indexFiles, repositoryRequestPatch.indexFiles) &&
+        Objects.equals(this.isPublicHidden, repositoryRequestPatch.isPublicHidden) &&
         Objects.equals(this.manageEntitlementsPrivilege, repositoryRequestPatch.manageEntitlementsPrivilege) &&
         Objects.equals(this.moveOwn, repositoryRequestPatch.moveOwn) &&
         Objects.equals(this.movePackages, repositoryRequestPatch.movePackages) &&
@@ -1685,7 +1707,7 @@ public class RepositoryRequestPatch implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadcastState, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, genericPackageIndexEnabled, indexFiles, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(broadcastState, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, genericPackageIndexEnabled, indexFiles, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1709,6 +1731,7 @@ public class RepositoryRequestPatch implements Serializable {
     sb.append("    enforceEula: ").append(toIndentedString(enforceEula)).append("\n");
     sb.append("    genericPackageIndexEnabled: ").append(toIndentedString(genericPackageIndexEnabled)).append("\n");
     sb.append("    indexFiles: ").append(toIndentedString(indexFiles)).append("\n");
+    sb.append("    isPublicHidden: ").append(toIndentedString(isPublicHidden)).append("\n");
     sb.append("    manageEntitlementsPrivilege: ").append(toIndentedString(manageEntitlementsPrivilege)).append("\n");
     sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");
     sb.append("    movePackages: ").append(toIndentedString(movePackages)).append("\n");

@@ -36,6 +36,9 @@ import java.util.Set;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import io.cloudsmith.api.models.AlpineUpstream;
+import io.cloudsmith.api.models.AlpineUpstreamRequest;
+import io.cloudsmith.api.models.AlpineUpstreamRequestPatch;
 import io.cloudsmith.api.models.CargoUpstream;
 import io.cloudsmith.api.models.CargoUpstreamRequest;
 import io.cloudsmith.api.models.CargoUpstreamRequestPatch;
@@ -2639,12 +2642,14 @@ public class ReposApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call reposNamespaceListCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call reposNamespaceListCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2657,6 +2662,10 @@ public class ReposApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+        if (query != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2694,18 +2703,18 @@ public class ReposApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call reposNamespaceListValidateBeforeCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reposNamespaceListValidateBeforeCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, page, pageSize };
-            Method method = this.getClass().getMethod("reposNamespaceListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Object[] parameterValues = { owner, page, pageSize, query, sort };
+            Method method = this.getClass().getMethod("reposNamespaceListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class);
             Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = reposNamespaceListCall(owner, page, pageSize, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = reposNamespaceListCall(owner, page, pageSize, query, sort, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -2727,11 +2736,13 @@ public class ReposApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
      * @return List&lt;Repository&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Repository> reposNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<Repository>> resp = reposNamespaceListWithHttpInfo(owner, page, pageSize);
+    public List<Repository> reposNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort) throws ApiException {
+        ApiResponse<List<Repository>> resp = reposNamespaceListWithHttpInfo(owner, page, pageSize, query, sort);
         return resp.getData();
     }
 
@@ -2741,11 +2752,13 @@ public class ReposApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
      * @return ApiResponse&lt;List&lt;Repository&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Repository>> reposNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = reposNamespaceListValidateBeforeCall(owner, page, pageSize, null, null);
+    public ApiResponse<List<Repository>> reposNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query,  String sort) throws ApiException {
+        com.squareup.okhttp.Call call = reposNamespaceListValidateBeforeCall(owner, page, pageSize, query, sort, null, null);
         Type localVarReturnType = new TypeToken<List<Repository>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2756,11 +2769,13 @@ public class ReposApi {
      * @param owner  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
+     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<Repository>> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ApiCallback<List<Repository>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2781,7 +2796,7 @@ public class ReposApi {
             };
         }
 
-        com.squareup.okhttp.Call call = reposNamespaceListValidateBeforeCall(owner, page, pageSize, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reposNamespaceListValidateBeforeCall(owner, page, pageSize, query, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Repository>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -4109,6 +4124,916 @@ public class ReposApi {
 
         com.squareup.okhttp.Call call = reposTransferRegionValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamAlpineCreate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineCreateCall(String owner, String identifier, AlpineUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/alpine/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamAlpineCreateValidateBeforeCall(String owner, String identifier, AlpineUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, data };
+            Method method = this.getClass().getMethod("reposUpstreamAlpineCreateWithHttpInfo", String.class, String.class, AlpineUpstreamRequest.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamAlpineCreateCall(owner, identifier, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create an Alpine upstream config for this repository.
+     * Create an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return AlpineUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AlpineUpstream reposUpstreamAlpineCreate(String owner, String identifier, AlpineUpstreamRequest data) throws ApiException {
+        ApiResponse<AlpineUpstream> resp = reposUpstreamAlpineCreateWithHttpInfo(owner, identifier, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create an Alpine upstream config for this repository.
+     * Create an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;AlpineUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AlpineUpstream> reposUpstreamAlpineCreateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  AlpineUpstreamRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamAlpineCreateValidateBeforeCall(owner, identifier, data, null, null);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create an Alpine upstream config for this repository. (asynchronously)
+     * Create an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineCreateAsync(String owner, String identifier, AlpineUpstreamRequest data, final ApiCallback<AlpineUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamAlpineCreateValidateBeforeCall(owner, identifier, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamAlpineDelete
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineDeleteCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamAlpineDeleteValidateBeforeCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm };
+            Method method = this.getClass().getMethod("reposUpstreamAlpineDeleteWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamAlpineDeleteCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Delete an Alpine upstream config for this repository.
+     * Delete an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void reposUpstreamAlpineDelete(String owner, String identifier, String slugPerm) throws ApiException {
+        reposUpstreamAlpineDeleteWithHttpInfo(owner, identifier, slugPerm);
+    }
+
+    /**
+     * Delete an Alpine upstream config for this repository.
+     * Delete an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> reposUpstreamAlpineDeleteWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamAlpineDeleteValidateBeforeCall(owner, identifier, slugPerm, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete an Alpine upstream config for this repository. (asynchronously)
+     * Delete an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineDeleteAsync(String owner, String identifier, String slugPerm, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamAlpineDeleteValidateBeforeCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamAlpineList
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineListCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/alpine/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamAlpineListValidateBeforeCall(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, page, pageSize };
+            Method method = this.getClass().getMethod("reposUpstreamAlpineListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamAlpineListCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * List Alpine upstream configs for this repository.
+     * List Alpine upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;AlpineUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<AlpineUpstream> reposUpstreamAlpineList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<AlpineUpstream>> resp = reposUpstreamAlpineListWithHttpInfo(owner, identifier, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * List Alpine upstream configs for this repository.
+     * List Alpine upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;AlpineUpstream&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<AlpineUpstream>> reposUpstreamAlpineListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamAlpineListValidateBeforeCall(owner, identifier, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<AlpineUpstream>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Alpine upstream configs for this repository. (asynchronously)
+     * List Alpine upstream configs for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<AlpineUpstream>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamAlpineListValidateBeforeCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<AlpineUpstream>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamAlpinePartialUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpinePartialUpdateCall(String owner, String identifier, String slugPerm, AlpineUpstreamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamAlpinePartialUpdateValidateBeforeCall(String owner, String identifier, String slugPerm, AlpineUpstreamRequestPatch data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm, data };
+            Method method = this.getClass().getMethod("reposUpstreamAlpinePartialUpdateWithHttpInfo", String.class, String.class, String.class, AlpineUpstreamRequestPatch.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamAlpinePartialUpdateCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Partially update an Alpine upstream config for this repository.
+     * Partially update an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return AlpineUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AlpineUpstream reposUpstreamAlpinePartialUpdate(String owner, String identifier, String slugPerm, AlpineUpstreamRequestPatch data) throws ApiException {
+        ApiResponse<AlpineUpstream> resp = reposUpstreamAlpinePartialUpdateWithHttpInfo(owner, identifier, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Partially update an Alpine upstream config for this repository.
+     * Partially update an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;AlpineUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AlpineUpstream> reposUpstreamAlpinePartialUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm,  AlpineUpstreamRequestPatch data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamAlpinePartialUpdateValidateBeforeCall(owner, identifier, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Partially update an Alpine upstream config for this repository. (asynchronously)
+     * Partially update an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpinePartialUpdateAsync(String owner, String identifier, String slugPerm, AlpineUpstreamRequestPatch data, final ApiCallback<AlpineUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamAlpinePartialUpdateValidateBeforeCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamAlpineRead
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineReadCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamAlpineReadValidateBeforeCall(String owner, String identifier, String slugPerm, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm };
+            Method method = this.getClass().getMethod("reposUpstreamAlpineReadWithHttpInfo", String.class, String.class, String.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamAlpineReadCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Retrieve an Alpine upstream config for this repository.
+     * Retrieve an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return AlpineUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AlpineUpstream reposUpstreamAlpineRead(String owner, String identifier, String slugPerm) throws ApiException {
+        ApiResponse<AlpineUpstream> resp = reposUpstreamAlpineReadWithHttpInfo(owner, identifier, slugPerm);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieve an Alpine upstream config for this repository.
+     * Retrieve an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @return ApiResponse&lt;AlpineUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AlpineUpstream> reposUpstreamAlpineReadWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamAlpineReadValidateBeforeCall(owner, identifier, slugPerm, null, null);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieve an Alpine upstream config for this repository. (asynchronously)
+     * Retrieve an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineReadAsync(String owner, String identifier, String slugPerm, final ApiCallback<AlpineUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamAlpineReadValidateBeforeCall(owner, identifier, slugPerm, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for reposUpstreamAlpineUpdate
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineUpdateCall(String owner, String identifier, String slugPerm, AlpineUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()))
+            .replaceAll("\\{" + "slug_perm" + "\\}", apiClient.escapeString(slugPerm.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call reposUpstreamAlpineUpdateValidateBeforeCall(String owner, String identifier, String slugPerm, AlpineUpstreamRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, identifier, slugPerm, data };
+            Method method = this.getClass().getMethod("reposUpstreamAlpineUpdateWithHttpInfo", String.class, String.class, String.class, AlpineUpstreamRequest.class);
+            Set<ConstraintViolation<ReposApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = reposUpstreamAlpineUpdateCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Update an Alpine upstream config for this repository.
+     * Update an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return AlpineUpstream
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AlpineUpstream reposUpstreamAlpineUpdate(String owner, String identifier, String slugPerm, AlpineUpstreamRequest data) throws ApiException {
+        ApiResponse<AlpineUpstream> resp = reposUpstreamAlpineUpdateWithHttpInfo(owner, identifier, slugPerm, data);
+        return resp.getData();
+    }
+
+    /**
+     * Update an Alpine upstream config for this repository.
+     * Update an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;AlpineUpstream&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AlpineUpstream> reposUpstreamAlpineUpdateWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  @NotNull String slugPerm,  AlpineUpstreamRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = reposUpstreamAlpineUpdateValidateBeforeCall(owner, identifier, slugPerm, data, null, null);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update an Alpine upstream config for this repository. (asynchronously)
+     * Update an Alpine upstream config for this repository.
+     * @param owner  (required)
+     * @param identifier  (required)
+     * @param slugPerm  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call reposUpstreamAlpineUpdateAsync(String owner, String identifier, String slugPerm, AlpineUpstreamRequest data, final ApiCallback<AlpineUpstream> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = reposUpstreamAlpineUpdateValidateBeforeCall(owner, identifier, slugPerm, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AlpineUpstream>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**

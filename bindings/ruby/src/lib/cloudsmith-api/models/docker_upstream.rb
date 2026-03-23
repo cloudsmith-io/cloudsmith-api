@@ -23,6 +23,7 @@ class DockerUpstream
   # Username to provide with requests to upstream.
   attr_accessor :auth_username
 
+  # Whether the upstream is available for use.
   attr_accessor :available
 
   # The datetime the upstream source was created.
@@ -45,6 +46,7 @@ class DockerUpstream
   # The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.
   attr_accessor :extra_value_2
 
+  # Whether the upstream has failed signature verification.
   attr_accessor :has_failed_signature_verification
 
   # Whether or not this upstream is active and ready for requests.
@@ -127,7 +129,7 @@ class DockerUpstream
       :'auth_mode' => :'String',
       :'auth_secret' => :'String',
       :'auth_username' => :'String',
-      :'available' => :'String',
+      :'available' => :'BOOLEAN',
       :'created_at' => :'DateTime',
       :'disable_reason' => :'String',
       :'disable_reason_text' => :'String',
@@ -135,7 +137,7 @@ class DockerUpstream
       :'extra_header_2' => :'String',
       :'extra_value_1' => :'String',
       :'extra_value_2' => :'String',
-      :'has_failed_signature_verification' => :'String',
+      :'has_failed_signature_verification' => :'BOOLEAN',
       :'is_active' => :'BOOLEAN',
       :'mode' => :'String',
       :'name' => :'String',

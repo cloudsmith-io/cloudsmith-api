@@ -13,6 +13,9 @@
 
 package io.cloudsmith.api.apis;
 
+import io.cloudsmith.api.models.AlpineUpstream;
+import io.cloudsmith.api.models.AlpineUpstreamRequest;
+import io.cloudsmith.api.models.AlpineUpstreamRequestPatch;
 import io.cloudsmith.api.models.CargoUpstream;
 import io.cloudsmith.api.models.CargoUpstreamRequest;
 import io.cloudsmith.api.models.CargoUpstreamRequestPatch;
@@ -424,7 +427,9 @@ public class ReposApiTest {
         String owner = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<Repository> response = api.reposNamespaceList(owner, page, pageSize);
+        String query = null;
+        String sort = null;
+        List<Repository> response = api.reposNamespaceList(owner, page, pageSize, query, sort);
 
         // TODO: test validations
     }
@@ -585,6 +590,117 @@ public class ReposApiTest {
         String repo = null;
         RepositoryTransferRegionRequest data = null;
         api.reposTransferRegion(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create an Alpine upstream config for this repository.
+     *
+     * Create an Alpine upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamAlpineCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        AlpineUpstreamRequest data = null;
+        AlpineUpstream response = api.reposUpstreamAlpineCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete an Alpine upstream config for this repository.
+     *
+     * Delete an Alpine upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamAlpineDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamAlpineDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Alpine upstream configs for this repository.
+     *
+     * List Alpine upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamAlpineListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<AlpineUpstream> response = api.reposUpstreamAlpineList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update an Alpine upstream config for this repository.
+     *
+     * Partially update an Alpine upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamAlpinePartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        AlpineUpstreamRequestPatch data = null;
+        AlpineUpstream response = api.reposUpstreamAlpinePartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve an Alpine upstream config for this repository.
+     *
+     * Retrieve an Alpine upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamAlpineReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        AlpineUpstream response = api.reposUpstreamAlpineRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update an Alpine upstream config for this repository.
+     *
+     * Update an Alpine upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamAlpineUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        AlpineUpstreamRequest data = null;
+        AlpineUpstream response = api.reposUpstreamAlpineUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

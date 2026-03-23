@@ -309,6 +309,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_vsx(self):
+        """Test case for packages_upload_vsx
+
+        Create a new VSX package  # noqa: E501
+        """
+        pass
+
     def test_packages_validate_upload_alpine(self):
         """Test case for packages_validate_upload_alpine
 
@@ -495,6 +502,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_vagrant
 
         Validate parameters for create Vagrant package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_vsx(self):
+        """Test case for packages_validate_upload_vsx
+
+        Validate parameters for create VSX package  # noqa: E501
         """
         pass
 

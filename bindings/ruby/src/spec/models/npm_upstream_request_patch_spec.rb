@@ -106,6 +106,16 @@ describe 'NpmUpstreamRequestPatch' do
     end
   end
 
+  describe 'test attribute "trust_level"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Trusted", "Untrusted"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.trust_level = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "upstream_url"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

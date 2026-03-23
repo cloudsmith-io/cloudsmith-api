@@ -81,6 +81,8 @@ import io.cloudsmith.api.models.TerraformPackageUpload;
 import io.cloudsmith.api.models.TerraformPackageUploadRequest;
 import io.cloudsmith.api.models.VagrantPackageUpload;
 import io.cloudsmith.api.models.VagrantPackageUploadRequest;
+import io.cloudsmith.api.models.VsxPackageUpload;
+import io.cloudsmith.api.models.VsxPackageUploadRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -833,6 +835,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new VSX package
+     *
+     * Create a new VSX package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadVsxTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        VsxPackageUploadRequest data = null;
+        VsxPackageUpload response = api.packagesUploadVsx(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Validate parameters for create Alpine package
      *
      * Validate parameters for create Alpine package
@@ -1314,6 +1334,24 @@ public class PackagesApiTest {
         String repo = null;
         VagrantPackageUploadRequest data = null;
         api.packagesValidateUploadVagrant(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create VSX package
+     *
+     * Validate parameters for create VSX package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadVsxTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        VsxPackageUploadRequest data = null;
+        api.packagesValidateUploadVsx(owner, repo, data);
 
         // TODO: test validations
     }

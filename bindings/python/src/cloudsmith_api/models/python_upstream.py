@@ -36,8 +36,8 @@ class PythonUpstream(object):
         'auth_mode': 'str',
         'auth_secret': 'str',
         'auth_username': 'str',
-        'available': 'str',
-        'can_reindex': 'str',
+        'available': 'bool',
+        'can_reindex': 'bool',
         'created_at': 'datetime',
         'disable_reason': 'str',
         'disable_reason_text': 'str',
@@ -45,8 +45,8 @@ class PythonUpstream(object):
         'extra_header_2': 'str',
         'extra_value_1': 'str',
         'extra_value_2': 'str',
-        'has_failed_signature_verification': 'str',
-        'index_package_count': 'str',
+        'has_failed_signature_verification': 'bool',
+        'index_package_count': 'int',
         'index_status': 'str',
         'is_active': 'bool',
         'last_indexed': 'str',
@@ -261,9 +261,10 @@ class PythonUpstream(object):
     def available(self):
         """Gets the available of this PythonUpstream.
 
+        Whether the upstream is available for use.
 
         :return: The available of this PythonUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._available
 
@@ -271,9 +272,10 @@ class PythonUpstream(object):
     def available(self, available):
         """Sets the available of this PythonUpstream.
 
+        Whether the upstream is available for use.
 
         :param available: The available of this PythonUpstream.
-        :type: str
+        :type: bool
         """
 
         self._available = available
@@ -282,9 +284,10 @@ class PythonUpstream(object):
     def can_reindex(self):
         """Gets the can_reindex of this PythonUpstream.
 
+        Whether the upstream can be reindexed.
 
         :return: The can_reindex of this PythonUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._can_reindex
 
@@ -292,9 +295,10 @@ class PythonUpstream(object):
     def can_reindex(self, can_reindex):
         """Sets the can_reindex of this PythonUpstream.
 
+        Whether the upstream can be reindexed.
 
         :param can_reindex: The can_reindex of this PythonUpstream.
-        :type: str
+        :type: bool
         """
 
         self._can_reindex = can_reindex
@@ -493,9 +497,10 @@ class PythonUpstream(object):
     def has_failed_signature_verification(self):
         """Gets the has_failed_signature_verification of this PythonUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :return: The has_failed_signature_verification of this PythonUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._has_failed_signature_verification
 
@@ -503,9 +508,10 @@ class PythonUpstream(object):
     def has_failed_signature_verification(self, has_failed_signature_verification):
         """Sets the has_failed_signature_verification of this PythonUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :param has_failed_signature_verification: The has_failed_signature_verification of this PythonUpstream.
-        :type: str
+        :type: bool
         """
 
         self._has_failed_signature_verification = has_failed_signature_verification
@@ -517,7 +523,7 @@ class PythonUpstream(object):
         The number of packages available in this upstream source
 
         :return: The index_package_count of this PythonUpstream.
-        :rtype: str
+        :rtype: int
         """
         return self._index_package_count
 
@@ -528,7 +534,7 @@ class PythonUpstream(object):
         The number of packages available in this upstream source
 
         :param index_package_count: The index_package_count of this PythonUpstream.
-        :type: str
+        :type: int
         """
 
         self._index_package_count = index_package_count

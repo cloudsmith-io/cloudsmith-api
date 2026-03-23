@@ -94,10 +94,10 @@ public class NpmUpstream implements Serializable {
   private String authUsername = null;
 
   @SerializedName("available")
-  private String available = null;
+  private Boolean available = null;
 
   @SerializedName("can_reindex")
-  private String canReindex = null;
+  private Boolean canReindex = null;
 
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
@@ -172,10 +172,10 @@ public class NpmUpstream implements Serializable {
   private String extraValue2 = null;
 
   @SerializedName("has_failed_signature_verification")
-  private String hasFailedSignatureVerification = null;
+  private Boolean hasFailedSignatureVerification = null;
 
   @SerializedName("index_package_count")
-  private String indexPackageCount = null;
+  private java.math.BigInteger indexPackageCount = null;
 
   @SerializedName("index_status")
   private String indexStatus = null;
@@ -248,6 +248,56 @@ public class NpmUpstream implements Serializable {
   @SerializedName("slug_perm")
   private String slugPerm = null;
 
+  /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   */
+  @JsonAdapter(TrustLevelEnum.Adapter.class)
+  public enum TrustLevelEnum {
+    TRUSTED("Trusted"),
+    
+    UNTRUSTED("Untrusted");
+
+    private String value;
+
+    TrustLevelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TrustLevelEnum fromValue(String text) {
+      for (TrustLevelEnum b : TrustLevelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TrustLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TrustLevelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TrustLevelEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TrustLevelEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("trust_level")
+  private TrustLevelEnum trustLevel = TrustLevelEnum.TRUSTED;
+
   @SerializedName("updated_at")
   private OffsetDateTime updatedAt = null;
 
@@ -312,20 +362,20 @@ public class NpmUpstream implements Serializable {
   }
 
    /**
-   * Get available
+   * Whether the upstream is available for use.
    * @return available
   **/
-  @ApiModelProperty(value = "")
-  public String getAvailable() {
+  @ApiModelProperty(value = "Whether the upstream is available for use.")
+  public Boolean isAvailable() {
     return available;
   }
 
    /**
-   * Get canReindex
+   * Whether the upstream can be reindexed.
    * @return canReindex
   **/
-  @ApiModelProperty(value = "")
-  public String getCanReindex() {
+  @ApiModelProperty(value = "Whether the upstream can be reindexed.")
+  public Boolean isCanReindex() {
     return canReindex;
   }
 
@@ -430,11 +480,11 @@ public class NpmUpstream implements Serializable {
   }
 
    /**
-   * Get hasFailedSignatureVerification
+   * Whether the upstream has failed signature verification.
    * @return hasFailedSignatureVerification
   **/
-  @ApiModelProperty(value = "")
-  public String getHasFailedSignatureVerification() {
+  @ApiModelProperty(value = "Whether the upstream has failed signature verification.")
+  public Boolean isHasFailedSignatureVerification() {
     return hasFailedSignatureVerification;
   }
 
@@ -443,7 +493,7 @@ public class NpmUpstream implements Serializable {
    * @return indexPackageCount
   **/
   @ApiModelProperty(value = "The number of packages available in this upstream source")
-  public String getIndexPackageCount() {
+  public java.math.BigInteger getIndexPackageCount() {
     return indexPackageCount;
   }
 
@@ -558,6 +608,24 @@ public class NpmUpstream implements Serializable {
     return slugPerm;
   }
 
+  public NpmUpstream trustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+    return this;
+  }
+
+   /**
+   * Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+   * @return trustLevel
+  **/
+  @ApiModelProperty(value = "Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
+  public TrustLevelEnum getTrustLevel() {
+    return trustLevel;
+  }
+
+  public void setTrustLevel(TrustLevelEnum trustLevel) {
+    this.trustLevel = trustLevel;
+  }
+
    /**
    * Get updatedAt
    * @return updatedAt
@@ -637,6 +705,7 @@ public class NpmUpstream implements Serializable {
         Objects.equals(this.pendingValidation, npmUpstream.pendingValidation) &&
         Objects.equals(this.priority, npmUpstream.priority) &&
         Objects.equals(this.slugPerm, npmUpstream.slugPerm) &&
+        Objects.equals(this.trustLevel, npmUpstream.trustLevel) &&
         Objects.equals(this.updatedAt, npmUpstream.updatedAt) &&
         Objects.equals(this.upstreamUrl, npmUpstream.upstreamUrl) &&
         Objects.equals(this.verifySsl, npmUpstream.verifySsl);
@@ -644,7 +713,7 @@ public class NpmUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, trustLevel, updatedAt, upstreamUrl, verifySsl);
   }
 
 
@@ -675,6 +744,7 @@ public class NpmUpstream implements Serializable {
     sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
+    sb.append("    trustLevel: ").append(toIndentedString(trustLevel)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");
     sb.append("    verifySsl: ").append(toIndentedString(verifySsl)).append("\n");

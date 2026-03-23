@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **indexing_behavior** | **str** | The behavior of the upstream when indexing | [optional] [default to 'Unsupported']
 **proxying** | **bool** | If true the upstream format supports proxying | 
 **signature_verification** | **str** | The signature verification supported by the upstream format | [optional] [default to 'Unsupported']
+**trust** | **bool** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

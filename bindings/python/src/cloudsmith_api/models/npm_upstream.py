@@ -36,8 +36,8 @@ class NpmUpstream(object):
         'auth_mode': 'str',
         'auth_secret': 'str',
         'auth_username': 'str',
-        'available': 'str',
-        'can_reindex': 'str',
+        'available': 'bool',
+        'can_reindex': 'bool',
         'created_at': 'datetime',
         'disable_reason': 'str',
         'disable_reason_text': 'str',
@@ -45,8 +45,8 @@ class NpmUpstream(object):
         'extra_header_2': 'str',
         'extra_value_1': 'str',
         'extra_value_2': 'str',
-        'has_failed_signature_verification': 'str',
-        'index_package_count': 'str',
+        'has_failed_signature_verification': 'bool',
+        'index_package_count': 'int',
         'index_status': 'str',
         'is_active': 'bool',
         'last_indexed': 'str',
@@ -55,6 +55,7 @@ class NpmUpstream(object):
         'pending_validation': 'bool',
         'priority': 'int',
         'slug_perm': 'str',
+        'trust_level': 'str',
         'updated_at': 'datetime',
         'upstream_url': 'str',
         'verify_ssl': 'bool'
@@ -83,12 +84,13 @@ class NpmUpstream(object):
         'pending_validation': 'pending_validation',
         'priority': 'priority',
         'slug_perm': 'slug_perm',
+        'trust_level': 'trust_level',
         'updated_at': 'updated_at',
         'upstream_url': 'upstream_url',
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, available=None, can_reindex=None, created_at=None, disable_reason='N/A', disable_reason_text=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, has_failed_signature_verification=None, index_package_count=None, index_status=None, is_active=None, last_indexed=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, available=None, can_reindex=None, created_at=None, disable_reason='N/A', disable_reason_text=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, has_failed_signature_verification=None, index_package_count=None, index_status=None, is_active=None, last_indexed=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, trust_level='Trusted', updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """NpmUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -116,6 +118,7 @@ class NpmUpstream(object):
         self._pending_validation = None
         self._priority = None
         self._slug_perm = None
+        self._trust_level = None
         self._updated_at = None
         self._upstream_url = None
         self._verify_ssl = None
@@ -164,6 +167,8 @@ class NpmUpstream(object):
             self.priority = priority
         if slug_perm is not None:
             self.slug_perm = slug_perm
+        if trust_level is not None:
+            self.trust_level = trust_level
         if updated_at is not None:
             self.updated_at = updated_at
         self.upstream_url = upstream_url
@@ -256,9 +261,10 @@ class NpmUpstream(object):
     def available(self):
         """Gets the available of this NpmUpstream.
 
+        Whether the upstream is available for use.
 
         :return: The available of this NpmUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._available
 
@@ -266,9 +272,10 @@ class NpmUpstream(object):
     def available(self, available):
         """Sets the available of this NpmUpstream.
 
+        Whether the upstream is available for use.
 
         :param available: The available of this NpmUpstream.
-        :type: str
+        :type: bool
         """
 
         self._available = available
@@ -277,9 +284,10 @@ class NpmUpstream(object):
     def can_reindex(self):
         """Gets the can_reindex of this NpmUpstream.
 
+        Whether the upstream can be reindexed.
 
         :return: The can_reindex of this NpmUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._can_reindex
 
@@ -287,9 +295,10 @@ class NpmUpstream(object):
     def can_reindex(self, can_reindex):
         """Sets the can_reindex of this NpmUpstream.
 
+        Whether the upstream can be reindexed.
 
         :param can_reindex: The can_reindex of this NpmUpstream.
-        :type: str
+        :type: bool
         """
 
         self._can_reindex = can_reindex
@@ -488,9 +497,10 @@ class NpmUpstream(object):
     def has_failed_signature_verification(self):
         """Gets the has_failed_signature_verification of this NpmUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :return: The has_failed_signature_verification of this NpmUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._has_failed_signature_verification
 
@@ -498,9 +508,10 @@ class NpmUpstream(object):
     def has_failed_signature_verification(self, has_failed_signature_verification):
         """Sets the has_failed_signature_verification of this NpmUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :param has_failed_signature_verification: The has_failed_signature_verification of this NpmUpstream.
-        :type: str
+        :type: bool
         """
 
         self._has_failed_signature_verification = has_failed_signature_verification
@@ -512,7 +523,7 @@ class NpmUpstream(object):
         The number of packages available in this upstream source
 
         :return: The index_package_count of this NpmUpstream.
-        :rtype: str
+        :rtype: int
         """
         return self._index_package_count
 
@@ -523,7 +534,7 @@ class NpmUpstream(object):
         The number of packages available in this upstream source
 
         :param index_package_count: The index_package_count of this NpmUpstream.
-        :type: str
+        :type: int
         """
 
         self._index_package_count = index_package_count
@@ -739,6 +750,36 @@ class NpmUpstream(object):
             raise ValueError(r"Invalid value for `slug_perm`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._slug_perm = slug_perm
+
+    @property
+    def trust_level(self):
+        """Gets the trust_level of this NpmUpstream.
+
+        Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+
+        :return: The trust_level of this NpmUpstream.
+        :rtype: str
+        """
+        return self._trust_level
+
+    @trust_level.setter
+    def trust_level(self, trust_level):
+        """Sets the trust_level of this NpmUpstream.
+
+        Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.
+
+        :param trust_level: The trust_level of this NpmUpstream.
+        :type: str
+        """
+        allowed_values = ["Trusted", "Untrusted"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                trust_level not in allowed_values):
+            raise ValueError(
+                "Invalid value for `trust_level` ({0}), must be one of {1}"  # noqa: E501
+                .format(trust_level, allowed_values)
+            )
+
+        self._trust_level = trust_level
 
     @property
     def updated_at(self):

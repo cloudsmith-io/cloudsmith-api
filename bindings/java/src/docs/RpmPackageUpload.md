@@ -61,6 +61,7 @@ Name | Type | Description | Notes
 **securityScanStatusUpdatedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning status was updated. |  [optional]
 **selfHtmlUrl** | **String** |  |  [optional]
 **selfUrl** | **String** |  |  [optional]
+**selfWebappUrl** | **String** |  |  [optional]
 **signatureUrl** | **String** |  |  [optional]
 **size** | **java.math.BigInteger** | The calculated size of the package. |  [optional]
 **slug** | **String** | The public unique identifier for the package. |  [optional]

@@ -123,6 +123,7 @@ Class | Method | HTTP request | Description
 *AuditLogApi* | [**auditLogRepoList**](docs/AuditLogApi.md#auditLogRepoList) | **GET** /audit-log/{owner}/{repo}/ | Lists audit log entries for a specific repository.
 *BadgesApi* | [**badgesVersionList**](docs/BadgesApi.md#badgesVersionList) | **GET** /badges/version/{owner}/{repo}/{package_format}/{package_name}/{package_version}/{package_identifiers}/ | Get latest package version for a package or package group.
 *BroadcastsApi* | [**broadcastsCreateBroadcastToken**](docs/BroadcastsApi.md#broadcastsCreateBroadcastToken) | **POST** /broadcasts/{org}/broadcast-token/ | Create a broadcast token.
+*BulkActionApi* | [**bulkAction**](docs/BulkActionApi.md#bulkAction) | **POST** /bulk-action/{owner}/ | 
 *DistrosApi* | [**distrosList**](docs/DistrosApi.md#distrosList) | **GET** /distros/ | Get a list of all supported distributions.
 *DistrosApi* | [**distrosRead**](docs/DistrosApi.md#distrosRead) | **GET** /distros/{slug}/ | View for viewing/listing distributions.
 *EntitlementsApi* | [**entitlementsCreate**](docs/EntitlementsApi.md#entitlementsCreate) | **POST** /entitlements/{owner}/{repo}/ | Create a specific entitlement in a repository.
@@ -260,6 +261,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadSwift**](docs/PackagesApi.md#packagesUploadSwift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 *PackagesApi* | [**packagesUploadTerraform**](docs/PackagesApi.md#packagesUploadTerraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
+*PackagesApi* | [**packagesUploadVsx**](docs/PackagesApi.md#packagesUploadVsx) | **POST** /packages/{owner}/{repo}/upload/vsx/ | Create a new VSX package
 *PackagesApi* | [**packagesValidateUploadAlpine**](docs/PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 *PackagesApi* | [**packagesValidateUploadCargo**](docs/PackagesApi.md#packagesValidateUploadCargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 *PackagesApi* | [**packagesValidateUploadCocoapods**](docs/PackagesApi.md#packagesValidateUploadCocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
@@ -287,6 +289,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadSwift**](docs/PackagesApi.md#packagesValidateUploadSwift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 *PackagesApi* | [**packagesValidateUploadTerraform**](docs/PackagesApi.md#packagesValidateUploadTerraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
+*PackagesApi* | [**packagesValidateUploadVsx**](docs/PackagesApi.md#packagesValidateUploadVsx) | **POST** /packages/{owner}/{repo}/validate-upload/vsx/ | Validate parameters for create VSX package
 *QuotaApi* | [**quotaHistoryRead**](docs/QuotaApi.md#quotaHistoryRead) | **GET** /quota/history/{owner}/ | Quota history for a given namespace.
 *QuotaApi* | [**quotaOssHistoryRead**](docs/QuotaApi.md#quotaOssHistoryRead) | **GET** /quota/oss/history/{owner}/ | Open-source Quota history for a given namespace.
 *QuotaApi* | [**quotaOssRead**](docs/QuotaApi.md#quotaOssRead) | **GET** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
@@ -319,6 +322,12 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposRsaList**](docs/ReposApi.md#reposRsaList) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
 *ReposApi* | [**reposRsaRegenerate**](docs/ReposApi.md#reposRsaRegenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
 *ReposApi* | [**reposTransferRegion**](docs/ReposApi.md#reposTransferRegion) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
+*ReposApi* | [**reposUpstreamAlpineCreate**](docs/ReposApi.md#reposUpstreamAlpineCreate) | **POST** /repos/{owner}/{identifier}/upstream/alpine/ | Create an Alpine upstream config for this repository.
+*ReposApi* | [**reposUpstreamAlpineDelete**](docs/ReposApi.md#reposUpstreamAlpineDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Delete an Alpine upstream config for this repository.
+*ReposApi* | [**reposUpstreamAlpineList**](docs/ReposApi.md#reposUpstreamAlpineList) | **GET** /repos/{owner}/{identifier}/upstream/alpine/ | List Alpine upstream configs for this repository.
+*ReposApi* | [**reposUpstreamAlpinePartialUpdate**](docs/ReposApi.md#reposUpstreamAlpinePartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Partially update an Alpine upstream config for this repository.
+*ReposApi* | [**reposUpstreamAlpineRead**](docs/ReposApi.md#reposUpstreamAlpineRead) | **GET** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Retrieve an Alpine upstream config for this repository.
+*ReposApi* | [**reposUpstreamAlpineUpdate**](docs/ReposApi.md#reposUpstreamAlpineUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Update an Alpine upstream config for this repository.
 *ReposApi* | [**reposUpstreamCargoCreate**](docs/ReposApi.md#reposUpstreamCargoCreate) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository.
 *ReposApi* | [**reposUpstreamCargoDelete**](docs/ReposApi.md#reposUpstreamCargoDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository.
 *ReposApi* | [**reposUpstreamCargoList**](docs/ReposApi.md#reposUpstreamCargoList) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository.
@@ -462,6 +471,9 @@ Class | Method | HTTP request | Description
  - [AllocatedLimitRaw](docs/AllocatedLimitRaw.md)
  - [AlpinePackageUpload](docs/AlpinePackageUpload.md)
  - [AlpinePackageUploadRequest](docs/AlpinePackageUploadRequest.md)
+ - [AlpineUpstream](docs/AlpineUpstream.md)
+ - [AlpineUpstreamRequest](docs/AlpineUpstreamRequest.md)
+ - [AlpineUpstreamRequestPatch](docs/AlpineUpstreamRequestPatch.md)
  - [Architecture](docs/Architecture.md)
  - [BroadcastToken](docs/BroadcastToken.md)
  - [BroadcastTokenInput](docs/BroadcastTokenInput.md)
@@ -599,11 +611,13 @@ Class | Method | HTTP request | Description
  - [OrganizationTeam](docs/OrganizationTeam.md)
  - [OrganizationTeamInvite](docs/OrganizationTeamInvite.md)
  - [OrganizationTeamMembers](docs/OrganizationTeamMembers.md)
- - [OrganizationTeamMembership](docs/OrganizationTeamMembership.md)
  - [OrganizationTeamRequest](docs/OrganizationTeamRequest.md)
  - [OrganizationTeamRequestPatch](docs/OrganizationTeamRequestPatch.md)
+ - [OrganizationTeamServiceMember](docs/OrganizationTeamServiceMember.md)
  - [P2PackageUpload](docs/P2PackageUpload.md)
  - [P2PackageUploadRequest](docs/P2PackageUploadRequest.md)
+ - [PackageBulkAction](docs/PackageBulkAction.md)
+ - [PackageBulkActionResponse](docs/PackageBulkActionResponse.md)
  - [PackageCopy](docs/PackageCopy.md)
  - [PackageCopyRequest](docs/PackageCopyRequest.md)
  - [PackageDenyPolicy](docs/PackageDenyPolicy.md)
@@ -735,6 +749,8 @@ Class | Method | HTTP request | Description
  - [UserProfile](docs/UserProfile.md)
  - [VagrantPackageUpload](docs/VagrantPackageUpload.md)
  - [VagrantPackageUploadRequest](docs/VagrantPackageUploadRequest.md)
+ - [VsxPackageUpload](docs/VsxPackageUpload.md)
+ - [VsxPackageUploadRequest](docs/VsxPackageUploadRequest.md)
  - [Vulnerability](docs/Vulnerability.md)
  - [VulnerabilityScan](docs/VulnerabilityScan.md)
  - [VulnerabilityScanResults](docs/VulnerabilityScanResults.md)

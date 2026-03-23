@@ -77,6 +77,9 @@ class Repository
 
   attr_accessor :is_public
 
+  # If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+  attr_accessor :is_public_hidden
+
   # This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
   attr_accessor :manage_entitlements_privilege
 
@@ -163,6 +166,9 @@ class Repository
 
   # API endpoint where data about this repository can be retrieved.
   attr_accessor :self_url
+
+  # Webapp URL for this repository.
+  attr_accessor :self_webapp_url
 
   # If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.
   attr_accessor :show_setup_all
@@ -260,6 +266,7 @@ class Repository
       :'is_open_source' => :'is_open_source',
       :'is_private' => :'is_private',
       :'is_public' => :'is_public',
+      :'is_public_hidden' => :'is_public_hidden',
       :'manage_entitlements_privilege' => :'manage_entitlements_privilege',
       :'move_own' => :'move_own',
       :'move_packages' => :'move_packages',
@@ -289,6 +296,7 @@ class Repository
       :'scan_packages' => :'scan_packages',
       :'self_html_url' => :'self_html_url',
       :'self_url' => :'self_url',
+      :'self_webapp_url' => :'self_webapp_url',
       :'show_setup_all' => :'show_setup_all',
       :'size' => :'size',
       :'size_str' => :'size_str',
@@ -334,6 +342,7 @@ class Repository
       :'is_open_source' => :'BOOLEAN',
       :'is_private' => :'BOOLEAN',
       :'is_public' => :'BOOLEAN',
+      :'is_public_hidden' => :'BOOLEAN',
       :'manage_entitlements_privilege' => :'String',
       :'move_own' => :'BOOLEAN',
       :'move_packages' => :'String',
@@ -363,6 +372,7 @@ class Repository
       :'scan_packages' => :'String',
       :'self_html_url' => :'String',
       :'self_url' => :'String',
+      :'self_webapp_url' => :'String',
       :'show_setup_all' => :'BOOLEAN',
       :'size' => :'Integer',
       :'size_str' => :'String',
@@ -498,6 +508,10 @@ class Repository
       self.is_public = attributes[:'is_public']
     end
 
+    if attributes.has_key?(:'is_public_hidden')
+      self.is_public_hidden = attributes[:'is_public_hidden']
+    end
+
     if attributes.has_key?(:'manage_entitlements_privilege')
       self.manage_entitlements_privilege = attributes[:'manage_entitlements_privilege']
     else
@@ -624,6 +638,10 @@ class Repository
 
     if attributes.has_key?(:'self_url')
       self.self_url = attributes[:'self_url']
+    end
+
+    if attributes.has_key?(:'self_webapp_url')
+      self.self_webapp_url = attributes[:'self_webapp_url']
     end
 
     if attributes.has_key?(:'show_setup_all')
@@ -899,6 +917,7 @@ class Repository
         is_open_source == o.is_open_source &&
         is_private == o.is_private &&
         is_public == o.is_public &&
+        is_public_hidden == o.is_public_hidden &&
         manage_entitlements_privilege == o.manage_entitlements_privilege &&
         move_own == o.move_own &&
         move_packages == o.move_packages &&
@@ -928,6 +947,7 @@ class Repository
         scan_packages == o.scan_packages &&
         self_html_url == o.self_html_url &&
         self_url == o.self_url &&
+        self_webapp_url == o.self_webapp_url &&
         show_setup_all == o.show_setup_all &&
         size == o.size &&
         size_str == o.size_str &&
@@ -955,7 +975,7 @@ class Repository
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [broadcast_state, cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, generic_package_index_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_count_excl_subcomponents, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    [broadcast_state, cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, generic_package_index_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_count_excl_subcomponents, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, self_webapp_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
   end
 
     # Builds the object from hash

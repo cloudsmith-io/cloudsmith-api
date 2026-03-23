@@ -36,7 +36,7 @@ class DockerUpstream(object):
         'auth_mode': 'str',
         'auth_secret': 'str',
         'auth_username': 'str',
-        'available': 'str',
+        'available': 'bool',
         'created_at': 'datetime',
         'disable_reason': 'str',
         'disable_reason_text': 'str',
@@ -44,7 +44,7 @@ class DockerUpstream(object):
         'extra_header_2': 'str',
         'extra_value_1': 'str',
         'extra_value_2': 'str',
-        'has_failed_signature_verification': 'str',
+        'has_failed_signature_verification': 'bool',
         'is_active': 'bool',
         'mode': 'str',
         'name': 'str',
@@ -236,9 +236,10 @@ class DockerUpstream(object):
     def available(self):
         """Gets the available of this DockerUpstream.
 
+        Whether the upstream is available for use.
 
         :return: The available of this DockerUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._available
 
@@ -246,9 +247,10 @@ class DockerUpstream(object):
     def available(self, available):
         """Sets the available of this DockerUpstream.
 
+        Whether the upstream is available for use.
 
         :param available: The available of this DockerUpstream.
-        :type: str
+        :type: bool
         """
 
         self._available = available
@@ -447,9 +449,10 @@ class DockerUpstream(object):
     def has_failed_signature_verification(self):
         """Gets the has_failed_signature_verification of this DockerUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :return: The has_failed_signature_verification of this DockerUpstream.
-        :rtype: str
+        :rtype: bool
         """
         return self._has_failed_signature_verification
 
@@ -457,9 +460,10 @@ class DockerUpstream(object):
     def has_failed_signature_verification(self, has_failed_signature_verification):
         """Sets the has_failed_signature_verification of this DockerUpstream.
 
+        Whether the upstream has failed signature verification.
 
         :param has_failed_signature_verification: The has_failed_signature_verification of this DockerUpstream.
-        :type: str
+        :type: bool
         """
 
         self._has_failed_signature_verification = has_failed_signature_verification

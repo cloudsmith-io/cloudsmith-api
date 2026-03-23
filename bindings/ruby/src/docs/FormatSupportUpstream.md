@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **indexing_behavior** | **String** | The behavior of the upstream when indexing | [optional] [default to &#39;Unsupported&#39;]
 **proxying** | **BOOLEAN** | If true the upstream format supports proxying | 
 **signature_verification** | **String** | The signature verification supported by the upstream format | [optional] [default to &#39;Unsupported&#39;]
+**trust** | **BOOLEAN** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | 
 
 

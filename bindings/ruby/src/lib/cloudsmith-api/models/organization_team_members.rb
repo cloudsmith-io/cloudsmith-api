@@ -27,7 +27,7 @@ class OrganizationTeamMembers
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'members' => :'Array<OrganizationTeamMembership>'
+      :'members' => :'Array<OrganizationTeamServiceMember>'
     }
   end
 

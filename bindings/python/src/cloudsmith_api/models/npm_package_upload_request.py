@@ -89,9 +89,6 @@ class NpmPackageUploadRequest(object):
         if (self._configuration.client_side_validation and
                 npm_dist_tag is not None and len(npm_dist_tag) > 255):
             raise ValueError("Invalid value for `npm_dist_tag`, length must be less than or equal to `255`")  # noqa: E501
-        if (self._configuration.client_side_validation and
-                npm_dist_tag is not None and len(npm_dist_tag) < 1):
-            raise ValueError("Invalid value for `npm_dist_tag`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._npm_dist_tag = npm_dist_tag
 

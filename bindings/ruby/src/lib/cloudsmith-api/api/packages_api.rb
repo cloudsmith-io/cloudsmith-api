@@ -2578,6 +2578,68 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create a new VSX package
+    # Create a new VSX package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [VsxPackageUploadRequest] :data 
+    # @return [VsxPackageUpload]
+    def packages_upload_vsx(owner, repo, opts = {})
+      data, _status_code, _headers = packages_upload_vsx_with_http_info(owner, repo, opts)
+      data
+    end
+
+    # Create a new VSX package
+    # Create a new VSX package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [VsxPackageUploadRequest] :data 
+    # @return [Array<(VsxPackageUpload, Fixnum, Hash)>] VsxPackageUpload data, response status code and response headers
+    def packages_upload_vsx_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PackagesApi.packages_upload_vsx ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_upload_vsx"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_upload_vsx"
+      end
+      # resource path
+      local_var_path = '/packages/{owner}/{repo}/upload/vsx/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'VsxPackageUpload')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_upload_vsx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Validate parameters for create Alpine package
     # Validate parameters for create Alpine package
     # @param owner 
@@ -4222,6 +4284,67 @@ module CloudsmithApi
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_vagrant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Validate parameters for create VSX package
+    # Validate parameters for create VSX package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [VsxPackageUploadRequest] :data 
+    # @return [nil]
+    def packages_validate_upload_vsx(owner, repo, opts = {})
+      packages_validate_upload_vsx_with_http_info(owner, repo, opts)
+      nil
+    end
+
+    # Validate parameters for create VSX package
+    # Validate parameters for create VSX package
+    # @param owner 
+    # @param repo 
+    # @param [Hash] opts the optional parameters
+    # @option opts [VsxPackageUploadRequest] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def packages_validate_upload_vsx_with_http_info(owner, repo, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: PackagesApi.packages_validate_upload_vsx ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling PackagesApi.packages_validate_upload_vsx"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling PackagesApi.packages_validate_upload_vsx"
+      end
+      # resource path
+      local_var_path = '/packages/{owner}/{repo}/validate-upload/vsx/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PackagesApi#packages_validate_upload_vsx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -59,6 +59,9 @@ class RepositoryCreateRequest
   # If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted.
   attr_accessor :index_files
 
+  # If checked, this repository will be hidden from the list of public broadcasts for the workspace.
+  attr_accessor :is_public_hidden
+
   # This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.
   attr_accessor :manage_entitlements_privilege
 
@@ -192,6 +195,7 @@ class RepositoryCreateRequest
       :'enforce_eula' => :'enforce_eula',
       :'generic_package_index_enabled' => :'generic_package_index_enabled',
       :'index_files' => :'index_files',
+      :'is_public_hidden' => :'is_public_hidden',
       :'manage_entitlements_privilege' => :'manage_entitlements_privilege',
       :'move_own' => :'move_own',
       :'move_packages' => :'move_packages',
@@ -244,6 +248,7 @@ class RepositoryCreateRequest
       :'enforce_eula' => :'BOOLEAN',
       :'generic_package_index_enabled' => :'BOOLEAN',
       :'index_files' => :'BOOLEAN',
+      :'is_public_hidden' => :'BOOLEAN',
       :'manage_entitlements_privilege' => :'String',
       :'move_own' => :'BOOLEAN',
       :'move_packages' => :'String',
@@ -356,6 +361,10 @@ class RepositoryCreateRequest
 
     if attributes.has_key?(:'index_files')
       self.index_files = attributes[:'index_files']
+    end
+
+    if attributes.has_key?(:'is_public_hidden')
+      self.is_public_hidden = attributes[:'is_public_hidden']
     end
 
     if attributes.has_key?(:'manage_entitlements_privilege')
@@ -695,6 +704,7 @@ class RepositoryCreateRequest
         enforce_eula == o.enforce_eula &&
         generic_package_index_enabled == o.generic_package_index_enabled &&
         index_files == o.index_files &&
+        is_public_hidden == o.is_public_hidden &&
         manage_entitlements_privilege == o.manage_entitlements_privilege &&
         move_own == o.move_own &&
         move_packages == o.move_packages &&
@@ -737,7 +747,7 @@ class RepositoryCreateRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [broadcast_state, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, default_privilege, delete_own, delete_packages, description, distributes, docker_refresh_tokens_enabled, enforce_eula, generic_package_index_enabled, index_files, manage_entitlements_privilege, move_own, move_packages, name, nuget_native_signing_enabled, open_source_license, open_source_project_url, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, show_setup_all, slug, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    [broadcast_state, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, default_privilege, delete_own, delete_packages, description, distributes, docker_refresh_tokens_enabled, enforce_eula, generic_package_index_enabled, index_files, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, nuget_native_signing_enabled, open_source_license, open_source_project_url, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, show_setup_all, slug, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
   end
 
     # Builds the object from hash

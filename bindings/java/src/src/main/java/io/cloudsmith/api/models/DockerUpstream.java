@@ -94,7 +94,7 @@ public class DockerUpstream implements Serializable {
   private String authUsername = null;
 
   @SerializedName("available")
-  private String available = null;
+  private Boolean available = null;
 
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
@@ -169,7 +169,7 @@ public class DockerUpstream implements Serializable {
   private String extraValue2 = null;
 
   @SerializedName("has_failed_signature_verification")
-  private String hasFailedSignatureVerification = null;
+  private Boolean hasFailedSignatureVerification = null;
 
   @SerializedName("is_active")
   private Boolean isActive = null;
@@ -300,11 +300,11 @@ public class DockerUpstream implements Serializable {
   }
 
    /**
-   * Get available
+   * Whether the upstream is available for use.
    * @return available
   **/
-  @ApiModelProperty(value = "")
-  public String getAvailable() {
+  @ApiModelProperty(value = "Whether the upstream is available for use.")
+  public Boolean isAvailable() {
     return available;
   }
 
@@ -409,11 +409,11 @@ public class DockerUpstream implements Serializable {
   }
 
    /**
-   * Get hasFailedSignatureVerification
+   * Whether the upstream has failed signature verification.
    * @return hasFailedSignatureVerification
   **/
-  @ApiModelProperty(value = "")
-  public String getHasFailedSignatureVerification() {
+  @ApiModelProperty(value = "Whether the upstream has failed signature verification.")
+  public Boolean isHasFailedSignatureVerification() {
     return hasFailedSignatureVerification;
   }
 

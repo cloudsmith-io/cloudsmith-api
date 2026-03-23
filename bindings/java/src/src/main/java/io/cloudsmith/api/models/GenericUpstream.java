@@ -94,10 +94,10 @@ public class GenericUpstream implements Serializable {
   private String authUsername = null;
 
   @SerializedName("available")
-  private String available = null;
+  private Boolean available = null;
 
   @SerializedName("can_reindex")
-  private String canReindex = null;
+  private Boolean canReindex = null;
 
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
@@ -172,10 +172,10 @@ public class GenericUpstream implements Serializable {
   private String extraValue2 = null;
 
   @SerializedName("has_failed_signature_verification")
-  private String hasFailedSignatureVerification = null;
+  private Boolean hasFailedSignatureVerification = null;
 
   @SerializedName("index_package_count")
-  private String indexPackageCount = null;
+  private java.math.BigInteger indexPackageCount = null;
 
   @SerializedName("index_status")
   private String indexStatus = null;
@@ -315,20 +315,20 @@ public class GenericUpstream implements Serializable {
   }
 
    /**
-   * Get available
+   * Whether the upstream is available for use.
    * @return available
   **/
-  @ApiModelProperty(value = "")
-  public String getAvailable() {
+  @ApiModelProperty(value = "Whether the upstream is available for use.")
+  public Boolean isAvailable() {
     return available;
   }
 
    /**
-   * Get canReindex
+   * Whether the upstream can be reindexed.
    * @return canReindex
   **/
-  @ApiModelProperty(value = "")
-  public String getCanReindex() {
+  @ApiModelProperty(value = "Whether the upstream can be reindexed.")
+  public Boolean isCanReindex() {
     return canReindex;
   }
 
@@ -433,11 +433,11 @@ public class GenericUpstream implements Serializable {
   }
 
    /**
-   * Get hasFailedSignatureVerification
+   * Whether the upstream has failed signature verification.
    * @return hasFailedSignatureVerification
   **/
-  @ApiModelProperty(value = "")
-  public String getHasFailedSignatureVerification() {
+  @ApiModelProperty(value = "Whether the upstream has failed signature verification.")
+  public Boolean isHasFailedSignatureVerification() {
     return hasFailedSignatureVerification;
   }
 
@@ -446,7 +446,7 @@ public class GenericUpstream implements Serializable {
    * @return indexPackageCount
   **/
   @ApiModelProperty(value = "The number of packages available in this upstream source")
-  public String getIndexPackageCount() {
+  public java.math.BigInteger getIndexPackageCount() {
     return indexPackageCount;
   }
 

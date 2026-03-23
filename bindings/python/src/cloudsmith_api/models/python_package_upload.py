@@ -90,6 +90,7 @@ class PythonPackageUpload(object):
         'security_scan_status_updated_at': 'datetime',
         'self_html_url': 'str',
         'self_url': 'str',
+        'self_webapp_url': 'str',
         'signature_url': 'str',
         'size': 'int',
         'slug': 'str',
@@ -176,6 +177,7 @@ class PythonPackageUpload(object):
         'security_scan_status_updated_at': 'security_scan_status_updated_at',
         'self_html_url': 'self_html_url',
         'self_url': 'self_url',
+        'self_webapp_url': 'self_webapp_url',
         'signature_url': 'signature_url',
         'size': 'size',
         'slug': 'slug',
@@ -204,7 +206,7 @@ class PythonPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, self_webapp_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """PythonPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -267,6 +269,7 @@ class PythonPackageUpload(object):
         self._security_scan_status_updated_at = None
         self._self_html_url = None
         self._self_url = None
+        self._self_webapp_url = None
         self._signature_url = None
         self._size = None
         self._slug = None
@@ -409,6 +412,8 @@ class PythonPackageUpload(object):
             self.self_html_url = self_html_url
         if self_url is not None:
             self.self_url = self_url
+        if self_webapp_url is not None:
+            self.self_webapp_url = self_webapp_url
         if signature_url is not None:
             self.signature_url = signature_url
         if size is not None:
@@ -1722,6 +1727,30 @@ class PythonPackageUpload(object):
         """
 
         self._self_url = self_url
+
+    @property
+    def self_webapp_url(self):
+        """Gets the self_webapp_url of this PythonPackageUpload.
+
+
+        :return: The self_webapp_url of this PythonPackageUpload.
+        :rtype: str
+        """
+        return self._self_webapp_url
+
+    @self_webapp_url.setter
+    def self_webapp_url(self, self_webapp_url):
+        """Sets the self_webapp_url of this PythonPackageUpload.
+
+
+        :param self_webapp_url: The self_webapp_url of this PythonPackageUpload.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                self_webapp_url is not None and len(self_webapp_url) < 1):
+            raise ValueError("Invalid value for `self_webapp_url`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._self_webapp_url = self_webapp_url
 
     @property
     def signature_url(self):

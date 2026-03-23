@@ -104,6 +104,8 @@ import io.cloudsmith.api.models.TerraformPackageUpload;
 import io.cloudsmith.api.models.TerraformPackageUploadRequest;
 import io.cloudsmith.api.models.VagrantPackageUpload;
 import io.cloudsmith.api.models.VagrantPackageUploadRequest;
+import io.cloudsmith.api.models.VsxPackageUpload;
+import io.cloudsmith.api.models.VsxPackageUploadRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -6175,6 +6177,155 @@ public class PackagesApi {
         return call;
     }
     /**
+     * Build call for packagesUploadVsx
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadVsxCall(String owner, String repo, VsxPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/upload/vsx/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesUploadVsxValidateBeforeCall(String owner, String repo, VsxPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesUploadVsxWithHttpInfo", String.class, String.class, VsxPackageUploadRequest.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesUploadVsxCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create a new VSX package
+     * Create a new VSX package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return VsxPackageUpload
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VsxPackageUpload packagesUploadVsx(String owner, String repo, VsxPackageUploadRequest data) throws ApiException {
+        ApiResponse<VsxPackageUpload> resp = packagesUploadVsxWithHttpInfo(owner, repo, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a new VSX package
+     * Create a new VSX package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;VsxPackageUpload&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VsxPackageUpload> packagesUploadVsxWithHttpInfo( @NotNull String owner,  @NotNull String repo,  VsxPackageUploadRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesUploadVsxValidateBeforeCall(owner, repo, data, null, null);
+        Type localVarReturnType = new TypeToken<VsxPackageUpload>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a new VSX package (asynchronously)
+     * Create a new VSX package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadVsxAsync(String owner, String repo, VsxPackageUploadRequest data, final ApiCallback<VsxPackageUpload> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesUploadVsxValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<VsxPackageUpload>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for packagesValidateUploadAlpine
      * @param owner  (required)
      * @param repo  (required)
@@ -10086,6 +10237,151 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesValidateUploadVagrantValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesValidateUploadVsx
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadVsxCall(String owner, String repo, VsxPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/validate-upload/vsx/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesValidateUploadVsxValidateBeforeCall(String owner, String repo, VsxPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesValidateUploadVsxWithHttpInfo", String.class, String.class, VsxPackageUploadRequest.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesValidateUploadVsxCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Validate parameters for create VSX package
+     * Validate parameters for create VSX package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void packagesValidateUploadVsx(String owner, String repo, VsxPackageUploadRequest data) throws ApiException {
+        packagesValidateUploadVsxWithHttpInfo(owner, repo, data);
+    }
+
+    /**
+     * Validate parameters for create VSX package
+     * Validate parameters for create VSX package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> packagesValidateUploadVsxWithHttpInfo( @NotNull String owner,  @NotNull String repo,  VsxPackageUploadRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesValidateUploadVsxValidateBeforeCall(owner, repo, data, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Validate parameters for create VSX package (asynchronously)
+     * Validate parameters for create VSX package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadVsxAsync(String owner, String repo, VsxPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesValidateUploadVsxValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

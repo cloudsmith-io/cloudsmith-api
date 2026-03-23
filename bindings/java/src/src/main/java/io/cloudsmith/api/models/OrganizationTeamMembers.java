@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.OrganizationTeamMembership;
+import io.cloudsmith.api.models.OrganizationTeamServiceMember;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,14 +38,14 @@ public class OrganizationTeamMembers implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("members")
-  private List<OrganizationTeamMembership> members = new ArrayList<>();
+  private List<OrganizationTeamServiceMember> members = new ArrayList<>();
 
-  public OrganizationTeamMembers members(List<OrganizationTeamMembership> members) {
+  public OrganizationTeamMembers members(List<OrganizationTeamServiceMember> members) {
     this.members = members;
     return this;
   }
 
-  public OrganizationTeamMembers addMembersItem(OrganizationTeamMembership membersItem) {
+  public OrganizationTeamMembers addMembersItem(OrganizationTeamServiceMember membersItem) {
     this.members.add(membersItem);
     return this;
   }
@@ -57,11 +57,11 @@ public class OrganizationTeamMembers implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "The team members")
-  public List<OrganizationTeamMembership> getMembers() {
+  public List<OrganizationTeamServiceMember> getMembers() {
     return members;
   }
 
-  public void setMembers(List<OrganizationTeamMembership> members) {
+  public void setMembers(List<OrganizationTeamServiceMember> members) {
     this.members = members;
   }
 
