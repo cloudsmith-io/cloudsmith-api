@@ -15,6 +15,7 @@ package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.RepositoryToken;
+import io.cloudsmith.api.models.RepositoryTokenPrivateBroadcastsRequest;
 import io.cloudsmith.api.models.RepositoryTokenRefresh;
 import io.cloudsmith.api.models.RepositoryTokenRefreshRequest;
 import io.cloudsmith.api.models.RepositoryTokenRequest;
@@ -229,6 +230,25 @@ public class EntitlementsApiTest {
         RepositoryTokenSyncRequest data = null;
         Boolean showTokens = null;
         RepositoryTokenSync response = api.entitlementsSync(owner, repo, data, showTokens);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set private broadcast access for an entitlement token in a repository.
+     *
+     * Set private broadcast access for an entitlement token in a repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void entitlementsTogglePrivateBroadcastsTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        String identifier = null;
+        RepositoryTokenPrivateBroadcastsRequest data = null;
+        api.entitlementsTogglePrivateBroadcasts(owner, repo, identifier, data);
 
         // TODO: test validations
     }

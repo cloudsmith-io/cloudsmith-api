@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **percentage_used** | **String** |  | [optional] 
 **plan_limit** | **Integer** |  | [optional] 
 **used** | **Integer** |  | [optional] 
+**used_pre_deduplication** | **Integer** |  | [optional] 
 
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**repo_retention_partial_update**](ReposApi.md#repo_retention_partial_update) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
 [**repo_retention_read**](ReposApi.md#repo_retention_read) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
-[**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
+[**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | 
 [**repos_ecdsa_create**](ReposApi.md#repos_ecdsa_create) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
 [**repos_ecdsa_list**](ReposApi.md#repos_ecdsa_list) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
 [**repos_ecdsa_regenerate**](ReposApi.md#repos_ecdsa_regenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
@@ -401,9 +401,9 @@ Name | Type | Description  | Notes
 # **repos_delete**
 > repos_delete(owner, identifier)
 
-Delete a repository in a given namespace.
 
-Delete a repository in a given namespace.
+
+Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
 
 ### Example
 ```python
@@ -429,7 +429,6 @@ owner = 'owner_example' # str |
 identifier = 'identifier_example' # str | 
 
 try:
-    # Delete a repository in a given namespace.
     api_instance.repos_delete(owner, identifier)
 except ApiException as e:
     print("Exception when calling ReposApi->repos_delete: %s\n" % e)

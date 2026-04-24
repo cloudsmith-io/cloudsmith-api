@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **percentageUsed** | **String** |  |  [optional]
 **planLimit** | **String** |  |  [optional]
 **used** | **String** |  |  [optional]
+**usedPreDeduplication** | **String** |  |  [optional]
 
 
 

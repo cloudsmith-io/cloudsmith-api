@@ -35,9 +35,6 @@ import javax.validation.Valid;
 public class RepositoryTokenRefreshRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("access_private_broadcasts")
-  private Boolean accessPrivateBroadcasts = null;
-
   @SerializedName("eula_required")
   private Boolean eulaRequired = null;
 
@@ -201,24 +198,6 @@ public class RepositoryTokenRefreshRequest implements Serializable {
 
   @SerializedName("token")
   private String token = null;
-
-  public RepositoryTokenRefreshRequest accessPrivateBroadcasts(Boolean accessPrivateBroadcasts) {
-    this.accessPrivateBroadcasts = accessPrivateBroadcasts;
-    return this;
-  }
-
-   /**
-   * If enabled, this token can be used for private broadcasts
-   * @return accessPrivateBroadcasts
-  **/
-  @ApiModelProperty(value = "If enabled, this token can be used for private broadcasts")
-  public Boolean isAccessPrivateBroadcasts() {
-    return accessPrivateBroadcasts;
-  }
-
-  public void setAccessPrivateBroadcasts(Boolean accessPrivateBroadcasts) {
-    this.accessPrivateBroadcasts = accessPrivateBroadcasts;
-  }
 
   public RepositoryTokenRefreshRequest eulaRequired(Boolean eulaRequired) {
     this.eulaRequired = eulaRequired;
@@ -491,8 +470,7 @@ public class RepositoryTokenRefreshRequest implements Serializable {
       return false;
     }
     RepositoryTokenRefreshRequest repositoryTokenRefreshRequest = (RepositoryTokenRefreshRequest) o;
-    return Objects.equals(this.accessPrivateBroadcasts, repositoryTokenRefreshRequest.accessPrivateBroadcasts) &&
-        Objects.equals(this.eulaRequired, repositoryTokenRefreshRequest.eulaRequired) &&
+    return Objects.equals(this.eulaRequired, repositoryTokenRefreshRequest.eulaRequired) &&
         Objects.equals(this.isActive, repositoryTokenRefreshRequest.isActive) &&
         Objects.equals(this.limitBandwidth, repositoryTokenRefreshRequest.limitBandwidth) &&
         Objects.equals(this.limitBandwidthUnit, repositoryTokenRefreshRequest.limitBandwidthUnit) &&
@@ -510,7 +488,7 @@ public class RepositoryTokenRefreshRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPrivateBroadcasts, eulaRequired, isActive, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, scheduledResetAt, scheduledResetPeriod, token);
+    return Objects.hash(eulaRequired, isActive, limitBandwidth, limitBandwidthUnit, limitDateRangeFrom, limitDateRangeTo, limitNumClients, limitNumDownloads, limitPackageQuery, limitPathQuery, metadata, scheduledResetAt, scheduledResetPeriod, token);
   }
 
 
@@ -519,7 +497,6 @@ public class RepositoryTokenRefreshRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepositoryTokenRefreshRequest {\n");
     
-    sb.append("    accessPrivateBroadcasts: ").append(toIndentedString(accessPrivateBroadcasts)).append("\n");
     sb.append("    eulaRequired: ").append(toIndentedString(eulaRequired)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    limitBandwidth: ").append(toIndentedString(limitBandwidth)).append("\n");

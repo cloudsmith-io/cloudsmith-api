@@ -49,6 +49,9 @@ public class StorageAllocatedLimit implements Serializable {
   @SerializedName("used")
   private String used = null;
 
+  @SerializedName("used_pre_deduplication")
+  private String usedPreDeduplication = null;
+
   public StorageAllocatedLimit configured(String configured) {
     this.configured = configured;
     return this;
@@ -139,6 +142,24 @@ public class StorageAllocatedLimit implements Serializable {
     this.used = used;
   }
 
+  public StorageAllocatedLimit usedPreDeduplication(String usedPreDeduplication) {
+    this.usedPreDeduplication = usedPreDeduplication;
+    return this;
+  }
+
+   /**
+   * Get usedPreDeduplication
+   * @return usedPreDeduplication
+  **/
+ @Size(min=1,max=32)  @ApiModelProperty(value = "")
+  public String getUsedPreDeduplication() {
+    return usedPreDeduplication;
+  }
+
+  public void setUsedPreDeduplication(String usedPreDeduplication) {
+    this.usedPreDeduplication = usedPreDeduplication;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -153,12 +174,13 @@ public class StorageAllocatedLimit implements Serializable {
         Objects.equals(this.peak, storageAllocatedLimit.peak) &&
         Objects.equals(this.percentageUsed, storageAllocatedLimit.percentageUsed) &&
         Objects.equals(this.planLimit, storageAllocatedLimit.planLimit) &&
-        Objects.equals(this.used, storageAllocatedLimit.used);
+        Objects.equals(this.used, storageAllocatedLimit.used) &&
+        Objects.equals(this.usedPreDeduplication, storageAllocatedLimit.usedPreDeduplication);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configured, peak, percentageUsed, planLimit, used);
+    return Objects.hash(configured, peak, percentageUsed, planLimit, used, usedPreDeduplication);
   }
 
 
@@ -172,6 +194,7 @@ public class StorageAllocatedLimit implements Serializable {
     sb.append("    percentageUsed: ").append(toIndentedString(percentageUsed)).append("\n");
     sb.append("    planLimit: ").append(toIndentedString(planLimit)).append("\n");
     sb.append("    used: ").append(toIndentedString(used)).append("\n");
+    sb.append("    usedPreDeduplication: ").append(toIndentedString(usedPreDeduplication)).append("\n");
     sb.append("}");
     return sb.toString();
   }

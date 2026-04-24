@@ -704,5 +704,72 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Set private broadcast access for an entitlement token in a repository.
+    # Set private broadcast access for an entitlement token in a repository.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryTokenPrivateBroadcastsRequest] :data 
+    # @return [nil]
+    def entitlements_toggle_private_broadcasts(owner, repo, identifier, opts = {})
+      entitlements_toggle_private_broadcasts_with_http_info(owner, repo, identifier, opts)
+      nil
+    end
+
+    # Set private broadcast access for an entitlement token in a repository.
+    # Set private broadcast access for an entitlement token in a repository.
+    # @param owner 
+    # @param repo 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryTokenPrivateBroadcastsRequest] :data 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def entitlements_toggle_private_broadcasts_with_http_info(owner, repo, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EntitlementsApi.entitlements_toggle_private_broadcasts ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling EntitlementsApi.entitlements_toggle_private_broadcasts"
+      end
+      # verify the required parameter 'repo' is set
+      if @api_client.config.client_side_validation && repo.nil?
+        fail ArgumentError, "Missing the required parameter 'repo' when calling EntitlementsApi.entitlements_toggle_private_broadcasts"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling EntitlementsApi.entitlements_toggle_private_broadcasts"
+      end
+      # resource path
+      local_var_path = '/entitlements/{owner}/{repo}/{identifier}/toggle-private-broadcasts/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'repo' + '}', repo.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EntitlementsApi#entitlements_toggle_private_broadcasts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

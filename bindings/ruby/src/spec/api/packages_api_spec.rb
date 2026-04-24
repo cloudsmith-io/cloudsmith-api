@@ -465,6 +465,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_mcp
+  # Create a new MCP package
+  # Create a new MCP package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [McpPackageUploadRequest] :data 
+  # @return [McpPackageUpload]
+  describe 'packages_upload_mcp test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_npm
   # Create a new npm package
   # Create a new npm package
@@ -852,6 +866,20 @@ describe 'PackagesApi' do
   # @option opts [MavenPackageUploadRequest] :data 
   # @return [nil]
   describe 'packages_validate_upload_maven test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_mcp
+  # Validate parameters for create MCP package
+  # Validate parameters for create MCP package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [McpPackageUploadRequest] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_mcp test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

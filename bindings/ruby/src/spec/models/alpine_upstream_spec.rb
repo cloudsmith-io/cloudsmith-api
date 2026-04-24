@@ -75,7 +75,7 @@ describe 'AlpineUpstream' do
   describe 'test attribute "disable_reason"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["N/A", "Upstream points to its own repository", "Missing upstream source", "Upstream was disabled by request of user"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["N/A", "Upstream points to its own repository", "Missing upstream source", "RSA key did not verify the upstream's APKINDEX signature", "Upstream was disabled by request of user"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.disable_reason = value }.not_to raise_error
       # end
@@ -167,6 +167,38 @@ describe 'AlpineUpstream' do
   describe 'test attribute "priority"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "rsa_key_inline"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "rsa_key_url"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "rsa_verification"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Allow All", "Warn on Invalid", "Reject Invalid"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.rsa_verification = value }.not_to raise_error
+      # end
+    end
+  end
+
+  describe 'test attribute "rsa_verification_status"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Unknown", "Invalid", "Valid", "Invalid (No Key)"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.rsa_verification_status = value }.not_to raise_error
+      # end
     end
   end
 

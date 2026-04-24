@@ -37,7 +37,8 @@ class StorageAllocatedLimitRaw(object):
         'peak': 'int',
         'percentage_used': 'str',
         'plan_limit': 'int',
-        'used': 'int'
+        'used': 'int',
+        'used_pre_deduplication': 'int'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class StorageAllocatedLimitRaw(object):
         'peak': 'peak',
         'percentage_used': 'percentage_used',
         'plan_limit': 'plan_limit',
-        'used': 'used'
+        'used': 'used',
+        'used_pre_deduplication': 'used_pre_deduplication'
     }
 
-    def __init__(self, configured=None, peak=None, percentage_used=None, plan_limit=None, used=None, _configuration=None):  # noqa: E501
+    def __init__(self, configured=None, peak=None, percentage_used=None, plan_limit=None, used=None, used_pre_deduplication=None, _configuration=None):  # noqa: E501
         """StorageAllocatedLimitRaw - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class StorageAllocatedLimitRaw(object):
         self._percentage_used = None
         self._plan_limit = None
         self._used = None
+        self._used_pre_deduplication = None
         self.discriminator = None
 
         if configured is not None:
@@ -71,6 +74,8 @@ class StorageAllocatedLimitRaw(object):
             self.plan_limit = plan_limit
         if used is not None:
             self.used = used
+        if used_pre_deduplication is not None:
+            self.used_pre_deduplication = used_pre_deduplication
 
     @property
     def configured(self):
@@ -176,6 +181,27 @@ class StorageAllocatedLimitRaw(object):
         """
 
         self._used = used
+
+    @property
+    def used_pre_deduplication(self):
+        """Gets the used_pre_deduplication of this StorageAllocatedLimitRaw.
+
+
+        :return: The used_pre_deduplication of this StorageAllocatedLimitRaw.
+        :rtype: int
+        """
+        return self._used_pre_deduplication
+
+    @used_pre_deduplication.setter
+    def used_pre_deduplication(self, used_pre_deduplication):
+        """Sets the used_pre_deduplication of this StorageAllocatedLimitRaw.
+
+
+        :param used_pre_deduplication: The used_pre_deduplication of this StorageAllocatedLimitRaw.
+        :type: int
+        """
+
+        self._used_pre_deduplication = used_pre_deduplication
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -187,9 +187,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Delete a repository in a given namespace.
+     * 
      *
-     * Delete a repository in a given namespace.
+     * Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
      *
      * @throws Exception
      *          if the Api call fails

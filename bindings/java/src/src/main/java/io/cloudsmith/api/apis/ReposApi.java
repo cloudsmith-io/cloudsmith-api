@@ -820,8 +820,8 @@ public class ReposApi {
     }
 
     /**
-     * Delete a repository in a given namespace.
-     * Delete a repository in a given namespace.
+     * 
+     * Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
      * @param owner  (required)
      * @param identifier  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -831,8 +831,8 @@ public class ReposApi {
     }
 
     /**
-     * Delete a repository in a given namespace.
-     * Delete a repository in a given namespace.
+     * 
+     * Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
      * @param owner  (required)
      * @param identifier  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -844,8 +844,8 @@ public class ReposApi {
     }
 
     /**
-     * Delete a repository in a given namespace. (asynchronously)
-     * Delete a repository in a given namespace.
+     *  (asynchronously)
+     * Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
      * @param owner  (required)
      * @param identifier  (required)
      * @param callback The callback to be executed when the API call finishes

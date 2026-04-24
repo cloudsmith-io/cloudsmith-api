@@ -14,9 +14,6 @@ require 'date'
 
 module CloudsmithApi
 class RepositoryTokenRequest
-  # If enabled, this token can be used for private broadcasts
-  attr_accessor :access_private_broadcasts
-
   # If checked, a EULA acceptance is required for this token.
   attr_accessor :eula_required
 
@@ -82,7 +79,6 @@ class RepositoryTokenRequest
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'access_private_broadcasts' => :'access_private_broadcasts',
       :'eula_required' => :'eula_required',
       :'is_active' => :'is_active',
       :'limit_bandwidth' => :'limit_bandwidth',
@@ -104,7 +100,6 @@ class RepositoryTokenRequest
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'access_private_broadcasts' => :'BOOLEAN',
       :'eula_required' => :'BOOLEAN',
       :'is_active' => :'BOOLEAN',
       :'limit_bandwidth' => :'Integer',
@@ -130,10 +125,6 @@ class RepositoryTokenRequest
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-    if attributes.has_key?(:'access_private_broadcasts')
-      self.access_private_broadcasts = attributes[:'access_private_broadcasts']
-    end
 
     if attributes.has_key?(:'eula_required')
       self.eula_required = attributes[:'eula_required']
@@ -247,7 +238,6 @@ class RepositoryTokenRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        access_private_broadcasts == o.access_private_broadcasts &&
         eula_required == o.eula_required &&
         is_active == o.is_active &&
         limit_bandwidth == o.limit_bandwidth &&
@@ -274,7 +264,7 @@ class RepositoryTokenRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [access_private_broadcasts, eula_required, is_active, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, scheduled_reset_at, scheduled_reset_period, token].hash
+    [eula_required, is_active, limit_bandwidth, limit_bandwidth_unit, limit_date_range_from, limit_date_range_to, limit_num_clients, limit_num_downloads, limit_package_query, limit_path_query, metadata, name, scheduled_reset_at, scheduled_reset_period, token].hash
   end
 
     # Builds the object from hash

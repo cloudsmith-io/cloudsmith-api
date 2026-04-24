@@ -37,7 +37,8 @@ class StorageAllocatedLimit(object):
         'peak': 'str',
         'percentage_used': 'str',
         'plan_limit': 'str',
-        'used': 'str'
+        'used': 'str',
+        'used_pre_deduplication': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class StorageAllocatedLimit(object):
         'peak': 'peak',
         'percentage_used': 'percentage_used',
         'plan_limit': 'plan_limit',
-        'used': 'used'
+        'used': 'used',
+        'used_pre_deduplication': 'used_pre_deduplication'
     }
 
-    def __init__(self, configured=None, peak=None, percentage_used=None, plan_limit=None, used=None, _configuration=None):  # noqa: E501
+    def __init__(self, configured=None, peak=None, percentage_used=None, plan_limit=None, used=None, used_pre_deduplication=None, _configuration=None):  # noqa: E501
         """StorageAllocatedLimit - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -59,6 +61,7 @@ class StorageAllocatedLimit(object):
         self._percentage_used = None
         self._plan_limit = None
         self._used = None
+        self._used_pre_deduplication = None
         self.discriminator = None
 
         if configured is not None:
@@ -71,6 +74,8 @@ class StorageAllocatedLimit(object):
             self.plan_limit = plan_limit
         if used is not None:
             self.used = used
+        if used_pre_deduplication is not None:
+            self.used_pre_deduplication = used_pre_deduplication
 
     @property
     def configured(self):
@@ -206,6 +211,33 @@ class StorageAllocatedLimit(object):
             raise ValueError("Invalid value for `used`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._used = used
+
+    @property
+    def used_pre_deduplication(self):
+        """Gets the used_pre_deduplication of this StorageAllocatedLimit.
+
+
+        :return: The used_pre_deduplication of this StorageAllocatedLimit.
+        :rtype: str
+        """
+        return self._used_pre_deduplication
+
+    @used_pre_deduplication.setter
+    def used_pre_deduplication(self, used_pre_deduplication):
+        """Sets the used_pre_deduplication of this StorageAllocatedLimit.
+
+
+        :param used_pre_deduplication: The used_pre_deduplication of this StorageAllocatedLimit.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                used_pre_deduplication is not None and len(used_pre_deduplication) > 32):
+            raise ValueError("Invalid value for `used_pre_deduplication`, length must be less than or equal to `32`")  # noqa: E501
+        if (self._configuration.client_side_validation and
+                used_pre_deduplication is not None and len(used_pre_deduplication) < 1):
+            raise ValueError("Invalid value for `used_pre_deduplication`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._used_pre_deduplication = used_pre_deduplication
 
     def to_dict(self):
         """Returns the model properties as a dict"""

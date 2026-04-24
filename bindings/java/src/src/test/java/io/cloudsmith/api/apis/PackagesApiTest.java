@@ -49,6 +49,8 @@ import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
 import io.cloudsmith.api.models.MavenPackageUploadRequest;
+import io.cloudsmith.api.models.McpPackageUpload;
+import io.cloudsmith.api.models.McpPackageUploadRequest;
 import io.cloudsmith.api.models.ModelPackage;
 import io.cloudsmith.api.models.NpmPackageUpload;
 import io.cloudsmith.api.models.NpmPackageUploadRequest;
@@ -655,6 +657,24 @@ public class PackagesApiTest {
     }
     
     /**
+     * Create a new MCP package
+     *
+     * Create a new MCP package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadMcpTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        McpPackageUploadRequest data = null;
+        McpPackageUpload response = api.packagesUploadMcp(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new npm package
      *
      * Create a new npm package
@@ -1154,6 +1174,24 @@ public class PackagesApiTest {
         String repo = null;
         MavenPackageUploadRequest data = null;
         api.packagesValidateUploadMaven(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create MCP package
+     *
+     * Validate parameters for create MCP package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadMcpTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        McpPackageUploadRequest data = null;
+        api.packagesValidateUploadMcp(owner, repo, data);
 
         // TODO: test validations
     }

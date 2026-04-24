@@ -24,6 +24,8 @@ class StorageAllocatedLimit
 
   attr_accessor :used
 
+  attr_accessor :used_pre_deduplication
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -31,7 +33,8 @@ class StorageAllocatedLimit
       :'peak' => :'peak',
       :'percentage_used' => :'percentage_used',
       :'plan_limit' => :'plan_limit',
-      :'used' => :'used'
+      :'used' => :'used',
+      :'used_pre_deduplication' => :'used_pre_deduplication'
     }
   end
 
@@ -42,7 +45,8 @@ class StorageAllocatedLimit
       :'peak' => :'String',
       :'percentage_used' => :'String',
       :'plan_limit' => :'String',
-      :'used' => :'String'
+      :'used' => :'String',
+      :'used_pre_deduplication' => :'String'
     }
   end
 
@@ -73,6 +77,10 @@ class StorageAllocatedLimit
     if attributes.has_key?(:'used')
       self.used = attributes[:'used']
     end
+
+    if attributes.has_key?(:'used_pre_deduplication')
+      self.used_pre_deduplication = attributes[:'used_pre_deduplication']
+    end
   end
 
   # Show invalid properties with the reasons. Usually used together with valid?
@@ -97,7 +105,8 @@ class StorageAllocatedLimit
         peak == o.peak &&
         percentage_used == o.percentage_used &&
         plan_limit == o.plan_limit &&
-        used == o.used
+        used == o.used &&
+        used_pre_deduplication == o.used_pre_deduplication
   end
 
   # @see the `==` method
@@ -109,7 +118,7 @@ class StorageAllocatedLimit
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [configured, peak, percentage_used, plan_limit, used].hash
+    [configured, peak, percentage_used, plan_limit, used, used_pre_deduplication].hash
   end
 
     # Builds the object from hash

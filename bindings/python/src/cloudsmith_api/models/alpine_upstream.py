@@ -54,6 +54,10 @@ class AlpineUpstream(object):
         'name': 'str',
         'pending_validation': 'bool',
         'priority': 'int',
+        'rsa_key_inline': 'str',
+        'rsa_key_url': 'str',
+        'rsa_verification': 'str',
+        'rsa_verification_status': 'str',
         'slug_perm': 'str',
         'updated_at': 'datetime',
         'upstream_url': 'str',
@@ -82,13 +86,17 @@ class AlpineUpstream(object):
         'name': 'name',
         'pending_validation': 'pending_validation',
         'priority': 'priority',
+        'rsa_key_inline': 'rsa_key_inline',
+        'rsa_key_url': 'rsa_key_url',
+        'rsa_verification': 'rsa_verification',
+        'rsa_verification_status': 'rsa_verification_status',
         'slug_perm': 'slug_perm',
         'updated_at': 'updated_at',
         'upstream_url': 'upstream_url',
         'verify_ssl': 'verify_ssl'
     }
 
-    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, available=None, can_reindex=None, created_at=None, disable_reason='N/A', disable_reason_text=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, has_failed_signature_verification=None, index_package_count=None, index_status=None, is_active=None, last_indexed=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, slug_perm=None, updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_mode='None', auth_secret=None, auth_username=None, available=None, can_reindex=None, created_at=None, disable_reason='N/A', disable_reason_text=None, extra_header_1=None, extra_header_2=None, extra_value_1=None, extra_value_2=None, has_failed_signature_verification=None, index_package_count=None, index_status=None, is_active=None, last_indexed=None, mode='Proxy Only', name=None, pending_validation=None, priority=None, rsa_key_inline=None, rsa_key_url=None, rsa_verification='Allow All', rsa_verification_status='Unknown', slug_perm=None, updated_at=None, upstream_url=None, verify_ssl=None, _configuration=None):  # noqa: E501
         """AlpineUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -115,6 +123,10 @@ class AlpineUpstream(object):
         self._name = None
         self._pending_validation = None
         self._priority = None
+        self._rsa_key_inline = None
+        self._rsa_key_url = None
+        self._rsa_verification = None
+        self._rsa_verification_status = None
         self._slug_perm = None
         self._updated_at = None
         self._upstream_url = None
@@ -162,6 +174,14 @@ class AlpineUpstream(object):
             self.pending_validation = pending_validation
         if priority is not None:
             self.priority = priority
+        if rsa_key_inline is not None:
+            self.rsa_key_inline = rsa_key_inline
+        if rsa_key_url is not None:
+            self.rsa_key_url = rsa_key_url
+        if rsa_verification is not None:
+            self.rsa_verification = rsa_verification
+        if rsa_verification_status is not None:
+            self.rsa_verification_status = rsa_verification_status
         if slug_perm is not None:
             self.slug_perm = slug_perm
         if updated_at is not None:
@@ -339,7 +359,7 @@ class AlpineUpstream(object):
         :param disable_reason: The disable_reason of this AlpineUpstream.
         :type: str
         """
-        allowed_values = ["N/A", "Upstream points to its own repository", "Missing upstream source", "Upstream was disabled by request of user"]  # noqa: E501
+        allowed_values = ["N/A", "Upstream points to its own repository", "Missing upstream source", "RSA key did not verify the upstream's APKINDEX signature", "Upstream was disabled by request of user"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 disable_reason not in allowed_values):
             raise ValueError(
@@ -718,6 +738,115 @@ class AlpineUpstream(object):
             raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._priority = priority
+
+    @property
+    def rsa_key_inline(self):
+        """Gets the rsa_key_inline of this AlpineUpstream.
+
+        A base64-encoded RSA public key in PEM format used to verify package signatures.
+
+        :return: The rsa_key_inline of this AlpineUpstream.
+        :rtype: str
+        """
+        return self._rsa_key_inline
+
+    @rsa_key_inline.setter
+    def rsa_key_inline(self, rsa_key_inline):
+        """Sets the rsa_key_inline of this AlpineUpstream.
+
+        A base64-encoded RSA public key in PEM format used to verify package signatures.
+
+        :param rsa_key_inline: The rsa_key_inline of this AlpineUpstream.
+        :type: str
+        """
+
+        self._rsa_key_inline = rsa_key_inline
+
+    @property
+    def rsa_key_url(self):
+        """Gets the rsa_key_url of this AlpineUpstream.
+
+        When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream.
+
+        :return: The rsa_key_url of this AlpineUpstream.
+        :rtype: str
+        """
+        return self._rsa_key_url
+
+    @rsa_key_url.setter
+    def rsa_key_url(self, rsa_key_url):
+        """Sets the rsa_key_url of this AlpineUpstream.
+
+        When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream.
+
+        :param rsa_key_url: The rsa_key_url of this AlpineUpstream.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                rsa_key_url is not None and len(rsa_key_url) > 254):
+            raise ValueError("Invalid value for `rsa_key_url`, length must be less than or equal to `254`")  # noqa: E501
+
+        self._rsa_key_url = rsa_key_url
+
+    @property
+    def rsa_verification(self):
+        """Gets the rsa_verification of this AlpineUpstream.
+
+        The RSA signature verification mode for this upstream.
+
+        :return: The rsa_verification of this AlpineUpstream.
+        :rtype: str
+        """
+        return self._rsa_verification
+
+    @rsa_verification.setter
+    def rsa_verification(self, rsa_verification):
+        """Sets the rsa_verification of this AlpineUpstream.
+
+        The RSA signature verification mode for this upstream.
+
+        :param rsa_verification: The rsa_verification of this AlpineUpstream.
+        :type: str
+        """
+        allowed_values = ["Allow All", "Warn on Invalid", "Reject Invalid"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                rsa_verification not in allowed_values):
+            raise ValueError(
+                "Invalid value for `rsa_verification` ({0}), must be one of {1}"  # noqa: E501
+                .format(rsa_verification, allowed_values)
+            )
+
+        self._rsa_verification = rsa_verification
+
+    @property
+    def rsa_verification_status(self):
+        """Gets the rsa_verification_status of this AlpineUpstream.
+
+        The RSA signature verification status for this upstream.
+
+        :return: The rsa_verification_status of this AlpineUpstream.
+        :rtype: str
+        """
+        return self._rsa_verification_status
+
+    @rsa_verification_status.setter
+    def rsa_verification_status(self, rsa_verification_status):
+        """Sets the rsa_verification_status of this AlpineUpstream.
+
+        The RSA signature verification status for this upstream.
+
+        :param rsa_verification_status: The rsa_verification_status of this AlpineUpstream.
+        :type: str
+        """
+        allowed_values = ["Unknown", "Invalid", "Valid", "Invalid (No Key)"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                rsa_verification_status not in allowed_values):
+            raise ValueError(
+                "Invalid value for `rsa_verification_status` ({0}), must be one of {1}"  # noqa: E501
+                .format(rsa_verification_status, allowed_values)
+            )
+
+        self._rsa_verification_status = rsa_verification_status
 
     @property
     def slug_perm(self):
