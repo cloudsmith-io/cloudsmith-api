@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **percentage_used** | **str** |  | [optional] 
 **plan_limit** | **str** |  | [optional] 
 **used** | **str** |  | [optional] 
+**used_pre_deduplication** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

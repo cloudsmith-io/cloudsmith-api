@@ -62,4 +62,10 @@ describe 'StorageAllocatedLimit' do
     end
   end
 
+  describe 'test attribute "used_pre_deduplication"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

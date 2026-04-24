@@ -186,4 +186,19 @@ describe 'EntitlementsApi' do
     end
   end
 
+  # unit tests for entitlements_toggle_private_broadcasts
+  # Set private broadcast access for an entitlement token in a repository.
+  # Set private broadcast access for an entitlement token in a repository.
+  # @param owner 
+  # @param repo 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryTokenPrivateBroadcastsRequest] :data 
+  # @return [nil]
+  describe 'entitlements_toggle_private_broadcasts test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

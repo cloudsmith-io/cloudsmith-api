@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 **name** | **str** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. | 
 **pending_validation** | **bool** | When true, this upstream source is pending validation. | [optional] 
 **priority** | **int** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. | [optional] 
+**rsa_key_inline** | **str** | A base64-encoded RSA public key in PEM format used to verify package signatures. | [optional] 
+**rsa_key_url** | **str** | When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream. | [optional] 
+**rsa_verification** | **str** | The RSA signature verification mode for this upstream. | [optional] [default to 'Allow All']
+**rsa_verification_status** | **str** | The RSA signature verification status for this upstream. | [optional] [default to 'Unknown']
 **slug_perm** | **str** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 **upstream_url** | **str** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  | 

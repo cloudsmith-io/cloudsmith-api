@@ -257,8 +257,7 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Delete a repository in a given namespace.
-    # Delete a repository in a given namespace.
+    # Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
@@ -268,8 +267,7 @@ module CloudsmithApi
       nil
     end
 
-    # Delete a repository in a given namespace.
-    # Delete a repository in a given namespace.
+    # Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters

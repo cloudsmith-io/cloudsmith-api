@@ -49,6 +49,9 @@ public class StorageAllocatedLimitRaw implements Serializable {
   @SerializedName("used")
   private java.math.BigInteger used = null;
 
+  @SerializedName("used_pre_deduplication")
+  private java.math.BigInteger usedPreDeduplication = null;
+
   public StorageAllocatedLimitRaw configured(java.math.BigInteger configured) {
     this.configured = configured;
     return this;
@@ -139,6 +142,24 @@ public class StorageAllocatedLimitRaw implements Serializable {
     this.used = used;
   }
 
+  public StorageAllocatedLimitRaw usedPreDeduplication(java.math.BigInteger usedPreDeduplication) {
+    this.usedPreDeduplication = usedPreDeduplication;
+    return this;
+  }
+
+   /**
+   * Get usedPreDeduplication
+   * @return usedPreDeduplication
+  **/
+  @ApiModelProperty(value = "")
+  public java.math.BigInteger getUsedPreDeduplication() {
+    return usedPreDeduplication;
+  }
+
+  public void setUsedPreDeduplication(java.math.BigInteger usedPreDeduplication) {
+    this.usedPreDeduplication = usedPreDeduplication;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -153,12 +174,13 @@ public class StorageAllocatedLimitRaw implements Serializable {
         Objects.equals(this.peak, storageAllocatedLimitRaw.peak) &&
         Objects.equals(this.percentageUsed, storageAllocatedLimitRaw.percentageUsed) &&
         Objects.equals(this.planLimit, storageAllocatedLimitRaw.planLimit) &&
-        Objects.equals(this.used, storageAllocatedLimitRaw.used);
+        Objects.equals(this.used, storageAllocatedLimitRaw.used) &&
+        Objects.equals(this.usedPreDeduplication, storageAllocatedLimitRaw.usedPreDeduplication);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configured, peak, percentageUsed, planLimit, used);
+    return Objects.hash(configured, peak, percentageUsed, planLimit, used, usedPreDeduplication);
   }
 
 
@@ -172,6 +194,7 @@ public class StorageAllocatedLimitRaw implements Serializable {
     sb.append("    percentageUsed: ").append(toIndentedString(percentageUsed)).append("\n");
     sb.append("    planLimit: ").append(toIndentedString(planLimit)).append("\n");
     sb.append("    used: ").append(toIndentedString(used)).append("\n");
+    sb.append("    usedPreDeduplication: ").append(toIndentedString(usedPreDeduplication)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -117,6 +117,8 @@ from cloudsmith_api.models.maven_package_upload_request import MavenPackageUploa
 from cloudsmith_api.models.maven_upstream import MavenUpstream
 from cloudsmith_api.models.maven_upstream_request import MavenUpstreamRequest
 from cloudsmith_api.models.maven_upstream_request_patch import MavenUpstreamRequestPatch
+from cloudsmith_api.models.mcp_package_upload import McpPackageUpload
+from cloudsmith_api.models.mcp_package_upload_request import McpPackageUploadRequest
 from cloudsmith_api.models.namespace import Namespace
 from cloudsmith_api.models.namespace_audit_log import NamespaceAuditLog
 from cloudsmith_api.models.nested_license_policy import NestedLicensePolicy
@@ -188,6 +190,7 @@ from cloudsmith_api.models.package_move import PackageMove
 from cloudsmith_api.models.package_move_request import PackageMoveRequest
 from cloudsmith_api.models.package_quarantine import PackageQuarantine
 from cloudsmith_api.models.package_quarantine_request import PackageQuarantineRequest
+from cloudsmith_api.models.package_recycle_bin import PackageRecycleBin
 from cloudsmith_api.models.package_resync import PackageResync
 from cloudsmith_api.models.package_status import PackageStatus
 from cloudsmith_api.models.package_tag import PackageTag
@@ -213,6 +216,7 @@ from cloudsmith_api.models.quota_history import QuotaHistory
 from cloudsmith_api.models.rate_check import RateCheck
 from cloudsmith_api.models.raw_package_upload import RawPackageUpload
 from cloudsmith_api.models.raw_package_upload_request import RawPackageUploadRequest
+from cloudsmith_api.models.recycle_bin_package import RecycleBinPackage
 from cloudsmith_api.models.repository import Repository
 from cloudsmith_api.models.repository_audit_log import RepositoryAuditLog
 from cloudsmith_api.models.repository_create import RepositoryCreate
@@ -241,6 +245,8 @@ from cloudsmith_api.models.repository_rsa_key import RepositoryRsaKey
 from cloudsmith_api.models.repository_rsa_key_create import RepositoryRsaKeyCreate
 from cloudsmith_api.models.repository_token import RepositoryToken
 from cloudsmith_api.models.repository_token_action import RepositoryTokenAction
+from cloudsmith_api.models.repository_token_private_broadcasts import RepositoryTokenPrivateBroadcasts
+from cloudsmith_api.models.repository_token_private_broadcasts_request import RepositoryTokenPrivateBroadcastsRequest
 from cloudsmith_api.models.repository_token_refresh import RepositoryTokenRefresh
 from cloudsmith_api.models.repository_token_refresh_request import RepositoryTokenRefreshRequest
 from cloudsmith_api.models.repository_token_request import RepositoryTokenRequest

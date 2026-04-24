@@ -76,6 +76,18 @@ class AlpineUpstream
   # Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
   attr_accessor :priority
 
+  # A base64-encoded RSA public key in PEM format used to verify package signatures.
+  attr_accessor :rsa_key_inline
+
+  # When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream.
+  attr_accessor :rsa_key_url
+
+  # The RSA signature verification mode for this upstream.
+  attr_accessor :rsa_verification
+
+  # The RSA signature verification status for this upstream.
+  attr_accessor :rsa_verification_status
+
   attr_accessor :slug_perm
 
   attr_accessor :updated_at
@@ -132,6 +144,10 @@ class AlpineUpstream
       :'name' => :'name',
       :'pending_validation' => :'pending_validation',
       :'priority' => :'priority',
+      :'rsa_key_inline' => :'rsa_key_inline',
+      :'rsa_key_url' => :'rsa_key_url',
+      :'rsa_verification' => :'rsa_verification',
+      :'rsa_verification_status' => :'rsa_verification_status',
       :'slug_perm' => :'slug_perm',
       :'updated_at' => :'updated_at',
       :'upstream_url' => :'upstream_url',
@@ -163,6 +179,10 @@ class AlpineUpstream
       :'name' => :'String',
       :'pending_validation' => :'BOOLEAN',
       :'priority' => :'Integer',
+      :'rsa_key_inline' => :'String',
+      :'rsa_key_url' => :'String',
+      :'rsa_verification' => :'String',
+      :'rsa_verification_status' => :'String',
       :'slug_perm' => :'String',
       :'updated_at' => :'DateTime',
       :'upstream_url' => :'String',
@@ -268,6 +288,26 @@ class AlpineUpstream
       self.priority = attributes[:'priority']
     end
 
+    if attributes.has_key?(:'rsa_key_inline')
+      self.rsa_key_inline = attributes[:'rsa_key_inline']
+    end
+
+    if attributes.has_key?(:'rsa_key_url')
+      self.rsa_key_url = attributes[:'rsa_key_url']
+    end
+
+    if attributes.has_key?(:'rsa_verification')
+      self.rsa_verification = attributes[:'rsa_verification']
+    else
+      self.rsa_verification = 'Allow All'
+    end
+
+    if attributes.has_key?(:'rsa_verification_status')
+      self.rsa_verification_status = attributes[:'rsa_verification_status']
+    else
+      self.rsa_verification_status = 'Unknown'
+    end
+
     if attributes.has_key?(:'slug_perm')
       self.slug_perm = attributes[:'slug_perm']
     end
@@ -305,11 +345,15 @@ class AlpineUpstream
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
-    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'Upstream was disabled by request of user'])
+    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream's APKINDEX signature', 'Upstream was disabled by request of user'])
     return false unless disable_reason_validator.valid?(@disable_reason)
     mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
     return false unless mode_validator.valid?(@mode)
     return false if @name.nil?
+    rsa_verification_validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
+    return false unless rsa_verification_validator.valid?(@rsa_verification)
+    rsa_verification_status_validator = EnumAttributeValidator.new('String', ['Unknown', 'Invalid', 'Valid', 'Invalid (No Key)'])
+    return false unless rsa_verification_status_validator.valid?(@rsa_verification_status)
     return false if @upstream_url.nil?
     true
   end
@@ -327,7 +371,7 @@ class AlpineUpstream
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] disable_reason Object to be assigned
   def disable_reason=(disable_reason)
-    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'Upstream was disabled by request of user'])
+    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream's APKINDEX signature', 'Upstream was disabled by request of user'])
     unless validator.valid?(disable_reason)
       fail ArgumentError, 'invalid value for "disable_reason", must be one of #{validator.allowable_values}.'
     end
@@ -342,6 +386,26 @@ class AlpineUpstream
       fail ArgumentError, 'invalid value for "mode", must be one of #{validator.allowable_values}.'
     end
     @mode = mode
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] rsa_verification Object to be assigned
+  def rsa_verification=(rsa_verification)
+    validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
+    unless validator.valid?(rsa_verification)
+      fail ArgumentError, 'invalid value for "rsa_verification", must be one of #{validator.allowable_values}.'
+    end
+    @rsa_verification = rsa_verification
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] rsa_verification_status Object to be assigned
+  def rsa_verification_status=(rsa_verification_status)
+    validator = EnumAttributeValidator.new('String', ['Unknown', 'Invalid', 'Valid', 'Invalid (No Key)'])
+    unless validator.valid?(rsa_verification_status)
+      fail ArgumentError, 'invalid value for "rsa_verification_status", must be one of #{validator.allowable_values}.'
+    end
+    @rsa_verification_status = rsa_verification_status
   end
 
   # Checks equality by comparing each attribute.
@@ -370,6 +434,10 @@ class AlpineUpstream
         name == o.name &&
         pending_validation == o.pending_validation &&
         priority == o.priority &&
+        rsa_key_inline == o.rsa_key_inline &&
+        rsa_key_url == o.rsa_key_url &&
+        rsa_verification == o.rsa_verification &&
+        rsa_verification_status == o.rsa_verification_status &&
         slug_perm == o.slug_perm &&
         updated_at == o.updated_at &&
         upstream_url == o.upstream_url &&
@@ -385,7 +453,7 @@ class AlpineUpstream
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_mode, auth_secret, auth_username, available, can_reindex, created_at, disable_reason, disable_reason_text, extra_header_1, extra_header_2, extra_value_1, extra_value_2, has_failed_signature_verification, index_package_count, index_status, is_active, last_indexed, mode, name, pending_validation, priority, slug_perm, updated_at, upstream_url, verify_ssl].hash
+    [auth_mode, auth_secret, auth_username, available, can_reindex, created_at, disable_reason, disable_reason_text, extra_header_1, extra_header_2, extra_value_1, extra_value_2, has_failed_signature_verification, index_package_count, index_status, is_active, last_indexed, mode, name, pending_validation, priority, rsa_key_inline, rsa_key_url, rsa_verification, rsa_verification_status, slug_perm, updated_at, upstream_url, verify_ssl].hash
   end
 
     # Builds the object from hash

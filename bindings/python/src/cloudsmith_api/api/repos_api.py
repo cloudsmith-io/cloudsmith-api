@@ -462,9 +462,9 @@ class ReposApi(object):
             collection_formats=collection_formats)
 
     def repos_delete(self, owner, identifier, **kwargs):  # noqa: E501
-        """Delete a repository in a given namespace.  # noqa: E501
+        """repos_delete  # noqa: E501
 
-        Delete a repository in a given namespace.  # noqa: E501
+        Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_delete(owner, identifier, async_req=True)
@@ -485,9 +485,9 @@ class ReposApi(object):
             return data
 
     def repos_delete_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Delete a repository in a given namespace.  # noqa: E501
+        """repos_delete  # noqa: E501
 
-        Delete a repository in a given namespace.  # noqa: E501
+        Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_delete_with_http_info(owner, identifier, async_req=True)

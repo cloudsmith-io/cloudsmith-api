@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **percentageUsed** | **String** |  |  [optional]
 **planLimit** | **java.math.BigInteger** |  |  [optional]
 **used** | **java.math.BigInteger** |  |  [optional]
+**usedPreDeduplication** | **java.math.BigInteger** |  |  [optional]
 
 
 

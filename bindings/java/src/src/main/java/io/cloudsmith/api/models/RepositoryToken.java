@@ -278,11 +278,6 @@ public class RepositoryToken implements Serializable {
   @SerializedName("user_url")
   private String userUrl = null;
 
-  public RepositoryToken accessPrivateBroadcasts(Boolean accessPrivateBroadcasts) {
-    this.accessPrivateBroadcasts = accessPrivateBroadcasts;
-    return this;
-  }
-
    /**
    * If enabled, this token can be used for private broadcasts
    * @return accessPrivateBroadcasts
@@ -290,10 +285,6 @@ public class RepositoryToken implements Serializable {
   @ApiModelProperty(value = "If enabled, this token can be used for private broadcasts")
   public Boolean isAccessPrivateBroadcasts() {
     return accessPrivateBroadcasts;
-  }
-
-  public void setAccessPrivateBroadcasts(Boolean accessPrivateBroadcasts) {
-    this.accessPrivateBroadcasts = accessPrivateBroadcasts;
   }
 
    /**

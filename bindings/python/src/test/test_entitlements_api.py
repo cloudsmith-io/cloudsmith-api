@@ -99,6 +99,13 @@ class TestEntitlementsApi(unittest.TestCase):
         """
         pass
 
+    def test_entitlements_toggle_private_broadcasts(self):
+        """Test case for entitlements_toggle_private_broadcasts
+
+        Set private broadcast access for an entitlement token in a repository.  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -239,6 +239,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_mcp(self):
+        """Test case for packages_upload_mcp
+
+        Create a new MCP package  # noqa: E501
+        """
+        pass
+
     def test_packages_upload_npm(self):
         """Test case for packages_upload_npm
 
@@ -432,6 +439,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_maven
 
         Validate parameters for create Maven package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_mcp(self):
+        """Test case for packages_validate_upload_mcp
+
+        Validate parameters for create MCP package  # noqa: E501
         """
         pass
 

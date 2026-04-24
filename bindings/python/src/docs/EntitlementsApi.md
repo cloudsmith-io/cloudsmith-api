@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**entitlements_refresh**](EntitlementsApi.md#entitlements_refresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
 [**entitlements_reset**](EntitlementsApi.md#entitlements_reset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 [**entitlements_sync**](EntitlementsApi.md#entitlements_sync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
+[**entitlements_toggle_private_broadcasts**](EntitlementsApi.md#entitlements_toggle_private_broadcasts) | **POST** /entitlements/{owner}/{repo}/{identifier}/toggle-private-broadcasts/ | Set private broadcast access for an entitlement token in a repository.
 
 
 # **entitlements_create**
@@ -648,6 +649,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepositoryTokenSync**](RepositoryTokenSync.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **entitlements_toggle_private_broadcasts**
+> entitlements_toggle_private_broadcasts(owner, repo, identifier, data=data)
+
+Set private broadcast access for an entitlement token in a repository.
+
+Set private broadcast access for an entitlement token in a repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.EntitlementsApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.RepositoryTokenPrivateBroadcastsRequest() # RepositoryTokenPrivateBroadcastsRequest |  (optional)
+
+try:
+    # Set private broadcast access for an entitlement token in a repository.
+    api_instance.entitlements_toggle_private_broadcasts(owner, repo, identifier, data=data)
+except ApiException as e:
+    print("Exception when calling EntitlementsApi->entitlements_toggle_private_broadcasts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**RepositoryTokenPrivateBroadcastsRequest**](RepositoryTokenPrivateBroadcastsRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

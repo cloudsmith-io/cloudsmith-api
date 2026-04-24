@@ -60,7 +60,6 @@ class TestReposApi(unittest.TestCase):
     def test_repos_delete(self):
         """Test case for repos_delete
 
-        Delete a repository in a given namespace.  # noqa: E501
         """
         pass
 

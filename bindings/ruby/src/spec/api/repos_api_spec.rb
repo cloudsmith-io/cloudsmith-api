@@ -86,8 +86,7 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_delete
-  # Delete a repository in a given namespace.
-  # Delete a repository in a given namespace.
+  # Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters

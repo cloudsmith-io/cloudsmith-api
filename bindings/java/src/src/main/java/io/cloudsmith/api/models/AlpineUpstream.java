@@ -111,6 +111,8 @@ public class AlpineUpstream implements Serializable {
     
     MISSING_UPSTREAM_SOURCE("Missing upstream source"),
     
+    RSA_KEY_DID_NOT_VERIFY_THE_UPSTREAM_S_APKINDEX_SIGNATURE("RSA key did not verify the upstream's APKINDEX signature"),
+    
     UPSTREAM_WAS_DISABLED_BY_REQUEST_OF_USER("Upstream was disabled by request of user");
 
     private String value;
@@ -242,6 +244,118 @@ public class AlpineUpstream implements Serializable {
 
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
+
+  @SerializedName("rsa_key_inline")
+  private String rsaKeyInline = null;
+
+  @SerializedName("rsa_key_url")
+  private String rsaKeyUrl = null;
+
+  /**
+   * The RSA signature verification mode for this upstream.
+   */
+  @JsonAdapter(RsaVerificationEnum.Adapter.class)
+  public enum RsaVerificationEnum {
+    ALLOW_ALL("Allow All"),
+    
+    WARN_ON_INVALID("Warn on Invalid"),
+    
+    REJECT_INVALID("Reject Invalid");
+
+    private String value;
+
+    RsaVerificationEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RsaVerificationEnum fromValue(String text) {
+      for (RsaVerificationEnum b : RsaVerificationEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RsaVerificationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RsaVerificationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RsaVerificationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RsaVerificationEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("rsa_verification")
+  private RsaVerificationEnum rsaVerification = RsaVerificationEnum.ALLOW_ALL;
+
+  /**
+   * The RSA signature verification status for this upstream.
+   */
+  @JsonAdapter(RsaVerificationStatusEnum.Adapter.class)
+  public enum RsaVerificationStatusEnum {
+    UNKNOWN("Unknown"),
+    
+    INVALID("Invalid"),
+    
+    VALID("Valid"),
+    
+    INVALID_NO_KEY_("Invalid (No Key)");
+
+    private String value;
+
+    RsaVerificationStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RsaVerificationStatusEnum fromValue(String text) {
+      for (RsaVerificationStatusEnum b : RsaVerificationStatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RsaVerificationStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RsaVerificationStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RsaVerificationStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RsaVerificationStatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("rsa_verification_status")
+  private RsaVerificationStatusEnum rsaVerificationStatus = RsaVerificationStatusEnum.UNKNOWN;
 
   @SerializedName("slug_perm")
   private String slugPerm = null;
@@ -548,6 +662,60 @@ public class AlpineUpstream implements Serializable {
   }
 
    /**
+   * A base64-encoded RSA public key in PEM format used to verify package signatures.
+   * @return rsaKeyInline
+  **/
+  @ApiModelProperty(value = "A base64-encoded RSA public key in PEM format used to verify package signatures.")
+  public String getRsaKeyInline() {
+    return rsaKeyInline;
+  }
+
+  public AlpineUpstream rsaKeyUrl(String rsaKeyUrl) {
+    this.rsaKeyUrl = rsaKeyUrl;
+    return this;
+  }
+
+   /**
+   * When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream.
+   * @return rsaKeyUrl
+  **/
+ @Size(max=254)  @ApiModelProperty(value = "When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream.")
+  public String getRsaKeyUrl() {
+    return rsaKeyUrl;
+  }
+
+  public void setRsaKeyUrl(String rsaKeyUrl) {
+    this.rsaKeyUrl = rsaKeyUrl;
+  }
+
+  public AlpineUpstream rsaVerification(RsaVerificationEnum rsaVerification) {
+    this.rsaVerification = rsaVerification;
+    return this;
+  }
+
+   /**
+   * The RSA signature verification mode for this upstream.
+   * @return rsaVerification
+  **/
+  @ApiModelProperty(value = "The RSA signature verification mode for this upstream.")
+  public RsaVerificationEnum getRsaVerification() {
+    return rsaVerification;
+  }
+
+  public void setRsaVerification(RsaVerificationEnum rsaVerification) {
+    this.rsaVerification = rsaVerification;
+  }
+
+   /**
+   * The RSA signature verification status for this upstream.
+   * @return rsaVerificationStatus
+  **/
+  @ApiModelProperty(value = "The RSA signature verification status for this upstream.")
+  public RsaVerificationStatusEnum getRsaVerificationStatus() {
+    return rsaVerificationStatus;
+  }
+
+   /**
    * Get slugPerm
    * @return slugPerm
   **/
@@ -634,6 +802,10 @@ public class AlpineUpstream implements Serializable {
         Objects.equals(this.name, alpineUpstream.name) &&
         Objects.equals(this.pendingValidation, alpineUpstream.pendingValidation) &&
         Objects.equals(this.priority, alpineUpstream.priority) &&
+        Objects.equals(this.rsaKeyInline, alpineUpstream.rsaKeyInline) &&
+        Objects.equals(this.rsaKeyUrl, alpineUpstream.rsaKeyUrl) &&
+        Objects.equals(this.rsaVerification, alpineUpstream.rsaVerification) &&
+        Objects.equals(this.rsaVerificationStatus, alpineUpstream.rsaVerificationStatus) &&
         Objects.equals(this.slugPerm, alpineUpstream.slugPerm) &&
         Objects.equals(this.updatedAt, alpineUpstream.updatedAt) &&
         Objects.equals(this.upstreamUrl, alpineUpstream.upstreamUrl) &&
@@ -642,7 +814,7 @@ public class AlpineUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, slugPerm, updatedAt, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, available, canReindex, createdAt, disableReason, disableReasonText, extraHeader1, extraHeader2, extraValue1, extraValue2, hasFailedSignatureVerification, indexPackageCount, indexStatus, isActive, lastIndexed, mode, name, pendingValidation, priority, rsaKeyInline, rsaKeyUrl, rsaVerification, rsaVerificationStatus, slugPerm, updatedAt, upstreamUrl, verifySsl);
   }
 
 
@@ -672,6 +844,10 @@ public class AlpineUpstream implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pendingValidation: ").append(toIndentedString(pendingValidation)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    rsaKeyInline: ").append(toIndentedString(rsaKeyInline)).append("\n");
+    sb.append("    rsaKeyUrl: ").append(toIndentedString(rsaKeyUrl)).append("\n");
+    sb.append("    rsaVerification: ").append(toIndentedString(rsaVerification)).append("\n");
+    sb.append("    rsaVerificationStatus: ").append(toIndentedString(rsaVerificationStatus)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");

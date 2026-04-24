@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.25</version>
+  <version>2.0.26</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.25"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.26"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.25.jar`
+* `target/cloudsmith-api-2.0.26.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -136,6 +136,7 @@ Class | Method | HTTP request | Description
 *EntitlementsApi* | [**entitlementsRefresh**](docs/EntitlementsApi.md#entitlementsRefresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
 *EntitlementsApi* | [**entitlementsReset**](docs/EntitlementsApi.md#entitlementsReset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 *EntitlementsApi* | [**entitlementsSync**](docs/EntitlementsApi.md#entitlementsSync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
+*EntitlementsApi* | [**entitlementsTogglePrivateBroadcasts**](docs/EntitlementsApi.md#entitlementsTogglePrivateBroadcasts) | **POST** /entitlements/{owner}/{repo}/{identifier}/toggle-private-broadcasts/ | Set private broadcast access for an entitlement token in a repository.
 *FilesApi* | [**filesAbort**](docs/FilesApi.md#filesAbort) | **POST** /files/{owner}/{repo}/{identifier}/abort/ | Abort a multipart file upload.
 *FilesApi* | [**filesComplete**](docs/FilesApi.md#filesComplete) | **POST** /files/{owner}/{repo}/{identifier}/complete/ | Complete a multipart file upload.
 *FilesApi* | [**filesCreate**](docs/FilesApi.md#filesCreate) | **POST** /files/{owner}/{repo}/ | Request URL(s) to upload new package file upload(s) to.
@@ -251,6 +252,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadHuggingface**](docs/PackagesApi.md#packagesUploadHuggingface) | **POST** /packages/{owner}/{repo}/upload/huggingface/ | Create a new HuggingFace package
 *PackagesApi* | [**packagesUploadLuarocks**](docs/PackagesApi.md#packagesUploadLuarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 *PackagesApi* | [**packagesUploadMaven**](docs/PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
+*PackagesApi* | [**packagesUploadMcp**](docs/PackagesApi.md#packagesUploadMcp) | **POST** /packages/{owner}/{repo}/upload/mcp/ | Create a new MCP package
 *PackagesApi* | [**packagesUploadNpm**](docs/PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 *PackagesApi* | [**packagesUploadNuget**](docs/PackagesApi.md#packagesUploadNuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
 *PackagesApi* | [**packagesUploadP2**](docs/PackagesApi.md#packagesUploadP2) | **POST** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
@@ -279,6 +281,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadHuggingface**](docs/PackagesApi.md#packagesValidateUploadHuggingface) | **POST** /packages/{owner}/{repo}/validate-upload/huggingface/ | Validate parameters for create HuggingFace package
 *PackagesApi* | [**packagesValidateUploadLuarocks**](docs/PackagesApi.md#packagesValidateUploadLuarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 *PackagesApi* | [**packagesValidateUploadMaven**](docs/PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
+*PackagesApi* | [**packagesValidateUploadMcp**](docs/PackagesApi.md#packagesValidateUploadMcp) | **POST** /packages/{owner}/{repo}/validate-upload/mcp/ | Validate parameters for create MCP package
 *PackagesApi* | [**packagesValidateUploadNpm**](docs/PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 *PackagesApi* | [**packagesValidateUploadNuget**](docs/PackagesApi.md#packagesValidateUploadNuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
 *PackagesApi* | [**packagesValidateUploadP2**](docs/PackagesApi.md#packagesValidateUploadP2) | **POST** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
@@ -295,11 +298,13 @@ Class | Method | HTTP request | Description
 *QuotaApi* | [**quotaOssRead**](docs/QuotaApi.md#quotaOssRead) | **GET** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
 *QuotaApi* | [**quotaRead**](docs/QuotaApi.md#quotaRead) | **GET** /quota/{owner}/ | Quota usage for a given namespace.
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
+*RecycleBinApi* | [**recycleBinList**](docs/RecycleBinApi.md#recycleBinList) | **GET** /recycle-bin/{owner}/ | List soft-deleted packages in recycle bin
+*RecycleBinApi* | [**recycleBinRecycleBinAction**](docs/RecycleBinApi.md#recycleBinRecycleBinAction) | **POST** /recycle-bin/{owner}/action/ | 
 *ReposApi* | [**apiReposGeoipStatus**](docs/ReposApi.md#apiReposGeoipStatus) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository.
 *ReposApi* | [**repoRetentionPartialUpdate**](docs/ReposApi.md#repoRetentionPartialUpdate) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
 *ReposApi* | [**repoRetentionRead**](docs/ReposApi.md#repoRetentionRead) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
 *ReposApi* | [**reposCreate**](docs/ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
-*ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
+*ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | 
 *ReposApi* | [**reposEcdsaCreate**](docs/ReposApi.md#reposEcdsaCreate) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
 *ReposApi* | [**reposEcdsaList**](docs/ReposApi.md#reposEcdsaList) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
 *ReposApi* | [**reposEcdsaRegenerate**](docs/ReposApi.md#reposEcdsaRegenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
@@ -569,6 +574,8 @@ Class | Method | HTTP request | Description
  - [MavenUpstream](docs/MavenUpstream.md)
  - [MavenUpstreamRequest](docs/MavenUpstreamRequest.md)
  - [MavenUpstreamRequestPatch](docs/MavenUpstreamRequestPatch.md)
+ - [McpPackageUpload](docs/McpPackageUpload.md)
+ - [McpPackageUploadRequest](docs/McpPackageUploadRequest.md)
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [NamespaceAuditLog](docs/NamespaceAuditLog.md)
@@ -640,6 +647,7 @@ Class | Method | HTTP request | Description
  - [PackageMoveRequest](docs/PackageMoveRequest.md)
  - [PackageQuarantine](docs/PackageQuarantine.md)
  - [PackageQuarantineRequest](docs/PackageQuarantineRequest.md)
+ - [PackageRecycleBin](docs/PackageRecycleBin.md)
  - [PackageResync](docs/PackageResync.md)
  - [PackageStatus](docs/PackageStatus.md)
  - [PackageTag](docs/PackageTag.md)
@@ -665,6 +673,7 @@ Class | Method | HTTP request | Description
  - [RateCheck](docs/RateCheck.md)
  - [RawPackageUpload](docs/RawPackageUpload.md)
  - [RawPackageUploadRequest](docs/RawPackageUploadRequest.md)
+ - [RecycleBinPackage](docs/RecycleBinPackage.md)
  - [Repository](docs/Repository.md)
  - [RepositoryAuditLog](docs/RepositoryAuditLog.md)
  - [RepositoryCreate](docs/RepositoryCreate.md)
@@ -693,6 +702,8 @@ Class | Method | HTTP request | Description
  - [RepositoryRsaKeyCreate](docs/RepositoryRsaKeyCreate.md)
  - [RepositoryToken](docs/RepositoryToken.md)
  - [RepositoryTokenAction](docs/RepositoryTokenAction.md)
+ - [RepositoryTokenPrivateBroadcasts](docs/RepositoryTokenPrivateBroadcasts.md)
+ - [RepositoryTokenPrivateBroadcastsRequest](docs/RepositoryTokenPrivateBroadcastsRequest.md)
  - [RepositoryTokenRefresh](docs/RepositoryTokenRefresh.md)
  - [RepositoryTokenRefreshRequest](docs/RepositoryTokenRefreshRequest.md)
  - [RepositoryTokenRequest](docs/RepositoryTokenRequest.md)

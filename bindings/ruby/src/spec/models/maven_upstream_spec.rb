@@ -75,7 +75,7 @@ describe 'MavenUpstream' do
   describe 'test attribute "disable_reason"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["N/A", "Upstream points to its own repository", "Missing upstream source", "Upstream was disabled by request of user"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["N/A", "Upstream points to its own repository", "Missing upstream source", "RSA key did not verify the upstream's APKINDEX signature", "Upstream was disabled by request of user"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.disable_reason = value }.not_to raise_error
       # end

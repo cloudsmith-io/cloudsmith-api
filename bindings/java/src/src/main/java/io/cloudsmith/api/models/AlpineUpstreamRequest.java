@@ -161,6 +161,61 @@ public class AlpineUpstreamRequest implements Serializable {
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
 
+  @SerializedName("rsa_key_url")
+  private String rsaKeyUrl = null;
+
+  /**
+   * The RSA signature verification mode for this upstream.
+   */
+  @JsonAdapter(RsaVerificationEnum.Adapter.class)
+  public enum RsaVerificationEnum {
+    ALLOW_ALL("Allow All"),
+    
+    WARN_ON_INVALID("Warn on Invalid"),
+    
+    REJECT_INVALID("Reject Invalid");
+
+    private String value;
+
+    RsaVerificationEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RsaVerificationEnum fromValue(String text) {
+      for (RsaVerificationEnum b : RsaVerificationEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RsaVerificationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RsaVerificationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RsaVerificationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RsaVerificationEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("rsa_verification")
+  private RsaVerificationEnum rsaVerification = RsaVerificationEnum.ALLOW_ALL;
+
   @SerializedName("upstream_url")
   private String upstreamUrl = null;
 
@@ -368,6 +423,42 @@ public class AlpineUpstreamRequest implements Serializable {
     this.priority = priority;
   }
 
+  public AlpineUpstreamRequest rsaKeyUrl(String rsaKeyUrl) {
+    this.rsaKeyUrl = rsaKeyUrl;
+    return this;
+  }
+
+   /**
+   * When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream.
+   * @return rsaKeyUrl
+  **/
+ @Size(max=254)  @ApiModelProperty(value = "When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream.")
+  public String getRsaKeyUrl() {
+    return rsaKeyUrl;
+  }
+
+  public void setRsaKeyUrl(String rsaKeyUrl) {
+    this.rsaKeyUrl = rsaKeyUrl;
+  }
+
+  public AlpineUpstreamRequest rsaVerification(RsaVerificationEnum rsaVerification) {
+    this.rsaVerification = rsaVerification;
+    return this;
+  }
+
+   /**
+   * The RSA signature verification mode for this upstream.
+   * @return rsaVerification
+  **/
+  @ApiModelProperty(value = "The RSA signature verification mode for this upstream.")
+  public RsaVerificationEnum getRsaVerification() {
+    return rsaVerification;
+  }
+
+  public void setRsaVerification(RsaVerificationEnum rsaVerification) {
+    this.rsaVerification = rsaVerification;
+  }
+
   public AlpineUpstreamRequest upstreamUrl(String upstreamUrl) {
     this.upstreamUrl = upstreamUrl;
     return this;
@@ -426,13 +517,15 @@ public class AlpineUpstreamRequest implements Serializable {
         Objects.equals(this.mode, alpineUpstreamRequest.mode) &&
         Objects.equals(this.name, alpineUpstreamRequest.name) &&
         Objects.equals(this.priority, alpineUpstreamRequest.priority) &&
+        Objects.equals(this.rsaKeyUrl, alpineUpstreamRequest.rsaKeyUrl) &&
+        Objects.equals(this.rsaVerification, alpineUpstreamRequest.rsaVerification) &&
         Objects.equals(this.upstreamUrl, alpineUpstreamRequest.upstreamUrl) &&
         Objects.equals(this.verifySsl, alpineUpstreamRequest.verifySsl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, upstreamUrl, verifySsl);
+    return Objects.hash(authMode, authSecret, authUsername, extraHeader1, extraHeader2, extraValue1, extraValue2, isActive, mode, name, priority, rsaKeyUrl, rsaVerification, upstreamUrl, verifySsl);
   }
 
 
@@ -452,6 +545,8 @@ public class AlpineUpstreamRequest implements Serializable {
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    rsaKeyUrl: ").append(toIndentedString(rsaKeyUrl)).append("\n");
+    sb.append("    rsaVerification: ").append(toIndentedString(rsaVerification)).append("\n");
     sb.append("    upstreamUrl: ").append(toIndentedString(upstreamUrl)).append("\n");
     sb.append("    verifySsl: ").append(toIndentedString(verifySsl)).append("\n");
     sb.append("}");

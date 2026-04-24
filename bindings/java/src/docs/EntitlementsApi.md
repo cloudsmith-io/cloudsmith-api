@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**entitlementsRefresh**](EntitlementsApi.md#entitlementsRefresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
 [**entitlementsReset**](EntitlementsApi.md#entitlementsReset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 [**entitlementsSync**](EntitlementsApi.md#entitlementsSync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
+[**entitlementsTogglePrivateBroadcasts**](EntitlementsApi.md#entitlementsTogglePrivateBroadcasts) | **POST** /entitlements/{owner}/{repo}/{identifier}/toggle-private-broadcasts/ | Set private broadcast access for an entitlement token in a repository.
 
 
 <a name="entitlementsCreate"></a>
@@ -670,6 +671,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepositoryTokenSync**](RepositoryTokenSync.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="entitlementsTogglePrivateBroadcasts"></a>
+# **entitlementsTogglePrivateBroadcasts**
+> entitlementsTogglePrivateBroadcasts(owner, repo, identifier, data)
+
+Set private broadcast access for an entitlement token in a repository.
+
+Set private broadcast access for an entitlement token in a repository.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.EntitlementsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+EntitlementsApi apiInstance = new EntitlementsApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+String identifier = "identifier_example"; // String | 
+RepositoryTokenPrivateBroadcastsRequest data = new RepositoryTokenPrivateBroadcastsRequest(); // RepositoryTokenPrivateBroadcastsRequest | 
+try {
+    apiInstance.entitlementsTogglePrivateBroadcasts(owner, repo, identifier, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EntitlementsApi#entitlementsTogglePrivateBroadcasts");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **identifier** | **String**|  |
+ **data** | [**RepositoryTokenPrivateBroadcastsRequest**](RepositoryTokenPrivateBroadcastsRequest.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

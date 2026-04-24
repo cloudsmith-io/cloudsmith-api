@@ -113,6 +113,8 @@ public class GenericUpstream implements Serializable {
     
     MISSING_UPSTREAM_SOURCE("Missing upstream source"),
     
+    RSA_KEY_DID_NOT_VERIFY_THE_UPSTREAM_S_APKINDEX_SIGNATURE("RSA key did not verify the upstream's APKINDEX signature"),
+    
     UPSTREAM_WAS_DISABLED_BY_REQUEST_OF_USER("Upstream was disabled by request of user");
 
     private String value;

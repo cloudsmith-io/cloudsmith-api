@@ -43,6 +43,7 @@ Name | Value
 N_A | &quot;N/A&quot;
 UPSTREAM_POINTS_TO_ITS_OWN_REPOSITORY | &quot;Upstream points to its own repository&quot;
 MISSING_UPSTREAM_SOURCE | &quot;Missing upstream source&quot;
+RSA_KEY_DID_NOT_VERIFY_THE_UPSTREAM_S_APKINDEX_SIGNATURE | &quot;RSA key did not verify the upstream&#39;s APKINDEX signature&quot;
 UPSTREAM_WAS_DISABLED_BY_REQUEST_OF_USER | &quot;Upstream was disabled by request of user&quot;
 
 

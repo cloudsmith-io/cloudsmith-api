@@ -25,6 +25,10 @@ Name | Type | Description | Notes
 **name** | **String** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. | 
 **pendingValidation** | **Boolean** | When true, this upstream source is pending validation. |  [optional]
 **priority** | **java.math.BigInteger** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. |  [optional]
+**rsaKeyInline** | **String** | A base64-encoded RSA public key in PEM format used to verify package signatures. |  [optional]
+**rsaKeyUrl** | **String** | When provided, Cloudsmith will fetch and validate the RSA public key at this URL and use it to verify package signatures from this upstream. |  [optional]
+**rsaVerification** | [**RsaVerificationEnum**](#RsaVerificationEnum) | The RSA signature verification mode for this upstream. |  [optional]
+**rsaVerificationStatus** | [**RsaVerificationStatusEnum**](#RsaVerificationStatusEnum) | The RSA signature verification status for this upstream. |  [optional]
 **slugPerm** | **String** |  |  [optional]
 **updatedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **upstreamUrl** | **String** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  | 
@@ -46,6 +50,7 @@ Name | Value
 N_A | &quot;N/A&quot;
 UPSTREAM_POINTS_TO_ITS_OWN_REPOSITORY | &quot;Upstream points to its own repository&quot;
 MISSING_UPSTREAM_SOURCE | &quot;Missing upstream source&quot;
+RSA_KEY_DID_NOT_VERIFY_THE_UPSTREAM_S_APKINDEX_SIGNATURE | &quot;RSA key did not verify the upstream&#39;s APKINDEX signature&quot;
 UPSTREAM_WAS_DISABLED_BY_REQUEST_OF_USER | &quot;Upstream was disabled by request of user&quot;
 
 
@@ -55,6 +60,25 @@ Name | Value
 ---- | -----
 PROXY_ONLY | &quot;Proxy Only&quot;
 CACHE_AND_PROXY | &quot;Cache and Proxy&quot;
+
+
+<a name="RsaVerificationEnum"></a>
+## Enum: RsaVerificationEnum
+Name | Value
+---- | -----
+ALLOW_ALL | &quot;Allow All&quot;
+WARN_ON_INVALID | &quot;Warn on Invalid&quot;
+REJECT_INVALID | &quot;Reject Invalid&quot;
+
+
+<a name="RsaVerificationStatusEnum"></a>
+## Enum: RsaVerificationStatusEnum
+Name | Value
+---- | -----
+UNKNOWN | &quot;Unknown&quot;
+INVALID | &quot;Invalid&quot;
+VALID | &quot;Valid&quot;
+INVALID_NO_KEY_ | &quot;Invalid (No Key)&quot;
 
 
 

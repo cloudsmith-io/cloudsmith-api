@@ -17,6 +17,7 @@ from cloudsmith_api.api.orgs_api import OrgsApi
 from cloudsmith_api.api.packages_api import PackagesApi
 from cloudsmith_api.api.quota_api import QuotaApi
 from cloudsmith_api.api.rates_api import RatesApi
+from cloudsmith_api.api.recycle_bin_api import RecycleBinApi
 from cloudsmith_api.api.repos_api import ReposApi
 from cloudsmith_api.api.status_api import StatusApi
 from cloudsmith_api.api.storage_regions_api import StorageRegionsApi

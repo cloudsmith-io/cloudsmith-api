@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**repoRetentionPartialUpdate**](ReposApi.md#repoRetentionPartialUpdate) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
 [**repoRetentionRead**](ReposApi.md#repoRetentionRead) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
 [**reposCreate**](ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
-[**reposDelete**](ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | Delete a repository in a given namespace.
+[**reposDelete**](ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | 
 [**reposEcdsaCreate**](ReposApi.md#reposEcdsaCreate) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
 [**reposEcdsaList**](ReposApi.md#reposEcdsaList) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
 [**reposEcdsaRegenerate**](ReposApi.md#reposEcdsaRegenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
@@ -410,9 +410,9 @@ Name | Type | Description  | Notes
 # **reposDelete**
 > reposDelete(owner, identifier)
 
-Delete a repository in a given namespace.
 
-Delete a repository in a given namespace.
+
+Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
 
 ### Example
 ```java

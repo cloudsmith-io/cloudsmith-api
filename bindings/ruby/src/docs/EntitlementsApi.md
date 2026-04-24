@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**entitlements_refresh**](EntitlementsApi.md#entitlements_refresh) | **POST** /entitlements/{owner}/{repo}/{identifier}/refresh/ | Refresh an entitlement token in a repository.
 [**entitlements_reset**](EntitlementsApi.md#entitlements_reset) | **POST** /entitlements/{owner}/{repo}/{identifier}/reset/ | Reset the statistics for an entitlement token in a repository.
 [**entitlements_sync**](EntitlementsApi.md#entitlements_sync) | **POST** /entitlements/{owner}/{repo}/sync/ | Synchronise tokens from a source repository.
+[**entitlements_toggle_private_broadcasts**](EntitlementsApi.md#entitlements_toggle_private_broadcasts) | **POST** /entitlements/{owner}/{repo}/{identifier}/toggle-private-broadcasts/ | Set private broadcast access for an entitlement token in a repository.
 
 
 # **entitlements_create**
@@ -679,6 +680,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepositoryTokenSync**](RepositoryTokenSync.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **entitlements_toggle_private_broadcasts**
+> entitlements_toggle_private_broadcasts(owner, repo, identifier, opts)
+
+Set private broadcast access for an entitlement token in a repository.
+
+Set private broadcast access for an entitlement token in a repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::EntitlementsApi.new
+
+owner = 'owner_example' # String | 
+
+repo = 'repo_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::RepositoryTokenPrivateBroadcastsRequest.new # RepositoryTokenPrivateBroadcastsRequest | 
+}
+
+begin
+  #Set private broadcast access for an entitlement token in a repository.
+  api_instance.entitlements_toggle_private_broadcasts(owner, repo, identifier, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling EntitlementsApi->entitlements_toggle_private_broadcasts: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**RepositoryTokenPrivateBroadcastsRequest**](RepositoryTokenPrivateBroadcastsRequest.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 
