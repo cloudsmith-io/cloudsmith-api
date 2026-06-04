@@ -32,6 +32,18 @@ describe 'RecycleBinApi' do
     end
   end
 
+  # unit tests for recycle_bin_action
+  # Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
+  # @param owner 
+  # @param [Hash] opts the optional parameters
+  # @option opts [PackageRecycleBin] :data 
+  # @return [PackageBulkActionResponse]
+  describe 'recycle_bin_action test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for recycle_bin_list
   # List soft-deleted packages in recycle bin
   # Retrieve all soft-deleted packages in the workspace. Optionally filter by repository using the &#39;repository&#39; query parameter.
@@ -42,18 +54,6 @@ describe 'RecycleBinApi' do
   # @option opts [String] :repository Filter packages by repository slug
   # @return [Array<RecycleBinPackage>]
   describe 'recycle_bin_list test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for recycle_bin_recycle_bin_action
-  # Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
-  # @param owner 
-  # @param [Hash] opts the optional parameters
-  # @option opts [PackageRecycleBin] :data 
-  # @return [PackageBulkActionResponse]
-  describe 'recycle_bin_recycle_bin_action test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

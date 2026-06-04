@@ -33,28 +33,59 @@ class ServiceTeams(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'name': 'str',
         'role': 'str',
         'slug': 'str'
     }
 
     attribute_map = {
+        'name': 'name',
         'role': 'role',
         'slug': 'slug'
     }
 
-    def __init__(self, role='Manager', slug=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, role='Manager', slug=None, _configuration=None):  # noqa: E501
         """ServiceTeams - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._name = None
         self._role = None
         self._slug = None
         self.discriminator = None
 
+        if name is not None:
+            self.name = name
         if role is not None:
             self.role = role
         self.slug = slug
+
+    @property
+    def name(self):
+        """Gets the name of this ServiceTeams.
+
+        The name of the team
+
+        :return: The name of this ServiceTeams.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ServiceTeams.
+
+        The name of the team
+
+        :param name: The name of this ServiceTeams.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._name = name
 
     @property
     def role(self):

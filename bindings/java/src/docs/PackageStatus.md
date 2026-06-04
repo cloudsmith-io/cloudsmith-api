@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **isCopyable** | **Boolean** |  |  [optional]
 **isDeleteable** | **Boolean** |  |  [optional]
 **isDownloadable** | **Boolean** |  |  [optional]
+**isHidden** | **Boolean** |  |  [optional]
 **isMoveable** | **Boolean** |  |  [optional]
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]

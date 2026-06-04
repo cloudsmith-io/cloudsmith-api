@@ -74,6 +74,9 @@ class RepositoryRequestPatch
   # A descriptive name for the repository.
   attr_accessor :name
 
+  # If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., 'latest'), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version.
+  attr_accessor :npm_upstream_tags_take_precedence
+
   # When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.
   attr_accessor :nuget_native_signing_enabled
 
@@ -197,6 +200,7 @@ class RepositoryRequestPatch
       :'move_own' => :'move_own',
       :'move_packages' => :'move_packages',
       :'name' => :'name',
+      :'npm_upstream_tags_take_precedence' => :'npm_upstream_tags_take_precedence',
       :'nuget_native_signing_enabled' => :'nuget_native_signing_enabled',
       :'open_source_license' => :'open_source_license',
       :'open_source_project_url' => :'open_source_project_url',
@@ -249,6 +253,7 @@ class RepositoryRequestPatch
       :'move_own' => :'BOOLEAN',
       :'move_packages' => :'String',
       :'name' => :'String',
+      :'npm_upstream_tags_take_precedence' => :'BOOLEAN',
       :'nuget_native_signing_enabled' => :'BOOLEAN',
       :'open_source_license' => :'String',
       :'open_source_project_url' => :'String',
@@ -380,6 +385,10 @@ class RepositoryRequestPatch
 
     if attributes.has_key?(:'name')
       self.name = attributes[:'name']
+    end
+
+    if attributes.has_key?(:'npm_upstream_tags_take_precedence')
+      self.npm_upstream_tags_take_precedence = attributes[:'npm_upstream_tags_take_precedence']
     end
 
     if attributes.has_key?(:'nuget_native_signing_enabled')
@@ -693,6 +702,7 @@ class RepositoryRequestPatch
         move_own == o.move_own &&
         move_packages == o.move_packages &&
         name == o.name &&
+        npm_upstream_tags_take_precedence == o.npm_upstream_tags_take_precedence &&
         nuget_native_signing_enabled == o.nuget_native_signing_enabled &&
         open_source_license == o.open_source_license &&
         open_source_project_url == o.open_source_project_url &&
@@ -730,7 +740,7 @@ class RepositoryRequestPatch
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [broadcast_state, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, default_privilege, delete_own, delete_packages, description, distributes, docker_refresh_tokens_enabled, enforce_eula, generic_package_index_enabled, index_files, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, nuget_native_signing_enabled, open_source_license, open_source_project_url, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, show_setup_all, slug, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    [broadcast_state, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, default_privilege, delete_own, delete_packages, description, distributes, docker_refresh_tokens_enabled, enforce_eula, generic_package_index_enabled, index_files, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, npm_upstream_tags_take_precedence, nuget_native_signing_enabled, open_source_license, open_source_project_url, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, show_setup_all, slug, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
   end
 
     # Builds the object from hash

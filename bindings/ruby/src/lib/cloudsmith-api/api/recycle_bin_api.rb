@@ -19,6 +19,60 @@ module CloudsmithApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageRecycleBin] :data 
+    # @return [PackageBulkActionResponse]
+    def recycle_bin_action(owner, opts = {})
+      data, _status_code, _headers = recycle_bin_action_with_http_info(owner, opts)
+      data
+    end
+
+    # Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
+    # @param owner 
+    # @param [Hash] opts the optional parameters
+    # @option opts [PackageRecycleBin] :data 
+    # @return [Array<(PackageBulkActionResponse, Fixnum, Hash)>] PackageBulkActionResponse data, response status code and response headers
+    def recycle_bin_action_with_http_info(owner, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RecycleBinApi.recycle_bin_action ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling RecycleBinApi.recycle_bin_action"
+      end
+      # resource path
+      local_var_path = '/recycle-bin/{owner}/action/'.sub('{' + 'owner' + '}', owner.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PackageBulkActionResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RecycleBinApi#recycle_bin_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # List soft-deleted packages in recycle bin
     # Retrieve all soft-deleted packages in the workspace. Optionally filter by repository using the 'repository' query parameter.
     # @param owner 
@@ -79,60 +133,6 @@ module CloudsmithApi
         :return_type => 'Array<RecycleBinPackage>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RecycleBinApi#recycle_bin_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
-    # @param owner 
-    # @param [Hash] opts the optional parameters
-    # @option opts [PackageRecycleBin] :data 
-    # @return [PackageBulkActionResponse]
-    def recycle_bin_recycle_bin_action(owner, opts = {})
-      data, _status_code, _headers = recycle_bin_recycle_bin_action_with_http_info(owner, opts)
-      data
-    end
-
-    # Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
-    # @param owner 
-    # @param [Hash] opts the optional parameters
-    # @option opts [PackageRecycleBin] :data 
-    # @return [Array<(PackageBulkActionResponse, Fixnum, Hash)>] PackageBulkActionResponse data, response status code and response headers
-    def recycle_bin_recycle_bin_action_with_http_info(owner, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecycleBinApi.recycle_bin_recycle_bin_action ...'
-      end
-      # verify the required parameter 'owner' is set
-      if @api_client.config.client_side_validation && owner.nil?
-        fail ArgumentError, "Missing the required parameter 'owner' when calling RecycleBinApi.recycle_bin_recycle_bin_action"
-      end
-      # resource path
-      local_var_path = '/recycle-bin/{owner}/action/'.sub('{' + 'owner' + '}', owner.to_s)
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'data'])
-      auth_names = ['apikey', 'basic']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'PackageBulkActionResponse')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecycleBinApi#recycle_bin_recycle_bin_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

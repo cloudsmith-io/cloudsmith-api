@@ -53,6 +53,7 @@ class RepositoryCreateRequest(object):
         'move_own': 'bool',
         'move_packages': 'str',
         'name': 'str',
+        'npm_upstream_tags_take_precedence': 'bool',
         'nuget_native_signing_enabled': 'bool',
         'open_source_license': 'str',
         'open_source_project_url': 'str',
@@ -103,6 +104,7 @@ class RepositoryCreateRequest(object):
         'move_own': 'move_own',
         'move_packages': 'move_packages',
         'name': 'name',
+        'npm_upstream_tags_take_precedence': 'npm_upstream_tags_take_precedence',
         'nuget_native_signing_enabled': 'nuget_native_signing_enabled',
         'open_source_license': 'open_source_license',
         'open_source_project_url': 'open_source_project_url',
@@ -132,7 +134,7 @@ class RepositoryCreateRequest(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, broadcast_state='Off', content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, generic_package_index_enabled=None, index_files=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, broadcast_state='Off', content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, generic_package_index_enabled=None, index_files=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, npm_upstream_tags_take_precedence=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryCreateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -158,6 +160,7 @@ class RepositoryCreateRequest(object):
         self._move_own = None
         self._move_packages = None
         self._name = None
+        self._npm_upstream_tags_take_precedence = None
         self._nuget_native_signing_enabled = None
         self._open_source_license = None
         self._open_source_project_url = None
@@ -226,6 +229,8 @@ class RepositoryCreateRequest(object):
         if move_packages is not None:
             self.move_packages = move_packages
         self.name = name
+        if npm_upstream_tags_take_precedence is not None:
+            self.npm_upstream_tags_take_precedence = npm_upstream_tags_take_precedence
         if nuget_native_signing_enabled is not None:
             self.nuget_native_signing_enabled = nuget_native_signing_enabled
         if open_source_license is not None:
@@ -800,6 +805,29 @@ class RepositoryCreateRequest(object):
             raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^\\w[\\w \\-'\\.\/()]+$/`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def npm_upstream_tags_take_precedence(self):
+        """Gets the npm_upstream_tags_take_precedence of this RepositoryCreateRequest.
+
+        If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., 'latest'), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version.
+
+        :return: The npm_upstream_tags_take_precedence of this RepositoryCreateRequest.
+        :rtype: bool
+        """
+        return self._npm_upstream_tags_take_precedence
+
+    @npm_upstream_tags_take_precedence.setter
+    def npm_upstream_tags_take_precedence(self, npm_upstream_tags_take_precedence):
+        """Sets the npm_upstream_tags_take_precedence of this RepositoryCreateRequest.
+
+        If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., 'latest'), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version.
+
+        :param npm_upstream_tags_take_precedence: The npm_upstream_tags_take_precedence of this RepositoryCreateRequest.
+        :type: bool
+        """
+
+        self._npm_upstream_tags_take_precedence = npm_upstream_tags_take_precedence
 
     @property
     def nuget_native_signing_enabled(self):

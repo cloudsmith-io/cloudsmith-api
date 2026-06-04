@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **last_login_at** | **datetime** |  | [optional] 
 **last_login_method** | **str** |  | [optional] [default to 'Unknown']
 **role** | **str** |  | [optional] [default to 'Owner']
+**teams** | [**list[MemberTeams]**](MemberTeams.md) |  | [optional] 
 **user** | **str** |  | [optional] 
 **user_id** | **str** |  | [optional] 
 **user_name** | **str** |  | [optional] 

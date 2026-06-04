@@ -26,7 +26,7 @@ class InlineResponse2001
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'results' => :'Array<UserAuthenticationToken>'
+      :'results' => :'Array<ConnectedRepository>'
     }
   end
 

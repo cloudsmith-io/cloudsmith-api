@@ -16,6 +16,7 @@ package io.cloudsmith.api.apis;
 import io.cloudsmith.api.models.DynamicMapping;
 import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Organization;
+import io.cloudsmith.api.models.OrganizationCustomDomains;
 import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
 import io.cloudsmith.api.models.OrganizationGroupSyncStatus;
@@ -74,6 +75,24 @@ public class OrgsApiTest {
 
     private final OrgsApi api = new OrgsApi();
 
+    
+    /**
+     * Get the details for all custom domains.
+     *
+     * Get the details for all custom domains.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsCustomDomainsListTest() throws Exception {
+        String org = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<OrganizationCustomDomains> response = api.orgsCustomDomainsList(org, page, pageSize);
+
+        // TODO: test validations
+    }
     
     /**
      * Delete the specified organization.

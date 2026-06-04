@@ -22,6 +22,8 @@ class PackageStatus
 
   attr_accessor :is_downloadable
 
+  attr_accessor :is_hidden
+
   attr_accessor :is_moveable
 
   attr_accessor :is_quarantinable
@@ -76,6 +78,7 @@ class PackageStatus
       :'is_copyable' => :'is_copyable',
       :'is_deleteable' => :'is_deleteable',
       :'is_downloadable' => :'is_downloadable',
+      :'is_hidden' => :'is_hidden',
       :'is_moveable' => :'is_moveable',
       :'is_quarantinable' => :'is_quarantinable',
       :'is_quarantined' => :'is_quarantined',
@@ -106,6 +109,7 @@ class PackageStatus
       :'is_copyable' => :'BOOLEAN',
       :'is_deleteable' => :'BOOLEAN',
       :'is_downloadable' => :'BOOLEAN',
+      :'is_hidden' => :'BOOLEAN',
       :'is_moveable' => :'BOOLEAN',
       :'is_quarantinable' => :'BOOLEAN',
       :'is_quarantined' => :'BOOLEAN',
@@ -151,6 +155,10 @@ class PackageStatus
 
     if attributes.has_key?(:'is_downloadable')
       self.is_downloadable = attributes[:'is_downloadable']
+    end
+
+    if attributes.has_key?(:'is_hidden')
+      self.is_hidden = attributes[:'is_hidden']
     end
 
     if attributes.has_key?(:'is_moveable')
@@ -256,6 +264,7 @@ class PackageStatus
         is_copyable == o.is_copyable &&
         is_deleteable == o.is_deleteable &&
         is_downloadable == o.is_downloadable &&
+        is_hidden == o.is_hidden &&
         is_moveable == o.is_moveable &&
         is_quarantinable == o.is_quarantinable &&
         is_quarantined == o.is_quarantined &&
@@ -287,7 +296,7 @@ class PackageStatus
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, self_url, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, sync_finished_at, sync_progress].hash
+    [is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, self_url, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, sync_finished_at, sync_progress].hash
   end
 
     # Builds the object from hash

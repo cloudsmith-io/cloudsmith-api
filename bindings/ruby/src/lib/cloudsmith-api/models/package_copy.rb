@@ -79,6 +79,8 @@ class PackageCopy
 
   attr_accessor :is_downloadable
 
+  attr_accessor :is_hidden
+
   attr_accessor :is_moveable
 
   attr_accessor :is_quarantinable
@@ -114,6 +116,9 @@ class PackageCopy
   attr_accessor :origin_repository
 
   attr_accessor :origin_repository_url
+
+  # Whether the package's SPDX license is OSI-approved.
+  attr_accessor :osi_approved
 
   # The type of package contents.
   attr_accessor :package_type
@@ -270,6 +275,7 @@ class PackageCopy
       :'is_copyable' => :'is_copyable',
       :'is_deleteable' => :'is_deleteable',
       :'is_downloadable' => :'is_downloadable',
+      :'is_hidden' => :'is_hidden',
       :'is_moveable' => :'is_moveable',
       :'is_quarantinable' => :'is_quarantinable',
       :'is_quarantined' => :'is_quarantined',
@@ -287,6 +293,7 @@ class PackageCopy
       :'num_files' => :'num_files',
       :'origin_repository' => :'origin_repository',
       :'origin_repository_url' => :'origin_repository_url',
+      :'osi_approved' => :'osi_approved',
       :'package_type' => :'package_type',
       :'policy_violated' => :'policy_violated',
       :'raw_license' => :'raw_license',
@@ -362,6 +369,7 @@ class PackageCopy
       :'is_copyable' => :'BOOLEAN',
       :'is_deleteable' => :'BOOLEAN',
       :'is_downloadable' => :'BOOLEAN',
+      :'is_hidden' => :'BOOLEAN',
       :'is_moveable' => :'BOOLEAN',
       :'is_quarantinable' => :'BOOLEAN',
       :'is_quarantined' => :'BOOLEAN',
@@ -379,6 +387,7 @@ class PackageCopy
       :'num_files' => :'Integer',
       :'origin_repository' => :'String',
       :'origin_repository_url' => :'String',
+      :'osi_approved' => :'BOOLEAN',
       :'package_type' => :'Integer',
       :'policy_violated' => :'BOOLEAN',
       :'raw_license' => :'String',
@@ -552,6 +561,10 @@ class PackageCopy
       self.is_downloadable = attributes[:'is_downloadable']
     end
 
+    if attributes.has_key?(:'is_hidden')
+      self.is_hidden = attributes[:'is_hidden']
+    end
+
     if attributes.has_key?(:'is_moveable')
       self.is_moveable = attributes[:'is_moveable']
     end
@@ -618,6 +631,10 @@ class PackageCopy
 
     if attributes.has_key?(:'origin_repository_url')
       self.origin_repository_url = attributes[:'origin_repository_url']
+    end
+
+    if attributes.has_key?(:'osi_approved')
+      self.osi_approved = attributes[:'osi_approved']
     end
 
     if attributes.has_key?(:'package_type')
@@ -842,6 +859,7 @@ class PackageCopy
         is_copyable == o.is_copyable &&
         is_deleteable == o.is_deleteable &&
         is_downloadable == o.is_downloadable &&
+        is_hidden == o.is_hidden &&
         is_moveable == o.is_moveable &&
         is_quarantinable == o.is_quarantinable &&
         is_quarantined == o.is_quarantined &&
@@ -859,6 +877,7 @@ class PackageCopy
         num_files == o.num_files &&
         origin_repository == o.origin_repository &&
         origin_repository_url == o.origin_repository_url &&
+        osi_approved == o.osi_approved &&
         package_type == o.package_type &&
         policy_violated == o.policy_violated &&
         raw_license == o.raw_license &&
@@ -910,7 +929,7 @@ class PackageCopy
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, filepath, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, package_type, policy_violated, raw_license, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags, tags_automatic, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, filepath, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, osi_approved, package_type, policy_violated, raw_license, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags, tags_automatic, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

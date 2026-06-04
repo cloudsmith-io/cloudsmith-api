@@ -180,6 +180,12 @@ describe 'RepositoryRequestPatch' do
     end
   end
 
+  describe 'test attribute "npm_upstream_tags_take_precedence"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "nuget_native_signing_enabled"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

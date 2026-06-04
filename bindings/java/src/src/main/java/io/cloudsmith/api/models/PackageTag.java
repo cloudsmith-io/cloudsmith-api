@@ -131,6 +131,9 @@ public class PackageTag implements Serializable {
   @SerializedName("is_downloadable")
   private Boolean isDownloadable = null;
 
+  @SerializedName("is_hidden")
+  private Boolean isHidden = null;
+
   @SerializedName("is_immutable")
   private Boolean isImmutable = false;
 
@@ -184,6 +187,9 @@ public class PackageTag implements Serializable {
 
   @SerializedName("origin_repository_url")
   private String originRepositoryUrl = null;
+
+  @SerializedName("osi_approved")
+  private Boolean osiApproved = null;
 
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
@@ -644,6 +650,15 @@ public class PackageTag implements Serializable {
     return isDownloadable;
   }
 
+   /**
+   * Get isHidden
+   * @return isHidden
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsHidden() {
+    return isHidden;
+  }
+
   public PackageTag isImmutable(Boolean isImmutable) {
     this.isImmutable = isImmutable;
     return this;
@@ -813,6 +828,15 @@ public class PackageTag implements Serializable {
   @ApiModelProperty(value = "")
   public String getOriginRepositoryUrl() {
     return originRepositoryUrl;
+  }
+
+   /**
+   * Whether the package&#39;s SPDX license is OSI-approved.
+   * @return osiApproved
+  **/
+  @ApiModelProperty(value = "Whether the package's SPDX license is OSI-approved.")
+  public Boolean isOsiApproved() {
+    return osiApproved;
   }
 
    /**
@@ -1232,6 +1256,7 @@ public class PackageTag implements Serializable {
         Objects.equals(this.isCopyable, packageTag.isCopyable) &&
         Objects.equals(this.isDeleteable, packageTag.isDeleteable) &&
         Objects.equals(this.isDownloadable, packageTag.isDownloadable) &&
+        Objects.equals(this.isHidden, packageTag.isHidden) &&
         Objects.equals(this.isImmutable, packageTag.isImmutable) &&
         Objects.equals(this.isMoveable, packageTag.isMoveable) &&
         Objects.equals(this.isQuarantinable, packageTag.isQuarantinable) &&
@@ -1250,6 +1275,7 @@ public class PackageTag implements Serializable {
         Objects.equals(this.numFiles, packageTag.numFiles) &&
         Objects.equals(this.originRepository, packageTag.originRepository) &&
         Objects.equals(this.originRepositoryUrl, packageTag.originRepositoryUrl) &&
+        Objects.equals(this.osiApproved, packageTag.osiApproved) &&
         Objects.equals(this.packageType, packageTag.packageType) &&
         Objects.equals(this.policyViolated, packageTag.policyViolated) &&
         Objects.equals(this.rawLicense, packageTag.rawLicense) &&
@@ -1293,7 +1319,7 @@ public class PackageTag implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isImmutable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isImmutable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1331,6 +1357,7 @@ public class PackageTag implements Serializable {
     sb.append("    isCopyable: ").append(toIndentedString(isCopyable)).append("\n");
     sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
+    sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
     sb.append("    isImmutable: ").append(toIndentedString(isImmutable)).append("\n");
     sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
     sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
@@ -1349,6 +1376,7 @@ public class PackageTag implements Serializable {
     sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
+    sb.append("    osiApproved: ").append(toIndentedString(osiApproved)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
     sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    rawLicense: ").append(toIndentedString(rawLicense)).append("\n");

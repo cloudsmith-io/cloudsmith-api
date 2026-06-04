@@ -36,6 +36,23 @@ public class RecycleBinApiTest {
 
     
     /**
+     * 
+     *
+     * Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void recycleBinActionTest() throws Exception {
+        String owner = null;
+        PackageRecycleBin data = null;
+        PackageBulkActionResponse response = api.recycleBinAction(owner, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List soft-deleted packages in recycle bin
      *
      * Retrieve all soft-deleted packages in the workspace. Optionally filter by repository using the &#39;repository&#39; query parameter.
@@ -50,23 +67,6 @@ public class RecycleBinApiTest {
         java.math.BigInteger pageSize = null;
         String repository = null;
         List<RecycleBinPackage> response = api.recycleBinList(owner, page, pageSize, repository);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
-     * Perform actions on soft-deleted packages in the recycle bin. Supported actions: permanently delete (hard delete), restore. Returns a list of successfully actioned packages and any packages that failed with error details. 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void recycleBinRecycleBinActionTest() throws Exception {
-        String owner = null;
-        PackageRecycleBin data = null;
-        PackageBulkActionResponse response = api.recycleBinRecycleBinAction(owner, data);
 
         // TODO: test validations
     }

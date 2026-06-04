@@ -20,10 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.MemberTeams;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -160,6 +163,9 @@ public class OrganizationMembership implements Serializable {
   @SerializedName("role")
   private RoleEnum role = RoleEnum.OWNER;
 
+  @SerializedName("teams")
+  private List<MemberTeams> teams = null;
+
   @SerializedName("user")
   private String user = null;
 
@@ -288,6 +294,16 @@ public class OrganizationMembership implements Serializable {
   }
 
    /**
+   * Get teams
+   * @return teams
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public List<MemberTeams> getTeams() {
+    return teams;
+  }
+
+   /**
    * Get user
    * @return user
   **/
@@ -349,6 +365,7 @@ public class OrganizationMembership implements Serializable {
         Objects.equals(this.lastLoginAt, organizationMembership.lastLoginAt) &&
         Objects.equals(this.lastLoginMethod, organizationMembership.lastLoginMethod) &&
         Objects.equals(this.role, organizationMembership.role) &&
+        Objects.equals(this.teams, organizationMembership.teams) &&
         Objects.equals(this.user, organizationMembership.user) &&
         Objects.equals(this.userId, organizationMembership.userId) &&
         Objects.equals(this.userName, organizationMembership.userName) &&
@@ -358,7 +375,7 @@ public class OrganizationMembership implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, hasTwoFactor, isActive, joinedAt, lastLoginAt, lastLoginMethod, role, user, userId, userName, userUrl, visibility);
+    return Objects.hash(email, hasTwoFactor, isActive, joinedAt, lastLoginAt, lastLoginMethod, role, teams, user, userId, userName, userUrl, visibility);
   }
 
 
@@ -374,6 +391,7 @@ public class OrganizationMembership implements Serializable {
     sb.append("    lastLoginAt: ").append(toIndentedString(lastLoginAt)).append("\n");
     sb.append("    lastLoginMethod: ").append(toIndentedString(lastLoginMethod)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");

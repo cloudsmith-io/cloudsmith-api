@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **isCopyable** | **Boolean** |  |  [optional]
 **isDeleteable** | **Boolean** |  |  [optional]
 **isDownloadable** | **Boolean** |  |  [optional]
+**isHidden** | **Boolean** |  |  [optional]
 **isMoveable** | **Boolean** |  |  [optional]
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
@@ -49,6 +50,7 @@ Name | Type | Description | Notes
 **numFiles** | **java.math.BigInteger** |  |  [optional]
 **originRepository** | **String** |  |  [optional]
 **originRepositoryUrl** | **String** |  |  [optional]
+**osiApproved** | **Boolean** | Whether the package&#39;s SPDX license is OSI-approved. |  [optional]
 **packageType** | **java.math.BigInteger** | The type of package contents. |  [optional]
 **policyViolated** | **Boolean** | Whether or not the package has violated any policy. |  [optional]
 **provider** | **String** | The virtual machine provider for the box. | 

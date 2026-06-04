@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **is_copyable** | **bool** |  | [optional] 
 **is_deleteable** | **bool** |  | [optional] 
 **is_downloadable** | **bool** |  | [optional] 
+**is_hidden** | **bool** |  | [optional] 
 **is_moveable** | **bool** |  | [optional] 
 **is_quarantinable** | **bool** |  | [optional] 
 **is_quarantined** | **bool** |  | [optional] 

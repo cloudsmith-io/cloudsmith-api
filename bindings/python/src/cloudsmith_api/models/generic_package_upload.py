@@ -61,6 +61,7 @@ class GenericPackageUpload(object):
         'is_copyable': 'bool',
         'is_deleteable': 'bool',
         'is_downloadable': 'bool',
+        'is_hidden': 'bool',
         'is_moveable': 'bool',
         'is_quarantinable': 'bool',
         'is_quarantined': 'bool',
@@ -78,6 +79,7 @@ class GenericPackageUpload(object):
         'num_files': 'int',
         'origin_repository': 'str',
         'origin_repository_url': 'str',
+        'osi_approved': 'bool',
         'package_type': 'int',
         'policy_violated': 'bool',
         'raw_license': 'str',
@@ -148,6 +150,7 @@ class GenericPackageUpload(object):
         'is_copyable': 'is_copyable',
         'is_deleteable': 'is_deleteable',
         'is_downloadable': 'is_downloadable',
+        'is_hidden': 'is_hidden',
         'is_moveable': 'is_moveable',
         'is_quarantinable': 'is_quarantinable',
         'is_quarantined': 'is_quarantined',
@@ -165,6 +168,7 @@ class GenericPackageUpload(object):
         'num_files': 'num_files',
         'origin_repository': 'origin_repository',
         'origin_repository_url': 'origin_repository_url',
+        'osi_approved': 'osi_approved',
         'package_type': 'package_type',
         'policy_violated': 'policy_violated',
         'raw_license': 'raw_license',
@@ -206,7 +210,7 @@ class GenericPackageUpload(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, package_type=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, self_webapp_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_hidden=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, osi_approved=None, package_type=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, self_webapp_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """GenericPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -240,6 +244,7 @@ class GenericPackageUpload(object):
         self._is_copyable = None
         self._is_deleteable = None
         self._is_downloadable = None
+        self._is_hidden = None
         self._is_moveable = None
         self._is_quarantinable = None
         self._is_quarantined = None
@@ -257,6 +262,7 @@ class GenericPackageUpload(object):
         self._num_files = None
         self._origin_repository = None
         self._origin_repository_url = None
+        self._osi_approved = None
         self._package_type = None
         self._policy_violated = None
         self._raw_license = None
@@ -354,6 +360,8 @@ class GenericPackageUpload(object):
             self.is_deleteable = is_deleteable
         if is_downloadable is not None:
             self.is_downloadable = is_downloadable
+        if is_hidden is not None:
+            self.is_hidden = is_hidden
         if is_moveable is not None:
             self.is_moveable = is_moveable
         if is_quarantinable is not None:
@@ -388,6 +396,8 @@ class GenericPackageUpload(object):
             self.origin_repository = origin_repository
         if origin_repository_url is not None:
             self.origin_repository_url = origin_repository_url
+        if osi_approved is not None:
+            self.osi_approved = osi_approved
         if package_type is not None:
             self.package_type = package_type
         if policy_violated is not None:
@@ -1080,6 +1090,27 @@ class GenericPackageUpload(object):
         self._is_downloadable = is_downloadable
 
     @property
+    def is_hidden(self):
+        """Gets the is_hidden of this GenericPackageUpload.
+
+
+        :return: The is_hidden of this GenericPackageUpload.
+        :rtype: bool
+        """
+        return self._is_hidden
+
+    @is_hidden.setter
+    def is_hidden(self, is_hidden):
+        """Sets the is_hidden of this GenericPackageUpload.
+
+
+        :param is_hidden: The is_hidden of this GenericPackageUpload.
+        :type: bool
+        """
+
+        self._is_hidden = is_hidden
+
+    @property
     def is_moveable(self):
         """Gets the is_moveable of this GenericPackageUpload.
 
@@ -1448,6 +1479,29 @@ class GenericPackageUpload(object):
         """
 
         self._origin_repository_url = origin_repository_url
+
+    @property
+    def osi_approved(self):
+        """Gets the osi_approved of this GenericPackageUpload.
+
+        Whether the package's SPDX license is OSI-approved.
+
+        :return: The osi_approved of this GenericPackageUpload.
+        :rtype: bool
+        """
+        return self._osi_approved
+
+    @osi_approved.setter
+    def osi_approved(self, osi_approved):
+        """Sets the osi_approved of this GenericPackageUpload.
+
+        Whether the package's SPDX license is OSI-approved.
+
+        :param osi_approved: The osi_approved of this GenericPackageUpload.
+        :type: bool
+        """
+
+        self._osi_approved = osi_approved
 
     @property
     def package_type(self):

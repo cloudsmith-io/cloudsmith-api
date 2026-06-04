@@ -72,6 +72,93 @@ describe 'ReposApi' do
     end
   end
 
+  # unit tests for repos_connected_create
+  # Create a connected repository for this repository.
+  # Create a connected repository for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ConnectedRepositoryRequest] :data 
+  # @return [ConnectedRepository]
+  describe 'repos_connected_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_connected_delete
+  # Delete a connected repository for this repository.
+  # Delete a connected repository for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_connected_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_connected_list
+  # List connected repositories for this repository.
+  # List connected repositories for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [InlineResponse2001]
+  describe 'repos_connected_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_connected_partial_update
+  # Partially update a connected repository for this repository.
+  # Partially update a connected repository for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ConnectedRepositoryRequestPatch] :data 
+  # @return [ConnectedRepository]
+  describe 'repos_connected_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_connected_read
+  # Retrieve a connected repository for this repository.
+  # Retrieve a connected repository for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [ConnectedRepository]
+  describe 'repos_connected_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_connected_update
+  # Update a connected repository for this repository.
+  # Update a connected repository for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [ConnectedRepositoryRequest] :data 
+  # @return [ConnectedRepository]
+  describe 'repos_connected_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for repos_create
   # Create a new repository in a given namespace.
   # Create a new repository in a given namespace.
@@ -86,7 +173,7 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_delete
-  # Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
+  # Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
@@ -132,6 +219,46 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @return [RepositoryEcdsaKey]
   describe 'repos_ecdsa_regenerate test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_ed25519_create
+  # Set the active Ed25519 key for the Repository.
+  # Set the active Ed25519 key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [RepositoryEd25519KeyCreate] :data 
+  # @return [RepositoryEd25519Key]
+  describe 'repos_ed25519_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_ed25519_list
+  # Retrieve the active Ed25519 key for the Repository.
+  # Retrieve the active Ed25519 key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryEd25519Key]
+  describe 'repos_ed25519_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_ed25519_regenerate
+  # Regenerate Ed25519 Key for the Repository.
+  # Regenerate Ed25519 Key for the Repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @return [RepositoryEd25519Key]
+  describe 'repos_ed25519_regenerate test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

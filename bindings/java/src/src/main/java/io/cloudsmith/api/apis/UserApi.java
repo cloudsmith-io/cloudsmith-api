@@ -37,7 +37,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import io.cloudsmith.api.models.ErrorDetail;
-import io.cloudsmith.api.models.InlineResponse2001;
+import io.cloudsmith.api.models.InlineResponse2002;
 import io.cloudsmith.api.models.UserAuthToken;
 import io.cloudsmith.api.models.UserAuthTokenRequest;
 import io.cloudsmith.api.models.UserAuthenticationToken;
@@ -572,11 +572,11 @@ public class UserApi {
      * Retrieve the API key assigned to the user that is currently authenticated.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return InlineResponse2001
+     * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 userTokensList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = userTokensListWithHttpInfo(page, pageSize);
+    public InlineResponse2002 userTokensList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<InlineResponse2002> resp = userTokensListWithHttpInfo(page, pageSize);
         return resp.getData();
     }
 
@@ -585,12 +585,12 @@ public class UserApi {
      * Retrieve the API key assigned to the user that is currently authenticated.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> userTokensListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<InlineResponse2002> userTokensListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = userTokensListValidateBeforeCall(page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -603,7 +603,7 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call userTokensListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call userTokensListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -625,7 +625,7 @@ public class UserApi {
         }
 
         com.squareup.okhttp.Call call = userTokensListValidateBeforeCall(page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

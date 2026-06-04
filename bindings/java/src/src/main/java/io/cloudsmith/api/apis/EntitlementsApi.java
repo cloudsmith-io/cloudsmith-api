@@ -678,13 +678,14 @@ public class EntitlementsApi {
      * @param showTokens Show entitlement token strings in results (optional, default to false)
      * @param query A search term for querying names of entitlements. (optional)
      * @param active If true, only include active tokens (optional, default to false)
+     * @param excludeOtherUserTokens If true, exclude user tokens that belong to other users (optional, default to false)
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. (optional, default to name)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call entitlementsListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, Boolean excludeOtherUserTokens, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -704,6 +705,8 @@ public class EntitlementsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
         if (active != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("active", active));
+        if (excludeOtherUserTokens != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("exclude_other_user_tokens", excludeOtherUserTokens));
         if (sort != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
@@ -743,18 +746,18 @@ public class EntitlementsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call entitlementsListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call entitlementsListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, Boolean excludeOtherUserTokens, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, page, pageSize, showTokens, query, active, sort };
-            Method method = this.getClass().getMethod("entitlementsListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, Boolean.class, String.class, Boolean.class, String.class);
+            Object[] parameterValues = { owner, repo, page, pageSize, showTokens, query, active, excludeOtherUserTokens, sort };
+            Method method = this.getClass().getMethod("entitlementsListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, Boolean.class, String.class, Boolean.class, Boolean.class, String.class);
             Set<ConstraintViolation<EntitlementsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = entitlementsListCall(owner, repo, page, pageSize, showTokens, query, active, sort, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = entitlementsListCall(owner, repo, page, pageSize, showTokens, query, active, excludeOtherUserTokens, sort, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -780,12 +783,13 @@ public class EntitlementsApi {
      * @param showTokens Show entitlement token strings in results (optional, default to false)
      * @param query A search term for querying names of entitlements. (optional)
      * @param active If true, only include active tokens (optional, default to false)
+     * @param excludeOtherUserTokens If true, exclude user tokens that belong to other users (optional, default to false)
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. (optional, default to name)
      * @return List&lt;RepositoryToken&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<RepositoryToken> entitlementsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, String sort) throws ApiException {
-        ApiResponse<List<RepositoryToken>> resp = entitlementsListWithHttpInfo(owner, repo, page, pageSize, showTokens, query, active, sort);
+    public List<RepositoryToken> entitlementsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, Boolean excludeOtherUserTokens, String sort) throws ApiException {
+        ApiResponse<List<RepositoryToken>> resp = entitlementsListWithHttpInfo(owner, repo, page, pageSize, showTokens, query, active, excludeOtherUserTokens, sort);
         return resp.getData();
     }
 
@@ -799,12 +803,13 @@ public class EntitlementsApi {
      * @param showTokens Show entitlement token strings in results (optional, default to false)
      * @param query A search term for querying names of entitlements. (optional)
      * @param active If true, only include active tokens (optional, default to false)
+     * @param excludeOtherUserTokens If true, exclude user tokens that belong to other users (optional, default to false)
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. (optional, default to name)
      * @return ApiResponse&lt;List&lt;RepositoryToken&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<RepositoryToken>> entitlementsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  Boolean showTokens,  String query,  Boolean active,  String sort) throws ApiException {
-        com.squareup.okhttp.Call call = entitlementsListValidateBeforeCall(owner, repo, page, pageSize, showTokens, query, active, sort, null, null);
+    public ApiResponse<List<RepositoryToken>> entitlementsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  Boolean showTokens,  String query,  Boolean active,  Boolean excludeOtherUserTokens,  String sort) throws ApiException {
+        com.squareup.okhttp.Call call = entitlementsListValidateBeforeCall(owner, repo, page, pageSize, showTokens, query, active, excludeOtherUserTokens, sort, null, null);
         Type localVarReturnType = new TypeToken<List<RepositoryToken>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -819,12 +824,13 @@ public class EntitlementsApi {
      * @param showTokens Show entitlement token strings in results (optional, default to false)
      * @param query A search term for querying names of entitlements. (optional)
      * @param active If true, only include active tokens (optional, default to false)
+     * @param excludeOtherUserTokens If true, exclude user tokens that belong to other users (optional, default to false)
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. (optional, default to name)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call entitlementsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, String sort, final ApiCallback<List<RepositoryToken>> callback) throws ApiException {
+    public com.squareup.okhttp.Call entitlementsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean showTokens, String query, Boolean active, Boolean excludeOtherUserTokens, String sort, final ApiCallback<List<RepositoryToken>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -845,7 +851,7 @@ public class EntitlementsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = entitlementsListValidateBeforeCall(owner, repo, page, pageSize, showTokens, query, active, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = entitlementsListValidateBeforeCall(owner, repo, page, pageSize, showTokens, query, active, excludeOtherUserTokens, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<RepositoryToken>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

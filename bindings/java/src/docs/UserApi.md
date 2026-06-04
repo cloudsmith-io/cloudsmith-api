@@ -179,7 +179,7 @@ This endpoint does not need any parameter.
 
 <a name="userTokensList"></a>
 # **userTokensList**
-> InlineResponse2001 userTokensList(page, pageSize)
+> InlineResponse2002 userTokensList(page, pageSize)
 
 Retrieve the API key assigned to the user that is currently authenticated.
 
@@ -211,7 +211,7 @@ UserApi apiInstance = new UserApi();
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    InlineResponse2001 result = apiInstance.userTokensList(page, pageSize);
+    InlineResponse2002 result = apiInstance.userTokensList(page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#userTokensList");
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 

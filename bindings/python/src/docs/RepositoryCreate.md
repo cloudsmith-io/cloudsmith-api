@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **name** | **str** | A descriptive name for the repository. | 
 **namespace** | **str** | Namespace to which this repository belongs. | [optional] 
 **namespace_url** | **str** | API endpoint where data about this namespace can be retrieved. | [optional] 
+**npm_upstream_tags_take_precedence** | **bool** | If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., &#39;latest&#39;), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version. | [optional] 
 **nuget_native_signing_enabled** | **bool** | When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository&#39;s X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository&#39;s signing certificates including the ones from configured upstreams. | [optional] 
 **num_downloads** | **int** | The number of downloads for packages in the repository. | [optional] 
 **num_policy_violated_packages** | **int** | Number of packages with policy violations in a repository. | [optional] 

@@ -308,6 +308,7 @@ opts = {
   show_tokens: false, # BOOLEAN | Show entitlement token strings in results
   query: 'query_example', # String | A search term for querying names of entitlements.
   active: false, # BOOLEAN | If true, only include active tokens
+  exclude_other_user_tokens: false, # BOOLEAN | If true, exclude user tokens that belong to other users
   sort: 'name' # String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
 }
 
@@ -331,6 +332,7 @@ Name | Type | Description  | Notes
  **show_tokens** | **BOOLEAN**| Show entitlement token strings in results | [optional] [default to false]
  **query** | **String**| A search term for querying names of entitlements. | [optional] 
  **active** | **BOOLEAN**| If true, only include active tokens | [optional] [default to false]
+ **exclude_other_user_tokens** | **BOOLEAN**| If true, exclude user tokens that belong to other users | [optional] [default to false]
  **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name]
 
 ### Return type

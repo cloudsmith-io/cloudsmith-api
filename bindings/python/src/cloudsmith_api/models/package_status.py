@@ -37,6 +37,7 @@ class PackageStatus(object):
         'is_copyable': 'bool',
         'is_deleteable': 'bool',
         'is_downloadable': 'bool',
+        'is_hidden': 'bool',
         'is_moveable': 'bool',
         'is_quarantinable': 'bool',
         'is_quarantined': 'bool',
@@ -64,6 +65,7 @@ class PackageStatus(object):
         'is_copyable': 'is_copyable',
         'is_deleteable': 'is_deleteable',
         'is_downloadable': 'is_downloadable',
+        'is_hidden': 'is_hidden',
         'is_moveable': 'is_moveable',
         'is_quarantinable': 'is_quarantinable',
         'is_quarantined': 'is_quarantined',
@@ -86,7 +88,7 @@ class PackageStatus(object):
         'sync_progress': 'sync_progress'
     }
 
-    def __init__(self, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, self_url=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, sync_finished_at=None, sync_progress=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_hidden=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, self_url=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, sync_finished_at=None, sync_progress=None, _configuration=None):  # noqa: E501
         """PackageStatus - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -96,6 +98,7 @@ class PackageStatus(object):
         self._is_copyable = None
         self._is_deleteable = None
         self._is_downloadable = None
+        self._is_hidden = None
         self._is_moveable = None
         self._is_quarantinable = None
         self._is_quarantined = None
@@ -126,6 +129,8 @@ class PackageStatus(object):
             self.is_deleteable = is_deleteable
         if is_downloadable is not None:
             self.is_downloadable = is_downloadable
+        if is_hidden is not None:
+            self.is_hidden = is_hidden
         if is_moveable is not None:
             self.is_moveable = is_moveable
         if is_quarantinable is not None:
@@ -250,6 +255,27 @@ class PackageStatus(object):
         """
 
         self._is_downloadable = is_downloadable
+
+    @property
+    def is_hidden(self):
+        """Gets the is_hidden of this PackageStatus.
+
+
+        :return: The is_hidden of this PackageStatus.
+        :rtype: bool
+        """
+        return self._is_hidden
+
+    @is_hidden.setter
+    def is_hidden(self, is_hidden):
+        """Sets the is_hidden of this PackageStatus.
+
+
+        :param is_hidden: The is_hidden of this PackageStatus.
+        :type: bool
+        """
+
+        self._is_hidden = is_hidden
 
     @property
     def is_moveable(self):
