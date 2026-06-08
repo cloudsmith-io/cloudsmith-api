@@ -98,6 +98,9 @@ class Repository
   # API endpoint where data about this namespace can be retrieved.
   attr_accessor :namespace_url
 
+  # If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., 'latest'), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version.
+  attr_accessor :npm_upstream_tags_take_precedence
+
   # When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.
   attr_accessor :nuget_native_signing_enabled
 
@@ -273,6 +276,7 @@ class Repository
       :'name' => :'name',
       :'namespace' => :'namespace',
       :'namespace_url' => :'namespace_url',
+      :'npm_upstream_tags_take_precedence' => :'npm_upstream_tags_take_precedence',
       :'nuget_native_signing_enabled' => :'nuget_native_signing_enabled',
       :'num_downloads' => :'num_downloads',
       :'num_policy_violated_packages' => :'num_policy_violated_packages',
@@ -349,6 +353,7 @@ class Repository
       :'name' => :'String',
       :'namespace' => :'String',
       :'namespace_url' => :'String',
+      :'npm_upstream_tags_take_precedence' => :'BOOLEAN',
       :'nuget_native_signing_enabled' => :'BOOLEAN',
       :'num_downloads' => :'Integer',
       :'num_policy_violated_packages' => :'Integer',
@@ -538,6 +543,10 @@ class Repository
 
     if attributes.has_key?(:'namespace_url')
       self.namespace_url = attributes[:'namespace_url']
+    end
+
+    if attributes.has_key?(:'npm_upstream_tags_take_precedence')
+      self.npm_upstream_tags_take_precedence = attributes[:'npm_upstream_tags_take_precedence']
     end
 
     if attributes.has_key?(:'nuget_native_signing_enabled')
@@ -924,6 +933,7 @@ class Repository
         name == o.name &&
         namespace == o.namespace &&
         namespace_url == o.namespace_url &&
+        npm_upstream_tags_take_precedence == o.npm_upstream_tags_take_precedence &&
         nuget_native_signing_enabled == o.nuget_native_signing_enabled &&
         num_downloads == o.num_downloads &&
         num_policy_violated_packages == o.num_policy_violated_packages &&
@@ -975,7 +985,7 @@ class Repository
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [broadcast_state, cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, generic_package_index_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_count_excl_subcomponents, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, self_webapp_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    [broadcast_state, cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, generic_package_index_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, npm_upstream_tags_take_precedence, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_count_excl_subcomponents, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, self_webapp_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
   end
 
     # Builds the object from hash

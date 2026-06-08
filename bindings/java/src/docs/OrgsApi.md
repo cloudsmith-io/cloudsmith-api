@@ -4,6 +4,7 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orgsCustomDomainsList**](OrgsApi.md#orgsCustomDomainsList) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
 [**orgsDelete**](OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 [**orgsDenyPolicyCreate**](OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
 [**orgsDenyPolicyDelete**](OrgsApi.md#orgsDenyPolicyDelete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
@@ -78,6 +79,70 @@ Method | HTTP request | Description
 [**orgsVulnerabilityPolicyUpdate**](OrgsApi.md#orgsVulnerabilityPolicyUpdate) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
 [**orgsVulnerabilityPolicyViolationList**](OrgsApi.md#orgsVulnerabilityPolicyViolationList) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
 
+
+<a name="orgsCustomDomainsList"></a>
+# **orgsCustomDomainsList**
+> List&lt;OrganizationCustomDomains&gt; orgsCustomDomainsList(org, page, pageSize)
+
+Get the details for all custom domains.
+
+Get the details for all custom domains.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+try {
+    List<OrganizationCustomDomains> result = apiInstance.orgsCustomDomainsList(org, page, pageSize);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsCustomDomainsList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
+ **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+
+### Return type
+
+[**List&lt;OrganizationCustomDomains&gt;**](OrganizationCustomDomains.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsDelete"></a>
 # **orgsDelete**

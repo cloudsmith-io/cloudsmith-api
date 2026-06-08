@@ -128,6 +128,9 @@ public class McpPackageUpload implements Serializable {
   @SerializedName("is_downloadable")
   private Boolean isDownloadable = null;
 
+  @SerializedName("is_hidden")
+  private Boolean isHidden = null;
+
   @SerializedName("is_moveable")
   private Boolean isMoveable = null;
 
@@ -178,6 +181,9 @@ public class McpPackageUpload implements Serializable {
 
   @SerializedName("origin_repository_url")
   private String originRepositoryUrl = null;
+
+  @SerializedName("osi_approved")
+  private Boolean osiApproved = null;
 
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
@@ -630,6 +636,15 @@ public class McpPackageUpload implements Serializable {
   }
 
    /**
+   * Get isHidden
+   * @return isHidden
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsHidden() {
+    return isHidden;
+  }
+
+   /**
    * Get isMoveable
    * @return isMoveable
   **/
@@ -780,6 +795,15 @@ public class McpPackageUpload implements Serializable {
   @ApiModelProperty(value = "")
   public String getOriginRepositoryUrl() {
     return originRepositoryUrl;
+  }
+
+   /**
+   * Whether the package&#39;s SPDX license is OSI-approved.
+   * @return osiApproved
+  **/
+  @ApiModelProperty(value = "Whether the package's SPDX license is OSI-approved.")
+  public Boolean isOsiApproved() {
+    return osiApproved;
   }
 
    /**
@@ -1207,6 +1231,7 @@ public class McpPackageUpload implements Serializable {
         Objects.equals(this.isCopyable, mcpPackageUpload.isCopyable) &&
         Objects.equals(this.isDeleteable, mcpPackageUpload.isDeleteable) &&
         Objects.equals(this.isDownloadable, mcpPackageUpload.isDownloadable) &&
+        Objects.equals(this.isHidden, mcpPackageUpload.isHidden) &&
         Objects.equals(this.isMoveable, mcpPackageUpload.isMoveable) &&
         Objects.equals(this.isQuarantinable, mcpPackageUpload.isQuarantinable) &&
         Objects.equals(this.isQuarantined, mcpPackageUpload.isQuarantined) &&
@@ -1224,6 +1249,7 @@ public class McpPackageUpload implements Serializable {
         Objects.equals(this.numFiles, mcpPackageUpload.numFiles) &&
         Objects.equals(this.originRepository, mcpPackageUpload.originRepository) &&
         Objects.equals(this.originRepositoryUrl, mcpPackageUpload.originRepositoryUrl) &&
+        Objects.equals(this.osiApproved, mcpPackageUpload.osiApproved) &&
         Objects.equals(this.packageType, mcpPackageUpload.packageType) &&
         Objects.equals(this.policyViolated, mcpPackageUpload.policyViolated) &&
         Objects.equals(this.rawLicense, mcpPackageUpload.rawLicense) &&
@@ -1267,7 +1293,7 @@ public class McpPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1304,6 +1330,7 @@ public class McpPackageUpload implements Serializable {
     sb.append("    isCopyable: ").append(toIndentedString(isCopyable)).append("\n");
     sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
+    sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
     sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
     sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
@@ -1321,6 +1348,7 @@ public class McpPackageUpload implements Serializable {
     sb.append("    numFiles: ").append(toIndentedString(numFiles)).append("\n");
     sb.append("    originRepository: ").append(toIndentedString(originRepository)).append("\n");
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
+    sb.append("    osiApproved: ").append(toIndentedString(osiApproved)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
     sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    rawLicense: ").append(toIndentedString(rawLicense)).append("\n");

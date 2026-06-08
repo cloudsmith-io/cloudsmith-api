@@ -40,6 +40,7 @@ class OrganizationMembership(object):
         'last_login_at': 'datetime',
         'last_login_method': 'str',
         'role': 'str',
+        'teams': 'list[MemberTeams]',
         'user': 'str',
         'user_id': 'str',
         'user_name': 'str',
@@ -55,6 +56,7 @@ class OrganizationMembership(object):
         'last_login_at': 'last_login_at',
         'last_login_method': 'last_login_method',
         'role': 'role',
+        'teams': 'teams',
         'user': 'user',
         'user_id': 'user_id',
         'user_name': 'user_name',
@@ -62,7 +64,7 @@ class OrganizationMembership(object):
         'visibility': 'visibility'
     }
 
-    def __init__(self, email=None, has_two_factor=None, is_active=None, joined_at=None, last_login_at=None, last_login_method='Unknown', role='Owner', user=None, user_id=None, user_name=None, user_url=None, visibility='Public', _configuration=None):  # noqa: E501
+    def __init__(self, email=None, has_two_factor=None, is_active=None, joined_at=None, last_login_at=None, last_login_method='Unknown', role='Owner', teams=None, user=None, user_id=None, user_name=None, user_url=None, visibility='Public', _configuration=None):  # noqa: E501
         """OrganizationMembership - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -75,6 +77,7 @@ class OrganizationMembership(object):
         self._last_login_at = None
         self._last_login_method = None
         self._role = None
+        self._teams = None
         self._user = None
         self._user_id = None
         self._user_name = None
@@ -96,6 +99,8 @@ class OrganizationMembership(object):
             self.last_login_method = last_login_method
         if role is not None:
             self.role = role
+        if teams is not None:
+            self.teams = teams
         if user is not None:
             self.user = user
         if user_id is not None:
@@ -270,6 +275,27 @@ class OrganizationMembership(object):
             )
 
         self._role = role
+
+    @property
+    def teams(self):
+        """Gets the teams of this OrganizationMembership.
+
+
+        :return: The teams of this OrganizationMembership.
+        :rtype: list[MemberTeams]
+        """
+        return self._teams
+
+    @teams.setter
+    def teams(self, teams):
+        """Sets the teams of this OrganizationMembership.
+
+
+        :param teams: The teams of this OrganizationMembership.
+        :type: list[MemberTeams]
+        """
+
+        self._teams = teams
 
     @property
     def user(self):

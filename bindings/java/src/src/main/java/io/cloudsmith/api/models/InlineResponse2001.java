@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.UserAuthenticationToken;
+import io.cloudsmith.api.models.ConnectedRepository;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,14 +38,14 @@ public class InlineResponse2001 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("results")
-  private List<UserAuthenticationToken> results = new ArrayList<>();
+  private List<ConnectedRepository> results = new ArrayList<>();
 
-  public InlineResponse2001 results(List<UserAuthenticationToken> results) {
+  public InlineResponse2001 results(List<ConnectedRepository> results) {
     this.results = results;
     return this;
   }
 
-  public InlineResponse2001 addResultsItem(UserAuthenticationToken resultsItem) {
+  public InlineResponse2001 addResultsItem(ConnectedRepository resultsItem) {
     this.results.add(resultsItem);
     return this;
   }
@@ -57,11 +57,11 @@ public class InlineResponse2001 implements Serializable {
   @NotNull
   @Valid
   @ApiModelProperty(required = true, value = "")
-  public List<UserAuthenticationToken> getResults() {
+  public List<ConnectedRepository> getResults() {
     return results;
   }
 
-  public void setResults(List<UserAuthenticationToken> results) {
+  public void setResults(List<ConnectedRepository> results) {
     this.results = results;
   }
 

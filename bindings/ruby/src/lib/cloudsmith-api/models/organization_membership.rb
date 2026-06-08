@@ -28,6 +28,8 @@ class OrganizationMembership
 
   attr_accessor :role
 
+  attr_accessor :teams
+
   attr_accessor :user
 
   attr_accessor :user_id
@@ -70,6 +72,7 @@ class OrganizationMembership
       :'last_login_at' => :'last_login_at',
       :'last_login_method' => :'last_login_method',
       :'role' => :'role',
+      :'teams' => :'teams',
       :'user' => :'user',
       :'user_id' => :'user_id',
       :'user_name' => :'user_name',
@@ -88,6 +91,7 @@ class OrganizationMembership
       :'last_login_at' => :'DateTime',
       :'last_login_method' => :'String',
       :'role' => :'String',
+      :'teams' => :'Array<MemberTeams>',
       :'user' => :'String',
       :'user_id' => :'String',
       :'user_name' => :'String',
@@ -134,6 +138,12 @@ class OrganizationMembership
       self.role = attributes[:'role']
     else
       self.role = 'Owner'
+    end
+
+    if attributes.has_key?(:'teams')
+      if (value = attributes[:'teams']).is_a?(Array)
+        self.teams = value
+      end
     end
 
     if attributes.has_key?(:'user')
@@ -220,6 +230,7 @@ class OrganizationMembership
         last_login_at == o.last_login_at &&
         last_login_method == o.last_login_method &&
         role == o.role &&
+        teams == o.teams &&
         user == o.user &&
         user_id == o.user_id &&
         user_name == o.user_name &&
@@ -236,7 +247,7 @@ class OrganizationMembership
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [email, has_two_factor, is_active, joined_at, last_login_at, last_login_method, role, user, user_id, user_name, user_url, visibility].hash
+    [email, has_two_factor, is_active, joined_at, last_login_at, last_login_method, role, teams, user, user_id, user_name, user_url, visibility].hash
   end
 
     # Builds the object from hash

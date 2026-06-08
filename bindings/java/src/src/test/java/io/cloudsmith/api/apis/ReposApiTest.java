@@ -25,6 +25,9 @@ import io.cloudsmith.api.models.ComposerUpstreamRequestPatch;
 import io.cloudsmith.api.models.CondaUpstream;
 import io.cloudsmith.api.models.CondaUpstreamRequest;
 import io.cloudsmith.api.models.CondaUpstreamRequestPatch;
+import io.cloudsmith.api.models.ConnectedRepository;
+import io.cloudsmith.api.models.ConnectedRepositoryRequest;
+import io.cloudsmith.api.models.ConnectedRepositoryRequestPatch;
 import io.cloudsmith.api.models.CranUpstream;
 import io.cloudsmith.api.models.CranUpstreamRequest;
 import io.cloudsmith.api.models.CranUpstreamRequestPatch;
@@ -53,6 +56,7 @@ import io.cloudsmith.api.models.HexUpstreamRequestPatch;
 import io.cloudsmith.api.models.HuggingfaceUpstream;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequest;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequestPatch;
+import io.cloudsmith.api.models.InlineResponse2001;
 import io.cloudsmith.api.models.MavenUpstream;
 import io.cloudsmith.api.models.MavenUpstreamRequest;
 import io.cloudsmith.api.models.MavenUpstreamRequestPatch;
@@ -70,6 +74,8 @@ import io.cloudsmith.api.models.RepositoryCreate;
 import io.cloudsmith.api.models.RepositoryCreateRequest;
 import io.cloudsmith.api.models.RepositoryEcdsaKey;
 import io.cloudsmith.api.models.RepositoryEcdsaKeyCreate;
+import io.cloudsmith.api.models.RepositoryEd25519Key;
+import io.cloudsmith.api.models.RepositoryEd25519KeyCreate;
 import io.cloudsmith.api.models.RepositoryGeoIpRules;
 import io.cloudsmith.api.models.RepositoryGeoIpRulesRequest;
 import io.cloudsmith.api.models.RepositoryGeoIpRulesRequestPatch;
@@ -170,6 +176,117 @@ public class ReposApiTest {
     }
     
     /**
+     * Create a connected repository for this repository.
+     *
+     * Create a connected repository for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposConnectedCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        ConnectedRepositoryRequest data = null;
+        ConnectedRepository response = api.reposConnectedCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a connected repository for this repository.
+     *
+     * Delete a connected repository for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposConnectedDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposConnectedDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List connected repositories for this repository.
+     *
+     * List connected repositories for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposConnectedListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        InlineResponse2001 response = api.reposConnectedList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a connected repository for this repository.
+     *
+     * Partially update a connected repository for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposConnectedPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        ConnectedRepositoryRequestPatch data = null;
+        ConnectedRepository response = api.reposConnectedPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a connected repository for this repository.
+     *
+     * Retrieve a connected repository for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposConnectedReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        ConnectedRepository response = api.reposConnectedRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a connected repository for this repository.
+     *
+     * Update a connected repository for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposConnectedUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        ConnectedRepositoryRequest data = null;
+        ConnectedRepository response = api.reposConnectedUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create a new repository in a given namespace.
      *
      * Create a new repository in a given namespace.
@@ -189,7 +306,7 @@ public class ReposApiTest {
     /**
      * 
      *
-     * Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
+     * Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
      *
      * @throws Exception
      *          if the Api call fails
@@ -251,6 +368,58 @@ public class ReposApiTest {
         String owner = null;
         String identifier = null;
         RepositoryEcdsaKey response = api.reposEcdsaRegenerate(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Set the active Ed25519 key for the Repository.
+     *
+     * Set the active Ed25519 key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposEd25519CreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryEd25519KeyCreate data = null;
+        RepositoryEd25519Key response = api.reposEd25519Create(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve the active Ed25519 key for the Repository.
+     *
+     * Retrieve the active Ed25519 key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposEd25519ListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryEd25519Key response = api.reposEd25519List(owner, identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Regenerate Ed25519 Key for the Repository.
+     *
+     * Regenerate Ed25519 Key for the Repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposEd25519RegenerateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        RepositoryEd25519Key response = api.reposEd25519Regenerate(owner, identifier);
 
         // TODO: test validations
     }

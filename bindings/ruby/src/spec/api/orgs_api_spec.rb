@@ -32,6 +32,20 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_custom_domains_list
+  # Get the details for all custom domains.
+  # Get the details for all custom domains.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<OrganizationCustomDomains>]
+  describe 'orgs_custom_domains_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_delete
   # Delete the specified organization.
   # Delete the specified organization.

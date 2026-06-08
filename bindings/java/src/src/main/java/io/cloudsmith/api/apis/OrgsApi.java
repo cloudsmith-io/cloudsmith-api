@@ -39,6 +39,7 @@ import java.lang.reflect.Type;
 import io.cloudsmith.api.models.DynamicMapping;
 import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Organization;
+import io.cloudsmith.api.models.OrganizationCustomDomains;
 import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
 import io.cloudsmith.api.models.OrganizationGroupSyncStatus;
@@ -111,6 +112,158 @@ public class OrgsApi {
         this.headers = headers;
     }
 
+    /**
+     * Build call for orgsCustomDomainsList
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orgsCustomDomainsListCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/orgs/{org}/custom-domains/"
+            .replaceAll("\\{" + "org" + "\\}", apiClient.escapeString(org.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (page != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        if (pageSize != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call orgsCustomDomainsListValidateBeforeCall(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { org, page, pageSize };
+            Method method = this.getClass().getMethod("orgsCustomDomainsListWithHttpInfo", String.class, java.math.BigInteger.class, java.math.BigInteger.class);
+            Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = orgsCustomDomainsListCall(org, page, pageSize, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Get the details for all custom domains.
+     * Get the details for all custom domains.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return List&lt;OrganizationCustomDomains&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<OrganizationCustomDomains> orgsCustomDomainsList(String org, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<List<OrganizationCustomDomains>> resp = orgsCustomDomainsListWithHttpInfo(org, page, pageSize);
+        return resp.getData();
+    }
+
+    /**
+     * Get the details for all custom domains.
+     * Get the details for all custom domains.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @return ApiResponse&lt;List&lt;OrganizationCustomDomains&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<OrganizationCustomDomains>> orgsCustomDomainsListWithHttpInfo( @NotNull String org,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+        com.squareup.okhttp.Call call = orgsCustomDomainsListValidateBeforeCall(org, page, pageSize, null, null);
+        Type localVarReturnType = new TypeToken<List<OrganizationCustomDomains>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the details for all custom domains. (asynchronously)
+     * Get the details for all custom domains.
+     * @param org  (required)
+     * @param page A page number within the paginated result set. (optional)
+     * @param pageSize Number of results to return per page. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call orgsCustomDomainsListAsync(String org, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<OrganizationCustomDomains>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = orgsCustomDomainsListValidateBeforeCall(org, page, pageSize, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<OrganizationCustomDomains>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for orgsDelete
      * @param org  (required)

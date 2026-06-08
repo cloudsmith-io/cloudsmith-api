@@ -33,7 +33,7 @@ class InlineResponse2001(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'results': 'list[UserAuthenticationToken]'
+        'results': 'list[ConnectedRepository]'
     }
 
     attribute_map = {
@@ -57,7 +57,7 @@ class InlineResponse2001(object):
 
 
         :return: The results of this InlineResponse2001.
-        :rtype: list[UserAuthenticationToken]
+        :rtype: list[ConnectedRepository]
         """
         return self._results
 
@@ -67,7 +67,7 @@ class InlineResponse2001(object):
 
 
         :param results: The results of this InlineResponse2001.
-        :type: list[UserAuthenticationToken]
+        :type: list[ConnectedRepository]
         """
         if self._configuration.client_side_validation and results is None:
             raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501

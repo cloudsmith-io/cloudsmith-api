@@ -130,8 +130,9 @@ public class EntitlementsApiTest {
         Boolean showTokens = null;
         String query = null;
         Boolean active = null;
+        Boolean excludeOtherUserTokens = null;
         String sort = null;
-        List<RepositoryToken> response = api.entitlementsList(owner, repo, page, pageSize, showTokens, query, active, sort);
+        List<RepositoryToken> response = api.entitlementsList(owner, repo, page, pageSize, showTokens, query, active, excludeOtherUserTokens, sort);
 
         // TODO: test validations
     }

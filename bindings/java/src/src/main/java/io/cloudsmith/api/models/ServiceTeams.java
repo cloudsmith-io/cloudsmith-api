@@ -34,6 +34,9 @@ import javax.validation.Valid;
 public class ServiceTeams implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("name")
+  private String name = null;
+
   /**
    * The team role associated with the service
    */
@@ -87,6 +90,15 @@ public class ServiceTeams implements Serializable {
   @SerializedName("slug")
   private String slug = null;
 
+   /**
+   * The name of the team
+   * @return name
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The name of the team")
+  public String getName() {
+    return name;
+  }
+
   public ServiceTeams role(RoleEnum role) {
     this.role = role;
     return this;
@@ -134,13 +146,14 @@ public class ServiceTeams implements Serializable {
       return false;
     }
     ServiceTeams serviceTeams = (ServiceTeams) o;
-    return Objects.equals(this.role, serviceTeams.role) &&
+    return Objects.equals(this.name, serviceTeams.name) &&
+        Objects.equals(this.role, serviceTeams.role) &&
         Objects.equals(this.slug, serviceTeams.slug);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, slug);
+    return Objects.hash(name, role, slug);
   }
 
 
@@ -149,6 +162,7 @@ public class ServiceTeams implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceTeams {\n");
     
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("}");

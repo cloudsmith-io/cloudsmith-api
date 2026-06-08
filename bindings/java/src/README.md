@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.26</version>
+  <version>2.0.27</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.26"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.27"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.26.jar`
+* `target/cloudsmith-api-2.0.27.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
 *MetricsApi* | [**metricsPackagesList**](docs/MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Get a specific namespace that the user belongs to.
+*OrgsApi* | [**orgsCustomDomainsList**](docs/OrgsApi.md#orgsCustomDomainsList) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
 *OrgsApi* | [**orgsDelete**](docs/OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 *OrgsApi* | [**orgsDenyPolicyCreate**](docs/OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
 *OrgsApi* | [**orgsDenyPolicyDelete**](docs/OrgsApi.md#orgsDenyPolicyDelete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
@@ -298,16 +299,25 @@ Class | Method | HTTP request | Description
 *QuotaApi* | [**quotaOssRead**](docs/QuotaApi.md#quotaOssRead) | **GET** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
 *QuotaApi* | [**quotaRead**](docs/QuotaApi.md#quotaRead) | **GET** /quota/{owner}/ | Quota usage for a given namespace.
 *RatesApi* | [**ratesLimitsList**](docs/RatesApi.md#ratesLimitsList) | **GET** /rates/limits/ | Endpoint to check rate limits for current user.
+*RecycleBinApi* | [**recycleBinAction**](docs/RecycleBinApi.md#recycleBinAction) | **POST** /recycle-bin/{owner}/action/ | 
 *RecycleBinApi* | [**recycleBinList**](docs/RecycleBinApi.md#recycleBinList) | **GET** /recycle-bin/{owner}/ | List soft-deleted packages in recycle bin
-*RecycleBinApi* | [**recycleBinRecycleBinAction**](docs/RecycleBinApi.md#recycleBinRecycleBinAction) | **POST** /recycle-bin/{owner}/action/ | 
 *ReposApi* | [**apiReposGeoipStatus**](docs/ReposApi.md#apiReposGeoipStatus) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository.
 *ReposApi* | [**repoRetentionPartialUpdate**](docs/ReposApi.md#repoRetentionPartialUpdate) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
 *ReposApi* | [**repoRetentionRead**](docs/ReposApi.md#repoRetentionRead) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
+*ReposApi* | [**reposConnectedCreate**](docs/ReposApi.md#reposConnectedCreate) | **POST** /repos/{owner}/{identifier}/connected/ | Create a connected repository for this repository.
+*ReposApi* | [**reposConnectedDelete**](docs/ReposApi.md#reposConnectedDelete) | **DELETE** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Delete a connected repository for this repository.
+*ReposApi* | [**reposConnectedList**](docs/ReposApi.md#reposConnectedList) | **GET** /repos/{owner}/{identifier}/connected/ | List connected repositories for this repository.
+*ReposApi* | [**reposConnectedPartialUpdate**](docs/ReposApi.md#reposConnectedPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Partially update a connected repository for this repository.
+*ReposApi* | [**reposConnectedRead**](docs/ReposApi.md#reposConnectedRead) | **GET** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Retrieve a connected repository for this repository.
+*ReposApi* | [**reposConnectedUpdate**](docs/ReposApi.md#reposConnectedUpdate) | **PUT** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Update a connected repository for this repository.
 *ReposApi* | [**reposCreate**](docs/ReposApi.md#reposCreate) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 *ReposApi* | [**reposDelete**](docs/ReposApi.md#reposDelete) | **DELETE** /repos/{owner}/{identifier}/ | 
 *ReposApi* | [**reposEcdsaCreate**](docs/ReposApi.md#reposEcdsaCreate) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
 *ReposApi* | [**reposEcdsaList**](docs/ReposApi.md#reposEcdsaList) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
 *ReposApi* | [**reposEcdsaRegenerate**](docs/ReposApi.md#reposEcdsaRegenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
+*ReposApi* | [**reposEd25519Create**](docs/ReposApi.md#reposEd25519Create) | **POST** /repos/{owner}/{identifier}/ed25519/ | Set the active Ed25519 key for the Repository.
+*ReposApi* | [**reposEd25519List**](docs/ReposApi.md#reposEd25519List) | **GET** /repos/{owner}/{identifier}/ed25519/ | Retrieve the active Ed25519 key for the Repository.
+*ReposApi* | [**reposEd25519Regenerate**](docs/ReposApi.md#reposEd25519Regenerate) | **POST** /repos/{owner}/{identifier}/ed25519/regenerate/ | Regenerate Ed25519 Key for the Repository.
 *ReposApi* | [**reposGeoipDisable**](docs/ReposApi.md#reposGeoipDisable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 *ReposApi* | [**reposGeoipEnable**](docs/ReposApi.md#reposGeoipEnable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
 *ReposApi* | [**reposGeoipPartialUpdate**](docs/ReposApi.md#reposGeoipPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
@@ -506,6 +516,9 @@ Class | Method | HTTP request | Description
  - [CondaUpstream](docs/CondaUpstream.md)
  - [CondaUpstreamRequest](docs/CondaUpstreamRequest.md)
  - [CondaUpstreamRequestPatch](docs/CondaUpstreamRequestPatch.md)
+ - [ConnectedRepository](docs/ConnectedRepository.md)
+ - [ConnectedRepositoryRequest](docs/ConnectedRepositoryRequest.md)
+ - [ConnectedRepositoryRequestPatch](docs/ConnectedRepositoryRequestPatch.md)
  - [CranPackageUpload](docs/CranPackageUpload.md)
  - [CranPackageUploadRequest](docs/CranPackageUploadRequest.md)
  - [CranUpstream](docs/CranUpstream.md)
@@ -567,6 +580,7 @@ Class | Method | HTTP request | Description
  - [HuggingfaceUpstreamRequestPatch](docs/HuggingfaceUpstreamRequestPatch.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse2002](docs/InlineResponse2002.md)
  - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -576,6 +590,7 @@ Class | Method | HTTP request | Description
  - [MavenUpstreamRequestPatch](docs/MavenUpstreamRequestPatch.md)
  - [McpPackageUpload](docs/McpPackageUpload.md)
  - [McpPackageUploadRequest](docs/McpPackageUploadRequest.md)
+ - [MemberTeams](docs/MemberTeams.md)
  - [ModelPackage](docs/ModelPackage.md)
  - [Namespace](docs/Namespace.md)
  - [NamespaceAuditLog](docs/NamespaceAuditLog.md)
@@ -593,6 +608,8 @@ Class | Method | HTTP request | Description
  - [NugetUpstreamRequest](docs/NugetUpstreamRequest.md)
  - [NugetUpstreamRequestPatch](docs/NugetUpstreamRequestPatch.md)
  - [Organization](docs/Organization.md)
+ - [OrganizationCustomDomainNestedRepo](docs/OrganizationCustomDomainNestedRepo.md)
+ - [OrganizationCustomDomains](docs/OrganizationCustomDomains.md)
  - [OrganizationGroupSync](docs/OrganizationGroupSync.md)
  - [OrganizationGroupSyncRequest](docs/OrganizationGroupSyncRequest.md)
  - [OrganizationGroupSyncStatus](docs/OrganizationGroupSyncStatus.md)
@@ -680,6 +697,8 @@ Class | Method | HTTP request | Description
  - [RepositoryCreateRequest](docs/RepositoryCreateRequest.md)
  - [RepositoryEcdsaKey](docs/RepositoryEcdsaKey.md)
  - [RepositoryEcdsaKeyCreate](docs/RepositoryEcdsaKeyCreate.md)
+ - [RepositoryEd25519Key](docs/RepositoryEd25519Key.md)
+ - [RepositoryEd25519KeyCreate](docs/RepositoryEd25519KeyCreate.md)
  - [RepositoryGeoIpCidr](docs/RepositoryGeoIpCidr.md)
  - [RepositoryGeoIpCountryCode](docs/RepositoryGeoIpCountryCode.md)
  - [RepositoryGeoIpRules](docs/RepositoryGeoIpRules.md)

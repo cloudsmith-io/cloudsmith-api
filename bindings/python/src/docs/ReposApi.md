@@ -7,11 +7,20 @@ Method | HTTP request | Description
 [**api_repos_geoip_status**](ReposApi.md#api_repos_geoip_status) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository.
 [**repo_retention_partial_update**](ReposApi.md#repo_retention_partial_update) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
 [**repo_retention_read**](ReposApi.md#repo_retention_read) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
+[**repos_connected_create**](ReposApi.md#repos_connected_create) | **POST** /repos/{owner}/{identifier}/connected/ | Create a connected repository for this repository.
+[**repos_connected_delete**](ReposApi.md#repos_connected_delete) | **DELETE** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Delete a connected repository for this repository.
+[**repos_connected_list**](ReposApi.md#repos_connected_list) | **GET** /repos/{owner}/{identifier}/connected/ | List connected repositories for this repository.
+[**repos_connected_partial_update**](ReposApi.md#repos_connected_partial_update) | **PATCH** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Partially update a connected repository for this repository.
+[**repos_connected_read**](ReposApi.md#repos_connected_read) | **GET** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Retrieve a connected repository for this repository.
+[**repos_connected_update**](ReposApi.md#repos_connected_update) | **PUT** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Update a connected repository for this repository.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | 
 [**repos_ecdsa_create**](ReposApi.md#repos_ecdsa_create) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
 [**repos_ecdsa_list**](ReposApi.md#repos_ecdsa_list) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
 [**repos_ecdsa_regenerate**](ReposApi.md#repos_ecdsa_regenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
+[**repos_ed25519_create**](ReposApi.md#repos_ed25519_create) | **POST** /repos/{owner}/{identifier}/ed25519/ | Set the active Ed25519 key for the Repository.
+[**repos_ed25519_list**](ReposApi.md#repos_ed25519_list) | **GET** /repos/{owner}/{identifier}/ed25519/ | Retrieve the active Ed25519 key for the Repository.
+[**repos_ed25519_regenerate**](ReposApi.md#repos_ed25519_regenerate) | **POST** /repos/{owner}/{identifier}/ed25519/regenerate/ | Regenerate Ed25519 Key for the Repository.
 [**repos_geoip_disable**](ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 [**repos_geoip_enable**](ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
 [**repos_geoip_partial_update**](ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
@@ -338,6 +347,383 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **repos_connected_create**
+> ConnectedRepository repos_connected_create(owner, identifier, data=data)
+
+Create a connected repository for this repository.
+
+Create a connected repository for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.ConnectedRepositoryRequest() # ConnectedRepositoryRequest |  (optional)
+
+try:
+    # Create a connected repository for this repository.
+    api_response = api_instance.repos_connected_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_connected_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md)|  | [optional] 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_connected_delete**
+> repos_connected_delete(owner, identifier, slug_perm)
+
+Delete a connected repository for this repository.
+
+Delete a connected repository for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a connected repository for this repository.
+    api_instance.repos_connected_delete(owner, identifier, slug_perm)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_connected_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_connected_list**
+> InlineResponse2001 repos_connected_list(owner, identifier, page=page, page_size=page_size)
+
+List connected repositories for this repository.
+
+List connected repositories for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List connected repositories for this repository.
+    api_response = api_instance.repos_connected_list(owner, identifier, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_connected_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_connected_partial_update**
+> ConnectedRepository repos_connected_partial_update(owner, identifier, slug_perm, data=data)
+
+Partially update a connected repository for this repository.
+
+Partially update a connected repository for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.ConnectedRepositoryRequestPatch() # ConnectedRepositoryRequestPatch |  (optional)
+
+try:
+    # Partially update a connected repository for this repository.
+    api_response = api_instance.repos_connected_partial_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_connected_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**ConnectedRepositoryRequestPatch**](ConnectedRepositoryRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_connected_read**
+> ConnectedRepository repos_connected_read(owner, identifier, slug_perm)
+
+Retrieve a connected repository for this repository.
+
+Retrieve a connected repository for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a connected repository for this repository.
+    api_response = api_instance.repos_connected_read(owner, identifier, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_connected_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_connected_update**
+> ConnectedRepository repos_connected_update(owner, identifier, slug_perm, data=data)
+
+Update a connected repository for this repository.
+
+Update a connected repository for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.ConnectedRepositoryRequest() # ConnectedRepositoryRequest |  (optional)
+
+try:
+    # Update a connected repository for this repository.
+    api_response = api_instance.repos_connected_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_connected_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md)|  | [optional] 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **repos_create**
 > RepositoryCreate repos_create(owner, data=data)
 
@@ -403,7 +789,7 @@ Name | Type | Description  | Notes
 
 
 
-Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
+Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
 
 ### Example
 ```python
@@ -626,6 +1012,188 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepositoryEcdsaKey**](RepositoryEcdsaKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_ed25519_create**
+> RepositoryEd25519Key repos_ed25519_create(owner, identifier, data=data)
+
+Set the active Ed25519 key for the Repository.
+
+Set the active Ed25519 key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.RepositoryEd25519KeyCreate() # RepositoryEd25519KeyCreate |  (optional)
+
+try:
+    # Set the active Ed25519 key for the Repository.
+    api_response = api_instance.repos_ed25519_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_ed25519_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**RepositoryEd25519KeyCreate**](RepositoryEd25519KeyCreate.md)|  | [optional] 
+
+### Return type
+
+[**RepositoryEd25519Key**](RepositoryEd25519Key.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_ed25519_list**
+> RepositoryEd25519Key repos_ed25519_list(owner, identifier)
+
+Retrieve the active Ed25519 key for the Repository.
+
+Retrieve the active Ed25519 key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Retrieve the active Ed25519 key for the Repository.
+    api_response = api_instance.repos_ed25519_list(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_ed25519_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryEd25519Key**](RepositoryEd25519Key.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_ed25519_regenerate**
+> RepositoryEd25519Key repos_ed25519_regenerate(owner, identifier)
+
+Regenerate Ed25519 Key for the Repository.
+
+Regenerate Ed25519 Key for the Repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+
+try:
+    # Regenerate Ed25519 Key for the Repository.
+    api_response = api_instance.repos_ed25519_regenerate(owner, identifier)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_ed25519_regenerate: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+
+### Return type
+
+[**RepositoryEd25519Key**](RepositoryEd25519Key.md)
 
 ### Authorization
 

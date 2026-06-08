@@ -29,16 +29,16 @@ class TestRecycleBinApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_recycle_bin_action(self):
+        """Test case for recycle_bin_action
+
+        """
+        pass
+
     def test_recycle_bin_list(self):
         """Test case for recycle_bin_list
 
         List soft-deleted packages in recycle bin  # noqa: E501
-        """
-        pass
-
-    def test_recycle_bin_recycle_bin_action(self):
-        """Test case for recycle_bin_recycle_bin_action
-
         """
         pass
 

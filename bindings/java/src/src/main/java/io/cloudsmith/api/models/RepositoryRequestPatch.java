@@ -443,6 +443,9 @@ public class RepositoryRequestPatch implements Serializable {
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("npm_upstream_tags_take_precedence")
+  private Boolean npmUpstreamTagsTakePrecedence = null;
+
   @SerializedName("nuget_native_signing_enabled")
   private Boolean nugetNativeSigningEnabled = null;
 
@@ -1179,6 +1182,24 @@ public class RepositoryRequestPatch implements Serializable {
     this.name = name;
   }
 
+  public RepositoryRequestPatch npmUpstreamTagsTakePrecedence(Boolean npmUpstreamTagsTakePrecedence) {
+    this.npmUpstreamTagsTakePrecedence = npmUpstreamTagsTakePrecedence;
+    return this;
+  }
+
+   /**
+   * If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., &#39;latest&#39;), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version.
+   * @return npmUpstreamTagsTakePrecedence
+  **/
+  @ApiModelProperty(value = "If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., 'latest'), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version.")
+  public Boolean isNpmUpstreamTagsTakePrecedence() {
+    return npmUpstreamTagsTakePrecedence;
+  }
+
+  public void setNpmUpstreamTagsTakePrecedence(Boolean npmUpstreamTagsTakePrecedence) {
+    this.npmUpstreamTagsTakePrecedence = npmUpstreamTagsTakePrecedence;
+  }
+
   public RepositoryRequestPatch nugetNativeSigningEnabled(Boolean nugetNativeSigningEnabled) {
     this.nugetNativeSigningEnabled = nugetNativeSigningEnabled;
     return this;
@@ -1677,6 +1698,7 @@ public class RepositoryRequestPatch implements Serializable {
         Objects.equals(this.moveOwn, repositoryRequestPatch.moveOwn) &&
         Objects.equals(this.movePackages, repositoryRequestPatch.movePackages) &&
         Objects.equals(this.name, repositoryRequestPatch.name) &&
+        Objects.equals(this.npmUpstreamTagsTakePrecedence, repositoryRequestPatch.npmUpstreamTagsTakePrecedence) &&
         Objects.equals(this.nugetNativeSigningEnabled, repositoryRequestPatch.nugetNativeSigningEnabled) &&
         Objects.equals(this.openSourceLicense, repositoryRequestPatch.openSourceLicense) &&
         Objects.equals(this.openSourceProjectUrl, repositoryRequestPatch.openSourceProjectUrl) &&
@@ -1707,7 +1729,7 @@ public class RepositoryRequestPatch implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadcastState, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, genericPackageIndexEnabled, indexFiles, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(broadcastState, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, genericPackageIndexEnabled, indexFiles, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, npmUpstreamTagsTakePrecedence, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1736,6 +1758,7 @@ public class RepositoryRequestPatch implements Serializable {
     sb.append("    moveOwn: ").append(toIndentedString(moveOwn)).append("\n");
     sb.append("    movePackages: ").append(toIndentedString(movePackages)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    npmUpstreamTagsTakePrecedence: ").append(toIndentedString(npmUpstreamTagsTakePrecedence)).append("\n");
     sb.append("    nugetNativeSigningEnabled: ").append(toIndentedString(nugetNativeSigningEnabled)).append("\n");
     sb.append("    openSourceLicense: ").append(toIndentedString(openSourceLicense)).append("\n");
     sb.append("    openSourceProjectUrl: ").append(toIndentedString(openSourceProjectUrl)).append("\n");

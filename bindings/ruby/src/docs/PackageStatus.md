@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **is_copyable** | **BOOLEAN** |  | [optional] 
 **is_deleteable** | **BOOLEAN** |  | [optional] 
 **is_downloadable** | **BOOLEAN** |  | [optional] 
+**is_hidden** | **BOOLEAN** |  | [optional] 
 **is_moveable** | **BOOLEAN** |  | [optional] 
 **is_quarantinable** | **BOOLEAN** |  | [optional] 
 **is_quarantined** | **BOOLEAN** |  | [optional] 

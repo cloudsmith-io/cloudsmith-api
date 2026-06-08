@@ -14,6 +14,9 @@ require 'date'
 
 module CloudsmithApi
 class ServiceTeams
+  # The name of the team
+  attr_accessor :name
+
   # The team role associated with the service
   attr_accessor :role
 
@@ -45,6 +48,7 @@ class ServiceTeams
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'name' => :'name',
       :'role' => :'role',
       :'slug' => :'slug'
     }
@@ -53,6 +57,7 @@ class ServiceTeams
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'name' => :'String',
       :'role' => :'String',
       :'slug' => :'String'
     }
@@ -65,6 +70,10 @@ class ServiceTeams
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'name')
+      self.name = attributes[:'name']
+    end
 
     if attributes.has_key?(:'role')
       self.role = attributes[:'role']
@@ -112,6 +121,7 @@ class ServiceTeams
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        name == o.name &&
         role == o.role &&
         slug == o.slug
   end
@@ -125,7 +135,7 @@ class ServiceTeams
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [role, slug].hash
+    [name, role, slug].hash
   end
 
     # Builds the object from hash

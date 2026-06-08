@@ -7,11 +7,20 @@ Method | HTTP request | Description
 [**api_repos_geoip_status**](ReposApi.md#api_repos_geoip_status) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository.
 [**repo_retention_partial_update**](ReposApi.md#repo_retention_partial_update) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
 [**repo_retention_read**](ReposApi.md#repo_retention_read) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
+[**repos_connected_create**](ReposApi.md#repos_connected_create) | **POST** /repos/{owner}/{identifier}/connected/ | Create a connected repository for this repository.
+[**repos_connected_delete**](ReposApi.md#repos_connected_delete) | **DELETE** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Delete a connected repository for this repository.
+[**repos_connected_list**](ReposApi.md#repos_connected_list) | **GET** /repos/{owner}/{identifier}/connected/ | List connected repositories for this repository.
+[**repos_connected_partial_update**](ReposApi.md#repos_connected_partial_update) | **PATCH** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Partially update a connected repository for this repository.
+[**repos_connected_read**](ReposApi.md#repos_connected_read) | **GET** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Retrieve a connected repository for this repository.
+[**repos_connected_update**](ReposApi.md#repos_connected_update) | **PUT** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Update a connected repository for this repository.
 [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
 [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | 
 [**repos_ecdsa_create**](ReposApi.md#repos_ecdsa_create) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
 [**repos_ecdsa_list**](ReposApi.md#repos_ecdsa_list) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
 [**repos_ecdsa_regenerate**](ReposApi.md#repos_ecdsa_regenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
+[**repos_ed25519_create**](ReposApi.md#repos_ed25519_create) | **POST** /repos/{owner}/{identifier}/ed25519/ | Set the active Ed25519 key for the Repository.
+[**repos_ed25519_list**](ReposApi.md#repos_ed25519_list) | **GET** /repos/{owner}/{identifier}/ed25519/ | Retrieve the active Ed25519 key for the Repository.
+[**repos_ed25519_regenerate**](ReposApi.md#repos_ed25519_regenerate) | **POST** /repos/{owner}/{identifier}/ed25519/regenerate/ | Regenerate Ed25519 Key for the Repository.
 [**repos_geoip_disable**](ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
 [**repos_geoip_enable**](ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
 [**repos_geoip_partial_update**](ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
@@ -343,6 +352,401 @@ Name | Type | Description  | Notes
 
 
 
+# **repos_connected_create**
+> ConnectedRepository repos_connected_create(owner, identifier, opts)
+
+Create a connected repository for this repository.
+
+Create a connected repository for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ConnectedRepositoryRequest.new # ConnectedRepositoryRequest | 
+}
+
+begin
+  #Create a connected repository for this repository.
+  result = api_instance.repos_connected_create(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_connected_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md)|  | [optional] 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_connected_delete**
+> repos_connected_delete(owner, identifier, slug_perm)
+
+Delete a connected repository for this repository.
+
+Delete a connected repository for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete a connected repository for this repository.
+  api_instance.repos_connected_delete(owner, identifier, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_connected_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_connected_list**
+> InlineResponse2001 repos_connected_list(owner, identifier, opts)
+
+List connected repositories for this repository.
+
+List connected repositories for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #List connected repositories for this repository.
+  result = api_instance.repos_connected_list(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_connected_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_connected_partial_update**
+> ConnectedRepository repos_connected_partial_update(owner, identifier, slug_perm, opts)
+
+Partially update a connected repository for this repository.
+
+Partially update a connected repository for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ConnectedRepositoryRequestPatch.new # ConnectedRepositoryRequestPatch | 
+}
+
+begin
+  #Partially update a connected repository for this repository.
+  result = api_instance.repos_connected_partial_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_connected_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**ConnectedRepositoryRequestPatch**](ConnectedRepositoryRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_connected_read**
+> ConnectedRepository repos_connected_read(owner, identifier, slug_perm)
+
+Retrieve a connected repository for this repository.
+
+Retrieve a connected repository for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve a connected repository for this repository.
+  result = api_instance.repos_connected_read(owner, identifier, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_connected_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_connected_update**
+> ConnectedRepository repos_connected_update(owner, identifier, slug_perm, opts)
+
+Update a connected repository for this repository.
+
+Update a connected repository for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::ConnectedRepositoryRequest.new # ConnectedRepositoryRequest | 
+}
+
+begin
+  #Update a connected repository for this repository.
+  result = api_instance.repos_connected_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_connected_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md)|  | [optional] 
+
+### Return type
+
+[**ConnectedRepository**](ConnectedRepository.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **repos_create**
 > RepositoryCreate repos_create(owner, opts)
 
@@ -410,7 +814,7 @@ Name | Type | Description  | Notes
 
 
 
-Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
+Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
 
 ### Example
 ```ruby
@@ -639,6 +1043,193 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepositoryEcdsaKey**](RepositoryEcdsaKey.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_ed25519_create**
+> RepositoryEd25519Key repos_ed25519_create(owner, identifier, opts)
+
+Set the active Ed25519 key for the Repository.
+
+Set the active Ed25519 key for the Repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::RepositoryEd25519KeyCreate.new # RepositoryEd25519KeyCreate | 
+}
+
+begin
+  #Set the active Ed25519 key for the Repository.
+  result = api_instance.repos_ed25519_create(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_ed25519_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**RepositoryEd25519KeyCreate**](RepositoryEd25519KeyCreate.md)|  | [optional] 
+
+### Return type
+
+[**RepositoryEd25519Key**](RepositoryEd25519Key.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_ed25519_list**
+> RepositoryEd25519Key repos_ed25519_list(owner, identifier)
+
+Retrieve the active Ed25519 key for the Repository.
+
+Retrieve the active Ed25519 key for the Repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+
+begin
+  #Retrieve the active Ed25519 key for the Repository.
+  result = api_instance.repos_ed25519_list(owner, identifier)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_ed25519_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+[**RepositoryEd25519Key**](RepositoryEd25519Key.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_ed25519_regenerate**
+> RepositoryEd25519Key repos_ed25519_regenerate(owner, identifier)
+
+Regenerate Ed25519 Key for the Repository.
+
+Regenerate Ed25519 Key for the Repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+
+begin
+  #Regenerate Ed25519 Key for the Repository.
+  result = api_instance.repos_ed25519_regenerate(owner, identifier)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_ed25519_regenerate: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+
+### Return type
+
+[**RepositoryEd25519Key**](RepositoryEd25519Key.md)
 
 ### Authorization
 

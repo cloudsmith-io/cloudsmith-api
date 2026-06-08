@@ -201,6 +201,401 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # Create a connected repository for this repository.
+    # Create a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ConnectedRepositoryRequest] :data 
+    # @return [ConnectedRepository]
+    def repos_connected_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_connected_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Create a connected repository for this repository.
+    # Create a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ConnectedRepositoryRequest] :data 
+    # @return [Array<(ConnectedRepository, Fixnum, Hash)>] ConnectedRepository data, response status code and response headers
+    def repos_connected_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_connected_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_connected_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_connected_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/connected/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectedRepository')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_connected_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete a connected repository for this repository.
+    # Delete a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def repos_connected_delete(owner, identifier, slug_perm, opts = {})
+      repos_connected_delete_with_http_info(owner, identifier, slug_perm, opts)
+      nil
+    end
+
+    # Delete a connected repository for this repository.
+    # Delete a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def repos_connected_delete_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_connected_delete ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_connected_delete"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_connected_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_connected_delete"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/connected/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_connected_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List connected repositories for this repository.
+    # List connected repositories for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [InlineResponse2001]
+    def repos_connected_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_connected_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # List connected repositories for this repository.
+    # List connected repositories for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page A page number within the paginated result set.
+    # @option opts [Integer] :page_size Number of results to return per page.
+    # @return [Array<(InlineResponse2001, Fixnum, Hash)>] InlineResponse2001 data, response status code and response headers
+    def repos_connected_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_connected_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_connected_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_connected_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/connected/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse2001')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_connected_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Partially update a connected repository for this repository.
+    # Partially update a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ConnectedRepositoryRequestPatch] :data 
+    # @return [ConnectedRepository]
+    def repos_connected_partial_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_connected_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Partially update a connected repository for this repository.
+    # Partially update a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ConnectedRepositoryRequestPatch] :data 
+    # @return [Array<(ConnectedRepository, Fixnum, Hash)>] ConnectedRepository data, response status code and response headers
+    def repos_connected_partial_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_connected_partial_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_connected_partial_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_connected_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_connected_partial_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/connected/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectedRepository')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_connected_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve a connected repository for this repository.
+    # Retrieve a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [ConnectedRepository]
+    def repos_connected_read(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_connected_read_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Retrieve a connected repository for this repository.
+    # Retrieve a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ConnectedRepository, Fixnum, Hash)>] ConnectedRepository data, response status code and response headers
+    def repos_connected_read_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_connected_read ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_connected_read"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_connected_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_connected_read"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/connected/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectedRepository')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_connected_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update a connected repository for this repository.
+    # Update a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ConnectedRepositoryRequest] :data 
+    # @return [ConnectedRepository]
+    def repos_connected_update(owner, identifier, slug_perm, opts = {})
+      data, _status_code, _headers = repos_connected_update_with_http_info(owner, identifier, slug_perm, opts)
+      data
+    end
+
+    # Update a connected repository for this repository.
+    # Update a connected repository for this repository.
+    # @param owner 
+    # @param identifier 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ConnectedRepositoryRequest] :data 
+    # @return [Array<(ConnectedRepository, Fixnum, Hash)>] ConnectedRepository data, response status code and response headers
+    def repos_connected_update_with_http_info(owner, identifier, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_connected_update ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_connected_update"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_connected_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling ReposApi.repos_connected_update"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/connected/{slug_perm}/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConnectedRepository')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_connected_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Create a new repository in a given namespace.
     # Create a new repository in a given namespace.
     # @param owner 
@@ -257,7 +652,7 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
+    # Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
@@ -267,7 +662,7 @@ module CloudsmithApi
       nil
     end
 
-    # Delete a repository in a given namespace.Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
+    # Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository&#39;s slug remains reserved and cannot be reused for new repositories.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
@@ -493,6 +888,188 @@ module CloudsmithApi
         :return_type => 'RepositoryEcdsaKey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_ecdsa_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Set the active Ed25519 key for the Repository.
+    # Set the active Ed25519 key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryEd25519KeyCreate] :data 
+    # @return [RepositoryEd25519Key]
+    def repos_ed25519_create(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_ed25519_create_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Set the active Ed25519 key for the Repository.
+    # Set the active Ed25519 key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @option opts [RepositoryEd25519KeyCreate] :data 
+    # @return [Array<(RepositoryEd25519Key, Fixnum, Hash)>] RepositoryEd25519Key data, response status code and response headers
+    def repos_ed25519_create_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_ed25519_create ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_ed25519_create"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_ed25519_create"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/ed25519/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryEd25519Key')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_ed25519_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve the active Ed25519 key for the Repository.
+    # Retrieve the active Ed25519 key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryEd25519Key]
+    def repos_ed25519_list(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_ed25519_list_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Retrieve the active Ed25519 key for the Repository.
+    # Retrieve the active Ed25519 key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryEd25519Key, Fixnum, Hash)>] RepositoryEd25519Key data, response status code and response headers
+    def repos_ed25519_list_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_ed25519_list ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_ed25519_list"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_ed25519_list"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/ed25519/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryEd25519Key')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_ed25519_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Regenerate Ed25519 Key for the Repository.
+    # Regenerate Ed25519 Key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [RepositoryEd25519Key]
+    def repos_ed25519_regenerate(owner, identifier, opts = {})
+      data, _status_code, _headers = repos_ed25519_regenerate_with_http_info(owner, identifier, opts)
+      data
+    end
+
+    # Regenerate Ed25519 Key for the Repository.
+    # Regenerate Ed25519 Key for the Repository.
+    # @param owner 
+    # @param identifier 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RepositoryEd25519Key, Fixnum, Hash)>] RepositoryEd25519Key data, response status code and response headers
+    def repos_ed25519_regenerate_with_http_info(owner, identifier, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReposApi.repos_ed25519_regenerate ...'
+      end
+      # verify the required parameter 'owner' is set
+      if @api_client.config.client_side_validation && owner.nil?
+        fail ArgumentError, "Missing the required parameter 'owner' when calling ReposApi.repos_ed25519_regenerate"
+      end
+      # verify the required parameter 'identifier' is set
+      if @api_client.config.client_side_validation && identifier.nil?
+        fail ArgumentError, "Missing the required parameter 'identifier' when calling ReposApi.repos_ed25519_regenerate"
+      end
+      # resource path
+      local_var_path = '/repos/{owner}/{identifier}/ed25519/regenerate/'.sub('{' + 'owner' + '}', owner.to_s).sub('{' + 'identifier' + '}', identifier.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RepositoryEd25519Key')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReposApi#repos_ed25519_regenerate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

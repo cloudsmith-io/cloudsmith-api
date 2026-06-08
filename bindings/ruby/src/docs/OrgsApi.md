@@ -4,6 +4,7 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orgs_custom_domains_list**](OrgsApi.md#orgs_custom_domains_list) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
 [**orgs_delete**](OrgsApi.md#orgs_delete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 [**orgs_deny_policy_create**](OrgsApi.md#orgs_deny_policy_create) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
 [**orgs_deny_policy_delete**](OrgsApi.md#orgs_deny_policy_delete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
@@ -77,6 +78,70 @@ Method | HTTP request | Description
 [**orgs_vulnerability_policy_read**](OrgsApi.md#orgs_vulnerability_policy_read) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
 [**orgs_vulnerability_policy_update**](OrgsApi.md#orgs_vulnerability_policy_update) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
 [**orgs_vulnerability_policy_violation_list**](OrgsApi.md#orgs_vulnerability_policy_violation_list) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
+
+
+# **orgs_custom_domains_list**
+> Array&lt;OrganizationCustomDomains&gt; orgs_custom_domains_list(org, opts)
+
+Get the details for all custom domains.
+
+Get the details for all custom domains.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #Get the details for all custom domains.
+  result = api_instance.orgs_custom_domains_list(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_custom_domains_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;OrganizationCustomDomains&gt;**](OrganizationCustomDomains.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **orgs_delete**

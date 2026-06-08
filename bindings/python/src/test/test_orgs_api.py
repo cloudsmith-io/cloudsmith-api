@@ -29,6 +29,13 @@ class TestOrgsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_orgs_custom_domains_list(self):
+        """Test case for orgs_custom_domains_list
+
+        Get the details for all custom domains.  # noqa: E501
+        """
+        pass
+
     def test_orgs_delete(self):
         """Test case for orgs_delete
 

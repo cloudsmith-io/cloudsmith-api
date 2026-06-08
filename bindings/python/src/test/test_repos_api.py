@@ -50,6 +50,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_connected_create(self):
+        """Test case for repos_connected_create
+
+        Create a connected repository for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_connected_delete(self):
+        """Test case for repos_connected_delete
+
+        Delete a connected repository for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_connected_list(self):
+        """Test case for repos_connected_list
+
+        List connected repositories for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_connected_partial_update(self):
+        """Test case for repos_connected_partial_update
+
+        Partially update a connected repository for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_connected_read(self):
+        """Test case for repos_connected_read
+
+        Retrieve a connected repository for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_connected_update(self):
+        """Test case for repos_connected_update
+
+        Update a connected repository for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_create(self):
         """Test case for repos_create
 
@@ -81,6 +123,27 @@ class TestReposApi(unittest.TestCase):
         """Test case for repos_ecdsa_regenerate
 
         Regenerate ECDSA Key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_ed25519_create(self):
+        """Test case for repos_ed25519_create
+
+        Set the active Ed25519 key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_ed25519_list(self):
+        """Test case for repos_ed25519_list
+
+        Retrieve the active Ed25519 key for the Repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_ed25519_regenerate(self):
+        """Test case for repos_ed25519_regenerate
+
+        Regenerate Ed25519 Key for the Repository.  # noqa: E501
         """
         pass
 

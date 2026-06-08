@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **is_copyable** | **BOOLEAN** |  | [optional] 
 **is_deleteable** | **BOOLEAN** |  | [optional] 
 **is_downloadable** | **BOOLEAN** |  | [optional] 
+**is_hidden** | **BOOLEAN** |  | [optional] 
 **is_moveable** | **BOOLEAN** |  | [optional] 
 **is_quarantinable** | **BOOLEAN** |  | [optional] 
 **is_quarantined** | **BOOLEAN** |  | [optional] 
@@ -48,6 +49,7 @@ Name | Type | Description | Notes
 **num_files** | **Integer** |  | [optional] 
 **origin_repository** | **String** |  | [optional] 
 **origin_repository_url** | **String** |  | [optional] 
+**osi_approved** | **BOOLEAN** | Whether the package&#39;s SPDX license is OSI-approved. | [optional] 
 **package_type** | **Integer** | The type of package contents. | [optional] 
 **policy_violated** | **BOOLEAN** | Whether or not the package has violated any policy. | [optional] 
 **provider** | **String** | The virtual machine provider for the box. | 

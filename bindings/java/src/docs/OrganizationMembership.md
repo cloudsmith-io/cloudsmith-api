@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **lastLoginAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **lastLoginMethod** | [**LastLoginMethodEnum**](#LastLoginMethodEnum) |  |  [optional]
 **role** | [**RoleEnum**](#RoleEnum) |  |  [optional]
+**teams** | [**List&lt;MemberTeams&gt;**](MemberTeams.md) |  |  [optional]
 **user** | **String** |  |  [optional]
 **userId** | **String** |  |  [optional]
 **userName** | **String** |  |  [optional]
