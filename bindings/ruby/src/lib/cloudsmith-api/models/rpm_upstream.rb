@@ -375,7 +375,7 @@ class RpmUpstream
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
-    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream's APKINDEX signature', 'Upstream was disabled by request of user'])
+    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream\'s APKINDEX signature', 'Upstream was disabled by request of user'])
     return false unless disable_reason_validator.valid?(@disable_reason)
     return false if @distro_version.nil?
     gpg_verification_validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
@@ -402,7 +402,7 @@ class RpmUpstream
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] disable_reason Object to be assigned
   def disable_reason=(disable_reason)
-    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream's APKINDEX signature', 'Upstream was disabled by request of user'])
+    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream\'s APKINDEX signature', 'Upstream was disabled by request of user'])
     unless validator.valid?(disable_reason)
       fail ArgumentError, 'invalid value for "disable_reason", must be one of #{validator.allowable_values}.'
     end
