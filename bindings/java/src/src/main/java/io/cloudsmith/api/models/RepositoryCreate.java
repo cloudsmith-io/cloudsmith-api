@@ -39,6 +39,9 @@ import javax.validation.Valid;
 public class RepositoryCreate implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("active_connection_count")
+  private java.math.BigInteger activeConnectionCount = null;
+
   /**
    * Broadcasting status of a repository.
    */
@@ -888,6 +891,15 @@ public class RepositoryCreate implements Serializable {
 
   @SerializedName("view_statistics")
   private ViewStatisticsEnum viewStatistics = ViewStatisticsEnum.READ;
+
+   /**
+   * Number of active connections for the repository
+   * @return activeConnectionCount
+  **/
+  @ApiModelProperty(value = "Number of active connections for the repository")
+  public java.math.BigInteger getActiveConnectionCount() {
+    return activeConnectionCount;
+  }
 
   public RepositoryCreate broadcastState(BroadcastStateEnum broadcastState) {
     this.broadcastState = broadcastState;
@@ -1983,7 +1995,8 @@ public class RepositoryCreate implements Serializable {
       return false;
     }
     RepositoryCreate repositoryCreate = (RepositoryCreate) o;
-    return Objects.equals(this.broadcastState, repositoryCreate.broadcastState) &&
+    return Objects.equals(this.activeConnectionCount, repositoryCreate.activeConnectionCount) &&
+        Objects.equals(this.broadcastState, repositoryCreate.broadcastState) &&
         Objects.equals(this.cdnUrl, repositoryCreate.cdnUrl) &&
         Objects.equals(this.contentKind, repositoryCreate.contentKind) &&
         Objects.equals(this.contextualAuthRealm, repositoryCreate.contextualAuthRealm) &&
@@ -2058,7 +2071,7 @@ public class RepositoryCreate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadcastState, cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, genericPackageIndexEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, npmUpstreamTagsTakePrecedence, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageCountExclSubcomponents, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, selfWebappUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(activeConnectionCount, broadcastState, cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, genericPackageIndexEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, npmUpstreamTagsTakePrecedence, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageCountExclSubcomponents, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, selfWebappUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -2067,6 +2080,7 @@ public class RepositoryCreate implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepositoryCreate {\n");
     
+    sb.append("    activeConnectionCount: ").append(toIndentedString(activeConnectionCount)).append("\n");
     sb.append("    broadcastState: ").append(toIndentedString(broadcastState)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    contentKind: ").append(toIndentedString(contentKind)).append("\n");

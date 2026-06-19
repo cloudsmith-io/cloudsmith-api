@@ -32,6 +32,12 @@ describe 'RepositoryCreate' do
       expect(@instance).to be_instance_of(CloudsmithApi::RepositoryCreate)
     end
   end
+  describe 'test attribute "active_connection_count"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "broadcast_state"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -30,6 +30,9 @@ class RepositoryEd25519Key
   # The public key given to repository users.
   attr_accessor :public_key
 
+  # The public key in `<name>:<base64>` wire format, ready to paste into Nix `trusted-public-keys`.
+  attr_accessor :public_key_wire
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
@@ -38,7 +41,8 @@ class RepositoryEd25519Key
       :'default' => :'default',
       :'fingerprint' => :'fingerprint',
       :'fingerprint_short' => :'fingerprint_short',
-      :'public_key' => :'public_key'
+      :'public_key' => :'public_key',
+      :'public_key_wire' => :'public_key_wire'
     }
   end
 
@@ -50,7 +54,8 @@ class RepositoryEd25519Key
       :'default' => :'BOOLEAN',
       :'fingerprint' => :'String',
       :'fingerprint_short' => :'String',
-      :'public_key' => :'String'
+      :'public_key' => :'String',
+      :'public_key_wire' => :'String'
     }
   end
 
@@ -85,6 +90,10 @@ class RepositoryEd25519Key
     if attributes.has_key?(:'public_key')
       self.public_key = attributes[:'public_key']
     end
+
+    if attributes.has_key?(:'public_key_wire')
+      self.public_key_wire = attributes[:'public_key_wire']
+    end
   end
 
   # Show invalid properties with the reasons. Usually used together with valid?
@@ -110,7 +119,8 @@ class RepositoryEd25519Key
         default == o.default &&
         fingerprint == o.fingerprint &&
         fingerprint_short == o.fingerprint_short &&
-        public_key == o.public_key
+        public_key == o.public_key &&
+        public_key_wire == o.public_key_wire
   end
 
   # @see the `==` method
@@ -122,7 +132,7 @@ class RepositoryEd25519Key
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [active, created_at, default, fingerprint, fingerprint_short, public_key].hash
+    [active, created_at, default, fingerprint, fingerprint_short, public_key, public_key_wire].hash
   end
 
     # Builds the object from hash

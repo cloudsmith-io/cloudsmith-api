@@ -3648,12 +3648,13 @@ public class OrgsApi {
      * Build call for orgsList
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at. (optional, default to name)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call orgsListCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call orgsListCall(java.math.BigInteger page, java.math.BigInteger pageSize, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3665,6 +3666,8 @@ public class OrgsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3702,18 +3705,18 @@ public class OrgsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orgsListValidateBeforeCall(java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orgsListValidateBeforeCall(java.math.BigInteger page, java.math.BigInteger pageSize, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { page, pageSize };
-            Method method = this.getClass().getMethod("orgsListWithHttpInfo", java.math.BigInteger.class, java.math.BigInteger.class);
+            Object[] parameterValues = { page, pageSize, sort };
+            Method method = this.getClass().getMethod("orgsListWithHttpInfo", java.math.BigInteger.class, java.math.BigInteger.class, String.class);
             Set<ConstraintViolation<OrgsApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = orgsListCall(page, pageSize, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = orgsListCall(page, pageSize, sort, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -3734,11 +3737,12 @@ public class OrgsApi {
      * Get a list of all the organizations you are associated with.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at. (optional, default to name)
      * @return List&lt;Organization&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Organization> orgsList(java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<List<Organization>> resp = orgsListWithHttpInfo(page, pageSize);
+    public List<Organization> orgsList(java.math.BigInteger page, java.math.BigInteger pageSize, String sort) throws ApiException {
+        ApiResponse<List<Organization>> resp = orgsListWithHttpInfo(page, pageSize, sort);
         return resp.getData();
     }
 
@@ -3747,11 +3751,12 @@ public class OrgsApi {
      * Get a list of all the organizations you are associated with.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at. (optional, default to name)
      * @return ApiResponse&lt;List&lt;Organization&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Organization>> orgsListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
-        com.squareup.okhttp.Call call = orgsListValidateBeforeCall(page, pageSize, null, null);
+    public ApiResponse<List<Organization>> orgsListWithHttpInfo( java.math.BigInteger page,  java.math.BigInteger pageSize,  String sort) throws ApiException {
+        com.squareup.okhttp.Call call = orgsListValidateBeforeCall(page, pageSize, sort, null, null);
         Type localVarReturnType = new TypeToken<List<Organization>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -3761,11 +3766,12 @@ public class OrgsApi {
      * Get a list of all the organizations you are associated with.
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at. (optional, default to name)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orgsListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<Organization>> callback) throws ApiException {
+    public com.squareup.okhttp.Call orgsListAsync(java.math.BigInteger page, java.math.BigInteger pageSize, String sort, final ApiCallback<List<Organization>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3786,7 +3792,7 @@ public class OrgsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = orgsListValidateBeforeCall(page, pageSize, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = orgsListValidateBeforeCall(page, pageSize, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Organization>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

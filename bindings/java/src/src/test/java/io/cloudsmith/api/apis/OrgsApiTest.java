@@ -509,7 +509,8 @@ public class OrgsApiTest {
     public void orgsListTest() throws Exception {
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        List<Organization> response = api.orgsList(page, pageSize);
+        String sort = null;
+        List<Organization> response = api.orgsList(page, pageSize, sort);
 
         // TODO: test validations
     }

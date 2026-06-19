@@ -14,6 +14,9 @@ require 'date'
 
 module CloudsmithApi
 class Repository
+  # Number of active connections for the repository
+  attr_accessor :active_connection_count
+
   # Broadcasting status of a repository.
   attr_accessor :broadcast_state
 
@@ -246,6 +249,7 @@ class Repository
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'active_connection_count' => :'active_connection_count',
       :'broadcast_state' => :'broadcast_state',
       :'cdn_url' => :'cdn_url',
       :'content_kind' => :'content_kind',
@@ -323,6 +327,7 @@ class Repository
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'active_connection_count' => :'Integer',
       :'broadcast_state' => :'String',
       :'cdn_url' => :'String',
       :'content_kind' => :'String',
@@ -404,6 +409,10 @@ class Repository
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'active_connection_count')
+      self.active_connection_count = attributes[:'active_connection_count']
+    end
 
     if attributes.has_key?(:'broadcast_state')
       self.broadcast_state = attributes[:'broadcast_state']
@@ -903,6 +912,7 @@ class Repository
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        active_connection_count == o.active_connection_count &&
         broadcast_state == o.broadcast_state &&
         cdn_url == o.cdn_url &&
         content_kind == o.content_kind &&
@@ -985,7 +995,7 @@ class Repository
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [broadcast_state, cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, generic_package_index_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, npm_upstream_tags_take_precedence, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_count_excl_subcomponents, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, self_webapp_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
+    [active_connection_count, broadcast_state, cdn_url, content_kind, contextual_auth_realm, copy_own, copy_packages, cosign_signing_enabled, created_at, default_privilege, delete_own, delete_packages, deleted_at, description, distributes, docker_refresh_tokens_enabled, ecdsa_keys, enforce_eula, generic_package_index_enabled, gpg_keys, index_files, is_open_source, is_private, is_public, is_public_hidden, manage_entitlements_privilege, move_own, move_packages, name, namespace, namespace_url, npm_upstream_tags_take_precedence, nuget_native_signing_enabled, num_downloads, num_policy_violated_packages, num_quarantined_packages, open_source_license, open_source_project_url, package_count, package_count_excl_subcomponents, package_group_count, proxy_npmjs, proxy_pypi, raw_package_index_enabled, raw_package_index_signatures_enabled, replace_packages, replace_packages_by_default, repository_type, repository_type_str, resync_own, resync_packages, scan_own, scan_packages, self_html_url, self_url, self_webapp_url, show_setup_all, size, size_str, slug, slug_perm, storage_region, strict_npm_validation, tag_pre_releases_as_latest, use_debian_labels, use_default_cargo_upstream, use_entitlements_privilege, use_noarch_packages, use_source_packages, use_vulnerability_scanning, user_entitlements_enabled, view_statistics].hash
   end
 
     # Builds the object from hash

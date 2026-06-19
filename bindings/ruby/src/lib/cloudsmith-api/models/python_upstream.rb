@@ -316,9 +316,9 @@ class PythonUpstream
   def valid?
     auth_mode_validator = EnumAttributeValidator.new('String', ['None', 'Username and Password'])
     return false unless auth_mode_validator.valid?(@auth_mode)
-    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream\'s APKINDEX signature', 'Upstream was disabled by request of user'])
+    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream's APKINDEX signature', 'Upstream was disabled by request of user'])
     return false unless disable_reason_validator.valid?(@disable_reason)
-    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
+    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy', 'Cache Only'])
     return false unless mode_validator.valid?(@mode)
     return false if @name.nil?
     trust_level_validator = EnumAttributeValidator.new('String', ['Trusted', 'Untrusted'])
@@ -340,7 +340,7 @@ class PythonUpstream
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] disable_reason Object to be assigned
   def disable_reason=(disable_reason)
-    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream\'s APKINDEX signature', 'Upstream was disabled by request of user'])
+    validator = EnumAttributeValidator.new('String', ['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream's APKINDEX signature', 'Upstream was disabled by request of user'])
     unless validator.valid?(disable_reason)
       fail ArgumentError, 'invalid value for "disable_reason", must be one of #{validator.allowable_values}.'
     end
@@ -350,7 +350,7 @@ class PythonUpstream
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] mode Object to be assigned
   def mode=(mode)
-    validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
+    validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy', 'Cache Only'])
     unless validator.valid?(mode)
       fail ArgumentError, 'invalid value for "mode", must be one of #{validator.allowable_values}.'
     end

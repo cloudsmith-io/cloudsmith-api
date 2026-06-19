@@ -1543,7 +1543,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_list**
-> list[Organization] orgs_list(page=page, page_size=page_size)
+> list[Organization] orgs_list(page=page, page_size=page_size, sort=sort)
 
 Get a list of all the organizations you are associated with.
 
@@ -1571,10 +1571,11 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, created_at. (optional) (default to name)
 
 try:
     # Get a list of all the organizations you are associated with.
-    api_response = api_instance.orgs_list(page=page, page_size=page_size)
+    api_response = api_instance.orgs_list(page=page, page_size=page_size, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrgsApi->orgs_list: %s\n" % e)
@@ -1586,6 +1587,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at. | [optional] [default to name]
 
 ### Return type
 

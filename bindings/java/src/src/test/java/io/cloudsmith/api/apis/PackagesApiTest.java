@@ -153,7 +153,8 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageDependencies response = api.packagesDependencies(owner, repo, identifier);
+        Boolean includeConnectedRepositories = null;
+        PackageDependencies response = api.packagesDependencies(owner, repo, identifier, includeConnectedRepositories);
 
         // TODO: test validations
     }
@@ -174,9 +175,10 @@ public class PackagesApiTest {
         java.math.BigInteger pageSize = null;
         String groupBy = null;
         Boolean hideSubcomponents = null;
+        Boolean includeConnectedRepositories = null;
         String query = null;
         String sort = null;
-        InlineResponse200 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort);
+        InlineResponse200 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
 
         // TODO: test validations
     }
@@ -195,9 +197,10 @@ public class PackagesApiTest {
         String repo = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
+        Boolean includeConnectedRepositories = null;
         String query = null;
         String sort = null;
-        List<ModelPackage> response = api.packagesList(owner, repo, page, pageSize, query, sort);
+        List<ModelPackage> response = api.packagesList(owner, repo, page, pageSize, includeConnectedRepositories, query, sort);
 
         // TODO: test validations
     }
@@ -253,7 +256,8 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        ModelPackage response = api.packagesRead(owner, repo, identifier);
+        Boolean includeConnectedRepositories = null;
+        ModelPackage response = api.packagesRead(owner, repo, identifier, includeConnectedRepositories);
 
         // TODO: test validations
     }
@@ -307,7 +311,8 @@ public class PackagesApiTest {
         String owner = null;
         String repo = null;
         String identifier = null;
-        PackageStatus response = api.packagesStatus(owner, repo, identifier);
+        Boolean includeConnectedRepositories = null;
+        PackageStatus response = api.packagesStatus(owner, repo, identifier, includeConnectedRepositories);
 
         // TODO: test validations
     }

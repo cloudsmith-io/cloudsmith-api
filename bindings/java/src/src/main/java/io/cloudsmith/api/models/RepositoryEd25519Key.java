@@ -53,6 +53,9 @@ public class RepositoryEd25519Key implements Serializable {
   @SerializedName("public_key")
   private String publicKey = null;
 
+  @SerializedName("public_key_wire")
+  private String publicKeyWire = null;
+
    /**
    * If selected this is the active key for this repository.
    * @return active
@@ -108,6 +111,15 @@ public class RepositoryEd25519Key implements Serializable {
     return publicKey;
   }
 
+   /**
+   * The public key in &#x60;&lt;name&gt;:&lt;base64&gt;&#x60; wire format, ready to paste into Nix &#x60;trusted-public-keys&#x60;.
+   * @return publicKeyWire
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "The public key in `<name>:<base64>` wire format, ready to paste into Nix `trusted-public-keys`.")
+  public String getPublicKeyWire() {
+    return publicKeyWire;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,12 +135,13 @@ public class RepositoryEd25519Key implements Serializable {
         Objects.equals(this._default, repositoryEd25519Key._default) &&
         Objects.equals(this.fingerprint, repositoryEd25519Key.fingerprint) &&
         Objects.equals(this.fingerprintShort, repositoryEd25519Key.fingerprintShort) &&
-        Objects.equals(this.publicKey, repositoryEd25519Key.publicKey);
+        Objects.equals(this.publicKey, repositoryEd25519Key.publicKey) &&
+        Objects.equals(this.publicKeyWire, repositoryEd25519Key.publicKeyWire);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, createdAt, _default, fingerprint, fingerprintShort, publicKey);
+    return Objects.hash(active, createdAt, _default, fingerprint, fingerprintShort, publicKey, publicKeyWire);
   }
 
 
@@ -143,6 +156,7 @@ public class RepositoryEd25519Key implements Serializable {
     sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    fingerprintShort: ").append(toIndentedString(fingerprintShort)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    publicKeyWire: ").append(toIndentedString(publicKeyWire)).append("\n");
     sb.append("}");
     return sb.toString();
   }

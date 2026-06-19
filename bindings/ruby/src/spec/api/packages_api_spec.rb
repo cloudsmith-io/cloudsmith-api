@@ -68,6 +68,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
   # @return [PackageDependencies]
   describe 'packages_dependencies test' do
     it 'should work' do
@@ -85,6 +86,7 @@ describe 'PackagesApi' do
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :group_by A field to group packages by. Available options: name, backend_kind.
   # @option opts [BOOLEAN] :hide_subcomponents Whether to hide packages which are subcomponents of another package in the results
+  # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
   # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
   # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind.
   # @return [InlineResponse200]
@@ -102,6 +104,7 @@ describe 'PackagesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
+  # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
   # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
   # @option opts [String] :sort A field for sorting objects in ascending or descending order.
   # @return [Array<Package>]
@@ -148,6 +151,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
   # @return [Package]
   describe 'packages_read test' do
     it 'should work' do
@@ -190,6 +194,7 @@ describe 'PackagesApi' do
   # @param repo 
   # @param identifier 
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
   # @return [PackageStatus]
   describe 'packages_status test' do
     it 'should work' do

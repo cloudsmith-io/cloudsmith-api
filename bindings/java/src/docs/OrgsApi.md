@@ -1592,7 +1592,7 @@ Name | Type | Description  | Notes
 
 <a name="orgsList"></a>
 # **orgsList**
-> List&lt;Organization&gt; orgsList(page, pageSize)
+> List&lt;Organization&gt; orgsList(page, pageSize, sort)
 
 Get a list of all the organizations you are associated with.
 
@@ -1623,8 +1623,9 @@ basic.setPassword("YOUR PASSWORD");
 OrgsApi apiInstance = new OrgsApi();
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, created_at.
 try {
-    List<Organization> result = apiInstance.orgsList(page, pageSize);
+    List<Organization> result = apiInstance.orgsList(page, pageSize, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrgsApi#orgsList");
@@ -1638,6 +1639,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at. | [optional] [default to name]
 
 ### Return type
 
