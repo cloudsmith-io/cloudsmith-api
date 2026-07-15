@@ -1844,7 +1844,7 @@ String owner = "owner_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String query = ""; // String | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
-String sort = "-created_at"; // String | A field for sorting objects in ascending or descending order.
+String sort = "-created_at"; // String | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size.
 try {
     List<Repository> result = apiInstance.reposNamespaceList(owner, page, pageSize, query, sort);
     System.out.println(result);
@@ -1862,7 +1862,7 @@ Name | Type | Description  | Notes
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **query** | **String**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] [default to ]
- **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -created_at]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. | [optional] [default to -created_at]
 
 ### Return type
 

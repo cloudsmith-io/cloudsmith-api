@@ -259,7 +259,7 @@ class DebUpstreamRequestPatch
     return false unless auth_mode_validator.valid?(@auth_mode)
     gpg_verification_validator = EnumAttributeValidator.new('String', ['Allow All', 'Warn on Invalid', 'Reject Invalid'])
     return false unless gpg_verification_validator.valid?(@gpg_verification)
-    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
+    mode_validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy', 'Cache Only'])
     return false unless mode_validator.valid?(@mode)
     true
   end
@@ -287,7 +287,7 @@ class DebUpstreamRequestPatch
   # Custom attribute writer method checking allowed values (enum).
   # @param [Object] mode Object to be assigned
   def mode=(mode)
-    validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy'])
+    validator = EnumAttributeValidator.new('String', ['Proxy Only', 'Cache and Proxy', 'Cache Only'])
     unless validator.valid?(mode)
       fail ArgumentError, 'invalid value for "mode", must be one of #{validator.allowable_values}.'
     end

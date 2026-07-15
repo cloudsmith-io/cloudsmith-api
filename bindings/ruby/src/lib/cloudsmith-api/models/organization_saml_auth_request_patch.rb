@@ -21,8 +21,14 @@ class OrganizationSAMLAuthRequestPatch
   # If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.
   attr_accessor :saml_metadata_inline
 
+  # When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+  attr_accessor :saml_metadata_inline_webapp
+
   # If configured, SAML metadata be retrieved from a remote URL.
   attr_accessor :saml_metadata_url
+
+  # When configured, this SAML metadata URL is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+  attr_accessor :saml_metadata_url_webapp
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
@@ -30,7 +36,9 @@ class OrganizationSAMLAuthRequestPatch
       :'saml_auth_enabled' => :'saml_auth_enabled',
       :'saml_auth_enforced' => :'saml_auth_enforced',
       :'saml_metadata_inline' => :'saml_metadata_inline',
-      :'saml_metadata_url' => :'saml_metadata_url'
+      :'saml_metadata_inline_webapp' => :'saml_metadata_inline_webapp',
+      :'saml_metadata_url' => :'saml_metadata_url',
+      :'saml_metadata_url_webapp' => :'saml_metadata_url_webapp'
     }
   end
 
@@ -40,7 +48,9 @@ class OrganizationSAMLAuthRequestPatch
       :'saml_auth_enabled' => :'BOOLEAN',
       :'saml_auth_enforced' => :'BOOLEAN',
       :'saml_metadata_inline' => :'String',
-      :'saml_metadata_url' => :'String'
+      :'saml_metadata_inline_webapp' => :'String',
+      :'saml_metadata_url' => :'String',
+      :'saml_metadata_url_webapp' => :'String'
     }
   end
 
@@ -64,8 +74,16 @@ class OrganizationSAMLAuthRequestPatch
       self.saml_metadata_inline = attributes[:'saml_metadata_inline']
     end
 
+    if attributes.has_key?(:'saml_metadata_inline_webapp')
+      self.saml_metadata_inline_webapp = attributes[:'saml_metadata_inline_webapp']
+    end
+
     if attributes.has_key?(:'saml_metadata_url')
       self.saml_metadata_url = attributes[:'saml_metadata_url']
+    end
+
+    if attributes.has_key?(:'saml_metadata_url_webapp')
+      self.saml_metadata_url_webapp = attributes[:'saml_metadata_url_webapp']
     end
   end
 
@@ -90,7 +108,9 @@ class OrganizationSAMLAuthRequestPatch
         saml_auth_enabled == o.saml_auth_enabled &&
         saml_auth_enforced == o.saml_auth_enforced &&
         saml_metadata_inline == o.saml_metadata_inline &&
-        saml_metadata_url == o.saml_metadata_url
+        saml_metadata_inline_webapp == o.saml_metadata_inline_webapp &&
+        saml_metadata_url == o.saml_metadata_url &&
+        saml_metadata_url_webapp == o.saml_metadata_url_webapp
   end
 
   # @see the `==` method
@@ -102,7 +122,7 @@ class OrganizationSAMLAuthRequestPatch
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [saml_auth_enabled, saml_auth_enforced, saml_metadata_inline, saml_metadata_url].hash
+    [saml_auth_enabled, saml_auth_enforced, saml_metadata_inline, saml_metadata_inline_webapp, saml_metadata_url, saml_metadata_url_webapp].hash
   end
 
     # Builds the object from hash

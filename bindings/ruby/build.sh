@@ -38,3 +38,5 @@ docker container run --rm -v $self_dir:/local "${swagger_codegen_cli_image:?}" g
     -o /local/src \
     -t /local/templates \
     $common_codegen_options
+
+bash $root_dir/scripts/fix-ruby-escaping.sh

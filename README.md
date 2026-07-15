@@ -40,6 +40,27 @@ To receive configuration help (in order to setup `build.sh` correctly), execute:
 Where `<language>` is the language you're generating bindings for (e.g. `python`).
 
 
+## Local Development
+
+The host toolchain is managed with [mise](https://mise.jdx.dev/) via the top-level `.mise.toml`, so local development and CI use the same tools. With mise installed:
+
+```sh
+mise install   # installs the pinned host tools (ruby, uv, jq)
+```
+
+You also need [Docker](https://www.docker.com/) running — binding generation happens inside the pinned `swagger-codegen-cli` image (see `scripts/common.sh`), which mise does not manage.
+
+Common tasks:
+
+```sh
+mise run build             # regenerate all bindings; ruff autofixes are applied as part of the build
+mise run update-bindings   # bump the version, regenerate the bindings, and open a pull request
+```
+
+Linting is a mandatory step of `build`: `ruff` fixes issues in place and fails the build only if it finds something it cannot fix, so a successful `mise run build` always produces lint-clean bindings.
+
+Binding updates also run automatically through the `Update API bindings` GitHub Actions workflow — daily on a schedule, or on demand via **Run workflow** (optionally with a specific version). It opens a pull request only when the regenerated bindings actually change.
+
 ## Versioning
 
 The version of the generated library bindings is automatically made to match the upstream API. So if the Cloudsmith API is currently `0.22.2`, then the language bindings will also be `0.22.2`.

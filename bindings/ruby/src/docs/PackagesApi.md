@@ -209,7 +209,7 @@ nil (empty response body)
 
 
 # **packages_dependencies**
-> PackageDependencies packages_dependencies(owner, repo, identifier)
+> PackageDependencies packages_dependencies(owner, repo, identifier, opts)
 
 Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
@@ -239,10 +239,13 @@ repo = 'repo_example' # String |
 
 identifier = 'identifier_example' # String | 
 
+opts = { 
+  include_connected_repositories: false # BOOLEAN | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
+}
 
 begin
   #Get the list of dependencies for a package. Transitive dependencies are included where supported.
-  result = api_instance.packages_dependencies(owner, repo, identifier)
+  result = api_instance.packages_dependencies(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_dependencies: #{e}"
@@ -256,6 +259,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
+ **include_connected_repositories** | **BOOLEAN**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 
@@ -306,6 +310,7 @@ opts = {
   page_size: 56, # Integer | Number of results to return per page.
   group_by: 'name', # String | A field to group packages by. Available options: name, backend_kind.
   hide_subcomponents: false, # BOOLEAN | Whether to hide packages which are subcomponents of another package in the results
+  include_connected_repositories: false, # BOOLEAN | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
   query: '', # String | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
   sort: 'name' # String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
 }
@@ -329,6 +334,7 @@ Name | Type | Description  | Notes
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
  **group_by** | **String**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to name]
  **hide_subcomponents** | **BOOLEAN**| Whether to hide packages which are subcomponents of another package in the results | [optional] [default to false]
+ **include_connected_repositories** | **BOOLEAN**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. | [optional] [default to false]
  **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] [default to ]
  **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to name]
 
@@ -379,6 +385,7 @@ repo = 'repo_example' # String |
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
+  include_connected_repositories: false, # BOOLEAN | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
   query: '', # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
   sort: '-date' # String | A field for sorting objects in ascending or descending order.
 }
@@ -400,6 +407,7 @@ Name | Type | Description  | Notes
  **repo** | **String**|  | 
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **include_connected_repositories** | **BOOLEAN**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
  **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
  **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
@@ -555,7 +563,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_read**
-> Package packages_read(owner, repo, identifier)
+> Package packages_read(owner, repo, identifier, opts)
 
 Get a specific package in a repository.
 
@@ -585,10 +593,13 @@ repo = 'repo_example' # String |
 
 identifier = 'identifier_example' # String | 
 
+opts = { 
+  include_connected_repositories: false # BOOLEAN | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
+}
 
 begin
   #Get a specific package in a repository.
-  result = api_instance.packages_read(owner, repo, identifier)
+  result = api_instance.packages_read(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_read: #{e}"
@@ -602,6 +613,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
+ **include_connected_repositories** | **BOOLEAN**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 
@@ -747,7 +759,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_status**
-> PackageStatus packages_status(owner, repo, identifier)
+> PackageStatus packages_status(owner, repo, identifier, opts)
 
 Get the synchronization status for a package.
 
@@ -777,10 +789,13 @@ repo = 'repo_example' # String |
 
 identifier = 'identifier_example' # String | 
 
+opts = { 
+  include_connected_repositories: false # BOOLEAN | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
+}
 
 begin
   #Get the synchronization status for a package.
-  result = api_instance.packages_status(owner, repo, identifier)
+  result = api_instance.packages_status(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_status: #{e}"
@@ -794,6 +809,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **identifier** | **String**|  | 
+ **include_connected_repositories** | **BOOLEAN**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 

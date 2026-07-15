@@ -34,6 +34,7 @@ class FormatSupportUpstream(object):
     """
     swagger_types = {
         'auth_modes': 'list[str]',
+        'cache_only': 'bool',
         'caching': 'bool',
         'indexing': 'bool',
         'indexing_behavior': 'str',
@@ -44,6 +45,7 @@ class FormatSupportUpstream(object):
 
     attribute_map = {
         'auth_modes': 'auth_modes',
+        'cache_only': 'cache_only',
         'caching': 'caching',
         'indexing': 'indexing',
         'indexing_behavior': 'indexing_behavior',
@@ -52,13 +54,14 @@ class FormatSupportUpstream(object):
         'trust': 'trust'
     }
 
-    def __init__(self, auth_modes=None, caching=None, indexing=None, indexing_behavior='Unsupported', proxying=None, signature_verification='Unsupported', trust=None, _configuration=None):  # noqa: E501
+    def __init__(self, auth_modes=None, cache_only=None, caching=None, indexing=None, indexing_behavior='Unsupported', proxying=None, signature_verification='Unsupported', trust=None, _configuration=None):  # noqa: E501
         """FormatSupportUpstream - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._auth_modes = None
+        self._cache_only = None
         self._caching = None
         self._indexing = None
         self._indexing_behavior = None
@@ -68,6 +71,7 @@ class FormatSupportUpstream(object):
         self.discriminator = None
 
         self.auth_modes = auth_modes
+        self.cache_only = cache_only
         self.caching = caching
         self.indexing = indexing
         if indexing_behavior is not None:
@@ -109,6 +113,31 @@ class FormatSupportUpstream(object):
             )
 
         self._auth_modes = auth_modes
+
+    @property
+    def cache_only(self):
+        """Gets the cache_only of this FormatSupportUpstream.
+
+        If true the upstream format supports cache-only mode.
+
+        :return: The cache_only of this FormatSupportUpstream.
+        :rtype: bool
+        """
+        return self._cache_only
+
+    @cache_only.setter
+    def cache_only(self, cache_only):
+        """Sets the cache_only of this FormatSupportUpstream.
+
+        If true the upstream format supports cache-only mode.
+
+        :param cache_only: The cache_only of this FormatSupportUpstream.
+        :type: bool
+        """
+        if self._configuration.client_side_validation and cache_only is None:
+            raise ValueError("Invalid value for `cache_only`, must not be `None`")  # noqa: E501
+
+        self._cache_only = cache_only
 
     @property
     def caching(self):

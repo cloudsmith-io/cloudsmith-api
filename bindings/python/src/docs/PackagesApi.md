@@ -203,7 +203,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_dependencies**
-> PackageDependencies packages_dependencies(owner, repo, identifier)
+> PackageDependencies packages_dependencies(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
 
 Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
@@ -232,10 +232,11 @@ api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
+include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
 
 try:
     # Get the list of dependencies for a package. Transitive dependencies are included where supported.
-    api_response = api_instance.packages_dependencies(owner, repo, identifier)
+    api_response = api_instance.packages_dependencies(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_dependencies: %s\n" % e)
@@ -248,6 +249,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 
@@ -265,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_groups_list**
-> InlineResponse200 packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, query=query, sort=sort)
+> InlineResponse200 packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
 
 Return a list of Package Groups in a repository.
 
@@ -297,12 +299,13 @@ page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 group_by = 'name' # str | A field to group packages by. Available options: name, backend_kind. (optional) (default to name)
 hide_subcomponents = false # bool | Whether to hide packages which are subcomponents of another package in the results (optional) (default to false)
+include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional) (default to false)
 query = '' # str | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional) (default to )
 sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional) (default to name)
 
 try:
     # Return a list of Package Groups in a repository.
-    api_response = api_instance.packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, query=query, sort=sort)
+    api_response = api_instance.packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_groups_list: %s\n" % e)
@@ -318,6 +321,7 @@ Name | Type | Description  | Notes
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **group_by** | **str**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to name]
  **hide_subcomponents** | **bool**| Whether to hide packages which are subcomponents of another package in the results | [optional] [default to false]
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. | [optional] [default to false]
  **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] [default to ]
  **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to name]
 
@@ -337,7 +341,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_list**
-> list[Package] packages_list(owner, repo, page=page, page_size=page_size, query=query, sort=sort)
+> list[Package] packages_list(owner, repo, page=page, page_size=page_size, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
 
 Get a list of all packages associated with repository.
 
@@ -367,12 +371,13 @@ owner = 'owner_example' # str |
 repo = 'repo_example' # str | 
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
+include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
 query = '' # str | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional) (default to )
 sort = '-date' # str | A field for sorting objects in ascending or descending order. (optional) (default to -date)
 
 try:
     # Get a list of all packages associated with repository.
-    api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size, query=query, sort=sort)
+    api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_list: %s\n" % e)
@@ -386,6 +391,7 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
  **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
  **sort** | **str**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
@@ -533,7 +539,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_read**
-> Package packages_read(owner, repo, identifier)
+> Package packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
 
 Get a specific package in a repository.
 
@@ -562,10 +568,11 @@ api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
+include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
 
 try:
     # Get a specific package in a repository.
-    api_response = api_instance.packages_read(owner, repo, identifier)
+    api_response = api_instance.packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_read: %s\n" % e)
@@ -578,6 +585,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 
@@ -719,7 +727,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_status**
-> PackageStatus packages_status(owner, repo, identifier)
+> PackageStatus packages_status(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
 
 Get the synchronization status for a package.
 
@@ -748,10 +756,11 @@ api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration
 owner = 'owner_example' # str | 
 repo = 'repo_example' # str | 
 identifier = 'identifier_example' # str | 
+include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
 
 try:
     # Get the synchronization status for a package.
-    api_response = api_instance.packages_status(owner, repo, identifier)
+    api_response = api_instance.packages_status(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_status: %s\n" % e)
@@ -764,6 +773,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 

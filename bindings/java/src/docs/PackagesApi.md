@@ -208,7 +208,7 @@ null (empty response body)
 
 <a name="packagesDependencies"></a>
 # **packagesDependencies**
-> PackageDependencies packagesDependencies(owner, repo, identifier)
+> PackageDependencies packagesDependencies(owner, repo, identifier, includeConnectedRepositories)
 
 Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
@@ -240,8 +240,9 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
+Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
 try {
-    PackageDependencies result = apiInstance.packagesDependencies(owner, repo, identifier);
+    PackageDependencies result = apiInstance.packagesDependencies(owner, repo, identifier, includeConnectedRepositories);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesDependencies");
@@ -256,6 +257,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
+ **includeConnectedRepositories** | **Boolean**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 
@@ -272,7 +274,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesGroupsList"></a>
 # **packagesGroupsList**
-> InlineResponse200 packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort)
+> InlineResponse200 packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort)
 
 Return a list of Package Groups in a repository.
 
@@ -307,10 +309,11 @@ java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger 
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 String groupBy = "name"; // String | A field to group packages by. Available options: name, backend_kind.
 Boolean hideSubcomponents = false; // Boolean | Whether to hide packages which are subcomponents of another package in the results
+Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
 String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
 String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
 try {
-    InlineResponse200 result = apiInstance.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort);
+    InlineResponse200 result = apiInstance.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesGroupsList");
@@ -328,6 +331,7 @@ Name | Type | Description  | Notes
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **groupBy** | **String**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to name]
  **hideSubcomponents** | **Boolean**| Whether to hide packages which are subcomponents of another package in the results | [optional] [default to false]
+ **includeConnectedRepositories** | **Boolean**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. | [optional] [default to false]
  **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] [default to ]
  **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to name]
 
@@ -346,7 +350,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesList"></a>
 # **packagesList**
-> List&lt;ModelPackage&gt; packagesList(owner, repo, page, pageSize, query, sort)
+> List&lt;ModelPackage&gt; packagesList(owner, repo, page, pageSize, includeConnectedRepositories, query, sort)
 
 Get a list of all packages associated with repository.
 
@@ -379,10 +383,11 @@ String owner = "owner_example"; // String |
 String repo = "repo_example"; // String | 
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
 String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
 String sort = "-date"; // String | A field for sorting objects in ascending or descending order.
 try {
-    List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, query, sort);
+    List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, includeConnectedRepositories, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesList");
@@ -398,6 +403,7 @@ Name | Type | Description  | Notes
  **repo** | **String**|  |
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+ **includeConnectedRepositories** | **Boolean**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
  **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
  **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
@@ -548,7 +554,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesRead"></a>
 # **packagesRead**
-> ModelPackage packagesRead(owner, repo, identifier)
+> ModelPackage packagesRead(owner, repo, identifier, includeConnectedRepositories)
 
 Get a specific package in a repository.
 
@@ -580,8 +586,9 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
+Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
 try {
-    ModelPackage result = apiInstance.packagesRead(owner, repo, identifier);
+    ModelPackage result = apiInstance.packagesRead(owner, repo, identifier, includeConnectedRepositories);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesRead");
@@ -596,6 +603,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
+ **includeConnectedRepositories** | **Boolean**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 
@@ -740,7 +748,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesStatus"></a>
 # **packagesStatus**
-> PackageStatus packagesStatus(owner, repo, identifier)
+> PackageStatus packagesStatus(owner, repo, identifier, includeConnectedRepositories)
 
 Get the synchronization status for a package.
 
@@ -772,8 +780,9 @@ PackagesApi apiInstance = new PackagesApi();
 String owner = "owner_example"; // String | 
 String repo = "repo_example"; // String | 
 String identifier = "identifier_example"; // String | 
+Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
 try {
-    PackageStatus result = apiInstance.packagesStatus(owner, repo, identifier);
+    PackageStatus result = apiInstance.packagesStatus(owner, repo, identifier, includeConnectedRepositories);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesStatus");
@@ -788,6 +797,7 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **identifier** | **String**|  |
+ **includeConnectedRepositories** | **Boolean**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
 
 ### Return type
 

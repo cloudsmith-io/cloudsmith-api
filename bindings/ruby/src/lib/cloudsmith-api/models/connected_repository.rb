@@ -17,6 +17,11 @@ class ConnectedRepository
   # The date and time when the connection was created.
   attr_accessor :created_at
 
+  attr_accessor :disable_reason
+
+  # Human-readable explanation of why this connection is disabled.
+  attr_accessor :disable_reason_text
+
   attr_accessor :is_active
 
   # Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first.
@@ -27,10 +32,34 @@ class ConnectedRepository
   # The slug of the target repository to connect to.
   attr_accessor :target_repository
 
+  class EnumAttributeValidator
+    attr_reader :datatype
+    attr_reader :allowable_values
+
+    def initialize(datatype, allowable_values)
+      @allowable_values = allowable_values.map do |value|
+        case datatype.to_s
+        when /Integer/i
+          value.to_i
+        when /Float/i
+          value.to_f
+        else
+          value
+        end
+      end
+    end
+
+    def valid?(value)
+      !value || allowable_values.include?(value)
+    end
+  end
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'created_at' => :'created_at',
+      :'disable_reason' => :'disable_reason',
+      :'disable_reason_text' => :'disable_reason_text',
       :'is_active' => :'is_active',
       :'priority' => :'priority',
       :'slug_perm' => :'slug_perm',
@@ -42,6 +71,8 @@ class ConnectedRepository
   def self.swagger_types
     {
       :'created_at' => :'DateTime',
+      :'disable_reason' => :'String',
+      :'disable_reason_text' => :'String',
       :'is_active' => :'BOOLEAN',
       :'priority' => :'Integer',
       :'slug_perm' => :'String',
@@ -61,10 +92,20 @@ class ConnectedRepository
       self.created_at = attributes[:'created_at']
     end
 
+    if attributes.has_key?(:'disable_reason')
+      self.disable_reason = attributes[:'disable_reason']
+    else
+      self.disable_reason = 'N/A'
+    end
+
+    if attributes.has_key?(:'disable_reason_text')
+      self.disable_reason_text = attributes[:'disable_reason_text']
+    end
+
     if attributes.has_key?(:'is_active')
       self.is_active = attributes[:'is_active']
     else
-      self.is_active = true
+      self.is_active = false
     end
 
     if attributes.has_key?(:'priority')
@@ -94,8 +135,20 @@ class ConnectedRepository
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
+    disable_reason_validator = EnumAttributeValidator.new('String', ['N/A', 'The connection contains a circular reference'])
+    return false unless disable_reason_validator.valid?(@disable_reason)
     return false if @target_repository.nil?
     true
+  end
+
+  # Custom attribute writer method checking allowed values (enum).
+  # @param [Object] disable_reason Object to be assigned
+  def disable_reason=(disable_reason)
+    validator = EnumAttributeValidator.new('String', ['N/A', 'The connection contains a circular reference'])
+    unless validator.valid?(disable_reason)
+      fail ArgumentError, 'invalid value for "disable_reason", must be one of #{validator.allowable_values}.'
+    end
+    @disable_reason = disable_reason
   end
 
   # Checks equality by comparing each attribute.
@@ -104,6 +157,8 @@ class ConnectedRepository
     return true if self.equal?(o)
     self.class == o.class &&
         created_at == o.created_at &&
+        disable_reason == o.disable_reason &&
+        disable_reason_text == o.disable_reason_text &&
         is_active == o.is_active &&
         priority == o.priority &&
         slug_perm == o.slug_perm &&
@@ -119,7 +174,7 @@ class ConnectedRepository
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [created_at, is_active, priority, slug_perm, target_repository].hash
+    [created_at, disable_reason, disable_reason_text, is_active, priority, slug_perm, target_repository].hash
   end
 
     # Builds the object from hash

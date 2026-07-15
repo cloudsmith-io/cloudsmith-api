@@ -112,7 +112,9 @@ public class CranUpstreamRequest implements Serializable {
   public enum ModeEnum {
     PROXY_ONLY("Proxy Only"),
     
-    CACHE_AND_PROXY("Cache and Proxy");
+    CACHE_AND_PROXY("Cache and Proxy"),
+    
+    CACHE_ONLY("Cache Only");
 
     private String value;
 

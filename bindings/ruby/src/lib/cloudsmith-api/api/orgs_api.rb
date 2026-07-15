@@ -1466,6 +1466,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at, slug. (default to name)
     # @return [Array<Organization>]
     def orgs_list(opts = {})
       data, _status_code, _headers = orgs_list_with_http_info(opts)
@@ -1477,6 +1478,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at, slug.
     # @return [Array<(Array<Organization>, Fixnum, Hash)>] Array<Organization> data, response status code and response headers
     def orgs_list_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1489,6 +1491,7 @@ module CloudsmithApi
       query_params = {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}

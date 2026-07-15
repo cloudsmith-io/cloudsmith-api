@@ -158,6 +158,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (default to false)
     # @return [PackageDependencies]
     def packages_dependencies(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_dependencies_with_http_info(owner, repo, identifier, opts)
@@ -170,6 +171,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
     # @return [Array<(PackageDependencies, Fixnum, Hash)>] PackageDependencies data, response status code and response headers
     def packages_dependencies_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -192,6 +194,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'include_connected_repositories'] = opts[:'include_connected_repositories'] if !opts[:'include_connected_repositories'].nil?
 
       # header parameters
       header_params = {}
@@ -227,6 +230,7 @@ module CloudsmithApi
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :group_by A field to group packages by. Available options: name, backend_kind. (default to name)
     # @option opts [BOOLEAN] :hide_subcomponents Whether to hide packages which are subcomponents of another package in the results (default to false)
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (default to false)
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (default to )
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (default to name)
     # @return [InlineResponse200]
@@ -244,6 +248,7 @@ module CloudsmithApi
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [String] :group_by A field to group packages by. Available options: name, backend_kind.
     # @option opts [BOOLEAN] :hide_subcomponents Whether to hide packages which are subcomponents of another package in the results
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind.
     # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
@@ -268,6 +273,7 @@ module CloudsmithApi
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'group_by'] = opts[:'group_by'] if !opts[:'group_by'].nil?
       query_params[:'hide_subcomponents'] = opts[:'hide_subcomponents'] if !opts[:'hide_subcomponents'].nil?
+      query_params[:'include_connected_repositories'] = opts[:'include_connected_repositories'] if !opts[:'include_connected_repositories'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
@@ -303,6 +309,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (default to false)
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (default to )
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. (default to -date)
     # @return [Array<Package>]
@@ -318,6 +325,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
     # @option opts [String] :sort A field for sorting objects in ascending or descending order.
     # @return [Array<(Array<Package>, Fixnum, Hash)>] Array<Package> data, response status code and response headers
@@ -340,6 +348,7 @@ module CloudsmithApi
       query_params = {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'include_connected_repositories'] = opts[:'include_connected_repositories'] if !opts[:'include_connected_repositories'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
@@ -510,6 +519,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (default to false)
     # @return [Package]
     def packages_read(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_read_with_http_info(owner, repo, identifier, opts)
@@ -522,6 +532,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
     # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
     def packages_read_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -544,6 +555,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'include_connected_repositories'] = opts[:'include_connected_repositories'] if !opts[:'include_connected_repositories'].nil?
 
       # header parameters
       header_params = {}
@@ -708,6 +720,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (default to false)
     # @return [PackageStatus]
     def packages_status(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_status_with_http_info(owner, repo, identifier, opts)
@@ -720,6 +733,7 @@ module CloudsmithApi
     # @param repo 
     # @param identifier 
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
     # @return [Array<(PackageStatus, Fixnum, Hash)>] PackageStatus data, response status code and response headers
     def packages_status_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
@@ -742,6 +756,7 @@ module CloudsmithApi
 
       # query parameters
       query_params = {}
+      query_params[:'include_connected_repositories'] = opts[:'include_connected_repositories'] if !opts[:'include_connected_repositories'].nil?
 
       # header parameters
       header_params = {}

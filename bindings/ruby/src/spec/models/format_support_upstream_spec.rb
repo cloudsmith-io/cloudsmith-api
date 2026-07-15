@@ -42,6 +42,12 @@ describe 'FormatSupportUpstream' do
     end
   end
 
+  describe 'test attribute "cache_only"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "caching"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

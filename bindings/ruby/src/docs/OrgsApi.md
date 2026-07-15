@@ -1615,7 +1615,8 @@ api_instance = CloudsmithApi::OrgsApi.new
 
 opts = { 
   page: 56, # Integer | A page number within the paginated result set.
-  page_size: 56 # Integer | Number of results to return per page.
+  page_size: 56, # Integer | Number of results to return per page.
+  sort: 'name' # String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, created_at, slug.
 }
 
 begin
@@ -1633,6 +1634,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at, slug. | [optional] [default to name]
 
 ### Return type
 

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**active_connection_count** | **int** | Number of active connections for the repository | [optional] 
 **broadcast_state** | **str** | Broadcasting status of a repository. | [optional] [default to 'Off']
 **cdn_url** | **str** | Base URL from which packages and other artifacts are downloaded. | [optional] 
 **content_kind** | **str** | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. | [optional] [default to 'Standard']

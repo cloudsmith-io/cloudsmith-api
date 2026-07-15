@@ -43,3 +43,6 @@ test -z "$language" && {
 } || {
   build_language $language
 }
+
+echo "Applying ruff autofixes to generated sources ..."
+uvx ruff check --fix "$root_dir"

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **auth_modes** | **list[str]** | The authentication modes supported by the upstream format | 
+**cache_only** | **bool** | If true the upstream format supports cache-only mode. | 
 **caching** | **bool** | If true the upstream format supports caching | 
 **indexing** | **bool** | If true the upstream format supports indexing | 
 **indexing_behavior** | **str** | The behavior of the upstream when indexing | [optional] [default to 'Unsupported']
