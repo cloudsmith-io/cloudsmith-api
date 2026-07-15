@@ -4,18 +4,24 @@ Please refer to Cloudsmith's standard guide on [Open-Source Contributing](https:
 
 ## Updating bindings
 
+The host toolchain is managed with [mise](https://mise.jdx.dev/) via the top-level `.mise.toml`, so local and CI environments use the same tools. Run `mise install` once to get them. You also need [Docker](https://www.docker.com/) running, as generation happens inside the pinned `swagger-codegen-cli` image (see `scripts/common.sh`). Linting (`ruff`) runs automatically as part of the build.
+
 ### Manual approach
 
 * Update `package_version` in `scripts/common.sh`
-* Run `./scripts/build.sh` to generate bindings
-* Create a PR specifing API and binding version
+* Run `mise run build` to generate the bindings (ruff autofixes are applied as part of the build)
+* Create a PR specifying the API and binding version
 
 ### Automated approach
 
-* Run `./scripts/update-bindings.sh` to automatically update the bindings.
+* Run `mise run update-bindings` to automatically update the bindings.
 * This will then provide you with the URL for the PR to release the updated bindings.
-* Preferred usage: `./scripts/update-bindings.sh`
 * For full options and usage examples, run: `./scripts/update-bindings.sh --help`
+
+### Scheduled / on-demand automation
+
+* The `Update API bindings` GitHub Actions workflow regenerates the bindings and opens a PR — daily on a schedule, or on demand via **Run workflow** (optionally with a specific version).
+* It only opens a PR when the regenerated bindings actually change.
 
 ## Contributor License Agreement
 

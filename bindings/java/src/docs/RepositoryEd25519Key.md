@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **fingerprint** | **String** | Uppercase hex-encoded SHA-256 fingerprint of the public key. |  [optional]
 **fingerprintShort** | **String** |  |  [optional]
 **publicKey** | **String** | The public key given to repository users. |  [optional]
+**publicKeyWire** | **String** | The public key in &#x60;&lt;name&gt;:&lt;base64&gt;&#x60; wire format, ready to paste into Nix &#x60;trusted-public-keys&#x60;. |  [optional]
 
 
 

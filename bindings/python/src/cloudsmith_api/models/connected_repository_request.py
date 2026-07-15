@@ -44,7 +44,7 @@ class ConnectedRepositoryRequest(object):
         'target_repository': 'target_repository'
     }
 
-    def __init__(self, is_active=True, priority=None, target_repository=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_active=False, priority=None, target_repository=None, _configuration=None):  # noqa: E501
         """ConnectedRepositoryRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()

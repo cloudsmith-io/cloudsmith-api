@@ -36,17 +36,21 @@ class OrganizationSAMLAuth(object):
         'saml_auth_enabled': 'bool',
         'saml_auth_enforced': 'bool',
         'saml_metadata_inline': 'str',
-        'saml_metadata_url': 'str'
+        'saml_metadata_inline_webapp': 'str',
+        'saml_metadata_url': 'str',
+        'saml_metadata_url_webapp': 'str'
     }
 
     attribute_map = {
         'saml_auth_enabled': 'saml_auth_enabled',
         'saml_auth_enforced': 'saml_auth_enforced',
         'saml_metadata_inline': 'saml_metadata_inline',
-        'saml_metadata_url': 'saml_metadata_url'
+        'saml_metadata_inline_webapp': 'saml_metadata_inline_webapp',
+        'saml_metadata_url': 'saml_metadata_url',
+        'saml_metadata_url_webapp': 'saml_metadata_url_webapp'
     }
 
-    def __init__(self, saml_auth_enabled=None, saml_auth_enforced=None, saml_metadata_inline=None, saml_metadata_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, saml_auth_enabled=None, saml_auth_enforced=None, saml_metadata_inline=None, saml_metadata_inline_webapp=None, saml_metadata_url=None, saml_metadata_url_webapp=None, _configuration=None):  # noqa: E501
         """OrganizationSAMLAuth - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -55,15 +59,21 @@ class OrganizationSAMLAuth(object):
         self._saml_auth_enabled = None
         self._saml_auth_enforced = None
         self._saml_metadata_inline = None
+        self._saml_metadata_inline_webapp = None
         self._saml_metadata_url = None
+        self._saml_metadata_url_webapp = None
         self.discriminator = None
 
         self.saml_auth_enabled = saml_auth_enabled
         self.saml_auth_enforced = saml_auth_enforced
         if saml_metadata_inline is not None:
             self.saml_metadata_inline = saml_metadata_inline
+        if saml_metadata_inline_webapp is not None:
+            self.saml_metadata_inline_webapp = saml_metadata_inline_webapp
         if saml_metadata_url is not None:
             self.saml_metadata_url = saml_metadata_url
+        if saml_metadata_url_webapp is not None:
+            self.saml_metadata_url_webapp = saml_metadata_url_webapp
 
     @property
     def saml_auth_enabled(self):
@@ -138,6 +148,32 @@ class OrganizationSAMLAuth(object):
         self._saml_metadata_inline = saml_metadata_inline
 
     @property
+    def saml_metadata_inline_webapp(self):
+        """Gets the saml_metadata_inline_webapp of this OrganizationSAMLAuth.
+
+        When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+
+        :return: The saml_metadata_inline_webapp of this OrganizationSAMLAuth.
+        :rtype: str
+        """
+        return self._saml_metadata_inline_webapp
+
+    @saml_metadata_inline_webapp.setter
+    def saml_metadata_inline_webapp(self, saml_metadata_inline_webapp):
+        """Sets the saml_metadata_inline_webapp of this OrganizationSAMLAuth.
+
+        When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+
+        :param saml_metadata_inline_webapp: The saml_metadata_inline_webapp of this OrganizationSAMLAuth.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                saml_metadata_inline_webapp is not None and len(saml_metadata_inline_webapp) > 32000):
+            raise ValueError("Invalid value for `saml_metadata_inline_webapp`, length must be less than or equal to `32000`")  # noqa: E501
+
+        self._saml_metadata_inline_webapp = saml_metadata_inline_webapp
+
+    @property
     def saml_metadata_url(self):
         """Gets the saml_metadata_url of this OrganizationSAMLAuth.
 
@@ -162,6 +198,32 @@ class OrganizationSAMLAuth(object):
             raise ValueError("Invalid value for `saml_metadata_url`, length must be less than or equal to `254`")  # noqa: E501
 
         self._saml_metadata_url = saml_metadata_url
+
+    @property
+    def saml_metadata_url_webapp(self):
+        """Gets the saml_metadata_url_webapp of this OrganizationSAMLAuth.
+
+        When configured, this SAML metadata URL is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+
+        :return: The saml_metadata_url_webapp of this OrganizationSAMLAuth.
+        :rtype: str
+        """
+        return self._saml_metadata_url_webapp
+
+    @saml_metadata_url_webapp.setter
+    def saml_metadata_url_webapp(self, saml_metadata_url_webapp):
+        """Sets the saml_metadata_url_webapp of this OrganizationSAMLAuth.
+
+        When configured, this SAML metadata URL is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+
+        :param saml_metadata_url_webapp: The saml_metadata_url_webapp of this OrganizationSAMLAuth.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                saml_metadata_url_webapp is not None and len(saml_metadata_url_webapp) > 254):
+            raise ValueError("Invalid value for `saml_metadata_url_webapp`, length must be less than or equal to `254`")  # noqa: E501
+
+        self._saml_metadata_url_webapp = saml_metadata_url_webapp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

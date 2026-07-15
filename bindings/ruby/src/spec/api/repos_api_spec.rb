@@ -395,7 +395,7 @@ describe 'ReposApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [String] :query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
-  # @option opts [String] :sort A field for sorting objects in ascending or descending order.
+  # @option opts [String] :sort A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size.
   # @return [Array<Repository>]
   describe 'repos_namespace_list test' do
     it 'should work' do

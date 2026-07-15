@@ -144,6 +144,30 @@ generate_bindings() {
     fi
 }
 
+run_precommit_to_convergence() {
+    if ! command -v pre-commit &> /dev/null; then
+        log_warning "pre-commit not found; skipping explicit hook run (the git commit hook, if installed, will still run)"
+        return 0
+    fi
+
+    log_info "Running pre-commit hooks to convergence before committing..."
+
+    local attempt=1
+    local max_attempts=5
+    while ! pre-commit run --all-files; do
+        git add .
+        if [ "$attempt" -ge "$max_attempts" ]; then
+            log_error "pre-commit hooks did not converge after $max_attempts attempts; aborting before commit"
+            exit 1
+        fi
+        attempt=$((attempt + 1))
+        log_warning "pre-commit modified files; re-staging and retrying (attempt $attempt)..."
+    done
+
+    git add .
+    log_success "pre-commit hooks passed"
+}
+
 create_and_push_branch() {
     local version="$1"
     local api_version="$2"
@@ -180,15 +204,20 @@ create_and_push_branch() {
         return 1
     fi
     
-    git commit -m "Update API bindings to version $version
+    run_precommit_to_convergence
+
+    if ! git commit -m "Update API bindings to version $version
 
 Binding version: $version
 CloudSmith API version: $api_version
 
 - Updated package_version in scripts/common.sh
 - Regenerated bindings for Python, Ruby, and Java
-- Ready for automated deployment via CircleCI"
-    
+- Ready for automated deployment via CircleCI"; then
+        log_error "git commit failed (a pre-commit hook may have aborted it). Not pushing branch $branch_name."
+        exit 1
+    fi
+
     log_info "Pushing branch to origin..."
     if ! git push origin "$branch_name"; then
         log_warning "Normal push failed, trying force push..."

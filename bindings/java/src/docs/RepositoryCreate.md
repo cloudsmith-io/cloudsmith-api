@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**activeConnectionCount** | **java.math.BigInteger** | Number of active connections for the repository |  [optional]
 **broadcastState** | [**BroadcastStateEnum**](#BroadcastStateEnum) | Broadcasting status of a repository. |  [optional]
 **cdnUrl** | **String** | Base URL from which packages and other artifacts are downloaded. |  [optional]
 **contentKind** | [**ContentKindEnum**](#ContentKindEnum) | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. |  [optional]

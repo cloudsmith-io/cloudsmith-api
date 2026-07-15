@@ -2913,7 +2913,7 @@ class ReposApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
-        :param str sort: A field for sorting objects in ascending or descending order.
+        :param str sort: A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size.
         :return: list[Repository]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2939,7 +2939,7 @@ class ReposApi(object):
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
         :param str query: A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
-        :param str sort: A field for sorting objects in ascending or descending order.
+        :param str sort: A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size.
         :return: list[Repository]
                  If the method is called asynchronously,
                  returns the request thread.

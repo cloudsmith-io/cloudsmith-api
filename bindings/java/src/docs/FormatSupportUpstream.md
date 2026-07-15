@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **authModes** | [**List&lt;AuthModesEnum&gt;**](#List&lt;AuthModesEnum&gt;) | The authentication modes supported by the upstream format | 
+**cacheOnly** | **Boolean** | If true the upstream format supports cache-only mode. | 
 **caching** | **Boolean** | If true the upstream format supports caching | 
 **indexing** | **Boolean** | If true the upstream format supports indexing | 
 **indexingBehavior** | [**IndexingBehaviorEnum**](#IndexingBehaviorEnum) | The behavior of the upstream when indexing |  [optional]

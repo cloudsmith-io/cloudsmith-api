@@ -35,7 +35,7 @@ public class ConnectedRepositoryRequestPatch implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @SerializedName("is_active")
-  private Boolean isActive = true;
+  private Boolean isActive = false;
 
   @SerializedName("priority")
   private java.math.BigInteger priority = null;

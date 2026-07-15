@@ -89,6 +89,9 @@ public class FormatSupportUpstream implements Serializable {
   @SerializedName("auth_modes")
   private List<AuthModesEnum> authModes = new ArrayList<>();
 
+  @SerializedName("cache_only")
+  private Boolean cacheOnly = null;
+
   @SerializedName("caching")
   private Boolean caching = null;
 
@@ -231,6 +234,25 @@ public class FormatSupportUpstream implements Serializable {
     this.authModes = authModes;
   }
 
+  public FormatSupportUpstream cacheOnly(Boolean cacheOnly) {
+    this.cacheOnly = cacheOnly;
+    return this;
+  }
+
+   /**
+   * If true the upstream format supports cache-only mode.
+   * @return cacheOnly
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "If true the upstream format supports cache-only mode.")
+  public Boolean isCacheOnly() {
+    return cacheOnly;
+  }
+
+  public void setCacheOnly(Boolean cacheOnly) {
+    this.cacheOnly = cacheOnly;
+  }
+
   public FormatSupportUpstream caching(Boolean caching) {
     this.caching = caching;
     return this;
@@ -354,6 +376,7 @@ public class FormatSupportUpstream implements Serializable {
     }
     FormatSupportUpstream formatSupportUpstream = (FormatSupportUpstream) o;
     return Objects.equals(this.authModes, formatSupportUpstream.authModes) &&
+        Objects.equals(this.cacheOnly, formatSupportUpstream.cacheOnly) &&
         Objects.equals(this.caching, formatSupportUpstream.caching) &&
         Objects.equals(this.indexing, formatSupportUpstream.indexing) &&
         Objects.equals(this.indexingBehavior, formatSupportUpstream.indexingBehavior) &&
@@ -364,7 +387,7 @@ public class FormatSupportUpstream implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authModes, caching, indexing, indexingBehavior, proxying, signatureVerification, trust);
+    return Objects.hash(authModes, cacheOnly, caching, indexing, indexingBehavior, proxying, signatureVerification, trust);
   }
 
 
@@ -374,6 +397,7 @@ public class FormatSupportUpstream implements Serializable {
     sb.append("class FormatSupportUpstream {\n");
     
     sb.append("    authModes: ").append(toIndentedString(authModes)).append("\n");
+    sb.append("    cacheOnly: ").append(toIndentedString(cacheOnly)).append("\n");
     sb.append("    caching: ").append(toIndentedString(caching)).append("\n");
     sb.append("    indexing: ").append(toIndentedString(indexing)).append("\n");
     sb.append("    indexingBehavior: ").append(toIndentedString(indexingBehavior)).append("\n");

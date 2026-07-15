@@ -3998,7 +3998,7 @@ public class ReposApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
-     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
+     * @param sort A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. (optional, default to -created_at)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -4092,7 +4092,7 @@ public class ReposApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
-     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
+     * @param sort A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. (optional, default to -created_at)
      * @return List&lt;Repository&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4108,7 +4108,7 @@ public class ReposApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
-     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
+     * @param sort A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. (optional, default to -created_at)
      * @return ApiResponse&lt;List&lt;Repository&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4125,7 +4125,7 @@ public class ReposApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param query A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional, default to )
-     * @param sort A field for sorting objects in ascending or descending order. (optional, default to -created_at)
+     * @param sort A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. (optional, default to -created_at)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

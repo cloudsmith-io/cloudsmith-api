@@ -49,6 +49,7 @@ Name | Value
 ---- | -----
 PROXY_ONLY | &quot;Proxy Only&quot;
 CACHE_AND_PROXY | &quot;Cache and Proxy&quot;
+CACHE_ONLY | &quot;Cache Only&quot;
 
 
 

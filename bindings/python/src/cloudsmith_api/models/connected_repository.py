@@ -34,6 +34,8 @@ class ConnectedRepository(object):
     """
     swagger_types = {
         'created_at': 'datetime',
+        'disable_reason': 'str',
+        'disable_reason_text': 'str',
         'is_active': 'bool',
         'priority': 'int',
         'slug_perm': 'str',
@@ -42,19 +44,23 @@ class ConnectedRepository(object):
 
     attribute_map = {
         'created_at': 'created_at',
+        'disable_reason': 'disable_reason',
+        'disable_reason_text': 'disable_reason_text',
         'is_active': 'is_active',
         'priority': 'priority',
         'slug_perm': 'slug_perm',
         'target_repository': 'target_repository'
     }
 
-    def __init__(self, created_at=None, is_active=True, priority=None, slug_perm=None, target_repository=None, _configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, disable_reason='N/A', disable_reason_text=None, is_active=False, priority=None, slug_perm=None, target_repository=None, _configuration=None):  # noqa: E501
         """ConnectedRepository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._created_at = None
+        self._disable_reason = None
+        self._disable_reason_text = None
         self._is_active = None
         self._priority = None
         self._slug_perm = None
@@ -63,6 +69,10 @@ class ConnectedRepository(object):
 
         if created_at is not None:
             self.created_at = created_at
+        if disable_reason is not None:
+            self.disable_reason = disable_reason
+        if disable_reason_text is not None:
+            self.disable_reason_text = disable_reason_text
         if is_active is not None:
             self.is_active = is_active
         if priority is not None:
@@ -93,6 +103,57 @@ class ConnectedRepository(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def disable_reason(self):
+        """Gets the disable_reason of this ConnectedRepository.
+
+
+        :return: The disable_reason of this ConnectedRepository.
+        :rtype: str
+        """
+        return self._disable_reason
+
+    @disable_reason.setter
+    def disable_reason(self, disable_reason):
+        """Sets the disable_reason of this ConnectedRepository.
+
+
+        :param disable_reason: The disable_reason of this ConnectedRepository.
+        :type: str
+        """
+        allowed_values = ["N/A", "The connection contains a circular reference"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                disable_reason not in allowed_values):
+            raise ValueError(
+                "Invalid value for `disable_reason` ({0}), must be one of {1}"  # noqa: E501
+                .format(disable_reason, allowed_values)
+            )
+
+        self._disable_reason = disable_reason
+
+    @property
+    def disable_reason_text(self):
+        """Gets the disable_reason_text of this ConnectedRepository.
+
+        Human-readable explanation of why this connection is disabled.
+
+        :return: The disable_reason_text of this ConnectedRepository.
+        :rtype: str
+        """
+        return self._disable_reason_text
+
+    @disable_reason_text.setter
+    def disable_reason_text(self, disable_reason_text):
+        """Sets the disable_reason_text of this ConnectedRepository.
+
+        Human-readable explanation of why this connection is disabled.
+
+        :param disable_reason_text: The disable_reason_text of this ConnectedRepository.
+        :type: str
+        """
+
+        self._disable_reason_text = disable_reason_text
 
     @property
     def is_active(self):

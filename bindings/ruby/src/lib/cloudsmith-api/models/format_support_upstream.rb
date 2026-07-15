@@ -18,6 +18,9 @@ class FormatSupportUpstream
   # The authentication modes supported by the upstream format
   attr_accessor :auth_modes
 
+  # If true the upstream format supports cache-only mode.
+  attr_accessor :cache_only
+
   # If true the upstream format supports caching
   attr_accessor :caching
 
@@ -62,6 +65,7 @@ class FormatSupportUpstream
   def self.attribute_map
     {
       :'auth_modes' => :'auth_modes',
+      :'cache_only' => :'cache_only',
       :'caching' => :'caching',
       :'indexing' => :'indexing',
       :'indexing_behavior' => :'indexing_behavior',
@@ -75,6 +79,7 @@ class FormatSupportUpstream
   def self.swagger_types
     {
       :'auth_modes' => :'Array<String>',
+      :'cache_only' => :'BOOLEAN',
       :'caching' => :'BOOLEAN',
       :'indexing' => :'BOOLEAN',
       :'indexing_behavior' => :'String',
@@ -96,6 +101,10 @@ class FormatSupportUpstream
       if (value = attributes[:'auth_modes']).is_a?(Array)
         self.auth_modes = value
       end
+    end
+
+    if attributes.has_key?(:'cache_only')
+      self.cache_only = attributes[:'cache_only']
     end
 
     if attributes.has_key?(:'caching')
@@ -135,6 +144,10 @@ class FormatSupportUpstream
       invalid_properties.push('invalid value for "auth_modes", auth_modes cannot be nil.')
     end
 
+    if @cache_only.nil?
+      invalid_properties.push('invalid value for "cache_only", cache_only cannot be nil.')
+    end
+
     if @caching.nil?
       invalid_properties.push('invalid value for "caching", caching cannot be nil.')
     end
@@ -158,6 +171,7 @@ class FormatSupportUpstream
   # @return true if the model is valid
   def valid?
     return false if @auth_modes.nil?
+    return false if @cache_only.nil?
     return false if @caching.nil?
     return false if @indexing.nil?
     indexing_behavior_validator = EnumAttributeValidator.new('String', ['Unsupported', 'Ahead-of-time (static) indexing', 'Just-in-time (dynamic) indexing'])
@@ -195,6 +209,7 @@ class FormatSupportUpstream
     return true if self.equal?(o)
     self.class == o.class &&
         auth_modes == o.auth_modes &&
+        cache_only == o.cache_only &&
         caching == o.caching &&
         indexing == o.indexing &&
         indexing_behavior == o.indexing_behavior &&
@@ -212,7 +227,7 @@ class FormatSupportUpstream
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [auth_modes, caching, indexing, indexing_behavior, proxying, signature_verification, trust].hash
+    [auth_modes, cache_only, caching, indexing, indexing_behavior, proxying, signature_verification, trust].hash
   end
 
     # Builds the object from hash

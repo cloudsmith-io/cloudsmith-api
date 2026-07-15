@@ -38,8 +38,61 @@ public class ConnectedRepository implements Serializable {
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
 
+  /**
+   * Gets or Sets disableReason
+   */
+  @JsonAdapter(DisableReasonEnum.Adapter.class)
+  public enum DisableReasonEnum {
+    N_A("N/A"),
+    
+    THE_CONNECTION_CONTAINS_A_CIRCULAR_REFERENCE("The connection contains a circular reference");
+
+    private String value;
+
+    DisableReasonEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DisableReasonEnum fromValue(String text) {
+      for (DisableReasonEnum b : DisableReasonEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<DisableReasonEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DisableReasonEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DisableReasonEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DisableReasonEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("disable_reason")
+  private DisableReasonEnum disableReason = DisableReasonEnum.N_A;
+
+  @SerializedName("disable_reason_text")
+  private String disableReasonText = null;
+
   @SerializedName("is_active")
-  private Boolean isActive = true;
+  private Boolean isActive = false;
 
   @SerializedName("priority")
   private java.math.BigInteger priority = null;
@@ -58,6 +111,24 @@ public class ConnectedRepository implements Serializable {
   @ApiModelProperty(value = "The date and time when the connection was created.")
   public OffsetDateTime getCreatedAt() {
     return createdAt;
+  }
+
+   /**
+   * Get disableReason
+   * @return disableReason
+  **/
+  @ApiModelProperty(value = "")
+  public DisableReasonEnum getDisableReason() {
+    return disableReason;
+  }
+
+   /**
+   * Human-readable explanation of why this connection is disabled.
+   * @return disableReasonText
+  **/
+  @ApiModelProperty(value = "Human-readable explanation of why this connection is disabled.")
+  public String getDisableReasonText() {
+    return disableReasonText;
   }
 
   public ConnectedRepository isActive(Boolean isActive) {
@@ -137,6 +208,8 @@ public class ConnectedRepository implements Serializable {
     }
     ConnectedRepository connectedRepository = (ConnectedRepository) o;
     return Objects.equals(this.createdAt, connectedRepository.createdAt) &&
+        Objects.equals(this.disableReason, connectedRepository.disableReason) &&
+        Objects.equals(this.disableReasonText, connectedRepository.disableReasonText) &&
         Objects.equals(this.isActive, connectedRepository.isActive) &&
         Objects.equals(this.priority, connectedRepository.priority) &&
         Objects.equals(this.slugPerm, connectedRepository.slugPerm) &&
@@ -145,7 +218,7 @@ public class ConnectedRepository implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, isActive, priority, slugPerm, targetRepository);
+    return Objects.hash(createdAt, disableReason, disableReasonText, isActive, priority, slugPerm, targetRepository);
   }
 
 
@@ -155,6 +228,8 @@ public class ConnectedRepository implements Serializable {
     sb.append("class ConnectedRepository {\n");
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
+    sb.append("    disableReasonText: ").append(toIndentedString(disableReasonText)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");

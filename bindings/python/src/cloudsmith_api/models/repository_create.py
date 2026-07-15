@@ -33,6 +33,7 @@ class RepositoryCreate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'active_connection_count': 'int',
         'broadcast_state': 'str',
         'cdn_url': 'str',
         'content_kind': 'str',
@@ -107,6 +108,7 @@ class RepositoryCreate(object):
     }
 
     attribute_map = {
+        'active_connection_count': 'active_connection_count',
         'broadcast_state': 'broadcast_state',
         'cdn_url': 'cdn_url',
         'content_kind': 'content_kind',
@@ -180,12 +182,13 @@ class RepositoryCreate(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, broadcast_state='Off', cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, generic_package_index_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, npm_upstream_tags_take_precedence=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_count_excl_subcomponents=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, self_webapp_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, active_connection_count=None, broadcast_state='Off', cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, generic_package_index_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, npm_upstream_tags_take_precedence=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_count_excl_subcomponents=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, self_webapp_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryCreate - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._active_connection_count = None
         self._broadcast_state = None
         self._cdn_url = None
         self._content_kind = None
@@ -259,6 +262,8 @@ class RepositoryCreate(object):
         self._view_statistics = None
         self.discriminator = None
 
+        if active_connection_count is not None:
+            self.active_connection_count = active_connection_count
         if broadcast_state is not None:
             self.broadcast_state = broadcast_state
         if cdn_url is not None:
@@ -400,6 +405,29 @@ class RepositoryCreate(object):
             self.user_entitlements_enabled = user_entitlements_enabled
         if view_statistics is not None:
             self.view_statistics = view_statistics
+
+    @property
+    def active_connection_count(self):
+        """Gets the active_connection_count of this RepositoryCreate.
+
+        Number of active connections for the repository
+
+        :return: The active_connection_count of this RepositoryCreate.
+        :rtype: int
+        """
+        return self._active_connection_count
+
+    @active_connection_count.setter
+    def active_connection_count(self, active_connection_count):
+        """Sets the active_connection_count of this RepositoryCreate.
+
+        Number of active connections for the repository
+
+        :param active_connection_count: The active_connection_count of this RepositoryCreate.
+        :type: int
+        """
+
+        self._active_connection_count = active_connection_count
 
     @property
     def broadcast_state(self):

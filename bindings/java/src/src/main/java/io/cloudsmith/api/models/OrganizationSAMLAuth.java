@@ -43,8 +43,14 @@ public class OrganizationSAMLAuth implements Serializable {
   @SerializedName("saml_metadata_inline")
   private String samlMetadataInline = null;
 
+  @SerializedName("saml_metadata_inline_webapp")
+  private String samlMetadataInlineWebapp = null;
+
   @SerializedName("saml_metadata_url")
   private String samlMetadataUrl = null;
+
+  @SerializedName("saml_metadata_url_webapp")
+  private String samlMetadataUrlWebapp = null;
 
   public OrganizationSAMLAuth samlAuthEnabled(Boolean samlAuthEnabled) {
     this.samlAuthEnabled = samlAuthEnabled;
@@ -102,6 +108,24 @@ public class OrganizationSAMLAuth implements Serializable {
     this.samlMetadataInline = samlMetadataInline;
   }
 
+  public OrganizationSAMLAuth samlMetadataInlineWebapp(String samlMetadataInlineWebapp) {
+    this.samlMetadataInlineWebapp = samlMetadataInlineWebapp;
+    return this;
+  }
+
+   /**
+   * When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+   * @return samlMetadataInlineWebapp
+  **/
+ @Size(max=32000)  @ApiModelProperty(value = "When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.")
+  public String getSamlMetadataInlineWebapp() {
+    return samlMetadataInlineWebapp;
+  }
+
+  public void setSamlMetadataInlineWebapp(String samlMetadataInlineWebapp) {
+    this.samlMetadataInlineWebapp = samlMetadataInlineWebapp;
+  }
+
   public OrganizationSAMLAuth samlMetadataUrl(String samlMetadataUrl) {
     this.samlMetadataUrl = samlMetadataUrl;
     return this;
@@ -120,6 +144,24 @@ public class OrganizationSAMLAuth implements Serializable {
     this.samlMetadataUrl = samlMetadataUrl;
   }
 
+  public OrganizationSAMLAuth samlMetadataUrlWebapp(String samlMetadataUrlWebapp) {
+    this.samlMetadataUrlWebapp = samlMetadataUrlWebapp;
+    return this;
+  }
+
+   /**
+   * When configured, this SAML metadata URL is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.
+   * @return samlMetadataUrlWebapp
+  **/
+ @Size(max=254)  @ApiModelProperty(value = "When configured, this SAML metadata URL is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.")
+  public String getSamlMetadataUrlWebapp() {
+    return samlMetadataUrlWebapp;
+  }
+
+  public void setSamlMetadataUrlWebapp(String samlMetadataUrlWebapp) {
+    this.samlMetadataUrlWebapp = samlMetadataUrlWebapp;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,12 +175,14 @@ public class OrganizationSAMLAuth implements Serializable {
     return Objects.equals(this.samlAuthEnabled, organizationSAMLAuth.samlAuthEnabled) &&
         Objects.equals(this.samlAuthEnforced, organizationSAMLAuth.samlAuthEnforced) &&
         Objects.equals(this.samlMetadataInline, organizationSAMLAuth.samlMetadataInline) &&
-        Objects.equals(this.samlMetadataUrl, organizationSAMLAuth.samlMetadataUrl);
+        Objects.equals(this.samlMetadataInlineWebapp, organizationSAMLAuth.samlMetadataInlineWebapp) &&
+        Objects.equals(this.samlMetadataUrl, organizationSAMLAuth.samlMetadataUrl) &&
+        Objects.equals(this.samlMetadataUrlWebapp, organizationSAMLAuth.samlMetadataUrlWebapp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(samlAuthEnabled, samlAuthEnforced, samlMetadataInline, samlMetadataUrl);
+    return Objects.hash(samlAuthEnabled, samlAuthEnforced, samlMetadataInline, samlMetadataInlineWebapp, samlMetadataUrl, samlMetadataUrlWebapp);
   }
 
 
@@ -150,7 +194,9 @@ public class OrganizationSAMLAuth implements Serializable {
     sb.append("    samlAuthEnabled: ").append(toIndentedString(samlAuthEnabled)).append("\n");
     sb.append("    samlAuthEnforced: ").append(toIndentedString(samlAuthEnforced)).append("\n");
     sb.append("    samlMetadataInline: ").append(toIndentedString(samlMetadataInline)).append("\n");
+    sb.append("    samlMetadataInlineWebapp: ").append(toIndentedString(samlMetadataInlineWebapp)).append("\n");
     sb.append("    samlMetadataUrl: ").append(toIndentedString(samlMetadataUrl)).append("\n");
+    sb.append("    samlMetadataUrlWebapp: ").append(toIndentedString(samlMetadataUrlWebapp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

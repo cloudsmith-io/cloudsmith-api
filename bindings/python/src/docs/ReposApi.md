@@ -1787,7 +1787,7 @@ owner = 'owner_example' # str |
 page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 query = '' # str | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional) (default to )
-sort = '-created_at' # str | A field for sorting objects in ascending or descending order. (optional) (default to -created_at)
+sort = '-created_at' # str | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. (optional) (default to -created_at)
 
 try:
     # Get a list of all repositories within a namespace.
@@ -1805,7 +1805,7 @@ Name | Type | Description  | Notes
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
  **query** | **str**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] [default to ]
- **sort** | **str**| A field for sorting objects in ascending or descending order. | [optional] [default to -created_at]
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. | [optional] [default to -created_at]
 
 ### Return type
 

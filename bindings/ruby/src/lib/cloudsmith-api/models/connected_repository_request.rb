@@ -51,7 +51,7 @@ class ConnectedRepositoryRequest
     if attributes.has_key?(:'is_active')
       self.is_active = attributes[:'is_active']
     else
-      self.is_active = true
+      self.is_active = false
     end
 
     if attributes.has_key?(:'priority')

@@ -1844,7 +1844,7 @@ opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
   query: '', # String | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
-  sort: '-created_at' # String | A field for sorting objects in ascending or descending order.
+  sort: '-created_at' # String | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size.
 }
 
 begin
@@ -1864,7 +1864,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
  **query** | **String**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] [default to ]
- **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -created_at]
+ **sort** | **String**| A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. | [optional] [default to -created_at]
 
 ### Return type
 

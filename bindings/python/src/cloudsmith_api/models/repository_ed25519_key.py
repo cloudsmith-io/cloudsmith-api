@@ -38,7 +38,8 @@ class RepositoryEd25519Key(object):
         'default': 'bool',
         'fingerprint': 'str',
         'fingerprint_short': 'str',
-        'public_key': 'str'
+        'public_key': 'str',
+        'public_key_wire': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class RepositoryEd25519Key(object):
         'default': 'default',
         'fingerprint': 'fingerprint',
         'fingerprint_short': 'fingerprint_short',
-        'public_key': 'public_key'
+        'public_key': 'public_key',
+        'public_key_wire': 'public_key_wire'
     }
 
-    def __init__(self, active=None, created_at=None, default=None, fingerprint=None, fingerprint_short=None, public_key=None, _configuration=None):  # noqa: E501
+    def __init__(self, active=None, created_at=None, default=None, fingerprint=None, fingerprint_short=None, public_key=None, public_key_wire=None, _configuration=None):  # noqa: E501
         """RepositoryEd25519Key - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class RepositoryEd25519Key(object):
         self._fingerprint = None
         self._fingerprint_short = None
         self._public_key = None
+        self._public_key_wire = None
         self.discriminator = None
 
         if active is not None:
@@ -76,6 +79,8 @@ class RepositoryEd25519Key(object):
             self.fingerprint_short = fingerprint_short
         if public_key is not None:
             self.public_key = public_key
+        if public_key_wire is not None:
+            self.public_key_wire = public_key_wire
 
     @property
     def active(self):
@@ -216,6 +221,32 @@ class RepositoryEd25519Key(object):
             raise ValueError("Invalid value for `public_key`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._public_key = public_key
+
+    @property
+    def public_key_wire(self):
+        """Gets the public_key_wire of this RepositoryEd25519Key.
+
+        The public key in `<name>:<base64>` wire format, ready to paste into Nix `trusted-public-keys`.
+
+        :return: The public_key_wire of this RepositoryEd25519Key.
+        :rtype: str
+        """
+        return self._public_key_wire
+
+    @public_key_wire.setter
+    def public_key_wire(self, public_key_wire):
+        """Sets the public_key_wire of this RepositoryEd25519Key.
+
+        The public key in `<name>:<base64>` wire format, ready to paste into Nix `trusted-public-keys`.
+
+        :param public_key_wire: The public_key_wire of this RepositoryEd25519Key.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                public_key_wire is not None and len(public_key_wire) < 1):
+            raise ValueError("Invalid value for `public_key_wire`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._public_key_wire = public_key_wire
 
     def to_dict(self):
         """Returns the model properties as a dict"""

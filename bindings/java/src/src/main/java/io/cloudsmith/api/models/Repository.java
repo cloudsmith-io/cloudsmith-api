@@ -39,6 +39,9 @@ import javax.validation.Valid;
 public class Repository implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("active_connection_count")
+  private java.math.BigInteger activeConnectionCount = null;
+
   /**
    * Broadcasting status of a repository.
    */
@@ -888,6 +891,15 @@ public class Repository implements Serializable {
 
   @SerializedName("view_statistics")
   private ViewStatisticsEnum viewStatistics = ViewStatisticsEnum.READ;
+
+   /**
+   * Number of active connections for the repository
+   * @return activeConnectionCount
+  **/
+  @ApiModelProperty(value = "Number of active connections for the repository")
+  public java.math.BigInteger getActiveConnectionCount() {
+    return activeConnectionCount;
+  }
 
   public Repository broadcastState(BroadcastStateEnum broadcastState) {
     this.broadcastState = broadcastState;
@@ -1974,7 +1986,8 @@ public class Repository implements Serializable {
       return false;
     }
     Repository repository = (Repository) o;
-    return Objects.equals(this.broadcastState, repository.broadcastState) &&
+    return Objects.equals(this.activeConnectionCount, repository.activeConnectionCount) &&
+        Objects.equals(this.broadcastState, repository.broadcastState) &&
         Objects.equals(this.cdnUrl, repository.cdnUrl) &&
         Objects.equals(this.contentKind, repository.contentKind) &&
         Objects.equals(this.contextualAuthRealm, repository.contextualAuthRealm) &&
@@ -2049,7 +2062,7 @@ public class Repository implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadcastState, cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, genericPackageIndexEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, npmUpstreamTagsTakePrecedence, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageCountExclSubcomponents, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, selfWebappUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(activeConnectionCount, broadcastState, cdnUrl, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, createdAt, defaultPrivilege, deleteOwn, deletePackages, deletedAt, description, distributes, dockerRefreshTokensEnabled, ecdsaKeys, enforceEula, genericPackageIndexEnabled, gpgKeys, indexFiles, isOpenSource, isPrivate, isPublic, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, namespace, namespaceUrl, npmUpstreamTagsTakePrecedence, nugetNativeSigningEnabled, numDownloads, numPolicyViolatedPackages, numQuarantinedPackages, openSourceLicense, openSourceProjectUrl, packageCount, packageCountExclSubcomponents, packageGroupCount, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryType, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, selfHtmlUrl, selfUrl, selfWebappUrl, showSetupAll, size, sizeStr, slug, slugPerm, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -2058,6 +2071,7 @@ public class Repository implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Repository {\n");
     
+    sb.append("    activeConnectionCount: ").append(toIndentedString(activeConnectionCount)).append("\n");
     sb.append("    broadcastState: ").append(toIndentedString(broadcastState)).append("\n");
     sb.append("    cdnUrl: ").append(toIndentedString(cdnUrl)).append("\n");
     sb.append("    contentKind: ").append(toIndentedString(contentKind)).append("\n");

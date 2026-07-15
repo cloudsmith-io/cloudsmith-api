@@ -1,0 +1,18 @@
+# Host toolchain for working with this repo. Note: binding generation runs
+# inside the pinned swaggerapi/swagger-codegen-cli Docker image (see
+# scripts/common.sh), so Docker remains a separate prerequisite that mise does
+# not manage. The CircleCI test matrix pins its own runtimes via cimg images.
+
+[tools]
+ruby = "3.4"
+python = "3.12"
+uv = "latest"
+jq = "latest"
+
+[tasks.build]
+description = "Generate all API bindings and apply ruff autofixes (requires Docker)"
+run = "./scripts/build.sh"
+
+[tasks.update-bindings]
+description = "Bump the version, regenerate bindings, and open a PR"
+run = "./scripts/update-bindings.sh"

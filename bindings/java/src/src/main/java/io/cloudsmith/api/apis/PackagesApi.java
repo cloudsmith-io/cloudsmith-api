@@ -444,12 +444,13 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesDependenciesCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesDependenciesCall(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -460,6 +461,8 @@ public class PackagesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (includeConnectedRepositories != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("include_connected_repositories", includeConnectedRepositories));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -497,18 +500,18 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesDependenciesValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesDependenciesValidateBeforeCall(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, identifier };
-            Method method = this.getClass().getMethod("packagesDependenciesWithHttpInfo", String.class, String.class, String.class);
+            Object[] parameterValues = { owner, repo, identifier, includeConnectedRepositories };
+            Method method = this.getClass().getMethod("packagesDependenciesWithHttpInfo", String.class, String.class, String.class, Boolean.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = packagesDependenciesCall(owner, repo, identifier, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = packagesDependenciesCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -530,11 +533,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @return PackageDependencies
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageDependencies packagesDependencies(String owner, String repo, String identifier) throws ApiException {
-        ApiResponse<PackageDependencies> resp = packagesDependenciesWithHttpInfo(owner, repo, identifier);
+    public PackageDependencies packagesDependencies(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
+        ApiResponse<PackageDependencies> resp = packagesDependenciesWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
         return resp.getData();
     }
 
@@ -544,11 +548,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @return ApiResponse&lt;PackageDependencies&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageDependencies> packagesDependenciesWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
-        com.squareup.okhttp.Call call = packagesDependenciesValidateBeforeCall(owner, repo, identifier, null, null);
+    public ApiResponse<PackageDependencies> packagesDependenciesWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
+        com.squareup.okhttp.Call call = packagesDependenciesValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, null, null);
         Type localVarReturnType = new TypeToken<PackageDependencies>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -559,11 +564,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesDependenciesAsync(String owner, String repo, String identifier, final ApiCallback<PackageDependencies> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesDependenciesAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<PackageDependencies> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -584,7 +590,7 @@ public class PackagesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = packagesDependenciesValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = packagesDependenciesValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PackageDependencies>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -597,6 +603,7 @@ public class PackagesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
      * @param hideSubcomponents Whether to hide packages which are subcomponents of another package in the results (optional, default to false)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
      * @param progressListener Progress listener
@@ -604,7 +611,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesGroupsListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesGroupsListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -622,6 +629,8 @@ public class PackagesApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("group_by", groupBy));
         if (hideSubcomponents != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("hide_subcomponents", hideSubcomponents));
+        if (includeConnectedRepositories != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("include_connected_repositories", includeConnectedRepositories));
         if (query != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
         if (sort != null)
@@ -663,18 +672,18 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesGroupsListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesGroupsListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort };
-            Method method = this.getClass().getMethod("packagesGroupsListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, Boolean.class, String.class, String.class);
+            Object[] parameterValues = { owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort };
+            Method method = this.getClass().getMethod("packagesGroupsListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, Boolean.class, Boolean.class, String.class, String.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = packagesGroupsListCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = packagesGroupsListCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -699,13 +708,14 @@ public class PackagesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
      * @param hideSubcomponents Whether to hide packages which are subcomponents of another package in the results (optional, default to false)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
      * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 packagesGroupsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, String query, String sort) throws ApiException {
-        ApiResponse<InlineResponse200> resp = packagesGroupsListWithHttpInfo(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort);
+    public InlineResponse200 packagesGroupsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort) throws ApiException {
+        ApiResponse<InlineResponse200> resp = packagesGroupsListWithHttpInfo(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
         return resp.getData();
     }
 
@@ -718,13 +728,14 @@ public class PackagesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
      * @param hideSubcomponents Whether to hide packages which are subcomponents of another package in the results (optional, default to false)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
      * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> packagesGroupsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String groupBy,  Boolean hideSubcomponents,  String query,  String sort) throws ApiException {
-        com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort, null, null);
+    public ApiResponse<InlineResponse200> packagesGroupsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String groupBy,  Boolean hideSubcomponents,  Boolean includeConnectedRepositories,  String query,  String sort) throws ApiException {
+        com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -738,13 +749,14 @@ public class PackagesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @param groupBy A field to group packages by. Available options: name, backend_kind. (optional, default to name)
      * @param hideSubcomponents Whether to hide packages which are subcomponents of another package in the results (optional, default to false)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesGroupsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, String query, String sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesGroupsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -765,7 +777,7 @@ public class PackagesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, query, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -776,6 +788,7 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @param progressListener Progress listener
@@ -783,7 +796,7 @@ public class PackagesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean includeConnectedRepositories, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -797,6 +810,8 @@ public class PackagesApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
         if (pageSize != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("page_size", pageSize));
+        if (includeConnectedRepositories != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("include_connected_repositories", includeConnectedRepositories));
         if (query != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
         if (sort != null)
@@ -838,18 +853,18 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean includeConnectedRepositories, String query, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, page, pageSize, query, sort };
-            Method method = this.getClass().getMethod("packagesListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, String.class, String.class);
+            Object[] parameterValues = { owner, repo, page, pageSize, includeConnectedRepositories, query, sort };
+            Method method = this.getClass().getMethod("packagesListWithHttpInfo", String.class, String.class, java.math.BigInteger.class, java.math.BigInteger.class, Boolean.class, String.class, String.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = packagesListCall(owner, repo, page, pageSize, query, sort, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = packagesListCall(owner, repo, page, pageSize, includeConnectedRepositories, query, sort, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -872,13 +887,14 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @return List&lt;ModelPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ModelPackage> packagesList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort) throws ApiException {
-        ApiResponse<List<ModelPackage>> resp = packagesListWithHttpInfo(owner, repo, page, pageSize, query, sort);
+    public List<ModelPackage> packagesList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean includeConnectedRepositories, String query, String sort) throws ApiException {
+        ApiResponse<List<ModelPackage>> resp = packagesListWithHttpInfo(owner, repo, page, pageSize, includeConnectedRepositories, query, sort);
         return resp.getData();
     }
 
@@ -889,13 +905,14 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @return ApiResponse&lt;List&lt;ModelPackage&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ModelPackage>> packagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String query,  String sort) throws ApiException {
-        com.squareup.okhttp.Call call = packagesListValidateBeforeCall(owner, repo, page, pageSize, query, sort, null, null);
+    public ApiResponse<List<ModelPackage>> packagesListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  Boolean includeConnectedRepositories,  String query,  String sort) throws ApiException {
+        com.squareup.okhttp.Call call = packagesListValidateBeforeCall(owner, repo, page, pageSize, includeConnectedRepositories, query, sort, null, null);
         Type localVarReturnType = new TypeToken<List<ModelPackage>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -907,13 +924,14 @@ public class PackagesApi {
      * @param repo  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String query, String sort, final ApiCallback<List<ModelPackage>> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, Boolean includeConnectedRepositories, String query, String sort, final ApiCallback<List<ModelPackage>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -934,7 +952,7 @@ public class PackagesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = packagesListValidateBeforeCall(owner, repo, page, pageSize, query, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = packagesListValidateBeforeCall(owner, repo, page, pageSize, includeConnectedRepositories, query, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ModelPackage>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1252,12 +1270,13 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesReadCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesReadCall(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1268,6 +1287,8 @@ public class PackagesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (includeConnectedRepositories != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("include_connected_repositories", includeConnectedRepositories));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1305,18 +1326,18 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesReadValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesReadValidateBeforeCall(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, identifier };
-            Method method = this.getClass().getMethod("packagesReadWithHttpInfo", String.class, String.class, String.class);
+            Object[] parameterValues = { owner, repo, identifier, includeConnectedRepositories };
+            Method method = this.getClass().getMethod("packagesReadWithHttpInfo", String.class, String.class, String.class, Boolean.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = packagesReadCall(owner, repo, identifier, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = packagesReadCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -1338,11 +1359,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @return ModelPackage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelPackage packagesRead(String owner, String repo, String identifier) throws ApiException {
-        ApiResponse<ModelPackage> resp = packagesReadWithHttpInfo(owner, repo, identifier);
+    public ModelPackage packagesRead(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
+        ApiResponse<ModelPackage> resp = packagesReadWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
         return resp.getData();
     }
 
@@ -1352,11 +1374,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @return ApiResponse&lt;ModelPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelPackage> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
-        com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, null, null);
+    public ApiResponse<ModelPackage> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
+        com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, null, null);
         Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1367,11 +1390,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, final ApiCallback<ModelPackage> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<ModelPackage> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1392,7 +1416,7 @@ public class PackagesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1702,12 +1726,13 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call packagesStatusCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call packagesStatusCall(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1718,6 +1743,8 @@ public class PackagesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (includeConnectedRepositories != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("include_connected_repositories", includeConnectedRepositories));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1755,18 +1782,18 @@ public class PackagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call packagesStatusValidateBeforeCall(String owner, String repo, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call packagesStatusValidateBeforeCall(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { owner, repo, identifier };
-            Method method = this.getClass().getMethod("packagesStatusWithHttpInfo", String.class, String.class, String.class);
+            Object[] parameterValues = { owner, repo, identifier, includeConnectedRepositories };
+            Method method = this.getClass().getMethod("packagesStatusWithHttpInfo", String.class, String.class, String.class, Boolean.class);
             Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = packagesStatusCall(owner, repo, identifier, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = packagesStatusCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -1788,11 +1815,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @return PackageStatus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PackageStatus packagesStatus(String owner, String repo, String identifier) throws ApiException {
-        ApiResponse<PackageStatus> resp = packagesStatusWithHttpInfo(owner, repo, identifier);
+    public PackageStatus packagesStatus(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
+        ApiResponse<PackageStatus> resp = packagesStatusWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
         return resp.getData();
     }
 
@@ -1802,11 +1830,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @return ApiResponse&lt;PackageStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PackageStatus> packagesStatusWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier) throws ApiException {
-        com.squareup.okhttp.Call call = packagesStatusValidateBeforeCall(owner, repo, identifier, null, null);
+    public ApiResponse<PackageStatus> packagesStatusWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
+        com.squareup.okhttp.Call call = packagesStatusValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, null, null);
         Type localVarReturnType = new TypeToken<PackageStatus>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1817,11 +1846,12 @@ public class PackagesApi {
      * @param owner  (required)
      * @param repo  (required)
      * @param identifier  (required)
+     * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesStatusAsync(String owner, String repo, String identifier, final ApiCallback<PackageStatus> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesStatusAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<PackageStatus> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1842,7 +1872,7 @@ public class PackagesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = packagesStatusValidateBeforeCall(owner, repo, identifier, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = packagesStatusValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PackageStatus>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

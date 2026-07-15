@@ -280,6 +280,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :return: PackageDependencies
                  If the method is called asynchronously,
                  returns the request thread.
@@ -304,12 +305,13 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :return: PackageDependencies
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier']  # noqa: E501
+        all_params = ['owner', 'repo', 'identifier', 'include_connected_repositories']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -348,6 +350,8 @@ class PackagesApi(object):
             path_params['identifier'] = params['identifier']  # noqa: E501
 
         query_params = []
+        if 'include_connected_repositories' in params:
+            query_params.append(('include_connected_repositories', params['include_connected_repositories']))  # noqa: E501
 
         header_params = {}
 
@@ -398,6 +402,7 @@ class PackagesApi(object):
         :param int page_size: Number of results to return per page.
         :param str group_by: A field to group packages by. Available options: name, backend_kind.
         :param bool hide_subcomponents: Whether to hide packages which are subcomponents of another package in the results
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
         :return: InlineResponse200
@@ -427,6 +432,7 @@ class PackagesApi(object):
         :param int page_size: Number of results to return per page.
         :param str group_by: A field to group packages by. Available options: name, backend_kind.
         :param bool hide_subcomponents: Whether to hide packages which are subcomponents of another package in the results
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
         :return: InlineResponse200
@@ -434,7 +440,7 @@ class PackagesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'page', 'page_size', 'group_by', 'hide_subcomponents', 'query', 'sort']  # noqa: E501
+        all_params = ['owner', 'repo', 'page', 'page_size', 'group_by', 'hide_subcomponents', 'include_connected_repositories', 'query', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -475,6 +481,8 @@ class PackagesApi(object):
             query_params.append(('group_by', params['group_by']))  # noqa: E501
         if 'hide_subcomponents' in params:
             query_params.append(('hide_subcomponents', params['hide_subcomponents']))  # noqa: E501
+        if 'include_connected_repositories' in params:
+            query_params.append(('include_connected_repositories', params['include_connected_repositories']))  # noqa: E501
         if 'query' in params:
             query_params.append(('query', params['query']))  # noqa: E501
         if 'sort' in params:
@@ -527,6 +535,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order.
         :return: list[Package]
@@ -554,6 +563,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param int page: A page number within the paginated result set.
         :param int page_size: Number of results to return per page.
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order.
         :return: list[Package]
@@ -561,7 +571,7 @@ class PackagesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'page', 'page_size', 'query', 'sort']  # noqa: E501
+        all_params = ['owner', 'repo', 'page', 'page_size', 'include_connected_repositories', 'query', 'sort']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -598,6 +608,8 @@ class PackagesApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'page_size' in params:
             query_params.append(('page_size', params['page_size']))  # noqa: E501
+        if 'include_connected_repositories' in params:
+            query_params.append(('include_connected_repositories', params['include_connected_repositories']))  # noqa: E501
         if 'query' in params:
             query_params.append(('query', params['query']))  # noqa: E501
         if 'sort' in params:
@@ -887,6 +899,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
@@ -911,12 +924,13 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :return: Package
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier']  # noqa: E501
+        all_params = ['owner', 'repo', 'identifier', 'include_connected_repositories']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -955,6 +969,8 @@ class PackagesApi(object):
             path_params['identifier'] = params['identifier']  # noqa: E501
 
         query_params = []
+        if 'include_connected_repositories' in params:
+            query_params.append(('include_connected_repositories', params['include_connected_repositories']))  # noqa: E501
 
         header_params = {}
 
@@ -1232,6 +1248,7 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :return: PackageStatus
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1256,12 +1273,13 @@ class PackagesApi(object):
         :param str owner: (required)
         :param str repo: (required)
         :param str identifier: (required)
+        :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
         :return: PackageStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['owner', 'repo', 'identifier']  # noqa: E501
+        all_params = ['owner', 'repo', 'identifier', 'include_connected_repositories']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1300,6 +1318,8 @@ class PackagesApi(object):
             path_params['identifier'] = params['identifier']  # noqa: E501
 
         query_params = []
+        if 'include_connected_repositories' in params:
+            query_params.append(('include_connected_repositories', params['include_connected_repositories']))  # noqa: E501
 
         header_params = {}
 
