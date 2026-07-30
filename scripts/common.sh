@@ -34,6 +34,12 @@ summary="Cloudsmith API"
 
 common_codegen_options="--git-user-id $git_user_id --git-repo-id $git_repo_id"
 
+# Codegen writes into a bind-mounted directory. On Linux the container's root
+# user owns the result, which blocks the post-generation fixups (Ruby
+# re-escaping, ruff autofixes) from rewriting those files, so run as the
+# invoking user instead.
+codegen_run_user="$(id -u):$(id -g)"
+
 function die {
   echo "$@"
   exit 1

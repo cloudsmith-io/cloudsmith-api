@@ -45,7 +45,7 @@ cat > $build_json <<EOC
 }
 EOC
 
-docker container run --rm -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
+docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
     --type-mappings Integer=java.math.BigInteger \
     -c /local/src/build.json \
     -i $openapi_url \
