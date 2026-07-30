@@ -24,7 +24,7 @@ cat > $build_json <<EOC
 }
 EOC
 
-docker container run --rm -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
+docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
     -c /local/src/build.json \
     -i $openapi_url \
     -l python \

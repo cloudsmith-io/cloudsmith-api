@@ -36,13 +36,13 @@ build_language() {
   $root_dir/bindings/$language/build.sh
 }
 
-test -z "$language" && {
+if test -z "$language"; then
   for I in $root_dir/bindings/*; do
     build_language $(basename $I)
   done
-} || {
+else
   build_language $language
-}
+fi
 
 echo "Applying ruff autofixes to generated sources ..."
 uvx ruff check --fix "$root_dir"
