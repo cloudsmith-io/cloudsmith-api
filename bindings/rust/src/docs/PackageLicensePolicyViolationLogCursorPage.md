@@ -1,0 +1,12 @@
+# PackageLicensePolicyViolationLogCursorPage
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**next** | **String** |  | [optional] [default to null]
+**previous** | **String** |  | [optional] [default to null]
+**results** | [**Vec<::models::PackageLicensePolicyViolationLog>**](PackageLicensePolicyViolationLog.md) |  | [default to null]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

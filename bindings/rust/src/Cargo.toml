@@ -1,0 +1,20 @@
+[package]
+name = "cloudsmith_api"
+version = "2.0.16"
+authors = ["Cloudsmith Ltd <support@cloudsmith.io>"]
+license = "Apache-2.0"
+homepage = "https://cloudsmith.com/"
+repository = "https://github.com/cloudsmith-io/cloudsmith-api"
+
+[dependencies]
+serde = "1.0"
+serde_derive = "1.0"
+serde_yaml = "0.7"
+serde_json = "1.0"
+base64 = "~0.7.0"
+futures = "0.1.16"
+hyper = "0.11.6"
+url = "1.5"
+
+[dev-dependencies]
+tokio-core = "*"
