@@ -900,7 +900,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-        :return: Package
+        :return: PackageDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -925,7 +925,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-        :return: Package
+        :return: PackageDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -997,7 +997,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Package',  # noqa: E501
+            response_type='PackageDetail',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

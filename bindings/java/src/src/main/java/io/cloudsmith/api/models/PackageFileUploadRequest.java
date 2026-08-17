@@ -109,7 +109,7 @@ public class PackageFileUploadRequest implements Serializable {
    * @return filename
   **/
   @NotNull
- @Size(min=1)  @ApiModelProperty(required = true, value = "Filename for the package file upload.")
+ @Size(min=1,max=255)  @ApiModelProperty(required = true, value = "Filename for the package file upload.")
   public String getFilename() {
     return filename;
   }

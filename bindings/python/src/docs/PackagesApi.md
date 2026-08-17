@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_read**
-> Package packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
+> PackageDetail packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
 
 Get a specific package in a repository.
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageDetail**](PackageDetail.md)
 
 ### Authorization
 

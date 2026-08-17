@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,8 +38,14 @@ public class PackageCopyRequest implements Serializable {
   @SerializedName("destination")
   private String destination = null;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public PackageCopyRequest destination(String destination) {
     this.destination = destination;
@@ -59,6 +66,15 @@ public class PackageCopyRequest implements Serializable {
     this.destination = destination;
   }
 
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
+
   public PackageCopyRequest republish(Boolean republish) {
     this.republish = republish;
     return this;
@@ -77,6 +93,25 @@ public class PackageCopyRequest implements Serializable {
     this.republish = republish;
   }
 
+  public PackageCopyRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -88,12 +123,14 @@ public class PackageCopyRequest implements Serializable {
     }
     PackageCopyRequest packageCopyRequest = (PackageCopyRequest) o;
     return Objects.equals(this.destination, packageCopyRequest.destination) &&
-        Objects.equals(this.republish, packageCopyRequest.republish);
+        Objects.equals(this.isMalwareDetected, packageCopyRequest.isMalwareDetected) &&
+        Objects.equals(this.republish, packageCopyRequest.republish) &&
+        Objects.equals(this.vulnerabilityCounts, packageCopyRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, republish);
+    return Objects.hash(destination, isMalwareDetected, republish, vulnerabilityCounts);
   }
 
 
@@ -103,7 +140,9 @@ public class PackageCopyRequest implements Serializable {
     sb.append("class PackageCopyRequest {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

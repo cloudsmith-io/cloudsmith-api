@@ -34,43 +34,52 @@ class PackageLicenseRequestPatch(object):
     """
     swagger_types = {
         'action': 'str',
+        'is_malware_detected': 'bool',
         'license_notes': 'str',
         'license_override': 'str',
         'license_url': 'str',
-        'spdx_license': 'str'
+        'spdx_license': 'str',
+        'vulnerability_counts': 'WebOSVSeverityCounts'
     }
 
     attribute_map = {
         'action': 'action',
+        'is_malware_detected': 'is_malware_detected',
         'license_notes': 'license_notes',
         'license_override': 'license_override',
         'license_url': 'license_url',
-        'spdx_license': 'spdx_license'
+        'spdx_license': 'spdx_license',
+        'vulnerability_counts': 'vulnerability_counts'
     }
 
-    def __init__(self, action='Update', license_notes=None, license_override='None', license_url=None, spdx_license=None, _configuration=None):  # noqa: E501
+    def __init__(self, action='Update', is_malware_detected=None, license_notes=None, license_override='None', license_url=None, spdx_license=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
         """PackageLicenseRequestPatch - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._action = None
+        self._is_malware_detected = None
         self._license_notes = None
         self._license_override = None
         self._license_url = None
         self._spdx_license = None
+        self._vulnerability_counts = None
         self.discriminator = None
 
         if action is not None:
             self.action = action
+        if is_malware_detected is not None:
+            self.is_malware_detected = is_malware_detected
         if license_notes is not None:
             self.license_notes = license_notes
         if license_override is not None:
             self.license_override = license_override
         if license_url is not None:
             self.license_url = license_url
-        if spdx_license is not None:
-            self.spdx_license = spdx_license
+        self.spdx_license = spdx_license
+        if vulnerability_counts is not None:
+            self.vulnerability_counts = vulnerability_counts
 
     @property
     def action(self):
@@ -99,6 +108,29 @@ class PackageLicenseRequestPatch(object):
             )
 
         self._action = action
+
+    @property
+    def is_malware_detected(self):
+        """Gets the is_malware_detected of this PackageLicenseRequestPatch.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :return: The is_malware_detected of this PackageLicenseRequestPatch.
+        :rtype: bool
+        """
+        return self._is_malware_detected
+
+    @is_malware_detected.setter
+    def is_malware_detected(self, is_malware_detected):
+        """Sets the is_malware_detected of this PackageLicenseRequestPatch.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :param is_malware_detected: The is_malware_detected of this PackageLicenseRequestPatch.
+        :type: bool
+        """
+
+        self._is_malware_detected = is_malware_detected
 
     @property
     def license_notes(self):
@@ -194,6 +226,8 @@ class PackageLicenseRequestPatch(object):
         :param spdx_license: The spdx_license of this PackageLicenseRequestPatch.
         :type: str
         """
+        if self._configuration.client_side_validation and spdx_license is None:
+            raise ValueError("Invalid value for `spdx_license`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 spdx_license is not None and len(spdx_license) > 255):
             raise ValueError("Invalid value for `spdx_license`, length must be less than or equal to `255`")  # noqa: E501
@@ -202,6 +236,27 @@ class PackageLicenseRequestPatch(object):
             raise ValueError("Invalid value for `spdx_license`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._spdx_license = spdx_license
+
+    @property
+    def vulnerability_counts(self):
+        """Gets the vulnerability_counts of this PackageLicenseRequestPatch.
+
+
+        :return: The vulnerability_counts of this PackageLicenseRequestPatch.
+        :rtype: WebOSVSeverityCounts
+        """
+        return self._vulnerability_counts
+
+    @vulnerability_counts.setter
+    def vulnerability_counts(self, vulnerability_counts):
+        """Sets the vulnerability_counts of this PackageLicenseRequestPatch.
+
+
+        :param vulnerability_counts: The vulnerability_counts of this PackageLicenseRequestPatch.
+        :type: WebOSVSeverityCounts
+        """
+
+        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_read**
-> Package packages_read(owner, repo, identifier, opts)
+> PackageDetail packages_read(owner, repo, identifier, opts)
 
 Get a specific package in a repository.
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageDetail**](PackageDetail.md)
 
 ### Authorization
 

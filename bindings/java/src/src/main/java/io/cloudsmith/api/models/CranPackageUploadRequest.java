@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,6 +38,9 @@ public class CranPackageUploadRequest implements Serializable {
   @SerializedName("architecture")
   private String architecture = null;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -48,6 +52,9 @@ public class CranPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public CranPackageUploadRequest architecture(String architecture) {
     this.architecture = architecture;
@@ -65,6 +72,15 @@ public class CranPackageUploadRequest implements Serializable {
 
   public void setArchitecture(String architecture) {
     this.architecture = architecture;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
   public CranPackageUploadRequest packageFile(String packageFile) {
@@ -140,6 +156,25 @@ public class CranPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public CranPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,15 +186,17 @@ public class CranPackageUploadRequest implements Serializable {
     }
     CranPackageUploadRequest cranPackageUploadRequest = (CranPackageUploadRequest) o;
     return Objects.equals(this.architecture, cranPackageUploadRequest.architecture) &&
+        Objects.equals(this.isMalwareDetected, cranPackageUploadRequest.isMalwareDetected) &&
         Objects.equals(this.packageFile, cranPackageUploadRequest.packageFile) &&
         Objects.equals(this.rVersion, cranPackageUploadRequest.rVersion) &&
         Objects.equals(this.republish, cranPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, cranPackageUploadRequest.tags);
+        Objects.equals(this.tags, cranPackageUploadRequest.tags) &&
+        Objects.equals(this.vulnerabilityCounts, cranPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, packageFile, rVersion, republish, tags);
+    return Objects.hash(architecture, isMalwareDetected, packageFile, rVersion, republish, tags, vulnerabilityCounts);
   }
 
 
@@ -169,10 +206,12 @@ public class CranPackageUploadRequest implements Serializable {
     sb.append("class CranPackageUploadRequest {\n");
     
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    rVersion: ").append(toIndentedString(rVersion)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -37,6 +38,9 @@ public class RpmPackageUploadRequest implements Serializable {
   @SerializedName("distribution")
   private String distribution = null;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -45,6 +49,9 @@ public class RpmPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public RpmPackageUploadRequest distribution(String distribution) {
     this.distribution = distribution;
@@ -63,6 +70,15 @@ public class RpmPackageUploadRequest implements Serializable {
 
   public void setDistribution(String distribution) {
     this.distribution = distribution;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
   public RpmPackageUploadRequest packageFile(String packageFile) {
@@ -120,6 +136,25 @@ public class RpmPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public RpmPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,14 +166,16 @@ public class RpmPackageUploadRequest implements Serializable {
     }
     RpmPackageUploadRequest rpmPackageUploadRequest = (RpmPackageUploadRequest) o;
     return Objects.equals(this.distribution, rpmPackageUploadRequest.distribution) &&
+        Objects.equals(this.isMalwareDetected, rpmPackageUploadRequest.isMalwareDetected) &&
         Objects.equals(this.packageFile, rpmPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, rpmPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, rpmPackageUploadRequest.tags);
+        Objects.equals(this.tags, rpmPackageUploadRequest.tags) &&
+        Objects.equals(this.vulnerabilityCounts, rpmPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(distribution, packageFile, republish, tags);
+    return Objects.hash(distribution, isMalwareDetected, packageFile, republish, tags, vulnerabilityCounts);
   }
 
 
@@ -148,9 +185,11 @@ public class RpmPackageUploadRequest implements Serializable {
     sb.append("class RpmPackageUploadRequest {\n");
     
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

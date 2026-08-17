@@ -14,6 +14,9 @@ require 'date'
 
 module CloudsmithApi
 class NpmPackageUploadRequest
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   # The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.
   attr_accessor :npm_dist_tag
 
@@ -26,23 +29,29 @@ class NpmPackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
+  attr_accessor :vulnerability_counts
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'is_malware_detected' => :'is_malware_detected',
       :'npm_dist_tag' => :'npm_dist_tag',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
-      :'tags' => :'tags'
+      :'tags' => :'tags',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'is_malware_detected' => :'BOOLEAN',
       :'npm_dist_tag' => :'String',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
-      :'tags' => :'String'
+      :'tags' => :'String',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -53,6 +62,10 @@ class NpmPackageUploadRequest
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
+    end
 
     if attributes.has_key?(:'npm_dist_tag')
       self.npm_dist_tag = attributes[:'npm_dist_tag']
@@ -70,6 +83,10 @@ class NpmPackageUploadRequest
 
     if attributes.has_key?(:'tags')
       self.tags = attributes[:'tags']
+    end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -96,10 +113,12 @@ class NpmPackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        is_malware_detected == o.is_malware_detected &&
         npm_dist_tag == o.npm_dist_tag &&
         package_file == o.package_file &&
         republish == o.republish &&
-        tags == o.tags
+        tags == o.tags &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -111,7 +130,7 @@ class NpmPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [npm_dist_tag, package_file, republish, tags].hash
+    [is_malware_detected, npm_dist_tag, package_file, republish, tags, vulnerability_counts].hash
   end
 
     # Builds the object from hash

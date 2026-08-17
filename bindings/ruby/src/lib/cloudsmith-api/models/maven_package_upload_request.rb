@@ -23,6 +23,9 @@ class MavenPackageUploadRequest
   # Artifact's group ID.
   attr_accessor :group_id
 
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   # The ivy file is an XML file describing the dependencies of the project.
   attr_accessor :ivy_file
 
@@ -57,12 +60,15 @@ class MavenPackageUploadRequest
   # The raw version for this package.
   attr_accessor :version
 
+  attr_accessor :vulnerability_counts
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'artifact_id' => :'artifact_id',
       :'extra_files' => :'extra_files',
       :'group_id' => :'group_id',
+      :'is_malware_detected' => :'is_malware_detected',
       :'ivy_file' => :'ivy_file',
       :'javadoc_file' => :'javadoc_file',
       :'package_file' => :'package_file',
@@ -74,7 +80,8 @@ class MavenPackageUploadRequest
       :'sources_file' => :'sources_file',
       :'tags' => :'tags',
       :'tests_file' => :'tests_file',
-      :'version' => :'version'
+      :'version' => :'version',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
@@ -84,6 +91,7 @@ class MavenPackageUploadRequest
       :'artifact_id' => :'String',
       :'extra_files' => :'Array<String>',
       :'group_id' => :'String',
+      :'is_malware_detected' => :'BOOLEAN',
       :'ivy_file' => :'String',
       :'javadoc_file' => :'String',
       :'package_file' => :'String',
@@ -95,7 +103,8 @@ class MavenPackageUploadRequest
       :'sources_file' => :'String',
       :'tags' => :'String',
       :'tests_file' => :'String',
-      :'version' => :'String'
+      :'version' => :'String',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -119,6 +128,10 @@ class MavenPackageUploadRequest
 
     if attributes.has_key?(:'group_id')
       self.group_id = attributes[:'group_id']
+    end
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'ivy_file')
@@ -168,6 +181,10 @@ class MavenPackageUploadRequest
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
     end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
+    end
   end
 
   # Show invalid properties with the reasons. Usually used together with valid?
@@ -196,6 +213,7 @@ class MavenPackageUploadRequest
         artifact_id == o.artifact_id &&
         extra_files == o.extra_files &&
         group_id == o.group_id &&
+        is_malware_detected == o.is_malware_detected &&
         ivy_file == o.ivy_file &&
         javadoc_file == o.javadoc_file &&
         package_file == o.package_file &&
@@ -207,7 +225,8 @@ class MavenPackageUploadRequest
         sources_file == o.sources_file &&
         tags == o.tags &&
         tests_file == o.tests_file &&
-        version == o.version
+        version == o.version &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -219,7 +238,7 @@ class MavenPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [artifact_id, extra_files, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sbt_version, scala_version, sources_file, tags, tests_file, version].hash
+    [artifact_id, extra_files, group_id, is_malware_detected, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sbt_version, scala_version, sources_file, tags, tests_file, version, vulnerability_counts].hash
   end
 
     # Builds the object from hash

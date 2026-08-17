@@ -64,6 +64,7 @@ class ConanPackageUpload(object):
         'is_deleteable': 'bool',
         'is_downloadable': 'bool',
         'is_hidden': 'bool',
+        'is_malware_detected': 'bool',
         'is_moveable': 'bool',
         'is_quarantinable': 'bool',
         'is_quarantined': 'bool',
@@ -114,12 +115,14 @@ class ConanPackageUpload(object):
         'sync_progress': 'int',
         'tags_automatic': 'Tags',
         'tags_immutable': 'Tags',
+        'tags_static': 'dict(str, list[str])',
         'type_display': 'str',
         'uploaded_at': 'datetime',
         'uploader': 'str',
         'uploader_url': 'str',
         'version': 'str',
         'version_orig': 'str',
+        'vulnerability_counts': 'WebOSVSeverityCounts',
         'vulnerability_scan_results_url': 'str'
     }
 
@@ -155,6 +158,7 @@ class ConanPackageUpload(object):
         'is_deleteable': 'is_deleteable',
         'is_downloadable': 'is_downloadable',
         'is_hidden': 'is_hidden',
+        'is_malware_detected': 'is_malware_detected',
         'is_moveable': 'is_moveable',
         'is_quarantinable': 'is_quarantinable',
         'is_quarantined': 'is_quarantined',
@@ -205,16 +209,18 @@ class ConanPackageUpload(object):
         'sync_progress': 'sync_progress',
         'tags_automatic': 'tags_automatic',
         'tags_immutable': 'tags_immutable',
+        'tags_static': 'tags_static',
         'type_display': 'type_display',
         'uploaded_at': 'uploaded_at',
         'uploader': 'uploader',
         'uploader_url': 'uploader_url',
         'version': 'version',
         'version_orig': 'version_orig',
+        'vulnerability_counts': 'vulnerability_counts',
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_hidden=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, osi_approved=None, package_type=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, self_webapp_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, conan_channel=None, conan_prefix=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_hidden=None, is_malware_detected=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, osi_approved=None, package_type=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, self_webapp_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags_automatic=None, tags_immutable=None, tags_static=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_counts=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """ConanPackageUpload - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -251,6 +257,7 @@ class ConanPackageUpload(object):
         self._is_deleteable = None
         self._is_downloadable = None
         self._is_hidden = None
+        self._is_malware_detected = None
         self._is_moveable = None
         self._is_quarantinable = None
         self._is_quarantined = None
@@ -301,12 +308,14 @@ class ConanPackageUpload(object):
         self._sync_progress = None
         self._tags_automatic = None
         self._tags_immutable = None
+        self._tags_static = None
         self._type_display = None
         self._uploaded_at = None
         self._uploader = None
         self._uploader_url = None
         self._version = None
         self._version_orig = None
+        self._vulnerability_counts = None
         self._vulnerability_scan_results_url = None
         self.discriminator = None
 
@@ -372,6 +381,8 @@ class ConanPackageUpload(object):
             self.is_downloadable = is_downloadable
         if is_hidden is not None:
             self.is_hidden = is_hidden
+        if is_malware_detected is not None:
+            self.is_malware_detected = is_malware_detected
         if is_moveable is not None:
             self.is_moveable = is_moveable
         if is_quarantinable is not None:
@@ -472,6 +483,8 @@ class ConanPackageUpload(object):
             self.tags_automatic = tags_automatic
         if tags_immutable is not None:
             self.tags_immutable = tags_immutable
+        if tags_static is not None:
+            self.tags_static = tags_static
         if type_display is not None:
             self.type_display = type_display
         if uploaded_at is not None:
@@ -484,6 +497,8 @@ class ConanPackageUpload(object):
             self.version = version
         if version_orig is not None:
             self.version_orig = version_orig
+        if vulnerability_counts is not None:
+            self.vulnerability_counts = vulnerability_counts
         if vulnerability_scan_results_url is not None:
             self.vulnerability_scan_results_url = vulnerability_scan_results_url
 
@@ -1177,6 +1192,29 @@ class ConanPackageUpload(object):
         """
 
         self._is_hidden = is_hidden
+
+    @property
+    def is_malware_detected(self):
+        """Gets the is_malware_detected of this ConanPackageUpload.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :return: The is_malware_detected of this ConanPackageUpload.
+        :rtype: bool
+        """
+        return self._is_malware_detected
+
+    @is_malware_detected.setter
+    def is_malware_detected(self, is_malware_detected):
+        """Sets the is_malware_detected of this ConanPackageUpload.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :param is_malware_detected: The is_malware_detected of this ConanPackageUpload.
+        :type: bool
+        """
+
+        self._is_malware_detected = is_malware_detected
 
     @property
     def is_moveable(self):
@@ -2314,6 +2352,29 @@ class ConanPackageUpload(object):
         self._tags_immutable = tags_immutable
 
     @property
+    def tags_static(self):
+        """Gets the tags_static of this ConanPackageUpload.
+
+        All static tags on the package, grouped by context. Static tags are derived from the package's properties at request time and carry a 'context' (rather than a tag type). Includes format-specific badges and the package's architecture, subtype, and extension.
+
+        :return: The tags_static of this ConanPackageUpload.
+        :rtype: dict(str, list[str])
+        """
+        return self._tags_static
+
+    @tags_static.setter
+    def tags_static(self, tags_static):
+        """Sets the tags_static of this ConanPackageUpload.
+
+        All static tags on the package, grouped by context. Static tags are derived from the package's properties at request time and carry a 'context' (rather than a tag type). Includes format-specific badges and the package's architecture, subtype, and extension.
+
+        :param tags_static: The tags_static of this ConanPackageUpload.
+        :type: dict(str, list[str])
+        """
+
+        self._tags_static = tags_static
+
+    @property
     def type_display(self):
         """Gets the type_display of this ConanPackageUpload.
 
@@ -2448,6 +2509,27 @@ class ConanPackageUpload(object):
         """
 
         self._version_orig = version_orig
+
+    @property
+    def vulnerability_counts(self):
+        """Gets the vulnerability_counts of this ConanPackageUpload.
+
+
+        :return: The vulnerability_counts of this ConanPackageUpload.
+        :rtype: WebOSVSeverityCounts
+        """
+        return self._vulnerability_counts
+
+    @vulnerability_counts.setter
+    def vulnerability_counts(self, vulnerability_counts):
+        """Sets the vulnerability_counts of this ConanPackageUpload.
+
+
+        :param vulnerability_counts: The vulnerability_counts of this ConanPackageUpload.
+        :type: WebOSVSeverityCounts
+        """
+
+        self._vulnerability_counts = vulnerability_counts
 
     @property
     def vulnerability_scan_results_url(self):

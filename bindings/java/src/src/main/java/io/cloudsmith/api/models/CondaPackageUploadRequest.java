@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class CondaPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -42,6 +46,18 @@ public class CondaPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
 
   public CondaPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
@@ -98,6 +114,25 @@ public class CondaPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public CondaPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,14 +143,16 @@ public class CondaPackageUploadRequest implements Serializable {
       return false;
     }
     CondaPackageUploadRequest condaPackageUploadRequest = (CondaPackageUploadRequest) o;
-    return Objects.equals(this.packageFile, condaPackageUploadRequest.packageFile) &&
+    return Objects.equals(this.isMalwareDetected, condaPackageUploadRequest.isMalwareDetected) &&
+        Objects.equals(this.packageFile, condaPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, condaPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, condaPackageUploadRequest.tags);
+        Objects.equals(this.tags, condaPackageUploadRequest.tags) &&
+        Objects.equals(this.vulnerabilityCounts, condaPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(isMalwareDetected, packageFile, republish, tags, vulnerabilityCounts);
   }
 
 
@@ -124,9 +161,11 @@ public class CondaPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class CondaPackageUploadRequest {\n");
     
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

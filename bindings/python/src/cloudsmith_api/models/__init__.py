@@ -182,6 +182,7 @@ from cloudsmith_api.models.package_deny_policy_request import PackageDenyPolicyR
 from cloudsmith_api.models.package_deny_policy_request_patch import PackageDenyPolicyRequestPatch
 from cloudsmith_api.models.package_dependencies import PackageDependencies
 from cloudsmith_api.models.package_dependency import PackageDependency
+from cloudsmith_api.models.package_detail import PackageDetail
 from cloudsmith_api.models.package_file import PackageFile
 from cloudsmith_api.models.package_file_parts_upload import PackageFilePartsUpload
 from cloudsmith_api.models.package_file_upload import PackageFileUpload
@@ -319,4 +320,5 @@ from cloudsmith_api.models.vulnerability_scan import VulnerabilityScan
 from cloudsmith_api.models.vulnerability_scan_results import VulnerabilityScanResults
 from cloudsmith_api.models.vulnerability_scan_results_list import VulnerabilityScanResultsList
 from cloudsmith_api.models.vulnerability_scan_version import VulnerabilityScanVersion
+from cloudsmith_api.models.web_osv_severity_counts import WebOSVSeverityCounts
 from cloudsmith_api.models.webhook_template import WebhookTemplate

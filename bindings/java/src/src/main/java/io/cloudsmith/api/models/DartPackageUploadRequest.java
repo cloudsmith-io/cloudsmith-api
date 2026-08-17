@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class DartPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -42,6 +46,18 @@ public class DartPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
 
   public DartPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
@@ -98,6 +114,25 @@ public class DartPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public DartPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,14 +143,16 @@ public class DartPackageUploadRequest implements Serializable {
       return false;
     }
     DartPackageUploadRequest dartPackageUploadRequest = (DartPackageUploadRequest) o;
-    return Objects.equals(this.packageFile, dartPackageUploadRequest.packageFile) &&
+    return Objects.equals(this.isMalwareDetected, dartPackageUploadRequest.isMalwareDetected) &&
+        Objects.equals(this.packageFile, dartPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, dartPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, dartPackageUploadRequest.tags);
+        Objects.equals(this.tags, dartPackageUploadRequest.tags) &&
+        Objects.equals(this.vulnerabilityCounts, dartPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(isMalwareDetected, packageFile, republish, tags, vulnerabilityCounts);
   }
 
 
@@ -124,9 +161,11 @@ public class DartPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class DartPackageUploadRequest {\n");
     
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

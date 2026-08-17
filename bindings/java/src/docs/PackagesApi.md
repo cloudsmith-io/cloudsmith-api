@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesRead"></a>
 # **packagesRead**
-> ModelPackage packagesRead(owner, repo, identifier, includeConnectedRepositories)
+> PackageDetail packagesRead(owner, repo, identifier, includeConnectedRepositories)
 
 Get a specific package in a repository.
 
@@ -588,7 +588,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
 try {
-    ModelPackage result = apiInstance.packagesRead(owner, repo, identifier, includeConnectedRepositories);
+    PackageDetail result = apiInstance.packagesRead(owner, repo, identifier, includeConnectedRepositories);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesRead");
@@ -607,7 +607,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](ModelPackage.md)
+[**PackageDetail**](PackageDetail.md)
 
 ### Authorization
 

@@ -41,6 +41,7 @@ class RecycleBinPackage(object):
         'identifiers': 'dict(str, str)',
         'invoked_retention_rule': 'dict(str, str)',
         'is_deleteable': 'bool',
+        'is_malware_detected': 'bool',
         'is_quarantined': 'bool',
         'is_restorable': 'bool',
         'name': 'str',
@@ -56,7 +57,8 @@ class RecycleBinPackage(object):
         'type_display': 'str',
         'uploaded_at': 'datetime',
         'uploader': 'str',
-        'version': 'str'
+        'version': 'str',
+        'vulnerability_counts': 'WebOSVSeverityCounts'
     }
 
     attribute_map = {
@@ -68,6 +70,7 @@ class RecycleBinPackage(object):
         'identifiers': 'identifiers',
         'invoked_retention_rule': 'invoked_retention_rule',
         'is_deleteable': 'is_deleteable',
+        'is_malware_detected': 'is_malware_detected',
         'is_quarantined': 'is_quarantined',
         'is_restorable': 'is_restorable',
         'name': 'name',
@@ -83,10 +86,11 @@ class RecycleBinPackage(object):
         'type_display': 'type_display',
         'uploaded_at': 'uploaded_at',
         'uploader': 'uploader',
-        'version': 'version'
+        'version': 'version',
+        'vulnerability_counts': 'vulnerability_counts'
     }
 
-    def __init__(self, action_by=None, downloads=None, filename=None, format=None, fully_qualified_name=None, identifiers=None, invoked_retention_rule=None, is_deleteable=None, is_quarantined=None, is_restorable=None, name=None, policy_violated=None, repository=None, security_scan_completed_at=None, security_scan_status='Awaiting Security Scan', size=None, slug_perm=None, status=None, status_updated_at=None, tags=None, type_display=None, uploaded_at=None, uploader=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, action_by=None, downloads=None, filename=None, format=None, fully_qualified_name=None, identifiers=None, invoked_retention_rule=None, is_deleteable=None, is_malware_detected=None, is_quarantined=None, is_restorable=None, name=None, policy_violated=None, repository=None, security_scan_completed_at=None, security_scan_status='Awaiting Security Scan', size=None, slug_perm=None, status=None, status_updated_at=None, tags=None, type_display=None, uploaded_at=None, uploader=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
         """RecycleBinPackage - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -100,6 +104,7 @@ class RecycleBinPackage(object):
         self._identifiers = None
         self._invoked_retention_rule = None
         self._is_deleteable = None
+        self._is_malware_detected = None
         self._is_quarantined = None
         self._is_restorable = None
         self._name = None
@@ -116,6 +121,7 @@ class RecycleBinPackage(object):
         self._uploaded_at = None
         self._uploader = None
         self._version = None
+        self._vulnerability_counts = None
         self.discriminator = None
 
         if action_by is not None:
@@ -134,6 +140,8 @@ class RecycleBinPackage(object):
             self.invoked_retention_rule = invoked_retention_rule
         if is_deleteable is not None:
             self.is_deleteable = is_deleteable
+        if is_malware_detected is not None:
+            self.is_malware_detected = is_malware_detected
         if is_quarantined is not None:
             self.is_quarantined = is_quarantined
         if is_restorable is not None:
@@ -166,6 +174,8 @@ class RecycleBinPackage(object):
             self.uploader = uploader
         if version is not None:
             self.version = version
+        if vulnerability_counts is not None:
+            self.vulnerability_counts = vulnerability_counts
 
     @property
     def action_by(self):
@@ -352,6 +362,29 @@ class RecycleBinPackage(object):
         """
 
         self._is_deleteable = is_deleteable
+
+    @property
+    def is_malware_detected(self):
+        """Gets the is_malware_detected of this RecycleBinPackage.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :return: The is_malware_detected of this RecycleBinPackage.
+        :rtype: bool
+        """
+        return self._is_malware_detected
+
+    @is_malware_detected.setter
+    def is_malware_detected(self, is_malware_detected):
+        """Sets the is_malware_detected of this RecycleBinPackage.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :param is_malware_detected: The is_malware_detected of this RecycleBinPackage.
+        :type: bool
+        """
+
+        self._is_malware_detected = is_malware_detected
 
     @property
     def is_quarantined(self):
@@ -723,6 +756,27 @@ class RecycleBinPackage(object):
         """
 
         self._version = version
+
+    @property
+    def vulnerability_counts(self):
+        """Gets the vulnerability_counts of this RecycleBinPackage.
+
+
+        :return: The vulnerability_counts of this RecycleBinPackage.
+        :rtype: WebOSVSeverityCounts
+        """
+        return self._vulnerability_counts
+
+    @vulnerability_counts.setter
+    def vulnerability_counts(self, vulnerability_counts):
+        """Sets the vulnerability_counts of this RecycleBinPackage.
+
+
+        :param vulnerability_counts: The vulnerability_counts of this RecycleBinPackage.
+        :type: WebOSVSeverityCounts
+        """
+
+        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **identifiers** | **dict(str, str)** |  | [optional] 
 **invoked_retention_rule** | **dict(str, str)** | Information about the retention rule that triggered deletion (if any). | [optional] 
 **is_deleteable** | **bool** |  | [optional] 
+**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
 **is_quarantined** | **bool** |  | [optional] 
 **is_restorable** | **bool** |  | [optional] 
 **name** | **str** | The name of this package. | [optional] 
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 **uploaded_at** | **datetime** | The date this package was uploaded. | [optional] 
 **uploader** | **str** |  | [optional] 
 **version** | **str** | The raw version for this package. | [optional] 
+**vulnerability_counts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

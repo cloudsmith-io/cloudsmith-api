@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **is_deleteable** | **BOOLEAN** |  | [optional] 
 **is_downloadable** | **BOOLEAN** |  | [optional] 
 **is_hidden** | **BOOLEAN** |  | [optional] 
+**is_malware_detected** | **BOOLEAN** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
 **is_moveable** | **BOOLEAN** |  | [optional] 
 **is_quarantinable** | **BOOLEAN** |  | [optional] 
 **is_quarantined** | **BOOLEAN** |  | [optional] 
@@ -83,12 +84,14 @@ Name | Type | Description | Notes
 **tags** | [**Tags**](Tags.md) |  | [optional] 
 **tags_automatic** | [**Tags**](Tags.md) |  | [optional] 
 **tags_immutable** | [**Tags**](Tags.md) |  | [optional] 
+**tags_static** | **Hash&lt;String, Array&lt;String&gt;&gt;** | All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension. | [optional] 
 **type_display** | **String** |  | [optional] 
 **uploaded_at** | **DateTime** | The date this package was uploaded. | [optional] 
 **uploader** | **String** |  | [optional] 
 **uploader_url** | **String** |  | [optional] 
 **version** | **String** | The raw version for this package. | [optional] 
 **version_orig** | **String** |  | [optional] 
+**vulnerability_counts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  | [optional] 
 **vulnerability_scan_results_url** | **String** |  | [optional] 
 
 

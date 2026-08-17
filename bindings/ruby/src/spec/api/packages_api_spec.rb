@@ -152,7 +152,7 @@ describe 'PackagesApi' do
   # @param identifier 
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-  # @return [Package]
+  # @return [PackageDetail]
   describe 'packages_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

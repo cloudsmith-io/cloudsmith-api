@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **is_deleteable** | **bool** |  | [optional] 
 **is_downloadable** | **bool** |  | [optional] 
 **is_hidden** | **bool** |  | [optional] 
+**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
 **is_moveable** | **bool** |  | [optional] 
 **is_quarantinable** | **bool** |  | [optional] 
 **is_quarantined** | **bool** |  | [optional] 
@@ -84,12 +85,14 @@ Name | Type | Description | Notes
 **tags** | [**Tags**](Tags.md) |  | [optional] 
 **tags_automatic** | [**Tags**](Tags.md) |  | [optional] 
 **tags_immutable** | [**Tags**](Tags.md) |  | [optional] 
+**tags_static** | **dict(str, list[str])** | All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension. | [optional] 
 **type_display** | **str** |  | [optional] 
 **uploaded_at** | **datetime** | The date this package was uploaded. | [optional] 
 **uploader** | **str** |  | [optional] 
 **uploader_url** | **str** |  | [optional] 
 **version** | **str** | The raw version for this package. | [optional] 
 **version_orig** | **str** |  | [optional] 
+**vulnerability_counts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  | [optional] 
 **vulnerability_scan_results_url** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

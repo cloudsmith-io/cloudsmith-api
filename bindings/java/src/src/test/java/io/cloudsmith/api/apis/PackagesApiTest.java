@@ -61,6 +61,7 @@ import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageDetail;
 import io.cloudsmith.api.models.PackageLicenseRequestPatch;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
@@ -257,7 +258,7 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         Boolean includeConnectedRepositories = null;
-        ModelPackage response = api.packagesRead(owner, repo, identifier, includeConnectedRepositories);
+        PackageDetail response = api.packagesRead(owner, repo, identifier, includeConnectedRepositories);
 
         // TODO: test validations
     }

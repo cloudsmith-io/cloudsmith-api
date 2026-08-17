@@ -25,6 +25,7 @@ import io.cloudsmith.api.models.Distribution;
 import io.cloudsmith.api.models.DistributionVersion;
 import io.cloudsmith.api.models.PackageFile;
 import io.cloudsmith.api.models.Tags;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -136,6 +137,9 @@ public class ConanPackageUpload implements Serializable {
 
   @SerializedName("is_hidden")
   private Boolean isHidden = null;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
 
   @SerializedName("is_moveable")
   private Boolean isMoveable = null;
@@ -346,6 +350,9 @@ public class ConanPackageUpload implements Serializable {
   @SerializedName("tags_immutable")
   private Tags tagsImmutable = null;
 
+  @SerializedName("tags_static")
+  private Map<String, List<String>> tagsStatic = null;
+
   @SerializedName("type_display")
   private String typeDisplay = null;
 
@@ -363,6 +370,9 @@ public class ConanPackageUpload implements Serializable {
 
   @SerializedName("version_orig")
   private String versionOrig = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   @SerializedName("vulnerability_scan_results_url")
   private String vulnerabilityScanResultsUrl = null;
@@ -684,6 +694,15 @@ public class ConanPackageUpload implements Serializable {
   @ApiModelProperty(value = "")
   public Boolean isIsHidden() {
     return isHidden;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
    /**
@@ -1172,6 +1191,16 @@ public class ConanPackageUpload implements Serializable {
   }
 
    /**
+   * All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension.
+   * @return tagsStatic
+  **/
+  @Valid
+  @ApiModelProperty(value = "All static tags on the package, grouped by context. Static tags are derived from the package's properties at request time and carry a 'context' (rather than a tag type). Includes format-specific badges and the package's architecture, subtype, and extension.")
+  public Map<String, List<String>> getTagsStatic() {
+    return tagsStatic;
+  }
+
+   /**
    * Get typeDisplay
    * @return typeDisplay
   **/
@@ -1235,6 +1264,25 @@ public class ConanPackageUpload implements Serializable {
     return versionOrig;
   }
 
+  public ConanPackageUpload vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
    /**
    * Get vulnerabilityScanResultsUrl
    * @return vulnerabilityScanResultsUrl
@@ -1285,6 +1333,7 @@ public class ConanPackageUpload implements Serializable {
         Objects.equals(this.isDeleteable, conanPackageUpload.isDeleteable) &&
         Objects.equals(this.isDownloadable, conanPackageUpload.isDownloadable) &&
         Objects.equals(this.isHidden, conanPackageUpload.isHidden) &&
+        Objects.equals(this.isMalwareDetected, conanPackageUpload.isMalwareDetected) &&
         Objects.equals(this.isMoveable, conanPackageUpload.isMoveable) &&
         Objects.equals(this.isQuarantinable, conanPackageUpload.isQuarantinable) &&
         Objects.equals(this.isQuarantined, conanPackageUpload.isQuarantined) &&
@@ -1335,18 +1384,20 @@ public class ConanPackageUpload implements Serializable {
         Objects.equals(this.syncProgress, conanPackageUpload.syncProgress) &&
         Objects.equals(this.tagsAutomatic, conanPackageUpload.tagsAutomatic) &&
         Objects.equals(this.tagsImmutable, conanPackageUpload.tagsImmutable) &&
+        Objects.equals(this.tagsStatic, conanPackageUpload.tagsStatic) &&
         Objects.equals(this.typeDisplay, conanPackageUpload.typeDisplay) &&
         Objects.equals(this.uploadedAt, conanPackageUpload.uploadedAt) &&
         Objects.equals(this.uploader, conanPackageUpload.uploader) &&
         Objects.equals(this.uploaderUrl, conanPackageUpload.uploaderUrl) &&
         Objects.equals(this.version, conanPackageUpload.version) &&
         Objects.equals(this.versionOrig, conanPackageUpload.versionOrig) &&
+        Objects.equals(this.vulnerabilityCounts, conanPackageUpload.vulnerabilityCounts) &&
         Objects.equals(this.vulnerabilityScanResultsUrl, conanPackageUpload.vulnerabilityScanResultsUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, conanChannel, conanPrefix, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1386,6 +1437,7 @@ public class ConanPackageUpload implements Serializable {
     sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
     sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
@@ -1436,12 +1488,14 @@ public class ConanPackageUpload implements Serializable {
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
     sb.append("    tagsAutomatic: ").append(toIndentedString(tagsAutomatic)).append("\n");
     sb.append("    tagsImmutable: ").append(toIndentedString(tagsImmutable)).append("\n");
+    sb.append("    tagsStatic: ").append(toIndentedString(tagsStatic)).append("\n");
     sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("    vulnerabilityScanResultsUrl: ").append(toIndentedString(vulnerabilityScanResultsUrl)).append("\n");
     sb.append("}");
     return sb.toString();

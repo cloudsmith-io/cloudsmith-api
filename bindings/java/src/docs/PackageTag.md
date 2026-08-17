@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **isDownloadable** | **Boolean** |  |  [optional]
 **isHidden** | **Boolean** |  |  [optional]
 **isImmutable** | **Boolean** | If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package. |  [optional]
+**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
 **isMoveable** | **Boolean** |  |  [optional]
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
@@ -85,12 +86,14 @@ Name | Type | Description | Notes
 **syncProgress** | **java.math.BigInteger** | Synchronisation progress (from 0-100) |  [optional]
 **tagsAutomatic** | [**Tags**](Tags.md) |  |  [optional]
 **tagsImmutable** | [**Tags**](Tags.md) |  |  [optional]
+**tagsStatic** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) | All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension. |  [optional]
 **typeDisplay** | **String** |  |  [optional]
 **uploadedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date this package was uploaded. |  [optional]
 **uploader** | **String** |  |  [optional]
 **uploaderUrl** | **String** |  |  [optional]
 **version** | **String** | The raw version for this package. |  [optional]
 **versionOrig** | **String** |  |  [optional]
+**vulnerabilityCounts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  |  [optional]
 **vulnerabilityScanResultsUrl** | **String** |  |  [optional]
 
 

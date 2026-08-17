@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.29</version>
+  <version>2.0.31</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.29"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.31"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.29.jar`
+* `target/cloudsmith-api-2.0.31.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -649,6 +649,7 @@ Class | Method | HTTP request | Description
  - [PackageDenyPolicyRequestPatch](docs/PackageDenyPolicyRequestPatch.md)
  - [PackageDependencies](docs/PackageDependencies.md)
  - [PackageDependency](docs/PackageDependency.md)
+ - [PackageDetail](docs/PackageDetail.md)
  - [PackageFile](docs/PackageFile.md)
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
@@ -786,6 +787,7 @@ Class | Method | HTTP request | Description
  - [VulnerabilityScanResults](docs/VulnerabilityScanResults.md)
  - [VulnerabilityScanResultsList](docs/VulnerabilityScanResultsList.md)
  - [VulnerabilityScanVersion](docs/VulnerabilityScanVersion.md)
+ - [WebOSVSeverityCounts](docs/WebOSVSeverityCounts.md)
  - [WebhookTemplate](docs/WebhookTemplate.md)
 
 

@@ -84,6 +84,7 @@ import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageDetail;
 import io.cloudsmith.api.models.PackageLicenseRequestPatch;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
@@ -1360,11 +1361,11 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @return ModelPackage
+     * @return PackageDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelPackage packagesRead(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
-        ApiResponse<ModelPackage> resp = packagesReadWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
+    public PackageDetail packagesRead(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
+        ApiResponse<PackageDetail> resp = packagesReadWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
         return resp.getData();
     }
 
@@ -1375,12 +1376,12 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @return ApiResponse&lt;ModelPackage&gt;
+     * @return ApiResponse&lt;PackageDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelPackage> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
+    public ApiResponse<PackageDetail> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
         com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, null, null);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDetail>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1395,7 +1396,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<ModelPackage> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<PackageDetail> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1417,7 +1418,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDetail>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

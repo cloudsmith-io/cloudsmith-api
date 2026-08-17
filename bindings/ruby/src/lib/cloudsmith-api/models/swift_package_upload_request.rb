@@ -20,6 +20,9 @@ class SwiftPackageUploadRequest
   # The organization of the author.
   attr_accessor :author_org
 
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   # The license URL of this package.
   attr_accessor :license_url
 
@@ -47,11 +50,14 @@ class SwiftPackageUploadRequest
   # The raw version for this package.
   attr_accessor :version
 
+  attr_accessor :vulnerability_counts
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'author_name' => :'author_name',
       :'author_org' => :'author_org',
+      :'is_malware_detected' => :'is_malware_detected',
       :'license_url' => :'license_url',
       :'name' => :'name',
       :'package_file' => :'package_file',
@@ -60,7 +66,8 @@ class SwiftPackageUploadRequest
       :'republish' => :'republish',
       :'scope' => :'scope',
       :'tags' => :'tags',
-      :'version' => :'version'
+      :'version' => :'version',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
@@ -69,6 +76,7 @@ class SwiftPackageUploadRequest
     {
       :'author_name' => :'String',
       :'author_org' => :'String',
+      :'is_malware_detected' => :'BOOLEAN',
       :'license_url' => :'String',
       :'name' => :'String',
       :'package_file' => :'String',
@@ -77,7 +85,8 @@ class SwiftPackageUploadRequest
       :'republish' => :'BOOLEAN',
       :'scope' => :'String',
       :'tags' => :'String',
-      :'version' => :'String'
+      :'version' => :'String',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -95,6 +104,10 @@ class SwiftPackageUploadRequest
 
     if attributes.has_key?(:'author_org')
       self.author_org = attributes[:'author_org']
+    end
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'license_url')
@@ -131,6 +144,10 @@ class SwiftPackageUploadRequest
 
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
+    end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -174,6 +191,7 @@ class SwiftPackageUploadRequest
     self.class == o.class &&
         author_name == o.author_name &&
         author_org == o.author_org &&
+        is_malware_detected == o.is_malware_detected &&
         license_url == o.license_url &&
         name == o.name &&
         package_file == o.package_file &&
@@ -182,7 +200,8 @@ class SwiftPackageUploadRequest
         republish == o.republish &&
         scope == o.scope &&
         tags == o.tags &&
-        version == o.version
+        version == o.version &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -194,7 +213,7 @@ class SwiftPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [author_name, author_org, license_url, name, package_file, readme_url, repository_url, republish, scope, tags, version].hash
+    [author_name, author_org, is_malware_detected, license_url, name, package_file, readme_url, repository_url, republish, scope, tags, version, vulnerability_counts].hash
   end
 
     # Builds the object from hash

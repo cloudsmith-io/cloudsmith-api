@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -43,6 +44,9 @@ public class ConanPackageUploadRequest implements Serializable {
   @SerializedName("info_file")
   private String infoFile = null;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("manifest_file")
   private String manifestFile = null;
 
@@ -63,6 +67,9 @@ public class ConanPackageUploadRequest implements Serializable {
 
   @SerializedName("version")
   private String version = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public ConanPackageUploadRequest conanChannel(String conanChannel) {
     this.conanChannel = conanChannel;
@@ -117,6 +124,15 @@ public class ConanPackageUploadRequest implements Serializable {
 
   public void setInfoFile(String infoFile) {
     this.infoFile = infoFile;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
   public ConanPackageUploadRequest manifestFile(String manifestFile) {
@@ -248,6 +264,25 @@ public class ConanPackageUploadRequest implements Serializable {
     this.version = version;
   }
 
+  public ConanPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -261,18 +296,20 @@ public class ConanPackageUploadRequest implements Serializable {
     return Objects.equals(this.conanChannel, conanPackageUploadRequest.conanChannel) &&
         Objects.equals(this.conanPrefix, conanPackageUploadRequest.conanPrefix) &&
         Objects.equals(this.infoFile, conanPackageUploadRequest.infoFile) &&
+        Objects.equals(this.isMalwareDetected, conanPackageUploadRequest.isMalwareDetected) &&
         Objects.equals(this.manifestFile, conanPackageUploadRequest.manifestFile) &&
         Objects.equals(this.metadataFile, conanPackageUploadRequest.metadataFile) &&
         Objects.equals(this.name, conanPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, conanPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, conanPackageUploadRequest.republish) &&
         Objects.equals(this.tags, conanPackageUploadRequest.tags) &&
-        Objects.equals(this.version, conanPackageUploadRequest.version);
+        Objects.equals(this.version, conanPackageUploadRequest.version) &&
+        Objects.equals(this.vulnerabilityCounts, conanPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, tags, version);
+    return Objects.hash(conanChannel, conanPrefix, infoFile, isMalwareDetected, manifestFile, metadataFile, name, packageFile, republish, tags, version, vulnerabilityCounts);
   }
 
 
@@ -284,6 +321,7 @@ public class ConanPackageUploadRequest implements Serializable {
     sb.append("    conanChannel: ").append(toIndentedString(conanChannel)).append("\n");
     sb.append("    conanPrefix: ").append(toIndentedString(conanPrefix)).append("\n");
     sb.append("    infoFile: ").append(toIndentedString(infoFile)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    manifestFile: ").append(toIndentedString(manifestFile)).append("\n");
     sb.append("    metadataFile: ").append(toIndentedString(metadataFile)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -291,6 +329,7 @@ public class ConanPackageUploadRequest implements Serializable {
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
