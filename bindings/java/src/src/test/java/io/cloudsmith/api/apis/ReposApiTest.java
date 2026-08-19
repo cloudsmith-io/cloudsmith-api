@@ -56,7 +56,7 @@ import io.cloudsmith.api.models.HexUpstreamRequestPatch;
 import io.cloudsmith.api.models.HuggingfaceUpstream;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequest;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequestPatch;
-import io.cloudsmith.api.models.InlineResponse2001;
+import io.cloudsmith.api.models.InlineResponse2003;
 import io.cloudsmith.api.models.MavenUpstream;
 import io.cloudsmith.api.models.MavenUpstreamRequest;
 import io.cloudsmith.api.models.MavenUpstreamRequestPatch;
@@ -225,7 +225,7 @@ public class ReposApiTest {
         String identifier = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        InlineResponse2001 response = api.reposConnectedList(owner, identifier, page, pageSize);
+        InlineResponse2003 response = api.reposConnectedList(owner, identifier, page, pageSize);
 
         // TODO: test validations
     }

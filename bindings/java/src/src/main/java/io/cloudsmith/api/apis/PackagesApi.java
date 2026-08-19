@@ -67,7 +67,7 @@ import io.cloudsmith.api.models.HexPackageUpload;
 import io.cloudsmith.api.models.HexPackageUploadRequest;
 import io.cloudsmith.api.models.HuggingfacePackageUpload;
 import io.cloudsmith.api.models.HuggingfacePackageUploadRequest;
-import io.cloudsmith.api.models.InlineResponse200;
+import io.cloudsmith.api.models.InlineResponse2002;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -84,6 +84,7 @@ import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageDetail;
 import io.cloudsmith.api.models.PackageLicenseRequestPatch;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
@@ -711,11 +712,11 @@ public class PackagesApi {
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
-     * @return InlineResponse200
+     * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 packagesGroupsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort) throws ApiException {
-        ApiResponse<InlineResponse200> resp = packagesGroupsListWithHttpInfo(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
+    public InlineResponse2002 packagesGroupsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort) throws ApiException {
+        ApiResponse<InlineResponse2002> resp = packagesGroupsListWithHttpInfo(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
         return resp.getData();
     }
 
@@ -731,12 +732,12 @@ public class PackagesApi {
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> packagesGroupsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String groupBy,  Boolean hideSubcomponents,  Boolean includeConnectedRepositories,  String query,  String sort) throws ApiException {
+    public ApiResponse<InlineResponse2002> packagesGroupsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String groupBy,  Boolean hideSubcomponents,  Boolean includeConnectedRepositories,  String query,  String sort) throws ApiException {
         com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -756,7 +757,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesGroupsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesGroupsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort, final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -778,7 +779,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1360,11 +1361,11 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @return ModelPackage
+     * @return PackageDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelPackage packagesRead(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
-        ApiResponse<ModelPackage> resp = packagesReadWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
+    public PackageDetail packagesRead(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
+        ApiResponse<PackageDetail> resp = packagesReadWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
         return resp.getData();
     }
 
@@ -1375,12 +1376,12 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @return ApiResponse&lt;ModelPackage&gt;
+     * @return ApiResponse&lt;PackageDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelPackage> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
+    public ApiResponse<PackageDetail> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
         com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, null, null);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDetail>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1395,7 +1396,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<ModelPackage> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<PackageDetail> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1417,7 +1418,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDetail>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

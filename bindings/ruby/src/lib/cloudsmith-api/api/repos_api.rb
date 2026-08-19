@@ -335,7 +335,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [InlineResponse2001]
+    # @return [InlineResponse2003]
     def repos_connected_list(owner, identifier, opts = {})
       data, _status_code, _headers = repos_connected_list_with_http_info(owner, identifier, opts)
       data
@@ -348,7 +348,7 @@ module CloudsmithApi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
-    # @return [Array<(InlineResponse2001, Fixnum, Hash)>] InlineResponse2001 data, response status code and response headers
+    # @return [Array<(InlineResponse2003, Fixnum, Hash)>] InlineResponse2003 data, response status code and response headers
     def repos_connected_list_with_http_info(owner, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReposApi.repos_connected_list ...'
@@ -388,7 +388,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse2001')
+        :return_type => 'InlineResponse2003')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReposApi#repos_connected_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

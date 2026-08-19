@@ -34,27 +34,37 @@ class PackageCopyRequest(object):
     """
     swagger_types = {
         'destination': 'str',
-        'republish': 'bool'
+        'is_malware_detected': 'bool',
+        'republish': 'bool',
+        'vulnerability_counts': 'WebOSVSeverityCounts'
     }
 
     attribute_map = {
         'destination': 'destination',
-        'republish': 'republish'
+        'is_malware_detected': 'is_malware_detected',
+        'republish': 'republish',
+        'vulnerability_counts': 'vulnerability_counts'
     }
 
-    def __init__(self, destination=None, republish=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination=None, is_malware_detected=None, republish=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
         """PackageCopyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._destination = None
+        self._is_malware_detected = None
         self._republish = None
+        self._vulnerability_counts = None
         self.discriminator = None
 
         self.destination = destination
+        if is_malware_detected is not None:
+            self.is_malware_detected = is_malware_detected
         if republish is not None:
             self.republish = republish
+        if vulnerability_counts is not None:
+            self.vulnerability_counts = vulnerability_counts
 
     @property
     def destination(self):
@@ -85,6 +95,29 @@ class PackageCopyRequest(object):
         self._destination = destination
 
     @property
+    def is_malware_detected(self):
+        """Gets the is_malware_detected of this PackageCopyRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :return: The is_malware_detected of this PackageCopyRequest.
+        :rtype: bool
+        """
+        return self._is_malware_detected
+
+    @is_malware_detected.setter
+    def is_malware_detected(self, is_malware_detected):
+        """Sets the is_malware_detected of this PackageCopyRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :param is_malware_detected: The is_malware_detected of this PackageCopyRequest.
+        :type: bool
+        """
+
+        self._is_malware_detected = is_malware_detected
+
+    @property
     def republish(self):
         """Gets the republish of this PackageCopyRequest.
 
@@ -106,6 +139,27 @@ class PackageCopyRequest(object):
         """
 
         self._republish = republish
+
+    @property
+    def vulnerability_counts(self):
+        """Gets the vulnerability_counts of this PackageCopyRequest.
+
+
+        :return: The vulnerability_counts of this PackageCopyRequest.
+        :rtype: WebOSVSeverityCounts
+        """
+        return self._vulnerability_counts
+
+    @vulnerability_counts.setter
+    def vulnerability_counts(self, vulnerability_counts):
+        """Sets the vulnerability_counts of this PackageCopyRequest.
+
+
+        :param vulnerability_counts: The vulnerability_counts of this PackageCopyRequest.
+        :type: WebOSVSeverityCounts
+        """
+
+        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

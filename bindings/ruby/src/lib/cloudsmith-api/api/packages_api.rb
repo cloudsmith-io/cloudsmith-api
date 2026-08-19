@@ -233,7 +233,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (default to false)
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (default to )
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (default to name)
-    # @return [InlineResponse200]
+    # @return [InlineResponse2002]
     def packages_groups_list(owner, repo, opts = {})
       data, _status_code, _headers = packages_groups_list_with_http_info(owner, repo, opts)
       data
@@ -251,7 +251,7 @@ module CloudsmithApi
     # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
     # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind.
-    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    # @return [Array<(InlineResponse2002, Fixnum, Hash)>] InlineResponse2002 data, response status code and response headers
     def packages_groups_list_with_http_info(owner, repo, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_groups_list ...'
@@ -296,7 +296,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse200')
+        :return_type => 'InlineResponse2002')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_groups_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -520,7 +520,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (default to false)
-    # @return [Package]
+    # @return [PackageDetail]
     def packages_read(owner, repo, identifier, opts = {})
       data, _status_code, _headers = packages_read_with_http_info(owner, repo, identifier, opts)
       data
@@ -533,7 +533,7 @@ module CloudsmithApi
     # @param identifier 
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-    # @return [Array<(Package, Fixnum, Hash)>] Package data, response status code and response headers
+    # @return [Array<(PackageDetail, Fixnum, Hash)>] PackageDetail data, response status code and response headers
     def packages_read_with_http_info(owner, repo, identifier, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackagesApi.packages_read ...'
@@ -576,7 +576,7 @@ module CloudsmithApi
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Package')
+        :return_type => 'PackageDetail')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PackagesApi#packages_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

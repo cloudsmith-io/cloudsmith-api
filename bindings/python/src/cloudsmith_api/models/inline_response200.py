@@ -33,46 +33,159 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'results': 'list[PackageGroup]'
+        'allow_open_source_overage': 'bool',
+        'bandwidth_overage_limit': 'int',
+        'storage_overage_limit': 'int',
+        'bandwidth_maximum': 'int',
+        'storage_maximum': 'int'
     }
 
     attribute_map = {
-        'results': 'results'
+        'allow_open_source_overage': 'allow_open_source_overage',
+        'bandwidth_overage_limit': 'bandwidth_overage_limit',
+        'storage_overage_limit': 'storage_overage_limit',
+        'bandwidth_maximum': 'bandwidth_maximum',
+        'storage_maximum': 'storage_maximum'
     }
 
-    def __init__(self, results=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_open_source_overage=None, bandwidth_overage_limit=None, storage_overage_limit=None, bandwidth_maximum=None, storage_maximum=None, _configuration=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._results = None
+        self._allow_open_source_overage = None
+        self._bandwidth_overage_limit = None
+        self._storage_overage_limit = None
+        self._bandwidth_maximum = None
+        self._storage_maximum = None
         self.discriminator = None
 
-        self.results = results
+        if allow_open_source_overage is not None:
+            self.allow_open_source_overage = allow_open_source_overage
+        if bandwidth_overage_limit is not None:
+            self.bandwidth_overage_limit = bandwidth_overage_limit
+        if storage_overage_limit is not None:
+            self.storage_overage_limit = storage_overage_limit
+        if bandwidth_maximum is not None:
+            self.bandwidth_maximum = bandwidth_maximum
+        if storage_maximum is not None:
+            self.storage_maximum = storage_maximum
 
     @property
-    def results(self):
-        """Gets the results of this InlineResponse200.
+    def allow_open_source_overage(self):
+        """Gets the allow_open_source_overage of this InlineResponse200.
 
+        Whether on-demand open source overage is allowed.
 
-        :return: The results of this InlineResponse200.
-        :rtype: list[PackageGroup]
+        :return: The allow_open_source_overage of this InlineResponse200.
+        :rtype: bool
         """
-        return self._results
+        return self._allow_open_source_overage
 
-    @results.setter
-    def results(self, results):
-        """Sets the results of this InlineResponse200.
+    @allow_open_source_overage.setter
+    def allow_open_source_overage(self, allow_open_source_overage):
+        """Sets the allow_open_source_overage of this InlineResponse200.
 
+        Whether on-demand open source overage is allowed.
 
-        :param results: The results of this InlineResponse200.
-        :type: list[PackageGroup]
+        :param allow_open_source_overage: The allow_open_source_overage of this InlineResponse200.
+        :type: bool
         """
-        if self._configuration.client_side_validation and results is None:
-            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
-        self._results = results
+        self._allow_open_source_overage = allow_open_source_overage
+
+    @property
+    def bandwidth_overage_limit(self):
+        """Gets the bandwidth_overage_limit of this InlineResponse200.
+
+        Effective bandwidth overage limit in GB.
+
+        :return: The bandwidth_overage_limit of this InlineResponse200.
+        :rtype: int
+        """
+        return self._bandwidth_overage_limit
+
+    @bandwidth_overage_limit.setter
+    def bandwidth_overage_limit(self, bandwidth_overage_limit):
+        """Sets the bandwidth_overage_limit of this InlineResponse200.
+
+        Effective bandwidth overage limit in GB.
+
+        :param bandwidth_overage_limit: The bandwidth_overage_limit of this InlineResponse200.
+        :type: int
+        """
+
+        self._bandwidth_overage_limit = bandwidth_overage_limit
+
+    @property
+    def storage_overage_limit(self):
+        """Gets the storage_overage_limit of this InlineResponse200.
+
+        Effective storage overage limit in GB.
+
+        :return: The storage_overage_limit of this InlineResponse200.
+        :rtype: int
+        """
+        return self._storage_overage_limit
+
+    @storage_overage_limit.setter
+    def storage_overage_limit(self, storage_overage_limit):
+        """Sets the storage_overage_limit of this InlineResponse200.
+
+        Effective storage overage limit in GB.
+
+        :param storage_overage_limit: The storage_overage_limit of this InlineResponse200.
+        :type: int
+        """
+
+        self._storage_overage_limit = storage_overage_limit
+
+    @property
+    def bandwidth_maximum(self):
+        """Gets the bandwidth_maximum of this InlineResponse200.
+
+        Maximum allowed bandwidth overage in GB.
+
+        :return: The bandwidth_maximum of this InlineResponse200.
+        :rtype: int
+        """
+        return self._bandwidth_maximum
+
+    @bandwidth_maximum.setter
+    def bandwidth_maximum(self, bandwidth_maximum):
+        """Sets the bandwidth_maximum of this InlineResponse200.
+
+        Maximum allowed bandwidth overage in GB.
+
+        :param bandwidth_maximum: The bandwidth_maximum of this InlineResponse200.
+        :type: int
+        """
+
+        self._bandwidth_maximum = bandwidth_maximum
+
+    @property
+    def storage_maximum(self):
+        """Gets the storage_maximum of this InlineResponse200.
+
+        Maximum allowed storage overage in GB.
+
+        :return: The storage_maximum of this InlineResponse200.
+        :rtype: int
+        """
+        return self._storage_maximum
+
+    @storage_maximum.setter
+    def storage_maximum(self, storage_maximum):
+        """Sets the storage_maximum of this InlineResponse200.
+
+        Maximum allowed storage overage in GB.
+
+        :param storage_maximum: The storage_maximum of this InlineResponse200.
+        :type: int
+        """
+
+        self._storage_maximum = storage_maximum
 
     def to_dict(self):
         """Returns the model properties as a dict"""

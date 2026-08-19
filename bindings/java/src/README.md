@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.29</version>
+  <version>2.0.30</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.29"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.30"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.29.jar`
+* `target/cloudsmith-api-2.0.30.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -191,6 +191,7 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsOpenidConnectRead**](docs/OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
 *OrgsApi* | [**orgsOpenidConnectUpdate**](docs/OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 *OrgsApi* | [**orgsRead**](docs/OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
+*OrgsApi* | [**orgsRetrieveUsageLimits**](docs/OrgsApi.md#orgsRetrieveUsageLimits) | **GET** /orgs/{org}/usage-limits/ | 
 *OrgsApi* | [**orgsSamlAuthenticationPartialUpdate**](docs/OrgsApi.md#orgsSamlAuthenticationPartialUpdate) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization.
 *OrgsApi* | [**orgsSamlAuthenticationRead**](docs/OrgsApi.md#orgsSamlAuthenticationRead) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization.
 *OrgsApi* | [**orgsSamlGroupSyncCreate**](docs/OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
@@ -213,6 +214,7 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsTeamsMembersUpdate**](docs/OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
 *OrgsApi* | [**orgsTeamsPartialUpdate**](docs/OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
 *OrgsApi* | [**orgsTeamsRead**](docs/OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
+*OrgsApi* | [**orgsUpdateUsageLimits**](docs/OrgsApi.md#orgsUpdateUsageLimits) | **PATCH** /orgs/{org}/usage-limits/ | 
 *OrgsApi* | [**orgsVulnerabilityPolicyCreate**](docs/OrgsApi.md#orgsVulnerabilityPolicyCreate) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy.
 *OrgsApi* | [**orgsVulnerabilityPolicyDelete**](docs/OrgsApi.md#orgsVulnerabilityPolicyDelete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy.
 *OrgsApi* | [**orgsVulnerabilityPolicyEvaluationCreate**](docs/OrgsApi.md#orgsVulnerabilityPolicyEvaluationCreate) | **POST** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
@@ -581,6 +583,8 @@ Class | Method | HTTP request | Description
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
+ - [InlineResponse2003](docs/InlineResponse2003.md)
+ - [InlineResponse2004](docs/InlineResponse2004.md)
  - [LuarocksPackageUpload](docs/LuarocksPackageUpload.md)
  - [LuarocksPackageUploadRequest](docs/LuarocksPackageUploadRequest.md)
  - [MavenPackageUpload](docs/MavenPackageUpload.md)
@@ -638,6 +642,9 @@ Class | Method | HTTP request | Description
  - [OrganizationTeamRequest](docs/OrganizationTeamRequest.md)
  - [OrganizationTeamRequestPatch](docs/OrganizationTeamRequestPatch.md)
  - [OrganizationTeamServiceMember](docs/OrganizationTeamServiceMember.md)
+ - [OrganizationUsage](docs/OrganizationUsage.md)
+ - [OrganizationUsageUpdate](docs/OrganizationUsageUpdate.md)
+ - [OrganizationUsageUpdateRequestPatch](docs/OrganizationUsageUpdateRequestPatch.md)
  - [P2PackageUpload](docs/P2PackageUpload.md)
  - [P2PackageUploadRequest](docs/P2PackageUploadRequest.md)
  - [PackageBulkAction](docs/PackageBulkAction.md)
@@ -649,6 +656,7 @@ Class | Method | HTTP request | Description
  - [PackageDenyPolicyRequestPatch](docs/PackageDenyPolicyRequestPatch.md)
  - [PackageDependencies](docs/PackageDependencies.md)
  - [PackageDependency](docs/PackageDependency.md)
+ - [PackageDetail](docs/PackageDetail.md)
  - [PackageFile](docs/PackageFile.md)
  - [PackageFilePartsUpload](docs/PackageFilePartsUpload.md)
  - [PackageFileUpload](docs/PackageFileUpload.md)
@@ -786,6 +794,7 @@ Class | Method | HTTP request | Description
  - [VulnerabilityScanResults](docs/VulnerabilityScanResults.md)
  - [VulnerabilityScanResultsList](docs/VulnerabilityScanResultsList.md)
  - [VulnerabilityScanVersion](docs/VulnerabilityScanVersion.md)
+ - [WebOSVSeverityCounts](docs/WebOSVSeverityCounts.md)
  - [WebhookTemplate](docs/WebhookTemplate.md)
 
 

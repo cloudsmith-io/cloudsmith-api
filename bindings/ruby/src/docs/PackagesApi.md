@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_groups_list**
-> InlineResponse200 packages_groups_list(owner, repo, opts)
+> InlineResponse2002 packages_groups_list(owner, repo, opts)
 
 Return a list of Package Groups in a repository.
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_read**
-> Package packages_read(owner, repo, identifier, opts)
+> PackageDetail packages_read(owner, repo, identifier, opts)
 
 Get a specific package in a repository.
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageDetail**](PackageDetail.md)
 
 ### Authorization
 

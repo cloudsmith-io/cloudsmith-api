@@ -14,19 +14,40 @@ require 'date'
 
 module CloudsmithApi
 class InlineResponse200
-  attr_accessor :results
+  # Whether on-demand open source overage is allowed.
+  attr_accessor :allow_open_source_overage
+
+  # Effective bandwidth overage limit in GB.
+  attr_accessor :bandwidth_overage_limit
+
+  # Effective storage overage limit in GB.
+  attr_accessor :storage_overage_limit
+
+  # Maximum allowed bandwidth overage in GB.
+  attr_accessor :bandwidth_maximum
+
+  # Maximum allowed storage overage in GB.
+  attr_accessor :storage_maximum
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'results' => :'results'
+      :'allow_open_source_overage' => :'allow_open_source_overage',
+      :'bandwidth_overage_limit' => :'bandwidth_overage_limit',
+      :'storage_overage_limit' => :'storage_overage_limit',
+      :'bandwidth_maximum' => :'bandwidth_maximum',
+      :'storage_maximum' => :'storage_maximum'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'results' => :'Array<PackageGroup>'
+      :'allow_open_source_overage' => :'BOOLEAN',
+      :'bandwidth_overage_limit' => :'Integer',
+      :'storage_overage_limit' => :'Integer',
+      :'bandwidth_maximum' => :'Integer',
+      :'storage_maximum' => :'Integer'
     }
   end
 
@@ -38,10 +59,24 @@ class InlineResponse200
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'results')
-      if (value = attributes[:'results']).is_a?(Array)
-        self.results = value
-      end
+    if attributes.has_key?(:'allow_open_source_overage')
+      self.allow_open_source_overage = attributes[:'allow_open_source_overage']
+    end
+
+    if attributes.has_key?(:'bandwidth_overage_limit')
+      self.bandwidth_overage_limit = attributes[:'bandwidth_overage_limit']
+    end
+
+    if attributes.has_key?(:'storage_overage_limit')
+      self.storage_overage_limit = attributes[:'storage_overage_limit']
+    end
+
+    if attributes.has_key?(:'bandwidth_maximum')
+      self.bandwidth_maximum = attributes[:'bandwidth_maximum']
+    end
+
+    if attributes.has_key?(:'storage_maximum')
+      self.storage_maximum = attributes[:'storage_maximum']
     end
   end
 
@@ -49,17 +84,12 @@ class InlineResponse200
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if @results.nil?
-      invalid_properties.push('invalid value for "results", results cannot be nil.')
-    end
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if @results.nil?
     true
   end
 
@@ -68,7 +98,11 @@ class InlineResponse200
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        results == o.results
+        allow_open_source_overage == o.allow_open_source_overage &&
+        bandwidth_overage_limit == o.bandwidth_overage_limit &&
+        storage_overage_limit == o.storage_overage_limit &&
+        bandwidth_maximum == o.bandwidth_maximum &&
+        storage_maximum == o.storage_maximum
   end
 
   # @see the `==` method
@@ -80,7 +114,7 @@ class InlineResponse200
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [results].hash
+    [allow_open_source_overage, bandwidth_overage_limit, storage_overage_limit, bandwidth_maximum, storage_maximum].hash
   end
 
     # Builds the object from hash

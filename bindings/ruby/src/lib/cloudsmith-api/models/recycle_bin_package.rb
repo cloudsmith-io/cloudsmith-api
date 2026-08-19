@@ -33,6 +33,9 @@ class RecycleBinPackage
 
   attr_accessor :is_deleteable
 
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   attr_accessor :is_quarantined
 
   attr_accessor :is_restorable
@@ -73,6 +76,8 @@ class RecycleBinPackage
   # The raw version for this package.
   attr_accessor :version
 
+  attr_accessor :vulnerability_counts
+
   class EnumAttributeValidator
     attr_reader :datatype
     attr_reader :allowable_values
@@ -106,6 +111,7 @@ class RecycleBinPackage
       :'identifiers' => :'identifiers',
       :'invoked_retention_rule' => :'invoked_retention_rule',
       :'is_deleteable' => :'is_deleteable',
+      :'is_malware_detected' => :'is_malware_detected',
       :'is_quarantined' => :'is_quarantined',
       :'is_restorable' => :'is_restorable',
       :'name' => :'name',
@@ -121,7 +127,8 @@ class RecycleBinPackage
       :'type_display' => :'type_display',
       :'uploaded_at' => :'uploaded_at',
       :'uploader' => :'uploader',
-      :'version' => :'version'
+      :'version' => :'version',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
@@ -136,6 +143,7 @@ class RecycleBinPackage
       :'identifiers' => :'Hash<String, String>',
       :'invoked_retention_rule' => :'Hash<String, String>',
       :'is_deleteable' => :'BOOLEAN',
+      :'is_malware_detected' => :'BOOLEAN',
       :'is_quarantined' => :'BOOLEAN',
       :'is_restorable' => :'BOOLEAN',
       :'name' => :'String',
@@ -151,7 +159,8 @@ class RecycleBinPackage
       :'type_display' => :'String',
       :'uploaded_at' => :'DateTime',
       :'uploader' => :'String',
-      :'version' => :'String'
+      :'version' => :'String',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -197,6 +206,10 @@ class RecycleBinPackage
 
     if attributes.has_key?(:'is_deleteable')
       self.is_deleteable = attributes[:'is_deleteable']
+    end
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'is_quarantined')
@@ -264,6 +277,10 @@ class RecycleBinPackage
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
     end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
+    end
   end
 
   # Show invalid properties with the reasons. Usually used together with valid?
@@ -304,6 +321,7 @@ class RecycleBinPackage
         identifiers == o.identifiers &&
         invoked_retention_rule == o.invoked_retention_rule &&
         is_deleteable == o.is_deleteable &&
+        is_malware_detected == o.is_malware_detected &&
         is_quarantined == o.is_quarantined &&
         is_restorable == o.is_restorable &&
         name == o.name &&
@@ -319,7 +337,8 @@ class RecycleBinPackage
         type_display == o.type_display &&
         uploaded_at == o.uploaded_at &&
         uploader == o.uploader &&
-        version == o.version
+        version == o.version &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -331,7 +350,7 @@ class RecycleBinPackage
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [action_by, downloads, filename, format, fully_qualified_name, identifiers, invoked_retention_rule, is_deleteable, is_quarantined, is_restorable, name, policy_violated, repository, security_scan_completed_at, security_scan_status, size, slug_perm, status, status_updated_at, tags, type_display, uploaded_at, uploader, version].hash
+    [action_by, downloads, filename, format, fully_qualified_name, identifiers, invoked_retention_rule, is_deleteable, is_malware_detected, is_quarantined, is_restorable, name, policy_violated, repository, security_scan_completed_at, security_scan_status, size, slug_perm, status, status_updated_at, tags, type_display, uploaded_at, uploader, version, vulnerability_counts].hash
   end
 
     # Builds the object from hash

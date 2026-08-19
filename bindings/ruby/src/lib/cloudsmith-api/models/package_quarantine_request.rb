@@ -14,25 +14,34 @@ require 'date'
 
 module CloudsmithApi
 class PackageQuarantineRequest
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   # If true, the package is released from quarantine.
   attr_accessor :release
 
   # If true, the package is released from quarantine. Note: This field is deprecated, please use 'release' instead.
   attr_accessor :restore
 
+  attr_accessor :vulnerability_counts
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'is_malware_detected' => :'is_malware_detected',
       :'release' => :'release',
-      :'restore' => :'restore'
+      :'restore' => :'restore',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'is_malware_detected' => :'BOOLEAN',
       :'release' => :'BOOLEAN',
-      :'restore' => :'BOOLEAN'
+      :'restore' => :'BOOLEAN',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -44,12 +53,20 @@ class PackageQuarantineRequest
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
+    end
+
     if attributes.has_key?(:'release')
       self.release = attributes[:'release']
     end
 
     if attributes.has_key?(:'restore')
       self.restore = attributes[:'restore']
+    end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -71,8 +88,10 @@ class PackageQuarantineRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        is_malware_detected == o.is_malware_detected &&
         release == o.release &&
-        restore == o.restore
+        restore == o.restore &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -84,7 +103,7 @@ class PackageQuarantineRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [release, restore].hash
+    [is_malware_detected, release, restore, vulnerability_counts].hash
   end
 
     # Builds the object from hash

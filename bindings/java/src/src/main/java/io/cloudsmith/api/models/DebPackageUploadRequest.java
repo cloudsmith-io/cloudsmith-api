@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -43,6 +44,9 @@ public class DebPackageUploadRequest implements Serializable {
   @SerializedName("distribution")
   private String distribution = null;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -54,6 +58,9 @@ public class DebPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public DebPackageUploadRequest changesFile(String changesFile) {
     this.changesFile = changesFile;
@@ -108,6 +115,15 @@ public class DebPackageUploadRequest implements Serializable {
 
   public void setDistribution(String distribution) {
     this.distribution = distribution;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
   public DebPackageUploadRequest packageFile(String packageFile) {
@@ -183,6 +199,25 @@ public class DebPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public DebPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -196,15 +231,17 @@ public class DebPackageUploadRequest implements Serializable {
     return Objects.equals(this.changesFile, debPackageUploadRequest.changesFile) &&
         Objects.equals(this.component, debPackageUploadRequest.component) &&
         Objects.equals(this.distribution, debPackageUploadRequest.distribution) &&
+        Objects.equals(this.isMalwareDetected, debPackageUploadRequest.isMalwareDetected) &&
         Objects.equals(this.packageFile, debPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, debPackageUploadRequest.republish) &&
         Objects.equals(this.sourcesFile, debPackageUploadRequest.sourcesFile) &&
-        Objects.equals(this.tags, debPackageUploadRequest.tags);
+        Objects.equals(this.tags, debPackageUploadRequest.tags) &&
+        Objects.equals(this.vulnerabilityCounts, debPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changesFile, component, distribution, packageFile, republish, sourcesFile, tags);
+    return Objects.hash(changesFile, component, distribution, isMalwareDetected, packageFile, republish, sourcesFile, tags, vulnerabilityCounts);
   }
 
 
@@ -216,10 +253,12 @@ public class DebPackageUploadRequest implements Serializable {
     sb.append("    changesFile: ").append(toIndentedString(changesFile)).append("\n");
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    sourcesFile: ").append(toIndentedString(sourcesFile)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

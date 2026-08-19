@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **identifiers** | **Hash&lt;String, String&gt;** |  | [optional] 
 **invoked_retention_rule** | **Hash&lt;String, String&gt;** | Information about the retention rule that triggered deletion (if any). | [optional] 
 **is_deleteable** | **BOOLEAN** |  | [optional] 
+**is_malware_detected** | **BOOLEAN** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
 **is_quarantined** | **BOOLEAN** |  | [optional] 
 **is_restorable** | **BOOLEAN** |  | [optional] 
 **name** | **String** | The name of this package. | [optional] 
@@ -27,5 +28,6 @@ Name | Type | Description | Notes
 **uploaded_at** | **DateTime** | The date this package was uploaded. | [optional] 
 **uploader** | **String** |  | [optional] 
 **version** | **String** | The raw version for this package. | [optional] 
+**vulnerability_counts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  | [optional] 
 
 

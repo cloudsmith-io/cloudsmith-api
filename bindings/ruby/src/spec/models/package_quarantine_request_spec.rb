@@ -32,6 +32,12 @@ describe 'PackageQuarantineRequest' do
       expect(@instance).to be_instance_of(CloudsmithApi::PackageQuarantineRequest)
     end
   end
+  describe 'test attribute "is_malware_detected"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "release"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -39,6 +45,12 @@ describe 'PackageQuarantineRequest' do
   end
 
   describe 'test attribute "restore"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "vulnerability_counts"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

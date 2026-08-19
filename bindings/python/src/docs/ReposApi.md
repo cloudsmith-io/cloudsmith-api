@@ -471,7 +471,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_connected_list**
-> InlineResponse2001 repos_connected_list(owner, identifier, page=page, page_size=page_size)
+> InlineResponse2003 repos_connected_list(owner, identifier, page=page, page_size=page_size)
 
 List connected repositories for this repository.
 
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

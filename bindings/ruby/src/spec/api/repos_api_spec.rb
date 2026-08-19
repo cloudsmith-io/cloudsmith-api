@@ -108,7 +108,7 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [InlineResponse2001]
+  # @return [InlineResponse2003]
   describe 'repos_connected_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

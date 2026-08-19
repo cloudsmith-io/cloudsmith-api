@@ -482,7 +482,7 @@ null (empty response body)
 
 <a name="reposConnectedList"></a>
 # **reposConnectedList**
-> InlineResponse2001 reposConnectedList(owner, identifier, page, pageSize)
+> InlineResponse2003 reposConnectedList(owner, identifier, page, pageSize)
 
 List connected repositories for this repository.
 
@@ -516,7 +516,7 @@ String identifier = "identifier_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 try {
-    InlineResponse2001 result = apiInstance.reposConnectedList(owner, identifier, page, pageSize);
+    InlineResponse2003 result = apiInstance.reposConnectedList(owner, identifier, page, pageSize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReposApi#reposConnectedList");
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

@@ -89,6 +89,9 @@ class PackageFileUploadRequest(object):
         if self._configuration.client_side_validation and filename is None:
             raise ValueError("Invalid value for `filename`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
+                filename is not None and len(filename) > 255):
+            raise ValueError("Invalid value for `filename`, length must be less than or equal to `255`")  # noqa: E501
+        if (self._configuration.client_side_validation and
                 filename is not None and len(filename) < 1):
             raise ValueError("Invalid value for `filename`, length must be greater than or equal to `1`")  # noqa: E501
 

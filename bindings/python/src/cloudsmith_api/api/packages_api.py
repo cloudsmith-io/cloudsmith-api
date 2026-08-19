@@ -405,7 +405,7 @@ class PackagesApi(object):
         :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
-        :return: InlineResponse200
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -435,7 +435,7 @@ class PackagesApi(object):
         :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false.
         :param str query: A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
         :param str sort: A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
-        :return: InlineResponse200
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -513,7 +513,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -900,7 +900,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-        :return: Package
+        :return: PackageDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -925,7 +925,7 @@ class PackagesApi(object):
         :param str repo: (required)
         :param str identifier: (required)
         :param bool include_connected_repositories: If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-        :return: Package
+        :return: PackageDetail
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -997,7 +997,7 @@ class PackagesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Package',  # noqa: E501
+            response_type='PackageDetail',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

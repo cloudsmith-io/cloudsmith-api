@@ -23,6 +23,9 @@ class ConanPackageUploadRequest
   # The info file is an python file containing the package metadata.
   attr_accessor :info_file
 
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   # The info file is an python file containing the package metadata.
   attr_accessor :manifest_file
 
@@ -44,19 +47,23 @@ class ConanPackageUploadRequest
   # The raw version for this package.
   attr_accessor :version
 
+  attr_accessor :vulnerability_counts
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'conan_channel' => :'conan_channel',
       :'conan_prefix' => :'conan_prefix',
       :'info_file' => :'info_file',
+      :'is_malware_detected' => :'is_malware_detected',
       :'manifest_file' => :'manifest_file',
       :'metadata_file' => :'metadata_file',
       :'name' => :'name',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
       :'tags' => :'tags',
-      :'version' => :'version'
+      :'version' => :'version',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
@@ -66,13 +73,15 @@ class ConanPackageUploadRequest
       :'conan_channel' => :'String',
       :'conan_prefix' => :'String',
       :'info_file' => :'String',
+      :'is_malware_detected' => :'BOOLEAN',
       :'manifest_file' => :'String',
       :'metadata_file' => :'String',
       :'name' => :'String',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String',
-      :'version' => :'String'
+      :'version' => :'String',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -94,6 +103,10 @@ class ConanPackageUploadRequest
 
     if attributes.has_key?(:'info_file')
       self.info_file = attributes[:'info_file']
+    end
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'manifest_file')
@@ -122,6 +135,10 @@ class ConanPackageUploadRequest
 
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
+    end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -166,13 +183,15 @@ class ConanPackageUploadRequest
         conan_channel == o.conan_channel &&
         conan_prefix == o.conan_prefix &&
         info_file == o.info_file &&
+        is_malware_detected == o.is_malware_detected &&
         manifest_file == o.manifest_file &&
         metadata_file == o.metadata_file &&
         name == o.name &&
         package_file == o.package_file &&
         republish == o.republish &&
         tags == o.tags &&
-        version == o.version
+        version == o.version &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -184,7 +203,7 @@ class ConanPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, name, package_file, republish, tags, version].hash
+    [conan_channel, conan_prefix, info_file, is_malware_detected, manifest_file, metadata_file, name, package_file, republish, tags, version, vulnerability_counts].hash
   end
 
     # Builds the object from hash

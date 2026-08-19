@@ -44,7 +44,7 @@ import io.cloudsmith.api.models.HexPackageUpload;
 import io.cloudsmith.api.models.HexPackageUploadRequest;
 import io.cloudsmith.api.models.HuggingfacePackageUpload;
 import io.cloudsmith.api.models.HuggingfacePackageUploadRequest;
-import io.cloudsmith.api.models.InlineResponse200;
+import io.cloudsmith.api.models.InlineResponse2002;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -61,6 +61,7 @@ import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageDetail;
 import io.cloudsmith.api.models.PackageLicenseRequestPatch;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
@@ -178,7 +179,7 @@ public class PackagesApiTest {
         Boolean includeConnectedRepositories = null;
         String query = null;
         String sort = null;
-        InlineResponse200 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
+        InlineResponse2002 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
 
         // TODO: test validations
     }
@@ -257,7 +258,7 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         Boolean includeConnectedRepositories = null;
-        ModelPackage response = api.packagesRead(owner, repo, identifier, includeConnectedRepositories);
+        PackageDetail response = api.packagesRead(owner, repo, identifier, includeConnectedRepositories);
 
         // TODO: test validations
     }

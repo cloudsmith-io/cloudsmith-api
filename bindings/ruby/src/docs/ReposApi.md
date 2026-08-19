@@ -481,7 +481,7 @@ nil (empty response body)
 
 
 # **repos_connected_list**
-> InlineResponse2001 repos_connected_list(owner, identifier, opts)
+> InlineResponse2003 repos_connected_list(owner, identifier, opts)
 
 List connected repositories for this repository.
 
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

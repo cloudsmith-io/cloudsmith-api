@@ -79,7 +79,7 @@ import io.cloudsmith.api.models.HexUpstreamRequestPatch;
 import io.cloudsmith.api.models.HuggingfaceUpstream;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequest;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequestPatch;
-import io.cloudsmith.api.models.InlineResponse2001;
+import io.cloudsmith.api.models.InlineResponse2003;
 import io.cloudsmith.api.models.MavenUpstream;
 import io.cloudsmith.api.models.MavenUpstreamRequest;
 import io.cloudsmith.api.models.MavenUpstreamRequestPatch;
@@ -989,11 +989,11 @@ public class ReposApi {
      * @param identifier  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return InlineResponse2001
+     * @return InlineResponse2003
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2001 reposConnectedList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
-        ApiResponse<InlineResponse2001> resp = reposConnectedListWithHttpInfo(owner, identifier, page, pageSize);
+    public InlineResponse2003 reposConnectedList(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
+        ApiResponse<InlineResponse2003> resp = reposConnectedListWithHttpInfo(owner, identifier, page, pageSize);
         return resp.getData();
     }
 
@@ -1004,12 +1004,12 @@ public class ReposApi {
      * @param identifier  (required)
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
-     * @return ApiResponse&lt;InlineResponse2001&gt;
+     * @return ApiResponse&lt;InlineResponse2003&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2001> reposConnectedListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
+    public ApiResponse<InlineResponse2003> reposConnectedListWithHttpInfo( @NotNull String owner,  @NotNull String identifier,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = reposConnectedListValidateBeforeCall(owner, identifier, page, pageSize, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1024,7 +1024,7 @@ public class ReposApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reposConnectedListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<InlineResponse2001> callback) throws ApiException {
+    public com.squareup.okhttp.Call reposConnectedListAsync(String owner, String identifier, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<InlineResponse2003> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1046,7 +1046,7 @@ public class ReposApi {
         }
 
         com.squareup.okhttp.Call call = reposConnectedListValidateBeforeCall(owner, identifier, page, pageSize, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
