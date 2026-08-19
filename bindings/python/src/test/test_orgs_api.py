@@ -323,6 +323,12 @@ class TestOrgsApi(unittest.TestCase):
         """
         pass
 
+    def test_orgs_retrieve_usage_limits(self):
+        """Test case for orgs_retrieve_usage_limits
+
+        """
+        pass
+
     def test_orgs_saml_authentication_partial_update(self):
         """Test case for orgs_saml_authentication_partial_update
 
@@ -474,6 +480,12 @@ class TestOrgsApi(unittest.TestCase):
         """Test case for orgs_teams_read
 
         Get the details of a specific team within an organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_update_usage_limits(self):
+        """Test case for orgs_update_usage_limits
+
         """
         pass
 

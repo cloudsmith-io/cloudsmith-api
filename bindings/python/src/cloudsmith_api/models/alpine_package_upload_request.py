@@ -34,36 +34,46 @@ class AlpinePackageUploadRequest(object):
     """
     swagger_types = {
         'distribution': 'str',
+        'is_malware_detected': 'bool',
         'package_file': 'str',
         'republish': 'bool',
-        'tags': 'str'
+        'tags': 'str',
+        'vulnerability_counts': 'WebOSVSeverityCounts'
     }
 
     attribute_map = {
         'distribution': 'distribution',
+        'is_malware_detected': 'is_malware_detected',
         'package_file': 'package_file',
         'republish': 'republish',
-        'tags': 'tags'
+        'tags': 'tags',
+        'vulnerability_counts': 'vulnerability_counts'
     }
 
-    def __init__(self, distribution=None, package_file=None, republish=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, distribution=None, is_malware_detected=None, package_file=None, republish=None, tags=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
         """AlpinePackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._distribution = None
+        self._is_malware_detected = None
         self._package_file = None
         self._republish = None
         self._tags = None
+        self._vulnerability_counts = None
         self.discriminator = None
 
         self.distribution = distribution
+        if is_malware_detected is not None:
+            self.is_malware_detected = is_malware_detected
         self.package_file = package_file
         if republish is not None:
             self.republish = republish
         if tags is not None:
             self.tags = tags
+        if vulnerability_counts is not None:
+            self.vulnerability_counts = vulnerability_counts
 
     @property
     def distribution(self):
@@ -92,6 +102,29 @@ class AlpinePackageUploadRequest(object):
             raise ValueError("Invalid value for `distribution`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._distribution = distribution
+
+    @property
+    def is_malware_detected(self):
+        """Gets the is_malware_detected of this AlpinePackageUploadRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :return: The is_malware_detected of this AlpinePackageUploadRequest.
+        :rtype: bool
+        """
+        return self._is_malware_detected
+
+    @is_malware_detected.setter
+    def is_malware_detected(self, is_malware_detected):
+        """Sets the is_malware_detected of this AlpinePackageUploadRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :param is_malware_detected: The is_malware_detected of this AlpinePackageUploadRequest.
+        :type: bool
+        """
+
+        self._is_malware_detected = is_malware_detected
 
     @property
     def package_file(self):
@@ -172,6 +205,27 @@ class AlpinePackageUploadRequest(object):
             raise ValueError("Invalid value for `tags`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tags = tags
+
+    @property
+    def vulnerability_counts(self):
+        """Gets the vulnerability_counts of this AlpinePackageUploadRequest.
+
+
+        :return: The vulnerability_counts of this AlpinePackageUploadRequest.
+        :rtype: WebOSVSeverityCounts
+        """
+        return self._vulnerability_counts
+
+    @vulnerability_counts.setter
+    def vulnerability_counts(self, vulnerability_counts):
+        """Sets the vulnerability_counts of this AlpinePackageUploadRequest.
+
+
+        :param vulnerability_counts: The vulnerability_counts of this AlpinePackageUploadRequest.
+        :type: WebOSVSeverityCounts
+        """
+
+        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

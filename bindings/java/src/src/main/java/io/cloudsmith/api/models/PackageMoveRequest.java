@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -36,6 +37,12 @@ public class PackageMoveRequest implements Serializable {
 
   @SerializedName("destination")
   private String destination = null;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public PackageMoveRequest destination(String destination) {
     this.destination = destination;
@@ -56,6 +63,34 @@ public class PackageMoveRequest implements Serializable {
     this.destination = destination;
   }
 
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
+
+  public PackageMoveRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -66,12 +101,14 @@ public class PackageMoveRequest implements Serializable {
       return false;
     }
     PackageMoveRequest packageMoveRequest = (PackageMoveRequest) o;
-    return Objects.equals(this.destination, packageMoveRequest.destination);
+    return Objects.equals(this.destination, packageMoveRequest.destination) &&
+        Objects.equals(this.isMalwareDetected, packageMoveRequest.isMalwareDetected) &&
+        Objects.equals(this.vulnerabilityCounts, packageMoveRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination);
+    return Objects.hash(destination, isMalwareDetected, vulnerabilityCounts);
   }
 
 
@@ -81,6 +118,8 @@ public class PackageMoveRequest implements Serializable {
     sb.append("class PackageMoveRequest {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

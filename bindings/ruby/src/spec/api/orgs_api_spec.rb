@@ -606,6 +606,17 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_retrieve_usage_limits
+  # 
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @return [InlineResponse200]
+  describe 'orgs_retrieve_usage_limits test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_saml_authentication_partial_update
   # Update the SAML Authentication settings for this Organization.
   # Update the SAML Authentication settings for this Organization.
@@ -896,6 +907,18 @@ describe 'OrgsApi' do
   # @param [Hash] opts the optional parameters
   # @return [OrganizationTeam]
   describe 'orgs_teams_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_update_usage_limits
+  # 
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationUsageUpdateRequestPatch] :data 
+  # @return [InlineResponse2001]
+  describe 'orgs_update_usage_limits test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

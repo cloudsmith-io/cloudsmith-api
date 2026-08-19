@@ -142,6 +142,8 @@ from cloudsmith_api.models.huggingface_upstream_request_patch import Huggingface
 from cloudsmith_api.models.inline_response200 import InlineResponse200
 from cloudsmith_api.models.inline_response2001 import InlineResponse2001
 from cloudsmith_api.models.inline_response2002 import InlineResponse2002
+from cloudsmith_api.models.inline_response2003 import InlineResponse2003
+from cloudsmith_api.models.inline_response2004 import InlineResponse2004
 from cloudsmith_api.models.luarocks_package_upload import LuarocksPackageUpload
 from cloudsmith_api.models.luarocks_package_upload_request import LuarocksPackageUploadRequest
 from cloudsmith_api.models.maven_package_upload import MavenPackageUpload
@@ -157,6 +159,11 @@ from cloudsmith_api.models.namespace_audit_log import NamespaceAuditLog
 from cloudsmith_api.models.nested_license_policy import NestedLicensePolicy
 from cloudsmith_api.models.nested_vulnerability_policy import NestedVulnerabilityPolicy
 from cloudsmith_api.models.nested_vulnerability_scan_results import NestedVulnerabilityScanResults
+from cloudsmith_api.models.nix_package_upload import NixPackageUpload
+from cloudsmith_api.models.nix_package_upload_request import NixPackageUploadRequest
+from cloudsmith_api.models.nix_upstream import NixUpstream
+from cloudsmith_api.models.nix_upstream_request import NixUpstreamRequest
+from cloudsmith_api.models.nix_upstream_request_patch import NixUpstreamRequestPatch
 from cloudsmith_api.models.npm_package_upload import NpmPackageUpload
 from cloudsmith_api.models.npm_package_upload_request import NpmPackageUploadRequest
 from cloudsmith_api.models.npm_upstream import NpmUpstream
@@ -198,6 +205,9 @@ from cloudsmith_api.models.organization_team_members import OrganizationTeamMemb
 from cloudsmith_api.models.organization_team_request import OrganizationTeamRequest
 from cloudsmith_api.models.organization_team_request_patch import OrganizationTeamRequestPatch
 from cloudsmith_api.models.organization_team_service_member import OrganizationTeamServiceMember
+from cloudsmith_api.models.organization_usage import OrganizationUsage
+from cloudsmith_api.models.organization_usage_update import OrganizationUsageUpdate
+from cloudsmith_api.models.organization_usage_update_request_patch import OrganizationUsageUpdateRequestPatch
 from cloudsmith_api.models.p2_package_upload import P2PackageUpload
 from cloudsmith_api.models.p2_package_upload_request import P2PackageUploadRequest
 from cloudsmith_api.models.package import Package
@@ -210,6 +220,7 @@ from cloudsmith_api.models.package_deny_policy_request import PackageDenyPolicyR
 from cloudsmith_api.models.package_deny_policy_request_patch import PackageDenyPolicyRequestPatch
 from cloudsmith_api.models.package_dependencies import PackageDependencies
 from cloudsmith_api.models.package_dependency import PackageDependency
+from cloudsmith_api.models.package_detail import PackageDetail
 from cloudsmith_api.models.package_file import PackageFile
 from cloudsmith_api.models.package_file_parts_upload import PackageFilePartsUpload
 from cloudsmith_api.models.package_file_upload import PackageFileUpload
@@ -347,4 +358,5 @@ from cloudsmith_api.models.vulnerability_scan import VulnerabilityScan
 from cloudsmith_api.models.vulnerability_scan_results import VulnerabilityScanResults
 from cloudsmith_api.models.vulnerability_scan_results_list import VulnerabilityScanResultsList
 from cloudsmith_api.models.vulnerability_scan_version import VulnerabilityScanVersion
+from cloudsmith_api.models.web_osv_severity_counts import WebOSVSeverityCounts
 from cloudsmith_api.models.webhook_template import WebhookTemplate

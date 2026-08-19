@@ -67,7 +67,7 @@ import io.cloudsmith.api.models.HexPackageUpload;
 import io.cloudsmith.api.models.HexPackageUploadRequest;
 import io.cloudsmith.api.models.HuggingfacePackageUpload;
 import io.cloudsmith.api.models.HuggingfacePackageUploadRequest;
-import io.cloudsmith.api.models.InlineResponse200;
+import io.cloudsmith.api.models.InlineResponse2002;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -75,6 +75,8 @@ import io.cloudsmith.api.models.MavenPackageUploadRequest;
 import io.cloudsmith.api.models.McpPackageUpload;
 import io.cloudsmith.api.models.McpPackageUploadRequest;
 import io.cloudsmith.api.models.ModelPackage;
+import io.cloudsmith.api.models.NixPackageUpload;
+import io.cloudsmith.api.models.NixPackageUploadRequest;
 import io.cloudsmith.api.models.NpmPackageUpload;
 import io.cloudsmith.api.models.NpmPackageUploadRequest;
 import io.cloudsmith.api.models.NugetPackageUpload;
@@ -84,6 +86,7 @@ import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageDetail;
 import io.cloudsmith.api.models.PackageLicenseRequestPatch;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
@@ -711,11 +714,11 @@ public class PackagesApi {
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
-     * @return InlineResponse200
+     * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 packagesGroupsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort) throws ApiException {
-        ApiResponse<InlineResponse200> resp = packagesGroupsListWithHttpInfo(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
+    public InlineResponse2002 packagesGroupsList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort) throws ApiException {
+        ApiResponse<InlineResponse2002> resp = packagesGroupsListWithHttpInfo(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
         return resp.getData();
     }
 
@@ -731,12 +734,12 @@ public class PackagesApi {
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional, default to false)
      * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional, default to name)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> packagesGroupsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String groupBy,  Boolean hideSubcomponents,  Boolean includeConnectedRepositories,  String query,  String sort) throws ApiException {
+    public ApiResponse<InlineResponse2002> packagesGroupsListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize,  String groupBy,  Boolean hideSubcomponents,  Boolean includeConnectedRepositories,  String query,  String sort) throws ApiException {
         com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -756,7 +759,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesGroupsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesGroupsListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, String groupBy, Boolean hideSubcomponents, Boolean includeConnectedRepositories, String query, String sort, final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -778,7 +781,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesGroupsListValidateBeforeCall(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1360,11 +1363,11 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @return ModelPackage
+     * @return PackageDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModelPackage packagesRead(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
-        ApiResponse<ModelPackage> resp = packagesReadWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
+    public PackageDetail packagesRead(String owner, String repo, String identifier, Boolean includeConnectedRepositories) throws ApiException {
+        ApiResponse<PackageDetail> resp = packagesReadWithHttpInfo(owner, repo, identifier, includeConnectedRepositories);
         return resp.getData();
     }
 
@@ -1375,12 +1378,12 @@ public class PackagesApi {
      * @param repo  (required)
      * @param identifier  (required)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @return ApiResponse&lt;ModelPackage&gt;
+     * @return ApiResponse&lt;PackageDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModelPackage> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
+    public ApiResponse<PackageDetail> packagesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String identifier,  Boolean includeConnectedRepositories) throws ApiException {
         com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, null, null);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDetail>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1395,7 +1398,7 @@ public class PackagesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<ModelPackage> callback) throws ApiException {
+    public com.squareup.okhttp.Call packagesReadAsync(String owner, String repo, String identifier, Boolean includeConnectedRepositories, final ApiCallback<PackageDetail> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1417,7 +1420,7 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesReadValidateBeforeCall(owner, repo, identifier, includeConnectedRepositories, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModelPackage>(){}.getType();
+        Type localVarReturnType = new TypeToken<PackageDetail>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4864,6 +4867,155 @@ public class PackagesApi {
 
         com.squareup.okhttp.Call call = packagesUploadMcpValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<McpPackageUpload>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesUploadNix
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadNixCall(String owner, String repo, NixPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/upload/nix/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesUploadNixValidateBeforeCall(String owner, String repo, NixPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesUploadNixWithHttpInfo", String.class, String.class, NixPackageUploadRequest.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesUploadNixCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Create a new Nix package
+     * Create a new Nix package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return NixPackageUpload
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public NixPackageUpload packagesUploadNix(String owner, String repo, NixPackageUploadRequest data) throws ApiException {
+        ApiResponse<NixPackageUpload> resp = packagesUploadNixWithHttpInfo(owner, repo, data);
+        return resp.getData();
+    }
+
+    /**
+     * Create a new Nix package
+     * Create a new Nix package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;NixPackageUpload&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<NixPackageUpload> packagesUploadNixWithHttpInfo( @NotNull String owner,  @NotNull String repo,  NixPackageUploadRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesUploadNixValidateBeforeCall(owner, repo, data, null, null);
+        Type localVarReturnType = new TypeToken<NixPackageUpload>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a new Nix package (asynchronously)
+     * Create a new Nix package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesUploadNixAsync(String owner, String repo, NixPackageUploadRequest data, final ApiCallback<NixPackageUpload> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesUploadNixValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<NixPackageUpload>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -9113,6 +9265,151 @@ public class PackagesApi {
         }
 
         com.squareup.okhttp.Call call = packagesValidateUploadMcpValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for packagesValidateUploadNix
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadNixCall(String owner, String repo, NixPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/packages/{owner}/{repo}/validate-upload/nix/"
+            .replaceAll("\\{" + "owner" + "\\}", apiClient.escapeString(owner.toString()))
+            .replaceAll("\\{" + "repo" + "\\}", apiClient.escapeString(repo.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "apikey", "basic" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call packagesValidateUploadNixValidateBeforeCall(String owner, String repo, NixPackageUploadRequest data, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        try {
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            ExecutableValidator executableValidator = factory.getValidator().forExecutables();
+
+            Object[] parameterValues = { owner, repo, data };
+            Method method = this.getClass().getMethod("packagesValidateUploadNixWithHttpInfo", String.class, String.class, NixPackageUploadRequest.class);
+            Set<ConstraintViolation<PackagesApi>> violations = executableValidator.validateParameters(this, method,
+                    parameterValues);
+
+            if (violations.size() == 0) {
+                com.squareup.okhttp.Call call = packagesValidateUploadNixCall(owner, repo, data, progressListener, progressRequestListener);
+                return call;
+
+            } else {
+                throw new BeanValidationException((Set) violations);
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            throw new ApiException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * Validate parameters for create Nix package
+     * Validate parameters for create Nix package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void packagesValidateUploadNix(String owner, String repo, NixPackageUploadRequest data) throws ApiException {
+        packagesValidateUploadNixWithHttpInfo(owner, repo, data);
+    }
+
+    /**
+     * Validate parameters for create Nix package
+     * Validate parameters for create Nix package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> packagesValidateUploadNixWithHttpInfo( @NotNull String owner,  @NotNull String repo,  NixPackageUploadRequest data) throws ApiException {
+        com.squareup.okhttp.Call call = packagesValidateUploadNixValidateBeforeCall(owner, repo, data, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Validate parameters for create Nix package (asynchronously)
+     * Validate parameters for create Nix package
+     * @param owner  (required)
+     * @param repo  (required)
+     * @param data  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call packagesValidateUploadNixAsync(String owner, String repo, NixPackageUploadRequest data, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = packagesValidateUploadNixValidateBeforeCall(owner, repo, data, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

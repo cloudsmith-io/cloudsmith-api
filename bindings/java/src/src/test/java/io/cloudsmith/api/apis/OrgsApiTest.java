@@ -15,6 +15,8 @@ package io.cloudsmith.api.apis;
 
 import io.cloudsmith.api.models.DynamicMapping;
 import io.cloudsmith.api.models.ErrorDetail;
+import io.cloudsmith.api.models.InlineResponse200;
+import io.cloudsmith.api.models.InlineResponse2001;
 import io.cloudsmith.api.models.Organization;
 import io.cloudsmith.api.models.OrganizationCustomDomains;
 import io.cloudsmith.api.models.OrganizationGroupSync;
@@ -42,6 +44,7 @@ import io.cloudsmith.api.models.OrganizationTeam;
 import io.cloudsmith.api.models.OrganizationTeamMembers;
 import io.cloudsmith.api.models.OrganizationTeamRequest;
 import io.cloudsmith.api.models.OrganizationTeamRequestPatch;
+import io.cloudsmith.api.models.OrganizationUsageUpdateRequestPatch;
 import io.cloudsmith.api.models.PackageDenyPolicy;
 import io.cloudsmith.api.models.PackageDenyPolicyRequest;
 import io.cloudsmith.api.models.PackageDenyPolicyRequestPatch;
@@ -819,6 +822,22 @@ public class OrgsApiTest {
     }
     
     /**
+     * 
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsRetrieveUsageLimitsTest() throws Exception {
+        String org = null;
+        InlineResponse200 response = api.orgsRetrieveUsageLimits(org);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Update the SAML Authentication settings for this Organization.
      *
      * Update the SAML Authentication settings for this Organization.
@@ -1197,6 +1216,23 @@ public class OrgsApiTest {
         String org = null;
         String team = null;
         OrganizationTeam response = api.orgsTeamsRead(org, team);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsUpdateUsageLimitsTest() throws Exception {
+        String org = null;
+        OrganizationUsageUpdateRequestPatch data = null;
+        InlineResponse2001 response = api.orgsUpdateUsageLimits(org, data);
 
         // TODO: test validations
     }

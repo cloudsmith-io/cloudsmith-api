@@ -25,6 +25,7 @@ import io.cloudsmith.api.models.Distribution;
 import io.cloudsmith.api.models.DistributionVersion;
 import io.cloudsmith.api.models.PackageFile;
 import io.cloudsmith.api.models.Tags;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -136,6 +137,9 @@ public class PackageTag implements Serializable {
 
   @SerializedName("is_immutable")
   private Boolean isImmutable = false;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
 
   @SerializedName("is_moveable")
   private Boolean isMoveable = null;
@@ -328,6 +332,9 @@ public class PackageTag implements Serializable {
   @SerializedName("status_url")
   private String statusUrl = null;
 
+  @SerializedName("store_path")
+  private String storePath = null;
+
   @SerializedName("subtype")
   private String subtype = null;
 
@@ -346,6 +353,9 @@ public class PackageTag implements Serializable {
   @SerializedName("tags_immutable")
   private Tags tagsImmutable = null;
 
+  @SerializedName("tags_static")
+  private Map<String, List<String>> tagsStatic = null;
+
   @SerializedName("type_display")
   private String typeDisplay = null;
 
@@ -363,6 +373,9 @@ public class PackageTag implements Serializable {
 
   @SerializedName("version_orig")
   private String versionOrig = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   @SerializedName("vulnerability_scan_results_url")
   private String vulnerabilityScanResultsUrl = null;
@@ -675,6 +688,15 @@ public class PackageTag implements Serializable {
 
   public void setIsImmutable(Boolean isImmutable) {
     this.isImmutable = isImmutable;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
    /**
@@ -1079,6 +1101,15 @@ public class PackageTag implements Serializable {
   }
 
    /**
+   * Absolute store path for the package, including store hash and name.
+   * @return storePath
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Absolute store path for the package, including store hash and name.")
+  public String getStorePath() {
+    return storePath;
+  }
+
+   /**
    * Get subtype
    * @return subtype
   **/
@@ -1154,6 +1185,16 @@ public class PackageTag implements Serializable {
   }
 
    /**
+   * All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension.
+   * @return tagsStatic
+  **/
+  @Valid
+  @ApiModelProperty(value = "All static tags on the package, grouped by context. Static tags are derived from the package's properties at request time and carry a 'context' (rather than a tag type). Includes format-specific badges and the package's architecture, subtype, and extension.")
+  public Map<String, List<String>> getTagsStatic() {
+    return tagsStatic;
+  }
+
+   /**
    * Get typeDisplay
    * @return typeDisplay
   **/
@@ -1208,6 +1249,25 @@ public class PackageTag implements Serializable {
     return versionOrig;
   }
 
+  public PackageTag vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
    /**
    * Get vulnerabilityScanResultsUrl
    * @return vulnerabilityScanResultsUrl
@@ -1258,6 +1318,7 @@ public class PackageTag implements Serializable {
         Objects.equals(this.isDownloadable, packageTag.isDownloadable) &&
         Objects.equals(this.isHidden, packageTag.isHidden) &&
         Objects.equals(this.isImmutable, packageTag.isImmutable) &&
+        Objects.equals(this.isMalwareDetected, packageTag.isMalwareDetected) &&
         Objects.equals(this.isMoveable, packageTag.isMoveable) &&
         Objects.equals(this.isQuarantinable, packageTag.isQuarantinable) &&
         Objects.equals(this.isQuarantined, packageTag.isQuarantined) &&
@@ -1302,24 +1363,27 @@ public class PackageTag implements Serializable {
         Objects.equals(this.statusStr, packageTag.statusStr) &&
         Objects.equals(this.statusUpdatedAt, packageTag.statusUpdatedAt) &&
         Objects.equals(this.statusUrl, packageTag.statusUrl) &&
+        Objects.equals(this.storePath, packageTag.storePath) &&
         Objects.equals(this.subtype, packageTag.subtype) &&
         Objects.equals(this.summary, packageTag.summary) &&
         Objects.equals(this.syncFinishedAt, packageTag.syncFinishedAt) &&
         Objects.equals(this.syncProgress, packageTag.syncProgress) &&
         Objects.equals(this.tagsAutomatic, packageTag.tagsAutomatic) &&
         Objects.equals(this.tagsImmutable, packageTag.tagsImmutable) &&
+        Objects.equals(this.tagsStatic, packageTag.tagsStatic) &&
         Objects.equals(this.typeDisplay, packageTag.typeDisplay) &&
         Objects.equals(this.uploadedAt, packageTag.uploadedAt) &&
         Objects.equals(this.uploader, packageTag.uploader) &&
         Objects.equals(this.uploaderUrl, packageTag.uploaderUrl) &&
         Objects.equals(this.version, packageTag.version) &&
         Objects.equals(this.versionOrig, packageTag.versionOrig) &&
+        Objects.equals(this.vulnerabilityCounts, packageTag.vulnerabilityCounts) &&
         Objects.equals(this.vulnerabilityScanResultsUrl, packageTag.vulnerabilityScanResultsUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isImmutable, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isImmutable, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1359,6 +1423,7 @@ public class PackageTag implements Serializable {
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
     sb.append("    isImmutable: ").append(toIndentedString(isImmutable)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
     sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
@@ -1403,18 +1468,21 @@ public class PackageTag implements Serializable {
     sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
     sb.append("    statusUpdatedAt: ").append(toIndentedString(statusUpdatedAt)).append("\n");
     sb.append("    statusUrl: ").append(toIndentedString(statusUrl)).append("\n");
+    sb.append("    storePath: ").append(toIndentedString(storePath)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
     sb.append("    tagsAutomatic: ").append(toIndentedString(tagsAutomatic)).append("\n");
     sb.append("    tagsImmutable: ").append(toIndentedString(tagsImmutable)).append("\n");
+    sb.append("    tagsStatic: ").append(toIndentedString(tagsStatic)).append("\n");
     sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("    vulnerabilityScanResultsUrl: ").append(toIndentedString(vulnerabilityScanResultsUrl)).append("\n");
     sb.append("}");
     return sb.toString();

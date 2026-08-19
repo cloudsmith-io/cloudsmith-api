@@ -46,6 +46,7 @@ Method | HTTP request | Description
 [**orgsOpenidConnectRead**](OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
 [**orgsOpenidConnectUpdate**](OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
 [**orgsRead**](OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
+[**orgsRetrieveUsageLimits**](OrgsApi.md#orgsRetrieveUsageLimits) | **GET** /orgs/{org}/usage-limits/ | 
 [**orgsSamlAuthenticationPartialUpdate**](OrgsApi.md#orgsSamlAuthenticationPartialUpdate) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization.
 [**orgsSamlAuthenticationRead**](OrgsApi.md#orgsSamlAuthenticationRead) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization.
 [**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
@@ -68,6 +69,7 @@ Method | HTTP request | Description
 [**orgsTeamsMembersUpdate**](OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
 [**orgsTeamsPartialUpdate**](OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
 [**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
+[**orgsUpdateUsageLimits**](OrgsApi.md#orgsUpdateUsageLimits) | **PATCH** /orgs/{org}/usage-limits/ | 
 [**orgsVulnerabilityPolicyCreate**](OrgsApi.md#orgsVulnerabilityPolicyCreate) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy.
 [**orgsVulnerabilityPolicyDelete**](OrgsApi.md#orgsVulnerabilityPolicyDelete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy.
 [**orgsVulnerabilityPolicyEvaluationCreate**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationCreate) | **POST** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
@@ -2732,6 +2734,66 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="orgsRetrieveUsageLimits"></a>
+# **orgsRetrieveUsageLimits**
+> InlineResponse200 orgsRetrieveUsageLimits(org)
+
+
+
+
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+try {
+    InlineResponse200 result = apiInstance.orgsRetrieveUsageLimits(org);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsRetrieveUsageLimits");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="orgsSamlAuthenticationPartialUpdate"></a>
 # **orgsSamlAuthenticationPartialUpdate**
 > OrganizationSAMLAuth orgsSamlAuthenticationPartialUpdate(org, data)
@@ -4099,6 +4161,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrganizationTeam**](OrganizationTeam.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsUpdateUsageLimits"></a>
+# **orgsUpdateUsageLimits**
+> InlineResponse2001 orgsUpdateUsageLimits(org, data)
+
+
+
+
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+OrganizationUsageUpdateRequestPatch data = new OrganizationUsageUpdateRequestPatch(); // OrganizationUsageUpdateRequestPatch | 
+try {
+    InlineResponse2001 result = apiInstance.orgsUpdateUsageLimits(org, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsUpdateUsageLimits");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **data** | [**OrganizationUsageUpdateRequestPatch**](OrganizationUsageUpdateRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

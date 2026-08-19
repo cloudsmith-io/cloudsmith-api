@@ -56,10 +56,13 @@ import io.cloudsmith.api.models.HexUpstreamRequestPatch;
 import io.cloudsmith.api.models.HuggingfaceUpstream;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequest;
 import io.cloudsmith.api.models.HuggingfaceUpstreamRequestPatch;
-import io.cloudsmith.api.models.InlineResponse2001;
+import io.cloudsmith.api.models.InlineResponse2003;
 import io.cloudsmith.api.models.MavenUpstream;
 import io.cloudsmith.api.models.MavenUpstreamRequest;
 import io.cloudsmith.api.models.MavenUpstreamRequestPatch;
+import io.cloudsmith.api.models.NixUpstream;
+import io.cloudsmith.api.models.NixUpstreamRequest;
+import io.cloudsmith.api.models.NixUpstreamRequestPatch;
 import io.cloudsmith.api.models.NpmUpstream;
 import io.cloudsmith.api.models.NpmUpstreamRequest;
 import io.cloudsmith.api.models.NpmUpstreamRequestPatch;
@@ -225,7 +228,7 @@ public class ReposApiTest {
         String identifier = null;
         java.math.BigInteger page = null;
         java.math.BigInteger pageSize = null;
-        InlineResponse2001 response = api.reposConnectedList(owner, identifier, page, pageSize);
+        InlineResponse2003 response = api.reposConnectedList(owner, identifier, page, pageSize);
 
         // TODO: test validations
     }
@@ -2313,6 +2316,117 @@ public class ReposApiTest {
         String slugPerm = null;
         MavenUpstreamRequest data = null;
         MavenUpstream response = api.reposUpstreamMavenUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a Nix upstream config for this repository.
+     *
+     * Create a Nix upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNixCreateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        NixUpstreamRequest data = null;
+        NixUpstream response = api.reposUpstreamNixCreate(owner, identifier, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Nix upstream config for this repository.
+     *
+     * Delete a Nix upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNixDeleteTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        api.reposUpstreamNixDelete(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Nix upstream configs for this repository.
+     *
+     * List Nix upstream configs for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNixListTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        java.math.BigInteger page = null;
+        java.math.BigInteger pageSize = null;
+        List<NixUpstream> response = api.reposUpstreamNixList(owner, identifier, page, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Partially update a Nix upstream config for this repository.
+     *
+     * Partially update a Nix upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNixPartialUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NixUpstreamRequestPatch data = null;
+        NixUpstream response = api.reposUpstreamNixPartialUpdate(owner, identifier, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve a Nix upstream config for this repository.
+     *
+     * Retrieve a Nix upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNixReadTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NixUpstream response = api.reposUpstreamNixRead(owner, identifier, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Nix upstream config for this repository.
+     *
+     * Update a Nix upstream config for this repository.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void reposUpstreamNixUpdateTest() throws Exception {
+        String owner = null;
+        String identifier = null;
+        String slugPerm = null;
+        NixUpstreamRequest data = null;
+        NixUpstream response = api.reposUpstreamNixUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

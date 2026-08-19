@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **identifiers** | **Map&lt;String, String&gt;** |  |  [optional]
 **invokedRetentionRule** | **Map&lt;String, String&gt;** | Information about the retention rule that triggered deletion (if any). |  [optional]
 **isDeleteable** | **Boolean** |  |  [optional]
+**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
 **isRestorable** | **Boolean** |  |  [optional]
 **name** | **String** | The name of this package. |  [optional]
@@ -28,6 +29,7 @@ Name | Type | Description | Notes
 **uploadedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date this package was uploaded. |  [optional]
 **uploader** | **String** |  |  [optional]
 **version** | **String** | The raw version for this package. |  [optional]
+**vulnerabilityCounts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  |  [optional]
 
 
 <a name="SecurityScanStatusEnum"></a>

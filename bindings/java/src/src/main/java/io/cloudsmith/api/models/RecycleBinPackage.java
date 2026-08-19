@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.cloudsmith.api.models.Tags;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -62,6 +63,9 @@ public class RecycleBinPackage implements Serializable {
 
   @SerializedName("is_deleteable")
   private Boolean isDeleteable = null;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
 
   @SerializedName("is_quarantined")
   private Boolean isQuarantined = null;
@@ -170,6 +174,9 @@ public class RecycleBinPackage implements Serializable {
   @SerializedName("version")
   private String version = null;
 
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
+
    /**
    * The name of the user who deleted the package.
    * @return actionBy
@@ -240,6 +247,15 @@ public class RecycleBinPackage implements Serializable {
   @ApiModelProperty(value = "")
   public Boolean isIsDeleteable() {
     return isDeleteable;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
    /**
@@ -399,6 +415,25 @@ public class RecycleBinPackage implements Serializable {
     return version;
   }
 
+  public RecycleBinPackage vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -417,6 +452,7 @@ public class RecycleBinPackage implements Serializable {
         Objects.equals(this.identifiers, recycleBinPackage.identifiers) &&
         Objects.equals(this.invokedRetentionRule, recycleBinPackage.invokedRetentionRule) &&
         Objects.equals(this.isDeleteable, recycleBinPackage.isDeleteable) &&
+        Objects.equals(this.isMalwareDetected, recycleBinPackage.isMalwareDetected) &&
         Objects.equals(this.isQuarantined, recycleBinPackage.isQuarantined) &&
         Objects.equals(this.isRestorable, recycleBinPackage.isRestorable) &&
         Objects.equals(this.name, recycleBinPackage.name) &&
@@ -432,12 +468,13 @@ public class RecycleBinPackage implements Serializable {
         Objects.equals(this.typeDisplay, recycleBinPackage.typeDisplay) &&
         Objects.equals(this.uploadedAt, recycleBinPackage.uploadedAt) &&
         Objects.equals(this.uploader, recycleBinPackage.uploader) &&
-        Objects.equals(this.version, recycleBinPackage.version);
+        Objects.equals(this.version, recycleBinPackage.version) &&
+        Objects.equals(this.vulnerabilityCounts, recycleBinPackage.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionBy, downloads, filename, format, fullyQualifiedName, identifiers, invokedRetentionRule, isDeleteable, isQuarantined, isRestorable, name, policyViolated, repository, securityScanCompletedAt, securityScanStatus, size, slugPerm, status, statusUpdatedAt, tags, typeDisplay, uploadedAt, uploader, version);
+    return Objects.hash(actionBy, downloads, filename, format, fullyQualifiedName, identifiers, invokedRetentionRule, isDeleteable, isMalwareDetected, isQuarantined, isRestorable, name, policyViolated, repository, securityScanCompletedAt, securityScanStatus, size, slugPerm, status, statusUpdatedAt, tags, typeDisplay, uploadedAt, uploader, version, vulnerabilityCounts);
   }
 
 
@@ -454,6 +491,7 @@ public class RecycleBinPackage implements Serializable {
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
     sb.append("    invokedRetentionRule: ").append(toIndentedString(invokedRetentionRule)).append("\n");
     sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
     sb.append("    isRestorable: ").append(toIndentedString(isRestorable)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -470,6 +508,7 @@ public class RecycleBinPackage implements Serializable {
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

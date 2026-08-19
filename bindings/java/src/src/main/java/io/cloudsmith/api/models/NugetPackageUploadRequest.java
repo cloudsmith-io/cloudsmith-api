@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class NugetPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -45,6 +49,18 @@ public class NugetPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
 
   public NugetPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
@@ -119,6 +135,25 @@ public class NugetPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public NugetPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,15 +164,17 @@ public class NugetPackageUploadRequest implements Serializable {
       return false;
     }
     NugetPackageUploadRequest nugetPackageUploadRequest = (NugetPackageUploadRequest) o;
-    return Objects.equals(this.packageFile, nugetPackageUploadRequest.packageFile) &&
+    return Objects.equals(this.isMalwareDetected, nugetPackageUploadRequest.isMalwareDetected) &&
+        Objects.equals(this.packageFile, nugetPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, nugetPackageUploadRequest.republish) &&
         Objects.equals(this.symbolsFile, nugetPackageUploadRequest.symbolsFile) &&
-        Objects.equals(this.tags, nugetPackageUploadRequest.tags);
+        Objects.equals(this.tags, nugetPackageUploadRequest.tags) &&
+        Objects.equals(this.vulnerabilityCounts, nugetPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, symbolsFile, tags);
+    return Objects.hash(isMalwareDetected, packageFile, republish, symbolsFile, tags, vulnerabilityCounts);
   }
 
 
@@ -146,10 +183,12 @@ public class NugetPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class NugetPackageUploadRequest {\n");
     
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    symbolsFile: ").append(toIndentedString(symbolsFile)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,6 +14,9 @@ require 'date'
 
 module CloudsmithApi
 class VagrantPackageUploadRequest
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   # The name of this package.
   attr_accessor :name
 
@@ -32,27 +35,33 @@ class VagrantPackageUploadRequest
   # The raw version for this package.
   attr_accessor :version
 
+  attr_accessor :vulnerability_counts
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'is_malware_detected' => :'is_malware_detected',
       :'name' => :'name',
       :'package_file' => :'package_file',
       :'provider' => :'provider',
       :'republish' => :'republish',
       :'tags' => :'tags',
-      :'version' => :'version'
+      :'version' => :'version',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'is_malware_detected' => :'BOOLEAN',
       :'name' => :'String',
       :'package_file' => :'String',
       :'provider' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String',
-      :'version' => :'String'
+      :'version' => :'String',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -63,6 +72,10 @@ class VagrantPackageUploadRequest
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
+    end
 
     if attributes.has_key?(:'name')
       self.name = attributes[:'name']
@@ -86,6 +99,10 @@ class VagrantPackageUploadRequest
 
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
+    end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -127,12 +144,14 @@ class VagrantPackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        is_malware_detected == o.is_malware_detected &&
         name == o.name &&
         package_file == o.package_file &&
         provider == o.provider &&
         republish == o.republish &&
         tags == o.tags &&
-        version == o.version
+        version == o.version &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -144,7 +163,7 @@ class VagrantPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [name, package_file, provider, republish, tags, version].hash
+    [is_malware_detected, name, package_file, provider, republish, tags, version, vulnerability_counts].hash
   end
 
     # Builds the object from hash

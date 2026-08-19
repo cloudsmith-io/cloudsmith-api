@@ -25,6 +25,7 @@ import io.cloudsmith.api.models.Distribution;
 import io.cloudsmith.api.models.DistributionVersion;
 import io.cloudsmith.api.models.PackageFile;
 import io.cloudsmith.api.models.Tags;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -130,6 +131,9 @@ public class HuggingfacePackageUpload implements Serializable {
 
   @SerializedName("is_hidden")
   private Boolean isHidden = null;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
 
   @SerializedName("is_moveable")
   private Boolean isMoveable = null;
@@ -322,6 +326,9 @@ public class HuggingfacePackageUpload implements Serializable {
   @SerializedName("status_url")
   private String statusUrl = null;
 
+  @SerializedName("store_path")
+  private String storePath = null;
+
   @SerializedName("subtype")
   private String subtype = null;
 
@@ -340,6 +347,9 @@ public class HuggingfacePackageUpload implements Serializable {
   @SerializedName("tags_immutable")
   private Tags tagsImmutable = null;
 
+  @SerializedName("tags_static")
+  private Map<String, List<String>> tagsStatic = null;
+
   @SerializedName("type_display")
   private String typeDisplay = null;
 
@@ -357,6 +367,9 @@ public class HuggingfacePackageUpload implements Serializable {
 
   @SerializedName("version_orig")
   private String versionOrig = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   @SerializedName("vulnerability_scan_results_url")
   private String vulnerabilityScanResultsUrl = null;
@@ -642,6 +655,15 @@ public class HuggingfacePackageUpload implements Serializable {
   @ApiModelProperty(value = "")
   public Boolean isIsHidden() {
     return isHidden;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
    /**
@@ -1046,6 +1068,15 @@ public class HuggingfacePackageUpload implements Serializable {
   }
 
    /**
+   * Absolute store path for the package, including store hash and name.
+   * @return storePath
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Absolute store path for the package, including store hash and name.")
+  public String getStorePath() {
+    return storePath;
+  }
+
+   /**
    * Get subtype
    * @return subtype
   **/
@@ -1121,6 +1152,16 @@ public class HuggingfacePackageUpload implements Serializable {
   }
 
    /**
+   * All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension.
+   * @return tagsStatic
+  **/
+  @Valid
+  @ApiModelProperty(value = "All static tags on the package, grouped by context. Static tags are derived from the package's properties at request time and carry a 'context' (rather than a tag type). Includes format-specific badges and the package's architecture, subtype, and extension.")
+  public Map<String, List<String>> getTagsStatic() {
+    return tagsStatic;
+  }
+
+   /**
    * Get typeDisplay
    * @return typeDisplay
   **/
@@ -1175,6 +1216,25 @@ public class HuggingfacePackageUpload implements Serializable {
     return versionOrig;
   }
 
+  public HuggingfacePackageUpload vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
    /**
    * Get vulnerabilityScanResultsUrl
    * @return vulnerabilityScanResultsUrl
@@ -1223,6 +1283,7 @@ public class HuggingfacePackageUpload implements Serializable {
         Objects.equals(this.isDeleteable, huggingfacePackageUpload.isDeleteable) &&
         Objects.equals(this.isDownloadable, huggingfacePackageUpload.isDownloadable) &&
         Objects.equals(this.isHidden, huggingfacePackageUpload.isHidden) &&
+        Objects.equals(this.isMalwareDetected, huggingfacePackageUpload.isMalwareDetected) &&
         Objects.equals(this.isMoveable, huggingfacePackageUpload.isMoveable) &&
         Objects.equals(this.isQuarantinable, huggingfacePackageUpload.isQuarantinable) &&
         Objects.equals(this.isQuarantined, huggingfacePackageUpload.isQuarantined) &&
@@ -1267,24 +1328,27 @@ public class HuggingfacePackageUpload implements Serializable {
         Objects.equals(this.statusStr, huggingfacePackageUpload.statusStr) &&
         Objects.equals(this.statusUpdatedAt, huggingfacePackageUpload.statusUpdatedAt) &&
         Objects.equals(this.statusUrl, huggingfacePackageUpload.statusUrl) &&
+        Objects.equals(this.storePath, huggingfacePackageUpload.storePath) &&
         Objects.equals(this.subtype, huggingfacePackageUpload.subtype) &&
         Objects.equals(this.summary, huggingfacePackageUpload.summary) &&
         Objects.equals(this.syncFinishedAt, huggingfacePackageUpload.syncFinishedAt) &&
         Objects.equals(this.syncProgress, huggingfacePackageUpload.syncProgress) &&
         Objects.equals(this.tagsAutomatic, huggingfacePackageUpload.tagsAutomatic) &&
         Objects.equals(this.tagsImmutable, huggingfacePackageUpload.tagsImmutable) &&
+        Objects.equals(this.tagsStatic, huggingfacePackageUpload.tagsStatic) &&
         Objects.equals(this.typeDisplay, huggingfacePackageUpload.typeDisplay) &&
         Objects.equals(this.uploadedAt, huggingfacePackageUpload.uploadedAt) &&
         Objects.equals(this.uploader, huggingfacePackageUpload.uploader) &&
         Objects.equals(this.uploaderUrl, huggingfacePackageUpload.uploaderUrl) &&
         Objects.equals(this.version, huggingfacePackageUpload.version) &&
         Objects.equals(this.versionOrig, huggingfacePackageUpload.versionOrig) &&
+        Objects.equals(this.vulnerabilityCounts, huggingfacePackageUpload.vulnerabilityCounts) &&
         Objects.equals(this.vulnerabilityScanResultsUrl, huggingfacePackageUpload.vulnerabilityScanResultsUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1322,6 +1386,7 @@ public class HuggingfacePackageUpload implements Serializable {
     sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
     sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
@@ -1366,18 +1431,21 @@ public class HuggingfacePackageUpload implements Serializable {
     sb.append("    statusStr: ").append(toIndentedString(statusStr)).append("\n");
     sb.append("    statusUpdatedAt: ").append(toIndentedString(statusUpdatedAt)).append("\n");
     sb.append("    statusUrl: ").append(toIndentedString(statusUrl)).append("\n");
+    sb.append("    storePath: ").append(toIndentedString(storePath)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    syncFinishedAt: ").append(toIndentedString(syncFinishedAt)).append("\n");
     sb.append("    syncProgress: ").append(toIndentedString(syncProgress)).append("\n");
     sb.append("    tagsAutomatic: ").append(toIndentedString(tagsAutomatic)).append("\n");
     sb.append("    tagsImmutable: ").append(toIndentedString(tagsImmutable)).append("\n");
+    sb.append("    tagsStatic: ").append(toIndentedString(tagsStatic)).append("\n");
     sb.append("    typeDisplay: ").append(toIndentedString(typeDisplay)).append("\n");
     sb.append("    uploadedAt: ").append(toIndentedString(uploadedAt)).append("\n");
     sb.append("    uploader: ").append(toIndentedString(uploader)).append("\n");
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("    vulnerabilityScanResultsUrl: ").append(toIndentedString(vulnerabilityScanResultsUrl)).append("\n");
     sb.append("}");
     return sb.toString();

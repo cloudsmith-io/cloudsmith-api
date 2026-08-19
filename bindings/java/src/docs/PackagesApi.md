@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**packagesUploadLuarocks**](PackagesApi.md#packagesUploadLuarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 [**packagesUploadMaven**](PackagesApi.md#packagesUploadMaven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packagesUploadMcp**](PackagesApi.md#packagesUploadMcp) | **POST** /packages/{owner}/{repo}/upload/mcp/ | Create a new MCP package
+[**packagesUploadNix**](PackagesApi.md#packagesUploadNix) | **POST** /packages/{owner}/{repo}/upload/nix/ | Create a new Nix package
 [**packagesUploadNpm**](PackagesApi.md#packagesUploadNpm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 [**packagesUploadNuget**](PackagesApi.md#packagesUploadNuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
 [**packagesUploadP2**](PackagesApi.md#packagesUploadP2) | **POST** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
@@ -64,6 +65,7 @@ Method | HTTP request | Description
 [**packagesValidateUploadLuarocks**](PackagesApi.md#packagesValidateUploadLuarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 [**packagesValidateUploadMaven**](PackagesApi.md#packagesValidateUploadMaven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packagesValidateUploadMcp**](PackagesApi.md#packagesValidateUploadMcp) | **POST** /packages/{owner}/{repo}/validate-upload/mcp/ | Validate parameters for create MCP package
+[**packagesValidateUploadNix**](PackagesApi.md#packagesValidateUploadNix) | **POST** /packages/{owner}/{repo}/validate-upload/nix/ | Validate parameters for create Nix package
 [**packagesValidateUploadNpm**](PackagesApi.md#packagesValidateUploadNpm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 [**packagesValidateUploadNuget**](PackagesApi.md#packagesValidateUploadNuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
 [**packagesValidateUploadP2**](PackagesApi.md#packagesValidateUploadP2) | **POST** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
@@ -274,7 +276,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesGroupsList"></a>
 # **packagesGroupsList**
-> InlineResponse200 packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort)
+> InlineResponse2002 packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort)
 
 Return a list of Package Groups in a repository.
 
@@ -313,7 +315,7 @@ Boolean includeConnectedRepositories = false; // Boolean | If true, include pack
 String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages.
 String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind.
 try {
-    InlineResponse200 result = apiInstance.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
+    InlineResponse2002 result = apiInstance.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesGroupsList");
@@ -337,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -554,7 +556,7 @@ Name | Type | Description  | Notes
 
 <a name="packagesRead"></a>
 # **packagesRead**
-> ModelPackage packagesRead(owner, repo, identifier, includeConnectedRepositories)
+> PackageDetail packagesRead(owner, repo, identifier, includeConnectedRepositories)
 
 Get a specific package in a repository.
 
@@ -588,7 +590,7 @@ String repo = "repo_example"; // String |
 String identifier = "identifier_example"; // String | 
 Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
 try {
-    ModelPackage result = apiInstance.packagesRead(owner, repo, identifier, includeConnectedRepositories);
+    PackageDetail result = apiInstance.packagesRead(owner, repo, identifier, includeConnectedRepositories);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PackagesApi#packagesRead");
@@ -607,7 +609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelPackage**](ModelPackage.md)
+[**PackageDetail**](PackageDetail.md)
 
 ### Authorization
 
@@ -2086,6 +2088,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**McpPackageUpload**](McpPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="packagesUploadNix"></a>
+# **packagesUploadNix**
+> NixPackageUpload packagesUploadNix(owner, repo, data)
+
+Create a new Nix package
+
+Create a new Nix package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+NixPackageUploadRequest data = new NixPackageUploadRequest(); // NixPackageUploadRequest | 
+try {
+    NixPackageUpload result = apiInstance.packagesUploadNix(owner, repo, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesUploadNix");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**NixPackageUploadRequest**](NixPackageUploadRequest.md)|  | [optional]
+
+### Return type
+
+[**NixPackageUpload**](NixPackageUpload.md)
 
 ### Authorization
 
@@ -3920,6 +3986,69 @@ Name | Type | Description  | Notes
  **owner** | **String**|  |
  **repo** | **String**|  |
  **data** | [**McpPackageUploadRequest**](McpPackageUploadRequest.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="packagesValidateUploadNix"></a>
+# **packagesValidateUploadNix**
+> packagesValidateUploadNix(owner, repo, data)
+
+Validate parameters for create Nix package
+
+Validate parameters for create Nix package
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.PackagesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+PackagesApi apiInstance = new PackagesApi();
+String owner = "owner_example"; // String | 
+String repo = "repo_example"; // String | 
+NixPackageUploadRequest data = new NixPackageUploadRequest(); // NixPackageUploadRequest | 
+try {
+    apiInstance.packagesValidateUploadNix(owner, repo, data);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PackagesApi#packagesValidateUploadNix");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  |
+ **repo** | **String**|  |
+ **data** | [**NixPackageUploadRequest**](NixPackageUploadRequest.md)|  | [optional]
 
 ### Return type
 

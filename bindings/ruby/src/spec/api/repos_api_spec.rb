@@ -108,7 +108,7 @@ describe 'ReposApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
-  # @return [InlineResponse2001]
+  # @return [InlineResponse2003]
   describe 'repos_connected_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -1740,6 +1740,93 @@ describe 'ReposApi' do
   # @option opts [MavenUpstreamRequest] :data 
   # @return [MavenUpstream]
   describe 'repos_upstream_maven_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_nix_create
+  # Create a Nix upstream config for this repository.
+  # Create a Nix upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [NixUpstreamRequest] :data 
+  # @return [NixUpstream]
+  describe 'repos_upstream_nix_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_nix_delete
+  # Delete a Nix upstream config for this repository.
+  # Delete a Nix upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repos_upstream_nix_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_nix_list
+  # List Nix upstream configs for this repository.
+  # List Nix upstream configs for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page A page number within the paginated result set.
+  # @option opts [Integer] :page_size Number of results to return per page.
+  # @return [Array<NixUpstream>]
+  describe 'repos_upstream_nix_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_nix_partial_update
+  # Partially update a Nix upstream config for this repository.
+  # Partially update a Nix upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [NixUpstreamRequestPatch] :data 
+  # @return [NixUpstream]
+  describe 'repos_upstream_nix_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_nix_read
+  # Retrieve a Nix upstream config for this repository.
+  # Retrieve a Nix upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [NixUpstream]
+  describe 'repos_upstream_nix_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for repos_upstream_nix_update
+  # Update a Nix upstream config for this repository.
+  # Update a Nix upstream config for this repository.
+  # @param owner 
+  # @param identifier 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [NixUpstreamRequest] :data 
+  # @return [NixUpstream]
+  describe 'repos_upstream_nix_update test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

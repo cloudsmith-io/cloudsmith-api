@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**List&lt;UserAuthenticationToken&gt;**](UserAuthenticationToken.md) |  | 
+**results** | [**List&lt;PackageGroup&gt;**](PackageGroup.md) |  | 
 
 
 
