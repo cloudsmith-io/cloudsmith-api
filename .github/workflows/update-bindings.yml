@@ -90,6 +90,7 @@ jobs:
         if: steps.detect.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
+          sign-commits: true
           branch: automated/update-bindings-v${{ steps.versions.outputs.new_version }}
           base: master
           title: "feat: update bindings to v${{ steps.versions.outputs.new_version }} (API v${{ steps.versions.outputs.api_version }})"
