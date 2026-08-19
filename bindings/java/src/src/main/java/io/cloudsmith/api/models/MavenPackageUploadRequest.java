@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -44,6 +45,9 @@ public class MavenPackageUploadRequest implements Serializable {
 
   @SerializedName("group_id")
   private String groupId = null;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
 
   @SerializedName("ivy_file")
   private String ivyFile = null;
@@ -80,6 +84,9 @@ public class MavenPackageUploadRequest implements Serializable {
 
   @SerializedName("version")
   private String version = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public MavenPackageUploadRequest artifactId(String artifactId) {
     this.artifactId = artifactId;
@@ -141,6 +148,15 @@ public class MavenPackageUploadRequest implements Serializable {
 
   public void setGroupId(String groupId) {
     this.groupId = groupId;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
   public MavenPackageUploadRequest ivyFile(String ivyFile) {
@@ -360,6 +376,25 @@ public class MavenPackageUploadRequest implements Serializable {
     this.version = version;
   }
 
+  public MavenPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -373,6 +408,7 @@ public class MavenPackageUploadRequest implements Serializable {
     return Objects.equals(this.artifactId, mavenPackageUploadRequest.artifactId) &&
         Objects.equals(this.extraFiles, mavenPackageUploadRequest.extraFiles) &&
         Objects.equals(this.groupId, mavenPackageUploadRequest.groupId) &&
+        Objects.equals(this.isMalwareDetected, mavenPackageUploadRequest.isMalwareDetected) &&
         Objects.equals(this.ivyFile, mavenPackageUploadRequest.ivyFile) &&
         Objects.equals(this.javadocFile, mavenPackageUploadRequest.javadocFile) &&
         Objects.equals(this.packageFile, mavenPackageUploadRequest.packageFile) &&
@@ -384,12 +420,13 @@ public class MavenPackageUploadRequest implements Serializable {
         Objects.equals(this.sourcesFile, mavenPackageUploadRequest.sourcesFile) &&
         Objects.equals(this.tags, mavenPackageUploadRequest.tags) &&
         Objects.equals(this.testsFile, mavenPackageUploadRequest.testsFile) &&
-        Objects.equals(this.version, mavenPackageUploadRequest.version);
+        Objects.equals(this.version, mavenPackageUploadRequest.version) &&
+        Objects.equals(this.vulnerabilityCounts, mavenPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, extraFiles, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sbtVersion, scalaVersion, sourcesFile, tags, testsFile, version);
+    return Objects.hash(artifactId, extraFiles, groupId, isMalwareDetected, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sbtVersion, scalaVersion, sourcesFile, tags, testsFile, version, vulnerabilityCounts);
   }
 
 
@@ -401,6 +438,7 @@ public class MavenPackageUploadRequest implements Serializable {
     sb.append("    artifactId: ").append(toIndentedString(artifactId)).append("\n");
     sb.append("    extraFiles: ").append(toIndentedString(extraFiles)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    ivyFile: ").append(toIndentedString(ivyFile)).append("\n");
     sb.append("    javadocFile: ").append(toIndentedString(javadocFile)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
@@ -413,6 +451,7 @@ public class MavenPackageUploadRequest implements Serializable {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    testsFile: ").append(toIndentedString(testsFile)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

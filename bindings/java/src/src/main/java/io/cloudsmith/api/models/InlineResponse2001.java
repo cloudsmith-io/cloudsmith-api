@@ -20,12 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.ConnectedRepository;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -37,32 +34,67 @@ import javax.validation.Valid;
 public class InlineResponse2001 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("results")
-  private List<ConnectedRepository> results = new ArrayList<>();
+  @SerializedName("allow_open_source_overage")
+  private Boolean allowOpenSourceOverage = null;
 
-  public InlineResponse2001 results(List<ConnectedRepository> results) {
-    this.results = results;
-    return this;
-  }
+  @SerializedName("bandwidth_overage_limit")
+  private java.math.BigInteger bandwidthOverageLimit = null;
 
-  public InlineResponse2001 addResultsItem(ConnectedRepository resultsItem) {
-    this.results.add(resultsItem);
+  @SerializedName("storage_overage_limit")
+  private java.math.BigInteger storageOverageLimit = null;
+
+  public InlineResponse2001 allowOpenSourceOverage(Boolean allowOpenSourceOverage) {
+    this.allowOpenSourceOverage = allowOpenSourceOverage;
     return this;
   }
 
    /**
-   * Get results
-   * @return results
+   * Whether on-demand open source overage is allowed.
+   * @return allowOpenSourceOverage
   **/
-  @NotNull
-  @Valid
-  @ApiModelProperty(required = true, value = "")
-  public List<ConnectedRepository> getResults() {
-    return results;
+  @ApiModelProperty(value = "Whether on-demand open source overage is allowed.")
+  public Boolean isAllowOpenSourceOverage() {
+    return allowOpenSourceOverage;
   }
 
-  public void setResults(List<ConnectedRepository> results) {
-    this.results = results;
+  public void setAllowOpenSourceOverage(Boolean allowOpenSourceOverage) {
+    this.allowOpenSourceOverage = allowOpenSourceOverage;
+  }
+
+  public InlineResponse2001 bandwidthOverageLimit(java.math.BigInteger bandwidthOverageLimit) {
+    this.bandwidthOverageLimit = bandwidthOverageLimit;
+    return this;
+  }
+
+   /**
+   * Effective bandwidth overage limit in GB.
+   * @return bandwidthOverageLimit
+  **/
+  @ApiModelProperty(value = "Effective bandwidth overage limit in GB.")
+  public java.math.BigInteger getBandwidthOverageLimit() {
+    return bandwidthOverageLimit;
+  }
+
+  public void setBandwidthOverageLimit(java.math.BigInteger bandwidthOverageLimit) {
+    this.bandwidthOverageLimit = bandwidthOverageLimit;
+  }
+
+  public InlineResponse2001 storageOverageLimit(java.math.BigInteger storageOverageLimit) {
+    this.storageOverageLimit = storageOverageLimit;
+    return this;
+  }
+
+   /**
+   * Effective storage overage limit in GB.
+   * @return storageOverageLimit
+  **/
+  @ApiModelProperty(value = "Effective storage overage limit in GB.")
+  public java.math.BigInteger getStorageOverageLimit() {
+    return storageOverageLimit;
+  }
+
+  public void setStorageOverageLimit(java.math.BigInteger storageOverageLimit) {
+    this.storageOverageLimit = storageOverageLimit;
   }
 
 
@@ -75,12 +107,14 @@ public class InlineResponse2001 implements Serializable {
       return false;
     }
     InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
-    return Objects.equals(this.results, inlineResponse2001.results);
+    return Objects.equals(this.allowOpenSourceOverage, inlineResponse2001.allowOpenSourceOverage) &&
+        Objects.equals(this.bandwidthOverageLimit, inlineResponse2001.bandwidthOverageLimit) &&
+        Objects.equals(this.storageOverageLimit, inlineResponse2001.storageOverageLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(results);
+    return Objects.hash(allowOpenSourceOverage, bandwidthOverageLimit, storageOverageLimit);
   }
 
 
@@ -89,7 +123,9 @@ public class InlineResponse2001 implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2001 {\n");
     
-    sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    allowOpenSourceOverage: ").append(toIndentedString(allowOpenSourceOverage)).append("\n");
+    sb.append("    bandwidthOverageLimit: ").append(toIndentedString(bandwidthOverageLimit)).append("\n");
+    sb.append("    storageOverageLimit: ").append(toIndentedString(storageOverageLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

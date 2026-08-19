@@ -78,6 +78,9 @@ class RubyPackageUpload
 
   attr_accessor :is_hidden
 
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
   attr_accessor :is_moveable
 
   attr_accessor :is_quarantinable
@@ -184,6 +187,9 @@ class RubyPackageUpload
 
   attr_accessor :status_url
 
+  # Absolute store path for the package, including store hash and name.
+  attr_accessor :store_path
+
   attr_accessor :subtype
 
   # A one-liner synopsis of this package.
@@ -199,6 +205,9 @@ class RubyPackageUpload
 
   attr_accessor :tags_immutable
 
+  # All static tags on the package, grouped by context. Static tags are derived from the package's properties at request time and carry a 'context' (rather than a tag type). Includes format-specific badges and the package's architecture, subtype, and extension.
+  attr_accessor :tags_static
+
   attr_accessor :type_display
 
   # The date this package was uploaded.
@@ -212,6 +221,8 @@ class RubyPackageUpload
   attr_accessor :version
 
   attr_accessor :version_orig
+
+  attr_accessor :vulnerability_counts
 
   attr_accessor :vulnerability_scan_results_url
 
@@ -269,6 +280,7 @@ class RubyPackageUpload
       :'is_deleteable' => :'is_deleteable',
       :'is_downloadable' => :'is_downloadable',
       :'is_hidden' => :'is_hidden',
+      :'is_malware_detected' => :'is_malware_detected',
       :'is_moveable' => :'is_moveable',
       :'is_quarantinable' => :'is_quarantinable',
       :'is_quarantined' => :'is_quarantined',
@@ -313,18 +325,21 @@ class RubyPackageUpload
       :'status_str' => :'status_str',
       :'status_updated_at' => :'status_updated_at',
       :'status_url' => :'status_url',
+      :'store_path' => :'store_path',
       :'subtype' => :'subtype',
       :'summary' => :'summary',
       :'sync_finished_at' => :'sync_finished_at',
       :'sync_progress' => :'sync_progress',
       :'tags_automatic' => :'tags_automatic',
       :'tags_immutable' => :'tags_immutable',
+      :'tags_static' => :'tags_static',
       :'type_display' => :'type_display',
       :'uploaded_at' => :'uploaded_at',
       :'uploader' => :'uploader',
       :'uploader_url' => :'uploader_url',
       :'version' => :'version',
       :'version_orig' => :'version_orig',
+      :'vulnerability_counts' => :'vulnerability_counts',
       :'vulnerability_scan_results_url' => :'vulnerability_scan_results_url'
     }
   end
@@ -361,6 +376,7 @@ class RubyPackageUpload
       :'is_deleteable' => :'BOOLEAN',
       :'is_downloadable' => :'BOOLEAN',
       :'is_hidden' => :'BOOLEAN',
+      :'is_malware_detected' => :'BOOLEAN',
       :'is_moveable' => :'BOOLEAN',
       :'is_quarantinable' => :'BOOLEAN',
       :'is_quarantined' => :'BOOLEAN',
@@ -405,18 +421,21 @@ class RubyPackageUpload
       :'status_str' => :'String',
       :'status_updated_at' => :'DateTime',
       :'status_url' => :'String',
+      :'store_path' => :'String',
       :'subtype' => :'String',
       :'summary' => :'String',
       :'sync_finished_at' => :'DateTime',
       :'sync_progress' => :'Integer',
       :'tags_automatic' => :'Tags',
       :'tags_immutable' => :'Tags',
+      :'tags_static' => :'Hash<String, Array<String>>',
       :'type_display' => :'String',
       :'uploaded_at' => :'DateTime',
       :'uploader' => :'String',
       :'uploader_url' => :'String',
       :'version' => :'String',
       :'version_orig' => :'String',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts',
       :'vulnerability_scan_results_url' => :'String'
     }
   end
@@ -549,6 +568,10 @@ class RubyPackageUpload
 
     if attributes.has_key?(:'is_hidden')
       self.is_hidden = attributes[:'is_hidden']
+    end
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'is_moveable')
@@ -729,6 +752,10 @@ class RubyPackageUpload
       self.status_url = attributes[:'status_url']
     end
 
+    if attributes.has_key?(:'store_path')
+      self.store_path = attributes[:'store_path']
+    end
+
     if attributes.has_key?(:'subtype')
       self.subtype = attributes[:'subtype']
     end
@@ -753,6 +780,12 @@ class RubyPackageUpload
       self.tags_immutable = attributes[:'tags_immutable']
     end
 
+    if attributes.has_key?(:'tags_static')
+      if (value = attributes[:'tags_static']).is_a?(Hash)
+        self.tags_static = value
+      end
+    end
+
     if attributes.has_key?(:'type_display')
       self.type_display = attributes[:'type_display']
     end
@@ -775,6 +808,10 @@ class RubyPackageUpload
 
     if attributes.has_key?(:'version_orig')
       self.version_orig = attributes[:'version_orig']
+    end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
 
     if attributes.has_key?(:'vulnerability_scan_results_url')
@@ -841,6 +878,7 @@ class RubyPackageUpload
         is_deleteable == o.is_deleteable &&
         is_downloadable == o.is_downloadable &&
         is_hidden == o.is_hidden &&
+        is_malware_detected == o.is_malware_detected &&
         is_moveable == o.is_moveable &&
         is_quarantinable == o.is_quarantinable &&
         is_quarantined == o.is_quarantined &&
@@ -885,18 +923,21 @@ class RubyPackageUpload
         status_str == o.status_str &&
         status_updated_at == o.status_updated_at &&
         status_url == o.status_url &&
+        store_path == o.store_path &&
         subtype == o.subtype &&
         summary == o.summary &&
         sync_finished_at == o.sync_finished_at &&
         sync_progress == o.sync_progress &&
         tags_automatic == o.tags_automatic &&
         tags_immutable == o.tags_immutable &&
+        tags_static == o.tags_static &&
         type_display == o.type_display &&
         uploaded_at == o.uploaded_at &&
         uploader == o.uploader &&
         uploader_url == o.uploader_url &&
         version == o.version &&
         version_orig == o.version_orig &&
+        vulnerability_counts == o.vulnerability_counts &&
         vulnerability_scan_results_url == o.vulnerability_scan_results_url
   end
 
@@ -909,7 +950,7 @@ class RubyPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, osi_approved, package_type, policy_violated, raw_license, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_malware_detected, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, osi_approved, package_type, policy_violated, raw_license, release, repository, repository_url, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, store_path, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, tags_static, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_counts, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,11 +35,26 @@ import javax.validation.Valid;
 public class PackageQuarantineRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("release")
   private Boolean release = null;
 
   @SerializedName("restore")
   private Boolean restore = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
 
   public PackageQuarantineRequest release(Boolean release) {
     this.release = release;
@@ -76,6 +92,25 @@ public class PackageQuarantineRequest implements Serializable {
     this.restore = restore;
   }
 
+  public PackageQuarantineRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,13 +121,15 @@ public class PackageQuarantineRequest implements Serializable {
       return false;
     }
     PackageQuarantineRequest packageQuarantineRequest = (PackageQuarantineRequest) o;
-    return Objects.equals(this.release, packageQuarantineRequest.release) &&
-        Objects.equals(this.restore, packageQuarantineRequest.restore);
+    return Objects.equals(this.isMalwareDetected, packageQuarantineRequest.isMalwareDetected) &&
+        Objects.equals(this.release, packageQuarantineRequest.release) &&
+        Objects.equals(this.restore, packageQuarantineRequest.restore) &&
+        Objects.equals(this.vulnerabilityCounts, packageQuarantineRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(release, restore);
+    return Objects.hash(isMalwareDetected, release, restore, vulnerabilityCounts);
   }
 
 
@@ -101,8 +138,10 @@ public class PackageQuarantineRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackageQuarantineRequest {\n");
     
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
     sb.append("    restore: ").append(toIndentedString(restore)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

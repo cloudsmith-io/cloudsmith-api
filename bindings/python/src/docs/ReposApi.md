@@ -124,6 +124,12 @@ Method | HTTP request | Description
 [**repos_upstream_maven_partial_update**](ReposApi.md#repos_upstream_maven_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Partially update a Maven upstream config for this repository.
 [**repos_upstream_maven_read**](ReposApi.md#repos_upstream_maven_read) | **GET** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Retrieve a Maven upstream config for this repository.
 [**repos_upstream_maven_update**](ReposApi.md#repos_upstream_maven_update) | **PUT** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Update a Maven upstream config for this repository.
+[**repos_upstream_nix_create**](ReposApi.md#repos_upstream_nix_create) | **POST** /repos/{owner}/{identifier}/upstream/nix/ | Create a Nix upstream config for this repository.
+[**repos_upstream_nix_delete**](ReposApi.md#repos_upstream_nix_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Delete a Nix upstream config for this repository.
+[**repos_upstream_nix_list**](ReposApi.md#repos_upstream_nix_list) | **GET** /repos/{owner}/{identifier}/upstream/nix/ | List Nix upstream configs for this repository.
+[**repos_upstream_nix_partial_update**](ReposApi.md#repos_upstream_nix_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Partially update a Nix upstream config for this repository.
+[**repos_upstream_nix_read**](ReposApi.md#repos_upstream_nix_read) | **GET** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Retrieve a Nix upstream config for this repository.
+[**repos_upstream_nix_update**](ReposApi.md#repos_upstream_nix_update) | **PUT** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Update a Nix upstream config for this repository.
 [**repos_upstream_npm_create**](ReposApi.md#repos_upstream_npm_create) | **POST** /repos/{owner}/{identifier}/upstream/npm/ | Create a npm upstream config for this repository.
 [**repos_upstream_npm_delete**](ReposApi.md#repos_upstream_npm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Delete a npm upstream config for this repository.
 [**repos_upstream_npm_list**](ReposApi.md#repos_upstream_npm_list) | **GET** /repos/{owner}/{identifier}/upstream/npm/ | List npm upstream configs for this repository.
@@ -471,7 +477,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_connected_list**
-> InlineResponse2001 repos_connected_list(owner, identifier, page=page, page_size=page_size)
+> InlineResponse2003 repos_connected_list(owner, identifier, page=page, page_size=page_size)
 
 List connected repositories for this repository.
 
@@ -521,7 +527,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -7639,6 +7645,383 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MavenUpstream**](MavenUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_nix_create**
+> NixUpstream repos_upstream_nix_create(owner, identifier, data=data)
+
+Create a Nix upstream config for this repository.
+
+Create a Nix upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+data = cloudsmith_api.NixUpstreamRequest() # NixUpstreamRequest |  (optional)
+
+try:
+    # Create a Nix upstream config for this repository.
+    api_response = api_instance.repos_upstream_nix_create(owner, identifier, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_nix_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_nix_delete**
+> repos_upstream_nix_delete(owner, identifier, slug_perm)
+
+Delete a Nix upstream config for this repository.
+
+Delete a Nix upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete a Nix upstream config for this repository.
+    api_instance.repos_upstream_nix_delete(owner, identifier, slug_perm)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_nix_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_nix_list**
+> list[NixUpstream] repos_upstream_nix_list(owner, identifier, page=page, page_size=page_size)
+
+List Nix upstream configs for this repository.
+
+List Nix upstream configs for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+page = 56 # int | A page number within the paginated result set. (optional)
+page_size = 56 # int | Number of results to return per page. (optional)
+
+try:
+    # List Nix upstream configs for this repository.
+    api_response = api_instance.repos_upstream_nix_list(owner, identifier, page=page, page_size=page_size)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_nix_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**list[NixUpstream]**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_nix_partial_update**
+> NixUpstream repos_upstream_nix_partial_update(owner, identifier, slug_perm, data=data)
+
+Partially update a Nix upstream config for this repository.
+
+Partially update a Nix upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.NixUpstreamRequestPatch() # NixUpstreamRequestPatch |  (optional)
+
+try:
+    # Partially update a Nix upstream config for this repository.
+    api_response = api_instance.repos_upstream_nix_partial_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_nix_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**NixUpstreamRequestPatch**](NixUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_nix_read**
+> NixUpstream repos_upstream_nix_read(owner, identifier, slug_perm)
+
+Retrieve a Nix upstream config for this repository.
+
+Retrieve a Nix upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve a Nix upstream config for this repository.
+    api_response = api_instance.repos_upstream_nix_read(owner, identifier, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_nix_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repos_upstream_nix_update**
+> NixUpstream repos_upstream_nix_update(owner, identifier, slug_perm, data=data)
+
+Update a Nix upstream config for this repository.
+
+Update a Nix upstream config for this repository.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+identifier = 'identifier_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.NixUpstreamRequest() # NixUpstreamRequest |  (optional)
+
+try:
+    # Update a Nix upstream config for this repository.
+    api_response = api_instance.repos_upstream_nix_update(owner, identifier, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReposApi->repos_upstream_nix_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **identifier** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
 
 ### Authorization
 

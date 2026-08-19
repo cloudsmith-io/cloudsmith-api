@@ -124,6 +124,12 @@ Method | HTTP request | Description
 [**repos_upstream_maven_partial_update**](ReposApi.md#repos_upstream_maven_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Partially update a Maven upstream config for this repository.
 [**repos_upstream_maven_read**](ReposApi.md#repos_upstream_maven_read) | **GET** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Retrieve a Maven upstream config for this repository.
 [**repos_upstream_maven_update**](ReposApi.md#repos_upstream_maven_update) | **PUT** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Update a Maven upstream config for this repository.
+[**repos_upstream_nix_create**](ReposApi.md#repos_upstream_nix_create) | **POST** /repos/{owner}/{identifier}/upstream/nix/ | Create a Nix upstream config for this repository.
+[**repos_upstream_nix_delete**](ReposApi.md#repos_upstream_nix_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Delete a Nix upstream config for this repository.
+[**repos_upstream_nix_list**](ReposApi.md#repos_upstream_nix_list) | **GET** /repos/{owner}/{identifier}/upstream/nix/ | List Nix upstream configs for this repository.
+[**repos_upstream_nix_partial_update**](ReposApi.md#repos_upstream_nix_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Partially update a Nix upstream config for this repository.
+[**repos_upstream_nix_read**](ReposApi.md#repos_upstream_nix_read) | **GET** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Retrieve a Nix upstream config for this repository.
+[**repos_upstream_nix_update**](ReposApi.md#repos_upstream_nix_update) | **PUT** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Update a Nix upstream config for this repository.
 [**repos_upstream_npm_create**](ReposApi.md#repos_upstream_npm_create) | **POST** /repos/{owner}/{identifier}/upstream/npm/ | Create a npm upstream config for this repository.
 [**repos_upstream_npm_delete**](ReposApi.md#repos_upstream_npm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Delete a npm upstream config for this repository.
 [**repos_upstream_npm_list**](ReposApi.md#repos_upstream_npm_list) | **GET** /repos/{owner}/{identifier}/upstream/npm/ | List npm upstream configs for this repository.
@@ -481,7 +487,7 @@ nil (empty response body)
 
 
 # **repos_connected_list**
-> InlineResponse2001 repos_connected_list(owner, identifier, opts)
+> InlineResponse2003 repos_connected_list(owner, identifier, opts)
 
 List connected repositories for this repository.
 
@@ -534,7 +540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -7971,6 +7977,401 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MavenUpstream**](MavenUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_nix_create**
+> NixUpstream repos_upstream_nix_create(owner, identifier, opts)
+
+Create a Nix upstream config for this repository.
+
+Create a Nix upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::NixUpstreamRequest.new # NixUpstreamRequest | 
+}
+
+begin
+  #Create a Nix upstream config for this repository.
+  result = api_instance.repos_upstream_nix_create(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_nix_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_nix_delete**
+> repos_upstream_nix_delete(owner, identifier, slug_perm)
+
+Delete a Nix upstream config for this repository.
+
+Delete a Nix upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete a Nix upstream config for this repository.
+  api_instance.repos_upstream_nix_delete(owner, identifier, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_nix_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_nix_list**
+> Array&lt;NixUpstream&gt; repos_upstream_nix_list(owner, identifier, opts)
+
+List Nix upstream configs for this repository.
+
+List Nix upstream configs for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+opts = { 
+  page: 56, # Integer | A page number within the paginated result set.
+  page_size: 56 # Integer | Number of results to return per page.
+}
+
+begin
+  #List Nix upstream configs for this repository.
+  result = api_instance.repos_upstream_nix_list(owner, identifier, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_nix_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **page** | **Integer**| A page number within the paginated result set. | [optional] 
+ **page_size** | **Integer**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**Array&lt;NixUpstream&gt;**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_nix_partial_update**
+> NixUpstream repos_upstream_nix_partial_update(owner, identifier, slug_perm, opts)
+
+Partially update a Nix upstream config for this repository.
+
+Partially update a Nix upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::NixUpstreamRequestPatch.new # NixUpstreamRequestPatch | 
+}
+
+begin
+  #Partially update a Nix upstream config for this repository.
+  result = api_instance.repos_upstream_nix_partial_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_nix_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**NixUpstreamRequestPatch**](NixUpstreamRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_nix_read**
+> NixUpstream repos_upstream_nix_read(owner, identifier, slug_perm)
+
+Retrieve a Nix upstream config for this repository.
+
+Retrieve a Nix upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve a Nix upstream config for this repository.
+  result = api_instance.repos_upstream_nix_read(owner, identifier, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_nix_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **repos_upstream_nix_update**
+> NixUpstream repos_upstream_nix_update(owner, identifier, slug_perm, opts)
+
+Update a Nix upstream config for this repository.
+
+Update a Nix upstream config for this repository.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::ReposApi.new
+
+owner = 'owner_example' # String | 
+
+identifier = 'identifier_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::NixUpstreamRequest.new # NixUpstreamRequest | 
+}
+
+begin
+  #Update a Nix upstream config for this repository.
+  result = api_instance.repos_upstream_nix_update(owner, identifier, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling ReposApi->repos_upstream_nix_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **identifier** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md)|  | [optional] 
+
+### Return type
+
+[**NixUpstream**](NixUpstream.md)
 
 ### Authorization
 

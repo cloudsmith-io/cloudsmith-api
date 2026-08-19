@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -39,6 +40,9 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   @SerializedName("author_org")
   private String authorOrg = null;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
 
   @SerializedName("license_url")
   private String licenseUrl = null;
@@ -66,6 +70,9 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   @SerializedName("version")
   private String version = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public SwiftPackageUploadRequest authorName(String authorName) {
     this.authorName = authorName;
@@ -101,6 +108,15 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   public void setAuthorOrg(String authorOrg) {
     this.authorOrg = authorOrg;
+  }
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
   }
 
   public SwiftPackageUploadRequest licenseUrl(String licenseUrl) {
@@ -269,6 +285,25 @@ public class SwiftPackageUploadRequest implements Serializable {
     this.version = version;
   }
 
+  public SwiftPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -281,6 +316,7 @@ public class SwiftPackageUploadRequest implements Serializable {
     SwiftPackageUploadRequest swiftPackageUploadRequest = (SwiftPackageUploadRequest) o;
     return Objects.equals(this.authorName, swiftPackageUploadRequest.authorName) &&
         Objects.equals(this.authorOrg, swiftPackageUploadRequest.authorOrg) &&
+        Objects.equals(this.isMalwareDetected, swiftPackageUploadRequest.isMalwareDetected) &&
         Objects.equals(this.licenseUrl, swiftPackageUploadRequest.licenseUrl) &&
         Objects.equals(this.name, swiftPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, swiftPackageUploadRequest.packageFile) &&
@@ -289,12 +325,13 @@ public class SwiftPackageUploadRequest implements Serializable {
         Objects.equals(this.republish, swiftPackageUploadRequest.republish) &&
         Objects.equals(this.scope, swiftPackageUploadRequest.scope) &&
         Objects.equals(this.tags, swiftPackageUploadRequest.tags) &&
-        Objects.equals(this.version, swiftPackageUploadRequest.version);
+        Objects.equals(this.version, swiftPackageUploadRequest.version) &&
+        Objects.equals(this.vulnerabilityCounts, swiftPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorName, authorOrg, licenseUrl, name, packageFile, readmeUrl, repositoryUrl, republish, scope, tags, version);
+    return Objects.hash(authorName, authorOrg, isMalwareDetected, licenseUrl, name, packageFile, readmeUrl, repositoryUrl, republish, scope, tags, version, vulnerabilityCounts);
   }
 
 
@@ -305,6 +342,7 @@ public class SwiftPackageUploadRequest implements Serializable {
     
     sb.append("    authorName: ").append(toIndentedString(authorName)).append("\n");
     sb.append("    authorOrg: ").append(toIndentedString(authorOrg)).append("\n");
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    licenseUrl: ").append(toIndentedString(licenseUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
@@ -314,6 +352,7 @@ public class SwiftPackageUploadRequest implements Serializable {
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -17,17 +17,26 @@ class PackageMoveRequest
   # The name of the destination repository without the namespace.
   attr_accessor :destination
 
+  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  attr_accessor :is_malware_detected
+
+  attr_accessor :vulnerability_counts
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'destination' => :'destination'
+      :'destination' => :'destination',
+      :'is_malware_detected' => :'is_malware_detected',
+      :'vulnerability_counts' => :'vulnerability_counts'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'destination' => :'String'
+      :'destination' => :'String',
+      :'is_malware_detected' => :'BOOLEAN',
+      :'vulnerability_counts' => :'WebOSVSeverityCounts'
     }
   end
 
@@ -41,6 +50,14 @@ class PackageMoveRequest
 
     if attributes.has_key?(:'destination')
       self.destination = attributes[:'destination']
+    end
+
+    if attributes.has_key?(:'is_malware_detected')
+      self.is_malware_detected = attributes[:'is_malware_detected']
+    end
+
+    if attributes.has_key?(:'vulnerability_counts')
+      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -67,7 +84,9 @@ class PackageMoveRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        destination == o.destination
+        destination == o.destination &&
+        is_malware_detected == o.is_malware_detected &&
+        vulnerability_counts == o.vulnerability_counts
   end
 
   # @see the `==` method
@@ -79,7 +98,7 @@ class PackageMoveRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [destination].hash
+    [destination, is_malware_detected, vulnerability_counts].hash
   end
 
     # Builds the object from hash

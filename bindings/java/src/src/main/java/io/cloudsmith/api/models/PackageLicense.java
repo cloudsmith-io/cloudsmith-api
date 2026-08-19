@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 public class PackageLicense implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
 
   @SerializedName("license_notes")
   private String licenseNotes = null;
@@ -94,6 +98,18 @@ public class PackageLicense implements Serializable {
 
   @SerializedName("spdx_license")
   private String spdxLicense = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
 
   public PackageLicense licenseNotes(String licenseNotes) {
     this.licenseNotes = licenseNotes;
@@ -168,6 +184,25 @@ public class PackageLicense implements Serializable {
     this.spdxLicense = spdxLicense;
   }
 
+  public PackageLicense vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -178,15 +213,17 @@ public class PackageLicense implements Serializable {
       return false;
     }
     PackageLicense packageLicense = (PackageLicense) o;
-    return Objects.equals(this.licenseNotes, packageLicense.licenseNotes) &&
+    return Objects.equals(this.isMalwareDetected, packageLicense.isMalwareDetected) &&
+        Objects.equals(this.licenseNotes, packageLicense.licenseNotes) &&
         Objects.equals(this.licenseOverride, packageLicense.licenseOverride) &&
         Objects.equals(this.licenseUrl, packageLicense.licenseUrl) &&
-        Objects.equals(this.spdxLicense, packageLicense.spdxLicense);
+        Objects.equals(this.spdxLicense, packageLicense.spdxLicense) &&
+        Objects.equals(this.vulnerabilityCounts, packageLicense.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(licenseNotes, licenseOverride, licenseUrl, spdxLicense);
+    return Objects.hash(isMalwareDetected, licenseNotes, licenseOverride, licenseUrl, spdxLicense, vulnerabilityCounts);
   }
 
 
@@ -195,10 +232,12 @@ public class PackageLicense implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class PackageLicense {\n");
     
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    licenseNotes: ").append(toIndentedString(licenseNotes)).append("\n");
     sb.append("    licenseOverride: ").append(toIndentedString(licenseOverride)).append("\n");
     sb.append("    licenseUrl: ").append(toIndentedString(licenseUrl)).append("\n");
     sb.append("    spdxLicense: ").append(toIndentedString(spdxLicense)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

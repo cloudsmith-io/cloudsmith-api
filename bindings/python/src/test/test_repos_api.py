@@ -868,6 +868,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_nix_create(self):
+        """Test case for repos_upstream_nix_create
+
+        Create a Nix upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nix_delete(self):
+        """Test case for repos_upstream_nix_delete
+
+        Delete a Nix upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nix_list(self):
+        """Test case for repos_upstream_nix_list
+
+        List Nix upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nix_partial_update(self):
+        """Test case for repos_upstream_nix_partial_update
+
+        Partially update a Nix upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nix_read(self):
+        """Test case for repos_upstream_nix_read
+
+        Retrieve a Nix upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_nix_update(self):
+        """Test case for repos_upstream_nix_update
+
+        Update a Nix upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_upstream_npm_create(self):
         """Test case for repos_upstream_npm_create
 

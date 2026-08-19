@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**packages_upload_luarocks**](PackagesApi.md#packages_upload_luarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packages_upload_mcp**](PackagesApi.md#packages_upload_mcp) | **POST** /packages/{owner}/{repo}/upload/mcp/ | Create a new MCP package
+[**packages_upload_nix**](PackagesApi.md#packages_upload_nix) | **POST** /packages/{owner}/{repo}/upload/nix/ | Create a new Nix package
 [**packages_upload_npm**](PackagesApi.md#packages_upload_npm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 [**packages_upload_nuget**](PackagesApi.md#packages_upload_nuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
 [**packages_upload_p2**](PackagesApi.md#packages_upload_p2) | **POST** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
@@ -64,6 +65,7 @@ Method | HTTP request | Description
 [**packages_validate_upload_luarocks**](PackagesApi.md#packages_validate_upload_luarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packages_validate_upload_mcp**](PackagesApi.md#packages_validate_upload_mcp) | **POST** /packages/{owner}/{repo}/validate-upload/mcp/ | Validate parameters for create MCP package
+[**packages_validate_upload_nix**](PackagesApi.md#packages_validate_upload_nix) | **POST** /packages/{owner}/{repo}/validate-upload/nix/ | Validate parameters for create Nix package
 [**packages_validate_upload_npm**](PackagesApi.md#packages_validate_upload_npm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 [**packages_validate_upload_nuget**](PackagesApi.md#packages_validate_upload_nuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
 [**packages_validate_upload_p2**](PackagesApi.md#packages_validate_upload_p2) | **POST** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
@@ -277,7 +279,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_groups_list**
-> InlineResponse200 packages_groups_list(owner, repo, opts)
+> InlineResponse2002 packages_groups_list(owner, repo, opts)
 
 Return a list of Package Groups in a repository.
 
@@ -340,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -563,7 +565,7 @@ Name | Type | Description  | Notes
 
 
 # **packages_read**
-> Package packages_read(owner, repo, identifier, opts)
+> PackageDetail packages_read(owner, repo, identifier, opts)
 
 Get a specific package in a repository.
 
@@ -617,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageDetail**](PackageDetail.md)
 
 ### Authorization
 
@@ -2120,6 +2122,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**McpPackageUpload**](McpPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **packages_upload_nix**
+> NixPackageUpload packages_upload_nix(owner, repo, opts)
+
+Create a new Nix package
+
+Create a new Nix package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = 'owner_example' # String | 
+
+repo = 'repo_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::NixPackageUploadRequest.new # NixPackageUploadRequest | 
+}
+
+begin
+  #Create a new Nix package
+  result = api_instance.packages_upload_nix(owner, repo, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_upload_nix: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**NixPackageUploadRequest**](NixPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+[**NixPackageUpload**](NixPackageUpload.md)
 
 ### Authorization
 
@@ -3983,6 +4050,70 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**McpPackageUploadRequest**](McpPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **packages_validate_upload_nix**
+> packages_validate_upload_nix(owner, repo, opts)
+
+Validate parameters for create Nix package
+
+Validate parameters for create Nix package
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::PackagesApi.new
+
+owner = 'owner_example' # String | 
+
+repo = 'repo_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::NixPackageUploadRequest.new # NixPackageUploadRequest | 
+}
+
+begin
+  #Validate parameters for create Nix package
+  api_instance.packages_validate_upload_nix(owner, repo, opts)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling PackagesApi->packages_validate_upload_nix: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**|  | 
+ **repo** | **String**|  | 
+ **data** | [**NixPackageUploadRequest**](NixPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 

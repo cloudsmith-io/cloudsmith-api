@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**packages_upload_luarocks**](PackagesApi.md#packages_upload_luarocks) | **POST** /packages/{owner}/{repo}/upload/luarocks/ | Create a new LuaRocks package
 [**packages_upload_maven**](PackagesApi.md#packages_upload_maven) | **POST** /packages/{owner}/{repo}/upload/maven/ | Create a new Maven package
 [**packages_upload_mcp**](PackagesApi.md#packages_upload_mcp) | **POST** /packages/{owner}/{repo}/upload/mcp/ | Create a new MCP package
+[**packages_upload_nix**](PackagesApi.md#packages_upload_nix) | **POST** /packages/{owner}/{repo}/upload/nix/ | Create a new Nix package
 [**packages_upload_npm**](PackagesApi.md#packages_upload_npm) | **POST** /packages/{owner}/{repo}/upload/npm/ | Create a new npm package
 [**packages_upload_nuget**](PackagesApi.md#packages_upload_nuget) | **POST** /packages/{owner}/{repo}/upload/nuget/ | Create a new NuGet package
 [**packages_upload_p2**](PackagesApi.md#packages_upload_p2) | **POST** /packages/{owner}/{repo}/upload/p2/ | Create a new P2 package
@@ -64,6 +65,7 @@ Method | HTTP request | Description
 [**packages_validate_upload_luarocks**](PackagesApi.md#packages_validate_upload_luarocks) | **POST** /packages/{owner}/{repo}/validate-upload/luarocks/ | Validate parameters for create LuaRocks package
 [**packages_validate_upload_maven**](PackagesApi.md#packages_validate_upload_maven) | **POST** /packages/{owner}/{repo}/validate-upload/maven/ | Validate parameters for create Maven package
 [**packages_validate_upload_mcp**](PackagesApi.md#packages_validate_upload_mcp) | **POST** /packages/{owner}/{repo}/validate-upload/mcp/ | Validate parameters for create MCP package
+[**packages_validate_upload_nix**](PackagesApi.md#packages_validate_upload_nix) | **POST** /packages/{owner}/{repo}/validate-upload/nix/ | Validate parameters for create Nix package
 [**packages_validate_upload_npm**](PackagesApi.md#packages_validate_upload_npm) | **POST** /packages/{owner}/{repo}/validate-upload/npm/ | Validate parameters for create npm package
 [**packages_validate_upload_nuget**](PackagesApi.md#packages_validate_upload_nuget) | **POST** /packages/{owner}/{repo}/validate-upload/nuget/ | Validate parameters for create NuGet package
 [**packages_validate_upload_p2**](PackagesApi.md#packages_validate_upload_p2) | **POST** /packages/{owner}/{repo}/validate-upload/p2/ | Validate parameters for create P2 package
@@ -267,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_groups_list**
-> InlineResponse200 packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
+> InlineResponse2002 packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
 
 Return a list of Package Groups in a repository.
 
@@ -327,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -539,7 +541,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_read**
-> Package packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
+> PackageDetail packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
 
 Get a specific package in a repository.
 
@@ -589,7 +591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**PackageDetail**](PackageDetail.md)
 
 ### Authorization
 
@@ -2022,6 +2024,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**McpPackageUpload**](McpPackageUpload.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_upload_nix**
+> NixPackageUpload packages_upload_nix(owner, repo, data=data)
+
+Create a new Nix package
+
+Create a new Nix package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.NixPackageUploadRequest() # NixPackageUploadRequest |  (optional)
+
+try:
+    # Create a new Nix package
+    api_response = api_instance.packages_upload_nix(owner, repo, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_upload_nix: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**NixPackageUploadRequest**](NixPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+[**NixPackageUpload**](NixPackageUpload.md)
 
 ### Authorization
 
@@ -3798,6 +3862,67 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **data** | [**McpPackageUploadRequest**](McpPackageUploadRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **packages_validate_upload_nix**
+> packages_validate_upload_nix(owner, repo, data=data)
+
+Validate parameters for create Nix package
+
+Validate parameters for create Nix package
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
+owner = 'owner_example' # str | 
+repo = 'repo_example' # str | 
+data = cloudsmith_api.NixPackageUploadRequest() # NixPackageUploadRequest |  (optional)
+
+try:
+    # Validate parameters for create Nix package
+    api_instance.packages_validate_upload_nix(owner, repo, data=data)
+except ApiException as e:
+    print("Exception when calling PackagesApi->packages_validate_upload_nix: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **repo** | **str**|  | 
+ **data** | [**NixPackageUploadRequest**](NixPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 

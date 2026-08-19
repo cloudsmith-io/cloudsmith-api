@@ -20,12 +20,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.PackageGroup;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -37,32 +34,109 @@ import javax.validation.Valid;
 public class InlineResponse200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("results")
-  private List<PackageGroup> results = new ArrayList<>();
+  @SerializedName("allow_open_source_overage")
+  private Boolean allowOpenSourceOverage = null;
 
-  public InlineResponse200 results(List<PackageGroup> results) {
-    this.results = results;
-    return this;
-  }
+  @SerializedName("bandwidth_overage_limit")
+  private java.math.BigInteger bandwidthOverageLimit = null;
 
-  public InlineResponse200 addResultsItem(PackageGroup resultsItem) {
-    this.results.add(resultsItem);
+  @SerializedName("storage_overage_limit")
+  private java.math.BigInteger storageOverageLimit = null;
+
+  @SerializedName("bandwidth_maximum")
+  private java.math.BigInteger bandwidthMaximum = null;
+
+  @SerializedName("storage_maximum")
+  private java.math.BigInteger storageMaximum = null;
+
+  public InlineResponse200 allowOpenSourceOverage(Boolean allowOpenSourceOverage) {
+    this.allowOpenSourceOverage = allowOpenSourceOverage;
     return this;
   }
 
    /**
-   * Get results
-   * @return results
+   * Whether on-demand open source overage is allowed.
+   * @return allowOpenSourceOverage
   **/
-  @NotNull
-  @Valid
-  @ApiModelProperty(required = true, value = "")
-  public List<PackageGroup> getResults() {
-    return results;
+  @ApiModelProperty(value = "Whether on-demand open source overage is allowed.")
+  public Boolean isAllowOpenSourceOverage() {
+    return allowOpenSourceOverage;
   }
 
-  public void setResults(List<PackageGroup> results) {
-    this.results = results;
+  public void setAllowOpenSourceOverage(Boolean allowOpenSourceOverage) {
+    this.allowOpenSourceOverage = allowOpenSourceOverage;
+  }
+
+  public InlineResponse200 bandwidthOverageLimit(java.math.BigInteger bandwidthOverageLimit) {
+    this.bandwidthOverageLimit = bandwidthOverageLimit;
+    return this;
+  }
+
+   /**
+   * Effective bandwidth overage limit in GB.
+   * @return bandwidthOverageLimit
+  **/
+  @ApiModelProperty(value = "Effective bandwidth overage limit in GB.")
+  public java.math.BigInteger getBandwidthOverageLimit() {
+    return bandwidthOverageLimit;
+  }
+
+  public void setBandwidthOverageLimit(java.math.BigInteger bandwidthOverageLimit) {
+    this.bandwidthOverageLimit = bandwidthOverageLimit;
+  }
+
+  public InlineResponse200 storageOverageLimit(java.math.BigInteger storageOverageLimit) {
+    this.storageOverageLimit = storageOverageLimit;
+    return this;
+  }
+
+   /**
+   * Effective storage overage limit in GB.
+   * @return storageOverageLimit
+  **/
+  @ApiModelProperty(value = "Effective storage overage limit in GB.")
+  public java.math.BigInteger getStorageOverageLimit() {
+    return storageOverageLimit;
+  }
+
+  public void setStorageOverageLimit(java.math.BigInteger storageOverageLimit) {
+    this.storageOverageLimit = storageOverageLimit;
+  }
+
+  public InlineResponse200 bandwidthMaximum(java.math.BigInteger bandwidthMaximum) {
+    this.bandwidthMaximum = bandwidthMaximum;
+    return this;
+  }
+
+   /**
+   * Maximum allowed bandwidth overage in GB.
+   * @return bandwidthMaximum
+  **/
+  @ApiModelProperty(value = "Maximum allowed bandwidth overage in GB.")
+  public java.math.BigInteger getBandwidthMaximum() {
+    return bandwidthMaximum;
+  }
+
+  public void setBandwidthMaximum(java.math.BigInteger bandwidthMaximum) {
+    this.bandwidthMaximum = bandwidthMaximum;
+  }
+
+  public InlineResponse200 storageMaximum(java.math.BigInteger storageMaximum) {
+    this.storageMaximum = storageMaximum;
+    return this;
+  }
+
+   /**
+   * Maximum allowed storage overage in GB.
+   * @return storageMaximum
+  **/
+  @ApiModelProperty(value = "Maximum allowed storage overage in GB.")
+  public java.math.BigInteger getStorageMaximum() {
+    return storageMaximum;
+  }
+
+  public void setStorageMaximum(java.math.BigInteger storageMaximum) {
+    this.storageMaximum = storageMaximum;
   }
 
 
@@ -75,12 +149,16 @@ public class InlineResponse200 implements Serializable {
       return false;
     }
     InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.results, inlineResponse200.results);
+    return Objects.equals(this.allowOpenSourceOverage, inlineResponse200.allowOpenSourceOverage) &&
+        Objects.equals(this.bandwidthOverageLimit, inlineResponse200.bandwidthOverageLimit) &&
+        Objects.equals(this.storageOverageLimit, inlineResponse200.storageOverageLimit) &&
+        Objects.equals(this.bandwidthMaximum, inlineResponse200.bandwidthMaximum) &&
+        Objects.equals(this.storageMaximum, inlineResponse200.storageMaximum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(results);
+    return Objects.hash(allowOpenSourceOverage, bandwidthOverageLimit, storageOverageLimit, bandwidthMaximum, storageMaximum);
   }
 
 
@@ -89,7 +167,11 @@ public class InlineResponse200 implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200 {\n");
     
-    sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    allowOpenSourceOverage: ").append(toIndentedString(allowOpenSourceOverage)).append("\n");
+    sb.append("    bandwidthOverageLimit: ").append(toIndentedString(bandwidthOverageLimit)).append("\n");
+    sb.append("    storageOverageLimit: ").append(toIndentedString(storageOverageLimit)).append("\n");
+    sb.append("    bandwidthMaximum: ").append(toIndentedString(bandwidthMaximum)).append("\n");
+    sb.append("    storageMaximum: ").append(toIndentedString(storageMaximum)).append("\n");
     sb.append("}");
     return sb.toString();
   }

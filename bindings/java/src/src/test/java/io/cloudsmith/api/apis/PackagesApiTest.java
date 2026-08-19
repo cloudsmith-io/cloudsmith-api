@@ -44,7 +44,7 @@ import io.cloudsmith.api.models.HexPackageUpload;
 import io.cloudsmith.api.models.HexPackageUploadRequest;
 import io.cloudsmith.api.models.HuggingfacePackageUpload;
 import io.cloudsmith.api.models.HuggingfacePackageUploadRequest;
-import io.cloudsmith.api.models.InlineResponse200;
+import io.cloudsmith.api.models.InlineResponse2002;
 import io.cloudsmith.api.models.LuarocksPackageUpload;
 import io.cloudsmith.api.models.LuarocksPackageUploadRequest;
 import io.cloudsmith.api.models.MavenPackageUpload;
@@ -52,6 +52,8 @@ import io.cloudsmith.api.models.MavenPackageUploadRequest;
 import io.cloudsmith.api.models.McpPackageUpload;
 import io.cloudsmith.api.models.McpPackageUploadRequest;
 import io.cloudsmith.api.models.ModelPackage;
+import io.cloudsmith.api.models.NixPackageUpload;
+import io.cloudsmith.api.models.NixPackageUploadRequest;
 import io.cloudsmith.api.models.NpmPackageUpload;
 import io.cloudsmith.api.models.NpmPackageUploadRequest;
 import io.cloudsmith.api.models.NugetPackageUpload;
@@ -61,6 +63,7 @@ import io.cloudsmith.api.models.P2PackageUploadRequest;
 import io.cloudsmith.api.models.PackageCopy;
 import io.cloudsmith.api.models.PackageCopyRequest;
 import io.cloudsmith.api.models.PackageDependencies;
+import io.cloudsmith.api.models.PackageDetail;
 import io.cloudsmith.api.models.PackageLicenseRequestPatch;
 import io.cloudsmith.api.models.PackageMove;
 import io.cloudsmith.api.models.PackageMoveRequest;
@@ -178,7 +181,7 @@ public class PackagesApiTest {
         Boolean includeConnectedRepositories = null;
         String query = null;
         String sort = null;
-        InlineResponse200 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
+        InlineResponse2002 response = api.packagesGroupsList(owner, repo, page, pageSize, groupBy, hideSubcomponents, includeConnectedRepositories, query, sort);
 
         // TODO: test validations
     }
@@ -257,7 +260,7 @@ public class PackagesApiTest {
         String repo = null;
         String identifier = null;
         Boolean includeConnectedRepositories = null;
-        ModelPackage response = api.packagesRead(owner, repo, identifier, includeConnectedRepositories);
+        PackageDetail response = api.packagesRead(owner, repo, identifier, includeConnectedRepositories);
 
         // TODO: test validations
     }
@@ -675,6 +678,24 @@ public class PackagesApiTest {
         String repo = null;
         McpPackageUploadRequest data = null;
         McpPackageUpload response = api.packagesUploadMcp(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Nix package
+     *
+     * Create a new Nix package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesUploadNixTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        NixPackageUploadRequest data = null;
+        NixPackageUpload response = api.packagesUploadNix(owner, repo, data);
 
         // TODO: test validations
     }
@@ -1197,6 +1218,24 @@ public class PackagesApiTest {
         String repo = null;
         McpPackageUploadRequest data = null;
         api.packagesValidateUploadMcp(owner, repo, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Validate parameters for create Nix package
+     *
+     * Validate parameters for create Nix package
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void packagesValidateUploadNixTest() throws Exception {
+        String owner = null;
+        String repo = null;
+        NixPackageUploadRequest data = null;
+        api.packagesValidateUploadNix(owner, repo, data);
 
         // TODO: test validations
     }

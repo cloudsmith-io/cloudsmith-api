@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class HelmPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("is_malware_detected")
+  private Boolean isMalwareDetected = null;
+
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -45,6 +49,18 @@ public class HelmPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
+
+  @SerializedName("vulnerability_counts")
+  private WebOSVSeverityCounts vulnerabilityCounts = null;
+
+   /**
+   * Whether the package has been detected as containing malware. Requires Ultra plan.
+   * @return isMalwareDetected
+  **/
+  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
+  public Boolean isIsMalwareDetected() {
+    return isMalwareDetected;
+  }
 
   public HelmPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
@@ -119,6 +135,25 @@ public class HelmPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
+  public HelmPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+    return this;
+  }
+
+   /**
+   * Get vulnerabilityCounts
+   * @return vulnerabilityCounts
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public WebOSVSeverityCounts getVulnerabilityCounts() {
+    return vulnerabilityCounts;
+  }
+
+  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
+    this.vulnerabilityCounts = vulnerabilityCounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,15 +164,17 @@ public class HelmPackageUploadRequest implements Serializable {
       return false;
     }
     HelmPackageUploadRequest helmPackageUploadRequest = (HelmPackageUploadRequest) o;
-    return Objects.equals(this.packageFile, helmPackageUploadRequest.packageFile) &&
+    return Objects.equals(this.isMalwareDetected, helmPackageUploadRequest.isMalwareDetected) &&
+        Objects.equals(this.packageFile, helmPackageUploadRequest.packageFile) &&
         Objects.equals(this.provenanceFile, helmPackageUploadRequest.provenanceFile) &&
         Objects.equals(this.republish, helmPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, helmPackageUploadRequest.tags);
+        Objects.equals(this.tags, helmPackageUploadRequest.tags) &&
+        Objects.equals(this.vulnerabilityCounts, helmPackageUploadRequest.vulnerabilityCounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, provenanceFile, republish, tags);
+    return Objects.hash(isMalwareDetected, packageFile, provenanceFile, republish, tags, vulnerabilityCounts);
   }
 
 
@@ -146,10 +183,12 @@ public class HelmPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class HelmPackageUploadRequest {\n");
     
+    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    provenanceFile: ").append(toIndentedString(provenanceFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

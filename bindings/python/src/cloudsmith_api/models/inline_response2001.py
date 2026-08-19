@@ -33,46 +33,103 @@ class InlineResponse2001(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'results': 'list[ConnectedRepository]'
+        'allow_open_source_overage': 'bool',
+        'bandwidth_overage_limit': 'int',
+        'storage_overage_limit': 'int'
     }
 
     attribute_map = {
-        'results': 'results'
+        'allow_open_source_overage': 'allow_open_source_overage',
+        'bandwidth_overage_limit': 'bandwidth_overage_limit',
+        'storage_overage_limit': 'storage_overage_limit'
     }
 
-    def __init__(self, results=None, _configuration=None):  # noqa: E501
+    def __init__(self, allow_open_source_overage=None, bandwidth_overage_limit=None, storage_overage_limit=None, _configuration=None):  # noqa: E501
         """InlineResponse2001 - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._results = None
+        self._allow_open_source_overage = None
+        self._bandwidth_overage_limit = None
+        self._storage_overage_limit = None
         self.discriminator = None
 
-        self.results = results
+        if allow_open_source_overage is not None:
+            self.allow_open_source_overage = allow_open_source_overage
+        if bandwidth_overage_limit is not None:
+            self.bandwidth_overage_limit = bandwidth_overage_limit
+        if storage_overage_limit is not None:
+            self.storage_overage_limit = storage_overage_limit
 
     @property
-    def results(self):
-        """Gets the results of this InlineResponse2001.
+    def allow_open_source_overage(self):
+        """Gets the allow_open_source_overage of this InlineResponse2001.
 
+        Whether on-demand open source overage is allowed.
 
-        :return: The results of this InlineResponse2001.
-        :rtype: list[ConnectedRepository]
+        :return: The allow_open_source_overage of this InlineResponse2001.
+        :rtype: bool
         """
-        return self._results
+        return self._allow_open_source_overage
 
-    @results.setter
-    def results(self, results):
-        """Sets the results of this InlineResponse2001.
+    @allow_open_source_overage.setter
+    def allow_open_source_overage(self, allow_open_source_overage):
+        """Sets the allow_open_source_overage of this InlineResponse2001.
 
+        Whether on-demand open source overage is allowed.
 
-        :param results: The results of this InlineResponse2001.
-        :type: list[ConnectedRepository]
+        :param allow_open_source_overage: The allow_open_source_overage of this InlineResponse2001.
+        :type: bool
         """
-        if self._configuration.client_side_validation and results is None:
-            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
-        self._results = results
+        self._allow_open_source_overage = allow_open_source_overage
+
+    @property
+    def bandwidth_overage_limit(self):
+        """Gets the bandwidth_overage_limit of this InlineResponse2001.
+
+        Effective bandwidth overage limit in GB.
+
+        :return: The bandwidth_overage_limit of this InlineResponse2001.
+        :rtype: int
+        """
+        return self._bandwidth_overage_limit
+
+    @bandwidth_overage_limit.setter
+    def bandwidth_overage_limit(self, bandwidth_overage_limit):
+        """Sets the bandwidth_overage_limit of this InlineResponse2001.
+
+        Effective bandwidth overage limit in GB.
+
+        :param bandwidth_overage_limit: The bandwidth_overage_limit of this InlineResponse2001.
+        :type: int
+        """
+
+        self._bandwidth_overage_limit = bandwidth_overage_limit
+
+    @property
+    def storage_overage_limit(self):
+        """Gets the storage_overage_limit of this InlineResponse2001.
+
+        Effective storage overage limit in GB.
+
+        :return: The storage_overage_limit of this InlineResponse2001.
+        :rtype: int
+        """
+        return self._storage_overage_limit
+
+    @storage_overage_limit.setter
+    def storage_overage_limit(self, storage_overage_limit):
+        """Sets the storage_overage_limit of this InlineResponse2001.
+
+        Effective storage overage limit in GB.
+
+        :param storage_overage_limit: The storage_overage_limit of this InlineResponse2001.
+        :type: int
+        """
+
+        self._storage_overage_limit = storage_overage_limit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

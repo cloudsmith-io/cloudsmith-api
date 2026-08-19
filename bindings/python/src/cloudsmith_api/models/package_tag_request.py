@@ -35,16 +35,20 @@ class PackageTagRequest(object):
     swagger_types = {
         'action': 'str',
         'is_immutable': 'bool',
-        'tags': 'list[str]'
+        'is_malware_detected': 'bool',
+        'tags': 'list[str]',
+        'vulnerability_counts': 'WebOSVSeverityCounts'
     }
 
     attribute_map = {
         'action': 'action',
         'is_immutable': 'is_immutable',
-        'tags': 'tags'
+        'is_malware_detected': 'is_malware_detected',
+        'tags': 'tags',
+        'vulnerability_counts': 'vulnerability_counts'
     }
 
-    def __init__(self, action='Add', is_immutable=False, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, action='Add', is_immutable=False, is_malware_detected=None, tags=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
         """PackageTagRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,15 +56,21 @@ class PackageTagRequest(object):
 
         self._action = None
         self._is_immutable = None
+        self._is_malware_detected = None
         self._tags = None
+        self._vulnerability_counts = None
         self.discriminator = None
 
         if action is not None:
             self.action = action
         if is_immutable is not None:
             self.is_immutable = is_immutable
+        if is_malware_detected is not None:
+            self.is_malware_detected = is_malware_detected
         if tags is not None:
             self.tags = tags
+        if vulnerability_counts is not None:
+            self.vulnerability_counts = vulnerability_counts
 
     @property
     def action(self):
@@ -114,6 +124,29 @@ class PackageTagRequest(object):
         self._is_immutable = is_immutable
 
     @property
+    def is_malware_detected(self):
+        """Gets the is_malware_detected of this PackageTagRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :return: The is_malware_detected of this PackageTagRequest.
+        :rtype: bool
+        """
+        return self._is_malware_detected
+
+    @is_malware_detected.setter
+    def is_malware_detected(self, is_malware_detected):
+        """Sets the is_malware_detected of this PackageTagRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :param is_malware_detected: The is_malware_detected of this PackageTagRequest.
+        :type: bool
+        """
+
+        self._is_malware_detected = is_malware_detected
+
+    @property
     def tags(self):
         """Gets the tags of this PackageTagRequest.
 
@@ -135,6 +168,27 @@ class PackageTagRequest(object):
         """
 
         self._tags = tags
+
+    @property
+    def vulnerability_counts(self):
+        """Gets the vulnerability_counts of this PackageTagRequest.
+
+
+        :return: The vulnerability_counts of this PackageTagRequest.
+        :rtype: WebOSVSeverityCounts
+        """
+        return self._vulnerability_counts
+
+    @vulnerability_counts.setter
+    def vulnerability_counts(self, vulnerability_counts):
+        """Sets the vulnerability_counts of this PackageTagRequest.
+
+
+        :param vulnerability_counts: The vulnerability_counts of this PackageTagRequest.
+        :type: WebOSVSeverityCounts
+        """
+
+        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

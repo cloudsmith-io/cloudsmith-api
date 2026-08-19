@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **authorName** | **String** | The name of the author of the package. |  [optional]
 **authorOrg** | **String** | The organization of the author. |  [optional]
+**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
 **licenseUrl** | **String** | The license URL of this package. |  [optional]
 **name** | **String** | The name of this package. | 
 **packageFile** | **String** | The primary file for the package. | 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **scope** | **String** | A scope provides a namespace for related packages within the package registry. | 
 **tags** | **String** | A comma-separated values list of tags to add to the package. |  [optional]
 **version** | **String** | The raw version for this package. | 
+**vulnerabilityCounts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  |  [optional]
 
 
 

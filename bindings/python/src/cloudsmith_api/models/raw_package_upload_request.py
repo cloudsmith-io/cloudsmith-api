@@ -35,26 +35,30 @@ class RawPackageUploadRequest(object):
     swagger_types = {
         'content_type': 'str',
         'description': 'str',
+        'is_malware_detected': 'bool',
         'name': 'str',
         'package_file': 'str',
         'republish': 'bool',
         'summary': 'str',
         'tags': 'str',
-        'version': 'str'
+        'version': 'str',
+        'vulnerability_counts': 'WebOSVSeverityCounts'
     }
 
     attribute_map = {
         'content_type': 'content_type',
         'description': 'description',
+        'is_malware_detected': 'is_malware_detected',
         'name': 'name',
         'package_file': 'package_file',
         'republish': 'republish',
         'summary': 'summary',
         'tags': 'tags',
-        'version': 'version'
+        'version': 'version',
+        'vulnerability_counts': 'vulnerability_counts'
     }
 
-    def __init__(self, content_type=None, description=None, name=None, package_file=None, republish=None, summary=None, tags=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, content_type=None, description=None, is_malware_detected=None, name=None, package_file=None, republish=None, summary=None, tags=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
         """RawPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,18 +66,22 @@ class RawPackageUploadRequest(object):
 
         self._content_type = None
         self._description = None
+        self._is_malware_detected = None
         self._name = None
         self._package_file = None
         self._republish = None
         self._summary = None
         self._tags = None
         self._version = None
+        self._vulnerability_counts = None
         self.discriminator = None
 
         if content_type is not None:
             self.content_type = content_type
         if description is not None:
             self.description = description
+        if is_malware_detected is not None:
+            self.is_malware_detected = is_malware_detected
         if name is not None:
             self.name = name
         self.package_file = package_file
@@ -85,6 +93,8 @@ class RawPackageUploadRequest(object):
             self.tags = tags
         if version is not None:
             self.version = version
+        if vulnerability_counts is not None:
+            self.vulnerability_counts = vulnerability_counts
 
     @property
     def content_type(self):
@@ -140,6 +150,29 @@ class RawPackageUploadRequest(object):
             raise ValueError("Invalid value for `description`, length must be less than or equal to `12288`")  # noqa: E501
 
         self._description = description
+
+    @property
+    def is_malware_detected(self):
+        """Gets the is_malware_detected of this RawPackageUploadRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :return: The is_malware_detected of this RawPackageUploadRequest.
+        :rtype: bool
+        """
+        return self._is_malware_detected
+
+    @is_malware_detected.setter
+    def is_malware_detected(self, is_malware_detected):
+        """Sets the is_malware_detected of this RawPackageUploadRequest.
+
+        Whether the package has been detected as containing malware. Requires Ultra plan.
+
+        :param is_malware_detected: The is_malware_detected of this RawPackageUploadRequest.
+        :type: bool
+        """
+
+        self._is_malware_detected = is_malware_detected
 
     @property
     def name(self):
@@ -298,6 +331,27 @@ class RawPackageUploadRequest(object):
             raise ValueError("Invalid value for `version`, length must be less than or equal to `255`")  # noqa: E501
 
         self._version = version
+
+    @property
+    def vulnerability_counts(self):
+        """Gets the vulnerability_counts of this RawPackageUploadRequest.
+
+
+        :return: The vulnerability_counts of this RawPackageUploadRequest.
+        :rtype: WebOSVSeverityCounts
+        """
+        return self._vulnerability_counts
+
+    @vulnerability_counts.setter
+    def vulnerability_counts(self, vulnerability_counts):
+        """Sets the vulnerability_counts of this RawPackageUploadRequest.
+
+
+        :param vulnerability_counts: The vulnerability_counts of this RawPackageUploadRequest.
+        :type: WebOSVSeverityCounts
+        """
+
+        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

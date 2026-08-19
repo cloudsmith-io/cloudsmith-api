@@ -2561,6 +2561,58 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
+    # 
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [InlineResponse200]
+    def orgs_retrieve_usage_limits(org, opts = {})
+      data, _status_code, _headers = orgs_retrieve_usage_limits_with_http_info(org, opts)
+      data
+    end
+
+    # 
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    def orgs_retrieve_usage_limits_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_retrieve_usage_limits ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_retrieve_usage_limits"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/usage-limits/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse200')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_retrieve_usage_limits\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Update the SAML Authentication settings for this Organization.
     # Update the SAML Authentication settings for this Organization.
     # @param org 
@@ -3859,6 +3911,60 @@ module CloudsmithApi
         :return_type => 'OrganizationTeam')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrgsApi#orgs_teams_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # 
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationUsageUpdateRequestPatch] :data 
+    # @return [InlineResponse2001]
+    def orgs_update_usage_limits(org, opts = {})
+      data, _status_code, _headers = orgs_update_usage_limits_with_http_info(org, opts)
+      data
+    end
+
+    # 
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationUsageUpdateRequestPatch] :data 
+    # @return [Array<(InlineResponse2001, Fixnum, Hash)>] InlineResponse2001 data, response status code and response headers
+    def orgs_update_usage_limits_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_update_usage_limits ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_update_usage_limits"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/usage-limits/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse2001')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_update_usage_limits\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

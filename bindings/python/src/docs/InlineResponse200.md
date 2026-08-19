@@ -3,7 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**list[PackageGroup]**](PackageGroup.md) |  | 
+**allow_open_source_overage** | **bool** | Whether on-demand open source overage is allowed. | [optional] 
+**bandwidth_overage_limit** | **int** | Effective bandwidth overage limit in GB. | [optional] 
+**storage_overage_limit** | **int** | Effective storage overage limit in GB. | [optional] 
+**bandwidth_maximum** | **int** | Maximum allowed bandwidth overage in GB. | [optional] 
+**storage_maximum** | **int** | Maximum allowed storage overage in GB. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

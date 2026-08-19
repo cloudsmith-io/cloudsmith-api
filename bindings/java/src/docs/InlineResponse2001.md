@@ -4,7 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**List&lt;ConnectedRepository&gt;**](ConnectedRepository.md) |  | 
+**allowOpenSourceOverage** | **Boolean** | Whether on-demand open source overage is allowed. |  [optional]
+**bandwidthOverageLimit** | **java.math.BigInteger** | Effective bandwidth overage limit in GB. |  [optional]
+**storageOverageLimit** | **java.math.BigInteger** | Effective storage overage limit in GB. |  [optional]
 
 
 
