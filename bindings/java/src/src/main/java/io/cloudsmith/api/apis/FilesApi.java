@@ -41,7 +41,6 @@ import io.cloudsmith.api.models.PackageFilePartsUpload;
 import io.cloudsmith.api.models.PackageFileUpload;
 import io.cloudsmith.api.models.PackageFileUploadRequest;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
