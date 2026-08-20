@@ -146,6 +146,9 @@ from cloudsmith_api.models.nuget_package_upload_request import NugetPackageUploa
 from cloudsmith_api.models.nuget_upstream import NugetUpstream
 from cloudsmith_api.models.nuget_upstream_request import NugetUpstreamRequest
 from cloudsmith_api.models.nuget_upstream_request_patch import NugetUpstreamRequestPatch
+from cloudsmith_api.models.oidc import Oidc
+from cloudsmith_api.models.oidc1 import Oidc1
+from cloudsmith_api.models.oidc_request import OidcRequest
 from cloudsmith_api.models.organization import Organization
 from cloudsmith_api.models.organization_custom_domain_nested_repo import OrganizationCustomDomainNestedRepo
 from cloudsmith_api.models.organization_custom_domains import OrganizationCustomDomains

@@ -34,7 +34,7 @@ class NixPackageUploadRequest(object):
     """
     swagger_types = {
         'is_malware_detected': 'bool',
-        'narinfo': 'str',
+        'narinfo_file': 'str',
         'package_file': 'str',
         'republish': 'bool',
         'tags': 'str',
@@ -44,7 +44,7 @@ class NixPackageUploadRequest(object):
 
     attribute_map = {
         'is_malware_detected': 'is_malware_detected',
-        'narinfo': 'narinfo',
+        'narinfo_file': 'narinfo_file',
         'package_file': 'package_file',
         'republish': 'republish',
         'tags': 'tags',
@@ -52,14 +52,14 @@ class NixPackageUploadRequest(object):
         'vulnerability_counts': 'vulnerability_counts'
     }
 
-    def __init__(self, is_malware_detected=None, narinfo=None, package_file=None, republish=None, tags=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, is_malware_detected=None, narinfo_file=None, package_file=None, republish=None, tags=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
         """NixPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._is_malware_detected = None
-        self._narinfo = None
+        self._narinfo_file = None
         self._package_file = None
         self._republish = None
         self._tags = None
@@ -69,8 +69,8 @@ class NixPackageUploadRequest(object):
 
         if is_malware_detected is not None:
             self.is_malware_detected = is_malware_detected
-        if narinfo is not None:
-            self.narinfo = narinfo
+        if narinfo_file is not None:
+            self.narinfo_file = narinfo_file
         self.package_file = package_file
         if republish is not None:
             self.republish = republish
@@ -105,30 +105,30 @@ class NixPackageUploadRequest(object):
         self._is_malware_detected = is_malware_detected
 
     @property
-    def narinfo(self):
-        """Gets the narinfo of this NixPackageUploadRequest.
+    def narinfo_file(self):
+        """Gets the narinfo_file of this NixPackageUploadRequest.
 
         The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.
 
-        :return: The narinfo of this NixPackageUploadRequest.
+        :return: The narinfo_file of this NixPackageUploadRequest.
         :rtype: str
         """
-        return self._narinfo
+        return self._narinfo_file
 
-    @narinfo.setter
-    def narinfo(self, narinfo):
-        """Sets the narinfo of this NixPackageUploadRequest.
+    @narinfo_file.setter
+    def narinfo_file(self, narinfo_file):
+        """Sets the narinfo_file of this NixPackageUploadRequest.
 
         The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.
 
-        :param narinfo: The narinfo of this NixPackageUploadRequest.
+        :param narinfo_file: The narinfo_file of this NixPackageUploadRequest.
         :type: str
         """
         if (self._configuration.client_side_validation and
-                narinfo is not None and len(narinfo) < 1):
-            raise ValueError("Invalid value for `narinfo`, length must be greater than or equal to `1`")  # noqa: E501
+                narinfo_file is not None and len(narinfo_file) < 1):
+            raise ValueError("Invalid value for `narinfo_file`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._narinfo = narinfo
+        self._narinfo_file = narinfo_file
 
     @property
     def package_file(self):

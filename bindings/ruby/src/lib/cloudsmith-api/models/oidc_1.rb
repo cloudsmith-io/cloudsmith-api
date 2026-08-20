@@ -13,50 +13,21 @@ Swagger Codegen version: 2.4.50
 require 'date'
 
 module CloudsmithApi
-class NixPackageUploadRequest
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
-  # The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.
-  attr_accessor :narinfo_file
-
-  # The primary file for the package.
-  attr_accessor :package_file
-
-  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-  attr_accessor :republish
-
-  # A comma-separated values list of tags to add to the package.
-  attr_accessor :tags
-
-  # The raw version for this package.
-  attr_accessor :version
-
-  attr_accessor :vulnerability_counts
+class Oidc1
+  # Serialized JWT to be used for authentication.
+  attr_accessor :token
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'is_malware_detected' => :'is_malware_detected',
-      :'narinfo_file' => :'narinfo_file',
-      :'package_file' => :'package_file',
-      :'republish' => :'republish',
-      :'tags' => :'tags',
-      :'version' => :'version',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'token' => :'token'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'is_malware_detected' => :'BOOLEAN',
-      :'narinfo_file' => :'String',
-      :'package_file' => :'String',
-      :'republish' => :'BOOLEAN',
-      :'tags' => :'String',
-      :'version' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'token' => :'String'
     }
   end
 
@@ -68,32 +39,8 @@ class NixPackageUploadRequest
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
-    end
-
-    if attributes.has_key?(:'narinfo_file')
-      self.narinfo_file = attributes[:'narinfo_file']
-    end
-
-    if attributes.has_key?(:'package_file')
-      self.package_file = attributes[:'package_file']
-    end
-
-    if attributes.has_key?(:'republish')
-      self.republish = attributes[:'republish']
-    end
-
-    if attributes.has_key?(:'tags')
-      self.tags = attributes[:'tags']
-    end
-
-    if attributes.has_key?(:'version')
-      self.version = attributes[:'version']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
+    if attributes.has_key?(:'token')
+      self.token = attributes[:'token']
     end
   end
 
@@ -101,17 +48,12 @@ class NixPackageUploadRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if @package_file.nil?
-      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-    end
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if @package_file.nil?
     true
   end
 
@@ -120,13 +62,7 @@ class NixPackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        is_malware_detected == o.is_malware_detected &&
-        narinfo_file == o.narinfo_file &&
-        package_file == o.package_file &&
-        republish == o.republish &&
-        tags == o.tags &&
-        version == o.version &&
-        vulnerability_counts == o.vulnerability_counts
+        token == o.token
   end
 
   # @see the `==` method
@@ -138,7 +74,7 @@ class NixPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [is_malware_detected, narinfo_file, package_file, republish, tags, version, vulnerability_counts].hash
+    [token].hash
   end
 
     # Builds the object from hash
