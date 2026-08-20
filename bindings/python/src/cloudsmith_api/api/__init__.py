@@ -13,6 +13,7 @@ from cloudsmith_api.api.files_api import FilesApi
 from cloudsmith_api.api.formats_api import FormatsApi
 from cloudsmith_api.api.metrics_api import MetricsApi
 from cloudsmith_api.api.namespaces_api import NamespacesApi
+from cloudsmith_api.api.openid_api import OpenidApi
 from cloudsmith_api.api.orgs_api import OrgsApi
 from cloudsmith_api.api.packages_api import PackagesApi
 from cloudsmith_api.api.quota_api import QuotaApi

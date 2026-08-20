@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.30</version>
+  <version>2.0.31</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.30"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.31"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.30.jar`
+* `target/cloudsmith-api-2.0.31.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
 *MetricsApi* | [**metricsPackagesList**](docs/MetricsApi.md#metricsPackagesList) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
 *NamespacesApi* | [**namespacesList**](docs/NamespacesApi.md#namespacesList) | **GET** /namespaces/ | Get a list of all namespaces the user belongs to.
 *NamespacesApi* | [**namespacesRead**](docs/NamespacesApi.md#namespacesRead) | **GET** /namespaces/{slug}/ | Get a specific namespace that the user belongs to.
+*OpenidApi* | [**openidCreate**](docs/OpenidApi.md#openidCreate) | **POST** /openid/{owner}/ | Get a JWT token for a configured service account belonging to the requesting org.
 *OrgsApi* | [**orgsCustomDomainsList**](docs/OrgsApi.md#orgsCustomDomainsList) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
 *OrgsApi* | [**orgsDelete**](docs/OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 *OrgsApi* | [**orgsDenyPolicyCreate**](docs/OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
@@ -624,6 +625,9 @@ Class | Method | HTTP request | Description
  - [NugetUpstream](docs/NugetUpstream.md)
  - [NugetUpstreamRequest](docs/NugetUpstreamRequest.md)
  - [NugetUpstreamRequestPatch](docs/NugetUpstreamRequestPatch.md)
+ - [Oidc](docs/Oidc.md)
+ - [Oidc1](docs/Oidc1.md)
+ - [OidcRequest](docs/OidcRequest.md)
  - [Organization](docs/Organization.md)
  - [OrganizationCustomDomainNestedRepo](docs/OrganizationCustomDomainNestedRepo.md)
  - [OrganizationCustomDomains](docs/OrganizationCustomDomains.md)

@@ -18,7 +18,7 @@ class NixPackageUploadRequest
   attr_accessor :is_malware_detected
 
   # The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.
-  attr_accessor :narinfo
+  attr_accessor :narinfo_file
 
   # The primary file for the package.
   attr_accessor :package_file
@@ -38,7 +38,7 @@ class NixPackageUploadRequest
   def self.attribute_map
     {
       :'is_malware_detected' => :'is_malware_detected',
-      :'narinfo' => :'narinfo',
+      :'narinfo_file' => :'narinfo_file',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
       :'tags' => :'tags',
@@ -51,7 +51,7 @@ class NixPackageUploadRequest
   def self.swagger_types
     {
       :'is_malware_detected' => :'BOOLEAN',
-      :'narinfo' => :'String',
+      :'narinfo_file' => :'String',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String',
@@ -72,8 +72,8 @@ class NixPackageUploadRequest
       self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
-    if attributes.has_key?(:'narinfo')
-      self.narinfo = attributes[:'narinfo']
+    if attributes.has_key?(:'narinfo_file')
+      self.narinfo_file = attributes[:'narinfo_file']
     end
 
     if attributes.has_key?(:'package_file')
@@ -121,7 +121,7 @@ class NixPackageUploadRequest
     return true if self.equal?(o)
     self.class == o.class &&
         is_malware_detected == o.is_malware_detected &&
-        narinfo == o.narinfo &&
+        narinfo_file == o.narinfo_file &&
         package_file == o.package_file &&
         republish == o.republish &&
         tags == o.tags &&
@@ -138,7 +138,7 @@ class NixPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [is_malware_detected, narinfo, package_file, republish, tags, version, vulnerability_counts].hash
+    [is_malware_detected, narinfo_file, package_file, republish, tags, version, vulnerability_counts].hash
   end
 
     # Builds the object from hash

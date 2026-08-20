@@ -38,8 +38,8 @@ public class NixPackageUploadRequest implements Serializable {
   @SerializedName("is_malware_detected")
   private Boolean isMalwareDetected = null;
 
-  @SerializedName("narinfo")
-  private String narinfo = null;
+  @SerializedName("narinfo_file")
+  private String narinfoFile = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
@@ -65,22 +65,22 @@ public class NixPackageUploadRequest implements Serializable {
     return isMalwareDetected;
   }
 
-  public NixPackageUploadRequest narinfo(String narinfo) {
-    this.narinfo = narinfo;
+  public NixPackageUploadRequest narinfoFile(String narinfoFile) {
+    this.narinfoFile = narinfoFile;
     return this;
   }
 
    /**
    * The narinfo sidecar metadata file (&lt;storeHash&gt;.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.
-   * @return narinfo
+   * @return narinfoFile
   **/
  @Size(min=1)  @ApiModelProperty(value = "The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.")
-  public String getNarinfo() {
-    return narinfo;
+  public String getNarinfoFile() {
+    return narinfoFile;
   }
 
-  public void setNarinfo(String narinfo) {
-    this.narinfo = narinfo;
+  public void setNarinfoFile(String narinfoFile) {
+    this.narinfoFile = narinfoFile;
   }
 
   public NixPackageUploadRequest packageFile(String packageFile) {
@@ -186,7 +186,7 @@ public class NixPackageUploadRequest implements Serializable {
     }
     NixPackageUploadRequest nixPackageUploadRequest = (NixPackageUploadRequest) o;
     return Objects.equals(this.isMalwareDetected, nixPackageUploadRequest.isMalwareDetected) &&
-        Objects.equals(this.narinfo, nixPackageUploadRequest.narinfo) &&
+        Objects.equals(this.narinfoFile, nixPackageUploadRequest.narinfoFile) &&
         Objects.equals(this.packageFile, nixPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, nixPackageUploadRequest.republish) &&
         Objects.equals(this.tags, nixPackageUploadRequest.tags) &&
@@ -196,7 +196,7 @@ public class NixPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isMalwareDetected, narinfo, packageFile, republish, tags, version, vulnerabilityCounts);
+    return Objects.hash(isMalwareDetected, narinfoFile, packageFile, republish, tags, version, vulnerabilityCounts);
   }
 
 
@@ -206,7 +206,7 @@ public class NixPackageUploadRequest implements Serializable {
     sb.append("class NixPackageUploadRequest {\n");
     
     sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
-    sb.append("    narinfo: ").append(toIndentedString(narinfo)).append("\n");
+    sb.append("    narinfoFile: ").append(toIndentedString(narinfoFile)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

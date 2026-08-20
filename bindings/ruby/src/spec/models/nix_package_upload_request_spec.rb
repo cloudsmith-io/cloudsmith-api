@@ -38,7 +38,7 @@ describe 'NixPackageUploadRequest' do
     end
   end
 
-  describe 'test attribute "narinfo"' do
+  describe 'test attribute "narinfo_file"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
