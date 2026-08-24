@@ -9,13 +9,15 @@ root_dir=$(readlink -f "$self_dir/../..")
 src_dir="$self_dir/src"
 
 install_dependencies() {
-  pip install --upgrade --user twine
+  pip install --upgrade --user build twine
   export PATH="$HOME/.local/bin:$PATH"
 }
 
 build_distribution() {
   echo "Building distribution ..."
-  python setup.py sdist bdist_wheel --universal
+  rm -rf build dist ./*.egg-info
+  python -m build
+  twine check dist/*
 }
 
 upload_to_pypi() {
@@ -32,7 +34,7 @@ upload_to_pypi() {
 upload_to_cloudsmith() {
   echo "Uploading to Cloudsmith ..."
 
-  distribution_filepath="dist/${project_underscore}-${package_version}-py2.py3-none-any.whl"
+  distribution_filepath="dist/${project_underscore}-${package_version}-py3-none-any.whl"
 
   # no-wait-for-sync necessary to prevent upload from failing due to sync failure
   cloudsmith push python ${cloudsmith_repo_api} "${distribution_filepath}" --skip-errors --no-wait-for-sync

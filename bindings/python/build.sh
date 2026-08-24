@@ -9,6 +9,7 @@ root_dir=$(readlink -f "$self_dir/../..")
 src_dir="$self_dir/src"
 build_json="$src_dir/build.json"
 template_dir="$self_dir/templates"
+python_requires=">=3.10"
 
 rm -rf $src_dir
 mkdir -p $src_dir
@@ -30,4 +31,10 @@ docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${
     -l python \
     -o /local/src \
     -t /local/templates \
+    --ignore-file-override /local/.swagger-codegen-ignore \
+    --additional-properties "pythonRequires=$python_requires" \
     $common_codegen_options
+
+# Restore release metadata after clean regeneration.
+cp "$root_dir/LICENSE" "$src_dir/LICENSE"
+cp "$self_dir/release/pyproject.toml" "$src_dir/pyproject.toml"

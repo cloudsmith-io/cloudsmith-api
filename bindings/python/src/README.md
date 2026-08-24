@@ -10,7 +10,7 @@ For more information, please visit [https://help.cloudsmith.io](https://help.clo
 
 ## Requirements.
 
-Python 2.7 and 3.4+
+Python >=3.10
 
 ## Installation & Usage
 ### pip install
@@ -24,7 +24,7 @@ pip install git+https://github.com/cloudsmith-io/cloudsmith-api.git
 
 Then import the package:
 ```python
-import cloudsmith_api 
+import cloudsmith_api
 ```
 
 ### Setuptools
