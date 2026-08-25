@@ -132,7 +132,6 @@ import io.cloudsmith.api.models.SwiftUpstream;
 import io.cloudsmith.api.models.SwiftUpstreamRequest;
 import io.cloudsmith.api.models.SwiftUpstreamRequestPatch;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -40,7 +40,6 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Oidc1;
 import io.cloudsmith.api.models.OidcRequest;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

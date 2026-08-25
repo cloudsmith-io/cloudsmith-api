@@ -112,7 +112,6 @@ import io.cloudsmith.api.models.VagrantPackageUploadRequest;
 import io.cloudsmith.api.models.VsxPackageUpload;
 import io.cloudsmith.api.models.VsxPackageUploadRequest;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
