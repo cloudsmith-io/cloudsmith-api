@@ -41,6 +41,7 @@ import io.cloudsmith.api.models.PackageBulkActionResponse;
 import io.cloudsmith.api.models.PackageRecycleBin;
 import io.cloudsmith.api.models.RecycleBinPackage;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

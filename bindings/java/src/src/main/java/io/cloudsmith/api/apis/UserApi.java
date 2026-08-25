@@ -43,6 +43,7 @@ import io.cloudsmith.api.models.UserAuthTokenRequest;
 import io.cloudsmith.api.models.UserAuthenticationToken;
 import io.cloudsmith.api.models.UserBrief;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

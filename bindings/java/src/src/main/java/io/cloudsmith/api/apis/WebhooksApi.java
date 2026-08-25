@@ -41,6 +41,7 @@ import io.cloudsmith.api.models.RepositoryWebhook;
 import io.cloudsmith.api.models.RepositoryWebhookRequest;
 import io.cloudsmith.api.models.RepositoryWebhookRequestPatch;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

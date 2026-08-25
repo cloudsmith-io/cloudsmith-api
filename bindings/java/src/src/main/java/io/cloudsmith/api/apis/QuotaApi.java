@@ -40,6 +40,7 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.Quota;
 import io.cloudsmith.api.models.QuotaHistory;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

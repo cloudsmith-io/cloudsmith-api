@@ -39,6 +39,7 @@ import java.lang.reflect.Type;
 import io.cloudsmith.api.models.DistributionFull;
 import io.cloudsmith.api.models.ErrorDetail;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

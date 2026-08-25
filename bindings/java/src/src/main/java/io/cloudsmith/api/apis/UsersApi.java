@@ -39,6 +39,7 @@ import java.lang.reflect.Type;
 import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.UserProfile;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

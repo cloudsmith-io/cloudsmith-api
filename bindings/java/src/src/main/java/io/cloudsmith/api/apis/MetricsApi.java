@@ -40,6 +40,7 @@ import io.cloudsmith.api.models.EntitlementUsageMetrics;
 import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.PackageUsageMetrics;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
