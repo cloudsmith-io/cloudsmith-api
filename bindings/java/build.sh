@@ -53,3 +53,5 @@ docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${
     -o /local/src \
     -t /local/templates \
     $common_codegen_options
+
+bash $root_dir/scripts/fix-java-duplicate-imports.sh
