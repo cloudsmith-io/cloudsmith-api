@@ -17,9 +17,6 @@ class CranPackageUploadRequest
   # Binary package uploads for macOS should specify the architecture they were built for.
   attr_accessor :architecture
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # The primary file for the package.
   attr_accessor :package_file
 
@@ -32,18 +29,14 @@ class CranPackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
-  attr_accessor :vulnerability_counts
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'architecture' => :'architecture',
-      :'is_malware_detected' => :'is_malware_detected',
       :'package_file' => :'package_file',
       :'r_version' => :'r_version',
       :'republish' => :'republish',
-      :'tags' => :'tags',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'tags' => :'tags'
     }
   end
 
@@ -51,12 +44,10 @@ class CranPackageUploadRequest
   def self.swagger_types
     {
       :'architecture' => :'String',
-      :'is_malware_detected' => :'BOOLEAN',
       :'package_file' => :'String',
       :'r_version' => :'String',
       :'republish' => :'BOOLEAN',
-      :'tags' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'tags' => :'String'
     }
   end
 
@@ -70,10 +61,6 @@ class CranPackageUploadRequest
 
     if attributes.has_key?(:'architecture')
       self.architecture = attributes[:'architecture']
-    end
-
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'package_file')
@@ -90,10 +77,6 @@ class CranPackageUploadRequest
 
     if attributes.has_key?(:'tags')
       self.tags = attributes[:'tags']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -121,12 +104,10 @@ class CranPackageUploadRequest
     return true if self.equal?(o)
     self.class == o.class &&
         architecture == o.architecture &&
-        is_malware_detected == o.is_malware_detected &&
         package_file == o.package_file &&
         r_version == o.r_version &&
         republish == o.republish &&
-        tags == o.tags &&
-        vulnerability_counts == o.vulnerability_counts
+        tags == o.tags
   end
 
   # @see the `==` method
@@ -138,7 +119,7 @@ class CranPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architecture, is_malware_detected, package_file, r_version, republish, tags, vulnerability_counts].hash
+    [architecture, package_file, r_version, republish, tags].hash
   end
 
     # Builds the object from hash

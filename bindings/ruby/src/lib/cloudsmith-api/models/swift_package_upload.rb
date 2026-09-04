@@ -84,9 +84,6 @@ class SwiftPackageUpload
 
   attr_accessor :is_hidden
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   attr_accessor :is_moveable
 
   attr_accessor :is_quarantinable
@@ -238,8 +235,6 @@ class SwiftPackageUpload
 
   attr_accessor :version_orig
 
-  attr_accessor :vulnerability_counts
-
   attr_accessor :vulnerability_scan_results_url
 
   class EnumAttributeValidator
@@ -298,7 +293,6 @@ class SwiftPackageUpload
       :'is_deleteable' => :'is_deleteable',
       :'is_downloadable' => :'is_downloadable',
       :'is_hidden' => :'is_hidden',
-      :'is_malware_detected' => :'is_malware_detected',
       :'is_moveable' => :'is_moveable',
       :'is_quarantinable' => :'is_quarantinable',
       :'is_quarantined' => :'is_quarantined',
@@ -360,7 +354,6 @@ class SwiftPackageUpload
       :'uploader_url' => :'uploader_url',
       :'version' => :'version',
       :'version_orig' => :'version_orig',
-      :'vulnerability_counts' => :'vulnerability_counts',
       :'vulnerability_scan_results_url' => :'vulnerability_scan_results_url'
     }
   end
@@ -399,7 +392,6 @@ class SwiftPackageUpload
       :'is_deleteable' => :'BOOLEAN',
       :'is_downloadable' => :'BOOLEAN',
       :'is_hidden' => :'BOOLEAN',
-      :'is_malware_detected' => :'BOOLEAN',
       :'is_moveable' => :'BOOLEAN',
       :'is_quarantinable' => :'BOOLEAN',
       :'is_quarantined' => :'BOOLEAN',
@@ -461,7 +453,6 @@ class SwiftPackageUpload
       :'uploader_url' => :'String',
       :'version' => :'String',
       :'version_orig' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts',
       :'vulnerability_scan_results_url' => :'String'
     }
   end
@@ -602,10 +593,6 @@ class SwiftPackageUpload
 
     if attributes.has_key?(:'is_hidden')
       self.is_hidden = attributes[:'is_hidden']
-    end
-
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'is_moveable')
@@ -856,10 +843,6 @@ class SwiftPackageUpload
       self.version_orig = attributes[:'version_orig']
     end
 
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
-    end
-
     if attributes.has_key?(:'vulnerability_scan_results_url')
       self.vulnerability_scan_results_url = attributes[:'vulnerability_scan_results_url']
     end
@@ -941,7 +924,6 @@ class SwiftPackageUpload
         is_deleteable == o.is_deleteable &&
         is_downloadable == o.is_downloadable &&
         is_hidden == o.is_hidden &&
-        is_malware_detected == o.is_malware_detected &&
         is_moveable == o.is_moveable &&
         is_quarantinable == o.is_quarantinable &&
         is_quarantined == o.is_quarantined &&
@@ -1003,7 +985,6 @@ class SwiftPackageUpload
         uploader_url == o.uploader_url &&
         version == o.version &&
         version_orig == o.version_orig &&
-        vulnerability_counts == o.vulnerability_counts &&
         vulnerability_scan_results_url == o.vulnerability_scan_results_url
   end
 
@@ -1016,7 +997,7 @@ class SwiftPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, author_name, author_org, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_malware_detected, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, license_url, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, osi_approved, package_type, policy_violated, raw_license, readme_url, release, repository, repository_url, scope, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, store_path, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, tags_static, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_counts, vulnerability_scan_results_url].hash
+    [architectures, author_name, author_org, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, license_url, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, osi_approved, package_type, policy_violated, raw_license, readme_url, release, repository, repository_url, scope, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, store_path, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, tags_static, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

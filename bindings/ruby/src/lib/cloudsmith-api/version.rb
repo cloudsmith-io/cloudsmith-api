@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.50
 =end
 
 module CloudsmithApi
-  VERSION = '2.0.32'
+  VERSION = '2.0.33'
 end

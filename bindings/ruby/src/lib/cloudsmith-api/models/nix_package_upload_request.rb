@@ -14,9 +14,6 @@ require 'date'
 
 module CloudsmithApi
 class NixPackageUploadRequest
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.
   attr_accessor :narinfo_file
 
@@ -32,31 +29,25 @@ class NixPackageUploadRequest
   # The raw version for this package.
   attr_accessor :version
 
-  attr_accessor :vulnerability_counts
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'is_malware_detected' => :'is_malware_detected',
       :'narinfo_file' => :'narinfo_file',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
       :'tags' => :'tags',
-      :'version' => :'version',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'version' => :'version'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'is_malware_detected' => :'BOOLEAN',
       :'narinfo_file' => :'String',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String',
-      :'version' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'version' => :'String'
     }
   end
 
@@ -67,10 +58,6 @@ class NixPackageUploadRequest
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
-    end
 
     if attributes.has_key?(:'narinfo_file')
       self.narinfo_file = attributes[:'narinfo_file']
@@ -90,10 +77,6 @@ class NixPackageUploadRequest
 
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -120,13 +103,11 @@ class NixPackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        is_malware_detected == o.is_malware_detected &&
         narinfo_file == o.narinfo_file &&
         package_file == o.package_file &&
         republish == o.republish &&
         tags == o.tags &&
-        version == o.version &&
-        vulnerability_counts == o.vulnerability_counts
+        version == o.version
   end
 
   # @see the `==` method
@@ -138,7 +119,7 @@ class NixPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [is_malware_detected, narinfo_file, package_file, republish, tags, version, vulnerability_counts].hash
+    [narinfo_file, package_file, republish, tags, version].hash
   end
 
     # Builds the object from hash

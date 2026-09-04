@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,9 +33,6 @@ import javax.validation.Valid;
 
 public class NixPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
 
   @SerializedName("narinfo_file")
   private String narinfoFile = null;
@@ -52,18 +48,6 @@ public class NixPackageUploadRequest implements Serializable {
 
   @SerializedName("version")
   private String version = null;
-
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
-
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
-  }
 
   public NixPackageUploadRequest narinfoFile(String narinfoFile) {
     this.narinfoFile = narinfoFile;
@@ -156,25 +140,6 @@ public class NixPackageUploadRequest implements Serializable {
     this.version = version;
   }
 
-  public NixPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -185,18 +150,16 @@ public class NixPackageUploadRequest implements Serializable {
       return false;
     }
     NixPackageUploadRequest nixPackageUploadRequest = (NixPackageUploadRequest) o;
-    return Objects.equals(this.isMalwareDetected, nixPackageUploadRequest.isMalwareDetected) &&
-        Objects.equals(this.narinfoFile, nixPackageUploadRequest.narinfoFile) &&
+    return Objects.equals(this.narinfoFile, nixPackageUploadRequest.narinfoFile) &&
         Objects.equals(this.packageFile, nixPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, nixPackageUploadRequest.republish) &&
         Objects.equals(this.tags, nixPackageUploadRequest.tags) &&
-        Objects.equals(this.version, nixPackageUploadRequest.version) &&
-        Objects.equals(this.vulnerabilityCounts, nixPackageUploadRequest.vulnerabilityCounts);
+        Objects.equals(this.version, nixPackageUploadRequest.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isMalwareDetected, narinfoFile, packageFile, republish, tags, version, vulnerabilityCounts);
+    return Objects.hash(narinfoFile, packageFile, republish, tags, version);
   }
 
 
@@ -205,13 +168,11 @@ public class NixPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class NixPackageUploadRequest {\n");
     
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    narinfoFile: ").append(toIndentedString(narinfoFile)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

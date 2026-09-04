@@ -16,9 +16,6 @@ module CloudsmithApi
 class PackageLicenseRequestPatch
   attr_accessor :action
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   attr_accessor :license_notes
 
   attr_accessor :license_override
@@ -26,8 +23,6 @@ class PackageLicenseRequestPatch
   attr_accessor :license_url
 
   attr_accessor :spdx_license
-
-  attr_accessor :vulnerability_counts
 
   class EnumAttributeValidator
     attr_reader :datatype
@@ -55,12 +50,10 @@ class PackageLicenseRequestPatch
   def self.attribute_map
     {
       :'action' => :'action',
-      :'is_malware_detected' => :'is_malware_detected',
       :'license_notes' => :'license_notes',
       :'license_override' => :'license_override',
       :'license_url' => :'license_url',
-      :'spdx_license' => :'spdx_license',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'spdx_license' => :'spdx_license'
     }
   end
 
@@ -68,12 +61,10 @@ class PackageLicenseRequestPatch
   def self.swagger_types
     {
       :'action' => :'String',
-      :'is_malware_detected' => :'BOOLEAN',
       :'license_notes' => :'String',
       :'license_override' => :'String',
       :'license_url' => :'String',
-      :'spdx_license' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'spdx_license' => :'String'
     }
   end
 
@@ -89,10 +80,6 @@ class PackageLicenseRequestPatch
       self.action = attributes[:'action']
     else
       self.action = 'Update'
-    end
-
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'license_notes')
@@ -111,10 +98,6 @@ class PackageLicenseRequestPatch
 
     if attributes.has_key?(:'spdx_license')
       self.spdx_license = attributes[:'spdx_license']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -166,12 +149,10 @@ class PackageLicenseRequestPatch
     return true if self.equal?(o)
     self.class == o.class &&
         action == o.action &&
-        is_malware_detected == o.is_malware_detected &&
         license_notes == o.license_notes &&
         license_override == o.license_override &&
         license_url == o.license_url &&
-        spdx_license == o.spdx_license &&
-        vulnerability_counts == o.vulnerability_counts
+        spdx_license == o.spdx_license
   end
 
   # @see the `==` method
@@ -183,7 +164,7 @@ class PackageLicenseRequestPatch
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [action, is_malware_detected, license_notes, license_override, license_url, spdx_license, vulnerability_counts].hash
+    [action, license_notes, license_override, license_url, spdx_license].hash
   end
 
     # Builds the object from hash

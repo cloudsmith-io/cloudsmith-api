@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,9 +33,6 @@ import javax.validation.Valid;
 
 public class VagrantPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
 
   @SerializedName("name")
   private String name = null;
@@ -55,18 +51,6 @@ public class VagrantPackageUploadRequest implements Serializable {
 
   @SerializedName("version")
   private String version = null;
-
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
-
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
-  }
 
   public VagrantPackageUploadRequest name(String name) {
     this.name = name;
@@ -180,25 +164,6 @@ public class VagrantPackageUploadRequest implements Serializable {
     this.version = version;
   }
 
-  public VagrantPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -209,19 +174,17 @@ public class VagrantPackageUploadRequest implements Serializable {
       return false;
     }
     VagrantPackageUploadRequest vagrantPackageUploadRequest = (VagrantPackageUploadRequest) o;
-    return Objects.equals(this.isMalwareDetected, vagrantPackageUploadRequest.isMalwareDetected) &&
-        Objects.equals(this.name, vagrantPackageUploadRequest.name) &&
+    return Objects.equals(this.name, vagrantPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, vagrantPackageUploadRequest.packageFile) &&
         Objects.equals(this.provider, vagrantPackageUploadRequest.provider) &&
         Objects.equals(this.republish, vagrantPackageUploadRequest.republish) &&
         Objects.equals(this.tags, vagrantPackageUploadRequest.tags) &&
-        Objects.equals(this.version, vagrantPackageUploadRequest.version) &&
-        Objects.equals(this.vulnerabilityCounts, vagrantPackageUploadRequest.vulnerabilityCounts);
+        Objects.equals(this.version, vagrantPackageUploadRequest.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isMalwareDetected, name, packageFile, provider, republish, tags, version, vulnerabilityCounts);
+    return Objects.hash(name, packageFile, provider, republish, tags, version);
   }
 
 
@@ -230,14 +193,12 @@ public class VagrantPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class VagrantPackageUploadRequest {\n");
     
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -35,7 +35,6 @@ Name | Type | Description | Notes
 **isDeleteable** | **Boolean** |  |  [optional]
 **isDownloadable** | **Boolean** |  |  [optional]
 **isHidden** | **Boolean** |  |  [optional]
-**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
 **isMoveable** | **Boolean** |  |  [optional]
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
@@ -97,7 +96,6 @@ Name | Type | Description | Notes
 **uploaderUrl** | **String** |  |  [optional]
 **version** | **String** | The raw version for this package. | 
 **versionOrig** | **String** |  |  [optional]
-**vulnerabilityCounts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  |  [optional]
 **vulnerabilityScanResultsUrl** | **String** |  |  [optional]
 
 

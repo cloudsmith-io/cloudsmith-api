@@ -32,7 +32,6 @@ Name | Type | Description | Notes
 **is_deleteable** | **bool** |  | [optional] 
 **is_downloadable** | **bool** |  | [optional] 
 **is_hidden** | **bool** |  | [optional] 
-**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
 **is_moveable** | **bool** |  | [optional] 
 **is_quarantinable** | **bool** |  | [optional] 
 **is_quarantined** | **bool** |  | [optional] 
@@ -91,7 +90,6 @@ Name | Type | Description | Notes
 **uploader_url** | **str** |  | [optional] 
 **version** | **str** | The raw version for this package. | [optional] 
 **version_orig** | **str** |  | [optional] 
-**vulnerability_counts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  | [optional] 
 **vulnerability_scan_results_url** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

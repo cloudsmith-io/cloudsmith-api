@@ -36,7 +36,6 @@ class MavenPackageUploadRequest(object):
         'artifact_id': 'str',
         'extra_files': 'list[str]',
         'group_id': 'str',
-        'is_malware_detected': 'bool',
         'ivy_file': 'str',
         'javadoc_file': 'str',
         'package_file': 'str',
@@ -48,15 +47,13 @@ class MavenPackageUploadRequest(object):
         'sources_file': 'str',
         'tags': 'str',
         'tests_file': 'str',
-        'version': 'str',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'version': 'str'
     }
 
     attribute_map = {
         'artifact_id': 'artifact_id',
         'extra_files': 'extra_files',
         'group_id': 'group_id',
-        'is_malware_detected': 'is_malware_detected',
         'ivy_file': 'ivy_file',
         'javadoc_file': 'javadoc_file',
         'package_file': 'package_file',
@@ -68,11 +65,10 @@ class MavenPackageUploadRequest(object):
         'sources_file': 'sources_file',
         'tags': 'tags',
         'tests_file': 'tests_file',
-        'version': 'version',
-        'vulnerability_counts': 'vulnerability_counts'
+        'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, extra_files=None, group_id=None, is_malware_detected=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sbt_version=None, scala_version=None, sources_file=None, tags=None, tests_file=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, artifact_id=None, extra_files=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sbt_version=None, scala_version=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
         """MavenPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -81,7 +77,6 @@ class MavenPackageUploadRequest(object):
         self._artifact_id = None
         self._extra_files = None
         self._group_id = None
-        self._is_malware_detected = None
         self._ivy_file = None
         self._javadoc_file = None
         self._package_file = None
@@ -94,7 +89,6 @@ class MavenPackageUploadRequest(object):
         self._tags = None
         self._tests_file = None
         self._version = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
         if artifact_id is not None:
@@ -103,8 +97,6 @@ class MavenPackageUploadRequest(object):
             self.extra_files = extra_files
         if group_id is not None:
             self.group_id = group_id
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
         if ivy_file is not None:
             self.ivy_file = ivy_file
         if javadoc_file is not None:
@@ -128,8 +120,6 @@ class MavenPackageUploadRequest(object):
             self.tests_file = tests_file
         if version is not None:
             self.version = version
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
 
     @property
     def artifact_id(self):
@@ -205,29 +195,6 @@ class MavenPackageUploadRequest(object):
             raise ValueError("Invalid value for `group_id`, length must be less than or equal to `2083`")  # noqa: E501
 
         self._group_id = group_id
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this MavenPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this MavenPackageUploadRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this MavenPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this MavenPackageUploadRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
 
     @property
     def ivy_file(self):
@@ -538,27 +505,6 @@ class MavenPackageUploadRequest(object):
             raise ValueError("Invalid value for `version`, length must be less than or equal to `255`")  # noqa: E501
 
         self._version = version
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this MavenPackageUploadRequest.
-
-
-        :return: The vulnerability_counts of this MavenPackageUploadRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this MavenPackageUploadRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this MavenPackageUploadRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

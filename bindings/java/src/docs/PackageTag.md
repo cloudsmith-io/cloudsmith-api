@@ -35,7 +35,6 @@ Name | Type | Description | Notes
 **isDownloadable** | **Boolean** |  |  [optional]
 **isHidden** | **Boolean** |  |  [optional]
 **isImmutable** | **Boolean** | If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package. |  [optional]
-**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
 **isMoveable** | **Boolean** |  |  [optional]
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
@@ -94,7 +93,6 @@ Name | Type | Description | Notes
 **uploaderUrl** | **String** |  |  [optional]
 **version** | **String** | The raw version for this package. |  [optional]
 **versionOrig** | **String** |  |  [optional]
-**vulnerabilityCounts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  |  [optional]
 **vulnerabilityScanResultsUrl** | **String** |  |  [optional]
 
 

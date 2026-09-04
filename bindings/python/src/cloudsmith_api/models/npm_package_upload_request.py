@@ -33,39 +33,31 @@ class NpmPackageUploadRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'is_malware_detected': 'bool',
         'npm_dist_tag': 'str',
         'package_file': 'str',
         'republish': 'bool',
-        'tags': 'str',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'tags': 'str'
     }
 
     attribute_map = {
-        'is_malware_detected': 'is_malware_detected',
         'npm_dist_tag': 'npm_dist_tag',
         'package_file': 'package_file',
         'republish': 'republish',
-        'tags': 'tags',
-        'vulnerability_counts': 'vulnerability_counts'
+        'tags': 'tags'
     }
 
-    def __init__(self, is_malware_detected=None, npm_dist_tag='latest', package_file=None, republish=None, tags=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, npm_dist_tag='latest', package_file=None, republish=None, tags=None, _configuration=None):  # noqa: E501
         """NpmPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._is_malware_detected = None
         self._npm_dist_tag = None
         self._package_file = None
         self._republish = None
         self._tags = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
         if npm_dist_tag is not None:
             self.npm_dist_tag = npm_dist_tag
         self.package_file = package_file
@@ -73,31 +65,6 @@ class NpmPackageUploadRequest(object):
             self.republish = republish
         if tags is not None:
             self.tags = tags
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this NpmPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this NpmPackageUploadRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this NpmPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this NpmPackageUploadRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
 
     @property
     def npm_dist_tag(self):
@@ -204,27 +171,6 @@ class NpmPackageUploadRequest(object):
             raise ValueError("Invalid value for `tags`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tags = tags
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this NpmPackageUploadRequest.
-
-
-        :return: The vulnerability_counts of this NpmPackageUploadRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this NpmPackageUploadRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this NpmPackageUploadRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

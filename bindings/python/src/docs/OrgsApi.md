@@ -4,6 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orgs_api_key_rules_create**](OrgsApi.md#orgs_api_key_rules_create) | **POST** /orgs/{org}/api-key-rules/ | Create an API key rule.
+[**orgs_api_key_rules_delete**](OrgsApi.md#orgs_api_key_rules_delete) | **DELETE** /orgs/{org}/api-key-rules/{slug_perm}/ | Delete an API key rule.
+[**orgs_api_key_rules_list**](OrgsApi.md#orgs_api_key_rules_list) | **GET** /orgs/{org}/api-key-rules/ | List all API key rules for the organization.
+[**orgs_api_key_rules_partial_update**](OrgsApi.md#orgs_api_key_rules_partial_update) | **PATCH** /orgs/{org}/api-key-rules/{slug_perm}/ | Update an API key rule.
+[**orgs_api_key_rules_read**](OrgsApi.md#orgs_api_key_rules_read) | **GET** /orgs/{org}/api-key-rules/{slug_perm}/ | Retrieve an API key rule.
+[**orgs_api_key_rules_update**](OrgsApi.md#orgs_api_key_rules_update) | **PUT** /orgs/{org}/api-key-rules/{slug_perm}/ | Full update of an API key rule.
 [**orgs_custom_domains_list**](OrgsApi.md#orgs_custom_domains_list) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
 [**orgs_delete**](OrgsApi.md#orgs_delete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 [**orgs_deny_policy_create**](OrgsApi.md#orgs_deny_policy_create) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
@@ -81,6 +87,367 @@ Method | HTTP request | Description
 [**orgs_vulnerability_policy_update**](OrgsApi.md#orgs_vulnerability_policy_update) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
 [**orgs_vulnerability_policy_violation_list**](OrgsApi.md#orgs_vulnerability_policy_violation_list) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
 
+
+# **orgs_api_key_rules_create**
+> OrganizationApiKeyRule orgs_api_key_rules_create(org, data=data)
+
+Create an API key rule.
+
+Create an API key rule.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+data = cloudsmith_api.OrganizationApiKeyRuleRequest() # OrganizationApiKeyRuleRequest |  (optional)
+
+try:
+    # Create an API key rule.
+    api_response = api_instance.orgs_api_key_rules_create(org, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_api_key_rules_create: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_api_key_rules_delete**
+> orgs_api_key_rules_delete(org, slug_perm)
+
+Delete an API key rule.
+
+Delete an API key rule.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Delete an API key rule.
+    api_instance.orgs_api_key_rules_delete(org, slug_perm)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_api_key_rules_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_api_key_rules_list**
+> list[OrganizationApiKeyRule] orgs_api_key_rules_list(org)
+
+List all API key rules for the organization.
+
+List all API key rules for the organization.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+
+try:
+    # List all API key rules for the organization.
+    api_response = api_instance.orgs_api_key_rules_list(org)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_api_key_rules_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+
+### Return type
+
+[**list[OrganizationApiKeyRule]**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_api_key_rules_partial_update**
+> OrganizationApiKeyRule orgs_api_key_rules_partial_update(org, slug_perm, data=data)
+
+Update an API key rule.
+
+Update an API key rule.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.OrganizationApiKeyRuleRequestPatch() # OrganizationApiKeyRuleRequestPatch |  (optional)
+
+try:
+    # Update an API key rule.
+    api_response = api_instance.orgs_api_key_rules_partial_update(org, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_api_key_rules_partial_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**OrganizationApiKeyRuleRequestPatch**](OrganizationApiKeyRuleRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_api_key_rules_read**
+> OrganizationApiKeyRule orgs_api_key_rules_read(org, slug_perm)
+
+Retrieve an API key rule.
+
+Retrieve an API key rule.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+
+try:
+    # Retrieve an API key rule.
+    api_response = api_instance.orgs_api_key_rules_read(org, slug_perm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_api_key_rules_read: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **orgs_api_key_rules_update**
+> OrganizationApiKeyRule orgs_api_key_rules_update(org, slug_perm, data=data)
+
+Full update of an API key rule.
+
+Full update of an API key rule.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudsmith_api
+from cloudsmith_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: apikey
+configuration = cloudsmith_api.Configuration()
+configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# Configure HTTP basic authorization: basic
+configuration = cloudsmith_api.Configuration()
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = cloudsmith_api.OrgsApi(cloudsmith_api.ApiClient(configuration))
+org = 'org_example' # str | 
+slug_perm = 'slug_perm_example' # str | 
+data = cloudsmith_api.OrganizationApiKeyRuleRequest() # OrganizationApiKeyRuleRequest |  (optional)
+
+try:
+    # Full update of an API key rule.
+    api_response = api_instance.orgs_api_key_rules_update(org, slug_perm, data=data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrgsApi->orgs_api_key_rules_update: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **str**|  | 
+ **slug_perm** | **str**|  | 
+ **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **orgs_custom_domains_list**
 > list[OrganizationCustomDomains] orgs_custom_domains_list(org, page=page, page_size=page_size)

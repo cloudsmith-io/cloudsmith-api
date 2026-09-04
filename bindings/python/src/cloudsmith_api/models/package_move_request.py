@@ -33,33 +33,23 @@ class PackageMoveRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'destination': 'str',
-        'is_malware_detected': 'bool',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'destination': 'str'
     }
 
     attribute_map = {
-        'destination': 'destination',
-        'is_malware_detected': 'is_malware_detected',
-        'vulnerability_counts': 'vulnerability_counts'
+        'destination': 'destination'
     }
 
-    def __init__(self, destination=None, is_malware_detected=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination=None, _configuration=None):  # noqa: E501
         """PackageMoveRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._destination = None
-        self._is_malware_detected = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
         self.destination = destination
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
 
     @property
     def destination(self):
@@ -88,50 +78,6 @@ class PackageMoveRequest(object):
             raise ValueError("Invalid value for `destination`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._destination = destination
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this PackageMoveRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this PackageMoveRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this PackageMoveRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this PackageMoveRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this PackageMoveRequest.
-
-
-        :return: The vulnerability_counts of this PackageMoveRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this PackageMoveRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this PackageMoveRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

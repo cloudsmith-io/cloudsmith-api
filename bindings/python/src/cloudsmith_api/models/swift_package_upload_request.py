@@ -35,7 +35,6 @@ class SwiftPackageUploadRequest(object):
     swagger_types = {
         'author_name': 'str',
         'author_org': 'str',
-        'is_malware_detected': 'bool',
         'license_url': 'str',
         'name': 'str',
         'package_file': 'str',
@@ -44,14 +43,12 @@ class SwiftPackageUploadRequest(object):
         'republish': 'bool',
         'scope': 'str',
         'tags': 'str',
-        'version': 'str',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'version': 'str'
     }
 
     attribute_map = {
         'author_name': 'author_name',
         'author_org': 'author_org',
-        'is_malware_detected': 'is_malware_detected',
         'license_url': 'license_url',
         'name': 'name',
         'package_file': 'package_file',
@@ -60,11 +57,10 @@ class SwiftPackageUploadRequest(object):
         'republish': 'republish',
         'scope': 'scope',
         'tags': 'tags',
-        'version': 'version',
-        'vulnerability_counts': 'vulnerability_counts'
+        'version': 'version'
     }
 
-    def __init__(self, author_name=None, author_org=None, is_malware_detected=None, license_url=None, name=None, package_file=None, readme_url=None, repository_url=None, republish=None, scope=None, tags=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, author_name=None, author_org=None, license_url=None, name=None, package_file=None, readme_url=None, repository_url=None, republish=None, scope=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """SwiftPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,7 +68,6 @@ class SwiftPackageUploadRequest(object):
 
         self._author_name = None
         self._author_org = None
-        self._is_malware_detected = None
         self._license_url = None
         self._name = None
         self._package_file = None
@@ -82,15 +77,12 @@ class SwiftPackageUploadRequest(object):
         self._scope = None
         self._tags = None
         self._version = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
         if author_name is not None:
             self.author_name = author_name
         if author_org is not None:
             self.author_org = author_org
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
         if license_url is not None:
             self.license_url = license_url
         self.name = name
@@ -105,8 +97,6 @@ class SwiftPackageUploadRequest(object):
         if tags is not None:
             self.tags = tags
         self.version = version
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
 
     @property
     def author_name(self):
@@ -159,29 +149,6 @@ class SwiftPackageUploadRequest(object):
             raise ValueError("Invalid value for `author_org`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._author_org = author_org
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this SwiftPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this SwiftPackageUploadRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this SwiftPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this SwiftPackageUploadRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
 
     @property
     def license_url(self):
@@ -427,27 +394,6 @@ class SwiftPackageUploadRequest(object):
             raise ValueError("Invalid value for `version`, length must be less than or equal to `255`")  # noqa: E501
 
         self._version = version
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this SwiftPackageUploadRequest.
-
-
-        :return: The vulnerability_counts of this SwiftPackageUploadRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this SwiftPackageUploadRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this SwiftPackageUploadRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

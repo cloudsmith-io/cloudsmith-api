@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **artifactId** | **String** | The ID of the artifact. |  [optional]
 **extraFiles** | **List&lt;String&gt;** | Extra files to include in the package. This can be a single file or multiple files. |  [optional]
 **groupId** | **String** | Artifact&#39;s group ID. |  [optional]
-**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
 **ivyFile** | **String** | The ivy file is an XML file describing the dependencies of the project. |  [optional]
 **javadocFile** | **String** | Adds bundled Java documentation to the Maven package |  [optional]
 **packageFile** | **String** | The primary file for the package. | 
@@ -20,7 +19,6 @@ Name | Type | Description | Notes
 **tags** | **String** | A comma-separated values list of tags to add to the package. |  [optional]
 **testsFile** | **String** | Adds bundled Java tests to the Maven package. |  [optional]
 **version** | **String** | The raw version for this package. |  [optional]
-**vulnerabilityCounts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  |  [optional]
 
 
 

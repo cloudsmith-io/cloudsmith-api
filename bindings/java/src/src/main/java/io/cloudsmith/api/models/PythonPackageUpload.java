@@ -25,7 +25,6 @@ import io.cloudsmith.api.models.Distribution;
 import io.cloudsmith.api.models.DistributionVersion;
 import io.cloudsmith.api.models.PackageFile;
 import io.cloudsmith.api.models.Tags;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -131,9 +130,6 @@ public class PythonPackageUpload implements Serializable {
 
   @SerializedName("is_hidden")
   private Boolean isHidden = null;
-
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
 
   @SerializedName("is_moveable")
   private Boolean isMoveable = null;
@@ -367,9 +363,6 @@ public class PythonPackageUpload implements Serializable {
 
   @SerializedName("version_orig")
   private String versionOrig = null;
-
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   @SerializedName("vulnerability_scan_results_url")
   private String vulnerabilityScanResultsUrl = null;
@@ -655,15 +648,6 @@ public class PythonPackageUpload implements Serializable {
   @ApiModelProperty(value = "")
   public Boolean isIsHidden() {
     return isHidden;
-  }
-
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
   }
 
    /**
@@ -1216,25 +1200,6 @@ public class PythonPackageUpload implements Serializable {
     return versionOrig;
   }
 
-  public PythonPackageUpload vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
    /**
    * Get vulnerabilityScanResultsUrl
    * @return vulnerabilityScanResultsUrl
@@ -1283,7 +1248,6 @@ public class PythonPackageUpload implements Serializable {
         Objects.equals(this.isDeleteable, pythonPackageUpload.isDeleteable) &&
         Objects.equals(this.isDownloadable, pythonPackageUpload.isDownloadable) &&
         Objects.equals(this.isHidden, pythonPackageUpload.isHidden) &&
-        Objects.equals(this.isMalwareDetected, pythonPackageUpload.isMalwareDetected) &&
         Objects.equals(this.isMoveable, pythonPackageUpload.isMoveable) &&
         Objects.equals(this.isQuarantinable, pythonPackageUpload.isQuarantinable) &&
         Objects.equals(this.isQuarantined, pythonPackageUpload.isQuarantined) &&
@@ -1342,13 +1306,12 @@ public class PythonPackageUpload implements Serializable {
         Objects.equals(this.uploaderUrl, pythonPackageUpload.uploaderUrl) &&
         Objects.equals(this.version, pythonPackageUpload.version) &&
         Objects.equals(this.versionOrig, pythonPackageUpload.versionOrig) &&
-        Objects.equals(this.vulnerabilityCounts, pythonPackageUpload.vulnerabilityCounts) &&
         Objects.equals(this.vulnerabilityScanResultsUrl, pythonPackageUpload.vulnerabilityScanResultsUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1386,7 +1349,6 @@ public class PythonPackageUpload implements Serializable {
     sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
     sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
@@ -1445,7 +1407,6 @@ public class PythonPackageUpload implements Serializable {
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("    vulnerabilityScanResultsUrl: ").append(toIndentedString(vulnerabilityScanResultsUrl)).append("\n");
     sb.append("}");
     return sb.toString();

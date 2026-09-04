@@ -33,62 +33,29 @@ class PackageQuarantineRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'is_malware_detected': 'bool',
         'release': 'bool',
-        'restore': 'bool',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'restore': 'bool'
     }
 
     attribute_map = {
-        'is_malware_detected': 'is_malware_detected',
         'release': 'release',
-        'restore': 'restore',
-        'vulnerability_counts': 'vulnerability_counts'
+        'restore': 'restore'
     }
 
-    def __init__(self, is_malware_detected=None, release=None, restore=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, release=None, restore=None, _configuration=None):  # noqa: E501
         """PackageQuarantineRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._is_malware_detected = None
         self._release = None
         self._restore = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
         if release is not None:
             self.release = release
         if restore is not None:
             self.restore = restore
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this PackageQuarantineRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this PackageQuarantineRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this PackageQuarantineRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this PackageQuarantineRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
 
     @property
     def release(self):
@@ -135,27 +102,6 @@ class PackageQuarantineRequest(object):
         """
 
         self._restore = restore
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this PackageQuarantineRequest.
-
-
-        :return: The vulnerability_counts of this PackageQuarantineRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this PackageQuarantineRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this PackageQuarantineRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

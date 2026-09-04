@@ -18,6 +18,9 @@ import io.cloudsmith.api.models.ErrorDetail;
 import io.cloudsmith.api.models.InlineResponse200;
 import io.cloudsmith.api.models.InlineResponse2001;
 import io.cloudsmith.api.models.Organization;
+import io.cloudsmith.api.models.OrganizationApiKeyRule;
+import io.cloudsmith.api.models.OrganizationApiKeyRuleRequest;
+import io.cloudsmith.api.models.OrganizationApiKeyRuleRequestPatch;
 import io.cloudsmith.api.models.OrganizationCustomDomains;
 import io.cloudsmith.api.models.OrganizationGroupSync;
 import io.cloudsmith.api.models.OrganizationGroupSyncRequest;
@@ -78,6 +81,109 @@ public class OrgsApiTest {
 
     private final OrgsApi api = new OrgsApi();
 
+    
+    /**
+     * Create an API key rule.
+     *
+     * Create an API key rule.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsApiKeyRulesCreateTest() throws Exception {
+        String org = null;
+        OrganizationApiKeyRuleRequest data = null;
+        OrganizationApiKeyRule response = api.orgsApiKeyRulesCreate(org, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete an API key rule.
+     *
+     * Delete an API key rule.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsApiKeyRulesDeleteTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        api.orgsApiKeyRulesDelete(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all API key rules for the organization.
+     *
+     * List all API key rules for the organization.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsApiKeyRulesListTest() throws Exception {
+        String org = null;
+        List<OrganizationApiKeyRule> response = api.orgsApiKeyRulesList(org);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update an API key rule.
+     *
+     * Update an API key rule.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsApiKeyRulesPartialUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationApiKeyRuleRequestPatch data = null;
+        OrganizationApiKeyRule response = api.orgsApiKeyRulesPartialUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve an API key rule.
+     *
+     * Retrieve an API key rule.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsApiKeyRulesReadTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationApiKeyRule response = api.orgsApiKeyRulesRead(org, slugPerm);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Full update of an API key rule.
+     *
+     * Full update of an API key rule.
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void orgsApiKeyRulesUpdateTest() throws Exception {
+        String org = null;
+        String slugPerm = null;
+        OrganizationApiKeyRuleRequest data = null;
+        OrganizationApiKeyRule response = api.orgsApiKeyRulesUpdate(org, slugPerm, data);
+
+        // TODO: test validations
+    }
     
     /**
      * Get the details for all custom domains.

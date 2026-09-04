@@ -20,10 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.cloudsmith.api.models.ConnectedRepositoryTargetSummary;
+import io.cloudsmith.api.models.ConnectedRepositoryUpstream;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -34,6 +38,12 @@ import javax.validation.Valid;
 
 public class ConnectedRepository implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  @SerializedName("can_view_target_repository_settings")
+  private Boolean canViewTargetRepositorySettings = null;
+
+  @SerializedName("configured_upstreams")
+  private List<ConnectedRepositoryUpstream> configuredUpstreams = null;
 
   @SerializedName("created_at")
   private OffsetDateTime createdAt = null;
@@ -102,6 +112,28 @@ public class ConnectedRepository implements Serializable {
 
   @SerializedName("target_repository")
   private String targetRepository = null;
+
+  @SerializedName("target_repository_summary")
+  private ConnectedRepositoryTargetSummary targetRepositorySummary = null;
+
+   /**
+   * Whether the current user has permission to view the target repository&#39;s settings. When false, &#x60;configured_upstreams&#x60; will be empty even if upstreams are configured.
+   * @return canViewTargetRepositorySettings
+  **/
+  @ApiModelProperty(value = "Whether the current user has permission to view the target repository's settings. When false, `configured_upstreams` will be empty even if upstreams are configured.")
+  public Boolean isCanViewTargetRepositorySettings() {
+    return canViewTargetRepositorySettings;
+  }
+
+   /**
+   * The upstream sources configured on the target repository, used to display which formats/upstreams the connection exposes.
+   * @return configuredUpstreams
+  **/
+  @Valid
+  @ApiModelProperty(value = "The upstream sources configured on the target repository, used to display which formats/upstreams the connection exposes.")
+  public List<ConnectedRepositoryUpstream> getConfiguredUpstreams() {
+    return configuredUpstreams;
+  }
 
    /**
    * The date and time when the connection was created.
@@ -197,6 +229,25 @@ public class ConnectedRepository implements Serializable {
     this.targetRepository = targetRepository;
   }
 
+  public ConnectedRepository targetRepositorySummary(ConnectedRepositoryTargetSummary targetRepositorySummary) {
+    this.targetRepositorySummary = targetRepositorySummary;
+    return this;
+  }
+
+   /**
+   * Get targetRepositorySummary
+   * @return targetRepositorySummary
+  **/
+  @Valid
+  @ApiModelProperty(value = "")
+  public ConnectedRepositoryTargetSummary getTargetRepositorySummary() {
+    return targetRepositorySummary;
+  }
+
+  public void setTargetRepositorySummary(ConnectedRepositoryTargetSummary targetRepositorySummary) {
+    this.targetRepositorySummary = targetRepositorySummary;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -207,18 +258,21 @@ public class ConnectedRepository implements Serializable {
       return false;
     }
     ConnectedRepository connectedRepository = (ConnectedRepository) o;
-    return Objects.equals(this.createdAt, connectedRepository.createdAt) &&
+    return Objects.equals(this.canViewTargetRepositorySettings, connectedRepository.canViewTargetRepositorySettings) &&
+        Objects.equals(this.configuredUpstreams, connectedRepository.configuredUpstreams) &&
+        Objects.equals(this.createdAt, connectedRepository.createdAt) &&
         Objects.equals(this.disableReason, connectedRepository.disableReason) &&
         Objects.equals(this.disableReasonText, connectedRepository.disableReasonText) &&
         Objects.equals(this.isActive, connectedRepository.isActive) &&
         Objects.equals(this.priority, connectedRepository.priority) &&
         Objects.equals(this.slugPerm, connectedRepository.slugPerm) &&
-        Objects.equals(this.targetRepository, connectedRepository.targetRepository);
+        Objects.equals(this.targetRepository, connectedRepository.targetRepository) &&
+        Objects.equals(this.targetRepositorySummary, connectedRepository.targetRepositorySummary);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, disableReason, disableReasonText, isActive, priority, slugPerm, targetRepository);
+    return Objects.hash(canViewTargetRepositorySettings, configuredUpstreams, createdAt, disableReason, disableReasonText, isActive, priority, slugPerm, targetRepository, targetRepositorySummary);
   }
 
 
@@ -227,6 +281,8 @@ public class ConnectedRepository implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConnectedRepository {\n");
     
+    sb.append("    canViewTargetRepositorySettings: ").append(toIndentedString(canViewTargetRepositorySettings)).append("\n");
+    sb.append("    configuredUpstreams: ").append(toIndentedString(configuredUpstreams)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
     sb.append("    disableReasonText: ").append(toIndentedString(disableReasonText)).append("\n");
@@ -234,6 +290,7 @@ public class ConnectedRepository implements Serializable {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    slugPerm: ").append(toIndentedString(slugPerm)).append("\n");
     sb.append("    targetRepository: ").append(toIndentedString(targetRepository)).append("\n");
+    sb.append("    targetRepositorySummary: ").append(toIndentedString(targetRepositorySummary)).append("\n");
     sb.append("}");
     return sb.toString();
   }

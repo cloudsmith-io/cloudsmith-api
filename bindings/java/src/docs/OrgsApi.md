@@ -4,6 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orgsApiKeyRulesCreate**](OrgsApi.md#orgsApiKeyRulesCreate) | **POST** /orgs/{org}/api-key-rules/ | Create an API key rule.
+[**orgsApiKeyRulesDelete**](OrgsApi.md#orgsApiKeyRulesDelete) | **DELETE** /orgs/{org}/api-key-rules/{slug_perm}/ | Delete an API key rule.
+[**orgsApiKeyRulesList**](OrgsApi.md#orgsApiKeyRulesList) | **GET** /orgs/{org}/api-key-rules/ | List all API key rules for the organization.
+[**orgsApiKeyRulesPartialUpdate**](OrgsApi.md#orgsApiKeyRulesPartialUpdate) | **PATCH** /orgs/{org}/api-key-rules/{slug_perm}/ | Update an API key rule.
+[**orgsApiKeyRulesRead**](OrgsApi.md#orgsApiKeyRulesRead) | **GET** /orgs/{org}/api-key-rules/{slug_perm}/ | Retrieve an API key rule.
+[**orgsApiKeyRulesUpdate**](OrgsApi.md#orgsApiKeyRulesUpdate) | **PUT** /orgs/{org}/api-key-rules/{slug_perm}/ | Full update of an API key rule.
 [**orgsCustomDomainsList**](OrgsApi.md#orgsCustomDomainsList) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
 [**orgsDelete**](OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 [**orgsDenyPolicyCreate**](OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
@@ -81,6 +87,379 @@ Method | HTTP request | Description
 [**orgsVulnerabilityPolicyUpdate**](OrgsApi.md#orgsVulnerabilityPolicyUpdate) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
 [**orgsVulnerabilityPolicyViolationList**](OrgsApi.md#orgsVulnerabilityPolicyViolationList) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
 
+
+<a name="orgsApiKeyRulesCreate"></a>
+# **orgsApiKeyRulesCreate**
+> OrganizationApiKeyRule orgsApiKeyRulesCreate(org, data)
+
+Create an API key rule.
+
+Create an API key rule.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+OrganizationApiKeyRuleRequest data = new OrganizationApiKeyRuleRequest(); // OrganizationApiKeyRuleRequest | 
+try {
+    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesCreate(org, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesCreate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional]
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsApiKeyRulesDelete"></a>
+# **orgsApiKeyRulesDelete**
+> orgsApiKeyRulesDelete(org, slugPerm)
+
+Delete an API key rule.
+
+Delete an API key rule.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    apiInstance.orgsApiKeyRulesDelete(org, slugPerm);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsApiKeyRulesList"></a>
+# **orgsApiKeyRulesList**
+> List&lt;OrganizationApiKeyRule&gt; orgsApiKeyRulesList(org)
+
+List all API key rules for the organization.
+
+List all API key rules for the organization.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+try {
+    List<OrganizationApiKeyRule> result = apiInstance.orgsApiKeyRulesList(org);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+
+### Return type
+
+[**List&lt;OrganizationApiKeyRule&gt;**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsApiKeyRulesPartialUpdate"></a>
+# **orgsApiKeyRulesPartialUpdate**
+> OrganizationApiKeyRule orgsApiKeyRulesPartialUpdate(org, slugPerm, data)
+
+Update an API key rule.
+
+Update an API key rule.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+OrganizationApiKeyRuleRequestPatch data = new OrganizationApiKeyRuleRequestPatch(); // OrganizationApiKeyRuleRequestPatch | 
+try {
+    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesPartialUpdate(org, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesPartialUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**OrganizationApiKeyRuleRequestPatch**](OrganizationApiKeyRuleRequestPatch.md)|  | [optional]
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsApiKeyRulesRead"></a>
+# **orgsApiKeyRulesRead**
+> OrganizationApiKeyRule orgsApiKeyRulesRead(org, slugPerm)
+
+Retrieve an API key rule.
+
+Retrieve an API key rule.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+try {
+    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesRead(org, slugPerm);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesRead");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="orgsApiKeyRulesUpdate"></a>
+# **orgsApiKeyRulesUpdate**
+> OrganizationApiKeyRule orgsApiKeyRulesUpdate(org, slugPerm, data)
+
+Full update of an API key rule.
+
+Full update of an API key rule.
+
+### Example
+```java
+// Import classes:
+//import io.cloudsmith.api.ApiClient;
+//import io.cloudsmith.api.ApiException;
+//import io.cloudsmith.api.Configuration;
+//import io.cloudsmith.api.auth.*;
+//import io.cloudsmith.api.apis.OrgsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: apikey
+ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+apikey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apikey.setApiKeyPrefix("Token");
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+OrgsApi apiInstance = new OrgsApi();
+String org = "org_example"; // String | 
+String slugPerm = "slugPerm_example"; // String | 
+OrganizationApiKeyRuleRequest data = new OrganizationApiKeyRuleRequest(); // OrganizationApiKeyRuleRequest | 
+try {
+    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesUpdate(org, slugPerm, data);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesUpdate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  |
+ **slugPerm** | **String**|  |
+ **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional]
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="orgsCustomDomainsList"></a>
 # **orgsCustomDomainsList**

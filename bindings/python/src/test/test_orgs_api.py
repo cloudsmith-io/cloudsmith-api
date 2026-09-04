@@ -29,6 +29,48 @@ class TestOrgsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_orgs_api_key_rules_create(self):
+        """Test case for orgs_api_key_rules_create
+
+        Create an API key rule.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_api_key_rules_delete(self):
+        """Test case for orgs_api_key_rules_delete
+
+        Delete an API key rule.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_api_key_rules_list(self):
+        """Test case for orgs_api_key_rules_list
+
+        List all API key rules for the organization.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_api_key_rules_partial_update(self):
+        """Test case for orgs_api_key_rules_partial_update
+
+        Update an API key rule.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_api_key_rules_read(self):
+        """Test case for orgs_api_key_rules_read
+
+        Retrieve an API key rule.  # noqa: E501
+        """
+        pass
+
+    def test_orgs_api_key_rules_update(self):
+        """Test case for orgs_api_key_rules_update
+
+        Full update of an API key rule.  # noqa: E501
+        """
+        pass
+
     def test_orgs_custom_domains_list(self):
         """Test case for orgs_custom_domains_list
 
