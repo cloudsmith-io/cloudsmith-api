@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **dependenciesUrl** | **String** |  |  [optional]
 **description** | **String** | A textual description of this package. |  [optional]
 **displayName** | **String** |  |  [optional]
+**displaySource** | **String** | Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith). |  [optional]
 **distro** | [**Distribution**](Distribution.md) |  |  [optional]
 **distroVersion** | [**DistributionVersion**](DistributionVersion.md) |  |  [optional]
 **downloads** | **java.math.BigInteger** |  |  [optional]

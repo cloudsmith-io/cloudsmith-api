@@ -105,7 +105,7 @@ describe 'PackagesApi' do
   # @option opts [Integer] :page A page number within the paginated result set.
   # @option opts [Integer] :page_size Number of results to return per page.
   # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-  # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages.
   # @option opts [String] :sort A field for sorting objects in ascending or descending order.
   # @return [Array<Package>]
   describe 'packages_list test' do

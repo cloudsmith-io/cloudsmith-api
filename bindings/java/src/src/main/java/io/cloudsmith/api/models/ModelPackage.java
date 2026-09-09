@@ -75,6 +75,9 @@ public class ModelPackage implements Serializable {
   @SerializedName("display_name")
   private String displayName = null;
 
+  @SerializedName("display_source")
+  private String displaySource = null;
+
   @SerializedName("distro")
   private Distribution distro = null;
 
@@ -469,6 +472,15 @@ public class ModelPackage implements Serializable {
   @ApiModelProperty(value = "")
   public String getDisplayName() {
     return displayName;
+  }
+
+   /**
+   * Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith).
+   * @return displaySource
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Where the package originated, for example: 'upstream' (proxied/cached from a configured upstream), 'connected_repository' (blended in from a connected target repository), or 'manual_upload' (uploaded directly to Cloudsmith).")
+  public String getDisplaySource() {
+    return displaySource;
   }
 
   public ModelPackage distro(Distribution distro) {
@@ -1298,6 +1310,7 @@ public class ModelPackage implements Serializable {
         Objects.equals(this.dependenciesUrl, _package.dependenciesUrl) &&
         Objects.equals(this.description, _package.description) &&
         Objects.equals(this.displayName, _package.displayName) &&
+        Objects.equals(this.displaySource, _package.displaySource) &&
         Objects.equals(this.distro, _package.distro) &&
         Objects.equals(this.distroVersion, _package.distroVersion) &&
         Objects.equals(this.downloads, _package.downloads) &&
@@ -1384,7 +1397,7 @@ public class ModelPackage implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tags, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, displaySource, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tags, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1403,6 +1416,7 @@ public class ModelPackage implements Serializable {
     sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    displaySource: ").append(toIndentedString(displaySource)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");

@@ -20,9 +20,6 @@ class RawPackageUploadRequest
   # A textual description of this package.
   attr_accessor :description
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # The name of this package.
   attr_accessor :name
 
@@ -41,21 +38,17 @@ class RawPackageUploadRequest
   # The raw version for this package.
   attr_accessor :version
 
-  attr_accessor :vulnerability_counts
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'content_type' => :'content_type',
       :'description' => :'description',
-      :'is_malware_detected' => :'is_malware_detected',
       :'name' => :'name',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
       :'summary' => :'summary',
       :'tags' => :'tags',
-      :'version' => :'version',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'version' => :'version'
     }
   end
 
@@ -64,14 +57,12 @@ class RawPackageUploadRequest
     {
       :'content_type' => :'String',
       :'description' => :'String',
-      :'is_malware_detected' => :'BOOLEAN',
       :'name' => :'String',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
       :'summary' => :'String',
       :'tags' => :'String',
-      :'version' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'version' => :'String'
     }
   end
 
@@ -89,10 +80,6 @@ class RawPackageUploadRequest
 
     if attributes.has_key?(:'description')
       self.description = attributes[:'description']
-    end
-
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'name')
@@ -117,10 +104,6 @@ class RawPackageUploadRequest
 
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -149,14 +132,12 @@ class RawPackageUploadRequest
     self.class == o.class &&
         content_type == o.content_type &&
         description == o.description &&
-        is_malware_detected == o.is_malware_detected &&
         name == o.name &&
         package_file == o.package_file &&
         republish == o.republish &&
         summary == o.summary &&
         tags == o.tags &&
-        version == o.version &&
-        vulnerability_counts == o.vulnerability_counts
+        version == o.version
   end
 
   # @see the `==` method
@@ -168,7 +149,7 @@ class RawPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [content_type, description, is_malware_detected, name, package_file, republish, summary, tags, version, vulnerability_counts].hash
+    [content_type, description, name, package_file, republish, summary, tags, version].hash
   end
 
     # Builds the object from hash

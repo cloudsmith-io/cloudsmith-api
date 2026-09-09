@@ -386,7 +386,7 @@ String repo = "repo_example"; // String |
 java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
 java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
 Boolean includeConnectedRepositories = false; // Boolean | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+String query = ""; // String | A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages.
 String sort = "-date"; // String | A field for sorting objects in ascending or descending order.
 try {
     List<ModelPackage> result = apiInstance.packagesList(owner, repo, page, pageSize, includeConnectedRepositories, query, sort);
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
  **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
  **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
  **includeConnectedRepositories** | **Boolean**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
- **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
+ **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. | [optional] [default to ]
  **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
 ### Return type

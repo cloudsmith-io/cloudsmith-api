@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **dependencies_url** | **str** |  | [optional] 
 **description** | **str** | A textual description of this package. | [optional] 
 **display_name** | **str** |  | [optional] 
+**display_source** | **str** | Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith). | [optional] 
 **distro** | [**Distribution**](Distribution.md) |  | [optional] 
 **distro_version** | [**DistributionVersion**](DistributionVersion.md) |  | [optional] 
 **downloads** | **int** |  | [optional] 

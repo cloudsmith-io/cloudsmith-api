@@ -36,33 +36,29 @@ class ConanPackageUploadRequest(object):
         'conan_channel': 'str',
         'conan_prefix': 'str',
         'info_file': 'str',
-        'is_malware_detected': 'bool',
         'manifest_file': 'str',
         'metadata_file': 'str',
         'name': 'str',
         'package_file': 'str',
         'republish': 'bool',
         'tags': 'str',
-        'version': 'str',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'version': 'str'
     }
 
     attribute_map = {
         'conan_channel': 'conan_channel',
         'conan_prefix': 'conan_prefix',
         'info_file': 'info_file',
-        'is_malware_detected': 'is_malware_detected',
         'manifest_file': 'manifest_file',
         'metadata_file': 'metadata_file',
         'name': 'name',
         'package_file': 'package_file',
         'republish': 'republish',
         'tags': 'tags',
-        'version': 'version',
-        'vulnerability_counts': 'vulnerability_counts'
+        'version': 'version'
     }
 
-    def __init__(self, conan_channel=None, conan_prefix=None, info_file=None, is_malware_detected=None, manifest_file=None, metadata_file=None, name=None, package_file=None, republish=None, tags=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, conan_channel=None, conan_prefix=None, info_file=None, manifest_file=None, metadata_file=None, name=None, package_file=None, republish=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """ConanPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -71,7 +67,6 @@ class ConanPackageUploadRequest(object):
         self._conan_channel = None
         self._conan_prefix = None
         self._info_file = None
-        self._is_malware_detected = None
         self._manifest_file = None
         self._metadata_file = None
         self._name = None
@@ -79,7 +74,6 @@ class ConanPackageUploadRequest(object):
         self._republish = None
         self._tags = None
         self._version = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
         if conan_channel is not None:
@@ -87,8 +81,6 @@ class ConanPackageUploadRequest(object):
         if conan_prefix is not None:
             self.conan_prefix = conan_prefix
         self.info_file = info_file
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
         self.manifest_file = manifest_file
         self.metadata_file = metadata_file
         if name is not None:
@@ -100,8 +92,6 @@ class ConanPackageUploadRequest(object):
             self.tags = tags
         if version is not None:
             self.version = version
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
 
     @property
     def conan_channel(self):
@@ -188,29 +178,6 @@ class ConanPackageUploadRequest(object):
             raise ValueError("Invalid value for `info_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._info_file = info_file
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this ConanPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this ConanPackageUploadRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this ConanPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this ConanPackageUploadRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
 
     @property
     def manifest_file(self):
@@ -399,27 +366,6 @@ class ConanPackageUploadRequest(object):
             raise ValueError("Invalid value for `version`, length must be less than or equal to `255`")  # noqa: E501
 
         self._version = version
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this ConanPackageUploadRequest.
-
-
-        :return: The vulnerability_counts of this ConanPackageUploadRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this ConanPackageUploadRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this ConanPackageUploadRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

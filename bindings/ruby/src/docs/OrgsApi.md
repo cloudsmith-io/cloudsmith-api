@@ -4,6 +4,12 @@ All URIs are relative to *https://api.cloudsmith.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orgs_api_key_rules_create**](OrgsApi.md#orgs_api_key_rules_create) | **POST** /orgs/{org}/api-key-rules/ | Create an API key rule.
+[**orgs_api_key_rules_delete**](OrgsApi.md#orgs_api_key_rules_delete) | **DELETE** /orgs/{org}/api-key-rules/{slug_perm}/ | Delete an API key rule.
+[**orgs_api_key_rules_list**](OrgsApi.md#orgs_api_key_rules_list) | **GET** /orgs/{org}/api-key-rules/ | List all API key rules for the organization.
+[**orgs_api_key_rules_partial_update**](OrgsApi.md#orgs_api_key_rules_partial_update) | **PATCH** /orgs/{org}/api-key-rules/{slug_perm}/ | Update an API key rule.
+[**orgs_api_key_rules_read**](OrgsApi.md#orgs_api_key_rules_read) | **GET** /orgs/{org}/api-key-rules/{slug_perm}/ | Retrieve an API key rule.
+[**orgs_api_key_rules_update**](OrgsApi.md#orgs_api_key_rules_update) | **PUT** /orgs/{org}/api-key-rules/{slug_perm}/ | Full update of an API key rule.
 [**orgs_custom_domains_list**](OrgsApi.md#orgs_custom_domains_list) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
 [**orgs_delete**](OrgsApi.md#orgs_delete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
 [**orgs_deny_policy_create**](OrgsApi.md#orgs_deny_policy_create) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
@@ -80,6 +86,377 @@ Method | HTTP request | Description
 [**orgs_vulnerability_policy_read**](OrgsApi.md#orgs_vulnerability_policy_read) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
 [**orgs_vulnerability_policy_update**](OrgsApi.md#orgs_vulnerability_policy_update) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
 [**orgs_vulnerability_policy_violation_list**](OrgsApi.md#orgs_vulnerability_policy_violation_list) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
+
+
+# **orgs_api_key_rules_create**
+> OrganizationApiKeyRule orgs_api_key_rules_create(org, opts)
+
+Create an API key rule.
+
+Create an API key rule.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationApiKeyRuleRequest.new # OrganizationApiKeyRuleRequest | 
+}
+
+begin
+  #Create an API key rule.
+  result = api_instance.orgs_api_key_rules_create(org, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_api_key_rules_create: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_api_key_rules_delete**
+> orgs_api_key_rules_delete(org, slug_perm)
+
+Delete an API key rule.
+
+Delete an API key rule.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Delete an API key rule.
+  api_instance.orgs_api_key_rules_delete(org, slug_perm)
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_api_key_rules_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_api_key_rules_list**
+> Array&lt;OrganizationApiKeyRule&gt; orgs_api_key_rules_list(org)
+
+List all API key rules for the organization.
+
+List all API key rules for the organization.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+
+begin
+  #List all API key rules for the organization.
+  result = api_instance.orgs_api_key_rules_list(org)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_api_key_rules_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+
+### Return type
+
+[**Array&lt;OrganizationApiKeyRule&gt;**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_api_key_rules_partial_update**
+> OrganizationApiKeyRule orgs_api_key_rules_partial_update(org, slug_perm, opts)
+
+Update an API key rule.
+
+Update an API key rule.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationApiKeyRuleRequestPatch.new # OrganizationApiKeyRuleRequestPatch | 
+}
+
+begin
+  #Update an API key rule.
+  result = api_instance.orgs_api_key_rules_partial_update(org, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_api_key_rules_partial_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**OrganizationApiKeyRuleRequestPatch**](OrganizationApiKeyRuleRequestPatch.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_api_key_rules_read**
+> OrganizationApiKeyRule orgs_api_key_rules_read(org, slug_perm)
+
+Retrieve an API key rule.
+
+Retrieve an API key rule.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+
+begin
+  #Retrieve an API key rule.
+  result = api_instance.orgs_api_key_rules_read(org, slug_perm)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_api_key_rules_read: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **orgs_api_key_rules_update**
+> OrganizationApiKeyRule orgs_api_key_rules_update(org, slug_perm, opts)
+
+Full update of an API key rule.
+
+Full update of an API key rule.
+
+### Example
+```ruby
+# load the gem
+require 'cloudsmith-api'
+# setup authorization
+CloudsmithApi.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-Api-Key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+
+  # Configure HTTP basic authorization: basic
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = CloudsmithApi::OrgsApi.new
+
+org = 'org_example' # String | 
+
+slug_perm = 'slug_perm_example' # String | 
+
+opts = { 
+  data: CloudsmithApi::OrganizationApiKeyRuleRequest.new # OrganizationApiKeyRuleRequest | 
+}
+
+begin
+  #Full update of an API key rule.
+  result = api_instance.orgs_api_key_rules_update(org, slug_perm, opts)
+  p result
+rescue CloudsmithApi::ApiError => e
+  puts "Exception when calling OrgsApi->orgs_api_key_rules_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **org** | **String**|  | 
+ **slug_perm** | **String**|  | 
+ **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional] 
+
+### Return type
+
+[**OrganizationApiKeyRule**](OrganizationApiKeyRule.md)
+
+### Authorization
+
+[apikey](../README.md#apikey), [basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **orgs_custom_domains_list**

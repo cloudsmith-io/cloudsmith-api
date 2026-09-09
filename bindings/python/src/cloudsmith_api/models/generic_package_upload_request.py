@@ -34,45 +34,37 @@ class GenericPackageUploadRequest(object):
     """
     swagger_types = {
         'filepath': 'str',
-        'is_malware_detected': 'bool',
         'name': 'str',
         'package_file': 'str',
         'republish': 'bool',
         'tags': 'str',
-        'version': 'str',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'version': 'str'
     }
 
     attribute_map = {
         'filepath': 'filepath',
-        'is_malware_detected': 'is_malware_detected',
         'name': 'name',
         'package_file': 'package_file',
         'republish': 'republish',
         'tags': 'tags',
-        'version': 'version',
-        'vulnerability_counts': 'vulnerability_counts'
+        'version': 'version'
     }
 
-    def __init__(self, filepath=None, is_malware_detected=None, name=None, package_file=None, republish=None, tags=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, filepath=None, name=None, package_file=None, republish=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """GenericPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._filepath = None
-        self._is_malware_detected = None
         self._name = None
         self._package_file = None
         self._republish = None
         self._tags = None
         self._version = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
         self.filepath = filepath
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
         if name is not None:
             self.name = name
         self.package_file = package_file
@@ -82,8 +74,6 @@ class GenericPackageUploadRequest(object):
             self.tags = tags
         if version is not None:
             self.version = version
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
 
     @property
     def filepath(self):
@@ -115,29 +105,6 @@ class GenericPackageUploadRequest(object):
             raise ValueError("Invalid value for `filepath`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._filepath = filepath
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this GenericPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this GenericPackageUploadRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this GenericPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this GenericPackageUploadRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
 
     @property
     def name(self):
@@ -270,27 +237,6 @@ class GenericPackageUploadRequest(object):
             raise ValueError("Invalid value for `version`, length must be less than or equal to `255`")  # noqa: E501
 
         self._version = version
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this GenericPackageUploadRequest.
-
-
-        :return: The vulnerability_counts of this GenericPackageUploadRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this GenericPackageUploadRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this GenericPackageUploadRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

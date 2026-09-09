@@ -17,9 +17,6 @@ class GenericPackageUploadRequest
   # The full filepath of the package including filename.
   attr_accessor :filepath
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # The name of this package.
   attr_accessor :name
 
@@ -35,19 +32,15 @@ class GenericPackageUploadRequest
   # The raw version for this package.
   attr_accessor :version
 
-  attr_accessor :vulnerability_counts
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'filepath' => :'filepath',
-      :'is_malware_detected' => :'is_malware_detected',
       :'name' => :'name',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
       :'tags' => :'tags',
-      :'version' => :'version',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'version' => :'version'
     }
   end
 
@@ -55,13 +48,11 @@ class GenericPackageUploadRequest
   def self.swagger_types
     {
       :'filepath' => :'String',
-      :'is_malware_detected' => :'BOOLEAN',
       :'name' => :'String',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String',
-      :'version' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'version' => :'String'
     }
   end
 
@@ -75,10 +66,6 @@ class GenericPackageUploadRequest
 
     if attributes.has_key?(:'filepath')
       self.filepath = attributes[:'filepath']
-    end
-
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
     end
 
     if attributes.has_key?(:'name')
@@ -99,10 +86,6 @@ class GenericPackageUploadRequest
 
     if attributes.has_key?(:'version')
       self.version = attributes[:'version']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -135,13 +118,11 @@ class GenericPackageUploadRequest
     return true if self.equal?(o)
     self.class == o.class &&
         filepath == o.filepath &&
-        is_malware_detected == o.is_malware_detected &&
         name == o.name &&
         package_file == o.package_file &&
         republish == o.republish &&
         tags == o.tags &&
-        version == o.version &&
-        vulnerability_counts == o.vulnerability_counts
+        version == o.version
   end
 
   # @see the `==` method
@@ -153,7 +134,7 @@ class GenericPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [filepath, is_malware_detected, name, package_file, republish, tags, version, vulnerability_counts].hash
+    [filepath, name, package_file, republish, tags, version].hash
   end
 
     # Builds the object from hash

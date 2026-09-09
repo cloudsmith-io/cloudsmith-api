@@ -19,6 +19,359 @@ module CloudsmithApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Create an API key rule.
+    # Create an API key rule.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationApiKeyRuleRequest] :data 
+    # @return [OrganizationApiKeyRule]
+    def orgs_api_key_rules_create(org, opts = {})
+      data, _status_code, _headers = orgs_api_key_rules_create_with_http_info(org, opts)
+      data
+    end
+
+    # Create an API key rule.
+    # Create an API key rule.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationApiKeyRuleRequest] :data 
+    # @return [Array<(OrganizationApiKeyRule, Fixnum, Hash)>] OrganizationApiKeyRule data, response status code and response headers
+    def orgs_api_key_rules_create_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_api_key_rules_create ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_api_key_rules_create"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/api-key-rules/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationApiKeyRule')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_api_key_rules_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Delete an API key rule.
+    # Delete an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def orgs_api_key_rules_delete(org, slug_perm, opts = {})
+      orgs_api_key_rules_delete_with_http_info(org, slug_perm, opts)
+      nil
+    end
+
+    # Delete an API key rule.
+    # Delete an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def orgs_api_key_rules_delete_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_api_key_rules_delete ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_api_key_rules_delete"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_api_key_rules_delete"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/api-key-rules/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_api_key_rules_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # List all API key rules for the organization.
+    # List all API key rules for the organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<OrganizationApiKeyRule>]
+    def orgs_api_key_rules_list(org, opts = {})
+      data, _status_code, _headers = orgs_api_key_rules_list_with_http_info(org, opts)
+      data
+    end
+
+    # List all API key rules for the organization.
+    # List all API key rules for the organization.
+    # @param org 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<OrganizationApiKeyRule>, Fixnum, Hash)>] Array<OrganizationApiKeyRule> data, response status code and response headers
+    def orgs_api_key_rules_list_with_http_info(org, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_api_key_rules_list ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_api_key_rules_list"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/api-key-rules/'.sub('{' + 'org' + '}', org.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<OrganizationApiKeyRule>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_api_key_rules_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Update an API key rule.
+    # Update an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationApiKeyRuleRequestPatch] :data 
+    # @return [OrganizationApiKeyRule]
+    def orgs_api_key_rules_partial_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_api_key_rules_partial_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Update an API key rule.
+    # Update an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationApiKeyRuleRequestPatch] :data 
+    # @return [Array<(OrganizationApiKeyRule, Fixnum, Hash)>] OrganizationApiKeyRule data, response status code and response headers
+    def orgs_api_key_rules_partial_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_api_key_rules_partial_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_api_key_rules_partial_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_api_key_rules_partial_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/api-key-rules/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationApiKeyRule')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_api_key_rules_partial_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Retrieve an API key rule.
+    # Retrieve an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [OrganizationApiKeyRule]
+    def orgs_api_key_rules_read(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_api_key_rules_read_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Retrieve an API key rule.
+    # Retrieve an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OrganizationApiKeyRule, Fixnum, Hash)>] OrganizationApiKeyRule data, response status code and response headers
+    def orgs_api_key_rules_read_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_api_key_rules_read ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_api_key_rules_read"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_api_key_rules_read"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/api-key-rules/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationApiKeyRule')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_api_key_rules_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Full update of an API key rule.
+    # Full update of an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationApiKeyRuleRequest] :data 
+    # @return [OrganizationApiKeyRule]
+    def orgs_api_key_rules_update(org, slug_perm, opts = {})
+      data, _status_code, _headers = orgs_api_key_rules_update_with_http_info(org, slug_perm, opts)
+      data
+    end
+
+    # Full update of an API key rule.
+    # Full update of an API key rule.
+    # @param org 
+    # @param slug_perm 
+    # @param [Hash] opts the optional parameters
+    # @option opts [OrganizationApiKeyRuleRequest] :data 
+    # @return [Array<(OrganizationApiKeyRule, Fixnum, Hash)>] OrganizationApiKeyRule data, response status code and response headers
+    def orgs_api_key_rules_update_with_http_info(org, slug_perm, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrgsApi.orgs_api_key_rules_update ...'
+      end
+      # verify the required parameter 'org' is set
+      if @api_client.config.client_side_validation && org.nil?
+        fail ArgumentError, "Missing the required parameter 'org' when calling OrgsApi.orgs_api_key_rules_update"
+      end
+      # verify the required parameter 'slug_perm' is set
+      if @api_client.config.client_side_validation && slug_perm.nil?
+        fail ArgumentError, "Missing the required parameter 'slug_perm' when calling OrgsApi.orgs_api_key_rules_update"
+      end
+      # resource path
+      local_var_path = '/orgs/{org}/api-key-rules/{slug_perm}/'.sub('{' + 'org' + '}', org.to_s).sub('{' + 'slug_perm' + '}', slug_perm.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = ['apikey', 'basic']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OrganizationApiKeyRule')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrgsApi#orgs_api_key_rules_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get the details for all custom domains.
     # Get the details for all custom domains.
     # @param org 

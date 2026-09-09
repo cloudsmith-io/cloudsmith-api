@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -83,9 +82,6 @@ public class PackageLicenseRequestPatch implements Serializable {
   @SerializedName("action")
   private ActionEnum action = ActionEnum.UPDATE;
 
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
-
   @SerializedName("license_notes")
   private String licenseNotes = null;
 
@@ -147,9 +143,6 @@ public class PackageLicenseRequestPatch implements Serializable {
   @SerializedName("spdx_license")
   private String spdxLicense = null;
 
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
-
   public PackageLicenseRequestPatch action(ActionEnum action) {
     this.action = action;
     return this;
@@ -166,15 +159,6 @@ public class PackageLicenseRequestPatch implements Serializable {
 
   public void setAction(ActionEnum action) {
     this.action = action;
-  }
-
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
   }
 
   public PackageLicenseRequestPatch licenseNotes(String licenseNotes) {
@@ -250,25 +234,6 @@ public class PackageLicenseRequestPatch implements Serializable {
     this.spdxLicense = spdxLicense;
   }
 
-  public PackageLicenseRequestPatch vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -280,17 +245,15 @@ public class PackageLicenseRequestPatch implements Serializable {
     }
     PackageLicenseRequestPatch packageLicenseRequestPatch = (PackageLicenseRequestPatch) o;
     return Objects.equals(this.action, packageLicenseRequestPatch.action) &&
-        Objects.equals(this.isMalwareDetected, packageLicenseRequestPatch.isMalwareDetected) &&
         Objects.equals(this.licenseNotes, packageLicenseRequestPatch.licenseNotes) &&
         Objects.equals(this.licenseOverride, packageLicenseRequestPatch.licenseOverride) &&
         Objects.equals(this.licenseUrl, packageLicenseRequestPatch.licenseUrl) &&
-        Objects.equals(this.spdxLicense, packageLicenseRequestPatch.spdxLicense) &&
-        Objects.equals(this.vulnerabilityCounts, packageLicenseRequestPatch.vulnerabilityCounts);
+        Objects.equals(this.spdxLicense, packageLicenseRequestPatch.spdxLicense);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, isMalwareDetected, licenseNotes, licenseOverride, licenseUrl, spdxLicense, vulnerabilityCounts);
+    return Objects.hash(action, licenseNotes, licenseOverride, licenseUrl, spdxLicense);
   }
 
 
@@ -300,12 +263,10 @@ public class PackageLicenseRequestPatch implements Serializable {
     sb.append("class PackageLicenseRequestPatch {\n");
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    licenseNotes: ").append(toIndentedString(licenseNotes)).append("\n");
     sb.append("    licenseOverride: ").append(toIndentedString(licenseOverride)).append("\n");
     sb.append("    licenseUrl: ").append(toIndentedString(licenseUrl)).append("\n");
     sb.append("    spdxLicense: ").append(toIndentedString(spdxLicense)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

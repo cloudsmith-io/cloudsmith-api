@@ -310,7 +310,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (default to false)
-    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (default to )
+    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. (default to )
     # @option opts [String] :sort A field for sorting objects in ascending or descending order. (default to -date)
     # @return [Array<Package>]
     def packages_list(owner, repo, opts = {})
@@ -326,7 +326,7 @@ module CloudsmithApi
     # @option opts [Integer] :page A page number within the paginated result set.
     # @option opts [Integer] :page_size Number of results to return per page.
     # @option opts [BOOLEAN] :include_connected_repositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+    # @option opts [String] :query A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages.
     # @option opts [String] :sort A field for sorting objects in ascending or descending order.
     # @return [Array<(Array<Package>, Fixnum, Hash)>] Array<Package> data, response status code and response headers
     def packages_list_with_http_info(owner, repo, opts = {})

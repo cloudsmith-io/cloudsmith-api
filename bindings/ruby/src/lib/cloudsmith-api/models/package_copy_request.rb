@@ -17,21 +17,14 @@ class PackageCopyRequest
   # The name of the destination repository without the namespace.
   attr_accessor :destination
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
-
-  attr_accessor :vulnerability_counts
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'destination' => :'destination',
-      :'is_malware_detected' => :'is_malware_detected',
-      :'republish' => :'republish',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'republish' => :'republish'
     }
   end
 
@@ -39,9 +32,7 @@ class PackageCopyRequest
   def self.swagger_types
     {
       :'destination' => :'String',
-      :'is_malware_detected' => :'BOOLEAN',
-      :'republish' => :'BOOLEAN',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'republish' => :'BOOLEAN'
     }
   end
 
@@ -57,16 +48,8 @@ class PackageCopyRequest
       self.destination = attributes[:'destination']
     end
 
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
-    end
-
     if attributes.has_key?(:'republish')
       self.republish = attributes[:'republish']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -94,9 +77,7 @@ class PackageCopyRequest
     return true if self.equal?(o)
     self.class == o.class &&
         destination == o.destination &&
-        is_malware_detected == o.is_malware_detected &&
-        republish == o.republish &&
-        vulnerability_counts == o.vulnerability_counts
+        republish == o.republish
   end
 
   # @see the `==` method
@@ -108,7 +89,7 @@ class PackageCopyRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [destination, is_malware_detected, republish, vulnerability_counts].hash
+    [destination, republish].hash
   end
 
     # Builds the object from hash

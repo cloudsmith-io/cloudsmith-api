@@ -791,7 +791,7 @@ public class PackagesApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -890,7 +890,7 @@ public class PackagesApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @return List&lt;ModelPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -908,7 +908,7 @@ public class PackagesApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @return ApiResponse&lt;List&lt;ModelPackage&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -927,7 +927,7 @@ public class PackagesApi {
      * @param page A page number within the paginated result set. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param includeConnectedRepositories If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional, default to false)
-     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. (optional, default to )
+     * @param query A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. (optional, default to )
      * @param sort A field for sorting objects in ascending or descending order. (optional, default to -date)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

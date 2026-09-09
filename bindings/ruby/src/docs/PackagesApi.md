@@ -388,7 +388,7 @@ opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
   include_connected_repositories: false, # BOOLEAN | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in.
-  query: '', # String | A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages.
+  query: '', # String | A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages.
   sort: '-date' # String | A field for sorting objects in ascending or descending order.
 }
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
  **page** | **Integer**| A page number within the paginated result set. | [optional] 
  **page_size** | **Integer**| Number of results to return per page. | [optional] 
  **include_connected_repositories** | **BOOLEAN**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
- **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats or statuses of packages. | [optional] [default to ]
+ **query** | **String**| A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. | [optional] [default to ]
  **sort** | **String**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
 
 ### Return type

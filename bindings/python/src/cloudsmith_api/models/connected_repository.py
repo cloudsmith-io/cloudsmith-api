@@ -33,31 +33,39 @@ class ConnectedRepository(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'can_view_target_repository_settings': 'bool',
+        'configured_upstreams': 'list[ConnectedRepositoryUpstream]',
         'created_at': 'datetime',
         'disable_reason': 'str',
         'disable_reason_text': 'str',
         'is_active': 'bool',
         'priority': 'int',
         'slug_perm': 'str',
-        'target_repository': 'str'
+        'target_repository': 'str',
+        'target_repository_summary': 'ConnectedRepositoryTargetSummary'
     }
 
     attribute_map = {
+        'can_view_target_repository_settings': 'can_view_target_repository_settings',
+        'configured_upstreams': 'configured_upstreams',
         'created_at': 'created_at',
         'disable_reason': 'disable_reason',
         'disable_reason_text': 'disable_reason_text',
         'is_active': 'is_active',
         'priority': 'priority',
         'slug_perm': 'slug_perm',
-        'target_repository': 'target_repository'
+        'target_repository': 'target_repository',
+        'target_repository_summary': 'target_repository_summary'
     }
 
-    def __init__(self, created_at=None, disable_reason='N/A', disable_reason_text=None, is_active=False, priority=None, slug_perm=None, target_repository=None, _configuration=None):  # noqa: E501
+    def __init__(self, can_view_target_repository_settings=None, configured_upstreams=None, created_at=None, disable_reason='N/A', disable_reason_text=None, is_active=False, priority=None, slug_perm=None, target_repository=None, target_repository_summary=None, _configuration=None):  # noqa: E501
         """ConnectedRepository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._can_view_target_repository_settings = None
+        self._configured_upstreams = None
         self._created_at = None
         self._disable_reason = None
         self._disable_reason_text = None
@@ -65,8 +73,13 @@ class ConnectedRepository(object):
         self._priority = None
         self._slug_perm = None
         self._target_repository = None
+        self._target_repository_summary = None
         self.discriminator = None
 
+        if can_view_target_repository_settings is not None:
+            self.can_view_target_repository_settings = can_view_target_repository_settings
+        if configured_upstreams is not None:
+            self.configured_upstreams = configured_upstreams
         if created_at is not None:
             self.created_at = created_at
         if disable_reason is not None:
@@ -80,6 +93,54 @@ class ConnectedRepository(object):
         if slug_perm is not None:
             self.slug_perm = slug_perm
         self.target_repository = target_repository
+        if target_repository_summary is not None:
+            self.target_repository_summary = target_repository_summary
+
+    @property
+    def can_view_target_repository_settings(self):
+        """Gets the can_view_target_repository_settings of this ConnectedRepository.
+
+        Whether the current user has permission to view the target repository's settings. When false, `configured_upstreams` will be empty even if upstreams are configured.
+
+        :return: The can_view_target_repository_settings of this ConnectedRepository.
+        :rtype: bool
+        """
+        return self._can_view_target_repository_settings
+
+    @can_view_target_repository_settings.setter
+    def can_view_target_repository_settings(self, can_view_target_repository_settings):
+        """Sets the can_view_target_repository_settings of this ConnectedRepository.
+
+        Whether the current user has permission to view the target repository's settings. When false, `configured_upstreams` will be empty even if upstreams are configured.
+
+        :param can_view_target_repository_settings: The can_view_target_repository_settings of this ConnectedRepository.
+        :type: bool
+        """
+
+        self._can_view_target_repository_settings = can_view_target_repository_settings
+
+    @property
+    def configured_upstreams(self):
+        """Gets the configured_upstreams of this ConnectedRepository.
+
+        The upstream sources configured on the target repository, used to display which formats/upstreams the connection exposes.
+
+        :return: The configured_upstreams of this ConnectedRepository.
+        :rtype: list[ConnectedRepositoryUpstream]
+        """
+        return self._configured_upstreams
+
+    @configured_upstreams.setter
+    def configured_upstreams(self, configured_upstreams):
+        """Sets the configured_upstreams of this ConnectedRepository.
+
+        The upstream sources configured on the target repository, used to display which formats/upstreams the connection exposes.
+
+        :param configured_upstreams: The configured_upstreams of this ConnectedRepository.
+        :type: list[ConnectedRepositoryUpstream]
+        """
+
+        self._configured_upstreams = configured_upstreams
 
     @property
     def created_at(self):
@@ -259,6 +320,27 @@ class ConnectedRepository(object):
             raise ValueError(r"Invalid value for `target_repository`, must be a follow pattern or equal to `/^[-a-zA-Z0-9_]+$/`")  # noqa: E501
 
         self._target_repository = target_repository
+
+    @property
+    def target_repository_summary(self):
+        """Gets the target_repository_summary of this ConnectedRepository.
+
+
+        :return: The target_repository_summary of this ConnectedRepository.
+        :rtype: ConnectedRepositoryTargetSummary
+        """
+        return self._target_repository_summary
+
+    @target_repository_summary.setter
+    def target_repository_summary(self, target_repository_summary):
+        """Sets the target_repository_summary of this ConnectedRepository.
+
+
+        :param target_repository_summary: The target_repository_summary of this ConnectedRepository.
+        :type: ConnectedRepositoryTargetSummary
+        """
+
+        self._target_repository_summary = target_repository_summary
 
     def to_dict(self):
         """Returns the model properties as a dict"""

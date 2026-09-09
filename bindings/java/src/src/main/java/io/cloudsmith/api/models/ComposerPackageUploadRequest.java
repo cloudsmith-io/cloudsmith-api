@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -35,9 +34,6 @@ import javax.validation.Valid;
 public class ComposerPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
-
   @SerializedName("package_file")
   private String packageFile = null;
 
@@ -49,18 +45,6 @@ public class ComposerPackageUploadRequest implements Serializable {
 
   @SerializedName("version")
   private String version = null;
-
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
-
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
-  }
 
   public ComposerPackageUploadRequest packageFile(String packageFile) {
     this.packageFile = packageFile;
@@ -135,25 +119,6 @@ public class ComposerPackageUploadRequest implements Serializable {
     this.version = version;
   }
 
-  public ComposerPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -164,17 +129,15 @@ public class ComposerPackageUploadRequest implements Serializable {
       return false;
     }
     ComposerPackageUploadRequest composerPackageUploadRequest = (ComposerPackageUploadRequest) o;
-    return Objects.equals(this.isMalwareDetected, composerPackageUploadRequest.isMalwareDetected) &&
-        Objects.equals(this.packageFile, composerPackageUploadRequest.packageFile) &&
+    return Objects.equals(this.packageFile, composerPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, composerPackageUploadRequest.republish) &&
         Objects.equals(this.tags, composerPackageUploadRequest.tags) &&
-        Objects.equals(this.version, composerPackageUploadRequest.version) &&
-        Objects.equals(this.vulnerabilityCounts, composerPackageUploadRequest.vulnerabilityCounts);
+        Objects.equals(this.version, composerPackageUploadRequest.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isMalwareDetected, packageFile, republish, tags, version, vulnerabilityCounts);
+    return Objects.hash(packageFile, republish, tags, version);
   }
 
 
@@ -183,12 +146,10 @@ public class ComposerPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class ComposerPackageUploadRequest {\n");
     
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
