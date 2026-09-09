@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **dependencies_url** | **str** |  | [optional] 
 **description** | **str** | A textual description of this package. | [optional] 
 **display_name** | **str** |  | [optional] 
+**display_source** | **str** | Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith). | [optional] 
 **distro** | [**Distribution**](Distribution.md) |  | [optional] 
 **distro_version** | [**DistributionVersion**](DistributionVersion.md) |  | [optional] 
 **downloads** | **int** |  | [optional] 
@@ -34,7 +35,6 @@ Name | Type | Description | Notes
 **is_deleteable** | **bool** |  | [optional] 
 **is_downloadable** | **bool** |  | [optional] 
 **is_hidden** | **bool** |  | [optional] 
-**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
 **is_moveable** | **bool** |  | [optional] 
 **is_quarantinable** | **bool** |  | [optional] 
 **is_quarantined** | **bool** |  | [optional] 
@@ -96,7 +96,6 @@ Name | Type | Description | Notes
 **uploader_url** | **str** |  | [optional] 
 **version** | **str** | The raw version for this package. | [optional] 
 **version_orig** | **str** |  | [optional] 
-**vulnerability_counts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  | [optional] 
 **vulnerability_scan_results_url** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

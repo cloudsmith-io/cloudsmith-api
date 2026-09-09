@@ -23,9 +23,6 @@ class DebPackageUploadRequest
   # The distribution to store the package for.
   attr_accessor :distribution
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # The primary file for the package.
   attr_accessor :package_file
 
@@ -38,20 +35,16 @@ class DebPackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
-  attr_accessor :vulnerability_counts
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
       :'changes_file' => :'changes_file',
       :'component' => :'component',
       :'distribution' => :'distribution',
-      :'is_malware_detected' => :'is_malware_detected',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
       :'sources_file' => :'sources_file',
-      :'tags' => :'tags',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'tags' => :'tags'
     }
   end
 
@@ -61,12 +54,10 @@ class DebPackageUploadRequest
       :'changes_file' => :'String',
       :'component' => :'String',
       :'distribution' => :'String',
-      :'is_malware_detected' => :'BOOLEAN',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
       :'sources_file' => :'String',
-      :'tags' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'tags' => :'String'
     }
   end
 
@@ -92,10 +83,6 @@ class DebPackageUploadRequest
       self.distribution = attributes[:'distribution']
     end
 
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
-    end
-
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
     end
@@ -110,10 +97,6 @@ class DebPackageUploadRequest
 
     if attributes.has_key?(:'tags')
       self.tags = attributes[:'tags']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -148,12 +131,10 @@ class DebPackageUploadRequest
         changes_file == o.changes_file &&
         component == o.component &&
         distribution == o.distribution &&
-        is_malware_detected == o.is_malware_detected &&
         package_file == o.package_file &&
         republish == o.republish &&
         sources_file == o.sources_file &&
-        tags == o.tags &&
-        vulnerability_counts == o.vulnerability_counts
+        tags == o.tags
   end
 
   # @see the `==` method
@@ -165,7 +146,7 @@ class DebPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [changes_file, component, distribution, is_malware_detected, package_file, republish, sources_file, tags, vulnerability_counts].hash
+    [changes_file, component, distribution, package_file, republish, sources_file, tags].hash
   end
 
     # Builds the object from hash

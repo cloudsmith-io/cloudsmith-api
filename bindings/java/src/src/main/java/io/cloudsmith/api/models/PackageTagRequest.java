@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -94,14 +93,8 @@ public class PackageTagRequest implements Serializable {
   @SerializedName("is_immutable")
   private Boolean isImmutable = false;
 
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
-
   @SerializedName("tags")
   private List<String> tags = null;
-
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
 
   public PackageTagRequest action(ActionEnum action) {
     this.action = action;
@@ -139,15 +132,6 @@ public class PackageTagRequest implements Serializable {
     this.isImmutable = isImmutable;
   }
 
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
-  }
-
   public PackageTagRequest tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -174,25 +158,6 @@ public class PackageTagRequest implements Serializable {
     this.tags = tags;
   }
 
-  public PackageTagRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -205,14 +170,12 @@ public class PackageTagRequest implements Serializable {
     PackageTagRequest packageTagRequest = (PackageTagRequest) o;
     return Objects.equals(this.action, packageTagRequest.action) &&
         Objects.equals(this.isImmutable, packageTagRequest.isImmutable) &&
-        Objects.equals(this.isMalwareDetected, packageTagRequest.isMalwareDetected) &&
-        Objects.equals(this.tags, packageTagRequest.tags) &&
-        Objects.equals(this.vulnerabilityCounts, packageTagRequest.vulnerabilityCounts);
+        Objects.equals(this.tags, packageTagRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, isImmutable, isMalwareDetected, tags, vulnerabilityCounts);
+    return Objects.hash(action, isImmutable, tags);
   }
 
 
@@ -223,9 +186,7 @@ public class PackageTagRequest implements Serializable {
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    isImmutable: ").append(toIndentedString(isImmutable)).append("\n");
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

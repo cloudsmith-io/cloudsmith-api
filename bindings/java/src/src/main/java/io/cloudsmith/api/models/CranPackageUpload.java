@@ -25,7 +25,6 @@ import io.cloudsmith.api.models.Distribution;
 import io.cloudsmith.api.models.DistributionVersion;
 import io.cloudsmith.api.models.PackageFile;
 import io.cloudsmith.api.models.Tags;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -74,6 +73,9 @@ public class CranPackageUpload implements Serializable {
 
   @SerializedName("display_name")
   private String displayName = null;
+
+  @SerializedName("display_source")
+  private String displaySource = null;
 
   @SerializedName("distro")
   private Distribution distro = null;
@@ -131,9 +133,6 @@ public class CranPackageUpload implements Serializable {
 
   @SerializedName("is_hidden")
   private Boolean isHidden = null;
-
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
 
   @SerializedName("is_moveable")
   private Boolean isMoveable = null;
@@ -371,9 +370,6 @@ public class CranPackageUpload implements Serializable {
   @SerializedName("version_orig")
   private String versionOrig = null;
 
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
-
   @SerializedName("vulnerability_scan_results_url")
   private String vulnerabilityScanResultsUrl = null;
 
@@ -466,6 +462,15 @@ public class CranPackageUpload implements Serializable {
   @ApiModelProperty(value = "")
   public String getDisplayName() {
     return displayName;
+  }
+
+   /**
+   * Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith).
+   * @return displaySource
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "Where the package originated, for example: 'upstream' (proxied/cached from a configured upstream), 'connected_repository' (blended in from a connected target repository), or 'manual_upload' (uploaded directly to Cloudsmith).")
+  public String getDisplaySource() {
+    return displaySource;
   }
 
   public CranPackageUpload distro(Distribution distro) {
@@ -658,15 +663,6 @@ public class CranPackageUpload implements Serializable {
   @ApiModelProperty(value = "")
   public Boolean isIsHidden() {
     return isHidden;
-  }
-
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
   }
 
    /**
@@ -1237,25 +1233,6 @@ public class CranPackageUpload implements Serializable {
     return versionOrig;
   }
 
-  public CranPackageUpload vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
    /**
    * Get vulnerabilityScanResultsUrl
    * @return vulnerabilityScanResultsUrl
@@ -1285,6 +1262,7 @@ public class CranPackageUpload implements Serializable {
         Objects.equals(this.dependenciesUrl, cranPackageUpload.dependenciesUrl) &&
         Objects.equals(this.description, cranPackageUpload.description) &&
         Objects.equals(this.displayName, cranPackageUpload.displayName) &&
+        Objects.equals(this.displaySource, cranPackageUpload.displaySource) &&
         Objects.equals(this.distro, cranPackageUpload.distro) &&
         Objects.equals(this.distroVersion, cranPackageUpload.distroVersion) &&
         Objects.equals(this.downloads, cranPackageUpload.downloads) &&
@@ -1304,7 +1282,6 @@ public class CranPackageUpload implements Serializable {
         Objects.equals(this.isDeleteable, cranPackageUpload.isDeleteable) &&
         Objects.equals(this.isDownloadable, cranPackageUpload.isDownloadable) &&
         Objects.equals(this.isHidden, cranPackageUpload.isHidden) &&
-        Objects.equals(this.isMalwareDetected, cranPackageUpload.isMalwareDetected) &&
         Objects.equals(this.isMoveable, cranPackageUpload.isMoveable) &&
         Objects.equals(this.isQuarantinable, cranPackageUpload.isQuarantinable) &&
         Objects.equals(this.isQuarantined, cranPackageUpload.isQuarantined) &&
@@ -1364,13 +1341,12 @@ public class CranPackageUpload implements Serializable {
         Objects.equals(this.uploaderUrl, cranPackageUpload.uploaderUrl) &&
         Objects.equals(this.version, cranPackageUpload.version) &&
         Objects.equals(this.versionOrig, cranPackageUpload.versionOrig) &&
-        Objects.equals(this.vulnerabilityCounts, cranPackageUpload.vulnerabilityCounts) &&
         Objects.equals(this.vulnerabilityScanResultsUrl, cranPackageUpload.vulnerabilityScanResultsUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rVersion, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, displaySource, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rVersion, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1389,6 +1365,7 @@ public class CranPackageUpload implements Serializable {
     sb.append("    dependenciesUrl: ").append(toIndentedString(dependenciesUrl)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    displaySource: ").append(toIndentedString(displaySource)).append("\n");
     sb.append("    distro: ").append(toIndentedString(distro)).append("\n");
     sb.append("    distroVersion: ").append(toIndentedString(distroVersion)).append("\n");
     sb.append("    downloads: ").append(toIndentedString(downloads)).append("\n");
@@ -1408,7 +1385,6 @@ public class CranPackageUpload implements Serializable {
     sb.append("    isDeleteable: ").append(toIndentedString(isDeleteable)).append("\n");
     sb.append("    isDownloadable: ").append(toIndentedString(isDownloadable)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    isMoveable: ").append(toIndentedString(isMoveable)).append("\n");
     sb.append("    isQuarantinable: ").append(toIndentedString(isQuarantinable)).append("\n");
     sb.append("    isQuarantined: ").append(toIndentedString(isQuarantined)).append("\n");
@@ -1468,7 +1444,6 @@ public class CranPackageUpload implements Serializable {
     sb.append("    uploaderUrl: ").append(toIndentedString(uploaderUrl)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    versionOrig: ").append(toIndentedString(versionOrig)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("    vulnerabilityScanResultsUrl: ").append(toIndentedString(vulnerabilityScanResultsUrl)).append("\n");
     sb.append("}");
     return sb.toString();

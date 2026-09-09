@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **dependencies_url** | **String** |  | [optional] 
 **description** | **String** | A textual description of this package. | [optional] 
 **display_name** | **String** |  | [optional] 
+**display_source** | **String** | Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith). | [optional] 
 **distro** | [**Distribution**](Distribution.md) |  | [optional] 
 **distro_version** | [**DistributionVersion**](DistributionVersion.md) |  | [optional] 
 **downloads** | **Integer** |  | [optional] 
@@ -33,7 +34,6 @@ Name | Type | Description | Notes
 **is_deleteable** | **BOOLEAN** |  | [optional] 
 **is_downloadable** | **BOOLEAN** |  | [optional] 
 **is_hidden** | **BOOLEAN** |  | [optional] 
-**is_malware_detected** | **BOOLEAN** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
 **is_moveable** | **BOOLEAN** |  | [optional] 
 **is_quarantinable** | **BOOLEAN** |  | [optional] 
 **is_quarantined** | **BOOLEAN** |  | [optional] 
@@ -92,7 +92,6 @@ Name | Type | Description | Notes
 **uploader_url** | **String** |  | [optional] 
 **version** | **String** | The raw version for this package. | [optional] 
 **version_orig** | **String** |  | [optional] 
-**vulnerability_counts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  | [optional] 
 **vulnerability_scan_results_url** | **String** |  | [optional] 
 
 

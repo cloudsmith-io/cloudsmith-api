@@ -32,6 +32,85 @@ describe 'OrgsApi' do
     end
   end
 
+  # unit tests for orgs_api_key_rules_create
+  # Create an API key rule.
+  # Create an API key rule.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationApiKeyRuleRequest] :data 
+  # @return [OrganizationApiKeyRule]
+  describe 'orgs_api_key_rules_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_api_key_rules_delete
+  # Delete an API key rule.
+  # Delete an API key rule.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'orgs_api_key_rules_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_api_key_rules_list
+  # List all API key rules for the organization.
+  # List all API key rules for the organization.
+  # @param org 
+  # @param [Hash] opts the optional parameters
+  # @return [Array<OrganizationApiKeyRule>]
+  describe 'orgs_api_key_rules_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_api_key_rules_partial_update
+  # Update an API key rule.
+  # Update an API key rule.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationApiKeyRuleRequestPatch] :data 
+  # @return [OrganizationApiKeyRule]
+  describe 'orgs_api_key_rules_partial_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_api_key_rules_read
+  # Retrieve an API key rule.
+  # Retrieve an API key rule.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @return [OrganizationApiKeyRule]
+  describe 'orgs_api_key_rules_read test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for orgs_api_key_rules_update
+  # Full update of an API key rule.
+  # Full update of an API key rule.
+  # @param org 
+  # @param slug_perm 
+  # @param [Hash] opts the optional parameters
+  # @option opts [OrganizationApiKeyRuleRequest] :data 
+  # @return [OrganizationApiKeyRule]
+  describe 'orgs_api_key_rules_update test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for orgs_custom_domains_list
   # Get the details for all custom domains.
   # Get the details for all custom domains.

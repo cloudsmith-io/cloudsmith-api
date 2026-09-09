@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -35,9 +34,6 @@ import javax.validation.Valid;
 public class NpmPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  @SerializedName("is_malware_detected")
-  private Boolean isMalwareDetected = null;
-
   @SerializedName("npm_dist_tag")
   private String npmDistTag = "latest";
 
@@ -49,18 +45,6 @@ public class NpmPackageUploadRequest implements Serializable {
 
   @SerializedName("tags")
   private String tags = null;
-
-  @SerializedName("vulnerability_counts")
-  private WebOSVSeverityCounts vulnerabilityCounts = null;
-
-   /**
-   * Whether the package has been detected as containing malware. Requires Ultra plan.
-   * @return isMalwareDetected
-  **/
-  @ApiModelProperty(value = "Whether the package has been detected as containing malware. Requires Ultra plan.")
-  public Boolean isIsMalwareDetected() {
-    return isMalwareDetected;
-  }
 
   public NpmPackageUploadRequest npmDistTag(String npmDistTag) {
     this.npmDistTag = npmDistTag;
@@ -135,25 +119,6 @@ public class NpmPackageUploadRequest implements Serializable {
     this.tags = tags;
   }
 
-  public NpmPackageUploadRequest vulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-    return this;
-  }
-
-   /**
-   * Get vulnerabilityCounts
-   * @return vulnerabilityCounts
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public WebOSVSeverityCounts getVulnerabilityCounts() {
-    return vulnerabilityCounts;
-  }
-
-  public void setVulnerabilityCounts(WebOSVSeverityCounts vulnerabilityCounts) {
-    this.vulnerabilityCounts = vulnerabilityCounts;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -164,17 +129,15 @@ public class NpmPackageUploadRequest implements Serializable {
       return false;
     }
     NpmPackageUploadRequest npmPackageUploadRequest = (NpmPackageUploadRequest) o;
-    return Objects.equals(this.isMalwareDetected, npmPackageUploadRequest.isMalwareDetected) &&
-        Objects.equals(this.npmDistTag, npmPackageUploadRequest.npmDistTag) &&
+    return Objects.equals(this.npmDistTag, npmPackageUploadRequest.npmDistTag) &&
         Objects.equals(this.packageFile, npmPackageUploadRequest.packageFile) &&
         Objects.equals(this.republish, npmPackageUploadRequest.republish) &&
-        Objects.equals(this.tags, npmPackageUploadRequest.tags) &&
-        Objects.equals(this.vulnerabilityCounts, npmPackageUploadRequest.vulnerabilityCounts);
+        Objects.equals(this.tags, npmPackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isMalwareDetected, npmDistTag, packageFile, republish, tags, vulnerabilityCounts);
+    return Objects.hash(npmDistTag, packageFile, republish, tags);
   }
 
 
@@ -183,12 +146,10 @@ public class NpmPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class NpmPackageUploadRequest {\n");
     
-    sb.append("    isMalwareDetected: ").append(toIndentedString(isMalwareDetected)).append("\n");
     sb.append("    npmDistTag: ").append(toIndentedString(npmDistTag)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    vulnerabilityCounts: ").append(toIndentedString(vulnerabilityCounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

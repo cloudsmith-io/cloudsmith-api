@@ -14,6 +14,12 @@ require 'date'
 
 module CloudsmithApi
 class ConnectedRepository
+  # Whether the current user has permission to view the target repository's settings. When false, `configured_upstreams` will be empty even if upstreams are configured.
+  attr_accessor :can_view_target_repository_settings
+
+  # The upstream sources configured on the target repository, used to display which formats/upstreams the connection exposes.
+  attr_accessor :configured_upstreams
+
   # The date and time when the connection was created.
   attr_accessor :created_at
 
@@ -31,6 +37,8 @@ class ConnectedRepository
 
   # The slug of the target repository to connect to.
   attr_accessor :target_repository
+
+  attr_accessor :target_repository_summary
 
   class EnumAttributeValidator
     attr_reader :datatype
@@ -57,26 +65,32 @@ class ConnectedRepository
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'can_view_target_repository_settings' => :'can_view_target_repository_settings',
+      :'configured_upstreams' => :'configured_upstreams',
       :'created_at' => :'created_at',
       :'disable_reason' => :'disable_reason',
       :'disable_reason_text' => :'disable_reason_text',
       :'is_active' => :'is_active',
       :'priority' => :'priority',
       :'slug_perm' => :'slug_perm',
-      :'target_repository' => :'target_repository'
+      :'target_repository' => :'target_repository',
+      :'target_repository_summary' => :'target_repository_summary'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'can_view_target_repository_settings' => :'BOOLEAN',
+      :'configured_upstreams' => :'Array<ConnectedRepositoryUpstream>',
       :'created_at' => :'DateTime',
       :'disable_reason' => :'String',
       :'disable_reason_text' => :'String',
       :'is_active' => :'BOOLEAN',
       :'priority' => :'Integer',
       :'slug_perm' => :'String',
-      :'target_repository' => :'String'
+      :'target_repository' => :'String',
+      :'target_repository_summary' => :'ConnectedRepositoryTargetSummary'
     }
   end
 
@@ -87,6 +101,16 @@ class ConnectedRepository
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'can_view_target_repository_settings')
+      self.can_view_target_repository_settings = attributes[:'can_view_target_repository_settings']
+    end
+
+    if attributes.has_key?(:'configured_upstreams')
+      if (value = attributes[:'configured_upstreams']).is_a?(Array)
+        self.configured_upstreams = value
+      end
+    end
 
     if attributes.has_key?(:'created_at')
       self.created_at = attributes[:'created_at']
@@ -118,6 +142,10 @@ class ConnectedRepository
 
     if attributes.has_key?(:'target_repository')
       self.target_repository = attributes[:'target_repository']
+    end
+
+    if attributes.has_key?(:'target_repository_summary')
+      self.target_repository_summary = attributes[:'target_repository_summary']
     end
   end
 
@@ -156,13 +184,16 @@ class ConnectedRepository
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        can_view_target_repository_settings == o.can_view_target_repository_settings &&
+        configured_upstreams == o.configured_upstreams &&
         created_at == o.created_at &&
         disable_reason == o.disable_reason &&
         disable_reason_text == o.disable_reason_text &&
         is_active == o.is_active &&
         priority == o.priority &&
         slug_perm == o.slug_perm &&
-        target_repository == o.target_repository
+        target_repository == o.target_repository &&
+        target_repository_summary == o.target_repository_summary
   end
 
   # @see the `==` method
@@ -174,7 +205,7 @@ class ConnectedRepository
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [created_at, disable_reason, disable_reason_text, is_active, priority, slug_perm, target_repository].hash
+    [can_view_target_repository_settings, configured_upstreams, created_at, disable_reason, disable_reason_text, is_active, priority, slug_perm, target_repository, target_repository_summary].hash
   end
 
     # Builds the object from hash

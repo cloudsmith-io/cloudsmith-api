@@ -14,9 +14,6 @@ require 'date'
 
 module CloudsmithApi
 class PackageLicense
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   attr_accessor :license_notes
 
   attr_accessor :license_override
@@ -24,8 +21,6 @@ class PackageLicense
   attr_accessor :license_url
 
   attr_accessor :spdx_license
-
-  attr_accessor :vulnerability_counts
 
   class EnumAttributeValidator
     attr_reader :datatype
@@ -52,24 +47,20 @@ class PackageLicense
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'is_malware_detected' => :'is_malware_detected',
       :'license_notes' => :'license_notes',
       :'license_override' => :'license_override',
       :'license_url' => :'license_url',
-      :'spdx_license' => :'spdx_license',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'spdx_license' => :'spdx_license'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'is_malware_detected' => :'BOOLEAN',
       :'license_notes' => :'String',
       :'license_override' => :'String',
       :'license_url' => :'String',
-      :'spdx_license' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'spdx_license' => :'String'
     }
   end
 
@@ -80,10 +71,6 @@ class PackageLicense
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
-    end
 
     if attributes.has_key?(:'license_notes')
       self.license_notes = attributes[:'license_notes']
@@ -101,10 +88,6 @@ class PackageLicense
 
     if attributes.has_key?(:'spdx_license')
       self.spdx_license = attributes[:'spdx_license']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -143,12 +126,10 @@ class PackageLicense
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        is_malware_detected == o.is_malware_detected &&
         license_notes == o.license_notes &&
         license_override == o.license_override &&
         license_url == o.license_url &&
-        spdx_license == o.spdx_license &&
-        vulnerability_counts == o.vulnerability_counts
+        spdx_license == o.spdx_license
   end
 
   # @see the `==` method
@@ -160,7 +141,7 @@ class PackageLicense
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [is_malware_detected, license_notes, license_override, license_url, spdx_license, vulnerability_counts].hash
+    [license_notes, license_override, license_url, spdx_license].hash
   end
 
     # Builds the object from hash

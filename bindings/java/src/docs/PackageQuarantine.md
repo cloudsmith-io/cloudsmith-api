@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **dependenciesUrl** | **String** |  |  [optional]
 **description** | **String** | A textual description of this package. |  [optional]
 **displayName** | **String** |  |  [optional]
+**displaySource** | **String** | Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith). |  [optional]
 **distro** | [**Distribution**](Distribution.md) |  |  [optional]
 **distroVersion** | [**DistributionVersion**](DistributionVersion.md) |  |  [optional]
 **downloads** | **java.math.BigInteger** |  |  [optional]
@@ -34,7 +35,6 @@ Name | Type | Description | Notes
 **isDeleteable** | **Boolean** |  |  [optional]
 **isDownloadable** | **Boolean** |  |  [optional]
 **isHidden** | **Boolean** |  |  [optional]
-**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
 **isMoveable** | **Boolean** |  |  [optional]
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
@@ -93,7 +93,6 @@ Name | Type | Description | Notes
 **uploaderUrl** | **String** |  |  [optional]
 **version** | **String** | The raw version for this package. |  [optional]
 **versionOrig** | **String** |  |  [optional]
-**vulnerabilityCounts** | [**WebOSVSeverityCounts**](WebOSVSeverityCounts.md) |  |  [optional]
 **vulnerabilityScanResultsUrl** | **String** |  |  [optional]
 
 

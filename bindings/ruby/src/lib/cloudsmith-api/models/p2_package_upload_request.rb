@@ -14,9 +14,6 @@ require 'date'
 
 module CloudsmithApi
 class P2PackageUploadRequest
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # The primary file for the package.
   attr_accessor :package_file
 
@@ -26,27 +23,21 @@ class P2PackageUploadRequest
   # A comma-separated values list of tags to add to the package.
   attr_accessor :tags
 
-  attr_accessor :vulnerability_counts
-
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'is_malware_detected' => :'is_malware_detected',
       :'package_file' => :'package_file',
       :'republish' => :'republish',
-      :'tags' => :'tags',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'tags' => :'tags'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'is_malware_detected' => :'BOOLEAN',
       :'package_file' => :'String',
       :'republish' => :'BOOLEAN',
-      :'tags' => :'String',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'tags' => :'String'
     }
   end
 
@@ -58,10 +49,6 @@ class P2PackageUploadRequest
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
-    end
-
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
     end
@@ -72,10 +59,6 @@ class P2PackageUploadRequest
 
     if attributes.has_key?(:'tags')
       self.tags = attributes[:'tags']
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -102,11 +85,9 @@ class P2PackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        is_malware_detected == o.is_malware_detected &&
         package_file == o.package_file &&
         republish == o.republish &&
-        tags == o.tags &&
-        vulnerability_counts == o.vulnerability_counts
+        tags == o.tags
   end
 
   # @see the `==` method
@@ -118,7 +99,7 @@ class P2PackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [is_malware_detected, package_file, republish, tags, vulnerability_counts].hash
+    [package_file, republish, tags].hash
   end
 
     # Builds the object from hash

@@ -19,13 +19,8 @@ class PackageTagRequest
   # If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
   attr_accessor :is_immutable
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
-  attr_accessor :is_malware_detected
-
   # A list of tags to apply the action to. Not required for clears.
   attr_accessor :tags
-
-  attr_accessor :vulnerability_counts
 
   class EnumAttributeValidator
     attr_reader :datatype
@@ -54,9 +49,7 @@ class PackageTagRequest
     {
       :'action' => :'action',
       :'is_immutable' => :'is_immutable',
-      :'is_malware_detected' => :'is_malware_detected',
-      :'tags' => :'tags',
-      :'vulnerability_counts' => :'vulnerability_counts'
+      :'tags' => :'tags'
     }
   end
 
@@ -65,9 +58,7 @@ class PackageTagRequest
     {
       :'action' => :'String',
       :'is_immutable' => :'BOOLEAN',
-      :'is_malware_detected' => :'BOOLEAN',
-      :'tags' => :'Array<String>',
-      :'vulnerability_counts' => :'WebOSVSeverityCounts'
+      :'tags' => :'Array<String>'
     }
   end
 
@@ -91,18 +82,10 @@ class PackageTagRequest
       self.is_immutable = false
     end
 
-    if attributes.has_key?(:'is_malware_detected')
-      self.is_malware_detected = attributes[:'is_malware_detected']
-    end
-
     if attributes.has_key?(:'tags')
       if (value = attributes[:'tags']).is_a?(Array)
         self.tags = value
       end
-    end
-
-    if attributes.has_key?(:'vulnerability_counts')
-      self.vulnerability_counts = attributes[:'vulnerability_counts']
     end
   end
 
@@ -138,9 +121,7 @@ class PackageTagRequest
     self.class == o.class &&
         action == o.action &&
         is_immutable == o.is_immutable &&
-        is_malware_detected == o.is_malware_detected &&
-        tags == o.tags &&
-        vulnerability_counts == o.vulnerability_counts
+        tags == o.tags
   end
 
   # @see the `==` method
@@ -152,7 +133,7 @@ class PackageTagRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [action, is_immutable, is_malware_detected, tags, vulnerability_counts].hash
+    [action, is_immutable, tags].hash
   end
 
     # Builds the object from hash

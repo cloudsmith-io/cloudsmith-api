@@ -33,45 +33,37 @@ class VagrantPackageUploadRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'is_malware_detected': 'bool',
         'name': 'str',
         'package_file': 'str',
         'provider': 'str',
         'republish': 'bool',
         'tags': 'str',
-        'version': 'str',
-        'vulnerability_counts': 'WebOSVSeverityCounts'
+        'version': 'str'
     }
 
     attribute_map = {
-        'is_malware_detected': 'is_malware_detected',
         'name': 'name',
         'package_file': 'package_file',
         'provider': 'provider',
         'republish': 'republish',
         'tags': 'tags',
-        'version': 'version',
-        'vulnerability_counts': 'vulnerability_counts'
+        'version': 'version'
     }
 
-    def __init__(self, is_malware_detected=None, name=None, package_file=None, provider=None, republish=None, tags=None, version=None, vulnerability_counts=None, _configuration=None):  # noqa: E501
+    def __init__(self, name=None, package_file=None, provider=None, republish=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """VagrantPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
-        self._is_malware_detected = None
         self._name = None
         self._package_file = None
         self._provider = None
         self._republish = None
         self._tags = None
         self._version = None
-        self._vulnerability_counts = None
         self.discriminator = None
 
-        if is_malware_detected is not None:
-            self.is_malware_detected = is_malware_detected
         self.name = name
         self.package_file = package_file
         self.provider = provider
@@ -80,31 +72,6 @@ class VagrantPackageUploadRequest(object):
         if tags is not None:
             self.tags = tags
         self.version = version
-        if vulnerability_counts is not None:
-            self.vulnerability_counts = vulnerability_counts
-
-    @property
-    def is_malware_detected(self):
-        """Gets the is_malware_detected of this VagrantPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :return: The is_malware_detected of this VagrantPackageUploadRequest.
-        :rtype: bool
-        """
-        return self._is_malware_detected
-
-    @is_malware_detected.setter
-    def is_malware_detected(self, is_malware_detected):
-        """Sets the is_malware_detected of this VagrantPackageUploadRequest.
-
-        Whether the package has been detected as containing malware. Requires Ultra plan.
-
-        :param is_malware_detected: The is_malware_detected of this VagrantPackageUploadRequest.
-        :type: bool
-        """
-
-        self._is_malware_detected = is_malware_detected
 
     @property
     def name(self):
@@ -269,27 +236,6 @@ class VagrantPackageUploadRequest(object):
             raise ValueError("Invalid value for `version`, length must be less than or equal to `255`")  # noqa: E501
 
         self._version = version
-
-    @property
-    def vulnerability_counts(self):
-        """Gets the vulnerability_counts of this VagrantPackageUploadRequest.
-
-
-        :return: The vulnerability_counts of this VagrantPackageUploadRequest.
-        :rtype: WebOSVSeverityCounts
-        """
-        return self._vulnerability_counts
-
-    @vulnerability_counts.setter
-    def vulnerability_counts(self, vulnerability_counts):
-        """Sets the vulnerability_counts of this VagrantPackageUploadRequest.
-
-
-        :param vulnerability_counts: The vulnerability_counts of this VagrantPackageUploadRequest.
-        :type: WebOSVSeverityCounts
-        """
-
-        self._vulnerability_counts = vulnerability_counts
 
     def to_dict(self):
         """Returns the model properties as a dict"""
