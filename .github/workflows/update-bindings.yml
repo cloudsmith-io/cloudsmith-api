@@ -12,16 +12,27 @@ on:
     - cron: "0 6 * * *"
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   update-bindings:
     runs-on: ubuntu-latest
     steps:
+      - name: Require bot credentials
+        env:
+          BOT_TOKEN: ${{ secrets.CLOUDSMITH_BOT_TOKEN }}
+          BOT_SIGNING_KEY: ${{ secrets.CLOUDSMITH_BOT_SSH_SIGNING_KEY }}
+          BOT_EMAIL: ${{ secrets.CLOUDSMITH_BOT_EMAIL }}
+        run: |
+          if [ -z "$BOT_TOKEN" ] || [ -z "$BOT_SIGNING_KEY" ] || [ -z "$BOT_EMAIL" ]; then
+            echo "::error::Configure CLOUDSMITH_BOT_TOKEN, CLOUDSMITH_BOT_SSH_SIGNING_KEY, and CLOUDSMITH_BOT_EMAIL before running this workflow."
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
+          token: ${{ secrets.CLOUDSMITH_BOT_TOKEN }}
           persist-credentials: false
 
       - name: Set up tools
@@ -68,10 +79,28 @@ jobs:
           echo "api_version=$api_version" >> "$GITHUB_OUTPUT"
           echo "new_version=$new_version" >> "$GITHUB_OUTPUT"
 
+      - name: Configure bot commit signing
+        if: steps.detect.outputs.changed == 'true'
+        env:
+          BOT_SIGNING_KEY: ${{ secrets.CLOUDSMITH_BOT_SSH_SIGNING_KEY }}
+          BOT_EMAIL: ${{ secrets.CLOUDSMITH_BOT_EMAIL }}
+        run: |
+          umask 077
+          key="$RUNNER_TEMP/cloudsmith-bot-signing-key"
+          signers="$RUNNER_TEMP/cloudsmith-bot-allowed-signers"
+          printf '%s\n' "$BOT_SIGNING_KEY" > "$key"
+          public_key=$(ssh-keygen -y -P "" -f "$key")
+          printf '%s namespaces="git" %s\n' "$BOT_EMAIL" "$public_key" > "$signers"
+
+          git config --local gpg.format ssh
+          git config --local user.signingkey "$key"
+          git config --local gpg.ssh.allowedSignersFile "$signers"
+          git config --local commit.gpgsign true
+
       - name: Close stale automated binding PRs
         if: steps.detect.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.CLOUDSMITH_BOT_TOKEN }}
           NEW_VERSION: ${{ steps.versions.outputs.new_version }}
         run: |
           keep="automated/update-bindings-v${NEW_VERSION}"
@@ -88,9 +117,14 @@ jobs:
 
       - name: Create pull request
         if: steps.detect.outputs.changed == 'true'
+        id: pull-request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          sign-commits: true
+          token: ${{ secrets.CLOUDSMITH_BOT_TOKEN }}
+          author: cloudsmith-bot <${{ secrets.CLOUDSMITH_BOT_EMAIL }}>
+          committer: cloudsmith-bot <${{ secrets.CLOUDSMITH_BOT_EMAIL }}>
+          # Sign locally with the SSH key; API signing does not support PATs.
+          sign-commits: false
           branch: automated/update-bindings-v${{ steps.versions.outputs.new_version }}
           base: master
           title: "feat: update bindings to v${{ steps.versions.outputs.new_version }} (API v${{ steps.versions.outputs.api_version }})"
@@ -106,3 +140,19 @@ jobs:
             bindings
             automated
           delete-branch: true
+
+      - name: Require a verified commit signature
+        if: steps.pull-request.outputs.pull-request-number != ''
+        env:
+          VERIFIED: ${{ steps.pull-request.outputs.pull-request-commits-verified }}
+        run: |
+          if [ "$VERIFIED" != "true" ]; then
+            echo "::error::GitHub did not verify the commit signature. Register the SSH signing public key and verify the configured email on cloudsmith-bot."
+            exit 1
+          fi
+
+      - name: Remove bot signing key
+        if: always()
+        run: |
+          rm -f "$RUNNER_TEMP/cloudsmith-bot-signing-key" \
+            "$RUNNER_TEMP/cloudsmith-bot-allowed-signers"
