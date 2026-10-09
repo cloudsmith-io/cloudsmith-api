@@ -643,7 +643,7 @@ class AlpineUpstream(object):
         :param mode: The mode of this AlpineUpstream.
         :type: str
         """
-        allowed_values = ["Proxy Only", "Cache and Proxy"]  # noqa: E501
+        allowed_values = ["Proxy Only", "Cache and Proxy", "Cache Only"]  # noqa: E501
         if (self._configuration.client_side_validation and
                 mode not in allowed_values):
             raise ValueError(
