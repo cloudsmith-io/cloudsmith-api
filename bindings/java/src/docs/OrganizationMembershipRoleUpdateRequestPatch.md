@@ -1,20 +1,17 @@
 
+
 # OrganizationMembershipRoleUpdateRequestPatch
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**role** | [**RoleEnum**](#RoleEnum) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**role** | **String** |  |  [optional] |
 
 
-<a name="RoleEnum"></a>
-## Enum: RoleEnum
-Name | Value
----- | -----
-OWNER | &quot;Owner&quot;
-MANAGER | &quot;Manager&quot;
-MEMBER | &quot;Member&quot;
-COLLABORATOR | &quot;Collaborator&quot;
+## Implemented Interfaces
 
+* Serializable
 
 

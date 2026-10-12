@@ -20,10 +20,10 @@
     "groupId": "io.cloudsmith.api",
     "modelPackage": "io.cloudsmith.api.models",
     "parcelableModel": false,
-    "performBeanValidation": true,
+    "performBeanValidation": false,
     "serializableModel": true,
     "sortParamsByRequiredFlag": true,
-    "useBeanValidation": true,
+    "useBeanValidation": false,
     "useGzipFeature": false,
     "withXml": false
 }

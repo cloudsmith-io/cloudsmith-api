@@ -8,10 +8,10 @@ root_dir=$(readlink -f "$self_dir/../..")
 
 src_dir="$self_dir/src"
 build_json="$src_dir/build.json"
-template_dir="$self_dir/templates"
 
 rm -rf $src_dir
 mkdir -p $src_dir
+cp "$self_dir/.openapi-generator-ignore" "$src_dir/.openapi-generator-ignore"
 
 cat > $build_json <<EOC
 {
@@ -36,22 +36,27 @@ cat > $build_json <<EOC
     "groupId": "io.cloudsmith.api",
     "modelPackage": "io.cloudsmith.api.models",
     "parcelableModel": false,
-    "performBeanValidation": true,
+    "performBeanValidation": false,
     "serializableModel": true,
     "sortParamsByRequiredFlag": $sort_params,
-    "useBeanValidation": true,
+    "useBeanValidation": false,
     "useGzipFeature": false,
     "withXml": false
 }
 EOC
 
-docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
+write_client_spec "$self_dir/.openapi.json"
+
+docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${openapi_generator_cli_image:?}" generate \
     --type-mappings Integer=java.math.BigInteger \
     -c /local/src/build.json \
-    -i $openapi_url \
-    -l java \
+    -i /local/.openapi.json \
+    -g java \
     -o /local/src \
-    -t /local/templates \
     $common_codegen_options
+rm -f "$self_dir/.openapi.json"
 
-bash $root_dir/scripts/fix-java-duplicate-imports.sh
+# Dependabot updates release/pom.xml. Replace the generated pom with it.
+awk -v version="$package_version" \
+    '!done && sub(/<version>[^<]*<\/version>/, "<version>" version "</version>") { done = 1 } 1' \
+    "$self_dir/release/pom.xml" > "$src_dir/pom.xml"

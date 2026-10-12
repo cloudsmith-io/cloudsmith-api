@@ -1,0 +1,4 @@
+.github/**
+.travis.yml
+api/openapi.yaml
+git_push.sh
