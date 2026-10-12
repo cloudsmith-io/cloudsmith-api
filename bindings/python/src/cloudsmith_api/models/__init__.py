@@ -305,6 +305,8 @@ from cloudsmith_api.models.service import Service
 from cloudsmith_api.models.service_request import ServiceRequest
 from cloudsmith_api.models.service_request_patch import ServiceRequestPatch
 from cloudsmith_api.models.service_teams import ServiceTeams
+from cloudsmith_api.models.skills_package_upload import SkillsPackageUpload
+from cloudsmith_api.models.skills_package_upload_request import SkillsPackageUploadRequest
 from cloudsmith_api.models.status_basic import StatusBasic
 from cloudsmith_api.models.storage_allocated_limit import StorageAllocatedLimit
 from cloudsmith_api.models.storage_allocated_limit_raw import StorageAllocatedLimitRaw
