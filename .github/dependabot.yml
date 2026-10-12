@@ -1,0 +1,81 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    cooldown:
+      default-days: 7
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions-all:
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+      actions-major:
+        patterns: ["*"]
+        update-types:
+          - "major"
+      actions-security:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "pre-commit"
+    cooldown:
+      default-days: 7
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      pre-commit-all:
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+      pre-commit-major:
+        patterns: ["*"]
+        update-types:
+          - "major"
+      pre-commit-security:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+  # The build deletes and regenerates bindings/*/src, which reverts any update
+  # to these manifests. Change the codegen templates to update these versions.
+  # The ignore rules also stop security update pull requests. The alerts stay open.
+  - package-ecosystem: "maven"
+    cooldown:
+      default-days: 7
+    directory: "/bindings/java/src"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
+  - package-ecosystem: "gradle"
+    cooldown:
+      default-days: 7
+    directory: "/bindings/java/src"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
+  - package-ecosystem: "pip"
+    cooldown:
+      default-days: 7
+    directory: "/bindings/python/src"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
+  - package-ecosystem: "bundler"
+    cooldown:
+      default-days: 7
+    directory: "/bindings/ruby/src"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
