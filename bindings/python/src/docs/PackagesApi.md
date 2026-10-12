@@ -89,39 +89,62 @@ Copy a package to another repository.
 Copy a package to another repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package_copy import PackageCopy
+from cloudsmith_api.models.package_copy_request import PackageCopyRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackageCopyRequest() # PackageCopyRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.PackageCopyRequest() # PackageCopyRequest |  (optional)
 
-try:
-    # Copy a package to another repository.
-    api_response = api_instance.packages_copy(owner, repo, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_copy: %s\n" % e)
+    try:
+        # Copy a package to another repository.
+        api_response = api_instance.packages_copy(owner, repo, identifier, data=data)
+        print("The response of PackagesApi->packages_copy:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_copy: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -143,6 +166,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Copied specified package to destination repository. |  -  |
+**400** | The package is in the wrong state for the requested operation. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_delete**
@@ -153,37 +184,57 @@ Delete a specific package in a repository.
 Delete a specific package in a repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Delete a specific package in a repository.
-    api_instance.packages_delete(owner, repo, identifier)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_delete: %s\n" % e)
+    try:
+        # Delete a specific package in a repository.
+        api_instance.packages_delete(owner, repo, identifier)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -201,8 +252,16 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Deleted the specified package successfully. |  -  |
+**400** | The package cannot be deleted. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -214,46 +273,68 @@ Get the list of dependencies for a package. Transitive dependencies are included
 Get the list of dependencies for a package. Transitive dependencies are included where supported.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package_dependencies import PackageDependencies
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    include_connected_repositories = False # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to False)
 
-try:
-    # Get the list of dependencies for a package. Transitive dependencies are included where supported.
-    api_response = api_instance.packages_dependencies(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_dependencies: %s\n" % e)
+    try:
+        # Get the list of dependencies for a package. Transitive dependencies are included where supported.
+        api_response = api_instance.packages_dependencies(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
+        print("The response of PackagesApi->packages_dependencies:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_dependencies: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to False]
 
 ### Return type
 
@@ -265,57 +346,87 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved stored dependencies for specified package. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_groups_list**
-> InlineResponse2002 packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
+> PackagesGroupsList200Response packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
 
 Return a list of Package Groups in a repository.
 
 Return a list of Package Groups in a repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.packages_groups_list200_response import PackagesGroupsList200Response
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-group_by = 'name' # str | A field to group packages by. Available options: name, backend_kind. (optional) (default to name)
-hide_subcomponents = false # bool | Whether to hide packages which are subcomponents of another package in the results (optional) (default to false)
-include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional) (default to false)
-query = '' # str | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional) (default to )
-sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional) (default to name)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
+    group_by = 'name' # str | A field to group packages by. Available options: name, backend_kind. (optional) (default to 'name')
+    hide_subcomponents = False # bool | Whether to hide packages which are subcomponents of another package in the results (optional) (default to False)
+    include_connected_repositories = False # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. (optional) (default to False)
+    query = 'query_example' # str | A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. (optional)
+    sort = 'name' # str | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, count, num_downloads, size, last_push, backend_kind. (optional) (default to 'name')
 
-try:
-    # Return a list of Package Groups in a repository.
-    api_response = api_instance.packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_groups_list: %s\n" % e)
+    try:
+        # Return a list of Package Groups in a repository.
+        api_response = api_instance.packages_groups_list(owner, repo, page=page, page_size=page_size, group_by=group_by, hide_subcomponents=hide_subcomponents, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
+        print("The response of PackagesApi->packages_groups_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_groups_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -323,15 +434,15 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **group_by** | **str**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to name]
- **hide_subcomponents** | **bool**| Whether to hide packages which are subcomponents of another package in the results | [optional] [default to false]
- **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. | [optional] [default to false]
- **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] [default to ]
- **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to name]
+ **group_by** | **str**| A field to group packages by. Available options: name, backend_kind. | [optional] [default to &#39;name&#39;]
+ **hide_subcomponents** | **bool**| Whether to hide packages which are subcomponents of another package in the results | [optional] [default to False]
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. | [optional] [default to False]
+ **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats, or statuses of packages. | [optional] 
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, count, num_downloads, size, last_push, backend_kind. | [optional] [default to &#39;name&#39;]
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**PackagesGroupsList200Response**](PackagesGroupsList200Response.md)
 
 ### Authorization
 
@@ -339,55 +450,86 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the list of package groups. |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_list**
-> list[Package] packages_list(owner, repo, page=page, page_size=page_size, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
+> List[Package] packages_list(owner, repo, page=page, page_size=page_size, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
 
 Get a list of all packages associated with repository.
 
 Get a list of all packages associated with repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package import Package
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
-query = '' # str | A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. (optional) (default to )
-sort = '-date' # str | A field for sorting objects in ascending or descending order. (optional) (default to -date)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
+    include_connected_repositories = False # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to False)
+    query = 'query_example' # str | A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. (optional)
+    sort = '-date' # str | A field for sorting objects in ascending or descending order. (optional) (default to '-date')
 
-try:
-    # Get a list of all packages associated with repository.
-    api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_list: %s\n" % e)
+    try:
+        # Get a list of all packages associated with repository.
+        api_response = api_instance.packages_list(owner, repo, page=page, page_size=page_size, include_connected_repositories=include_connected_repositories, query=query, sort=sort)
+        print("The response of PackagesApi->packages_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -395,13 +537,13 @@ Name | Type | Description  | Notes
  **repo** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
- **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. | [optional] [default to ]
- **sort** | **str**| A field for sorting objects in ascending or descending order. | [optional] [default to -date]
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to False]
+ **query** | **str**| A search term for querying names, filenames, versions, distributions, architectures, formats, statuses or display sources (display_source:upstream, display_source:manual_upload, display_source:connected_repository) of packages. | [optional] 
+ **sort** | **str**| A field for sorting objects in ascending or descending order. | [optional] [default to &#39;-date&#39;]
 
 ### Return type
 
-[**list[Package]**](Package.md)
+[**List[Package]**](Package.md)
 
 ### Authorization
 
@@ -409,8 +551,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the list of packages |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -422,39 +572,62 @@ Move a package to another repository.
 Move a package to another repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package_move import PackageMove
+from cloudsmith_api.models.package_move_request import PackageMoveRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackageMoveRequest() # PackageMoveRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.PackageMoveRequest() # PackageMoveRequest |  (optional)
 
-try:
-    # Move a package to another repository.
-    api_response = api_instance.packages_move(owner, repo, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_move: %s\n" % e)
+    try:
+        # Move a package to another repository.
+        api_response = api_instance.packages_move(owner, repo, identifier, data=data)
+        print("The response of PackagesApi->packages_move:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_move: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -476,6 +649,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Moved specified package to destination repository. |  -  |
+**400** | The package is in the wrong state for the requested operation. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_quarantine**
@@ -486,39 +667,62 @@ Quarantine or release a package.
 Quarantine or release a package.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package_quarantine import PackageQuarantine
+from cloudsmith_api.models.package_quarantine_request import PackageQuarantineRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackageQuarantineRequest() # PackageQuarantineRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.PackageQuarantineRequest() # PackageQuarantineRequest |  (optional)
 
-try:
-    # Quarantine or release a package.
-    api_response = api_instance.packages_quarantine(owner, repo, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_quarantine: %s\n" % e)
+    try:
+        # Quarantine or release a package.
+        api_response = api_instance.packages_quarantine(owner, repo, identifier, data=data)
+        print("The response of PackagesApi->packages_quarantine:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_quarantine: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -540,6 +744,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Changed the package&#39;s quarantine status. |  -  |
+**400** | The package is in the wrong state for the requested operation. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_read**
@@ -550,46 +762,68 @@ Get a specific package in a repository.
 Get a specific package in a repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package_detail import PackageDetail
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    include_connected_repositories = False # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to False)
 
-try:
-    # Get a specific package in a repository.
-    api_response = api_instance.packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_read: %s\n" % e)
+    try:
+        # Get a specific package in a repository.
+        api_response = api_instance.packages_read(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
+        print("The response of PackagesApi->packages_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to False]
 
 ### Return type
 
@@ -601,8 +835,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the specified package successfully. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -614,38 +856,60 @@ Schedule a package for resynchronisation.
 Schedule a package for resynchronisation.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package_resync import PackageResync
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Schedule a package for resynchronisation.
-    api_response = api_instance.packages_resync(owner, repo, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_resync: %s\n" % e)
+    try:
+        # Schedule a package for resynchronisation.
+        api_response = api_instance.packages_resync(owner, repo, identifier)
+        print("The response of PackagesApi->packages_resync:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_resync: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -663,8 +927,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Scheduled the package for resynchronisation. |  -  |
+**400** | The package is in the wrong state for the requested operation. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -676,38 +948,60 @@ Schedule a package for scanning.
 Schedule a package for scanning.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package import Package
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Schedule a package for scanning.
-    api_response = api_instance.packages_scan(owner, repo, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_scan: %s\n" % e)
+    try:
+        # Schedule a package for scanning.
+        api_response = api_instance.packages_scan(owner, repo, identifier)
+        print("The response of PackagesApi->packages_scan:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_scan: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -725,8 +1019,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Scheduled the package for scanning. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -738,46 +1040,68 @@ Get the synchronization status for a package.
 Get the synchronization status for a package.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package_status import PackageStatus
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-include_connected_repositories = false # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to false)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    include_connected_repositories = False # bool | If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. (optional) (default to False)
 
-try:
-    # Get the synchronization status for a package.
-    api_response = api_instance.packages_status(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_status: %s\n" % e)
+    try:
+        # Get the synchronization status for a package.
+        api_response = api_instance.packages_status(owner, repo, identifier, include_connected_repositories=include_connected_repositories)
+        print("The response of PackagesApi->packages_status:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_status: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **repo** | **str**|  | 
  **identifier** | **str**|  | 
- **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to false]
+ **include_connected_repositories** | **bool**| If true, include packages from active connected target repositories in addition to packages from this repository. Has no effect if the repository has no active connections. Defaults to false. Note: download-related URLs on returned packages (e.g. cdn_url, signature_url) are rewritten to point at the requesting repository, not the connected target repository the package physically lives in. | [optional] [default to False]
 
 ### Return type
 
@@ -789,8 +1113,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved status for specified package. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -802,39 +1134,62 @@ Add/Replace/Remove tags for a package.
 Add/Replace/Remove tags for a package.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package import Package
+from cloudsmith_api.models.package_tag_request import PackageTagRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackageTagRequest() # PackageTagRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.PackageTagRequest() # PackageTagRequest |  (optional)
 
-try:
-    # Add/Replace/Remove tags for a package.
-    api_response = api_instance.packages_tag(owner, repo, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_tag: %s\n" % e)
+    try:
+        # Add/Replace/Remove tags for a package.
+        api_response = api_instance.packages_tag(owner, repo, identifier, data=data)
+        print("The response of PackagesApi->packages_tag:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_tag: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -856,6 +1211,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Modified tags for the package. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_update_license**
@@ -866,39 +1229,62 @@ Update the license for a package.
 Update the license for a package.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.package import Package
+from cloudsmith_api.models.package_license_request_patch import PackageLicenseRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PackageLicenseRequestPatch() # PackageLicenseRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.PackageLicenseRequestPatch() # PackageLicenseRequestPatch |  (optional)
 
-try:
-    # Update the license for a package.
-    api_response = api_instance.packages_update_license(owner, repo, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_update_license: %s\n" % e)
+    try:
+        # Update the license for a package.
+        api_response = api_instance.packages_update_license(owner, repo, identifier, data=data)
+        print("The response of PackagesApi->packages_update_license:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_update_license: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -920,6 +1306,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Modified tags for the package. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_alpine**
@@ -930,38 +1324,61 @@ Create a new Alpine package
 Create a new Alpine package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.alpine_package_upload import AlpinePackageUpload
+from cloudsmith_api.models.alpine_package_upload_request import AlpinePackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.AlpinePackageUploadRequest() # AlpinePackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.AlpinePackageUploadRequest() # AlpinePackageUploadRequest |  (optional)
 
-try:
-    # Create a new Alpine package
-    api_response = api_instance.packages_upload_alpine(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_alpine: %s\n" % e)
+    try:
+        # Create a new Alpine package
+        api_response = api_instance.packages_upload_alpine(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_alpine:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_alpine: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -982,6 +1399,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cargo**
@@ -992,38 +1418,61 @@ Create a new Cargo package
 Create a new Cargo package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cargo_package_upload import CargoPackageUpload
+from cloudsmith_api.models.cargo_package_upload_request import CargoPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CargoPackageUploadRequest() # CargoPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CargoPackageUploadRequest() # CargoPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Cargo package
-    api_response = api_instance.packages_upload_cargo(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_cargo: %s\n" % e)
+    try:
+        # Create a new Cargo package
+        api_response = api_instance.packages_upload_cargo(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_cargo:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_cargo: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1044,6 +1493,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cocoapods**
@@ -1054,38 +1512,61 @@ Create a new CocoaPods package
 Create a new CocoaPods package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cocoapods_package_upload import CocoapodsPackageUpload
+from cloudsmith_api.models.cocoapods_package_upload_request import CocoapodsPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CocoapodsPackageUploadRequest() # CocoapodsPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CocoapodsPackageUploadRequest() # CocoapodsPackageUploadRequest |  (optional)
 
-try:
-    # Create a new CocoaPods package
-    api_response = api_instance.packages_upload_cocoapods(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_cocoapods: %s\n" % e)
+    try:
+        # Create a new CocoaPods package
+        api_response = api_instance.packages_upload_cocoapods(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_cocoapods:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_cocoapods: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1106,6 +1587,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_composer**
@@ -1116,38 +1606,61 @@ Create a new Composer package
 Create a new Composer package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.composer_package_upload import ComposerPackageUpload
+from cloudsmith_api.models.composer_package_upload_request import ComposerPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.ComposerPackageUploadRequest() # ComposerPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.ComposerPackageUploadRequest() # ComposerPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Composer package
-    api_response = api_instance.packages_upload_composer(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_composer: %s\n" % e)
+    try:
+        # Create a new Composer package
+        api_response = api_instance.packages_upload_composer(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_composer:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_composer: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1168,6 +1681,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_conan**
@@ -1178,38 +1700,61 @@ Create a new Conan package
 Create a new Conan package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conan_package_upload import ConanPackageUpload
+from cloudsmith_api.models.conan_package_upload_request import ConanPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.ConanPackageUploadRequest() # ConanPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.ConanPackageUploadRequest() # ConanPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Conan package
-    api_response = api_instance.packages_upload_conan(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_conan: %s\n" % e)
+    try:
+        # Create a new Conan package
+        api_response = api_instance.packages_upload_conan(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_conan:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_conan: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1230,6 +1775,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_conda**
@@ -1240,38 +1794,61 @@ Create a new Conda package
 Create a new Conda package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conda_package_upload import CondaPackageUpload
+from cloudsmith_api.models.conda_package_upload_request import CondaPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CondaPackageUploadRequest() # CondaPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CondaPackageUploadRequest() # CondaPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Conda package
-    api_response = api_instance.packages_upload_conda(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_conda: %s\n" % e)
+    try:
+        # Create a new Conda package
+        api_response = api_instance.packages_upload_conda(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_conda:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_conda: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1292,6 +1869,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_cran**
@@ -1302,38 +1888,61 @@ Create a new CRAN package
 Create a new CRAN package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cran_package_upload import CranPackageUpload
+from cloudsmith_api.models.cran_package_upload_request import CranPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CranPackageUploadRequest() # CranPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CranPackageUploadRequest() # CranPackageUploadRequest |  (optional)
 
-try:
-    # Create a new CRAN package
-    api_response = api_instance.packages_upload_cran(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_cran: %s\n" % e)
+    try:
+        # Create a new CRAN package
+        api_response = api_instance.packages_upload_cran(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_cran:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_cran: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1354,6 +1963,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_dart**
@@ -1364,38 +1982,61 @@ Create a new Dart package
 Create a new Dart package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.dart_package_upload import DartPackageUpload
+from cloudsmith_api.models.dart_package_upload_request import DartPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.DartPackageUploadRequest() # DartPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.DartPackageUploadRequest() # DartPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Dart package
-    api_response = api_instance.packages_upload_dart(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_dart: %s\n" % e)
+    try:
+        # Create a new Dart package
+        api_response = api_instance.packages_upload_dart(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_dart:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_dart: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1416,6 +2057,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_deb**
@@ -1426,38 +2076,61 @@ Create a new Debian package
 Create a new Debian package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.deb_package_upload import DebPackageUpload
+from cloudsmith_api.models.deb_package_upload_request import DebPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.DebPackageUploadRequest() # DebPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.DebPackageUploadRequest() # DebPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Debian package
-    api_response = api_instance.packages_upload_deb(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_deb: %s\n" % e)
+    try:
+        # Create a new Debian package
+        api_response = api_instance.packages_upload_deb(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_deb:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_deb: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1478,6 +2151,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_docker**
@@ -1488,38 +2170,61 @@ Create a new Docker package
 Create a new Docker package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.docker_package_upload import DockerPackageUpload
+from cloudsmith_api.models.docker_package_upload_request import DockerPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.DockerPackageUploadRequest() # DockerPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.DockerPackageUploadRequest() # DockerPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Docker package
-    api_response = api_instance.packages_upload_docker(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_docker: %s\n" % e)
+    try:
+        # Create a new Docker package
+        api_response = api_instance.packages_upload_docker(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_docker:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_docker: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1540,6 +2245,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_generic**
@@ -1550,38 +2264,61 @@ Create a new Generic package
 Create a new Generic package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.generic_package_upload import GenericPackageUpload
+from cloudsmith_api.models.generic_package_upload_request import GenericPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.GenericPackageUploadRequest() # GenericPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.GenericPackageUploadRequest() # GenericPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Generic package
-    api_response = api_instance.packages_upload_generic(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_generic: %s\n" % e)
+    try:
+        # Create a new Generic package
+        api_response = api_instance.packages_upload_generic(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_generic:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_generic: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1602,6 +2339,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_go**
@@ -1612,38 +2358,61 @@ Create a new Go package
 Create a new Go package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.go_package_upload import GoPackageUpload
+from cloudsmith_api.models.go_package_upload_request import GoPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.GoPackageUploadRequest() # GoPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.GoPackageUploadRequest() # GoPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Go package
-    api_response = api_instance.packages_upload_go(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_go: %s\n" % e)
+    try:
+        # Create a new Go package
+        api_response = api_instance.packages_upload_go(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_go:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_go: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1664,6 +2433,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_helm**
@@ -1674,38 +2452,61 @@ Create a new Helm package
 Create a new Helm package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.helm_package_upload import HelmPackageUpload
+from cloudsmith_api.models.helm_package_upload_request import HelmPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.HelmPackageUploadRequest() # HelmPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.HelmPackageUploadRequest() # HelmPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Helm package
-    api_response = api_instance.packages_upload_helm(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_helm: %s\n" % e)
+    try:
+        # Create a new Helm package
+        api_response = api_instance.packages_upload_helm(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_helm:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_helm: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1726,6 +2527,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_hex**
@@ -1736,38 +2546,61 @@ Create a new Hex package
 Create a new Hex package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.hex_package_upload import HexPackageUpload
+from cloudsmith_api.models.hex_package_upload_request import HexPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.HexPackageUploadRequest() # HexPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.HexPackageUploadRequest() # HexPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Hex package
-    api_response = api_instance.packages_upload_hex(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_hex: %s\n" % e)
+    try:
+        # Create a new Hex package
+        api_response = api_instance.packages_upload_hex(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_hex:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_hex: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1788,6 +2621,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_huggingface**
@@ -1798,38 +2640,61 @@ Create a new HuggingFace package
 Create a new HuggingFace package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.huggingface_package_upload import HuggingfacePackageUpload
+from cloudsmith_api.models.huggingface_package_upload_request import HuggingfacePackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.HuggingfacePackageUploadRequest() # HuggingfacePackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.HuggingfacePackageUploadRequest() # HuggingfacePackageUploadRequest |  (optional)
 
-try:
-    # Create a new HuggingFace package
-    api_response = api_instance.packages_upload_huggingface(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_huggingface: %s\n" % e)
+    try:
+        # Create a new HuggingFace package
+        api_response = api_instance.packages_upload_huggingface(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_huggingface:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_huggingface: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1850,6 +2715,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_luarocks**
@@ -1860,38 +2734,61 @@ Create a new LuaRocks package
 Create a new LuaRocks package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.luarocks_package_upload import LuarocksPackageUpload
+from cloudsmith_api.models.luarocks_package_upload_request import LuarocksPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.LuarocksPackageUploadRequest() # LuarocksPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.LuarocksPackageUploadRequest() # LuarocksPackageUploadRequest |  (optional)
 
-try:
-    # Create a new LuaRocks package
-    api_response = api_instance.packages_upload_luarocks(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_luarocks: %s\n" % e)
+    try:
+        # Create a new LuaRocks package
+        api_response = api_instance.packages_upload_luarocks(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_luarocks:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_luarocks: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1912,6 +2809,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_maven**
@@ -1922,38 +2828,61 @@ Create a new Maven package
 Create a new Maven package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.maven_package_upload import MavenPackageUpload
+from cloudsmith_api.models.maven_package_upload_request import MavenPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.MavenPackageUploadRequest() # MavenPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.MavenPackageUploadRequest() # MavenPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Maven package
-    api_response = api_instance.packages_upload_maven(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_maven: %s\n" % e)
+    try:
+        # Create a new Maven package
+        api_response = api_instance.packages_upload_maven(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_maven:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_maven: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1974,6 +2903,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_mcp**
@@ -1984,38 +2922,61 @@ Create a new MCP package
 Create a new MCP package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.mcp_package_upload import McpPackageUpload
+from cloudsmith_api.models.mcp_package_upload_request import McpPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.McpPackageUploadRequest() # McpPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.McpPackageUploadRequest() # McpPackageUploadRequest |  (optional)
 
-try:
-    # Create a new MCP package
-    api_response = api_instance.packages_upload_mcp(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_mcp: %s\n" % e)
+    try:
+        # Create a new MCP package
+        api_response = api_instance.packages_upload_mcp(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_mcp:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_mcp: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2036,6 +2997,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_nix**
@@ -2046,38 +3016,61 @@ Create a new Nix package
 Create a new Nix package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nix_package_upload import NixPackageUpload
+from cloudsmith_api.models.nix_package_upload_request import NixPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.NixPackageUploadRequest() # NixPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.NixPackageUploadRequest() # NixPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Nix package
-    api_response = api_instance.packages_upload_nix(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_nix: %s\n" % e)
+    try:
+        # Create a new Nix package
+        api_response = api_instance.packages_upload_nix(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_nix:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_nix: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2098,6 +3091,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_npm**
@@ -2108,38 +3110,61 @@ Create a new npm package
 Create a new npm package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.npm_package_upload import NpmPackageUpload
+from cloudsmith_api.models.npm_package_upload_request import NpmPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.NpmPackageUploadRequest() # NpmPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.NpmPackageUploadRequest() # NpmPackageUploadRequest |  (optional)
 
-try:
-    # Create a new npm package
-    api_response = api_instance.packages_upload_npm(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_npm: %s\n" % e)
+    try:
+        # Create a new npm package
+        api_response = api_instance.packages_upload_npm(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_npm:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_npm: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2160,6 +3185,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_nuget**
@@ -2170,38 +3204,61 @@ Create a new NuGet package
 Create a new NuGet package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nuget_package_upload import NugetPackageUpload
+from cloudsmith_api.models.nuget_package_upload_request import NugetPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.NugetPackageUploadRequest() # NugetPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.NugetPackageUploadRequest() # NugetPackageUploadRequest |  (optional)
 
-try:
-    # Create a new NuGet package
-    api_response = api_instance.packages_upload_nuget(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_nuget: %s\n" % e)
+    try:
+        # Create a new NuGet package
+        api_response = api_instance.packages_upload_nuget(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_nuget:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_nuget: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2222,6 +3279,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_p2**
@@ -2232,38 +3298,61 @@ Create a new P2 package
 Create a new P2 package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.p2_package_upload import P2PackageUpload
+from cloudsmith_api.models.p2_package_upload_request import P2PackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.P2PackageUploadRequest() # P2PackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.P2PackageUploadRequest() # P2PackageUploadRequest |  (optional)
 
-try:
-    # Create a new P2 package
-    api_response = api_instance.packages_upload_p2(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_p2: %s\n" % e)
+    try:
+        # Create a new P2 package
+        api_response = api_instance.packages_upload_p2(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_p2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_p2: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2284,6 +3373,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_python**
@@ -2294,38 +3392,61 @@ Create a new Python package
 Create a new Python package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.python_package_upload import PythonPackageUpload
+from cloudsmith_api.models.python_package_upload_request import PythonPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.PythonPackageUploadRequest() # PythonPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.PythonPackageUploadRequest() # PythonPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Python package
-    api_response = api_instance.packages_upload_python(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_python: %s\n" % e)
+    try:
+        # Create a new Python package
+        api_response = api_instance.packages_upload_python(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_python:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_python: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2346,6 +3467,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_raw**
@@ -2356,38 +3486,61 @@ Create a new Raw package
 Create a new Raw package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.raw_package_upload import RawPackageUpload
+from cloudsmith_api.models.raw_package_upload_request import RawPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RawPackageUploadRequest() # RawPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RawPackageUploadRequest() # RawPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Raw package
-    api_response = api_instance.packages_upload_raw(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_raw: %s\n" % e)
+    try:
+        # Create a new Raw package
+        api_response = api_instance.packages_upload_raw(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_raw:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_raw: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2408,6 +3561,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_rpm**
@@ -2418,38 +3580,61 @@ Create a new RedHat package
 Create a new RedHat package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.rpm_package_upload import RpmPackageUpload
+from cloudsmith_api.models.rpm_package_upload_request import RpmPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RpmPackageUploadRequest() # RpmPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RpmPackageUploadRequest() # RpmPackageUploadRequest |  (optional)
 
-try:
-    # Create a new RedHat package
-    api_response = api_instance.packages_upload_rpm(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_rpm: %s\n" % e)
+    try:
+        # Create a new RedHat package
+        api_response = api_instance.packages_upload_rpm(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_rpm:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_rpm: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2470,6 +3655,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_ruby**
@@ -2480,38 +3674,61 @@ Create a new Ruby package
 Create a new Ruby package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.ruby_package_upload import RubyPackageUpload
+from cloudsmith_api.models.ruby_package_upload_request import RubyPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RubyPackageUploadRequest() # RubyPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RubyPackageUploadRequest() # RubyPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Ruby package
-    api_response = api_instance.packages_upload_ruby(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_ruby: %s\n" % e)
+    try:
+        # Create a new Ruby package
+        api_response = api_instance.packages_upload_ruby(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_ruby:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_ruby: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2532,6 +3749,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_skills**
@@ -2542,38 +3768,61 @@ Create a new AI Skills package
 Create a new AI Skills package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.skills_package_upload import SkillsPackageUpload
+from cloudsmith_api.models.skills_package_upload_request import SkillsPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.SkillsPackageUploadRequest() # SkillsPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.SkillsPackageUploadRequest() # SkillsPackageUploadRequest |  (optional)
 
-try:
-    # Create a new AI Skills package
-    api_response = api_instance.packages_upload_skills(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_skills: %s\n" % e)
+    try:
+        # Create a new AI Skills package
+        api_response = api_instance.packages_upload_skills(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_skills:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_skills: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2594,6 +3843,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_swift**
@@ -2604,38 +3862,61 @@ Create a new Swift package
 Create a new Swift package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.swift_package_upload import SwiftPackageUpload
+from cloudsmith_api.models.swift_package_upload_request import SwiftPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.SwiftPackageUploadRequest() # SwiftPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.SwiftPackageUploadRequest() # SwiftPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Swift package
-    api_response = api_instance.packages_upload_swift(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_swift: %s\n" % e)
+    try:
+        # Create a new Swift package
+        api_response = api_instance.packages_upload_swift(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_swift:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_swift: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2656,6 +3937,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_terraform**
@@ -2666,38 +3956,61 @@ Create a new Terraform package
 Create a new Terraform package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.terraform_package_upload import TerraformPackageUpload
+from cloudsmith_api.models.terraform_package_upload_request import TerraformPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.TerraformPackageUploadRequest() # TerraformPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.TerraformPackageUploadRequest() # TerraformPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Terraform package
-    api_response = api_instance.packages_upload_terraform(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_terraform: %s\n" % e)
+    try:
+        # Create a new Terraform package
+        api_response = api_instance.packages_upload_terraform(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_terraform:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_terraform: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2718,6 +4031,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_vagrant**
@@ -2728,38 +4050,61 @@ Create a new Vagrant package
 Create a new Vagrant package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vagrant_package_upload import VagrantPackageUpload
+from cloudsmith_api.models.vagrant_package_upload_request import VagrantPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.VagrantPackageUploadRequest() # VagrantPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.VagrantPackageUploadRequest() # VagrantPackageUploadRequest |  (optional)
 
-try:
-    # Create a new Vagrant package
-    api_response = api_instance.packages_upload_vagrant(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_vagrant: %s\n" % e)
+    try:
+        # Create a new Vagrant package
+        api_response = api_instance.packages_upload_vagrant(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_vagrant:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_vagrant: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2780,6 +4125,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_upload_vsx**
@@ -2790,38 +4144,61 @@ Create a new VSX package
 Create a new VSX package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vsx_package_upload import VsxPackageUpload
+from cloudsmith_api.models.vsx_package_upload_request import VsxPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.VsxPackageUploadRequest() # VsxPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.VsxPackageUploadRequest() # VsxPackageUploadRequest |  (optional)
 
-try:
-    # Create a new VSX package
-    api_response = api_instance.packages_upload_vsx(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_upload_vsx: %s\n" % e)
+    try:
+        # Create a new VSX package
+        api_response = api_instance.packages_upload_vsx(owner, repo, data=data)
+        print("The response of PackagesApi->packages_upload_vsx:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_upload_vsx: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2842,6 +4219,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Upload acknowledged and queued for synchronization. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_alpine**
@@ -2852,37 +4238,58 @@ Validate parameters for create Alpine package
 Validate parameters for create Alpine package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.alpine_package_upload_request import AlpinePackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.AlpinePackageUploadRequest() # AlpinePackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.AlpinePackageUploadRequest() # AlpinePackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Alpine package
-    api_instance.packages_validate_upload_alpine(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_alpine: %s\n" % e)
+    try:
+        # Validate parameters for create Alpine package
+        api_instance.packages_validate_upload_alpine(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_alpine: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2903,6 +4310,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_cargo**
@@ -2913,37 +4329,58 @@ Validate parameters for create Cargo package
 Validate parameters for create Cargo package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cargo_package_upload_request import CargoPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CargoPackageUploadRequest() # CargoPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CargoPackageUploadRequest() # CargoPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Cargo package
-    api_instance.packages_validate_upload_cargo(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_cargo: %s\n" % e)
+    try:
+        # Validate parameters for create Cargo package
+        api_instance.packages_validate_upload_cargo(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_cargo: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2964,6 +4401,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_cocoapods**
@@ -2974,37 +4420,58 @@ Validate parameters for create CocoaPods package
 Validate parameters for create CocoaPods package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cocoapods_package_upload_request import CocoapodsPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CocoapodsPackageUploadRequest() # CocoapodsPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CocoapodsPackageUploadRequest() # CocoapodsPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create CocoaPods package
-    api_instance.packages_validate_upload_cocoapods(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_cocoapods: %s\n" % e)
+    try:
+        # Validate parameters for create CocoaPods package
+        api_instance.packages_validate_upload_cocoapods(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_cocoapods: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3025,6 +4492,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_composer**
@@ -3035,37 +4511,58 @@ Validate parameters for create Composer package
 Validate parameters for create Composer package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.composer_package_upload_request import ComposerPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.ComposerPackageUploadRequest() # ComposerPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.ComposerPackageUploadRequest() # ComposerPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Composer package
-    api_instance.packages_validate_upload_composer(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_composer: %s\n" % e)
+    try:
+        # Validate parameters for create Composer package
+        api_instance.packages_validate_upload_composer(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_composer: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3086,6 +4583,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_conan**
@@ -3096,37 +4602,58 @@ Validate parameters for create Conan package
 Validate parameters for create Conan package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conan_package_upload_request import ConanPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.ConanPackageUploadRequest() # ConanPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.ConanPackageUploadRequest() # ConanPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Conan package
-    api_instance.packages_validate_upload_conan(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_conan: %s\n" % e)
+    try:
+        # Validate parameters for create Conan package
+        api_instance.packages_validate_upload_conan(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_conan: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3147,6 +4674,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_conda**
@@ -3157,37 +4693,58 @@ Validate parameters for create Conda package
 Validate parameters for create Conda package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conda_package_upload_request import CondaPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CondaPackageUploadRequest() # CondaPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CondaPackageUploadRequest() # CondaPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Conda package
-    api_instance.packages_validate_upload_conda(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_conda: %s\n" % e)
+    try:
+        # Validate parameters for create Conda package
+        api_instance.packages_validate_upload_conda(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_conda: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3208,6 +4765,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_cran**
@@ -3218,37 +4784,58 @@ Validate parameters for create CRAN package
 Validate parameters for create CRAN package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cran_package_upload_request import CranPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.CranPackageUploadRequest() # CranPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.CranPackageUploadRequest() # CranPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create CRAN package
-    api_instance.packages_validate_upload_cran(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_cran: %s\n" % e)
+    try:
+        # Validate parameters for create CRAN package
+        api_instance.packages_validate_upload_cran(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_cran: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3269,6 +4856,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_dart**
@@ -3279,37 +4875,58 @@ Validate parameters for create Dart package
 Validate parameters for create Dart package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.dart_package_upload_request import DartPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.DartPackageUploadRequest() # DartPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.DartPackageUploadRequest() # DartPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Dart package
-    api_instance.packages_validate_upload_dart(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_dart: %s\n" % e)
+    try:
+        # Validate parameters for create Dart package
+        api_instance.packages_validate_upload_dart(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_dart: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3330,6 +4947,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_deb**
@@ -3340,37 +4966,58 @@ Validate parameters for create Debian package
 Validate parameters for create Debian package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.deb_package_upload_request import DebPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.DebPackageUploadRequest() # DebPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.DebPackageUploadRequest() # DebPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Debian package
-    api_instance.packages_validate_upload_deb(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_deb: %s\n" % e)
+    try:
+        # Validate parameters for create Debian package
+        api_instance.packages_validate_upload_deb(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_deb: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3391,6 +5038,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_docker**
@@ -3401,37 +5057,58 @@ Validate parameters for create Docker package
 Validate parameters for create Docker package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.docker_package_upload_request import DockerPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.DockerPackageUploadRequest() # DockerPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.DockerPackageUploadRequest() # DockerPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Docker package
-    api_instance.packages_validate_upload_docker(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_docker: %s\n" % e)
+    try:
+        # Validate parameters for create Docker package
+        api_instance.packages_validate_upload_docker(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_docker: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3452,6 +5129,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_generic**
@@ -3462,37 +5148,58 @@ Validate parameters for create Generic package
 Validate parameters for create Generic package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.generic_package_upload_request import GenericPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.GenericPackageUploadRequest() # GenericPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.GenericPackageUploadRequest() # GenericPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Generic package
-    api_instance.packages_validate_upload_generic(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_generic: %s\n" % e)
+    try:
+        # Validate parameters for create Generic package
+        api_instance.packages_validate_upload_generic(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_generic: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3513,6 +5220,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_go**
@@ -3523,37 +5239,58 @@ Validate parameters for create Go package
 Validate parameters for create Go package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.go_package_upload_request import GoPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.GoPackageUploadRequest() # GoPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.GoPackageUploadRequest() # GoPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Go package
-    api_instance.packages_validate_upload_go(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_go: %s\n" % e)
+    try:
+        # Validate parameters for create Go package
+        api_instance.packages_validate_upload_go(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_go: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3574,6 +5311,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_helm**
@@ -3584,37 +5330,58 @@ Validate parameters for create Helm package
 Validate parameters for create Helm package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.helm_package_upload_request import HelmPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.HelmPackageUploadRequest() # HelmPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.HelmPackageUploadRequest() # HelmPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Helm package
-    api_instance.packages_validate_upload_helm(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_helm: %s\n" % e)
+    try:
+        # Validate parameters for create Helm package
+        api_instance.packages_validate_upload_helm(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_helm: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3635,6 +5402,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_hex**
@@ -3645,37 +5421,58 @@ Validate parameters for create Hex package
 Validate parameters for create Hex package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.hex_package_upload_request import HexPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.HexPackageUploadRequest() # HexPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.HexPackageUploadRequest() # HexPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Hex package
-    api_instance.packages_validate_upload_hex(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_hex: %s\n" % e)
+    try:
+        # Validate parameters for create Hex package
+        api_instance.packages_validate_upload_hex(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_hex: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3696,6 +5493,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_huggingface**
@@ -3706,37 +5512,58 @@ Validate parameters for create HuggingFace package
 Validate parameters for create HuggingFace package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.huggingface_package_upload_request import HuggingfacePackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.HuggingfacePackageUploadRequest() # HuggingfacePackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.HuggingfacePackageUploadRequest() # HuggingfacePackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create HuggingFace package
-    api_instance.packages_validate_upload_huggingface(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_huggingface: %s\n" % e)
+    try:
+        # Validate parameters for create HuggingFace package
+        api_instance.packages_validate_upload_huggingface(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_huggingface: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3757,6 +5584,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_luarocks**
@@ -3767,37 +5603,58 @@ Validate parameters for create LuaRocks package
 Validate parameters for create LuaRocks package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.luarocks_package_upload_request import LuarocksPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.LuarocksPackageUploadRequest() # LuarocksPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.LuarocksPackageUploadRequest() # LuarocksPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create LuaRocks package
-    api_instance.packages_validate_upload_luarocks(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_luarocks: %s\n" % e)
+    try:
+        # Validate parameters for create LuaRocks package
+        api_instance.packages_validate_upload_luarocks(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_luarocks: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3818,6 +5675,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_maven**
@@ -3828,37 +5694,58 @@ Validate parameters for create Maven package
 Validate parameters for create Maven package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.maven_package_upload_request import MavenPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.MavenPackageUploadRequest() # MavenPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.MavenPackageUploadRequest() # MavenPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Maven package
-    api_instance.packages_validate_upload_maven(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_maven: %s\n" % e)
+    try:
+        # Validate parameters for create Maven package
+        api_instance.packages_validate_upload_maven(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_maven: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3879,6 +5766,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_mcp**
@@ -3889,37 +5785,58 @@ Validate parameters for create MCP package
 Validate parameters for create MCP package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.mcp_package_upload_request import McpPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.McpPackageUploadRequest() # McpPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.McpPackageUploadRequest() # McpPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create MCP package
-    api_instance.packages_validate_upload_mcp(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_mcp: %s\n" % e)
+    try:
+        # Validate parameters for create MCP package
+        api_instance.packages_validate_upload_mcp(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_mcp: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3940,6 +5857,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_nix**
@@ -3950,37 +5876,58 @@ Validate parameters for create Nix package
 Validate parameters for create Nix package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nix_package_upload_request import NixPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.NixPackageUploadRequest() # NixPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.NixPackageUploadRequest() # NixPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Nix package
-    api_instance.packages_validate_upload_nix(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_nix: %s\n" % e)
+    try:
+        # Validate parameters for create Nix package
+        api_instance.packages_validate_upload_nix(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_nix: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4001,6 +5948,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_npm**
@@ -4011,37 +5967,58 @@ Validate parameters for create npm package
 Validate parameters for create npm package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.npm_package_upload_request import NpmPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.NpmPackageUploadRequest() # NpmPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.NpmPackageUploadRequest() # NpmPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create npm package
-    api_instance.packages_validate_upload_npm(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_npm: %s\n" % e)
+    try:
+        # Validate parameters for create npm package
+        api_instance.packages_validate_upload_npm(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_npm: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4062,6 +6039,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_nuget**
@@ -4072,37 +6058,58 @@ Validate parameters for create NuGet package
 Validate parameters for create NuGet package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nuget_package_upload_request import NugetPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.NugetPackageUploadRequest() # NugetPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.NugetPackageUploadRequest() # NugetPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create NuGet package
-    api_instance.packages_validate_upload_nuget(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_nuget: %s\n" % e)
+    try:
+        # Validate parameters for create NuGet package
+        api_instance.packages_validate_upload_nuget(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_nuget: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4123,6 +6130,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_p2**
@@ -4133,37 +6149,58 @@ Validate parameters for create P2 package
 Validate parameters for create P2 package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.p2_package_upload_request import P2PackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.P2PackageUploadRequest() # P2PackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.P2PackageUploadRequest() # P2PackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create P2 package
-    api_instance.packages_validate_upload_p2(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_p2: %s\n" % e)
+    try:
+        # Validate parameters for create P2 package
+        api_instance.packages_validate_upload_p2(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_p2: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4184,6 +6221,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_python**
@@ -4194,37 +6240,58 @@ Validate parameters for create Python package
 Validate parameters for create Python package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.python_package_upload_request import PythonPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.PythonPackageUploadRequest() # PythonPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.PythonPackageUploadRequest() # PythonPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Python package
-    api_instance.packages_validate_upload_python(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_python: %s\n" % e)
+    try:
+        # Validate parameters for create Python package
+        api_instance.packages_validate_upload_python(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_python: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4245,6 +6312,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_raw**
@@ -4255,37 +6331,58 @@ Validate parameters for create Raw package
 Validate parameters for create Raw package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.raw_package_upload_request import RawPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RawPackageUploadRequest() # RawPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RawPackageUploadRequest() # RawPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Raw package
-    api_instance.packages_validate_upload_raw(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_raw: %s\n" % e)
+    try:
+        # Validate parameters for create Raw package
+        api_instance.packages_validate_upload_raw(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_raw: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4306,6 +6403,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_rpm**
@@ -4316,37 +6422,58 @@ Validate parameters for create RedHat package
 Validate parameters for create RedHat package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.rpm_package_upload_request import RpmPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RpmPackageUploadRequest() # RpmPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RpmPackageUploadRequest() # RpmPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create RedHat package
-    api_instance.packages_validate_upload_rpm(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_rpm: %s\n" % e)
+    try:
+        # Validate parameters for create RedHat package
+        api_instance.packages_validate_upload_rpm(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_rpm: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4367,6 +6494,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_ruby**
@@ -4377,37 +6513,58 @@ Validate parameters for create Ruby package
 Validate parameters for create Ruby package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.ruby_package_upload_request import RubyPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RubyPackageUploadRequest() # RubyPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RubyPackageUploadRequest() # RubyPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Ruby package
-    api_instance.packages_validate_upload_ruby(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_ruby: %s\n" % e)
+    try:
+        # Validate parameters for create Ruby package
+        api_instance.packages_validate_upload_ruby(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_ruby: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4428,6 +6585,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_skills**
@@ -4438,37 +6604,58 @@ Validate parameters for create AI Skills package
 Validate parameters for create AI Skills package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.skills_package_upload_request import SkillsPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.SkillsPackageUploadRequest() # SkillsPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.SkillsPackageUploadRequest() # SkillsPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create AI Skills package
-    api_instance.packages_validate_upload_skills(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_skills: %s\n" % e)
+    try:
+        # Validate parameters for create AI Skills package
+        api_instance.packages_validate_upload_skills(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_skills: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4489,6 +6676,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_swift**
@@ -4499,37 +6695,58 @@ Validate parameters for create Swift package
 Validate parameters for create Swift package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.swift_package_upload_request import SwiftPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.SwiftPackageUploadRequest() # SwiftPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.SwiftPackageUploadRequest() # SwiftPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Swift package
-    api_instance.packages_validate_upload_swift(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_swift: %s\n" % e)
+    try:
+        # Validate parameters for create Swift package
+        api_instance.packages_validate_upload_swift(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_swift: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4550,6 +6767,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_terraform**
@@ -4560,37 +6786,58 @@ Validate parameters for create Terraform package
 Validate parameters for create Terraform package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.terraform_package_upload_request import TerraformPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.TerraformPackageUploadRequest() # TerraformPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.TerraformPackageUploadRequest() # TerraformPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Terraform package
-    api_instance.packages_validate_upload_terraform(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_terraform: %s\n" % e)
+    try:
+        # Validate parameters for create Terraform package
+        api_instance.packages_validate_upload_terraform(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_terraform: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4611,6 +6858,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_vagrant**
@@ -4621,37 +6877,58 @@ Validate parameters for create Vagrant package
 Validate parameters for create Vagrant package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vagrant_package_upload_request import VagrantPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.VagrantPackageUploadRequest() # VagrantPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.VagrantPackageUploadRequest() # VagrantPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create Vagrant package
-    api_instance.packages_validate_upload_vagrant(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_vagrant: %s\n" % e)
+    try:
+        # Validate parameters for create Vagrant package
+        api_instance.packages_validate_upload_vagrant(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_vagrant: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4672,6 +6949,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **packages_validate_upload_vsx**
@@ -4682,37 +6968,58 @@ Validate parameters for create VSX package
 Validate parameters for create VSX package
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vsx_package_upload_request import VsxPackageUploadRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.PackagesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.VsxPackageUploadRequest() # VsxPackageUploadRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.PackagesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.VsxPackageUploadRequest() # VsxPackageUploadRequest |  (optional)
 
-try:
-    # Validate parameters for create VSX package
-    api_instance.packages_validate_upload_vsx(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling PackagesApi->packages_validate_upload_vsx: %s\n" % e)
+    try:
+        # Validate parameters for create VSX package
+        api_instance.packages_validate_upload_vsx(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling PackagesApi->packages_validate_upload_vsx: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4732,6 +7039,15 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Validation was successful, parameters are OK. |  -  |
+**404** | Namespace (owner) or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -3,8 +3,9 @@
     "apiPackage": "io.cloudsmith.api.apis",
     "artifactId": "cloudsmith-api",
     "artifactUrl": "https://api.cloudsmith.io/?format=openapi",
-    "artifactVersion": "2.0.37",
+    "artifactVersion": "3.0.0",
     "artifactDescription": "Cloudsmith API",
+    "containerDefaultToNull": true,
     "dateLibrary": "java8",
     "developerName": "Cloudsmith Ltd",
     "developerEmail": "support@cloudsmith.io",
@@ -20,10 +21,10 @@
     "groupId": "io.cloudsmith.api",
     "modelPackage": "io.cloudsmith.api.models",
     "parcelableModel": false,
-    "performBeanValidation": true,
+    "performBeanValidation": false,
     "serializableModel": true,
     "sortParamsByRequiredFlag": true,
-    "useBeanValidation": true,
+    "useBeanValidation": false,
     "useGzipFeature": false,
     "withXml": false
 }

@@ -1,22 +1,21 @@
 
+
 # OrganizationGroupSyncRequest
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**idpKey** | **String** |  | 
-**idpValue** | **String** |  | 
-**organization** | **String** |  | 
-**role** | [**RoleEnum**](#RoleEnum) |  |  [optional]
-**team** | **String** |  | 
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**idpKey** | **String** |  |  [optional] |
+|**idpValue** | **String** |  |  [optional] |
+|**organization** | **String** |  |  [optional] |
+|**role** | **String** |  |  [optional] |
+|**team** | **String** |  |  [optional] |
 
 
-<a name="RoleEnum"></a>
-## Enum: RoleEnum
-Name | Value
----- | -----
-MANAGER | &quot;Manager&quot;
-MEMBER | &quot;Member&quot;
+## Implemented Interfaces
 
+* Serializable
 
 

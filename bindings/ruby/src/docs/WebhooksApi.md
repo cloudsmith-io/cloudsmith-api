@@ -2,32 +2,34 @@
 
 All URIs are relative to *https://api.cloudsmith.io*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**webhooks_create**](WebhooksApi.md#webhooks_create) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository.
-[**webhooks_delete**](WebhooksApi.md#webhooks_delete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository.
-[**webhooks_list**](WebhooksApi.md#webhooks_list) | **GET** /webhooks/{owner}/{repo}/ | Get a list of all webhooks in a repository.
-[**webhooks_partial_update**](WebhooksApi.md#webhooks_partial_update) | **PATCH** /webhooks/{owner}/{repo}/{identifier}/ | Update a specific webhook in a repository.
-[**webhooks_read**](WebhooksApi.md#webhooks_read) | **GET** /webhooks/{owner}/{repo}/{identifier}/ | Views for working with repository webhooks.
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**webhooks_create**](WebhooksApi.md#webhooks_create) | **POST** /webhooks/{owner}/{repo}/ | Create a specific webhook in a repository. |
+| [**webhooks_delete**](WebhooksApi.md#webhooks_delete) | **DELETE** /webhooks/{owner}/{repo}/{identifier}/ | Delete a specific webhook in a repository. |
+| [**webhooks_list**](WebhooksApi.md#webhooks_list) | **GET** /webhooks/{owner}/{repo}/ | Get a list of all webhooks in a repository. |
+| [**webhooks_partial_update**](WebhooksApi.md#webhooks_partial_update) | **PATCH** /webhooks/{owner}/{repo}/{identifier}/ | Update a specific webhook in a repository. |
+| [**webhooks_read**](WebhooksApi.md#webhooks_read) | **GET** /webhooks/{owner}/{repo}/{identifier}/ | Views for working with repository webhooks. |
 
 
-# **webhooks_create**
-> RepositoryWebhook webhooks_create(owner, repo, opts)
+## webhooks_create
+
+> <RepositoryWebhook> webhooks_create(owner, repo, opts)
 
 Create a specific webhook in a repository.
 
 Create a specific webhook in a repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -35,31 +37,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::WebhooksApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryWebhookRequest.new # RepositoryWebhookRequest | 
 }
 
 begin
-  #Create a specific webhook in a repository.
+  # Create a specific webhook in a repository.
   result = api_instance.webhooks_create(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling WebhooksApi->webhooks_create: #{e}"
+  puts "Error when calling WebhooksApi->webhooks_create: #{e}"
+end
+```
+
+#### Using the webhooks_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryWebhook>, Integer, Hash)> webhooks_create_with_http_info(owner, repo, opts)
+
+```ruby
+begin
+  # Create a specific webhook in a repository.
+  data, status_code, headers = api_instance.webhooks_create_with_http_info(owner, repo, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryWebhook>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling WebhooksApi->webhooks_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **data** | [**RepositoryWebhookRequest**](RepositoryWebhookRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **data** | [**RepositoryWebhookRequest**](RepositoryWebhookRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -71,28 +88,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## webhooks_delete
 
-# **webhooks_delete**
 > webhooks_delete(owner, repo, identifier)
 
 Delete a specific webhook in a repository.
 
 Delete a specific webhook in a repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -100,29 +118,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::WebhooksApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Delete a specific webhook in a repository.
+  # Delete a specific webhook in a repository.
   api_instance.webhooks_delete(owner, repo, identifier)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling WebhooksApi->webhooks_delete: #{e}"
+  puts "Error when calling WebhooksApi->webhooks_delete: #{e}"
+end
+```
+
+#### Using the webhooks_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> webhooks_delete_with_http_info(owner, repo, identifier)
+
+```ruby
+begin
+  # Delete a specific webhook in a repository.
+  data, status_code, headers = api_instance.webhooks_delete_with_http_info(owner, repo, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling WebhooksApi->webhooks_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -134,28 +166,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## webhooks_list
 
-# **webhooks_list**
-> Array&lt;RepositoryWebhook&gt; webhooks_list(owner, repo, opts)
-
-Get a list of all webhooks in a repository.
+> <Array<RepositoryWebhook>> webhooks_list(owner, repo, opts)
 
 Get a list of all webhooks in a repository.
 
-### Example
+Get a list of all webhooks in a repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -163,33 +196,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::WebhooksApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #Get a list of all webhooks in a repository.
+  # Get a list of all webhooks in a repository.
   result = api_instance.webhooks_list(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling WebhooksApi->webhooks_list: #{e}"
+  puts "Error when calling WebhooksApi->webhooks_list: #{e}"
+end
+```
+
+#### Using the webhooks_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<RepositoryWebhook>>, Integer, Hash)> webhooks_list_with_http_info(owner, repo, opts)
+
+```ruby
+begin
+  # Get a list of all webhooks in a repository.
+  data, status_code, headers = api_instance.webhooks_list_with_http_info(owner, repo, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<RepositoryWebhook>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling WebhooksApi->webhooks_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -201,28 +249,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## webhooks_partial_update
 
-# **webhooks_partial_update**
-> RepositoryWebhook webhooks_partial_update(owner, repo, identifier, opts)
-
-Update a specific webhook in a repository.
+> <RepositoryWebhook> webhooks_partial_update(owner, repo, identifier, opts)
 
 Update a specific webhook in a repository.
 
-### Example
+Update a specific webhook in a repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -230,34 +279,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::WebhooksApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryWebhookRequestPatch.new # RepositoryWebhookRequestPatch | 
 }
 
 begin
-  #Update a specific webhook in a repository.
+  # Update a specific webhook in a repository.
   result = api_instance.webhooks_partial_update(owner, repo, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling WebhooksApi->webhooks_partial_update: #{e}"
+  puts "Error when calling WebhooksApi->webhooks_partial_update: #{e}"
+end
+```
+
+#### Using the webhooks_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryWebhook>, Integer, Hash)> webhooks_partial_update_with_http_info(owner, repo, identifier, opts)
+
+```ruby
+begin
+  # Update a specific webhook in a repository.
+  data, status_code, headers = api_instance.webhooks_partial_update_with_http_info(owner, repo, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryWebhook>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling WebhooksApi->webhooks_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryWebhookRequestPatch**](RepositoryWebhookRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryWebhookRequestPatch**](RepositoryWebhookRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -269,28 +332,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## webhooks_read
 
-# **webhooks_read**
-> RepositoryWebhook webhooks_read(owner, repo, identifier)
-
-Views for working with repository webhooks.
+> <RepositoryWebhook> webhooks_read(owner, repo, identifier)
 
 Views for working with repository webhooks.
 
-### Example
+Views for working with repository webhooks.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -298,30 +362,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::WebhooksApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Views for working with repository webhooks.
+  # Views for working with repository webhooks.
   result = api_instance.webhooks_read(owner, repo, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling WebhooksApi->webhooks_read: #{e}"
+  puts "Error when calling WebhooksApi->webhooks_read: #{e}"
+end
+```
+
+#### Using the webhooks_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryWebhook>, Integer, Hash)> webhooks_read_with_http_info(owner, repo, identifier)
+
+```ruby
+begin
+  # Views for working with repository webhooks.
+  data, status_code, headers = api_instance.webhooks_read_with_http_info(owner, repo, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryWebhook>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling WebhooksApi->webhooks_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -333,8 +411,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

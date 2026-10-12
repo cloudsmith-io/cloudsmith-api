@@ -1,25 +1,32 @@
 
+
 # NamespaceAuditLog
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**actor** | **String** |  | 
-**actorIpAddress** | **String** |  | 
-**actorKind** | **String** |  |  [optional]
-**actorLocation** | [**GeoIpLocation**](GeoIpLocation.md) |  | 
-**actorSlugPerm** | **String** |  | 
-**actorUrl** | **String** |  |  [optional]
-**context** | **String** |  | 
-**event** | **String** |  | 
-**eventAt** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
-**object** | **String** |  | 
-**objectKind** | **String** |  | 
-**objectSlugPerm** | **String** |  | 
-**target** | **String** |  | 
-**targetKind** | **String** |  | 
-**targetSlugPerm** | **String** |  |  [optional]
-**uuid** | [**UUID**](UUID.md) |  |  [optional]
 
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**actor** | **String** |  |  [optional] |
+|**actorIpAddress** | **String** |  |  [optional] |
+|**actorKind** | **String** |  |  [optional] [readonly] |
+|**actorLocation** | [**GeoIpLocation**](GeoIpLocation.md) |  |  [optional] |
+|**actorSlugPerm** | **String** |  |  [optional] |
+|**actorUrl** | **URI** |  |  [optional] [readonly] |
+|**context** | **String** |  |  [optional] |
+|**event** | **String** |  |  [optional] |
+|**eventAt** | **OffsetDateTime** |  |  [optional] |
+|**_object** | **String** |  |  [optional] |
+|**objectKind** | **String** |  |  [optional] |
+|**objectSlugPerm** | **String** |  |  [optional] |
+|**target** | **String** |  |  [optional] |
+|**targetKind** | **String** |  |  [optional] |
+|**targetSlugPerm** | **String** |  |  [optional] |
+|**uuid** | **UUID** |  |  [optional] [readonly] |
+
+
+## Implemented Interfaces
+
+* Serializable
 
 

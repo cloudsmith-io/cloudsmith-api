@@ -1,15 +1,32 @@
 # CloudsmithApi::FormatSupportUpstream
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**auth_modes** | **Array&lt;String&gt;** | The authentication modes supported by the upstream format | 
-**cache_only** | **BOOLEAN** | If true the upstream format supports cache-only mode. | 
-**caching** | **BOOLEAN** | If true the upstream format supports caching | 
-**indexing** | **BOOLEAN** | If true the upstream format supports indexing | 
-**indexing_behavior** | **String** | The behavior of the upstream when indexing | [optional] [default to &#39;Unsupported&#39;]
-**proxying** | **BOOLEAN** | If true the upstream format supports proxying | 
-**signature_verification** | **String** | The signature verification supported by the upstream format | [optional] [default to &#39;Unsupported&#39;]
-**trust** | **BOOLEAN** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **auth_modes** | **Array&lt;String&gt;** | The authentication modes supported by the upstream format | [optional] |
+| **cache_only** | **Boolean** | If true the upstream format supports cache-only mode. | [optional] |
+| **caching** | **Boolean** | If true the upstream format supports caching | [optional] |
+| **indexing** | **Boolean** | If true the upstream format supports indexing | [optional] |
+| **indexing_behavior** | **String** | The behavior of the upstream when indexing | [optional] |
+| **proxying** | **Boolean** | If true the upstream format supports proxying | [optional] |
+| **signature_verification** | **String** | The signature verification supported by the upstream format | [optional] |
+| **trust** | **Boolean** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | [optional] |
+
+## Example
+
+```ruby
+require 'cloudsmith-api'
+
+instance = CloudsmithApi::FormatSupportUpstream.new(
+  auth_modes: null,
+  cache_only: null,
+  caching: null,
+  indexing: null,
+  indexing_behavior: null,
+  proxying: null,
+  signature_verification: null,
+  trust: null
+)
+```
 

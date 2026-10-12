@@ -1,10 +1,17 @@
 
+
 # PackageDependencies
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**dependencies** | [**List&lt;PackageDependency&gt;**](PackageDependency.md) |  | 
 
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**dependencies** | [**List&lt;PackageDependency&gt;**](PackageDependency.md) |  |  [optional] |
+
+
+## Implemented Interfaces
+
+* Serializable
 
 

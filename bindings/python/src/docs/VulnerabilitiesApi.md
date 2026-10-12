@@ -11,45 +11,67 @@ Method | HTTP request | Description
 
 
 # **vulnerabilities_namespace_list**
-> list[VulnerabilityScanResultsList] vulnerabilities_namespace_list(owner, page=page, page_size=page_size)
+> List[VulnerabilityScanResultsList] vulnerabilities_namespace_list(owner, page=page, page_size=page_size)
 
 Lists scan results for a specific namespace.
 
 Lists scan results for a specific namespace.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vulnerability_scan_results_list import VulnerabilityScanResultsList
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.VulnerabilitiesApi(api_client)
+    owner = 'owner_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # Lists scan results for a specific namespace.
-    api_response = api_instance.vulnerabilities_namespace_list(owner, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VulnerabilitiesApi->vulnerabilities_namespace_list: %s\n" % e)
+    try:
+        # Lists scan results for a specific namespace.
+        api_response = api_instance.vulnerabilities_namespace_list(owner, page=page, page_size=page_size)
+        print("The response of VulnerabilitiesApi->vulnerabilities_namespace_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling VulnerabilitiesApi->vulnerabilities_namespace_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -59,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
+[**List[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -67,53 +89,83 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vulnerabilities_package_list**
-> list[VulnerabilityScanResultsList] vulnerabilities_package_list(owner, repo, package, page=page, page_size=page_size)
+> List[VulnerabilityScanResultsList] vulnerabilities_package_list(owner, repo, package, page=page, page_size=page_size)
 
 Lists scan results for a specific package.
 
 Lists scan results for a specific package.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vulnerability_scan_results_list import VulnerabilityScanResultsList
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-package = 'package_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.VulnerabilitiesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    package = 'package_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # Lists scan results for a specific package.
-    api_response = api_instance.vulnerabilities_package_list(owner, repo, package, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VulnerabilitiesApi->vulnerabilities_package_list: %s\n" % e)
+    try:
+        # Lists scan results for a specific package.
+        api_response = api_instance.vulnerabilities_package_list(owner, repo, package, page=page, page_size=page_size)
+        print("The response of VulnerabilitiesApi->vulnerabilities_package_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling VulnerabilitiesApi->vulnerabilities_package_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -125,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
+[**List[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -133,8 +185,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -146,39 +206,61 @@ Get a scan result.
 Get a scan result.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vulnerability_scan_results import VulnerabilityScanResults
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-package = 'package_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.VulnerabilitiesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    package = 'package_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Get a scan result.
-    api_response = api_instance.vulnerabilities_read(owner, repo, package, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VulnerabilitiesApi->vulnerabilities_read: %s\n" % e)
+    try:
+        # Get a scan result.
+        api_response = api_instance.vulnerabilities_read(owner, repo, package, identifier)
+        print("The response of VulnerabilitiesApi->vulnerabilities_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling VulnerabilitiesApi->vulnerabilities_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -197,52 +279,82 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vulnerabilities_repo_list**
-> list[VulnerabilityScanResultsList] vulnerabilities_repo_list(owner, repo, page=page, page_size=page_size)
+> List[VulnerabilityScanResultsList] vulnerabilities_repo_list(owner, repo, page=page, page_size=page_size)
 
 Lists scan results for a specific repository.
 
 Lists scan results for a specific repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.vulnerability_scan_results_list import VulnerabilityScanResultsList
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.VulnerabilitiesApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.VulnerabilitiesApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # Lists scan results for a specific repository.
-    api_response = api_instance.vulnerabilities_repo_list(owner, repo, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VulnerabilitiesApi->vulnerabilities_repo_list: %s\n" % e)
+    try:
+        # Lists scan results for a specific repository.
+        api_response = api_instance.vulnerabilities_repo_list(owner, repo, page=page, page_size=page_size)
+        print("The response of VulnerabilitiesApi->vulnerabilities_repo_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling VulnerabilitiesApi->vulnerabilities_repo_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -253,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
+[**List[VulnerabilityScanResultsList]**](VulnerabilityScanResultsList.md)
 
 ### Authorization
 
@@ -261,8 +373,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -2,192 +2,194 @@
 
 All URIs are relative to *https://api.cloudsmith.io*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**api_repos_geoip_status**](ReposApi.md#api_repos_geoip_status) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository.
-[**repo_retention_partial_update**](ReposApi.md#repo_retention_partial_update) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository.
-[**repo_retention_read**](ReposApi.md#repo_retention_read) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository.
-[**repos_connected_create**](ReposApi.md#repos_connected_create) | **POST** /repos/{owner}/{identifier}/connected/ | Create a connected repository for this repository.
-[**repos_connected_delete**](ReposApi.md#repos_connected_delete) | **DELETE** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Delete a connected repository for this repository.
-[**repos_connected_list**](ReposApi.md#repos_connected_list) | **GET** /repos/{owner}/{identifier}/connected/ | List connected repositories for this repository.
-[**repos_connected_partial_update**](ReposApi.md#repos_connected_partial_update) | **PATCH** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Partially update a connected repository for this repository.
-[**repos_connected_read**](ReposApi.md#repos_connected_read) | **GET** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Retrieve a connected repository for this repository.
-[**repos_connected_update**](ReposApi.md#repos_connected_update) | **PUT** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Update a connected repository for this repository.
-[**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace.
-[**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ | 
-[**repos_ecdsa_create**](ReposApi.md#repos_ecdsa_create) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository.
-[**repos_ecdsa_list**](ReposApi.md#repos_ecdsa_list) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository.
-[**repos_ecdsa_regenerate**](ReposApi.md#repos_ecdsa_regenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository.
-[**repos_ed25519_create**](ReposApi.md#repos_ed25519_create) | **POST** /repos/{owner}/{identifier}/ed25519/ | Set the active Ed25519 key for the Repository.
-[**repos_ed25519_list**](ReposApi.md#repos_ed25519_list) | **GET** /repos/{owner}/{identifier}/ed25519/ | Retrieve the active Ed25519 key for the Repository.
-[**repos_ed25519_regenerate**](ReposApi.md#repos_ed25519_regenerate) | **POST** /repos/{owner}/{identifier}/ed25519/regenerate/ | Regenerate Ed25519 Key for the Repository.
-[**repos_geoip_disable**](ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository.
-[**repos_geoip_enable**](ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository.
-[**repos_geoip_partial_update**](ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules.
-[**repos_geoip_read**](ReposApi.md#repos_geoip_read) | **GET** /repos/{owner}/{identifier}/geoip | List all repository geoip rules.
-[**repos_geoip_test**](ReposApi.md#repos_geoip_test) | **POST** /repos/{owner}/{identifier}/geoip/test/ | Test a list of IP addresses against the repository&#39;s current GeoIP rules.
-[**repos_geoip_update**](ReposApi.md#repos_geoip_update) | **PUT** /repos/{owner}/{identifier}/geoip | Replace repository geoip rules.
-[**repos_gpg_create**](ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository.
-[**repos_gpg_list**](ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository.
-[**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository.
-[**repos_namespace_list**](ReposApi.md#repos_namespace_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace.
-[**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace.
-[**repos_privileges_list**](ReposApi.md#repos_privileges_list) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository.
-[**repos_privileges_partial_update**](ReposApi.md#repos_privileges_partial_update) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository.
-[**repos_privileges_update**](ReposApi.md#repos_privileges_update) | **PUT** /repos/{owner}/{identifier}/privileges | Replace all existing repository privileges with those specified.
-[**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository.
-[**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository.
-[**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository.
-[**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository.
-[**repos_transfer_region**](ReposApi.md#repos_transfer_region) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region.
-[**repos_upstream_alpine_create**](ReposApi.md#repos_upstream_alpine_create) | **POST** /repos/{owner}/{identifier}/upstream/alpine/ | Create an Alpine upstream config for this repository.
-[**repos_upstream_alpine_delete**](ReposApi.md#repos_upstream_alpine_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Delete an Alpine upstream config for this repository.
-[**repos_upstream_alpine_list**](ReposApi.md#repos_upstream_alpine_list) | **GET** /repos/{owner}/{identifier}/upstream/alpine/ | List Alpine upstream configs for this repository.
-[**repos_upstream_alpine_partial_update**](ReposApi.md#repos_upstream_alpine_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Partially update an Alpine upstream config for this repository.
-[**repos_upstream_alpine_read**](ReposApi.md#repos_upstream_alpine_read) | **GET** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Retrieve an Alpine upstream config for this repository.
-[**repos_upstream_alpine_update**](ReposApi.md#repos_upstream_alpine_update) | **PUT** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Update an Alpine upstream config for this repository.
-[**repos_upstream_cargo_create**](ReposApi.md#repos_upstream_cargo_create) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository.
-[**repos_upstream_cargo_delete**](ReposApi.md#repos_upstream_cargo_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository.
-[**repos_upstream_cargo_list**](ReposApi.md#repos_upstream_cargo_list) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository.
-[**repos_upstream_cargo_partial_update**](ReposApi.md#repos_upstream_cargo_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Partially update a Cargo upstream config for this repository.
-[**repos_upstream_cargo_read**](ReposApi.md#repos_upstream_cargo_read) | **GET** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Retrieve a Cargo upstream config for this repository.
-[**repos_upstream_cargo_update**](ReposApi.md#repos_upstream_cargo_update) | **PUT** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Update a Cargo upstream config for this repository.
-[**repos_upstream_composer_create**](ReposApi.md#repos_upstream_composer_create) | **POST** /repos/{owner}/{identifier}/upstream/composer/ | Create a Composer upstream config for this repository.
-[**repos_upstream_composer_delete**](ReposApi.md#repos_upstream_composer_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Delete a Composer upstream config for this repository.
-[**repos_upstream_composer_list**](ReposApi.md#repos_upstream_composer_list) | **GET** /repos/{owner}/{identifier}/upstream/composer/ | List Composer upstream configs for this repository.
-[**repos_upstream_composer_partial_update**](ReposApi.md#repos_upstream_composer_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Partially update a Composer upstream config for this repository.
-[**repos_upstream_composer_read**](ReposApi.md#repos_upstream_composer_read) | **GET** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Retrieve a Composer upstream config for this repository.
-[**repos_upstream_composer_update**](ReposApi.md#repos_upstream_composer_update) | **PUT** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Update a Composer upstream config for this repository.
-[**repos_upstream_conda_create**](ReposApi.md#repos_upstream_conda_create) | **POST** /repos/{owner}/{identifier}/upstream/conda/ | Create a Conda upstream config for this repository.
-[**repos_upstream_conda_delete**](ReposApi.md#repos_upstream_conda_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Delete a Conda upstream config for this repository.
-[**repos_upstream_conda_list**](ReposApi.md#repos_upstream_conda_list) | **GET** /repos/{owner}/{identifier}/upstream/conda/ | List Conda upstream configs for this repository.
-[**repos_upstream_conda_partial_update**](ReposApi.md#repos_upstream_conda_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Partially update a Conda upstream config for this repository.
-[**repos_upstream_conda_read**](ReposApi.md#repos_upstream_conda_read) | **GET** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Retrieve a Conda upstream config for this repository.
-[**repos_upstream_conda_update**](ReposApi.md#repos_upstream_conda_update) | **PUT** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Update a Conda upstream config for this repository.
-[**repos_upstream_cran_create**](ReposApi.md#repos_upstream_cran_create) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository.
-[**repos_upstream_cran_delete**](ReposApi.md#repos_upstream_cran_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository.
-[**repos_upstream_cran_list**](ReposApi.md#repos_upstream_cran_list) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository.
-[**repos_upstream_cran_partial_update**](ReposApi.md#repos_upstream_cran_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Partially update a CRAN upstream config for this repository.
-[**repos_upstream_cran_read**](ReposApi.md#repos_upstream_cran_read) | **GET** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Retrieve a CRAN upstream config for this repository.
-[**repos_upstream_cran_update**](ReposApi.md#repos_upstream_cran_update) | **PUT** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Update a CRAN upstream config for this repository.
-[**repos_upstream_dart_create**](ReposApi.md#repos_upstream_dart_create) | **POST** /repos/{owner}/{identifier}/upstream/dart/ | Create a Dart upstream config for this repository.
-[**repos_upstream_dart_delete**](ReposApi.md#repos_upstream_dart_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Delete a Dart upstream config for this repository.
-[**repos_upstream_dart_list**](ReposApi.md#repos_upstream_dart_list) | **GET** /repos/{owner}/{identifier}/upstream/dart/ | List Dart upstream configs for this repository.
-[**repos_upstream_dart_partial_update**](ReposApi.md#repos_upstream_dart_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Partially update a Dart upstream config for this repository.
-[**repos_upstream_dart_read**](ReposApi.md#repos_upstream_dart_read) | **GET** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Retrieve a Dart upstream config for this repository.
-[**repos_upstream_dart_update**](ReposApi.md#repos_upstream_dart_update) | **PUT** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Update a Dart upstream config for this repository.
-[**repos_upstream_deb_create**](ReposApi.md#repos_upstream_deb_create) | **POST** /repos/{owner}/{identifier}/upstream/deb/ | Create a Debian upstream config for this repository.
-[**repos_upstream_deb_delete**](ReposApi.md#repos_upstream_deb_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Delete a Debian upstream config for this repository.
-[**repos_upstream_deb_list**](ReposApi.md#repos_upstream_deb_list) | **GET** /repos/{owner}/{identifier}/upstream/deb/ | List Debian upstream configs for this repository.
-[**repos_upstream_deb_partial_update**](ReposApi.md#repos_upstream_deb_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Partially update a Debian upstream config for this repository.
-[**repos_upstream_deb_read**](ReposApi.md#repos_upstream_deb_read) | **GET** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Retrieve a Debian upstream config for this repository.
-[**repos_upstream_deb_update**](ReposApi.md#repos_upstream_deb_update) | **PUT** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Update a Debian upstream config for this repository.
-[**repos_upstream_docker_create**](ReposApi.md#repos_upstream_docker_create) | **POST** /repos/{owner}/{identifier}/upstream/docker/ | Create a Docker upstream config for this repository.
-[**repos_upstream_docker_delete**](ReposApi.md#repos_upstream_docker_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Delete a Docker upstream config for this repository.
-[**repos_upstream_docker_list**](ReposApi.md#repos_upstream_docker_list) | **GET** /repos/{owner}/{identifier}/upstream/docker/ | List Docker upstream configs for this repository.
-[**repos_upstream_docker_partial_update**](ReposApi.md#repos_upstream_docker_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository.
-[**repos_upstream_docker_read**](ReposApi.md#repos_upstream_docker_read) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository.
-[**repos_upstream_docker_update**](ReposApi.md#repos_upstream_docker_update) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository.
-[**repos_upstream_generic_create**](ReposApi.md#repos_upstream_generic_create) | **POST** /repos/{owner}/{identifier}/upstream/generic/ | Create a Generic upstream config for this repository.
-[**repos_upstream_generic_delete**](ReposApi.md#repos_upstream_generic_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Delete a Generic upstream config for this repository.
-[**repos_upstream_generic_list**](ReposApi.md#repos_upstream_generic_list) | **GET** /repos/{owner}/{identifier}/upstream/generic/ | List Generic upstream configs for this repository.
-[**repos_upstream_generic_partial_update**](ReposApi.md#repos_upstream_generic_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Partially update a Generic upstream config for this repository.
-[**repos_upstream_generic_read**](ReposApi.md#repos_upstream_generic_read) | **GET** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Retrieve a Generic upstream config for this repository.
-[**repos_upstream_generic_update**](ReposApi.md#repos_upstream_generic_update) | **PUT** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Update a Generic upstream config for this repository.
-[**repos_upstream_go_create**](ReposApi.md#repos_upstream_go_create) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository.
-[**repos_upstream_go_delete**](ReposApi.md#repos_upstream_go_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository.
-[**repos_upstream_go_list**](ReposApi.md#repos_upstream_go_list) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository.
-[**repos_upstream_go_partial_update**](ReposApi.md#repos_upstream_go_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Partially update a Go upstream config for this repository.
-[**repos_upstream_go_read**](ReposApi.md#repos_upstream_go_read) | **GET** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Retrieve a Go upstream config for this repository.
-[**repos_upstream_go_update**](ReposApi.md#repos_upstream_go_update) | **PUT** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Update a Go upstream config for this repository.
-[**repos_upstream_helm_create**](ReposApi.md#repos_upstream_helm_create) | **POST** /repos/{owner}/{identifier}/upstream/helm/ | Create a Helm upstream config for this repository.
-[**repos_upstream_helm_delete**](ReposApi.md#repos_upstream_helm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Delete a Helm upstream config for this repository.
-[**repos_upstream_helm_list**](ReposApi.md#repos_upstream_helm_list) | **GET** /repos/{owner}/{identifier}/upstream/helm/ | List Helm upstream configs for this repository.
-[**repos_upstream_helm_partial_update**](ReposApi.md#repos_upstream_helm_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Partially update a Helm upstream config for this repository.
-[**repos_upstream_helm_read**](ReposApi.md#repos_upstream_helm_read) | **GET** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Retrieve a Helm upstream config for this repository.
-[**repos_upstream_helm_update**](ReposApi.md#repos_upstream_helm_update) | **PUT** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Update a Helm upstream config for this repository.
-[**repos_upstream_hex_create**](ReposApi.md#repos_upstream_hex_create) | **POST** /repos/{owner}/{identifier}/upstream/hex/ | Create a Hex upstream config for this repository.
-[**repos_upstream_hex_delete**](ReposApi.md#repos_upstream_hex_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Delete a Hex upstream config for this repository.
-[**repos_upstream_hex_list**](ReposApi.md#repos_upstream_hex_list) | **GET** /repos/{owner}/{identifier}/upstream/hex/ | List Hex upstream configs for this repository.
-[**repos_upstream_hex_partial_update**](ReposApi.md#repos_upstream_hex_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Partially update a Hex upstream config for this repository.
-[**repos_upstream_hex_read**](ReposApi.md#repos_upstream_hex_read) | **GET** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Retrieve a Hex upstream config for this repository.
-[**repos_upstream_hex_update**](ReposApi.md#repos_upstream_hex_update) | **PUT** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Update a Hex upstream config for this repository.
-[**repos_upstream_huggingface_create**](ReposApi.md#repos_upstream_huggingface_create) | **POST** /repos/{owner}/{identifier}/upstream/huggingface/ | Create a HuggingFace upstream config for this repository.
-[**repos_upstream_huggingface_delete**](ReposApi.md#repos_upstream_huggingface_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Delete a HuggingFace upstream config for this repository.
-[**repos_upstream_huggingface_list**](ReposApi.md#repos_upstream_huggingface_list) | **GET** /repos/{owner}/{identifier}/upstream/huggingface/ | List HuggingFace upstream configs for this repository.
-[**repos_upstream_huggingface_partial_update**](ReposApi.md#repos_upstream_huggingface_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Partially update a HuggingFace upstream config for this repository.
-[**repos_upstream_huggingface_read**](ReposApi.md#repos_upstream_huggingface_read) | **GET** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Retrieve a HuggingFace upstream config for this repository.
-[**repos_upstream_huggingface_update**](ReposApi.md#repos_upstream_huggingface_update) | **PUT** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Update a HuggingFace upstream config for this repository.
-[**repos_upstream_maven_create**](ReposApi.md#repos_upstream_maven_create) | **POST** /repos/{owner}/{identifier}/upstream/maven/ | Create a Maven upstream config for this repository.
-[**repos_upstream_maven_delete**](ReposApi.md#repos_upstream_maven_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Delete a Maven upstream config for this repository.
-[**repos_upstream_maven_list**](ReposApi.md#repos_upstream_maven_list) | **GET** /repos/{owner}/{identifier}/upstream/maven/ | List Maven upstream configs for this repository.
-[**repos_upstream_maven_partial_update**](ReposApi.md#repos_upstream_maven_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Partially update a Maven upstream config for this repository.
-[**repos_upstream_maven_read**](ReposApi.md#repos_upstream_maven_read) | **GET** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Retrieve a Maven upstream config for this repository.
-[**repos_upstream_maven_update**](ReposApi.md#repos_upstream_maven_update) | **PUT** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Update a Maven upstream config for this repository.
-[**repos_upstream_nix_create**](ReposApi.md#repos_upstream_nix_create) | **POST** /repos/{owner}/{identifier}/upstream/nix/ | Create a Nix upstream config for this repository.
-[**repos_upstream_nix_delete**](ReposApi.md#repos_upstream_nix_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Delete a Nix upstream config for this repository.
-[**repos_upstream_nix_list**](ReposApi.md#repos_upstream_nix_list) | **GET** /repos/{owner}/{identifier}/upstream/nix/ | List Nix upstream configs for this repository.
-[**repos_upstream_nix_partial_update**](ReposApi.md#repos_upstream_nix_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Partially update a Nix upstream config for this repository.
-[**repos_upstream_nix_read**](ReposApi.md#repos_upstream_nix_read) | **GET** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Retrieve a Nix upstream config for this repository.
-[**repos_upstream_nix_update**](ReposApi.md#repos_upstream_nix_update) | **PUT** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Update a Nix upstream config for this repository.
-[**repos_upstream_npm_create**](ReposApi.md#repos_upstream_npm_create) | **POST** /repos/{owner}/{identifier}/upstream/npm/ | Create a npm upstream config for this repository.
-[**repos_upstream_npm_delete**](ReposApi.md#repos_upstream_npm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Delete a npm upstream config for this repository.
-[**repos_upstream_npm_list**](ReposApi.md#repos_upstream_npm_list) | **GET** /repos/{owner}/{identifier}/upstream/npm/ | List npm upstream configs for this repository.
-[**repos_upstream_npm_partial_update**](ReposApi.md#repos_upstream_npm_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Partially update a npm upstream config for this repository.
-[**repos_upstream_npm_read**](ReposApi.md#repos_upstream_npm_read) | **GET** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Retrieve a npm upstream config for this repository.
-[**repos_upstream_npm_update**](ReposApi.md#repos_upstream_npm_update) | **PUT** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Update a npm upstream config for this repository.
-[**repos_upstream_nuget_create**](ReposApi.md#repos_upstream_nuget_create) | **POST** /repos/{owner}/{identifier}/upstream/nuget/ | Create a NuGet upstream config for this repository.
-[**repos_upstream_nuget_delete**](ReposApi.md#repos_upstream_nuget_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Delete a NuGet upstream config for this repository.
-[**repos_upstream_nuget_list**](ReposApi.md#repos_upstream_nuget_list) | **GET** /repos/{owner}/{identifier}/upstream/nuget/ | List NuGet upstream configs for this repository.
-[**repos_upstream_nuget_partial_update**](ReposApi.md#repos_upstream_nuget_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Partially update a NuGet upstream config for this repository.
-[**repos_upstream_nuget_read**](ReposApi.md#repos_upstream_nuget_read) | **GET** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Retrieve a NuGet upstream config for this repository.
-[**repos_upstream_nuget_update**](ReposApi.md#repos_upstream_nuget_update) | **PUT** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Update a NuGet upstream config for this repository.
-[**repos_upstream_python_create**](ReposApi.md#repos_upstream_python_create) | **POST** /repos/{owner}/{identifier}/upstream/python/ | Create a Python upstream config for this repository.
-[**repos_upstream_python_delete**](ReposApi.md#repos_upstream_python_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Delete a Python upstream config for this repository.
-[**repos_upstream_python_list**](ReposApi.md#repos_upstream_python_list) | **GET** /repos/{owner}/{identifier}/upstream/python/ | List Python upstream configs for this repository.
-[**repos_upstream_python_partial_update**](ReposApi.md#repos_upstream_python_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Partially update a Python upstream config for this repository.
-[**repos_upstream_python_read**](ReposApi.md#repos_upstream_python_read) | **GET** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Retrieve a Python upstream config for this repository.
-[**repos_upstream_python_update**](ReposApi.md#repos_upstream_python_update) | **PUT** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Update a Python upstream config for this repository.
-[**repos_upstream_rpm_create**](ReposApi.md#repos_upstream_rpm_create) | **POST** /repos/{owner}/{identifier}/upstream/rpm/ | Create a RedHat upstream config for this repository.
-[**repos_upstream_rpm_delete**](ReposApi.md#repos_upstream_rpm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Delete a RedHat upstream config for this repository.
-[**repos_upstream_rpm_list**](ReposApi.md#repos_upstream_rpm_list) | **GET** /repos/{owner}/{identifier}/upstream/rpm/ | List RedHat upstream configs for this repository.
-[**repos_upstream_rpm_partial_update**](ReposApi.md#repos_upstream_rpm_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Partially update a RedHat upstream config for this repository.
-[**repos_upstream_rpm_read**](ReposApi.md#repos_upstream_rpm_read) | **GET** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Retrieve a RedHat upstream config for this repository.
-[**repos_upstream_rpm_update**](ReposApi.md#repos_upstream_rpm_update) | **PUT** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Update a RedHat upstream config for this repository.
-[**repos_upstream_ruby_create**](ReposApi.md#repos_upstream_ruby_create) | **POST** /repos/{owner}/{identifier}/upstream/ruby/ | Create a Ruby upstream config for this repository.
-[**repos_upstream_ruby_delete**](ReposApi.md#repos_upstream_ruby_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Delete a Ruby upstream config for this repository.
-[**repos_upstream_ruby_list**](ReposApi.md#repos_upstream_ruby_list) | **GET** /repos/{owner}/{identifier}/upstream/ruby/ | List Ruby upstream configs for this repository.
-[**repos_upstream_ruby_partial_update**](ReposApi.md#repos_upstream_ruby_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
-[**repos_upstream_ruby_read**](ReposApi.md#repos_upstream_ruby_read) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
-[**repos_upstream_ruby_update**](ReposApi.md#repos_upstream_ruby_update) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
-[**repos_upstream_swift_create**](ReposApi.md#repos_upstream_swift_create) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
-[**repos_upstream_swift_delete**](ReposApi.md#repos_upstream_swift_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
-[**repos_upstream_swift_list**](ReposApi.md#repos_upstream_swift_list) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
-[**repos_upstream_swift_partial_update**](ReposApi.md#repos_upstream_swift_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Partially update a Swift upstream config for this repository.
-[**repos_upstream_swift_read**](ReposApi.md#repos_upstream_swift_read) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository.
-[**repos_upstream_swift_update**](ReposApi.md#repos_upstream_swift_update) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository.
-[**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user.
-[**repos_x509_ecdsa_list**](ReposApi.md#repos_x509_ecdsa_list) | **GET** /repos/{owner}/{identifier}/x509-ecdsa/ | Retrieve the active X.509 ECDSA certificate for the Repository.
-[**repos_x509_rsa_list**](ReposApi.md#repos_x509_rsa_list) | **GET** /repos/{owner}/{identifier}/x509-rsa/ | Retrieve the active X.509 RSA certificate for the Repository.
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**api_repos_geoip_status**](ReposApi.md#api_repos_geoip_status) | **GET** /repos/{owner}/{identifier}/geoip/status/ | Retrieve the GeoIP status for this repository. |
+| [**repo_retention_partial_update**](ReposApi.md#repo_retention_partial_update) | **PATCH** /repos/{owner}/{repo}/retention/ | Update the retention rules for the repository. |
+| [**repo_retention_read**](ReposApi.md#repo_retention_read) | **GET** /repos/{owner}/{repo}/retention/ | Retrieve the retention rules for the repository. |
+| [**repos_connected_create**](ReposApi.md#repos_connected_create) | **POST** /repos/{owner}/{identifier}/connected/ | Create a connected repository for this repository. |
+| [**repos_connected_delete**](ReposApi.md#repos_connected_delete) | **DELETE** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Delete a connected repository for this repository. |
+| [**repos_connected_list**](ReposApi.md#repos_connected_list) | **GET** /repos/{owner}/{identifier}/connected/ | List connected repositories for this repository. |
+| [**repos_connected_partial_update**](ReposApi.md#repos_connected_partial_update) | **PATCH** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Partially update a connected repository for this repository. |
+| [**repos_connected_read**](ReposApi.md#repos_connected_read) | **GET** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Retrieve a connected repository for this repository. |
+| [**repos_connected_update**](ReposApi.md#repos_connected_update) | **PUT** /repos/{owner}/{identifier}/connected/{slug_perm}/ | Update a connected repository for this repository. |
+| [**repos_create**](ReposApi.md#repos_create) | **POST** /repos/{owner}/ | Create a new repository in a given namespace. |
+| [**repos_delete**](ReposApi.md#repos_delete) | **DELETE** /repos/{owner}/{identifier}/ |  |
+| [**repos_ecdsa_create**](ReposApi.md#repos_ecdsa_create) | **POST** /repos/{owner}/{identifier}/ecdsa/ | Set the active ECDSA key for the Repository. |
+| [**repos_ecdsa_list**](ReposApi.md#repos_ecdsa_list) | **GET** /repos/{owner}/{identifier}/ecdsa/ | Retrieve the active ECDSA key for the Repository. |
+| [**repos_ecdsa_regenerate**](ReposApi.md#repos_ecdsa_regenerate) | **POST** /repos/{owner}/{identifier}/ecdsa/regenerate/ | Regenerate ECDSA Key for the Repository. |
+| [**repos_ed25519_create**](ReposApi.md#repos_ed25519_create) | **POST** /repos/{owner}/{identifier}/ed25519/ | Set the active Ed25519 key for the Repository. |
+| [**repos_ed25519_list**](ReposApi.md#repos_ed25519_list) | **GET** /repos/{owner}/{identifier}/ed25519/ | Retrieve the active Ed25519 key for the Repository. |
+| [**repos_ed25519_regenerate**](ReposApi.md#repos_ed25519_regenerate) | **POST** /repos/{owner}/{identifier}/ed25519/regenerate/ | Regenerate Ed25519 Key for the Repository. |
+| [**repos_geoip_disable**](ReposApi.md#repos_geoip_disable) | **POST** /repos/{owner}/{identifier}/geoip/disable/ | Disable GeoIP for this repository. |
+| [**repos_geoip_enable**](ReposApi.md#repos_geoip_enable) | **POST** /repos/{owner}/{identifier}/geoip/enable/ | Enable GeoIP for this repository. |
+| [**repos_geoip_partial_update**](ReposApi.md#repos_geoip_partial_update) | **PATCH** /repos/{owner}/{identifier}/geoip | Partially update repository geoip rules. |
+| [**repos_geoip_read**](ReposApi.md#repos_geoip_read) | **GET** /repos/{owner}/{identifier}/geoip | List all repository geoip rules. |
+| [**repos_geoip_test**](ReposApi.md#repos_geoip_test) | **POST** /repos/{owner}/{identifier}/geoip/test/ | Test a list of IP addresses against the repository&#39;s current GeoIP rules. |
+| [**repos_geoip_update**](ReposApi.md#repos_geoip_update) | **PUT** /repos/{owner}/{identifier}/geoip | Replace repository geoip rules. |
+| [**repos_gpg_create**](ReposApi.md#repos_gpg_create) | **POST** /repos/{owner}/{identifier}/gpg/ | Set the active GPG key for the Repository. |
+| [**repos_gpg_list**](ReposApi.md#repos_gpg_list) | **GET** /repos/{owner}/{identifier}/gpg/ | Retrieve the active GPG key for the Repository. |
+| [**repos_gpg_regenerate**](ReposApi.md#repos_gpg_regenerate) | **POST** /repos/{owner}/{identifier}/gpg/regenerate/ | Regenerate GPG Key for the Repository. |
+| [**repos_namespace_list**](ReposApi.md#repos_namespace_list) | **GET** /repos/{owner}/ | Get a list of all repositories within a namespace. |
+| [**repos_partial_update**](ReposApi.md#repos_partial_update) | **PATCH** /repos/{owner}/{identifier}/ | Update details about a repository in a given namespace. |
+| [**repos_privileges_list**](ReposApi.md#repos_privileges_list) | **GET** /repos/{owner}/{identifier}/privileges | List all explicity created privileges for the repository. |
+| [**repos_privileges_partial_update**](ReposApi.md#repos_privileges_partial_update) | **PATCH** /repos/{owner}/{identifier}/privileges | Modify privileges for the repository. |
+| [**repos_privileges_update**](ReposApi.md#repos_privileges_update) | **PUT** /repos/{owner}/{identifier}/privileges | Replace all existing repository privileges with those specified. |
+| [**repos_read**](ReposApi.md#repos_read) | **GET** /repos/{owner}/{identifier}/ | Get a specific repository. |
+| [**repos_rsa_create**](ReposApi.md#repos_rsa_create) | **POST** /repos/{owner}/{identifier}/rsa/ | Set the active RSA key for the Repository. |
+| [**repos_rsa_list**](ReposApi.md#repos_rsa_list) | **GET** /repos/{owner}/{identifier}/rsa/ | Retrieve the active RSA key for the Repository. |
+| [**repos_rsa_regenerate**](ReposApi.md#repos_rsa_regenerate) | **POST** /repos/{owner}/{identifier}/rsa/regenerate/ | Regenerate RSA Key for the Repository. |
+| [**repos_transfer_region**](ReposApi.md#repos_transfer_region) | **POST** /repos/{owner}/{repo}/transfer-region/ | Transfer a repository to a different region. |
+| [**repos_upstream_alpine_create**](ReposApi.md#repos_upstream_alpine_create) | **POST** /repos/{owner}/{identifier}/upstream/alpine/ | Create an Alpine upstream config for this repository. |
+| [**repos_upstream_alpine_delete**](ReposApi.md#repos_upstream_alpine_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Delete an Alpine upstream config for this repository. |
+| [**repos_upstream_alpine_list**](ReposApi.md#repos_upstream_alpine_list) | **GET** /repos/{owner}/{identifier}/upstream/alpine/ | List Alpine upstream configs for this repository. |
+| [**repos_upstream_alpine_partial_update**](ReposApi.md#repos_upstream_alpine_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Partially update an Alpine upstream config for this repository. |
+| [**repos_upstream_alpine_read**](ReposApi.md#repos_upstream_alpine_read) | **GET** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Retrieve an Alpine upstream config for this repository. |
+| [**repos_upstream_alpine_update**](ReposApi.md#repos_upstream_alpine_update) | **PUT** /repos/{owner}/{identifier}/upstream/alpine/{slug_perm}/ | Update an Alpine upstream config for this repository. |
+| [**repos_upstream_cargo_create**](ReposApi.md#repos_upstream_cargo_create) | **POST** /repos/{owner}/{identifier}/upstream/cargo/ | Create a Cargo upstream config for this repository. |
+| [**repos_upstream_cargo_delete**](ReposApi.md#repos_upstream_cargo_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Delete a Cargo upstream config for this repository. |
+| [**repos_upstream_cargo_list**](ReposApi.md#repos_upstream_cargo_list) | **GET** /repos/{owner}/{identifier}/upstream/cargo/ | List Cargo upstream configs for this repository. |
+| [**repos_upstream_cargo_partial_update**](ReposApi.md#repos_upstream_cargo_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Partially update a Cargo upstream config for this repository. |
+| [**repos_upstream_cargo_read**](ReposApi.md#repos_upstream_cargo_read) | **GET** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Retrieve a Cargo upstream config for this repository. |
+| [**repos_upstream_cargo_update**](ReposApi.md#repos_upstream_cargo_update) | **PUT** /repos/{owner}/{identifier}/upstream/cargo/{slug_perm}/ | Update a Cargo upstream config for this repository. |
+| [**repos_upstream_composer_create**](ReposApi.md#repos_upstream_composer_create) | **POST** /repos/{owner}/{identifier}/upstream/composer/ | Create a Composer upstream config for this repository. |
+| [**repos_upstream_composer_delete**](ReposApi.md#repos_upstream_composer_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Delete a Composer upstream config for this repository. |
+| [**repos_upstream_composer_list**](ReposApi.md#repos_upstream_composer_list) | **GET** /repos/{owner}/{identifier}/upstream/composer/ | List Composer upstream configs for this repository. |
+| [**repos_upstream_composer_partial_update**](ReposApi.md#repos_upstream_composer_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Partially update a Composer upstream config for this repository. |
+| [**repos_upstream_composer_read**](ReposApi.md#repos_upstream_composer_read) | **GET** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Retrieve a Composer upstream config for this repository. |
+| [**repos_upstream_composer_update**](ReposApi.md#repos_upstream_composer_update) | **PUT** /repos/{owner}/{identifier}/upstream/composer/{slug_perm}/ | Update a Composer upstream config for this repository. |
+| [**repos_upstream_conda_create**](ReposApi.md#repos_upstream_conda_create) | **POST** /repos/{owner}/{identifier}/upstream/conda/ | Create a Conda upstream config for this repository. |
+| [**repos_upstream_conda_delete**](ReposApi.md#repos_upstream_conda_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Delete a Conda upstream config for this repository. |
+| [**repos_upstream_conda_list**](ReposApi.md#repos_upstream_conda_list) | **GET** /repos/{owner}/{identifier}/upstream/conda/ | List Conda upstream configs for this repository. |
+| [**repos_upstream_conda_partial_update**](ReposApi.md#repos_upstream_conda_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Partially update a Conda upstream config for this repository. |
+| [**repos_upstream_conda_read**](ReposApi.md#repos_upstream_conda_read) | **GET** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Retrieve a Conda upstream config for this repository. |
+| [**repos_upstream_conda_update**](ReposApi.md#repos_upstream_conda_update) | **PUT** /repos/{owner}/{identifier}/upstream/conda/{slug_perm}/ | Update a Conda upstream config for this repository. |
+| [**repos_upstream_cran_create**](ReposApi.md#repos_upstream_cran_create) | **POST** /repos/{owner}/{identifier}/upstream/cran/ | Create a CRAN upstream config for this repository. |
+| [**repos_upstream_cran_delete**](ReposApi.md#repos_upstream_cran_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Delete a CRAN upstream config for this repository. |
+| [**repos_upstream_cran_list**](ReposApi.md#repos_upstream_cran_list) | **GET** /repos/{owner}/{identifier}/upstream/cran/ | List CRAN upstream configs for this repository. |
+| [**repos_upstream_cran_partial_update**](ReposApi.md#repos_upstream_cran_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Partially update a CRAN upstream config for this repository. |
+| [**repos_upstream_cran_read**](ReposApi.md#repos_upstream_cran_read) | **GET** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Retrieve a CRAN upstream config for this repository. |
+| [**repos_upstream_cran_update**](ReposApi.md#repos_upstream_cran_update) | **PUT** /repos/{owner}/{identifier}/upstream/cran/{slug_perm}/ | Update a CRAN upstream config for this repository. |
+| [**repos_upstream_dart_create**](ReposApi.md#repos_upstream_dart_create) | **POST** /repos/{owner}/{identifier}/upstream/dart/ | Create a Dart upstream config for this repository. |
+| [**repos_upstream_dart_delete**](ReposApi.md#repos_upstream_dart_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Delete a Dart upstream config for this repository. |
+| [**repos_upstream_dart_list**](ReposApi.md#repos_upstream_dart_list) | **GET** /repos/{owner}/{identifier}/upstream/dart/ | List Dart upstream configs for this repository. |
+| [**repos_upstream_dart_partial_update**](ReposApi.md#repos_upstream_dart_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Partially update a Dart upstream config for this repository. |
+| [**repos_upstream_dart_read**](ReposApi.md#repos_upstream_dart_read) | **GET** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Retrieve a Dart upstream config for this repository. |
+| [**repos_upstream_dart_update**](ReposApi.md#repos_upstream_dart_update) | **PUT** /repos/{owner}/{identifier}/upstream/dart/{slug_perm}/ | Update a Dart upstream config for this repository. |
+| [**repos_upstream_deb_create**](ReposApi.md#repos_upstream_deb_create) | **POST** /repos/{owner}/{identifier}/upstream/deb/ | Create a Debian upstream config for this repository. |
+| [**repos_upstream_deb_delete**](ReposApi.md#repos_upstream_deb_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Delete a Debian upstream config for this repository. |
+| [**repos_upstream_deb_list**](ReposApi.md#repos_upstream_deb_list) | **GET** /repos/{owner}/{identifier}/upstream/deb/ | List Debian upstream configs for this repository. |
+| [**repos_upstream_deb_partial_update**](ReposApi.md#repos_upstream_deb_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Partially update a Debian upstream config for this repository. |
+| [**repos_upstream_deb_read**](ReposApi.md#repos_upstream_deb_read) | **GET** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Retrieve a Debian upstream config for this repository. |
+| [**repos_upstream_deb_update**](ReposApi.md#repos_upstream_deb_update) | **PUT** /repos/{owner}/{identifier}/upstream/deb/{slug_perm}/ | Update a Debian upstream config for this repository. |
+| [**repos_upstream_docker_create**](ReposApi.md#repos_upstream_docker_create) | **POST** /repos/{owner}/{identifier}/upstream/docker/ | Create a Docker upstream config for this repository. |
+| [**repos_upstream_docker_delete**](ReposApi.md#repos_upstream_docker_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Delete a Docker upstream config for this repository. |
+| [**repos_upstream_docker_list**](ReposApi.md#repos_upstream_docker_list) | **GET** /repos/{owner}/{identifier}/upstream/docker/ | List Docker upstream configs for this repository. |
+| [**repos_upstream_docker_partial_update**](ReposApi.md#repos_upstream_docker_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Partially update a Docker upstream config for this repository. |
+| [**repos_upstream_docker_read**](ReposApi.md#repos_upstream_docker_read) | **GET** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Retrieve a Docker upstream config for this repository. |
+| [**repos_upstream_docker_update**](ReposApi.md#repos_upstream_docker_update) | **PUT** /repos/{owner}/{identifier}/upstream/docker/{slug_perm}/ | Update a Docker upstream config for this repository. |
+| [**repos_upstream_generic_create**](ReposApi.md#repos_upstream_generic_create) | **POST** /repos/{owner}/{identifier}/upstream/generic/ | Create a Generic upstream config for this repository. |
+| [**repos_upstream_generic_delete**](ReposApi.md#repos_upstream_generic_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Delete a Generic upstream config for this repository. |
+| [**repos_upstream_generic_list**](ReposApi.md#repos_upstream_generic_list) | **GET** /repos/{owner}/{identifier}/upstream/generic/ | List Generic upstream configs for this repository. |
+| [**repos_upstream_generic_partial_update**](ReposApi.md#repos_upstream_generic_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Partially update a Generic upstream config for this repository. |
+| [**repos_upstream_generic_read**](ReposApi.md#repos_upstream_generic_read) | **GET** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Retrieve a Generic upstream config for this repository. |
+| [**repos_upstream_generic_update**](ReposApi.md#repos_upstream_generic_update) | **PUT** /repos/{owner}/{identifier}/upstream/generic/{slug_perm}/ | Update a Generic upstream config for this repository. |
+| [**repos_upstream_go_create**](ReposApi.md#repos_upstream_go_create) | **POST** /repos/{owner}/{identifier}/upstream/go/ | Create a Go upstream config for this repository. |
+| [**repos_upstream_go_delete**](ReposApi.md#repos_upstream_go_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Delete a Go upstream config for this repository. |
+| [**repos_upstream_go_list**](ReposApi.md#repos_upstream_go_list) | **GET** /repos/{owner}/{identifier}/upstream/go/ | List Go upstream configs for this repository. |
+| [**repos_upstream_go_partial_update**](ReposApi.md#repos_upstream_go_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Partially update a Go upstream config for this repository. |
+| [**repos_upstream_go_read**](ReposApi.md#repos_upstream_go_read) | **GET** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Retrieve a Go upstream config for this repository. |
+| [**repos_upstream_go_update**](ReposApi.md#repos_upstream_go_update) | **PUT** /repos/{owner}/{identifier}/upstream/go/{slug_perm}/ | Update a Go upstream config for this repository. |
+| [**repos_upstream_helm_create**](ReposApi.md#repos_upstream_helm_create) | **POST** /repos/{owner}/{identifier}/upstream/helm/ | Create a Helm upstream config for this repository. |
+| [**repos_upstream_helm_delete**](ReposApi.md#repos_upstream_helm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Delete a Helm upstream config for this repository. |
+| [**repos_upstream_helm_list**](ReposApi.md#repos_upstream_helm_list) | **GET** /repos/{owner}/{identifier}/upstream/helm/ | List Helm upstream configs for this repository. |
+| [**repos_upstream_helm_partial_update**](ReposApi.md#repos_upstream_helm_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Partially update a Helm upstream config for this repository. |
+| [**repos_upstream_helm_read**](ReposApi.md#repos_upstream_helm_read) | **GET** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Retrieve a Helm upstream config for this repository. |
+| [**repos_upstream_helm_update**](ReposApi.md#repos_upstream_helm_update) | **PUT** /repos/{owner}/{identifier}/upstream/helm/{slug_perm}/ | Update a Helm upstream config for this repository. |
+| [**repos_upstream_hex_create**](ReposApi.md#repos_upstream_hex_create) | **POST** /repos/{owner}/{identifier}/upstream/hex/ | Create a Hex upstream config for this repository. |
+| [**repos_upstream_hex_delete**](ReposApi.md#repos_upstream_hex_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Delete a Hex upstream config for this repository. |
+| [**repos_upstream_hex_list**](ReposApi.md#repos_upstream_hex_list) | **GET** /repos/{owner}/{identifier}/upstream/hex/ | List Hex upstream configs for this repository. |
+| [**repos_upstream_hex_partial_update**](ReposApi.md#repos_upstream_hex_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Partially update a Hex upstream config for this repository. |
+| [**repos_upstream_hex_read**](ReposApi.md#repos_upstream_hex_read) | **GET** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Retrieve a Hex upstream config for this repository. |
+| [**repos_upstream_hex_update**](ReposApi.md#repos_upstream_hex_update) | **PUT** /repos/{owner}/{identifier}/upstream/hex/{slug_perm}/ | Update a Hex upstream config for this repository. |
+| [**repos_upstream_huggingface_create**](ReposApi.md#repos_upstream_huggingface_create) | **POST** /repos/{owner}/{identifier}/upstream/huggingface/ | Create a HuggingFace upstream config for this repository. |
+| [**repos_upstream_huggingface_delete**](ReposApi.md#repos_upstream_huggingface_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Delete a HuggingFace upstream config for this repository. |
+| [**repos_upstream_huggingface_list**](ReposApi.md#repos_upstream_huggingface_list) | **GET** /repos/{owner}/{identifier}/upstream/huggingface/ | List HuggingFace upstream configs for this repository. |
+| [**repos_upstream_huggingface_partial_update**](ReposApi.md#repos_upstream_huggingface_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Partially update a HuggingFace upstream config for this repository. |
+| [**repos_upstream_huggingface_read**](ReposApi.md#repos_upstream_huggingface_read) | **GET** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Retrieve a HuggingFace upstream config for this repository. |
+| [**repos_upstream_huggingface_update**](ReposApi.md#repos_upstream_huggingface_update) | **PUT** /repos/{owner}/{identifier}/upstream/huggingface/{slug_perm}/ | Update a HuggingFace upstream config for this repository. |
+| [**repos_upstream_maven_create**](ReposApi.md#repos_upstream_maven_create) | **POST** /repos/{owner}/{identifier}/upstream/maven/ | Create a Maven upstream config for this repository. |
+| [**repos_upstream_maven_delete**](ReposApi.md#repos_upstream_maven_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Delete a Maven upstream config for this repository. |
+| [**repos_upstream_maven_list**](ReposApi.md#repos_upstream_maven_list) | **GET** /repos/{owner}/{identifier}/upstream/maven/ | List Maven upstream configs for this repository. |
+| [**repos_upstream_maven_partial_update**](ReposApi.md#repos_upstream_maven_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Partially update a Maven upstream config for this repository. |
+| [**repos_upstream_maven_read**](ReposApi.md#repos_upstream_maven_read) | **GET** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Retrieve a Maven upstream config for this repository. |
+| [**repos_upstream_maven_update**](ReposApi.md#repos_upstream_maven_update) | **PUT** /repos/{owner}/{identifier}/upstream/maven/{slug_perm}/ | Update a Maven upstream config for this repository. |
+| [**repos_upstream_nix_create**](ReposApi.md#repos_upstream_nix_create) | **POST** /repos/{owner}/{identifier}/upstream/nix/ | Create a Nix upstream config for this repository. |
+| [**repos_upstream_nix_delete**](ReposApi.md#repos_upstream_nix_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Delete a Nix upstream config for this repository. |
+| [**repos_upstream_nix_list**](ReposApi.md#repos_upstream_nix_list) | **GET** /repos/{owner}/{identifier}/upstream/nix/ | List Nix upstream configs for this repository. |
+| [**repos_upstream_nix_partial_update**](ReposApi.md#repos_upstream_nix_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Partially update a Nix upstream config for this repository. |
+| [**repos_upstream_nix_read**](ReposApi.md#repos_upstream_nix_read) | **GET** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Retrieve a Nix upstream config for this repository. |
+| [**repos_upstream_nix_update**](ReposApi.md#repos_upstream_nix_update) | **PUT** /repos/{owner}/{identifier}/upstream/nix/{slug_perm}/ | Update a Nix upstream config for this repository. |
+| [**repos_upstream_npm_create**](ReposApi.md#repos_upstream_npm_create) | **POST** /repos/{owner}/{identifier}/upstream/npm/ | Create a npm upstream config for this repository. |
+| [**repos_upstream_npm_delete**](ReposApi.md#repos_upstream_npm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Delete a npm upstream config for this repository. |
+| [**repos_upstream_npm_list**](ReposApi.md#repos_upstream_npm_list) | **GET** /repos/{owner}/{identifier}/upstream/npm/ | List npm upstream configs for this repository. |
+| [**repos_upstream_npm_partial_update**](ReposApi.md#repos_upstream_npm_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Partially update a npm upstream config for this repository. |
+| [**repos_upstream_npm_read**](ReposApi.md#repos_upstream_npm_read) | **GET** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Retrieve a npm upstream config for this repository. |
+| [**repos_upstream_npm_update**](ReposApi.md#repos_upstream_npm_update) | **PUT** /repos/{owner}/{identifier}/upstream/npm/{slug_perm}/ | Update a npm upstream config for this repository. |
+| [**repos_upstream_nuget_create**](ReposApi.md#repos_upstream_nuget_create) | **POST** /repos/{owner}/{identifier}/upstream/nuget/ | Create a NuGet upstream config for this repository. |
+| [**repos_upstream_nuget_delete**](ReposApi.md#repos_upstream_nuget_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Delete a NuGet upstream config for this repository. |
+| [**repos_upstream_nuget_list**](ReposApi.md#repos_upstream_nuget_list) | **GET** /repos/{owner}/{identifier}/upstream/nuget/ | List NuGet upstream configs for this repository. |
+| [**repos_upstream_nuget_partial_update**](ReposApi.md#repos_upstream_nuget_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Partially update a NuGet upstream config for this repository. |
+| [**repos_upstream_nuget_read**](ReposApi.md#repos_upstream_nuget_read) | **GET** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Retrieve a NuGet upstream config for this repository. |
+| [**repos_upstream_nuget_update**](ReposApi.md#repos_upstream_nuget_update) | **PUT** /repos/{owner}/{identifier}/upstream/nuget/{slug_perm}/ | Update a NuGet upstream config for this repository. |
+| [**repos_upstream_python_create**](ReposApi.md#repos_upstream_python_create) | **POST** /repos/{owner}/{identifier}/upstream/python/ | Create a Python upstream config for this repository. |
+| [**repos_upstream_python_delete**](ReposApi.md#repos_upstream_python_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Delete a Python upstream config for this repository. |
+| [**repos_upstream_python_list**](ReposApi.md#repos_upstream_python_list) | **GET** /repos/{owner}/{identifier}/upstream/python/ | List Python upstream configs for this repository. |
+| [**repos_upstream_python_partial_update**](ReposApi.md#repos_upstream_python_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Partially update a Python upstream config for this repository. |
+| [**repos_upstream_python_read**](ReposApi.md#repos_upstream_python_read) | **GET** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Retrieve a Python upstream config for this repository. |
+| [**repos_upstream_python_update**](ReposApi.md#repos_upstream_python_update) | **PUT** /repos/{owner}/{identifier}/upstream/python/{slug_perm}/ | Update a Python upstream config for this repository. |
+| [**repos_upstream_rpm_create**](ReposApi.md#repos_upstream_rpm_create) | **POST** /repos/{owner}/{identifier}/upstream/rpm/ | Create a RedHat upstream config for this repository. |
+| [**repos_upstream_rpm_delete**](ReposApi.md#repos_upstream_rpm_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Delete a RedHat upstream config for this repository. |
+| [**repos_upstream_rpm_list**](ReposApi.md#repos_upstream_rpm_list) | **GET** /repos/{owner}/{identifier}/upstream/rpm/ | List RedHat upstream configs for this repository. |
+| [**repos_upstream_rpm_partial_update**](ReposApi.md#repos_upstream_rpm_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Partially update a RedHat upstream config for this repository. |
+| [**repos_upstream_rpm_read**](ReposApi.md#repos_upstream_rpm_read) | **GET** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Retrieve a RedHat upstream config for this repository. |
+| [**repos_upstream_rpm_update**](ReposApi.md#repos_upstream_rpm_update) | **PUT** /repos/{owner}/{identifier}/upstream/rpm/{slug_perm}/ | Update a RedHat upstream config for this repository. |
+| [**repos_upstream_ruby_create**](ReposApi.md#repos_upstream_ruby_create) | **POST** /repos/{owner}/{identifier}/upstream/ruby/ | Create a Ruby upstream config for this repository. |
+| [**repos_upstream_ruby_delete**](ReposApi.md#repos_upstream_ruby_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Delete a Ruby upstream config for this repository. |
+| [**repos_upstream_ruby_list**](ReposApi.md#repos_upstream_ruby_list) | **GET** /repos/{owner}/{identifier}/upstream/ruby/ | List Ruby upstream configs for this repository. |
+| [**repos_upstream_ruby_partial_update**](ReposApi.md#repos_upstream_ruby_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository. |
+| [**repos_upstream_ruby_read**](ReposApi.md#repos_upstream_ruby_read) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository. |
+| [**repos_upstream_ruby_update**](ReposApi.md#repos_upstream_ruby_update) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository. |
+| [**repos_upstream_swift_create**](ReposApi.md#repos_upstream_swift_create) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository. |
+| [**repos_upstream_swift_delete**](ReposApi.md#repos_upstream_swift_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository. |
+| [**repos_upstream_swift_list**](ReposApi.md#repos_upstream_swift_list) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository. |
+| [**repos_upstream_swift_partial_update**](ReposApi.md#repos_upstream_swift_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Partially update a Swift upstream config for this repository. |
+| [**repos_upstream_swift_read**](ReposApi.md#repos_upstream_swift_read) | **GET** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Retrieve a Swift upstream config for this repository. |
+| [**repos_upstream_swift_update**](ReposApi.md#repos_upstream_swift_update) | **PUT** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Update a Swift upstream config for this repository. |
+| [**repos_user_list**](ReposApi.md#repos_user_list) | **GET** /repos/ | Get a list of all repositories associated with current user. |
+| [**repos_x509_ecdsa_list**](ReposApi.md#repos_x509_ecdsa_list) | **GET** /repos/{owner}/{identifier}/x509-ecdsa/ | Retrieve the active X.509 ECDSA certificate for the Repository. |
+| [**repos_x509_rsa_list**](ReposApi.md#repos_x509_rsa_list) | **GET** /repos/{owner}/{identifier}/x509-rsa/ | Retrieve the active X.509 RSA certificate for the Repository. |
 
 
-# **api_repos_geoip_status**
-> RepositoryGeoIpStatus api_repos_geoip_status(owner, identifier)
+## api_repos_geoip_status
+
+> <RepositoryGeoIpStatus> api_repos_geoip_status(owner, identifier)
 
 Retrieve the GeoIP status for this repository.
 
 Retrieve the GeoIP status for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -195,27 +197,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Retrieve the GeoIP status for this repository.
+  # Retrieve the GeoIP status for this repository.
   result = api_instance.api_repos_geoip_status(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->api_repos_geoip_status: #{e}"
+  puts "Error when calling ReposApi->api_repos_geoip_status: #{e}"
+end
+```
+
+#### Using the api_repos_geoip_status_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGeoIpStatus>, Integer, Hash)> api_repos_geoip_status_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Retrieve the GeoIP status for this repository.
+  data, status_code, headers = api_instance.api_repos_geoip_status_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGeoIpStatus>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->api_repos_geoip_status_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -227,28 +244,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repo_retention_partial_update
 
-# **repo_retention_partial_update**
-> RepositoryRetentionRules repo_retention_partial_update(owner, repo, opts)
-
-Update the retention rules for the repository.
+> <RepositoryRetentionRules> repo_retention_partial_update(owner, repo, opts)
 
 Update the retention rules for the repository.
 
-### Example
+Update the retention rules for the repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -256,31 +274,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryRetentionRulesRequestPatch.new # RepositoryRetentionRulesRequestPatch | 
 }
 
 begin
-  #Update the retention rules for the repository.
+  # Update the retention rules for the repository.
   result = api_instance.repo_retention_partial_update(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repo_retention_partial_update: #{e}"
+  puts "Error when calling ReposApi->repo_retention_partial_update: #{e}"
+end
+```
+
+#### Using the repo_retention_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryRetentionRules>, Integer, Hash)> repo_retention_partial_update_with_http_info(owner, repo, opts)
+
+```ruby
+begin
+  # Update the retention rules for the repository.
+  data, status_code, headers = api_instance.repo_retention_partial_update_with_http_info(owner, repo, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryRetentionRules>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repo_retention_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **data** | [**RepositoryRetentionRulesRequestPatch**](RepositoryRetentionRulesRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **data** | [**RepositoryRetentionRulesRequestPatch**](RepositoryRetentionRulesRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -292,28 +325,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repo_retention_read
 
-# **repo_retention_read**
-> RepositoryRetentionRules repo_retention_read(owner, repo)
-
-Retrieve the retention rules for the repository.
+> <RepositoryRetentionRules> repo_retention_read(owner, repo)
 
 Retrieve the retention rules for the repository.
 
-### Example
+Retrieve the retention rules for the repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -321,27 +355,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
 
-
 begin
-  #Retrieve the retention rules for the repository.
+  # Retrieve the retention rules for the repository.
   result = api_instance.repo_retention_read(owner, repo)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repo_retention_read: #{e}"
+  puts "Error when calling ReposApi->repo_retention_read: #{e}"
+end
+```
+
+#### Using the repo_retention_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryRetentionRules>, Integer, Hash)> repo_retention_read_with_http_info(owner, repo)
+
+```ruby
+begin
+  # Retrieve the retention rules for the repository.
+  data, status_code, headers = api_instance.repo_retention_read_with_http_info(owner, repo)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryRetentionRules>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repo_retention_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
 
 ### Return type
 
@@ -353,28 +402,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_connected_create
 
-# **repos_connected_create**
-> ConnectedRepository repos_connected_create(owner, identifier, opts)
-
-Create a connected repository for this repository.
+> <ConnectedRepository> repos_connected_create(owner, identifier, opts)
 
 Create a connected repository for this repository.
 
-### Example
+Create a connected repository for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -382,31 +432,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::ConnectedRepositoryRequest.new # ConnectedRepositoryRequest | 
 }
 
 begin
-  #Create a connected repository for this repository.
+  # Create a connected repository for this repository.
   result = api_instance.repos_connected_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_connected_create: #{e}"
+  puts "Error when calling ReposApi->repos_connected_create: #{e}"
+end
+```
+
+#### Using the repos_connected_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ConnectedRepository>, Integer, Hash)> repos_connected_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a connected repository for this repository.
+  data, status_code, headers = api_instance.repos_connected_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ConnectedRepository>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_connected_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -418,28 +483,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_connected_delete
 
-# **repos_connected_delete**
 > repos_connected_delete(owner, identifier, slug_perm)
 
 Delete a connected repository for this repository.
 
 Delete a connected repository for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -447,29 +513,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a connected repository for this repository.
+  # Delete a connected repository for this repository.
   api_instance.repos_connected_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_connected_delete: #{e}"
+  puts "Error when calling ReposApi->repos_connected_delete: #{e}"
+end
+```
+
+#### Using the repos_connected_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_connected_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a connected repository for this repository.
+  data, status_code, headers = api_instance.repos_connected_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_connected_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -481,28 +561,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_connected_list
 
-# **repos_connected_list**
-> InlineResponse2003 repos_connected_list(owner, identifier, opts)
-
-List connected repositories for this repository.
+> <ReposConnectedList200Response> repos_connected_list(owner, identifier, opts)
 
 List connected repositories for this repository.
 
-### Example
+List connected repositories for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -510,37 +591,52 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List connected repositories for this repository.
+  # List connected repositories for this repository.
   result = api_instance.repos_connected_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_connected_list: #{e}"
+  puts "Error when calling ReposApi->repos_connected_list: #{e}"
+end
+```
+
+#### Using the repos_connected_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ReposConnectedList200Response>, Integer, Hash)> repos_connected_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List connected repositories for this repository.
+  data, status_code, headers = api_instance.repos_connected_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ReposConnectedList200Response>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_connected_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**ReposConnectedList200Response**](ReposConnectedList200Response.md)
 
 ### Authorization
 
@@ -548,28 +644,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_connected_partial_update
 
-# **repos_connected_partial_update**
-> ConnectedRepository repos_connected_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a connected repository for this repository.
+> <ConnectedRepository> repos_connected_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a connected repository for this repository.
 
-### Example
+Partially update a connected repository for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -577,34 +674,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::ConnectedRepositoryRequestPatch.new # ConnectedRepositoryRequestPatch | 
 }
 
 begin
-  #Partially update a connected repository for this repository.
+  # Partially update a connected repository for this repository.
   result = api_instance.repos_connected_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_connected_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_connected_partial_update: #{e}"
+end
+```
+
+#### Using the repos_connected_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ConnectedRepository>, Integer, Hash)> repos_connected_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a connected repository for this repository.
+  data, status_code, headers = api_instance.repos_connected_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ConnectedRepository>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_connected_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**ConnectedRepositoryRequestPatch**](ConnectedRepositoryRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**ConnectedRepositoryRequestPatch**](ConnectedRepositoryRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -616,28 +727,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_connected_read
 
-# **repos_connected_read**
-> ConnectedRepository repos_connected_read(owner, identifier, slug_perm)
-
-Retrieve a connected repository for this repository.
+> <ConnectedRepository> repos_connected_read(owner, identifier, slug_perm)
 
 Retrieve a connected repository for this repository.
 
-### Example
+Retrieve a connected repository for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -645,30 +757,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a connected repository for this repository.
+  # Retrieve a connected repository for this repository.
   result = api_instance.repos_connected_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_connected_read: #{e}"
+  puts "Error when calling ReposApi->repos_connected_read: #{e}"
+end
+```
+
+#### Using the repos_connected_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ConnectedRepository>, Integer, Hash)> repos_connected_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a connected repository for this repository.
+  data, status_code, headers = api_instance.repos_connected_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ConnectedRepository>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_connected_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -680,28 +806,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_connected_update
 
-# **repos_connected_update**
-> ConnectedRepository repos_connected_update(owner, identifier, slug_perm, opts)
-
-Update a connected repository for this repository.
+> <ConnectedRepository> repos_connected_update(owner, identifier, slug_perm, opts)
 
 Update a connected repository for this repository.
 
-### Example
+Update a connected repository for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -709,34 +836,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::ConnectedRepositoryRequest.new # ConnectedRepositoryRequest | 
 }
 
 begin
-  #Update a connected repository for this repository.
+  # Update a connected repository for this repository.
   result = api_instance.repos_connected_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_connected_update: #{e}"
+  puts "Error when calling ReposApi->repos_connected_update: #{e}"
+end
+```
+
+#### Using the repos_connected_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ConnectedRepository>, Integer, Hash)> repos_connected_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a connected repository for this repository.
+  data, status_code, headers = api_instance.repos_connected_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ConnectedRepository>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_connected_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**ConnectedRepositoryRequest**](ConnectedRepositoryRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -748,28 +889,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_create
 
-# **repos_create**
-> RepositoryCreate repos_create(owner, opts)
-
-Create a new repository in a given namespace.
+> <RepositoryCreate> repos_create(owner, opts)
 
 Create a new repository in a given namespace.
 
-### Example
+Create a new repository in a given namespace.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -777,28 +919,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryCreateRequest.new # RepositoryCreateRequest | 
 }
 
 begin
-  #Create a new repository in a given namespace.
+  # Create a new repository in a given namespace.
   result = api_instance.repos_create(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_create: #{e}"
+  puts "Error when calling ReposApi->repos_create: #{e}"
+end
+```
+
+#### Using the repos_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryCreate>, Integer, Hash)> repos_create_with_http_info(owner, opts)
+
+```ruby
+begin
+  # Create a new repository in a given namespace.
+  data, status_code, headers = api_instance.repos_create_with_http_info(owner, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryCreate>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **data** | [**RepositoryCreateRequest**](RepositoryCreateRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **data** | [**RepositoryCreateRequest**](RepositoryCreateRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -810,28 +968,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_delete
 
-# **repos_delete**
 > repos_delete(owner, identifier)
 
 
 
 Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -839,25 +998,41 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
+  
   api_instance.repos_delete(owner, identifier)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_delete: #{e}"
+  puts "Error when calling ReposApi->repos_delete: #{e}"
+end
+```
+
+#### Using the repos_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_delete_with_http_info(owner, identifier)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.repos_delete_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -869,28 +1044,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_ecdsa_create
 
-# **repos_ecdsa_create**
-> RepositoryEcdsaKey repos_ecdsa_create(owner, identifier, opts)
-
-Set the active ECDSA key for the Repository.
+> <RepositoryEcdsaKey> repos_ecdsa_create(owner, identifier, opts)
 
 Set the active ECDSA key for the Repository.
 
-### Example
+Set the active ECDSA key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -898,31 +1074,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryEcdsaKeyCreate.new # RepositoryEcdsaKeyCreate | 
 }
 
 begin
-  #Set the active ECDSA key for the Repository.
+  # Set the active ECDSA key for the Repository.
   result = api_instance.repos_ecdsa_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_ecdsa_create: #{e}"
+  puts "Error when calling ReposApi->repos_ecdsa_create: #{e}"
+end
+```
+
+#### Using the repos_ecdsa_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryEcdsaKey>, Integer, Hash)> repos_ecdsa_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Set the active ECDSA key for the Repository.
+  data, status_code, headers = api_instance.repos_ecdsa_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryEcdsaKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_ecdsa_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryEcdsaKeyCreate**](RepositoryEcdsaKeyCreate.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryEcdsaKeyCreate**](RepositoryEcdsaKeyCreate.md) |  | [optional] |
 
 ### Return type
 
@@ -934,28 +1125,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_ecdsa_list
 
-# **repos_ecdsa_list**
-> RepositoryEcdsaKey repos_ecdsa_list(owner, identifier)
-
-Retrieve the active ECDSA key for the Repository.
+> <RepositoryEcdsaKey> repos_ecdsa_list(owner, identifier)
 
 Retrieve the active ECDSA key for the Repository.
 
-### Example
+Retrieve the active ECDSA key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -963,27 +1155,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Retrieve the active ECDSA key for the Repository.
+  # Retrieve the active ECDSA key for the Repository.
   result = api_instance.repos_ecdsa_list(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_ecdsa_list: #{e}"
+  puts "Error when calling ReposApi->repos_ecdsa_list: #{e}"
+end
+```
+
+#### Using the repos_ecdsa_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryEcdsaKey>, Integer, Hash)> repos_ecdsa_list_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Retrieve the active ECDSA key for the Repository.
+  data, status_code, headers = api_instance.repos_ecdsa_list_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryEcdsaKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_ecdsa_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -995,28 +1202,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_ecdsa_regenerate
 
-# **repos_ecdsa_regenerate**
-> RepositoryEcdsaKey repos_ecdsa_regenerate(owner, identifier)
-
-Regenerate ECDSA Key for the Repository.
+> <RepositoryEcdsaKey> repos_ecdsa_regenerate(owner, identifier)
 
 Regenerate ECDSA Key for the Repository.
 
-### Example
+Regenerate ECDSA Key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1024,27 +1232,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Regenerate ECDSA Key for the Repository.
+  # Regenerate ECDSA Key for the Repository.
   result = api_instance.repos_ecdsa_regenerate(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_ecdsa_regenerate: #{e}"
+  puts "Error when calling ReposApi->repos_ecdsa_regenerate: #{e}"
+end
+```
+
+#### Using the repos_ecdsa_regenerate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryEcdsaKey>, Integer, Hash)> repos_ecdsa_regenerate_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Regenerate ECDSA Key for the Repository.
+  data, status_code, headers = api_instance.repos_ecdsa_regenerate_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryEcdsaKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_ecdsa_regenerate_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -1056,28 +1279,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_ed25519_create
 
-# **repos_ed25519_create**
-> RepositoryEd25519Key repos_ed25519_create(owner, identifier, opts)
-
-Set the active Ed25519 key for the Repository.
+> <RepositoryEd25519Key> repos_ed25519_create(owner, identifier, opts)
 
 Set the active Ed25519 key for the Repository.
 
-### Example
+Set the active Ed25519 key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1085,31 +1309,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryEd25519KeyCreate.new # RepositoryEd25519KeyCreate | 
 }
 
 begin
-  #Set the active Ed25519 key for the Repository.
+  # Set the active Ed25519 key for the Repository.
   result = api_instance.repos_ed25519_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_ed25519_create: #{e}"
+  puts "Error when calling ReposApi->repos_ed25519_create: #{e}"
+end
+```
+
+#### Using the repos_ed25519_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryEd25519Key>, Integer, Hash)> repos_ed25519_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Set the active Ed25519 key for the Repository.
+  data, status_code, headers = api_instance.repos_ed25519_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryEd25519Key>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_ed25519_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryEd25519KeyCreate**](RepositoryEd25519KeyCreate.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryEd25519KeyCreate**](RepositoryEd25519KeyCreate.md) |  | [optional] |
 
 ### Return type
 
@@ -1121,28 +1360,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_ed25519_list
 
-# **repos_ed25519_list**
-> RepositoryEd25519Key repos_ed25519_list(owner, identifier)
-
-Retrieve the active Ed25519 key for the Repository.
+> <RepositoryEd25519Key> repos_ed25519_list(owner, identifier)
 
 Retrieve the active Ed25519 key for the Repository.
 
-### Example
+Retrieve the active Ed25519 key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1150,27 +1390,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Retrieve the active Ed25519 key for the Repository.
+  # Retrieve the active Ed25519 key for the Repository.
   result = api_instance.repos_ed25519_list(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_ed25519_list: #{e}"
+  puts "Error when calling ReposApi->repos_ed25519_list: #{e}"
+end
+```
+
+#### Using the repos_ed25519_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryEd25519Key>, Integer, Hash)> repos_ed25519_list_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Retrieve the active Ed25519 key for the Repository.
+  data, status_code, headers = api_instance.repos_ed25519_list_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryEd25519Key>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_ed25519_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -1182,28 +1437,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_ed25519_regenerate
 
-# **repos_ed25519_regenerate**
-> RepositoryEd25519Key repos_ed25519_regenerate(owner, identifier)
-
-Regenerate Ed25519 Key for the Repository.
+> <RepositoryEd25519Key> repos_ed25519_regenerate(owner, identifier)
 
 Regenerate Ed25519 Key for the Repository.
 
-### Example
+Regenerate Ed25519 Key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1211,27 +1467,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Regenerate Ed25519 Key for the Repository.
+  # Regenerate Ed25519 Key for the Repository.
   result = api_instance.repos_ed25519_regenerate(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_ed25519_regenerate: #{e}"
+  puts "Error when calling ReposApi->repos_ed25519_regenerate: #{e}"
+end
+```
+
+#### Using the repos_ed25519_regenerate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryEd25519Key>, Integer, Hash)> repos_ed25519_regenerate_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Regenerate Ed25519 Key for the Repository.
+  data, status_code, headers = api_instance.repos_ed25519_regenerate_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryEd25519Key>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_ed25519_regenerate_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -1243,28 +1514,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_geoip_disable
 
-# **repos_geoip_disable**
 > repos_geoip_disable(owner, identifier, opts)
 
 Disable GeoIP for this repository.
 
 Disable GeoIP for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1272,30 +1544,45 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
-  data: CloudsmithApi::RespositoryGeoIpEnableDisableRequest.new # RespositoryGeoIpEnableDisableRequest | 
+opts = {
+  data: { ... } # Object | 
 }
 
 begin
-  #Disable GeoIP for this repository.
+  # Disable GeoIP for this repository.
   api_instance.repos_geoip_disable(owner, identifier, opts)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_geoip_disable: #{e}"
+  puts "Error when calling ReposApi->repos_geoip_disable: #{e}"
+end
+```
+
+#### Using the repos_geoip_disable_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_geoip_disable_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Disable GeoIP for this repository.
+  data, status_code, headers = api_instance.repos_geoip_disable_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_geoip_disable_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | **Object** |  | [optional] |
 
 ### Return type
 
@@ -1307,28 +1594,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_geoip_enable
 
-# **repos_geoip_enable**
 > repos_geoip_enable(owner, identifier, opts)
 
 Enable GeoIP for this repository.
 
 Enable GeoIP for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1336,30 +1624,45 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
-  data: CloudsmithApi::RespositoryGeoIpEnableDisableRequest.new # RespositoryGeoIpEnableDisableRequest | 
+opts = {
+  data: { ... } # Object | 
 }
 
 begin
-  #Enable GeoIP for this repository.
+  # Enable GeoIP for this repository.
   api_instance.repos_geoip_enable(owner, identifier, opts)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_geoip_enable: #{e}"
+  puts "Error when calling ReposApi->repos_geoip_enable: #{e}"
+end
+```
+
+#### Using the repos_geoip_enable_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_geoip_enable_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Enable GeoIP for this repository.
+  data, status_code, headers = api_instance.repos_geoip_enable_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_geoip_enable_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | **Object** |  | [optional] |
 
 ### Return type
 
@@ -1371,28 +1674,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_geoip_partial_update
 
-# **repos_geoip_partial_update**
-> RepositoryGeoIpRules repos_geoip_partial_update(owner, identifier, opts)
-
-Partially update repository geoip rules.
+> <RepositoryGeoIpRules> repos_geoip_partial_update(owner, identifier, opts)
 
 Partially update repository geoip rules.
 
-### Example
+Partially update repository geoip rules.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1400,31 +1704,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryGeoIpRulesRequestPatch.new # RepositoryGeoIpRulesRequestPatch | 
 }
 
 begin
-  #Partially update repository geoip rules.
+  # Partially update repository geoip rules.
   result = api_instance.repos_geoip_partial_update(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_geoip_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_geoip_partial_update: #{e}"
+end
+```
+
+#### Using the repos_geoip_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGeoIpRules>, Integer, Hash)> repos_geoip_partial_update_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Partially update repository geoip rules.
+  data, status_code, headers = api_instance.repos_geoip_partial_update_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGeoIpRules>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_geoip_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryGeoIpRulesRequestPatch**](RepositoryGeoIpRulesRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryGeoIpRulesRequestPatch**](RepositoryGeoIpRulesRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -1436,28 +1755,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_geoip_read
 
-# **repos_geoip_read**
-> RepositoryGeoIpRules repos_geoip_read(owner, identifier)
-
-List all repository geoip rules.
+> <RepositoryGeoIpRules> repos_geoip_read(owner, identifier)
 
 List all repository geoip rules.
 
-### Example
+List all repository geoip rules.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1465,27 +1785,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #List all repository geoip rules.
+  # List all repository geoip rules.
   result = api_instance.repos_geoip_read(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_geoip_read: #{e}"
+  puts "Error when calling ReposApi->repos_geoip_read: #{e}"
+end
+```
+
+#### Using the repos_geoip_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGeoIpRules>, Integer, Hash)> repos_geoip_read_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # List all repository geoip rules.
+  data, status_code, headers = api_instance.repos_geoip_read_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGeoIpRules>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_geoip_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -1497,28 +1832,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_geoip_test
 
-# **repos_geoip_test**
-> RepositoryGeoIpTestAddressResponse repos_geoip_test(owner, identifier, opts)
-
-Test a list of IP addresses against the repository's current GeoIP rules.
+> <RepositoryGeoIpTestAddressResponse> repos_geoip_test(owner, identifier, opts)
 
 Test a list of IP addresses against the repository's current GeoIP rules.
 
-### Example
+Test a list of IP addresses against the repository's current GeoIP rules.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1526,31 +1862,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryGeoIpTestAddress.new # RepositoryGeoIpTestAddress | 
 }
 
 begin
-  #Test a list of IP addresses against the repository's current GeoIP rules.
+  # Test a list of IP addresses against the repository's current GeoIP rules.
   result = api_instance.repos_geoip_test(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_geoip_test: #{e}"
+  puts "Error when calling ReposApi->repos_geoip_test: #{e}"
+end
+```
+
+#### Using the repos_geoip_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGeoIpTestAddressResponse>, Integer, Hash)> repos_geoip_test_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Test a list of IP addresses against the repository's current GeoIP rules.
+  data, status_code, headers = api_instance.repos_geoip_test_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGeoIpTestAddressResponse>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_geoip_test_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryGeoIpTestAddress**](RepositoryGeoIpTestAddress.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryGeoIpTestAddress**](RepositoryGeoIpTestAddress.md) |  | [optional] |
 
 ### Return type
 
@@ -1562,28 +1913,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_geoip_update
 
-# **repos_geoip_update**
-> RepositoryGeoIpRules repos_geoip_update(owner, identifier, opts)
-
-Replace repository geoip rules.
+> <RepositoryGeoIpRules> repos_geoip_update(owner, identifier, opts)
 
 Replace repository geoip rules.
 
-### Example
+Replace repository geoip rules.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1591,31 +1943,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryGeoIpRulesRequest.new # RepositoryGeoIpRulesRequest | 
 }
 
 begin
-  #Replace repository geoip rules.
+  # Replace repository geoip rules.
   result = api_instance.repos_geoip_update(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_geoip_update: #{e}"
+  puts "Error when calling ReposApi->repos_geoip_update: #{e}"
+end
+```
+
+#### Using the repos_geoip_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGeoIpRules>, Integer, Hash)> repos_geoip_update_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Replace repository geoip rules.
+  data, status_code, headers = api_instance.repos_geoip_update_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGeoIpRules>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_geoip_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryGeoIpRulesRequest**](RepositoryGeoIpRulesRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryGeoIpRulesRequest**](RepositoryGeoIpRulesRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -1627,28 +1994,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_gpg_create
 
-# **repos_gpg_create**
-> RepositoryGpgKey repos_gpg_create(owner, identifier, opts)
-
-Set the active GPG key for the Repository.
+> <RepositoryGpgKey> repos_gpg_create(owner, identifier, opts)
 
 Set the active GPG key for the Repository.
 
-### Example
+Set the active GPG key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1656,31 +2024,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryGpgKeyCreate.new # RepositoryGpgKeyCreate | 
 }
 
 begin
-  #Set the active GPG key for the Repository.
+  # Set the active GPG key for the Repository.
   result = api_instance.repos_gpg_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_gpg_create: #{e}"
+  puts "Error when calling ReposApi->repos_gpg_create: #{e}"
+end
+```
+
+#### Using the repos_gpg_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGpgKey>, Integer, Hash)> repos_gpg_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Set the active GPG key for the Repository.
+  data, status_code, headers = api_instance.repos_gpg_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGpgKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_gpg_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryGpgKeyCreate**](RepositoryGpgKeyCreate.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryGpgKeyCreate**](RepositoryGpgKeyCreate.md) |  | [optional] |
 
 ### Return type
 
@@ -1692,28 +2075,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_gpg_list
 
-# **repos_gpg_list**
-> RepositoryGpgKey repos_gpg_list(owner, identifier)
-
-Retrieve the active GPG key for the Repository.
+> <RepositoryGpgKey> repos_gpg_list(owner, identifier)
 
 Retrieve the active GPG key for the Repository.
 
-### Example
+Retrieve the active GPG key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1721,27 +2105,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Retrieve the active GPG key for the Repository.
+  # Retrieve the active GPG key for the Repository.
   result = api_instance.repos_gpg_list(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_gpg_list: #{e}"
+  puts "Error when calling ReposApi->repos_gpg_list: #{e}"
+end
+```
+
+#### Using the repos_gpg_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGpgKey>, Integer, Hash)> repos_gpg_list_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Retrieve the active GPG key for the Repository.
+  data, status_code, headers = api_instance.repos_gpg_list_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGpgKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_gpg_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -1753,28 +2152,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_gpg_regenerate
 
-# **repos_gpg_regenerate**
-> RepositoryGpgKey repos_gpg_regenerate(owner, identifier)
-
-Regenerate GPG Key for the Repository.
+> <RepositoryGpgKey> repos_gpg_regenerate(owner, identifier)
 
 Regenerate GPG Key for the Repository.
 
-### Example
+Regenerate GPG Key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1782,27 +2182,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Regenerate GPG Key for the Repository.
+  # Regenerate GPG Key for the Repository.
   result = api_instance.repos_gpg_regenerate(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_gpg_regenerate: #{e}"
+  puts "Error when calling ReposApi->repos_gpg_regenerate: #{e}"
+end
+```
+
+#### Using the repos_gpg_regenerate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryGpgKey>, Integer, Hash)> repos_gpg_regenerate_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Regenerate GPG Key for the Repository.
+  data, status_code, headers = api_instance.repos_gpg_regenerate_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryGpgKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_gpg_regenerate_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -1814,28 +2229,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_namespace_list
 
-# **repos_namespace_list**
-> Array&lt;Repository&gt; repos_namespace_list(owner, opts)
-
-Get a list of all repositories within a namespace.
+> <Array<Repository>> repos_namespace_list(owner, opts)
 
 Get a list of all repositories within a namespace.
 
-### Example
+Get a list of all repositories within a namespace.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1843,34 +2259,50 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
-  query: '', # String | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
-  sort: '-created_at' # String | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size.
+  query: 'query_example', # String | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type.
+  sort: 'sort_example' # String | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size.
 }
 
 begin
-  #Get a list of all repositories within a namespace.
+  # Get a list of all repositories within a namespace.
   result = api_instance.repos_namespace_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_namespace_list: #{e}"
+  puts "Error when calling ReposApi->repos_namespace_list: #{e}"
+end
+```
+
+#### Using the repos_namespace_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Repository>>, Integer, Hash)> repos_namespace_list_with_http_info(owner, opts)
+
+```ruby
+begin
+  # Get a list of all repositories within a namespace.
+  data, status_code, headers = api_instance.repos_namespace_list_with_http_info(owner, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Repository>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_namespace_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **query** | **String**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] [default to ]
- **sort** | **String**| A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. | [optional] [default to -created_at]
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
+| **query** | **String** | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] |
+| **sort** | **String** | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. | [optional][default to &#39;-created_at&#39;] |
 
 ### Return type
 
@@ -1882,28 +2314,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_partial_update
 
-# **repos_partial_update**
-> Repository repos_partial_update(owner, identifier, opts)
-
-Update details about a repository in a given namespace.
+> <Repository> repos_partial_update(owner, identifier, opts)
 
 Update details about a repository in a given namespace.
 
-### Example
+Update details about a repository in a given namespace.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1911,31 +2344,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryRequestPatch.new # RepositoryRequestPatch | 
 }
 
 begin
-  #Update details about a repository in a given namespace.
+  # Update details about a repository in a given namespace.
   result = api_instance.repos_partial_update(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_partial_update: #{e}"
+end
+```
+
+#### Using the repos_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Repository>, Integer, Hash)> repos_partial_update_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Update details about a repository in a given namespace.
+  data, status_code, headers = api_instance.repos_partial_update_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Repository>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryRequestPatch**](RepositoryRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryRequestPatch**](RepositoryRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -1947,28 +2395,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_privileges_list
 
-# **repos_privileges_list**
-> RepositoryPrivilegeInput repos_privileges_list(owner, identifier, opts)
-
-List all explicity created privileges for the repository.
+> <RepositoryPrivilegeInput> repos_privileges_list(owner, identifier, opts)
 
 List all explicity created privileges for the repository.
 
-### Example
+List all explicity created privileges for the repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -1976,33 +2425,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List all explicity created privileges for the repository.
+  # List all explicity created privileges for the repository.
   result = api_instance.repos_privileges_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_privileges_list: #{e}"
+  puts "Error when calling ReposApi->repos_privileges_list: #{e}"
+end
+```
+
+#### Using the repos_privileges_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryPrivilegeInput>, Integer, Hash)> repos_privileges_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List all explicity created privileges for the repository.
+  data, status_code, headers = api_instance.repos_privileges_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryPrivilegeInput>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_privileges_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -2014,28 +2478,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_privileges_partial_update
 
-# **repos_privileges_partial_update**
 > repos_privileges_partial_update(owner, identifier, opts)
 
 Modify privileges for the repository.
 
 Modify privileges for the repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2043,30 +2508,45 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryPrivilegeInputRequestPatch.new # RepositoryPrivilegeInputRequestPatch | 
 }
 
 begin
-  #Modify privileges for the repository.
+  # Modify privileges for the repository.
   api_instance.repos_privileges_partial_update(owner, identifier, opts)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_privileges_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_privileges_partial_update: #{e}"
+end
+```
+
+#### Using the repos_privileges_partial_update_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_privileges_partial_update_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Modify privileges for the repository.
+  data, status_code, headers = api_instance.repos_privileges_partial_update_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_privileges_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryPrivilegeInputRequestPatch**](RepositoryPrivilegeInputRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryPrivilegeInputRequestPatch**](RepositoryPrivilegeInputRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -2078,28 +2558,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_privileges_update
 
-# **repos_privileges_update**
 > repos_privileges_update(owner, identifier, opts)
 
 Replace all existing repository privileges with those specified.
 
 Replace all existing repository privileges with those specified.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2107,30 +2588,45 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryPrivilegeInputRequest.new # RepositoryPrivilegeInputRequest | 
 }
 
 begin
-  #Replace all existing repository privileges with those specified.
+  # Replace all existing repository privileges with those specified.
   api_instance.repos_privileges_update(owner, identifier, opts)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_privileges_update: #{e}"
+  puts "Error when calling ReposApi->repos_privileges_update: #{e}"
+end
+```
+
+#### Using the repos_privileges_update_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_privileges_update_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Replace all existing repository privileges with those specified.
+  data, status_code, headers = api_instance.repos_privileges_update_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_privileges_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryPrivilegeInputRequest**](RepositoryPrivilegeInputRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryPrivilegeInputRequest**](RepositoryPrivilegeInputRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -2142,28 +2638,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_read
 
-# **repos_read**
-> Repository repos_read(owner, identifier)
-
-Get a specific repository.
+> <Repository> repos_read(owner, identifier)
 
 Get a specific repository.
 
-### Example
+Get a specific repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2171,27 +2668,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Get a specific repository.
+  # Get a specific repository.
   result = api_instance.repos_read(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_read: #{e}"
+  puts "Error when calling ReposApi->repos_read: #{e}"
+end
+```
+
+#### Using the repos_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Repository>, Integer, Hash)> repos_read_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Get a specific repository.
+  data, status_code, headers = api_instance.repos_read_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Repository>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -2203,28 +2715,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_rsa_create
 
-# **repos_rsa_create**
-> RepositoryRsaKey repos_rsa_create(owner, identifier, opts)
-
-Set the active RSA key for the Repository.
+> <RepositoryRsaKey> repos_rsa_create(owner, identifier, opts)
 
 Set the active RSA key for the Repository.
 
-### Example
+Set the active RSA key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2232,31 +2745,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryRsaKeyCreate.new # RepositoryRsaKeyCreate | 
 }
 
 begin
-  #Set the active RSA key for the Repository.
+  # Set the active RSA key for the Repository.
   result = api_instance.repos_rsa_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_rsa_create: #{e}"
+  puts "Error when calling ReposApi->repos_rsa_create: #{e}"
+end
+```
+
+#### Using the repos_rsa_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryRsaKey>, Integer, Hash)> repos_rsa_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Set the active RSA key for the Repository.
+  data, status_code, headers = api_instance.repos_rsa_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryRsaKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_rsa_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RepositoryRsaKeyCreate**](RepositoryRsaKeyCreate.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RepositoryRsaKeyCreate**](RepositoryRsaKeyCreate.md) |  | [optional] |
 
 ### Return type
 
@@ -2268,28 +2796,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_rsa_list
 
-# **repos_rsa_list**
-> RepositoryRsaKey repos_rsa_list(owner, identifier)
-
-Retrieve the active RSA key for the Repository.
+> <RepositoryRsaKey> repos_rsa_list(owner, identifier)
 
 Retrieve the active RSA key for the Repository.
 
-### Example
+Retrieve the active RSA key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2297,27 +2826,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Retrieve the active RSA key for the Repository.
+  # Retrieve the active RSA key for the Repository.
   result = api_instance.repos_rsa_list(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_rsa_list: #{e}"
+  puts "Error when calling ReposApi->repos_rsa_list: #{e}"
+end
+```
+
+#### Using the repos_rsa_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryRsaKey>, Integer, Hash)> repos_rsa_list_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Retrieve the active RSA key for the Repository.
+  data, status_code, headers = api_instance.repos_rsa_list_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryRsaKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_rsa_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -2329,28 +2873,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_rsa_regenerate
 
-# **repos_rsa_regenerate**
-> RepositoryRsaKey repos_rsa_regenerate(owner, identifier)
-
-Regenerate RSA Key for the Repository.
+> <RepositoryRsaKey> repos_rsa_regenerate(owner, identifier)
 
 Regenerate RSA Key for the Repository.
 
-### Example
+Regenerate RSA Key for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2358,27 +2903,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Regenerate RSA Key for the Repository.
+  # Regenerate RSA Key for the Repository.
   result = api_instance.repos_rsa_regenerate(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_rsa_regenerate: #{e}"
+  puts "Error when calling ReposApi->repos_rsa_regenerate: #{e}"
+end
+```
+
+#### Using the repos_rsa_regenerate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryRsaKey>, Integer, Hash)> repos_rsa_regenerate_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Regenerate RSA Key for the Repository.
+  data, status_code, headers = api_instance.repos_rsa_regenerate_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryRsaKey>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_rsa_regenerate_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -2390,28 +2950,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_transfer_region
 
-# **repos_transfer_region**
 > repos_transfer_region(owner, repo, opts)
 
 Transfer a repository to a different region.
 
 Transfer a repository to a different region.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2419,30 +2980,45 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RepositoryTransferRegionRequest.new # RepositoryTransferRegionRequest | 
 }
 
 begin
-  #Transfer a repository to a different region.
+  # Transfer a repository to a different region.
   api_instance.repos_transfer_region(owner, repo, opts)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_transfer_region: #{e}"
+  puts "Error when calling ReposApi->repos_transfer_region: #{e}"
+end
+```
+
+#### Using the repos_transfer_region_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_transfer_region_with_http_info(owner, repo, opts)
+
+```ruby
+begin
+  # Transfer a repository to a different region.
+  data, status_code, headers = api_instance.repos_transfer_region_with_http_info(owner, repo, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_transfer_region_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **data** | [**RepositoryTransferRegionRequest**](RepositoryTransferRegionRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **data** | [**RepositoryTransferRegionRequest**](RepositoryTransferRegionRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -2454,28 +3030,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_alpine_create
 
-# **repos_upstream_alpine_create**
-> AlpineUpstream repos_upstream_alpine_create(owner, identifier, opts)
-
-Create an Alpine upstream config for this repository.
+> <AlpineUpstream> repos_upstream_alpine_create(owner, identifier, opts)
 
 Create an Alpine upstream config for this repository.
 
-### Example
+Create an Alpine upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2483,31 +3060,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::AlpineUpstreamRequest.new # AlpineUpstreamRequest | 
 }
 
 begin
-  #Create an Alpine upstream config for this repository.
+  # Create an Alpine upstream config for this repository.
   result = api_instance.repos_upstream_alpine_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_alpine_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_alpine_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_alpine_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AlpineUpstream>, Integer, Hash)> repos_upstream_alpine_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create an Alpine upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_alpine_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AlpineUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_alpine_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -2519,28 +3111,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_alpine_delete
 
-# **repos_upstream_alpine_delete**
 > repos_upstream_alpine_delete(owner, identifier, slug_perm)
 
 Delete an Alpine upstream config for this repository.
 
 Delete an Alpine upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2548,29 +3141,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete an Alpine upstream config for this repository.
+  # Delete an Alpine upstream config for this repository.
   api_instance.repos_upstream_alpine_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_alpine_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_alpine_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_alpine_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_alpine_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete an Alpine upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_alpine_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_alpine_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -2582,28 +3189,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_alpine_list
 
-# **repos_upstream_alpine_list**
-> Array&lt;AlpineUpstream&gt; repos_upstream_alpine_list(owner, identifier, opts)
-
-List Alpine upstream configs for this repository.
+> <Array<AlpineUpstream>> repos_upstream_alpine_list(owner, identifier, opts)
 
 List Alpine upstream configs for this repository.
 
-### Example
+List Alpine upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2611,33 +3219,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Alpine upstream configs for this repository.
+  # List Alpine upstream configs for this repository.
   result = api_instance.repos_upstream_alpine_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_alpine_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_alpine_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_alpine_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<AlpineUpstream>>, Integer, Hash)> repos_upstream_alpine_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Alpine upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_alpine_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<AlpineUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_alpine_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -2649,28 +3272,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_alpine_partial_update
 
-# **repos_upstream_alpine_partial_update**
-> AlpineUpstream repos_upstream_alpine_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update an Alpine upstream config for this repository.
+> <AlpineUpstream> repos_upstream_alpine_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update an Alpine upstream config for this repository.
 
-### Example
+Partially update an Alpine upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2678,34 +3302,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::AlpineUpstreamRequestPatch.new # AlpineUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update an Alpine upstream config for this repository.
+  # Partially update an Alpine upstream config for this repository.
   result = api_instance.repos_upstream_alpine_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_alpine_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_alpine_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_alpine_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AlpineUpstream>, Integer, Hash)> repos_upstream_alpine_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update an Alpine upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_alpine_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AlpineUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_alpine_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**AlpineUpstreamRequestPatch**](AlpineUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**AlpineUpstreamRequestPatch**](AlpineUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -2717,28 +3355,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_alpine_read
 
-# **repos_upstream_alpine_read**
-> AlpineUpstream repos_upstream_alpine_read(owner, identifier, slug_perm)
-
-Retrieve an Alpine upstream config for this repository.
+> <AlpineUpstream> repos_upstream_alpine_read(owner, identifier, slug_perm)
 
 Retrieve an Alpine upstream config for this repository.
 
-### Example
+Retrieve an Alpine upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2746,30 +3385,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve an Alpine upstream config for this repository.
+  # Retrieve an Alpine upstream config for this repository.
   result = api_instance.repos_upstream_alpine_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_alpine_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_alpine_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_alpine_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AlpineUpstream>, Integer, Hash)> repos_upstream_alpine_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve an Alpine upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_alpine_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AlpineUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_alpine_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -2781,28 +3434,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_alpine_update
 
-# **repos_upstream_alpine_update**
-> AlpineUpstream repos_upstream_alpine_update(owner, identifier, slug_perm, opts)
-
-Update an Alpine upstream config for this repository.
+> <AlpineUpstream> repos_upstream_alpine_update(owner, identifier, slug_perm, opts)
 
 Update an Alpine upstream config for this repository.
 
-### Example
+Update an Alpine upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2810,34 +3464,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::AlpineUpstreamRequest.new # AlpineUpstreamRequest | 
 }
 
 begin
-  #Update an Alpine upstream config for this repository.
+  # Update an Alpine upstream config for this repository.
   result = api_instance.repos_upstream_alpine_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_alpine_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_alpine_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_alpine_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AlpineUpstream>, Integer, Hash)> repos_upstream_alpine_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update an Alpine upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_alpine_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AlpineUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_alpine_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**AlpineUpstreamRequest**](AlpineUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -2849,28 +3517,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_cargo_create
 
-# **repos_upstream_cargo_create**
-> CargoUpstream repos_upstream_cargo_create(owner, identifier, opts)
-
-Create a Cargo upstream config for this repository.
+> <CargoUpstream> repos_upstream_cargo_create(owner, identifier, opts)
 
 Create a Cargo upstream config for this repository.
 
-### Example
+Create a Cargo upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2878,31 +3547,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CargoUpstreamRequest.new # CargoUpstreamRequest | 
 }
 
 begin
-  #Create a Cargo upstream config for this repository.
+  # Create a Cargo upstream config for this repository.
   result = api_instance.repos_upstream_cargo_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cargo_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cargo_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_cargo_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CargoUpstream>, Integer, Hash)> repos_upstream_cargo_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Cargo upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cargo_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CargoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cargo_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**CargoUpstreamRequest**](CargoUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**CargoUpstreamRequest**](CargoUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -2914,28 +3598,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_cargo_delete
 
-# **repos_upstream_cargo_delete**
 > repos_upstream_cargo_delete(owner, identifier, slug_perm)
 
 Delete a Cargo upstream config for this repository.
 
 Delete a Cargo upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -2943,29 +3628,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Cargo upstream config for this repository.
+  # Delete a Cargo upstream config for this repository.
   api_instance.repos_upstream_cargo_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cargo_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cargo_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_cargo_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_cargo_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Cargo upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cargo_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cargo_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -2977,28 +3676,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_cargo_list
 
-# **repos_upstream_cargo_list**
-> Array&lt;CargoUpstream&gt; repos_upstream_cargo_list(owner, identifier, opts)
-
-List Cargo upstream configs for this repository.
+> <Array<CargoUpstream>> repos_upstream_cargo_list(owner, identifier, opts)
 
 List Cargo upstream configs for this repository.
 
-### Example
+List Cargo upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3006,33 +3706,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Cargo upstream configs for this repository.
+  # List Cargo upstream configs for this repository.
   result = api_instance.repos_upstream_cargo_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cargo_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cargo_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_cargo_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<CargoUpstream>>, Integer, Hash)> repos_upstream_cargo_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Cargo upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cargo_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<CargoUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cargo_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -3044,28 +3759,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_cargo_partial_update
 
-# **repos_upstream_cargo_partial_update**
-> CargoUpstream repos_upstream_cargo_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Cargo upstream config for this repository.
+> <CargoUpstream> repos_upstream_cargo_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Cargo upstream config for this repository.
 
-### Example
+Partially update a Cargo upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3073,34 +3789,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CargoUpstreamRequestPatch.new # CargoUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Cargo upstream config for this repository.
+  # Partially update a Cargo upstream config for this repository.
   result = api_instance.repos_upstream_cargo_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cargo_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cargo_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_cargo_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CargoUpstream>, Integer, Hash)> repos_upstream_cargo_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Cargo upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cargo_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CargoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cargo_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**CargoUpstreamRequestPatch**](CargoUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**CargoUpstreamRequestPatch**](CargoUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -3112,28 +3842,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_cargo_read
 
-# **repos_upstream_cargo_read**
-> CargoUpstream repos_upstream_cargo_read(owner, identifier, slug_perm)
-
-Retrieve a Cargo upstream config for this repository.
+> <CargoUpstream> repos_upstream_cargo_read(owner, identifier, slug_perm)
 
 Retrieve a Cargo upstream config for this repository.
 
-### Example
+Retrieve a Cargo upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3141,30 +3872,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Cargo upstream config for this repository.
+  # Retrieve a Cargo upstream config for this repository.
   result = api_instance.repos_upstream_cargo_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cargo_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cargo_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_cargo_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CargoUpstream>, Integer, Hash)> repos_upstream_cargo_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Cargo upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cargo_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CargoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cargo_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -3176,28 +3921,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_cargo_update
 
-# **repos_upstream_cargo_update**
-> CargoUpstream repos_upstream_cargo_update(owner, identifier, slug_perm, opts)
-
-Update a Cargo upstream config for this repository.
+> <CargoUpstream> repos_upstream_cargo_update(owner, identifier, slug_perm, opts)
 
 Update a Cargo upstream config for this repository.
 
-### Example
+Update a Cargo upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3205,34 +3951,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CargoUpstreamRequest.new # CargoUpstreamRequest | 
 }
 
 begin
-  #Update a Cargo upstream config for this repository.
+  # Update a Cargo upstream config for this repository.
   result = api_instance.repos_upstream_cargo_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cargo_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cargo_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_cargo_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CargoUpstream>, Integer, Hash)> repos_upstream_cargo_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Cargo upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cargo_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CargoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cargo_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**CargoUpstreamRequest**](CargoUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**CargoUpstreamRequest**](CargoUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -3244,28 +4004,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_composer_create
 
-# **repos_upstream_composer_create**
-> ComposerUpstream repos_upstream_composer_create(owner, identifier, opts)
-
-Create a Composer upstream config for this repository.
+> <ComposerUpstream> repos_upstream_composer_create(owner, identifier, opts)
 
 Create a Composer upstream config for this repository.
 
-### Example
+Create a Composer upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3273,31 +4034,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::ComposerUpstreamRequest.new # ComposerUpstreamRequest | 
 }
 
 begin
-  #Create a Composer upstream config for this repository.
+  # Create a Composer upstream config for this repository.
   result = api_instance.repos_upstream_composer_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_composer_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_composer_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_composer_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ComposerUpstream>, Integer, Hash)> repos_upstream_composer_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Composer upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_composer_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ComposerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_composer_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**ComposerUpstreamRequest**](ComposerUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**ComposerUpstreamRequest**](ComposerUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -3309,28 +4085,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_composer_delete
 
-# **repos_upstream_composer_delete**
 > repos_upstream_composer_delete(owner, identifier, slug_perm)
 
 Delete a Composer upstream config for this repository.
 
 Delete a Composer upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3338,29 +4115,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Composer upstream config for this repository.
+  # Delete a Composer upstream config for this repository.
   api_instance.repos_upstream_composer_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_composer_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_composer_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_composer_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_composer_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Composer upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_composer_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_composer_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -3372,28 +4163,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_composer_list
 
-# **repos_upstream_composer_list**
-> Array&lt;ComposerUpstream&gt; repos_upstream_composer_list(owner, identifier, opts)
-
-List Composer upstream configs for this repository.
+> <Array<ComposerUpstream>> repos_upstream_composer_list(owner, identifier, opts)
 
 List Composer upstream configs for this repository.
 
-### Example
+List Composer upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3401,33 +4193,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Composer upstream configs for this repository.
+  # List Composer upstream configs for this repository.
   result = api_instance.repos_upstream_composer_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_composer_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_composer_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_composer_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<ComposerUpstream>>, Integer, Hash)> repos_upstream_composer_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Composer upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_composer_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<ComposerUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_composer_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -3439,28 +4246,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_composer_partial_update
 
-# **repos_upstream_composer_partial_update**
-> ComposerUpstream repos_upstream_composer_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Composer upstream config for this repository.
+> <ComposerUpstream> repos_upstream_composer_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Composer upstream config for this repository.
 
-### Example
+Partially update a Composer upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3468,34 +4276,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::ComposerUpstreamRequestPatch.new # ComposerUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Composer upstream config for this repository.
+  # Partially update a Composer upstream config for this repository.
   result = api_instance.repos_upstream_composer_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_composer_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_composer_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_composer_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ComposerUpstream>, Integer, Hash)> repos_upstream_composer_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Composer upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_composer_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ComposerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_composer_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**ComposerUpstreamRequestPatch**](ComposerUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**ComposerUpstreamRequestPatch**](ComposerUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -3507,28 +4329,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_composer_read
 
-# **repos_upstream_composer_read**
-> ComposerUpstream repos_upstream_composer_read(owner, identifier, slug_perm)
-
-Retrieve a Composer upstream config for this repository.
+> <ComposerUpstream> repos_upstream_composer_read(owner, identifier, slug_perm)
 
 Retrieve a Composer upstream config for this repository.
 
-### Example
+Retrieve a Composer upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3536,30 +4359,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Composer upstream config for this repository.
+  # Retrieve a Composer upstream config for this repository.
   result = api_instance.repos_upstream_composer_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_composer_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_composer_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_composer_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ComposerUpstream>, Integer, Hash)> repos_upstream_composer_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Composer upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_composer_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ComposerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_composer_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -3571,28 +4408,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_composer_update
 
-# **repos_upstream_composer_update**
-> ComposerUpstream repos_upstream_composer_update(owner, identifier, slug_perm, opts)
-
-Update a Composer upstream config for this repository.
+> <ComposerUpstream> repos_upstream_composer_update(owner, identifier, slug_perm, opts)
 
 Update a Composer upstream config for this repository.
 
-### Example
+Update a Composer upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3600,34 +4438,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::ComposerUpstreamRequest.new # ComposerUpstreamRequest | 
 }
 
 begin
-  #Update a Composer upstream config for this repository.
+  # Update a Composer upstream config for this repository.
   result = api_instance.repos_upstream_composer_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_composer_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_composer_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_composer_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ComposerUpstream>, Integer, Hash)> repos_upstream_composer_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Composer upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_composer_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ComposerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_composer_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**ComposerUpstreamRequest**](ComposerUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**ComposerUpstreamRequest**](ComposerUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -3639,28 +4491,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_conda_create
 
-# **repos_upstream_conda_create**
-> CondaUpstream repos_upstream_conda_create(owner, identifier, opts)
-
-Create a Conda upstream config for this repository.
+> <CondaUpstream> repos_upstream_conda_create(owner, identifier, opts)
 
 Create a Conda upstream config for this repository.
 
-### Example
+Create a Conda upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3668,31 +4521,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CondaUpstreamRequest.new # CondaUpstreamRequest | 
 }
 
 begin
-  #Create a Conda upstream config for this repository.
+  # Create a Conda upstream config for this repository.
   result = api_instance.repos_upstream_conda_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_conda_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_conda_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_conda_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CondaUpstream>, Integer, Hash)> repos_upstream_conda_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Conda upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_conda_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CondaUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_conda_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**CondaUpstreamRequest**](CondaUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**CondaUpstreamRequest**](CondaUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -3704,28 +4572,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_conda_delete
 
-# **repos_upstream_conda_delete**
 > repos_upstream_conda_delete(owner, identifier, slug_perm)
 
 Delete a Conda upstream config for this repository.
 
 Delete a Conda upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3733,29 +4602,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Conda upstream config for this repository.
+  # Delete a Conda upstream config for this repository.
   api_instance.repos_upstream_conda_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_conda_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_conda_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_conda_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_conda_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Conda upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_conda_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_conda_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -3767,28 +4650,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_conda_list
 
-# **repos_upstream_conda_list**
-> Array&lt;CondaUpstream&gt; repos_upstream_conda_list(owner, identifier, opts)
-
-List Conda upstream configs for this repository.
+> <Array<CondaUpstream>> repos_upstream_conda_list(owner, identifier, opts)
 
 List Conda upstream configs for this repository.
 
-### Example
+List Conda upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3796,33 +4680,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Conda upstream configs for this repository.
+  # List Conda upstream configs for this repository.
   result = api_instance.repos_upstream_conda_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_conda_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_conda_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_conda_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<CondaUpstream>>, Integer, Hash)> repos_upstream_conda_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Conda upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_conda_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<CondaUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_conda_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -3834,28 +4733,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_conda_partial_update
 
-# **repos_upstream_conda_partial_update**
-> CondaUpstream repos_upstream_conda_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Conda upstream config for this repository.
+> <CondaUpstream> repos_upstream_conda_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Conda upstream config for this repository.
 
-### Example
+Partially update a Conda upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3863,34 +4763,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CondaUpstreamRequestPatch.new # CondaUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Conda upstream config for this repository.
+  # Partially update a Conda upstream config for this repository.
   result = api_instance.repos_upstream_conda_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_conda_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_conda_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_conda_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CondaUpstream>, Integer, Hash)> repos_upstream_conda_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Conda upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_conda_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CondaUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_conda_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**CondaUpstreamRequestPatch**](CondaUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**CondaUpstreamRequestPatch**](CondaUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -3902,28 +4816,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_conda_read
 
-# **repos_upstream_conda_read**
-> CondaUpstream repos_upstream_conda_read(owner, identifier, slug_perm)
-
-Retrieve a Conda upstream config for this repository.
+> <CondaUpstream> repos_upstream_conda_read(owner, identifier, slug_perm)
 
 Retrieve a Conda upstream config for this repository.
 
-### Example
+Retrieve a Conda upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3931,30 +4846,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Conda upstream config for this repository.
+  # Retrieve a Conda upstream config for this repository.
   result = api_instance.repos_upstream_conda_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_conda_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_conda_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_conda_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CondaUpstream>, Integer, Hash)> repos_upstream_conda_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Conda upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_conda_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CondaUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_conda_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -3966,28 +4895,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_conda_update
 
-# **repos_upstream_conda_update**
-> CondaUpstream repos_upstream_conda_update(owner, identifier, slug_perm, opts)
-
-Update a Conda upstream config for this repository.
+> <CondaUpstream> repos_upstream_conda_update(owner, identifier, slug_perm, opts)
 
 Update a Conda upstream config for this repository.
 
-### Example
+Update a Conda upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -3995,34 +4925,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CondaUpstreamRequest.new # CondaUpstreamRequest | 
 }
 
 begin
-  #Update a Conda upstream config for this repository.
+  # Update a Conda upstream config for this repository.
   result = api_instance.repos_upstream_conda_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_conda_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_conda_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_conda_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CondaUpstream>, Integer, Hash)> repos_upstream_conda_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Conda upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_conda_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CondaUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_conda_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**CondaUpstreamRequest**](CondaUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**CondaUpstreamRequest**](CondaUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -4034,28 +4978,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_cran_create
 
-# **repos_upstream_cran_create**
-> CranUpstream repos_upstream_cran_create(owner, identifier, opts)
-
-Create a CRAN upstream config for this repository.
+> <CranUpstream> repos_upstream_cran_create(owner, identifier, opts)
 
 Create a CRAN upstream config for this repository.
 
-### Example
+Create a CRAN upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4063,31 +5008,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CranUpstreamRequest.new # CranUpstreamRequest | 
 }
 
 begin
-  #Create a CRAN upstream config for this repository.
+  # Create a CRAN upstream config for this repository.
   result = api_instance.repos_upstream_cran_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cran_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cran_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_cran_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CranUpstream>, Integer, Hash)> repos_upstream_cran_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a CRAN upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cran_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CranUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cran_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -4099,28 +5059,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_cran_delete
 
-# **repos_upstream_cran_delete**
 > repos_upstream_cran_delete(owner, identifier, slug_perm)
 
 Delete a CRAN upstream config for this repository.
 
 Delete a CRAN upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4128,29 +5089,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a CRAN upstream config for this repository.
+  # Delete a CRAN upstream config for this repository.
   api_instance.repos_upstream_cran_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cran_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cran_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_cran_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_cran_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a CRAN upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cran_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cran_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -4162,28 +5137,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_cran_list
 
-# **repos_upstream_cran_list**
-> Array&lt;CranUpstream&gt; repos_upstream_cran_list(owner, identifier, opts)
-
-List CRAN upstream configs for this repository.
+> <Array<CranUpstream>> repos_upstream_cran_list(owner, identifier, opts)
 
 List CRAN upstream configs for this repository.
 
-### Example
+List CRAN upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4191,33 +5167,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List CRAN upstream configs for this repository.
+  # List CRAN upstream configs for this repository.
   result = api_instance.repos_upstream_cran_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cran_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cran_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_cran_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<CranUpstream>>, Integer, Hash)> repos_upstream_cran_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List CRAN upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cran_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<CranUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cran_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -4229,28 +5220,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_cran_partial_update
 
-# **repos_upstream_cran_partial_update**
-> CranUpstream repos_upstream_cran_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a CRAN upstream config for this repository.
+> <CranUpstream> repos_upstream_cran_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a CRAN upstream config for this repository.
 
-### Example
+Partially update a CRAN upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4258,34 +5250,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CranUpstreamRequestPatch.new # CranUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a CRAN upstream config for this repository.
+  # Partially update a CRAN upstream config for this repository.
   result = api_instance.repos_upstream_cran_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cran_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cran_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_cran_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CranUpstream>, Integer, Hash)> repos_upstream_cran_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a CRAN upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cran_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CranUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cran_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**CranUpstreamRequestPatch**](CranUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**CranUpstreamRequestPatch**](CranUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -4297,28 +5303,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_cran_read
 
-# **repos_upstream_cran_read**
-> CranUpstream repos_upstream_cran_read(owner, identifier, slug_perm)
-
-Retrieve a CRAN upstream config for this repository.
+> <CranUpstream> repos_upstream_cran_read(owner, identifier, slug_perm)
 
 Retrieve a CRAN upstream config for this repository.
 
-### Example
+Retrieve a CRAN upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4326,30 +5333,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a CRAN upstream config for this repository.
+  # Retrieve a CRAN upstream config for this repository.
   result = api_instance.repos_upstream_cran_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cran_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cran_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_cran_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CranUpstream>, Integer, Hash)> repos_upstream_cran_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a CRAN upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cran_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CranUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cran_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -4361,28 +5382,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_cran_update
 
-# **repos_upstream_cran_update**
-> CranUpstream repos_upstream_cran_update(owner, identifier, slug_perm, opts)
-
-Update a CRAN upstream config for this repository.
+> <CranUpstream> repos_upstream_cran_update(owner, identifier, slug_perm, opts)
 
 Update a CRAN upstream config for this repository.
 
-### Example
+Update a CRAN upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4390,34 +5412,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::CranUpstreamRequest.new # CranUpstreamRequest | 
 }
 
 begin
-  #Update a CRAN upstream config for this repository.
+  # Update a CRAN upstream config for this repository.
   result = api_instance.repos_upstream_cran_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_cran_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_cran_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_cran_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CranUpstream>, Integer, Hash)> repos_upstream_cran_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a CRAN upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_cran_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CranUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_cran_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**CranUpstreamRequest**](CranUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -4429,28 +5465,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_dart_create
 
-# **repos_upstream_dart_create**
-> DartUpstream repos_upstream_dart_create(owner, identifier, opts)
-
-Create a Dart upstream config for this repository.
+> <DartUpstream> repos_upstream_dart_create(owner, identifier, opts)
 
 Create a Dart upstream config for this repository.
 
-### Example
+Create a Dart upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4458,31 +5495,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DartUpstreamRequest.new # DartUpstreamRequest | 
 }
 
 begin
-  #Create a Dart upstream config for this repository.
+  # Create a Dart upstream config for this repository.
   result = api_instance.repos_upstream_dart_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_dart_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_dart_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_dart_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DartUpstream>, Integer, Hash)> repos_upstream_dart_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Dart upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_dart_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DartUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_dart_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**DartUpstreamRequest**](DartUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**DartUpstreamRequest**](DartUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -4494,28 +5546,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_dart_delete
 
-# **repos_upstream_dart_delete**
 > repos_upstream_dart_delete(owner, identifier, slug_perm)
 
 Delete a Dart upstream config for this repository.
 
 Delete a Dart upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4523,29 +5576,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Dart upstream config for this repository.
+  # Delete a Dart upstream config for this repository.
   api_instance.repos_upstream_dart_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_dart_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_dart_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_dart_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_dart_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Dart upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_dart_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_dart_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -4557,28 +5624,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_dart_list
 
-# **repos_upstream_dart_list**
-> Array&lt;DartUpstream&gt; repos_upstream_dart_list(owner, identifier, opts)
-
-List Dart upstream configs for this repository.
+> <Array<DartUpstream>> repos_upstream_dart_list(owner, identifier, opts)
 
 List Dart upstream configs for this repository.
 
-### Example
+List Dart upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4586,33 +5654,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Dart upstream configs for this repository.
+  # List Dart upstream configs for this repository.
   result = api_instance.repos_upstream_dart_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_dart_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_dart_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_dart_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<DartUpstream>>, Integer, Hash)> repos_upstream_dart_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Dart upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_dart_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<DartUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_dart_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -4624,28 +5707,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_dart_partial_update
 
-# **repos_upstream_dart_partial_update**
-> DartUpstream repos_upstream_dart_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Dart upstream config for this repository.
+> <DartUpstream> repos_upstream_dart_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Dart upstream config for this repository.
 
-### Example
+Partially update a Dart upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4653,34 +5737,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DartUpstreamRequestPatch.new # DartUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Dart upstream config for this repository.
+  # Partially update a Dart upstream config for this repository.
   result = api_instance.repos_upstream_dart_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_dart_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_dart_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_dart_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DartUpstream>, Integer, Hash)> repos_upstream_dart_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Dart upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_dart_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DartUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_dart_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**DartUpstreamRequestPatch**](DartUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**DartUpstreamRequestPatch**](DartUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -4692,28 +5790,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_dart_read
 
-# **repos_upstream_dart_read**
-> DartUpstream repos_upstream_dart_read(owner, identifier, slug_perm)
-
-Retrieve a Dart upstream config for this repository.
+> <DartUpstream> repos_upstream_dart_read(owner, identifier, slug_perm)
 
 Retrieve a Dart upstream config for this repository.
 
-### Example
+Retrieve a Dart upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4721,30 +5820,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Dart upstream config for this repository.
+  # Retrieve a Dart upstream config for this repository.
   result = api_instance.repos_upstream_dart_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_dart_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_dart_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_dart_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DartUpstream>, Integer, Hash)> repos_upstream_dart_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Dart upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_dart_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DartUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_dart_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -4756,28 +5869,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_dart_update
 
-# **repos_upstream_dart_update**
-> DartUpstream repos_upstream_dart_update(owner, identifier, slug_perm, opts)
-
-Update a Dart upstream config for this repository.
+> <DartUpstream> repos_upstream_dart_update(owner, identifier, slug_perm, opts)
 
 Update a Dart upstream config for this repository.
 
-### Example
+Update a Dart upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4785,34 +5899,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DartUpstreamRequest.new # DartUpstreamRequest | 
 }
 
 begin
-  #Update a Dart upstream config for this repository.
+  # Update a Dart upstream config for this repository.
   result = api_instance.repos_upstream_dart_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_dart_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_dart_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_dart_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DartUpstream>, Integer, Hash)> repos_upstream_dart_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Dart upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_dart_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DartUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_dart_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**DartUpstreamRequest**](DartUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**DartUpstreamRequest**](DartUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -4824,28 +5952,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_deb_create
 
-# **repos_upstream_deb_create**
-> DebUpstream repos_upstream_deb_create(owner, identifier, opts)
-
-Create a Debian upstream config for this repository.
+> <DebUpstream> repos_upstream_deb_create(owner, identifier, opts)
 
 Create a Debian upstream config for this repository.
 
-### Example
+Create a Debian upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4853,31 +5982,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DebUpstreamRequest.new # DebUpstreamRequest | 
 }
 
 begin
-  #Create a Debian upstream config for this repository.
+  # Create a Debian upstream config for this repository.
   result = api_instance.repos_upstream_deb_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_deb_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_deb_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_deb_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DebUpstream>, Integer, Hash)> repos_upstream_deb_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Debian upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_deb_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DebUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_deb_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**DebUpstreamRequest**](DebUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**DebUpstreamRequest**](DebUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -4889,28 +6033,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_deb_delete
 
-# **repos_upstream_deb_delete**
 > repos_upstream_deb_delete(owner, identifier, slug_perm)
 
 Delete a Debian upstream config for this repository.
 
 Delete a Debian upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4918,29 +6063,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Debian upstream config for this repository.
+  # Delete a Debian upstream config for this repository.
   api_instance.repos_upstream_deb_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_deb_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_deb_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_deb_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_deb_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Debian upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_deb_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_deb_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -4952,28 +6111,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_deb_list
 
-# **repos_upstream_deb_list**
-> Array&lt;DebUpstream&gt; repos_upstream_deb_list(owner, identifier, opts)
-
-List Debian upstream configs for this repository.
+> <Array<DebUpstream>> repos_upstream_deb_list(owner, identifier, opts)
 
 List Debian upstream configs for this repository.
 
-### Example
+List Debian upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -4981,33 +6141,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Debian upstream configs for this repository.
+  # List Debian upstream configs for this repository.
   result = api_instance.repos_upstream_deb_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_deb_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_deb_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_deb_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<DebUpstream>>, Integer, Hash)> repos_upstream_deb_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Debian upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_deb_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<DebUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_deb_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -5019,28 +6194,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_deb_partial_update
 
-# **repos_upstream_deb_partial_update**
-> DebUpstream repos_upstream_deb_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Debian upstream config for this repository.
+> <DebUpstream> repos_upstream_deb_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Debian upstream config for this repository.
 
-### Example
+Partially update a Debian upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5048,34 +6224,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DebUpstreamRequestPatch.new # DebUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Debian upstream config for this repository.
+  # Partially update a Debian upstream config for this repository.
   result = api_instance.repos_upstream_deb_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_deb_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_deb_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_deb_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DebUpstream>, Integer, Hash)> repos_upstream_deb_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Debian upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_deb_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DebUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_deb_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**DebUpstreamRequestPatch**](DebUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**DebUpstreamRequestPatch**](DebUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -5087,28 +6277,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_deb_read
 
-# **repos_upstream_deb_read**
-> DebUpstream repos_upstream_deb_read(owner, identifier, slug_perm)
-
-Retrieve a Debian upstream config for this repository.
+> <DebUpstream> repos_upstream_deb_read(owner, identifier, slug_perm)
 
 Retrieve a Debian upstream config for this repository.
 
-### Example
+Retrieve a Debian upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5116,30 +6307,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Debian upstream config for this repository.
+  # Retrieve a Debian upstream config for this repository.
   result = api_instance.repos_upstream_deb_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_deb_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_deb_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_deb_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DebUpstream>, Integer, Hash)> repos_upstream_deb_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Debian upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_deb_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DebUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_deb_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -5151,28 +6356,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_deb_update
 
-# **repos_upstream_deb_update**
-> DebUpstream repos_upstream_deb_update(owner, identifier, slug_perm, opts)
-
-Update a Debian upstream config for this repository.
+> <DebUpstream> repos_upstream_deb_update(owner, identifier, slug_perm, opts)
 
 Update a Debian upstream config for this repository.
 
-### Example
+Update a Debian upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5180,34 +6386,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DebUpstreamRequest.new # DebUpstreamRequest | 
 }
 
 begin
-  #Update a Debian upstream config for this repository.
+  # Update a Debian upstream config for this repository.
   result = api_instance.repos_upstream_deb_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_deb_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_deb_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_deb_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DebUpstream>, Integer, Hash)> repos_upstream_deb_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Debian upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_deb_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DebUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_deb_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**DebUpstreamRequest**](DebUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**DebUpstreamRequest**](DebUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -5219,28 +6439,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_docker_create
 
-# **repos_upstream_docker_create**
-> DockerUpstream repos_upstream_docker_create(owner, identifier, opts)
-
-Create a Docker upstream config for this repository.
+> <DockerUpstream> repos_upstream_docker_create(owner, identifier, opts)
 
 Create a Docker upstream config for this repository.
 
-### Example
+Create a Docker upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5248,31 +6469,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DockerUpstreamRequest.new # DockerUpstreamRequest | 
 }
 
 begin
-  #Create a Docker upstream config for this repository.
+  # Create a Docker upstream config for this repository.
   result = api_instance.repos_upstream_docker_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_docker_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_docker_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_docker_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DockerUpstream>, Integer, Hash)> repos_upstream_docker_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Docker upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_docker_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DockerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_docker_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**DockerUpstreamRequest**](DockerUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**DockerUpstreamRequest**](DockerUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -5284,28 +6520,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_docker_delete
 
-# **repos_upstream_docker_delete**
 > repos_upstream_docker_delete(owner, identifier, slug_perm)
 
 Delete a Docker upstream config for this repository.
 
 Delete a Docker upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5313,29 +6550,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Docker upstream config for this repository.
+  # Delete a Docker upstream config for this repository.
   api_instance.repos_upstream_docker_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_docker_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_docker_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_docker_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_docker_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Docker upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_docker_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_docker_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -5347,28 +6598,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_docker_list
 
-# **repos_upstream_docker_list**
-> Array&lt;DockerUpstream&gt; repos_upstream_docker_list(owner, identifier, opts)
-
-List Docker upstream configs for this repository.
+> <Array<DockerUpstream>> repos_upstream_docker_list(owner, identifier, opts)
 
 List Docker upstream configs for this repository.
 
-### Example
+List Docker upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5376,33 +6628,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Docker upstream configs for this repository.
+  # List Docker upstream configs for this repository.
   result = api_instance.repos_upstream_docker_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_docker_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_docker_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_docker_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<DockerUpstream>>, Integer, Hash)> repos_upstream_docker_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Docker upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_docker_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<DockerUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_docker_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -5414,28 +6681,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_docker_partial_update
 
-# **repos_upstream_docker_partial_update**
-> DockerUpstream repos_upstream_docker_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Docker upstream config for this repository.
+> <DockerUpstream> repos_upstream_docker_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Docker upstream config for this repository.
 
-### Example
+Partially update a Docker upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5443,34 +6711,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DockerUpstreamRequestPatch.new # DockerUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Docker upstream config for this repository.
+  # Partially update a Docker upstream config for this repository.
   result = api_instance.repos_upstream_docker_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_docker_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_docker_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_docker_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DockerUpstream>, Integer, Hash)> repos_upstream_docker_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Docker upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_docker_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DockerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_docker_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**DockerUpstreamRequestPatch**](DockerUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**DockerUpstreamRequestPatch**](DockerUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -5482,28 +6764,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_docker_read
 
-# **repos_upstream_docker_read**
-> DockerUpstream repos_upstream_docker_read(owner, identifier, slug_perm)
-
-Retrieve a Docker upstream config for this repository.
+> <DockerUpstream> repos_upstream_docker_read(owner, identifier, slug_perm)
 
 Retrieve a Docker upstream config for this repository.
 
-### Example
+Retrieve a Docker upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5511,30 +6794,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Docker upstream config for this repository.
+  # Retrieve a Docker upstream config for this repository.
   result = api_instance.repos_upstream_docker_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_docker_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_docker_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_docker_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DockerUpstream>, Integer, Hash)> repos_upstream_docker_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Docker upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_docker_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DockerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_docker_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -5546,28 +6843,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_docker_update
 
-# **repos_upstream_docker_update**
-> DockerUpstream repos_upstream_docker_update(owner, identifier, slug_perm, opts)
-
-Update a Docker upstream config for this repository.
+> <DockerUpstream> repos_upstream_docker_update(owner, identifier, slug_perm, opts)
 
 Update a Docker upstream config for this repository.
 
-### Example
+Update a Docker upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5575,34 +6873,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::DockerUpstreamRequest.new # DockerUpstreamRequest | 
 }
 
 begin
-  #Update a Docker upstream config for this repository.
+  # Update a Docker upstream config for this repository.
   result = api_instance.repos_upstream_docker_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_docker_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_docker_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_docker_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DockerUpstream>, Integer, Hash)> repos_upstream_docker_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Docker upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_docker_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DockerUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_docker_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**DockerUpstreamRequest**](DockerUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**DockerUpstreamRequest**](DockerUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -5614,28 +6926,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_generic_create
 
-# **repos_upstream_generic_create**
-> GenericUpstream repos_upstream_generic_create(owner, identifier, opts)
-
-Create a Generic upstream config for this repository.
+> <GenericUpstream> repos_upstream_generic_create(owner, identifier, opts)
 
 Create a Generic upstream config for this repository.
 
-### Example
+Create a Generic upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5643,31 +6956,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::GenericUpstreamRequest.new # GenericUpstreamRequest | 
 }
 
 begin
-  #Create a Generic upstream config for this repository.
+  # Create a Generic upstream config for this repository.
   result = api_instance.repos_upstream_generic_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_generic_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_generic_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_generic_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GenericUpstream>, Integer, Hash)> repos_upstream_generic_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Generic upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_generic_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GenericUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_generic_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -5679,28 +7007,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_generic_delete
 
-# **repos_upstream_generic_delete**
 > repos_upstream_generic_delete(owner, identifier, slug_perm)
 
 Delete a Generic upstream config for this repository.
 
 Delete a Generic upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5708,29 +7037,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Generic upstream config for this repository.
+  # Delete a Generic upstream config for this repository.
   api_instance.repos_upstream_generic_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_generic_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_generic_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_generic_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_generic_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Generic upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_generic_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_generic_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -5742,28 +7085,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_generic_list
 
-# **repos_upstream_generic_list**
-> Array&lt;GenericUpstream&gt; repos_upstream_generic_list(owner, identifier, opts)
-
-List Generic upstream configs for this repository.
+> <Array<GenericUpstream>> repos_upstream_generic_list(owner, identifier, opts)
 
 List Generic upstream configs for this repository.
 
-### Example
+List Generic upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5771,33 +7115,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Generic upstream configs for this repository.
+  # List Generic upstream configs for this repository.
   result = api_instance.repos_upstream_generic_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_generic_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_generic_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_generic_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<GenericUpstream>>, Integer, Hash)> repos_upstream_generic_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Generic upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_generic_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<GenericUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_generic_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -5809,28 +7168,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_generic_partial_update
 
-# **repos_upstream_generic_partial_update**
-> GenericUpstream repos_upstream_generic_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Generic upstream config for this repository.
+> <GenericUpstream> repos_upstream_generic_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Generic upstream config for this repository.
 
-### Example
+Partially update a Generic upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5838,34 +7198,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::GenericUpstreamRequestPatch.new # GenericUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Generic upstream config for this repository.
+  # Partially update a Generic upstream config for this repository.
   result = api_instance.repos_upstream_generic_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_generic_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_generic_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_generic_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GenericUpstream>, Integer, Hash)> repos_upstream_generic_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Generic upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_generic_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GenericUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_generic_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**GenericUpstreamRequestPatch**](GenericUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**GenericUpstreamRequestPatch**](GenericUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -5877,28 +7251,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_generic_read
 
-# **repos_upstream_generic_read**
-> GenericUpstream repos_upstream_generic_read(owner, identifier, slug_perm)
-
-Retrieve a Generic upstream config for this repository.
+> <GenericUpstream> repos_upstream_generic_read(owner, identifier, slug_perm)
 
 Retrieve a Generic upstream config for this repository.
 
-### Example
+Retrieve a Generic upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5906,30 +7281,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Generic upstream config for this repository.
+  # Retrieve a Generic upstream config for this repository.
   result = api_instance.repos_upstream_generic_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_generic_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_generic_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_generic_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GenericUpstream>, Integer, Hash)> repos_upstream_generic_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Generic upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_generic_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GenericUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_generic_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -5941,28 +7330,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_generic_update
 
-# **repos_upstream_generic_update**
-> GenericUpstream repos_upstream_generic_update(owner, identifier, slug_perm, opts)
-
-Update a Generic upstream config for this repository.
+> <GenericUpstream> repos_upstream_generic_update(owner, identifier, slug_perm, opts)
 
 Update a Generic upstream config for this repository.
 
-### Example
+Update a Generic upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -5970,34 +7360,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::GenericUpstreamRequest.new # GenericUpstreamRequest | 
 }
 
 begin
-  #Update a Generic upstream config for this repository.
+  # Update a Generic upstream config for this repository.
   result = api_instance.repos_upstream_generic_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_generic_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_generic_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_generic_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GenericUpstream>, Integer, Hash)> repos_upstream_generic_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Generic upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_generic_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GenericUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_generic_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**GenericUpstreamRequest**](GenericUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -6009,28 +7413,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_go_create
 
-# **repos_upstream_go_create**
-> GoUpstream repos_upstream_go_create(owner, identifier, opts)
-
-Create a Go upstream config for this repository.
+> <GoUpstream> repos_upstream_go_create(owner, identifier, opts)
 
 Create a Go upstream config for this repository.
 
-### Example
+Create a Go upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6038,31 +7443,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::GoUpstreamRequest.new # GoUpstreamRequest | 
 }
 
 begin
-  #Create a Go upstream config for this repository.
+  # Create a Go upstream config for this repository.
   result = api_instance.repos_upstream_go_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_go_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_go_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_go_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GoUpstream>, Integer, Hash)> repos_upstream_go_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Go upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_go_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_go_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**GoUpstreamRequest**](GoUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**GoUpstreamRequest**](GoUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -6074,28 +7494,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_go_delete
 
-# **repos_upstream_go_delete**
 > repos_upstream_go_delete(owner, identifier, slug_perm)
 
 Delete a Go upstream config for this repository.
 
 Delete a Go upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6103,29 +7524,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Go upstream config for this repository.
+  # Delete a Go upstream config for this repository.
   api_instance.repos_upstream_go_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_go_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_go_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_go_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_go_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Go upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_go_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_go_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -6137,28 +7572,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_go_list
 
-# **repos_upstream_go_list**
-> Array&lt;GoUpstream&gt; repos_upstream_go_list(owner, identifier, opts)
-
-List Go upstream configs for this repository.
+> <Array<GoUpstream>> repos_upstream_go_list(owner, identifier, opts)
 
 List Go upstream configs for this repository.
 
-### Example
+List Go upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6166,33 +7602,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Go upstream configs for this repository.
+  # List Go upstream configs for this repository.
   result = api_instance.repos_upstream_go_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_go_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_go_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_go_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<GoUpstream>>, Integer, Hash)> repos_upstream_go_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Go upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_go_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<GoUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_go_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -6204,28 +7655,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_go_partial_update
 
-# **repos_upstream_go_partial_update**
-> GoUpstream repos_upstream_go_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Go upstream config for this repository.
+> <GoUpstream> repos_upstream_go_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Go upstream config for this repository.
 
-### Example
+Partially update a Go upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6233,34 +7685,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::GoUpstreamRequestPatch.new # GoUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Go upstream config for this repository.
+  # Partially update a Go upstream config for this repository.
   result = api_instance.repos_upstream_go_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_go_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_go_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_go_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GoUpstream>, Integer, Hash)> repos_upstream_go_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Go upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_go_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_go_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**GoUpstreamRequestPatch**](GoUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**GoUpstreamRequestPatch**](GoUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -6272,28 +7738,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_go_read
 
-# **repos_upstream_go_read**
-> GoUpstream repos_upstream_go_read(owner, identifier, slug_perm)
-
-Retrieve a Go upstream config for this repository.
+> <GoUpstream> repos_upstream_go_read(owner, identifier, slug_perm)
 
 Retrieve a Go upstream config for this repository.
 
-### Example
+Retrieve a Go upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6301,30 +7768,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Go upstream config for this repository.
+  # Retrieve a Go upstream config for this repository.
   result = api_instance.repos_upstream_go_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_go_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_go_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_go_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GoUpstream>, Integer, Hash)> repos_upstream_go_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Go upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_go_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_go_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -6336,28 +7817,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_go_update
 
-# **repos_upstream_go_update**
-> GoUpstream repos_upstream_go_update(owner, identifier, slug_perm, opts)
-
-Update a Go upstream config for this repository.
+> <GoUpstream> repos_upstream_go_update(owner, identifier, slug_perm, opts)
 
 Update a Go upstream config for this repository.
 
-### Example
+Update a Go upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6365,34 +7847,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::GoUpstreamRequest.new # GoUpstreamRequest | 
 }
 
 begin
-  #Update a Go upstream config for this repository.
+  # Update a Go upstream config for this repository.
   result = api_instance.repos_upstream_go_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_go_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_go_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_go_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GoUpstream>, Integer, Hash)> repos_upstream_go_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Go upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_go_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GoUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_go_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**GoUpstreamRequest**](GoUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**GoUpstreamRequest**](GoUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -6404,28 +7900,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_helm_create
 
-# **repos_upstream_helm_create**
-> HelmUpstream repos_upstream_helm_create(owner, identifier, opts)
-
-Create a Helm upstream config for this repository.
+> <HelmUpstream> repos_upstream_helm_create(owner, identifier, opts)
 
 Create a Helm upstream config for this repository.
 
-### Example
+Create a Helm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6433,31 +7930,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HelmUpstreamRequest.new # HelmUpstreamRequest | 
 }
 
 begin
-  #Create a Helm upstream config for this repository.
+  # Create a Helm upstream config for this repository.
   result = api_instance.repos_upstream_helm_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_helm_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_helm_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_helm_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HelmUpstream>, Integer, Hash)> repos_upstream_helm_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Helm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_helm_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HelmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_helm_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**HelmUpstreamRequest**](HelmUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**HelmUpstreamRequest**](HelmUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -6469,28 +7981,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_helm_delete
 
-# **repos_upstream_helm_delete**
 > repos_upstream_helm_delete(owner, identifier, slug_perm)
 
 Delete a Helm upstream config for this repository.
 
 Delete a Helm upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6498,29 +8011,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Helm upstream config for this repository.
+  # Delete a Helm upstream config for this repository.
   api_instance.repos_upstream_helm_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_helm_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_helm_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_helm_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_helm_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Helm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_helm_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_helm_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -6532,28 +8059,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_helm_list
 
-# **repos_upstream_helm_list**
-> Array&lt;HelmUpstream&gt; repos_upstream_helm_list(owner, identifier, opts)
-
-List Helm upstream configs for this repository.
+> <Array<HelmUpstream>> repos_upstream_helm_list(owner, identifier, opts)
 
 List Helm upstream configs for this repository.
 
-### Example
+List Helm upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6561,33 +8089,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Helm upstream configs for this repository.
+  # List Helm upstream configs for this repository.
   result = api_instance.repos_upstream_helm_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_helm_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_helm_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_helm_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<HelmUpstream>>, Integer, Hash)> repos_upstream_helm_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Helm upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_helm_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<HelmUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_helm_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -6599,28 +8142,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_helm_partial_update
 
-# **repos_upstream_helm_partial_update**
-> HelmUpstream repos_upstream_helm_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Helm upstream config for this repository.
+> <HelmUpstream> repos_upstream_helm_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Helm upstream config for this repository.
 
-### Example
+Partially update a Helm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6628,34 +8172,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HelmUpstreamRequestPatch.new # HelmUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Helm upstream config for this repository.
+  # Partially update a Helm upstream config for this repository.
   result = api_instance.repos_upstream_helm_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_helm_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_helm_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_helm_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HelmUpstream>, Integer, Hash)> repos_upstream_helm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Helm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_helm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HelmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_helm_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**HelmUpstreamRequestPatch**](HelmUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**HelmUpstreamRequestPatch**](HelmUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -6667,28 +8225,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_helm_read
 
-# **repos_upstream_helm_read**
-> HelmUpstream repos_upstream_helm_read(owner, identifier, slug_perm)
-
-Retrieve a Helm upstream config for this repository.
+> <HelmUpstream> repos_upstream_helm_read(owner, identifier, slug_perm)
 
 Retrieve a Helm upstream config for this repository.
 
-### Example
+Retrieve a Helm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6696,30 +8255,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Helm upstream config for this repository.
+  # Retrieve a Helm upstream config for this repository.
   result = api_instance.repos_upstream_helm_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_helm_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_helm_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_helm_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HelmUpstream>, Integer, Hash)> repos_upstream_helm_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Helm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_helm_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HelmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_helm_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -6731,28 +8304,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_helm_update
 
-# **repos_upstream_helm_update**
-> HelmUpstream repos_upstream_helm_update(owner, identifier, slug_perm, opts)
-
-Update a Helm upstream config for this repository.
+> <HelmUpstream> repos_upstream_helm_update(owner, identifier, slug_perm, opts)
 
 Update a Helm upstream config for this repository.
 
-### Example
+Update a Helm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6760,34 +8334,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HelmUpstreamRequest.new # HelmUpstreamRequest | 
 }
 
 begin
-  #Update a Helm upstream config for this repository.
+  # Update a Helm upstream config for this repository.
   result = api_instance.repos_upstream_helm_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_helm_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_helm_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_helm_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HelmUpstream>, Integer, Hash)> repos_upstream_helm_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Helm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_helm_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HelmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_helm_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**HelmUpstreamRequest**](HelmUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**HelmUpstreamRequest**](HelmUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -6799,28 +8387,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_hex_create
 
-# **repos_upstream_hex_create**
-> HexUpstream repos_upstream_hex_create(owner, identifier, opts)
-
-Create a Hex upstream config for this repository.
+> <HexUpstream> repos_upstream_hex_create(owner, identifier, opts)
 
 Create a Hex upstream config for this repository.
 
-### Example
+Create a Hex upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6828,31 +8417,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HexUpstreamRequest.new # HexUpstreamRequest | 
 }
 
 begin
-  #Create a Hex upstream config for this repository.
+  # Create a Hex upstream config for this repository.
   result = api_instance.repos_upstream_hex_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_hex_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_hex_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_hex_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HexUpstream>, Integer, Hash)> repos_upstream_hex_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Hex upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_hex_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HexUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_hex_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**HexUpstreamRequest**](HexUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**HexUpstreamRequest**](HexUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -6864,28 +8468,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_hex_delete
 
-# **repos_upstream_hex_delete**
 > repos_upstream_hex_delete(owner, identifier, slug_perm)
 
 Delete a Hex upstream config for this repository.
 
 Delete a Hex upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6893,29 +8498,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Hex upstream config for this repository.
+  # Delete a Hex upstream config for this repository.
   api_instance.repos_upstream_hex_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_hex_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_hex_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_hex_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_hex_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Hex upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_hex_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_hex_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -6927,28 +8546,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_hex_list
 
-# **repos_upstream_hex_list**
-> Array&lt;HexUpstream&gt; repos_upstream_hex_list(owner, identifier, opts)
-
-List Hex upstream configs for this repository.
+> <Array<HexUpstream>> repos_upstream_hex_list(owner, identifier, opts)
 
 List Hex upstream configs for this repository.
 
-### Example
+List Hex upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -6956,33 +8576,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Hex upstream configs for this repository.
+  # List Hex upstream configs for this repository.
   result = api_instance.repos_upstream_hex_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_hex_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_hex_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_hex_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<HexUpstream>>, Integer, Hash)> repos_upstream_hex_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Hex upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_hex_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<HexUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_hex_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -6994,28 +8629,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_hex_partial_update
 
-# **repos_upstream_hex_partial_update**
-> HexUpstream repos_upstream_hex_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Hex upstream config for this repository.
+> <HexUpstream> repos_upstream_hex_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Hex upstream config for this repository.
 
-### Example
+Partially update a Hex upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7023,34 +8659,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HexUpstreamRequestPatch.new # HexUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Hex upstream config for this repository.
+  # Partially update a Hex upstream config for this repository.
   result = api_instance.repos_upstream_hex_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_hex_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_hex_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_hex_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HexUpstream>, Integer, Hash)> repos_upstream_hex_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Hex upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_hex_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HexUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_hex_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**HexUpstreamRequestPatch**](HexUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**HexUpstreamRequestPatch**](HexUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -7062,28 +8712,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_hex_read
 
-# **repos_upstream_hex_read**
-> HexUpstream repos_upstream_hex_read(owner, identifier, slug_perm)
-
-Retrieve a Hex upstream config for this repository.
+> <HexUpstream> repos_upstream_hex_read(owner, identifier, slug_perm)
 
 Retrieve a Hex upstream config for this repository.
 
-### Example
+Retrieve a Hex upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7091,30 +8742,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Hex upstream config for this repository.
+  # Retrieve a Hex upstream config for this repository.
   result = api_instance.repos_upstream_hex_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_hex_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_hex_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_hex_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HexUpstream>, Integer, Hash)> repos_upstream_hex_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Hex upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_hex_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HexUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_hex_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -7126,28 +8791,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_hex_update
 
-# **repos_upstream_hex_update**
-> HexUpstream repos_upstream_hex_update(owner, identifier, slug_perm, opts)
-
-Update a Hex upstream config for this repository.
+> <HexUpstream> repos_upstream_hex_update(owner, identifier, slug_perm, opts)
 
 Update a Hex upstream config for this repository.
 
-### Example
+Update a Hex upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7155,34 +8821,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HexUpstreamRequest.new # HexUpstreamRequest | 
 }
 
 begin
-  #Update a Hex upstream config for this repository.
+  # Update a Hex upstream config for this repository.
   result = api_instance.repos_upstream_hex_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_hex_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_hex_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_hex_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HexUpstream>, Integer, Hash)> repos_upstream_hex_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Hex upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_hex_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HexUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_hex_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**HexUpstreamRequest**](HexUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**HexUpstreamRequest**](HexUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -7194,28 +8874,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_huggingface_create
 
-# **repos_upstream_huggingface_create**
-> HuggingfaceUpstream repos_upstream_huggingface_create(owner, identifier, opts)
-
-Create a HuggingFace upstream config for this repository.
+> <HuggingfaceUpstream> repos_upstream_huggingface_create(owner, identifier, opts)
 
 Create a HuggingFace upstream config for this repository.
 
-### Example
+Create a HuggingFace upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7223,31 +8904,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HuggingfaceUpstreamRequest.new # HuggingfaceUpstreamRequest | 
 }
 
 begin
-  #Create a HuggingFace upstream config for this repository.
+  # Create a HuggingFace upstream config for this repository.
   result = api_instance.repos_upstream_huggingface_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_huggingface_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_huggingface_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_huggingface_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HuggingfaceUpstream>, Integer, Hash)> repos_upstream_huggingface_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a HuggingFace upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_huggingface_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HuggingfaceUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_huggingface_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**HuggingfaceUpstreamRequest**](HuggingfaceUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**HuggingfaceUpstreamRequest**](HuggingfaceUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -7259,28 +8955,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_huggingface_delete
 
-# **repos_upstream_huggingface_delete**
 > repos_upstream_huggingface_delete(owner, identifier, slug_perm)
 
 Delete a HuggingFace upstream config for this repository.
 
 Delete a HuggingFace upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7288,29 +8985,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a HuggingFace upstream config for this repository.
+  # Delete a HuggingFace upstream config for this repository.
   api_instance.repos_upstream_huggingface_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_huggingface_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_huggingface_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_huggingface_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_huggingface_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a HuggingFace upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_huggingface_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_huggingface_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -7322,28 +9033,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_huggingface_list
 
-# **repos_upstream_huggingface_list**
-> Array&lt;HuggingfaceUpstream&gt; repos_upstream_huggingface_list(owner, identifier, opts)
-
-List HuggingFace upstream configs for this repository.
+> <Array<HuggingfaceUpstream>> repos_upstream_huggingface_list(owner, identifier, opts)
 
 List HuggingFace upstream configs for this repository.
 
-### Example
+List HuggingFace upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7351,33 +9063,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List HuggingFace upstream configs for this repository.
+  # List HuggingFace upstream configs for this repository.
   result = api_instance.repos_upstream_huggingface_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_huggingface_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_huggingface_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_huggingface_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<HuggingfaceUpstream>>, Integer, Hash)> repos_upstream_huggingface_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List HuggingFace upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_huggingface_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<HuggingfaceUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_huggingface_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -7389,28 +9116,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_huggingface_partial_update
 
-# **repos_upstream_huggingface_partial_update**
-> HuggingfaceUpstream repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a HuggingFace upstream config for this repository.
+> <HuggingfaceUpstream> repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a HuggingFace upstream config for this repository.
 
-### Example
+Partially update a HuggingFace upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7418,34 +9146,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HuggingfaceUpstreamRequestPatch.new # HuggingfaceUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a HuggingFace upstream config for this repository.
+  # Partially update a HuggingFace upstream config for this repository.
   result = api_instance.repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_huggingface_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_huggingface_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_huggingface_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HuggingfaceUpstream>, Integer, Hash)> repos_upstream_huggingface_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a HuggingFace upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_huggingface_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HuggingfaceUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_huggingface_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**HuggingfaceUpstreamRequestPatch**](HuggingfaceUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**HuggingfaceUpstreamRequestPatch**](HuggingfaceUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -7457,28 +9199,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_huggingface_read
 
-# **repos_upstream_huggingface_read**
-> HuggingfaceUpstream repos_upstream_huggingface_read(owner, identifier, slug_perm)
-
-Retrieve a HuggingFace upstream config for this repository.
+> <HuggingfaceUpstream> repos_upstream_huggingface_read(owner, identifier, slug_perm)
 
 Retrieve a HuggingFace upstream config for this repository.
 
-### Example
+Retrieve a HuggingFace upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7486,30 +9229,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a HuggingFace upstream config for this repository.
+  # Retrieve a HuggingFace upstream config for this repository.
   result = api_instance.repos_upstream_huggingface_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_huggingface_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_huggingface_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_huggingface_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HuggingfaceUpstream>, Integer, Hash)> repos_upstream_huggingface_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a HuggingFace upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_huggingface_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HuggingfaceUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_huggingface_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -7521,28 +9278,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_huggingface_update
 
-# **repos_upstream_huggingface_update**
-> HuggingfaceUpstream repos_upstream_huggingface_update(owner, identifier, slug_perm, opts)
-
-Update a HuggingFace upstream config for this repository.
+> <HuggingfaceUpstream> repos_upstream_huggingface_update(owner, identifier, slug_perm, opts)
 
 Update a HuggingFace upstream config for this repository.
 
-### Example
+Update a HuggingFace upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7550,34 +9308,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::HuggingfaceUpstreamRequest.new # HuggingfaceUpstreamRequest | 
 }
 
 begin
-  #Update a HuggingFace upstream config for this repository.
+  # Update a HuggingFace upstream config for this repository.
   result = api_instance.repos_upstream_huggingface_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_huggingface_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_huggingface_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_huggingface_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HuggingfaceUpstream>, Integer, Hash)> repos_upstream_huggingface_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a HuggingFace upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_huggingface_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HuggingfaceUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_huggingface_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**HuggingfaceUpstreamRequest**](HuggingfaceUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**HuggingfaceUpstreamRequest**](HuggingfaceUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -7589,28 +9361,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_maven_create
 
-# **repos_upstream_maven_create**
-> MavenUpstream repos_upstream_maven_create(owner, identifier, opts)
-
-Create a Maven upstream config for this repository.
+> <MavenUpstream> repos_upstream_maven_create(owner, identifier, opts)
 
 Create a Maven upstream config for this repository.
 
-### Example
+Create a Maven upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7618,31 +9391,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::MavenUpstreamRequest.new # MavenUpstreamRequest | 
 }
 
 begin
-  #Create a Maven upstream config for this repository.
+  # Create a Maven upstream config for this repository.
   result = api_instance.repos_upstream_maven_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_maven_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_maven_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_maven_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MavenUpstream>, Integer, Hash)> repos_upstream_maven_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Maven upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_maven_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MavenUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_maven_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**MavenUpstreamRequest**](MavenUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**MavenUpstreamRequest**](MavenUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -7654,28 +9442,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_maven_delete
 
-# **repos_upstream_maven_delete**
 > repos_upstream_maven_delete(owner, identifier, slug_perm)
 
 Delete a Maven upstream config for this repository.
 
 Delete a Maven upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7683,29 +9472,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Maven upstream config for this repository.
+  # Delete a Maven upstream config for this repository.
   api_instance.repos_upstream_maven_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_maven_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_maven_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_maven_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_maven_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Maven upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_maven_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_maven_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -7717,28 +9520,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_maven_list
 
-# **repos_upstream_maven_list**
-> Array&lt;MavenUpstream&gt; repos_upstream_maven_list(owner, identifier, opts)
-
-List Maven upstream configs for this repository.
+> <Array<MavenUpstream>> repos_upstream_maven_list(owner, identifier, opts)
 
 List Maven upstream configs for this repository.
 
-### Example
+List Maven upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7746,33 +9550,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Maven upstream configs for this repository.
+  # List Maven upstream configs for this repository.
   result = api_instance.repos_upstream_maven_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_maven_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_maven_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_maven_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<MavenUpstream>>, Integer, Hash)> repos_upstream_maven_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Maven upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_maven_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<MavenUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_maven_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -7784,28 +9603,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_maven_partial_update
 
-# **repos_upstream_maven_partial_update**
-> MavenUpstream repos_upstream_maven_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Maven upstream config for this repository.
+> <MavenUpstream> repos_upstream_maven_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Maven upstream config for this repository.
 
-### Example
+Partially update a Maven upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7813,34 +9633,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::MavenUpstreamRequestPatch.new # MavenUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Maven upstream config for this repository.
+  # Partially update a Maven upstream config for this repository.
   result = api_instance.repos_upstream_maven_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_maven_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_maven_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_maven_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MavenUpstream>, Integer, Hash)> repos_upstream_maven_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Maven upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_maven_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MavenUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_maven_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**MavenUpstreamRequestPatch**](MavenUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**MavenUpstreamRequestPatch**](MavenUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -7852,28 +9686,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_maven_read
 
-# **repos_upstream_maven_read**
-> MavenUpstream repos_upstream_maven_read(owner, identifier, slug_perm)
-
-Retrieve a Maven upstream config for this repository.
+> <MavenUpstream> repos_upstream_maven_read(owner, identifier, slug_perm)
 
 Retrieve a Maven upstream config for this repository.
 
-### Example
+Retrieve a Maven upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7881,30 +9716,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Maven upstream config for this repository.
+  # Retrieve a Maven upstream config for this repository.
   result = api_instance.repos_upstream_maven_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_maven_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_maven_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_maven_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MavenUpstream>, Integer, Hash)> repos_upstream_maven_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Maven upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_maven_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MavenUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_maven_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -7916,28 +9765,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_maven_update
 
-# **repos_upstream_maven_update**
-> MavenUpstream repos_upstream_maven_update(owner, identifier, slug_perm, opts)
-
-Update a Maven upstream config for this repository.
+> <MavenUpstream> repos_upstream_maven_update(owner, identifier, slug_perm, opts)
 
 Update a Maven upstream config for this repository.
 
-### Example
+Update a Maven upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -7945,34 +9795,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::MavenUpstreamRequest.new # MavenUpstreamRequest | 
 }
 
 begin
-  #Update a Maven upstream config for this repository.
+  # Update a Maven upstream config for this repository.
   result = api_instance.repos_upstream_maven_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_maven_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_maven_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_maven_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MavenUpstream>, Integer, Hash)> repos_upstream_maven_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Maven upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_maven_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MavenUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_maven_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**MavenUpstreamRequest**](MavenUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**MavenUpstreamRequest**](MavenUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -7984,28 +9848,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_nix_create
 
-# **repos_upstream_nix_create**
-> NixUpstream repos_upstream_nix_create(owner, identifier, opts)
-
-Create a Nix upstream config for this repository.
+> <NixUpstream> repos_upstream_nix_create(owner, identifier, opts)
 
 Create a Nix upstream config for this repository.
 
-### Example
+Create a Nix upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8013,31 +9878,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NixUpstreamRequest.new # NixUpstreamRequest | 
 }
 
 begin
-  #Create a Nix upstream config for this repository.
+  # Create a Nix upstream config for this repository.
   result = api_instance.repos_upstream_nix_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nix_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nix_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_nix_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NixUpstream>, Integer, Hash)> repos_upstream_nix_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Nix upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nix_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NixUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nix_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -8049,28 +9929,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_nix_delete
 
-# **repos_upstream_nix_delete**
 > repos_upstream_nix_delete(owner, identifier, slug_perm)
 
 Delete a Nix upstream config for this repository.
 
 Delete a Nix upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8078,29 +9959,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Nix upstream config for this repository.
+  # Delete a Nix upstream config for this repository.
   api_instance.repos_upstream_nix_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nix_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nix_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_nix_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_nix_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Nix upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nix_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nix_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -8112,28 +10007,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_nix_list
 
-# **repos_upstream_nix_list**
-> Array&lt;NixUpstream&gt; repos_upstream_nix_list(owner, identifier, opts)
-
-List Nix upstream configs for this repository.
+> <Array<NixUpstream>> repos_upstream_nix_list(owner, identifier, opts)
 
 List Nix upstream configs for this repository.
 
-### Example
+List Nix upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8141,33 +10037,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Nix upstream configs for this repository.
+  # List Nix upstream configs for this repository.
   result = api_instance.repos_upstream_nix_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nix_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nix_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_nix_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<NixUpstream>>, Integer, Hash)> repos_upstream_nix_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Nix upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nix_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<NixUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nix_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -8179,28 +10090,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_nix_partial_update
 
-# **repos_upstream_nix_partial_update**
-> NixUpstream repos_upstream_nix_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Nix upstream config for this repository.
+> <NixUpstream> repos_upstream_nix_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Nix upstream config for this repository.
 
-### Example
+Partially update a Nix upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8208,34 +10120,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NixUpstreamRequestPatch.new # NixUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Nix upstream config for this repository.
+  # Partially update a Nix upstream config for this repository.
   result = api_instance.repos_upstream_nix_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nix_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nix_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_nix_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NixUpstream>, Integer, Hash)> repos_upstream_nix_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Nix upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nix_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NixUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nix_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**NixUpstreamRequestPatch**](NixUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**NixUpstreamRequestPatch**](NixUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -8247,28 +10173,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_nix_read
 
-# **repos_upstream_nix_read**
-> NixUpstream repos_upstream_nix_read(owner, identifier, slug_perm)
-
-Retrieve a Nix upstream config for this repository.
+> <NixUpstream> repos_upstream_nix_read(owner, identifier, slug_perm)
 
 Retrieve a Nix upstream config for this repository.
 
-### Example
+Retrieve a Nix upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8276,30 +10203,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Nix upstream config for this repository.
+  # Retrieve a Nix upstream config for this repository.
   result = api_instance.repos_upstream_nix_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nix_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nix_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_nix_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NixUpstream>, Integer, Hash)> repos_upstream_nix_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Nix upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nix_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NixUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nix_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -8311,28 +10252,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_nix_update
 
-# **repos_upstream_nix_update**
-> NixUpstream repos_upstream_nix_update(owner, identifier, slug_perm, opts)
-
-Update a Nix upstream config for this repository.
+> <NixUpstream> repos_upstream_nix_update(owner, identifier, slug_perm, opts)
 
 Update a Nix upstream config for this repository.
 
-### Example
+Update a Nix upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8340,34 +10282,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NixUpstreamRequest.new # NixUpstreamRequest | 
 }
 
 begin
-  #Update a Nix upstream config for this repository.
+  # Update a Nix upstream config for this repository.
   result = api_instance.repos_upstream_nix_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nix_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nix_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_nix_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NixUpstream>, Integer, Hash)> repos_upstream_nix_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Nix upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nix_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NixUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nix_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**NixUpstreamRequest**](NixUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -8379,28 +10335,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_npm_create
 
-# **repos_upstream_npm_create**
-> NpmUpstream repos_upstream_npm_create(owner, identifier, opts)
-
-Create a npm upstream config for this repository.
+> <NpmUpstream> repos_upstream_npm_create(owner, identifier, opts)
 
 Create a npm upstream config for this repository.
 
-### Example
+Create a npm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8408,31 +10365,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NpmUpstreamRequest.new # NpmUpstreamRequest | 
 }
 
 begin
-  #Create a npm upstream config for this repository.
+  # Create a npm upstream config for this repository.
   result = api_instance.repos_upstream_npm_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_npm_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_npm_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_npm_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NpmUpstream>, Integer, Hash)> repos_upstream_npm_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a npm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_npm_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_npm_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**NpmUpstreamRequest**](NpmUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**NpmUpstreamRequest**](NpmUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -8444,28 +10416,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_npm_delete
 
-# **repos_upstream_npm_delete**
 > repos_upstream_npm_delete(owner, identifier, slug_perm)
 
 Delete a npm upstream config for this repository.
 
 Delete a npm upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8473,29 +10446,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a npm upstream config for this repository.
+  # Delete a npm upstream config for this repository.
   api_instance.repos_upstream_npm_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_npm_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_npm_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_npm_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_npm_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a npm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_npm_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_npm_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -8507,28 +10494,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_npm_list
 
-# **repos_upstream_npm_list**
-> Array&lt;NpmUpstream&gt; repos_upstream_npm_list(owner, identifier, opts)
-
-List npm upstream configs for this repository.
+> <Array<NpmUpstream>> repos_upstream_npm_list(owner, identifier, opts)
 
 List npm upstream configs for this repository.
 
-### Example
+List npm upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8536,33 +10524,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List npm upstream configs for this repository.
+  # List npm upstream configs for this repository.
   result = api_instance.repos_upstream_npm_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_npm_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_npm_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_npm_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<NpmUpstream>>, Integer, Hash)> repos_upstream_npm_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List npm upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_npm_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<NpmUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_npm_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -8574,28 +10577,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_npm_partial_update
 
-# **repos_upstream_npm_partial_update**
-> NpmUpstream repos_upstream_npm_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a npm upstream config for this repository.
+> <NpmUpstream> repos_upstream_npm_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a npm upstream config for this repository.
 
-### Example
+Partially update a npm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8603,34 +10607,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NpmUpstreamRequestPatch.new # NpmUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a npm upstream config for this repository.
+  # Partially update a npm upstream config for this repository.
   result = api_instance.repos_upstream_npm_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_npm_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_npm_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_npm_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NpmUpstream>, Integer, Hash)> repos_upstream_npm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a npm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_npm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_npm_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**NpmUpstreamRequestPatch**](NpmUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**NpmUpstreamRequestPatch**](NpmUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -8642,28 +10660,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_npm_read
 
-# **repos_upstream_npm_read**
-> NpmUpstream repos_upstream_npm_read(owner, identifier, slug_perm)
-
-Retrieve a npm upstream config for this repository.
+> <NpmUpstream> repos_upstream_npm_read(owner, identifier, slug_perm)
 
 Retrieve a npm upstream config for this repository.
 
-### Example
+Retrieve a npm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8671,30 +10690,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a npm upstream config for this repository.
+  # Retrieve a npm upstream config for this repository.
   result = api_instance.repos_upstream_npm_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_npm_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_npm_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_npm_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NpmUpstream>, Integer, Hash)> repos_upstream_npm_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a npm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_npm_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_npm_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -8706,28 +10739,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_npm_update
 
-# **repos_upstream_npm_update**
-> NpmUpstream repos_upstream_npm_update(owner, identifier, slug_perm, opts)
-
-Update a npm upstream config for this repository.
+> <NpmUpstream> repos_upstream_npm_update(owner, identifier, slug_perm, opts)
 
 Update a npm upstream config for this repository.
 
-### Example
+Update a npm upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8735,34 +10769,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NpmUpstreamRequest.new # NpmUpstreamRequest | 
 }
 
 begin
-  #Update a npm upstream config for this repository.
+  # Update a npm upstream config for this repository.
   result = api_instance.repos_upstream_npm_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_npm_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_npm_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_npm_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NpmUpstream>, Integer, Hash)> repos_upstream_npm_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a npm upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_npm_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_npm_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**NpmUpstreamRequest**](NpmUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**NpmUpstreamRequest**](NpmUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -8774,28 +10822,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_nuget_create
 
-# **repos_upstream_nuget_create**
-> NugetUpstream repos_upstream_nuget_create(owner, identifier, opts)
-
-Create a NuGet upstream config for this repository.
+> <NugetUpstream> repos_upstream_nuget_create(owner, identifier, opts)
 
 Create a NuGet upstream config for this repository.
 
-### Example
+Create a NuGet upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8803,31 +10852,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NugetUpstreamRequest.new # NugetUpstreamRequest | 
 }
 
 begin
-  #Create a NuGet upstream config for this repository.
+  # Create a NuGet upstream config for this repository.
   result = api_instance.repos_upstream_nuget_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nuget_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nuget_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_nuget_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NugetUpstream>, Integer, Hash)> repos_upstream_nuget_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a NuGet upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nuget_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NugetUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nuget_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**NugetUpstreamRequest**](NugetUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**NugetUpstreamRequest**](NugetUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -8839,28 +10903,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_nuget_delete
 
-# **repos_upstream_nuget_delete**
 > repos_upstream_nuget_delete(owner, identifier, slug_perm)
 
 Delete a NuGet upstream config for this repository.
 
 Delete a NuGet upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8868,29 +10933,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a NuGet upstream config for this repository.
+  # Delete a NuGet upstream config for this repository.
   api_instance.repos_upstream_nuget_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nuget_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nuget_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_nuget_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_nuget_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a NuGet upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nuget_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nuget_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -8902,28 +10981,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_nuget_list
 
-# **repos_upstream_nuget_list**
-> Array&lt;NugetUpstream&gt; repos_upstream_nuget_list(owner, identifier, opts)
-
-List NuGet upstream configs for this repository.
+> <Array<NugetUpstream>> repos_upstream_nuget_list(owner, identifier, opts)
 
 List NuGet upstream configs for this repository.
 
-### Example
+List NuGet upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8931,33 +11011,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List NuGet upstream configs for this repository.
+  # List NuGet upstream configs for this repository.
   result = api_instance.repos_upstream_nuget_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nuget_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nuget_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_nuget_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<NugetUpstream>>, Integer, Hash)> repos_upstream_nuget_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List NuGet upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nuget_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<NugetUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nuget_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -8969,28 +11064,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_nuget_partial_update
 
-# **repos_upstream_nuget_partial_update**
-> NugetUpstream repos_upstream_nuget_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a NuGet upstream config for this repository.
+> <NugetUpstream> repos_upstream_nuget_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a NuGet upstream config for this repository.
 
-### Example
+Partially update a NuGet upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -8998,34 +11094,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NugetUpstreamRequestPatch.new # NugetUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a NuGet upstream config for this repository.
+  # Partially update a NuGet upstream config for this repository.
   result = api_instance.repos_upstream_nuget_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nuget_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nuget_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_nuget_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NugetUpstream>, Integer, Hash)> repos_upstream_nuget_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a NuGet upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nuget_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NugetUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nuget_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**NugetUpstreamRequestPatch**](NugetUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**NugetUpstreamRequestPatch**](NugetUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -9037,28 +11147,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_nuget_read
 
-# **repos_upstream_nuget_read**
-> NugetUpstream repos_upstream_nuget_read(owner, identifier, slug_perm)
-
-Retrieve a NuGet upstream config for this repository.
+> <NugetUpstream> repos_upstream_nuget_read(owner, identifier, slug_perm)
 
 Retrieve a NuGet upstream config for this repository.
 
-### Example
+Retrieve a NuGet upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9066,30 +11177,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a NuGet upstream config for this repository.
+  # Retrieve a NuGet upstream config for this repository.
   result = api_instance.repos_upstream_nuget_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nuget_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nuget_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_nuget_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NugetUpstream>, Integer, Hash)> repos_upstream_nuget_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a NuGet upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nuget_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NugetUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nuget_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -9101,28 +11226,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_nuget_update
 
-# **repos_upstream_nuget_update**
-> NugetUpstream repos_upstream_nuget_update(owner, identifier, slug_perm, opts)
-
-Update a NuGet upstream config for this repository.
+> <NugetUpstream> repos_upstream_nuget_update(owner, identifier, slug_perm, opts)
 
 Update a NuGet upstream config for this repository.
 
-### Example
+Update a NuGet upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9130,34 +11256,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::NugetUpstreamRequest.new # NugetUpstreamRequest | 
 }
 
 begin
-  #Update a NuGet upstream config for this repository.
+  # Update a NuGet upstream config for this repository.
   result = api_instance.repos_upstream_nuget_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_nuget_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_nuget_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_nuget_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<NugetUpstream>, Integer, Hash)> repos_upstream_nuget_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a NuGet upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_nuget_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <NugetUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_nuget_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**NugetUpstreamRequest**](NugetUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**NugetUpstreamRequest**](NugetUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -9169,28 +11309,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_python_create
 
-# **repos_upstream_python_create**
-> PythonUpstream repos_upstream_python_create(owner, identifier, opts)
-
-Create a Python upstream config for this repository.
+> <PythonUpstream> repos_upstream_python_create(owner, identifier, opts)
 
 Create a Python upstream config for this repository.
 
-### Example
+Create a Python upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9198,31 +11339,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::PythonUpstreamRequest.new # PythonUpstreamRequest | 
 }
 
 begin
-  #Create a Python upstream config for this repository.
+  # Create a Python upstream config for this repository.
   result = api_instance.repos_upstream_python_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_python_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_python_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_python_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PythonUpstream>, Integer, Hash)> repos_upstream_python_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Python upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_python_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PythonUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_python_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**PythonUpstreamRequest**](PythonUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**PythonUpstreamRequest**](PythonUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -9234,28 +11390,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_python_delete
 
-# **repos_upstream_python_delete**
 > repos_upstream_python_delete(owner, identifier, slug_perm)
 
 Delete a Python upstream config for this repository.
 
 Delete a Python upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9263,29 +11420,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Python upstream config for this repository.
+  # Delete a Python upstream config for this repository.
   api_instance.repos_upstream_python_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_python_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_python_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_python_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_python_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Python upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_python_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_python_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -9297,28 +11468,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_python_list
 
-# **repos_upstream_python_list**
-> Array&lt;PythonUpstream&gt; repos_upstream_python_list(owner, identifier, opts)
-
-List Python upstream configs for this repository.
+> <Array<PythonUpstream>> repos_upstream_python_list(owner, identifier, opts)
 
 List Python upstream configs for this repository.
 
-### Example
+List Python upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9326,33 +11498,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Python upstream configs for this repository.
+  # List Python upstream configs for this repository.
   result = api_instance.repos_upstream_python_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_python_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_python_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_python_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<PythonUpstream>>, Integer, Hash)> repos_upstream_python_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Python upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_python_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<PythonUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_python_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -9364,28 +11551,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_python_partial_update
 
-# **repos_upstream_python_partial_update**
-> PythonUpstream repos_upstream_python_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Python upstream config for this repository.
+> <PythonUpstream> repos_upstream_python_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Python upstream config for this repository.
 
-### Example
+Partially update a Python upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9393,34 +11581,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::PythonUpstreamRequestPatch.new # PythonUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Python upstream config for this repository.
+  # Partially update a Python upstream config for this repository.
   result = api_instance.repos_upstream_python_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_python_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_python_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_python_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PythonUpstream>, Integer, Hash)> repos_upstream_python_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Python upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_python_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PythonUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_python_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**PythonUpstreamRequestPatch**](PythonUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**PythonUpstreamRequestPatch**](PythonUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -9432,28 +11634,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_python_read
 
-# **repos_upstream_python_read**
-> PythonUpstream repos_upstream_python_read(owner, identifier, slug_perm)
-
-Retrieve a Python upstream config for this repository.
+> <PythonUpstream> repos_upstream_python_read(owner, identifier, slug_perm)
 
 Retrieve a Python upstream config for this repository.
 
-### Example
+Retrieve a Python upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9461,30 +11664,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Python upstream config for this repository.
+  # Retrieve a Python upstream config for this repository.
   result = api_instance.repos_upstream_python_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_python_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_python_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_python_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PythonUpstream>, Integer, Hash)> repos_upstream_python_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Python upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_python_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PythonUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_python_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -9496,28 +11713,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_python_update
 
-# **repos_upstream_python_update**
-> PythonUpstream repos_upstream_python_update(owner, identifier, slug_perm, opts)
-
-Update a Python upstream config for this repository.
+> <PythonUpstream> repos_upstream_python_update(owner, identifier, slug_perm, opts)
 
 Update a Python upstream config for this repository.
 
-### Example
+Update a Python upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9525,34 +11743,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::PythonUpstreamRequest.new # PythonUpstreamRequest | 
 }
 
 begin
-  #Update a Python upstream config for this repository.
+  # Update a Python upstream config for this repository.
   result = api_instance.repos_upstream_python_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_python_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_python_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_python_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PythonUpstream>, Integer, Hash)> repos_upstream_python_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Python upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_python_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PythonUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_python_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**PythonUpstreamRequest**](PythonUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**PythonUpstreamRequest**](PythonUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -9564,28 +11796,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_rpm_create
 
-# **repos_upstream_rpm_create**
-> RpmUpstream repos_upstream_rpm_create(owner, identifier, opts)
-
-Create a RedHat upstream config for this repository.
+> <RpmUpstream> repos_upstream_rpm_create(owner, identifier, opts)
 
 Create a RedHat upstream config for this repository.
 
-### Example
+Create a RedHat upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9593,31 +11826,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RpmUpstreamRequest.new # RpmUpstreamRequest | 
 }
 
 begin
-  #Create a RedHat upstream config for this repository.
+  # Create a RedHat upstream config for this repository.
   result = api_instance.repos_upstream_rpm_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_rpm_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_rpm_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_rpm_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RpmUpstream>, Integer, Hash)> repos_upstream_rpm_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a RedHat upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_rpm_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_rpm_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RpmUpstreamRequest**](RpmUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RpmUpstreamRequest**](RpmUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -9629,28 +11877,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_rpm_delete
 
-# **repos_upstream_rpm_delete**
 > repos_upstream_rpm_delete(owner, identifier, slug_perm)
 
 Delete a RedHat upstream config for this repository.
 
 Delete a RedHat upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9658,29 +11907,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a RedHat upstream config for this repository.
+  # Delete a RedHat upstream config for this repository.
   api_instance.repos_upstream_rpm_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_rpm_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_rpm_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_rpm_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_rpm_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a RedHat upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_rpm_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_rpm_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -9692,28 +11955,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_rpm_list
 
-# **repos_upstream_rpm_list**
-> Array&lt;RpmUpstream&gt; repos_upstream_rpm_list(owner, identifier, opts)
-
-List RedHat upstream configs for this repository.
+> <Array<RpmUpstream>> repos_upstream_rpm_list(owner, identifier, opts)
 
 List RedHat upstream configs for this repository.
 
-### Example
+List RedHat upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9721,33 +11985,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List RedHat upstream configs for this repository.
+  # List RedHat upstream configs for this repository.
   result = api_instance.repos_upstream_rpm_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_rpm_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_rpm_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_rpm_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<RpmUpstream>>, Integer, Hash)> repos_upstream_rpm_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List RedHat upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_rpm_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<RpmUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_rpm_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -9759,28 +12038,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_rpm_partial_update
 
-# **repos_upstream_rpm_partial_update**
-> RpmUpstream repos_upstream_rpm_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a RedHat upstream config for this repository.
+> <RpmUpstream> repos_upstream_rpm_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a RedHat upstream config for this repository.
 
-### Example
+Partially update a RedHat upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9788,34 +12068,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RpmUpstreamRequestPatch.new # RpmUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a RedHat upstream config for this repository.
+  # Partially update a RedHat upstream config for this repository.
   result = api_instance.repos_upstream_rpm_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_rpm_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_rpm_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_rpm_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RpmUpstream>, Integer, Hash)> repos_upstream_rpm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a RedHat upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_rpm_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_rpm_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**RpmUpstreamRequestPatch**](RpmUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**RpmUpstreamRequestPatch**](RpmUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -9827,28 +12121,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_rpm_read
 
-# **repos_upstream_rpm_read**
-> RpmUpstream repos_upstream_rpm_read(owner, identifier, slug_perm)
-
-Retrieve a RedHat upstream config for this repository.
+> <RpmUpstream> repos_upstream_rpm_read(owner, identifier, slug_perm)
 
 Retrieve a RedHat upstream config for this repository.
 
-### Example
+Retrieve a RedHat upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9856,30 +12151,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a RedHat upstream config for this repository.
+  # Retrieve a RedHat upstream config for this repository.
   result = api_instance.repos_upstream_rpm_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_rpm_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_rpm_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_rpm_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RpmUpstream>, Integer, Hash)> repos_upstream_rpm_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a RedHat upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_rpm_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_rpm_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -9891,28 +12200,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_rpm_update
 
-# **repos_upstream_rpm_update**
-> RpmUpstream repos_upstream_rpm_update(owner, identifier, slug_perm, opts)
-
-Update a RedHat upstream config for this repository.
+> <RpmUpstream> repos_upstream_rpm_update(owner, identifier, slug_perm, opts)
 
 Update a RedHat upstream config for this repository.
 
-### Example
+Update a RedHat upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9920,34 +12230,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RpmUpstreamRequest.new # RpmUpstreamRequest | 
 }
 
 begin
-  #Update a RedHat upstream config for this repository.
+  # Update a RedHat upstream config for this repository.
   result = api_instance.repos_upstream_rpm_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_rpm_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_rpm_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_rpm_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RpmUpstream>, Integer, Hash)> repos_upstream_rpm_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a RedHat upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_rpm_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RpmUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_rpm_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**RpmUpstreamRequest**](RpmUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**RpmUpstreamRequest**](RpmUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -9959,28 +12283,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_ruby_create
 
-# **repos_upstream_ruby_create**
-> RubyUpstream repos_upstream_ruby_create(owner, identifier, opts)
-
-Create a Ruby upstream config for this repository.
+> <RubyUpstream> repos_upstream_ruby_create(owner, identifier, opts)
 
 Create a Ruby upstream config for this repository.
 
-### Example
+Create a Ruby upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -9988,31 +12313,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RubyUpstreamRequest.new # RubyUpstreamRequest | 
 }
 
 begin
-  #Create a Ruby upstream config for this repository.
+  # Create a Ruby upstream config for this repository.
   result = api_instance.repos_upstream_ruby_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_ruby_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_ruby_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_ruby_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RubyUpstream>, Integer, Hash)> repos_upstream_ruby_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Ruby upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_ruby_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RubyUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_ruby_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**RubyUpstreamRequest**](RubyUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**RubyUpstreamRequest**](RubyUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -10024,28 +12364,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_ruby_delete
 
-# **repos_upstream_ruby_delete**
 > repos_upstream_ruby_delete(owner, identifier, slug_perm)
 
 Delete a Ruby upstream config for this repository.
 
 Delete a Ruby upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10053,29 +12394,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Ruby upstream config for this repository.
+  # Delete a Ruby upstream config for this repository.
   api_instance.repos_upstream_ruby_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_ruby_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_ruby_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_ruby_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_ruby_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Ruby upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_ruby_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_ruby_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -10087,28 +12442,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_ruby_list
 
-# **repos_upstream_ruby_list**
-> Array&lt;RubyUpstream&gt; repos_upstream_ruby_list(owner, identifier, opts)
-
-List Ruby upstream configs for this repository.
+> <Array<RubyUpstream>> repos_upstream_ruby_list(owner, identifier, opts)
 
 List Ruby upstream configs for this repository.
 
-### Example
+List Ruby upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10116,33 +12472,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Ruby upstream configs for this repository.
+  # List Ruby upstream configs for this repository.
   result = api_instance.repos_upstream_ruby_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_ruby_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_ruby_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_ruby_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<RubyUpstream>>, Integer, Hash)> repos_upstream_ruby_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Ruby upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_ruby_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<RubyUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_ruby_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -10154,28 +12525,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_ruby_partial_update
 
-# **repos_upstream_ruby_partial_update**
-> RubyUpstream repos_upstream_ruby_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Ruby upstream config for this repository.
+> <RubyUpstream> repos_upstream_ruby_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Ruby upstream config for this repository.
 
-### Example
+Partially update a Ruby upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10183,34 +12555,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RubyUpstreamRequestPatch.new # RubyUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Ruby upstream config for this repository.
+  # Partially update a Ruby upstream config for this repository.
   result = api_instance.repos_upstream_ruby_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_ruby_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_ruby_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_ruby_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RubyUpstream>, Integer, Hash)> repos_upstream_ruby_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Ruby upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_ruby_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RubyUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_ruby_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**RubyUpstreamRequestPatch**](RubyUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**RubyUpstreamRequestPatch**](RubyUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -10222,28 +12608,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_ruby_read
 
-# **repos_upstream_ruby_read**
-> RubyUpstream repos_upstream_ruby_read(owner, identifier, slug_perm)
-
-Retrieve a Ruby upstream config for this repository.
+> <RubyUpstream> repos_upstream_ruby_read(owner, identifier, slug_perm)
 
 Retrieve a Ruby upstream config for this repository.
 
-### Example
+Retrieve a Ruby upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10251,30 +12638,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Ruby upstream config for this repository.
+  # Retrieve a Ruby upstream config for this repository.
   result = api_instance.repos_upstream_ruby_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_ruby_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_ruby_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_ruby_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RubyUpstream>, Integer, Hash)> repos_upstream_ruby_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Ruby upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_ruby_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RubyUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_ruby_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -10286,28 +12687,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_ruby_update
 
-# **repos_upstream_ruby_update**
-> RubyUpstream repos_upstream_ruby_update(owner, identifier, slug_perm, opts)
-
-Update a Ruby upstream config for this repository.
+> <RubyUpstream> repos_upstream_ruby_update(owner, identifier, slug_perm, opts)
 
 Update a Ruby upstream config for this repository.
 
-### Example
+Update a Ruby upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10315,34 +12717,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::RubyUpstreamRequest.new # RubyUpstreamRequest | 
 }
 
 begin
-  #Update a Ruby upstream config for this repository.
+  # Update a Ruby upstream config for this repository.
   result = api_instance.repos_upstream_ruby_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_ruby_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_ruby_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_ruby_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RubyUpstream>, Integer, Hash)> repos_upstream_ruby_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Ruby upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_ruby_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RubyUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_ruby_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**RubyUpstreamRequest**](RubyUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**RubyUpstreamRequest**](RubyUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -10354,28 +12770,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_swift_create
 
-# **repos_upstream_swift_create**
-> SwiftUpstream repos_upstream_swift_create(owner, identifier, opts)
-
-Create a Swift upstream config for this repository.
+> <SwiftUpstream> repos_upstream_swift_create(owner, identifier, opts)
 
 Create a Swift upstream config for this repository.
 
-### Example
+Create a Swift upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10383,31 +12800,46 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::SwiftUpstreamRequest.new # SwiftUpstreamRequest | 
 }
 
 begin
-  #Create a Swift upstream config for this repository.
+  # Create a Swift upstream config for this repository.
   result = api_instance.repos_upstream_swift_create(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_swift_create: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_swift_create: #{e}"
+end
+```
+
+#### Using the repos_upstream_swift_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SwiftUpstream>, Integer, Hash)> repos_upstream_swift_create_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # Create a Swift upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_swift_create_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SwiftUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_swift_create_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -10419,28 +12851,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_swift_delete
 
-# **repos_upstream_swift_delete**
 > repos_upstream_swift_delete(owner, identifier, slug_perm)
 
 Delete a Swift upstream config for this repository.
 
 Delete a Swift upstream config for this repository.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10448,29 +12881,43 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Delete a Swift upstream config for this repository.
+  # Delete a Swift upstream config for this repository.
   api_instance.repos_upstream_swift_delete(owner, identifier, slug_perm)
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_swift_delete: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_swift_delete: #{e}"
+end
+```
+
+#### Using the repos_upstream_swift_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> repos_upstream_swift_delete_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Delete a Swift upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_swift_delete_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_swift_delete_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -10482,28 +12929,29 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_swift_list
 
-# **repos_upstream_swift_list**
-> Array&lt;SwiftUpstream&gt; repos_upstream_swift_list(owner, identifier, opts)
-
-List Swift upstream configs for this repository.
+> <Array<SwiftUpstream>> repos_upstream_swift_list(owner, identifier, opts)
 
 List Swift upstream configs for this repository.
 
-### Example
+List Swift upstream configs for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10511,33 +12959,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #List Swift upstream configs for this repository.
+  # List Swift upstream configs for this repository.
   result = api_instance.repos_upstream_swift_list(owner, identifier, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_swift_list: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_swift_list: #{e}"
+end
+```
+
+#### Using the repos_upstream_swift_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<SwiftUpstream>>, Integer, Hash)> repos_upstream_swift_list_with_http_info(owner, identifier, opts)
+
+```ruby
+begin
+  # List Swift upstream configs for this repository.
+  data, status_code, headers = api_instance.repos_upstream_swift_list_with_http_info(owner, identifier, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<SwiftUpstream>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_swift_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -10549,28 +13012,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_swift_partial_update
 
-# **repos_upstream_swift_partial_update**
-> SwiftUpstream repos_upstream_swift_partial_update(owner, identifier, slug_perm, opts)
-
-Partially update a Swift upstream config for this repository.
+> <SwiftUpstream> repos_upstream_swift_partial_update(owner, identifier, slug_perm, opts)
 
 Partially update a Swift upstream config for this repository.
 
-### Example
+Partially update a Swift upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10578,34 +13042,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::SwiftUpstreamRequestPatch.new # SwiftUpstreamRequestPatch | 
 }
 
 begin
-  #Partially update a Swift upstream config for this repository.
+  # Partially update a Swift upstream config for this repository.
   result = api_instance.repos_upstream_swift_partial_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_swift_partial_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_swift_partial_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_swift_partial_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SwiftUpstream>, Integer, Hash)> repos_upstream_swift_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Partially update a Swift upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_swift_partial_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SwiftUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_swift_partial_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**SwiftUpstreamRequestPatch**](SwiftUpstreamRequestPatch.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**SwiftUpstreamRequestPatch**](SwiftUpstreamRequestPatch.md) |  | [optional] |
 
 ### Return type
 
@@ -10617,28 +13095,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_upstream_swift_read
 
-# **repos_upstream_swift_read**
-> SwiftUpstream repos_upstream_swift_read(owner, identifier, slug_perm)
-
-Retrieve a Swift upstream config for this repository.
+> <SwiftUpstream> repos_upstream_swift_read(owner, identifier, slug_perm)
 
 Retrieve a Swift upstream config for this repository.
 
-### Example
+Retrieve a Swift upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10646,30 +13125,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
 
-
 begin
-  #Retrieve a Swift upstream config for this repository.
+  # Retrieve a Swift upstream config for this repository.
   result = api_instance.repos_upstream_swift_read(owner, identifier, slug_perm)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_swift_read: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_swift_read: #{e}"
+end
+```
+
+#### Using the repos_upstream_swift_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SwiftUpstream>, Integer, Hash)> repos_upstream_swift_read_with_http_info(owner, identifier, slug_perm)
+
+```ruby
+begin
+  # Retrieve a Swift upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_swift_read_with_http_info(owner, identifier, slug_perm)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SwiftUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_swift_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
 
 ### Return type
 
@@ -10681,28 +13174,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_upstream_swift_update
 
-# **repos_upstream_swift_update**
-> SwiftUpstream repos_upstream_swift_update(owner, identifier, slug_perm, opts)
-
-Update a Swift upstream config for this repository.
+> <SwiftUpstream> repos_upstream_swift_update(owner, identifier, slug_perm, opts)
 
 Update a Swift upstream config for this repository.
 
-### Example
+Update a Swift upstream config for this repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10710,34 +13204,48 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
-
 slug_perm = 'slug_perm_example' # String | 
-
-opts = { 
+opts = {
   data: CloudsmithApi::SwiftUpstreamRequest.new # SwiftUpstreamRequest | 
 }
 
 begin
-  #Update a Swift upstream config for this repository.
+  # Update a Swift upstream config for this repository.
   result = api_instance.repos_upstream_swift_update(owner, identifier, slug_perm, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_upstream_swift_update: #{e}"
+  puts "Error when calling ReposApi->repos_upstream_swift_update: #{e}"
+end
+```
+
+#### Using the repos_upstream_swift_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SwiftUpstream>, Integer, Hash)> repos_upstream_swift_update_with_http_info(owner, identifier, slug_perm, opts)
+
+```ruby
+begin
+  # Update a Swift upstream config for this repository.
+  data, status_code, headers = api_instance.repos_upstream_swift_update_with_http_info(owner, identifier, slug_perm, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SwiftUpstream>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_upstream_swift_update_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
- **slug_perm** | **String**|  | 
- **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
+| **slug_perm** | **String** |  |  |
+| **data** | [**SwiftUpstreamRequest**](SwiftUpstreamRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -10749,28 +13257,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## repos_user_list
 
-# **repos_user_list**
-> Array&lt;Repository&gt; repos_user_list(opts)
-
-Get a list of all repositories associated with current user.
+> <Array<Repository>> repos_user_list(opts)
 
 Get a list of all repositories associated with current user.
 
-### Example
+Get a list of all repositories associated with current user.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10778,27 +13287,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56 # Integer | Number of results to return per page.
 }
 
 begin
-  #Get a list of all repositories associated with current user.
+  # Get a list of all repositories associated with current user.
   result = api_instance.repos_user_list(opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_user_list: #{e}"
+  puts "Error when calling ReposApi->repos_user_list: #{e}"
+end
+```
+
+#### Using the repos_user_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Repository>>, Integer, Hash)> repos_user_list_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of all repositories associated with current user.
+  data, status_code, headers = api_instance.repos_user_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Repository>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_user_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -10810,28 +13336,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_x509_ecdsa_list
 
-# **repos_x509_ecdsa_list**
-> RepositoryX509EcdsaCertificate repos_x509_ecdsa_list(owner, identifier)
-
-Retrieve the active X.509 ECDSA certificate for the Repository.
+> <RepositoryX509EcdsaCertificate> repos_x509_ecdsa_list(owner, identifier)
 
 Retrieve the active X.509 ECDSA certificate for the Repository.
 
-### Example
+Retrieve the active X.509 ECDSA certificate for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10839,27 +13366,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Retrieve the active X.509 ECDSA certificate for the Repository.
+  # Retrieve the active X.509 ECDSA certificate for the Repository.
   result = api_instance.repos_x509_ecdsa_list(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_x509_ecdsa_list: #{e}"
+  puts "Error when calling ReposApi->repos_x509_ecdsa_list: #{e}"
+end
+```
+
+#### Using the repos_x509_ecdsa_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryX509EcdsaCertificate>, Integer, Hash)> repos_x509_ecdsa_list_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Retrieve the active X.509 ECDSA certificate for the Repository.
+  data, status_code, headers = api_instance.repos_x509_ecdsa_list_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryX509EcdsaCertificate>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_x509_ecdsa_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -10871,28 +13413,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## repos_x509_rsa_list
 
-# **repos_x509_rsa_list**
-> RepositoryX509RsaCertificate repos_x509_rsa_list(owner, identifier)
-
-Retrieve the active X.509 RSA certificate for the Repository.
+> <RepositoryX509RsaCertificate> repos_x509_rsa_list(owner, identifier)
 
 Retrieve the active X.509 RSA certificate for the Repository.
 
-### Example
+Retrieve the active X.509 RSA certificate for the Repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -10900,27 +13443,42 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::ReposApi.new
-
 owner = 'owner_example' # String | 
-
 identifier = 'identifier_example' # String | 
 
-
 begin
-  #Retrieve the active X.509 RSA certificate for the Repository.
+  # Retrieve the active X.509 RSA certificate for the Repository.
   result = api_instance.repos_x509_rsa_list(owner, identifier)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling ReposApi->repos_x509_rsa_list: #{e}"
+  puts "Error when calling ReposApi->repos_x509_rsa_list: #{e}"
+end
+```
+
+#### Using the repos_x509_rsa_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositoryX509RsaCertificate>, Integer, Hash)> repos_x509_rsa_list_with_http_info(owner, identifier)
+
+```ruby
+begin
+  # Retrieve the active X.509 RSA certificate for the Repository.
+  data, status_code, headers = api_instance.repos_x509_rsa_list_with_http_info(owner, identifier)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositoryX509RsaCertificate>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling ReposApi->repos_x509_rsa_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **identifier** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **identifier** | **String** |  |  |
 
 ### Return type
 
@@ -10932,8 +13490,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

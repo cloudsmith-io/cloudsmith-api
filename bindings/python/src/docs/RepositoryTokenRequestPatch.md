@@ -1,12 +1,14 @@
 # RepositoryTokenRequestPatch
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eula_required** | **bool** | If checked, a EULA acceptance is required for this token. | [optional] 
 **is_active** | **bool** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 
 **limit_bandwidth** | **int** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  | [optional] 
-**limit_bandwidth_unit** | **str** |  | [optional] [default to 'Byte']
+**limit_bandwidth_unit** | **str** |  | [optional] 
 **limit_date_range_from** | **datetime** | The starting date/time the token is allowed to be used from. | [optional] 
 **limit_date_range_to** | **datetime** | The ending date/time the token is allowed to be used until. | [optional] 
 **limit_num_clients** | **int** | The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. | [optional] 
@@ -16,9 +18,26 @@ Name | Type | Description | Notes
 **metadata** | **object** |  | [optional] 
 **name** | **str** |  | [optional] 
 **scheduled_reset_at** | **datetime** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. | [optional] 
-**scheduled_reset_period** | **str** |  | [optional] [default to 'Never Reset']
+**scheduled_reset_period** | **str** |  | [optional] 
 **token** | **str** |  | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.repository_token_request_patch import RepositoryTokenRequestPatch
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RepositoryTokenRequestPatch from a JSON string
+repository_token_request_patch_instance = RepositoryTokenRequestPatch.from_json(json)
+# print the JSON string representation of the object
+print(RepositoryTokenRequestPatch.to_json())
+
+# convert the object into a dict
+repository_token_request_patch_dict = repository_token_request_patch_instance.to_dict()
+# create an instance of RepositoryTokenRequestPatch from a dict
+repository_token_request_patch_from_dict = RepositoryTokenRequestPatch.from_dict(repository_token_request_patch_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

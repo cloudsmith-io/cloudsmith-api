@@ -1,9 +1,20 @@
 # CloudsmithApi::DistributionVersion
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** | The textual name for this version. | [optional] 
-**slug** | **String** | The slug identifier for this version | [optional] 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** | The textual name for this version. | [optional] |
+| **slug** | **String** | The slug identifier for this version | [optional][readonly] |
+
+## Example
+
+```ruby
+require 'cloudsmith-api'
+
+instance = CloudsmithApi::DistributionVersion.new(
+  name: null,
+  slug: null
+)
+```
 

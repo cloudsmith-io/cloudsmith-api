@@ -1,45 +1,25 @@
 
+
 # FormatSupportUpstream
 
+The upstream support for the package format
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**authModes** | [**List&lt;AuthModesEnum&gt;**](#List&lt;AuthModesEnum&gt;) | The authentication modes supported by the upstream format | 
-**cacheOnly** | **Boolean** | If true the upstream format supports cache-only mode. | 
-**caching** | **Boolean** | If true the upstream format supports caching | 
-**indexing** | **Boolean** | If true the upstream format supports indexing | 
-**indexingBehavior** | [**IndexingBehaviorEnum**](#IndexingBehaviorEnum) | The behavior of the upstream when indexing |  [optional]
-**proxying** | **Boolean** | If true the upstream format supports proxying | 
-**signatureVerification** | [**SignatureVerificationEnum**](#SignatureVerificationEnum) | The signature verification supported by the upstream format |  [optional]
-**trust** | **Boolean** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | 
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**authModes** | **List&lt;String&gt;** | The authentication modes supported by the upstream format |  [optional] |
+|**cacheOnly** | **Boolean** | If true the upstream format supports cache-only mode. |  [optional] |
+|**caching** | **Boolean** | If true the upstream format supports caching |  [optional] |
+|**indexing** | **Boolean** | If true the upstream format supports indexing |  [optional] |
+|**indexingBehavior** | **String** | The behavior of the upstream when indexing |  [optional] |
+|**proxying** | **Boolean** | If true the upstream format supports proxying |  [optional] |
+|**signatureVerification** | **String** | The signature verification supported by the upstream format |  [optional] |
+|**trust** | **Boolean** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. |  [optional] |
 
 
-<a name="List<AuthModesEnum>"></a>
-## Enum: List&lt;AuthModesEnum&gt;
-Name | Value
----- | -----
-USERNAME_AND_PASSWORD | &quot;Username and Password&quot;
-TOKEN | &quot;Token&quot;
-CERTIFICATE_AND_KEY | &quot;Certificate and Key&quot;
+## Implemented Interfaces
 
-
-<a name="IndexingBehaviorEnum"></a>
-## Enum: IndexingBehaviorEnum
-Name | Value
----- | -----
-UNSUPPORTED | &quot;Unsupported&quot;
-AHEAD_OF_TIME_STATIC_INDEXING | &quot;Ahead-of-time (static) indexing&quot;
-JUST_IN_TIME_DYNAMIC_INDEXING | &quot;Just-in-time (dynamic) indexing&quot;
-
-
-<a name="SignatureVerificationEnum"></a>
-## Enum: SignatureVerificationEnum
-Name | Value
----- | -----
-UNSUPPORTED | &quot;Unsupported&quot;
-REPOSITORY_METADATA | &quot;Repository Metadata&quot;
-PACKAGES | &quot;Packages&quot;
-REPOSITORY_METADATA_AND_PACKAGES | &quot;Repository Metadata and Packages&quot;
-
+* Serializable
 
 

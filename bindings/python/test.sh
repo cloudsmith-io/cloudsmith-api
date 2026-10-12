@@ -11,3 +11,4 @@ src_dir="$self_dir/src"
 cd $src_dir
 pip install tox
 tox
+.tox/py3/bin/python -m pytest "$self_dir/tests"

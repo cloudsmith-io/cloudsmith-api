@@ -44,8 +44,83 @@ updates:
         update-types:
           - "minor"
           - "patch"
+  - package-ecosystem: "docker"
+    cooldown:
+      default-days: 7
+    directory: "/codegen/openapi-generator"
+    schedule:
+      interval: "weekly"
+    groups:
+      docker-all:
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+      docker-major:
+        patterns: ["*"]
+        update-types:
+          - "major"
+      docker-security:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "pip"
+    cooldown:
+      default-days: 7
+    directory: "/bindings/python/release"
+    schedule:
+      interval: "weekly"
+    # The package is a library. Change a range only when it excludes a new release.
+    versioning-strategy: "increase-if-necessary"
+    groups:
+      pip-all:
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+      pip-major:
+        patterns: ["*"]
+        update-types:
+          - "major"
+      pip-security:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "maven"
+    cooldown:
+      default-days: 7
+    directory: "/bindings/java/release"
+    schedule:
+      interval: "weekly"
+    ignore:
+      # These majors use the jakarta.* namespace. The generated code imports javax.*.
+      - dependency-name: "jakarta.annotation:jakarta.annotation-api"
+        versions: [">= 2"]
+      - dependency-name: "jakarta.ws.rs:jakarta.ws.rs-api"
+        versions: [">= 3"]
+    groups:
+      maven-all:
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+      maven-major:
+        patterns: ["*"]
+        update-types:
+          - "major"
+      maven-security:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
   # The build deletes and regenerates bindings/*/src, which reverts any update
-  # to these manifests. Change the codegen templates to update these versions.
+  # to these manifests. Update the Java versions in bindings/java/release/pom.xml
+  # and the Python versions in bindings/python/release/pyproject.toml.
   # The ignore rules also stop security update pull requests. The alerts stay open.
   - package-ecosystem: "maven"
     cooldown:

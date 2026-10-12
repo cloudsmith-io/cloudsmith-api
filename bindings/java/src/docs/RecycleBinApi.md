@@ -2,13 +2,13 @@
 
 All URIs are relative to *https://api.cloudsmith.io*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**recycleBinAction**](RecycleBinApi.md#recycleBinAction) | **POST** /recycle-bin/{owner}/action/ | 
-[**recycleBinList**](RecycleBinApi.md#recycleBinList) | **GET** /recycle-bin/{owner}/ | List soft-deleted packages in recycle bin
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**recycleBinAction**](RecycleBinApi.md#recycleBinAction) | **POST** /recycle-bin/{owner}/action/ |  |
+| [**recycleBinList**](RecycleBinApi.md#recycleBinList) | **GET** /recycle-bin/{owner}/ | List soft-deleted packages in recycle bin |
 
 
-<a name="recycleBinAction"></a>
+<a id="recycleBinAction"></a>
 # **recycleBinAction**
 > PackageBulkActionResponse recycleBinAction(owner, data)
 
@@ -19,43 +19,52 @@ Perform actions on soft-deleted packages in the recycle bin. Supported actions: 
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.RecycleBinApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.RecycleBinApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-RecycleBinApi apiInstance = new RecycleBinApi();
-String owner = "owner_example"; // String | 
-PackageRecycleBin data = new PackageRecycleBin(); // PackageRecycleBin | 
-try {
-    PackageBulkActionResponse result = apiInstance.recycleBinAction(owner, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling RecycleBinApi#recycleBinAction");
-    e.printStackTrace();
+    RecycleBinApi apiInstance = new RecycleBinApi(defaultClient);
+    String owner = "owner_example"; // String | 
+    PackageRecycleBin data = new PackageRecycleBin(); // PackageRecycleBin | 
+    try {
+      PackageBulkActionResponse result = apiInstance.recycleBinAction(owner, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RecycleBinApi#recycleBinAction");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  |
- **data** | [**PackageRecycleBin**](PackageRecycleBin.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**|  | |
+| **data** | [**PackageRecycleBin**](PackageRecycleBin.md)|  | [optional] |
 
 ### Return type
 
@@ -70,7 +79,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="recycleBinList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="recycleBinList"></a>
 # **recycleBinList**
 > List&lt;RecycleBinPackage&gt; recycleBinList(owner, page, pageSize, repository)
 
@@ -81,47 +97,56 @@ Retrieve all soft-deleted packages in the workspace. Optionally filter by reposi
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.RecycleBinApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.RecycleBinApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-RecycleBinApi apiInstance = new RecycleBinApi();
-String owner = "owner_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-String repository = "repository_example"; // String | Filter packages by repository slug
-try {
-    List<RecycleBinPackage> result = apiInstance.recycleBinList(owner, page, pageSize, repository);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling RecycleBinApi#recycleBinList");
-    e.printStackTrace();
+    RecycleBinApi apiInstance = new RecycleBinApi(defaultClient);
+    String owner = "owner_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    String repository = "repository_example"; // String | Filter packages by repository slug
+    try {
+      List<RecycleBinPackage> result = apiInstance.recycleBinList(owner, page, pageSize, repository);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RecycleBinApi#recycleBinList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
- **repository** | **String**| Filter packages by repository slug | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **owner** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
+| **repository** | **String**| Filter packages by repository slug | [optional] |
 
 ### Return type
 
@@ -133,6 +158,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
 

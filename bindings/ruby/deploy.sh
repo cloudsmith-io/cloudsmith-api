@@ -12,7 +12,9 @@ build_distribution() {
   echo "Building distribution ..."
   rm -f ./*.gem
   gem update bundler
-  bundle install --path vendor/bundle --clean
+  bundle config set clean true
+  bundle config set path 'vendor/bundle'
+  bundle install
   gem build ${project_dash}.gemspec
 }
 

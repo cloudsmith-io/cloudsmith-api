@@ -6,9 +6,9 @@
     "gemLicense": "Apache-2.0",
     "gemHomepage": "https://api.cloudsmith.io/?format=openapi",
     "gemName": "cloudsmith-api",
-    "gemRequiredRubyVersion": ">= 1.9",
+    "gemRequiredRubyVersion": ">= 3.3",
     "gemSummary": "Cloudsmith API",
-    "gemVersion": "2.0.37",
+    "gemVersion": "3.0.0",
     "hideGenerationTimestamp": true,
     "moduleName": "CloudsmithApi",
     "sortParamsByRequiredFlag": true

@@ -1,13 +1,20 @@
 
+
 # ConnectedRepositoryTargetSummary
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**isPrivate** | **Boolean** |  |  [optional]
-**isPublic** | **Boolean** |  |  [optional]
-**packageCount** | **java.math.BigInteger** |  |  [optional]
-**size** | **java.math.BigInteger** |  |  [optional]
 
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**isPrivate** | **Boolean** |  |  [optional] [readonly] |
+|**isPublic** | **Boolean** |  |  [optional] [readonly] |
+|**packageCount** | **java.math.BigInteger** |  |  [optional] [readonly] |
+|**size** | **java.math.BigInteger** |  |  [optional] [readonly] |
+
+
+## Implemented Interfaces
+
+* Serializable
 
 

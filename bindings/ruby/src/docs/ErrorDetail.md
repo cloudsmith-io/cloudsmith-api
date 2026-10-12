@@ -1,10 +1,22 @@
 # CloudsmithApi::ErrorDetail
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**code** | **String** | A machine-readable code for the error. Only set for validation errors. | [optional] 
-**detail** | **String** | An extended message for the response. | 
-**fields** | **Hash&lt;String, Array&lt;String&gt;&gt;** | A Dictionary of related errors where key: Field and value: Array of Errors related to that field | [optional] 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **code** | **String** | A machine-readable code for the error. Only set for validation errors. | [optional] |
+| **detail** | **String** | An extended message for the response. | [optional] |
+| **fields** | **Hash&lt;String, Array&lt;String&gt;&gt;** | A Dictionary of related errors where key: Field and value: Array of Errors related to that field | [optional] |
+
+## Example
+
+```ruby
+require 'cloudsmith-api'
+
+instance = CloudsmithApi::ErrorDetail.new(
+  code: null,
+  detail: null,
+  fields: null
+)
+```
 

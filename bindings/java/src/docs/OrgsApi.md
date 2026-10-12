@@ -2,93 +2,93 @@
 
 All URIs are relative to *https://api.cloudsmith.io*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**orgsApiKeyRulesCreate**](OrgsApi.md#orgsApiKeyRulesCreate) | **POST** /orgs/{org}/api-key-rules/ | Create an API key rule.
-[**orgsApiKeyRulesDelete**](OrgsApi.md#orgsApiKeyRulesDelete) | **DELETE** /orgs/{org}/api-key-rules/{slug_perm}/ | Delete an API key rule.
-[**orgsApiKeyRulesList**](OrgsApi.md#orgsApiKeyRulesList) | **GET** /orgs/{org}/api-key-rules/ | List all API key rules for the organization.
-[**orgsApiKeyRulesPartialUpdate**](OrgsApi.md#orgsApiKeyRulesPartialUpdate) | **PATCH** /orgs/{org}/api-key-rules/{slug_perm}/ | Update an API key rule.
-[**orgsApiKeyRulesRead**](OrgsApi.md#orgsApiKeyRulesRead) | **GET** /orgs/{org}/api-key-rules/{slug_perm}/ | Retrieve an API key rule.
-[**orgsApiKeyRulesUpdate**](OrgsApi.md#orgsApiKeyRulesUpdate) | **PUT** /orgs/{org}/api-key-rules/{slug_perm}/ | Full update of an API key rule.
-[**orgsCustomDomainsList**](OrgsApi.md#orgsCustomDomainsList) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains.
-[**orgsDelete**](OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization.
-[**orgsDenyPolicyCreate**](OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy.
-[**orgsDenyPolicyDelete**](OrgsApi.md#orgsDenyPolicyDelete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy.
-[**orgsDenyPolicyList**](OrgsApi.md#orgsDenyPolicyList) | **GET** /orgs/{org}/deny-policy/ | Get a list of all package deny policies.
-[**orgsDenyPolicyPartialUpdate**](OrgsApi.md#orgsDenyPolicyPartialUpdate) | **PATCH** /orgs/{org}/deny-policy/{slug_perm}/ | Partially update a package deny policy.
-[**orgsDenyPolicyRead**](OrgsApi.md#orgsDenyPolicyRead) | **GET** /orgs/{org}/deny-policy/{slug_perm}/ | Get a package deny policy.
-[**orgsDenyPolicyUpdate**](OrgsApi.md#orgsDenyPolicyUpdate) | **PUT** /orgs/{org}/deny-policy/{slug_perm}/ | Update a package deny policy.
-[**orgsInvitesCreate**](OrgsApi.md#orgsInvitesCreate) | **POST** /orgs/{org}/invites/ | Create an organization invite for a specific user
-[**orgsInvitesDelete**](OrgsApi.md#orgsInvitesDelete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite
-[**orgsInvitesExtend**](OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite.
-[**orgsInvitesList**](OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization.
-[**orgsInvitesPartialUpdate**](OrgsApi.md#orgsInvitesPartialUpdate) | **PATCH** /orgs/{org}/invites/{slug_perm}/ | Update a specific organization invite.
-[**orgsInvitesResend**](OrgsApi.md#orgsInvitesResend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite.
-[**orgsLicensePolicyCreate**](OrgsApi.md#orgsLicensePolicyCreate) | **POST** /orgs/{org}/license-policy/ | Create a package license policy.
-[**orgsLicensePolicyDelete**](OrgsApi.md#orgsLicensePolicyDelete) | **DELETE** /orgs/{org}/license-policy/{slug_perm}/ | Delete a package license policy.
-[**orgsLicensePolicyEvaluationCreate**](OrgsApi.md#orgsLicensePolicyEvaluationCreate) | **POST** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
-[**orgsLicensePolicyEvaluationList**](OrgsApi.md#orgsLicensePolicyEvaluationList) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
-[**orgsLicensePolicyEvaluationRead**](OrgsApi.md#orgsLicensePolicyEvaluationRead) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
-[**orgsLicensePolicyList**](OrgsApi.md#orgsLicensePolicyList) | **GET** /orgs/{org}/license-policy/ | Get a list of all package license policies.
-[**orgsLicensePolicyPartialUpdate**](OrgsApi.md#orgsLicensePolicyPartialUpdate) | **PATCH** /orgs/{org}/license-policy/{slug_perm}/ | Partially update a package license policy.
-[**orgsLicensePolicyRead**](OrgsApi.md#orgsLicensePolicyRead) | **GET** /orgs/{org}/license-policy/{slug_perm}/ | Get a package license policy.
-[**orgsLicensePolicyUpdate**](OrgsApi.md#orgsLicensePolicyUpdate) | **PUT** /orgs/{org}/license-policy/{slug_perm}/ | Update a package license policy.
-[**orgsLicensePolicyViolationList**](OrgsApi.md#orgsLicensePolicyViolationList) | **GET** /orgs/{org}/license-policy-violation/ | List all current license policy violations for this Organization.
-[**orgsList**](OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with.
-[**orgsMembersDelete**](OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization.
-[**orgsMembersList**](OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members.
-[**orgsMembersPartialUpdate**](OrgsApi.md#orgsMembersPartialUpdate) | **PATCH** /orgs/{org}/members/{member}/ | Views for working with organization members.
-[**orgsMembersRead**](OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
-[**orgsMembersRefresh**](OrgsApi.md#orgsMembersRefresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
-[**orgsMembersRemove**](OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
-[**orgsMembersUpdateRole**](OrgsApi.md#orgsMembersUpdateRole) | **PATCH** /orgs/{org}/members/{member}/update-role/ | Update a member&#39;s role in the organization.
-[**orgsMembersUpdateVisibility**](OrgsApi.md#orgsMembersUpdateVisibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
-[**orgsOpenidConnectCreate**](OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
-[**orgsOpenidConnectDelete**](OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org.
-[**orgsOpenidConnectDynamicMappingsList**](OrgsApi.md#orgsOpenidConnectDynamicMappingsList) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/ | Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
-[**orgsOpenidConnectDynamicMappingsRead**](OrgsApi.md#orgsOpenidConnectDynamicMappingsRead) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/ | Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
-[**orgsOpenidConnectList**](OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org.
-[**orgsOpenidConnectPartialUpdate**](OrgsApi.md#orgsOpenidConnectPartialUpdate) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
-[**orgsOpenidConnectRead**](OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org.
-[**orgsOpenidConnectUpdate**](OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org.
-[**orgsRead**](OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization.
-[**orgsRetrieveUsageLimits**](OrgsApi.md#orgsRetrieveUsageLimits) | **GET** /orgs/{org}/usage-limits/ | 
-[**orgsSamlAuthenticationPartialUpdate**](OrgsApi.md#orgsSamlAuthenticationPartialUpdate) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization.
-[**orgsSamlAuthenticationRead**](OrgsApi.md#orgsSamlAuthenticationRead) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization.
-[**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization.
-[**orgsSamlGroupSyncDelete**](OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization.
-[**orgsSamlGroupSyncDisable**](OrgsApi.md#orgsSamlGroupSyncDisable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization.
-[**orgsSamlGroupSyncEnable**](OrgsApi.md#orgsSamlGroupSyncEnable) | **POST** /orgs/{org}/saml-group-sync/enable/ | Enable SAML Group Sync for this organization.
-[**orgsSamlGroupSyncList**](OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization.
-[**orgsSamlGroupSyncStatus**](OrgsApi.md#orgsSamlGroupSyncStatus) | **GET** /orgs/{org}/saml-group-sync/status/ | Retrieve the SAML Group Sync status for this organization.
-[**orgsServicesCreate**](OrgsApi.md#orgsServicesCreate) | **POST** /orgs/{org}/services/ | Create a service within an organization.
-[**orgsServicesDelete**](OrgsApi.md#orgsServicesDelete) | **DELETE** /orgs/{org}/services/{service}/ | Delete a specific service
-[**orgsServicesList**](OrgsApi.md#orgsServicesList) | **GET** /orgs/{org}/services/ | Get a list of all services within an organization.
-[**orgsServicesPartialUpdate**](OrgsApi.md#orgsServicesPartialUpdate) | **PATCH** /orgs/{org}/services/{service}/ | Update a service within an organization.
-[**orgsServicesRead**](OrgsApi.md#orgsServicesRead) | **GET** /orgs/{org}/services/{service}/ | Retrieve details of a single service within an organization.
-[**orgsServicesRefresh**](OrgsApi.md#orgsServicesRefresh) | **POST** /orgs/{org}/services/{service}/refresh/ | Refresh service API token.
-[**orgsTeamsCreate**](OrgsApi.md#orgsTeamsCreate) | **POST** /orgs/{org}/teams/ | Create a team for this organization.
-[**orgsTeamsDelete**](OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization.
-[**orgsTeamsList**](OrgsApi.md#orgsTeamsList) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization.
-[**orgsTeamsMembersCreate**](OrgsApi.md#orgsTeamsMembersCreate) | **POST** /orgs/{org}/teams/{team}/members | Add users to a team.
-[**orgsTeamsMembersList**](OrgsApi.md#orgsTeamsMembersList) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team.
-[**orgsTeamsMembersUpdate**](OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members.
-[**orgsTeamsPartialUpdate**](OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization.
-[**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization.
-[**orgsUpdateUsageLimits**](OrgsApi.md#orgsUpdateUsageLimits) | **PATCH** /orgs/{org}/usage-limits/ | 
-[**orgsVulnerabilityPolicyCreate**](OrgsApi.md#orgsVulnerabilityPolicyCreate) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy.
-[**orgsVulnerabilityPolicyDelete**](OrgsApi.md#orgsVulnerabilityPolicyDelete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy.
-[**orgsVulnerabilityPolicyEvaluationCreate**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationCreate) | **POST** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy.
-[**orgsVulnerabilityPolicyEvaluationList**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationList) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy.
-[**orgsVulnerabilityPolicyEvaluationRead**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationRead) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy.
-[**orgsVulnerabilityPolicyList**](OrgsApi.md#orgsVulnerabilityPolicyList) | **GET** /orgs/{org}/vulnerability-policy/ | Get a list of all package vulnerability policies.
-[**orgsVulnerabilityPolicyPartialUpdate**](OrgsApi.md#orgsVulnerabilityPolicyPartialUpdate) | **PATCH** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Partially update a package vulnerability policy.
-[**orgsVulnerabilityPolicyRead**](OrgsApi.md#orgsVulnerabilityPolicyRead) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy.
-[**orgsVulnerabilityPolicyUpdate**](OrgsApi.md#orgsVulnerabilityPolicyUpdate) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy.
-[**orgsVulnerabilityPolicyViolationList**](OrgsApi.md#orgsVulnerabilityPolicyViolationList) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization.
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**orgsApiKeyRulesCreate**](OrgsApi.md#orgsApiKeyRulesCreate) | **POST** /orgs/{org}/api-key-rules/ | Create an API key rule. |
+| [**orgsApiKeyRulesDelete**](OrgsApi.md#orgsApiKeyRulesDelete) | **DELETE** /orgs/{org}/api-key-rules/{slug_perm}/ | Delete an API key rule. |
+| [**orgsApiKeyRulesList**](OrgsApi.md#orgsApiKeyRulesList) | **GET** /orgs/{org}/api-key-rules/ | List all API key rules for the organization. |
+| [**orgsApiKeyRulesPartialUpdate**](OrgsApi.md#orgsApiKeyRulesPartialUpdate) | **PATCH** /orgs/{org}/api-key-rules/{slug_perm}/ | Update an API key rule. |
+| [**orgsApiKeyRulesRead**](OrgsApi.md#orgsApiKeyRulesRead) | **GET** /orgs/{org}/api-key-rules/{slug_perm}/ | Retrieve an API key rule. |
+| [**orgsApiKeyRulesUpdate**](OrgsApi.md#orgsApiKeyRulesUpdate) | **PUT** /orgs/{org}/api-key-rules/{slug_perm}/ | Full update of an API key rule. |
+| [**orgsCustomDomainsList**](OrgsApi.md#orgsCustomDomainsList) | **GET** /orgs/{org}/custom-domains/ | Get the details for all custom domains. |
+| [**orgsDelete**](OrgsApi.md#orgsDelete) | **DELETE** /orgs/{org}/ | Delete the specified organization. |
+| [**orgsDenyPolicyCreate**](OrgsApi.md#orgsDenyPolicyCreate) | **POST** /orgs/{org}/deny-policy/ | Create a package deny policy. |
+| [**orgsDenyPolicyDelete**](OrgsApi.md#orgsDenyPolicyDelete) | **DELETE** /orgs/{org}/deny-policy/{slug_perm}/ | Delete a package deny policy. |
+| [**orgsDenyPolicyList**](OrgsApi.md#orgsDenyPolicyList) | **GET** /orgs/{org}/deny-policy/ | Get a list of all package deny policies. |
+| [**orgsDenyPolicyPartialUpdate**](OrgsApi.md#orgsDenyPolicyPartialUpdate) | **PATCH** /orgs/{org}/deny-policy/{slug_perm}/ | Partially update a package deny policy. |
+| [**orgsDenyPolicyRead**](OrgsApi.md#orgsDenyPolicyRead) | **GET** /orgs/{org}/deny-policy/{slug_perm}/ | Get a package deny policy. |
+| [**orgsDenyPolicyUpdate**](OrgsApi.md#orgsDenyPolicyUpdate) | **PUT** /orgs/{org}/deny-policy/{slug_perm}/ | Update a package deny policy. |
+| [**orgsInvitesCreate**](OrgsApi.md#orgsInvitesCreate) | **POST** /orgs/{org}/invites/ | Create an organization invite for a specific user |
+| [**orgsInvitesDelete**](OrgsApi.md#orgsInvitesDelete) | **DELETE** /orgs/{org}/invites/{slug_perm}/ | Delete a specific organization invite |
+| [**orgsInvitesExtend**](OrgsApi.md#orgsInvitesExtend) | **POST** /orgs/{org}/invites/{slug_perm}/extend/ | Extend an organization invite. |
+| [**orgsInvitesList**](OrgsApi.md#orgsInvitesList) | **GET** /orgs/{org}/invites/ | Get a list of all invites for an organization. |
+| [**orgsInvitesPartialUpdate**](OrgsApi.md#orgsInvitesPartialUpdate) | **PATCH** /orgs/{org}/invites/{slug_perm}/ | Update a specific organization invite. |
+| [**orgsInvitesResend**](OrgsApi.md#orgsInvitesResend) | **POST** /orgs/{org}/invites/{slug_perm}/resend/ | Resend an organization invite. |
+| [**orgsLicensePolicyCreate**](OrgsApi.md#orgsLicensePolicyCreate) | **POST** /orgs/{org}/license-policy/ | Create a package license policy. |
+| [**orgsLicensePolicyDelete**](OrgsApi.md#orgsLicensePolicyDelete) | **DELETE** /orgs/{org}/license-policy/{slug_perm}/ | Delete a package license policy. |
+| [**orgsLicensePolicyEvaluationCreate**](OrgsApi.md#orgsLicensePolicyEvaluationCreate) | **POST** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy. |
+| [**orgsLicensePolicyEvaluationList**](OrgsApi.md#orgsLicensePolicyEvaluationList) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy. |
+| [**orgsLicensePolicyEvaluationRead**](OrgsApi.md#orgsLicensePolicyEvaluationRead) | **GET** /orgs/{org}/license-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy. |
+| [**orgsLicensePolicyList**](OrgsApi.md#orgsLicensePolicyList) | **GET** /orgs/{org}/license-policy/ | Get a list of all package license policies. |
+| [**orgsLicensePolicyPartialUpdate**](OrgsApi.md#orgsLicensePolicyPartialUpdate) | **PATCH** /orgs/{org}/license-policy/{slug_perm}/ | Partially update a package license policy. |
+| [**orgsLicensePolicyRead**](OrgsApi.md#orgsLicensePolicyRead) | **GET** /orgs/{org}/license-policy/{slug_perm}/ | Get a package license policy. |
+| [**orgsLicensePolicyUpdate**](OrgsApi.md#orgsLicensePolicyUpdate) | **PUT** /orgs/{org}/license-policy/{slug_perm}/ | Update a package license policy. |
+| [**orgsLicensePolicyViolationList**](OrgsApi.md#orgsLicensePolicyViolationList) | **GET** /orgs/{org}/license-policy-violation/ | List all current license policy violations for this Organization. |
+| [**orgsList**](OrgsApi.md#orgsList) | **GET** /orgs/ | Get a list of all the organizations you are associated with. |
+| [**orgsMembersDelete**](OrgsApi.md#orgsMembersDelete) | **DELETE** /orgs/{org}/members/{member}/ | Removes a member from the organization. |
+| [**orgsMembersList**](OrgsApi.md#orgsMembersList) | **GET** /orgs/{org}/members/ | Get the details for all organization members. |
+| [**orgsMembersPartialUpdate**](OrgsApi.md#orgsMembersPartialUpdate) | **PATCH** /orgs/{org}/members/{member}/ | Views for working with organization members. |
+| [**orgsMembersRead**](OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member. |
+| [**orgsMembersRefresh**](OrgsApi.md#orgsMembersRefresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key. |
+| [**orgsMembersRemove**](OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead). |
+| [**orgsMembersUpdateRole**](OrgsApi.md#orgsMembersUpdateRole) | **PATCH** /orgs/{org}/members/{member}/update-role/ | Update a member&#39;s role in the organization. |
+| [**orgsMembersUpdateVisibility**](OrgsApi.md#orgsMembersUpdateVisibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization. |
+| [**orgsOpenidConnectCreate**](OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org. |
+| [**orgsOpenidConnectDelete**](OrgsApi.md#orgsOpenidConnectDelete) | **DELETE** /orgs/{org}/openid-connect/{slug_perm}/ | Delete a specific OpenID Connect provider setting for the org. |
+| [**orgsOpenidConnectDynamicMappingsList**](OrgsApi.md#orgsOpenidConnectDynamicMappingsList) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/ | Retrieve the list of OpenID Connect dynamic mappings for the provider setting. |
+| [**orgsOpenidConnectDynamicMappingsRead**](OrgsApi.md#orgsOpenidConnectDynamicMappingsRead) | **GET** /orgs/{org}/openid-connect/{provider_setting}/dynamic-mappings/{claim_value}/ | Retrieve a specific OpenID Connect dynamic mapping for the provider setting. |
+| [**orgsOpenidConnectList**](OrgsApi.md#orgsOpenidConnectList) | **GET** /orgs/{org}/openid-connect/ | Retrieve the list of OpenID Connect provider settings for the org. |
+| [**orgsOpenidConnectPartialUpdate**](OrgsApi.md#orgsOpenidConnectPartialUpdate) | **PATCH** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org. |
+| [**orgsOpenidConnectRead**](OrgsApi.md#orgsOpenidConnectRead) | **GET** /orgs/{org}/openid-connect/{slug_perm}/ | Retrieve a specific OpenID Connect provider setting for the org. |
+| [**orgsOpenidConnectUpdate**](OrgsApi.md#orgsOpenidConnectUpdate) | **PUT** /orgs/{org}/openid-connect/{slug_perm}/ | Update a specific OpenID Connect provider setting for the org. |
+| [**orgsRead**](OrgsApi.md#orgsRead) | **GET** /orgs/{org}/ | Get the details for the specific organization. |
+| [**orgsRetrieveUsageLimits**](OrgsApi.md#orgsRetrieveUsageLimits) | **GET** /orgs/{org}/usage-limits/ |  |
+| [**orgsSamlAuthenticationPartialUpdate**](OrgsApi.md#orgsSamlAuthenticationPartialUpdate) | **PATCH** /orgs/{org}/saml-authentication | Update the SAML Authentication settings for this Organization. |
+| [**orgsSamlAuthenticationRead**](OrgsApi.md#orgsSamlAuthenticationRead) | **GET** /orgs/{org}/saml-authentication | Retrieve the SAML Authentication settings for this Organization. |
+| [**orgsSamlGroupSyncCreate**](OrgsApi.md#orgsSamlGroupSyncCreate) | **POST** /orgs/{org}/saml-group-sync/ | Create a new SAML Group Sync mapping within an organization. |
+| [**orgsSamlGroupSyncDelete**](OrgsApi.md#orgsSamlGroupSyncDelete) | **DELETE** /orgs/{org}/saml-group-sync/{slug_perm}/ | Delete a SAML Group Sync mapping from an organization. |
+| [**orgsSamlGroupSyncDisable**](OrgsApi.md#orgsSamlGroupSyncDisable) | **POST** /orgs/{org}/saml-group-sync/disable/ | Disable SAML Group Sync for this organization. |
+| [**orgsSamlGroupSyncEnable**](OrgsApi.md#orgsSamlGroupSyncEnable) | **POST** /orgs/{org}/saml-group-sync/enable/ | Enable SAML Group Sync for this organization. |
+| [**orgsSamlGroupSyncList**](OrgsApi.md#orgsSamlGroupSyncList) | **GET** /orgs/{org}/saml-group-sync/ | Get the details of all SAML Group Sync mapping within an organization. |
+| [**orgsSamlGroupSyncStatus**](OrgsApi.md#orgsSamlGroupSyncStatus) | **GET** /orgs/{org}/saml-group-sync/status/ | Retrieve the SAML Group Sync status for this organization. |
+| [**orgsServicesCreate**](OrgsApi.md#orgsServicesCreate) | **POST** /orgs/{org}/services/ | Create a service within an organization. |
+| [**orgsServicesDelete**](OrgsApi.md#orgsServicesDelete) | **DELETE** /orgs/{org}/services/{service}/ | Delete a specific service |
+| [**orgsServicesList**](OrgsApi.md#orgsServicesList) | **GET** /orgs/{org}/services/ | Get a list of all services within an organization. |
+| [**orgsServicesPartialUpdate**](OrgsApi.md#orgsServicesPartialUpdate) | **PATCH** /orgs/{org}/services/{service}/ | Update a service within an organization. |
+| [**orgsServicesRead**](OrgsApi.md#orgsServicesRead) | **GET** /orgs/{org}/services/{service}/ | Retrieve details of a single service within an organization. |
+| [**orgsServicesRefresh**](OrgsApi.md#orgsServicesRefresh) | **POST** /orgs/{org}/services/{service}/refresh/ | Refresh service API token. |
+| [**orgsTeamsCreate**](OrgsApi.md#orgsTeamsCreate) | **POST** /orgs/{org}/teams/ | Create a team for this organization. |
+| [**orgsTeamsDelete**](OrgsApi.md#orgsTeamsDelete) | **DELETE** /orgs/{org}/teams/{team}/ | Delete a specific team in a organization. |
+| [**orgsTeamsList**](OrgsApi.md#orgsTeamsList) | **GET** /orgs/{org}/teams/ | Get the details of all teams within an organization. |
+| [**orgsTeamsMembersCreate**](OrgsApi.md#orgsTeamsMembersCreate) | **POST** /orgs/{org}/teams/{team}/members | Add users to a team. |
+| [**orgsTeamsMembersList**](OrgsApi.md#orgsTeamsMembersList) | **GET** /orgs/{org}/teams/{team}/members | List all members for the team. |
+| [**orgsTeamsMembersUpdate**](OrgsApi.md#orgsTeamsMembersUpdate) | **PUT** /orgs/{org}/teams/{team}/members | Replace all team members. |
+| [**orgsTeamsPartialUpdate**](OrgsApi.md#orgsTeamsPartialUpdate) | **PATCH** /orgs/{org}/teams/{team}/ | Update a specific team in a organization. |
+| [**orgsTeamsRead**](OrgsApi.md#orgsTeamsRead) | **GET** /orgs/{org}/teams/{team}/ | Get the details of a specific team within an organization. |
+| [**orgsUpdateUsageLimits**](OrgsApi.md#orgsUpdateUsageLimits) | **PATCH** /orgs/{org}/usage-limits/ |  |
+| [**orgsVulnerabilityPolicyCreate**](OrgsApi.md#orgsVulnerabilityPolicyCreate) | **POST** /orgs/{org}/vulnerability-policy/ | Create a package vulnerability policy. |
+| [**orgsVulnerabilityPolicyDelete**](OrgsApi.md#orgsVulnerabilityPolicyDelete) | **DELETE** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Delete a package vulnerability policy. |
+| [**orgsVulnerabilityPolicyEvaluationCreate**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationCreate) | **POST** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | Create an evaluation request for this policy. |
+| [**orgsVulnerabilityPolicyEvaluationList**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationList) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/ | List evaluation requests for this policy. |
+| [**orgsVulnerabilityPolicyEvaluationRead**](OrgsApi.md#orgsVulnerabilityPolicyEvaluationRead) | **GET** /orgs/{org}/vulnerability-policy/{policy_slug_perm}/evaluation/{slug_perm}/ | Retrieve an evaluation request for this policy. |
+| [**orgsVulnerabilityPolicyList**](OrgsApi.md#orgsVulnerabilityPolicyList) | **GET** /orgs/{org}/vulnerability-policy/ | Get a list of all package vulnerability policies. |
+| [**orgsVulnerabilityPolicyPartialUpdate**](OrgsApi.md#orgsVulnerabilityPolicyPartialUpdate) | **PATCH** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Partially update a package vulnerability policy. |
+| [**orgsVulnerabilityPolicyRead**](OrgsApi.md#orgsVulnerabilityPolicyRead) | **GET** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Get a package vulnerability policy. |
+| [**orgsVulnerabilityPolicyUpdate**](OrgsApi.md#orgsVulnerabilityPolicyUpdate) | **PUT** /orgs/{org}/vulnerability-policy/{slug_perm}/ | Update a package vulnerability policy. |
+| [**orgsVulnerabilityPolicyViolationList**](OrgsApi.md#orgsVulnerabilityPolicyViolationList) | **GET** /orgs/{org}/vulnerability-policy-violation/ | List all current vulnerability policy violations for this Organization. |
 
 
-<a name="orgsApiKeyRulesCreate"></a>
+<a id="orgsApiKeyRulesCreate"></a>
 # **orgsApiKeyRulesCreate**
 > OrganizationApiKeyRule orgsApiKeyRulesCreate(org, data)
 
@@ -99,43 +99,52 @@ Create an API key rule.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationApiKeyRuleRequest data = new OrganizationApiKeyRuleRequest(); // OrganizationApiKeyRuleRequest | 
-try {
-    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationApiKeyRuleRequest data = new OrganizationApiKeyRuleRequest(); // OrganizationApiKeyRuleRequest | 
+    try {
+      OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -150,7 +159,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsApiKeyRulesDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsApiKeyRulesDelete"></a>
 # **orgsApiKeyRulesDelete**
 > orgsApiKeyRulesDelete(org, slugPerm)
 
@@ -161,42 +177,51 @@ Delete an API key rule.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    apiInstance.orgsApiKeyRulesDelete(org, slugPerm);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      apiInstance.orgsApiKeyRulesDelete(org, slugPerm);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -208,10 +233,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsApiKeyRulesList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsApiKeyRulesList"></a>
 # **orgsApiKeyRulesList**
 > List&lt;OrganizationApiKeyRule&gt; orgsApiKeyRulesList(org)
 
@@ -222,41 +254,50 @@ List all API key rules for the organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    List<OrganizationApiKeyRule> result = apiInstance.orgsApiKeyRulesList(org);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      List<OrganizationApiKeyRule> result = apiInstance.orgsApiKeyRulesList(org);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
@@ -268,10 +309,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsApiKeyRulesPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsApiKeyRulesPartialUpdate"></a>
 # **orgsApiKeyRulesPartialUpdate**
 > OrganizationApiKeyRule orgsApiKeyRulesPartialUpdate(org, slugPerm, data)
 
@@ -282,45 +330,54 @@ Update an API key rule.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-OrganizationApiKeyRuleRequestPatch data = new OrganizationApiKeyRuleRequestPatch(); // OrganizationApiKeyRuleRequestPatch | 
-try {
-    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesPartialUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    OrganizationApiKeyRuleRequestPatch data = new OrganizationApiKeyRuleRequestPatch(); // OrganizationApiKeyRuleRequestPatch | 
+    try {
+      OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesPartialUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**OrganizationApiKeyRuleRequestPatch**](OrganizationApiKeyRuleRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**OrganizationApiKeyRuleRequestPatch**](OrganizationApiKeyRuleRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -335,7 +392,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsApiKeyRulesRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsApiKeyRulesRead"></a>
 # **orgsApiKeyRulesRead**
 > OrganizationApiKeyRule orgsApiKeyRulesRead(org, slugPerm)
 
@@ -346,43 +410,52 @@ Retrieve an API key rule.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesRead(org, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesRead(org, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -394,10 +467,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsApiKeyRulesUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsApiKeyRulesUpdate"></a>
 # **orgsApiKeyRulesUpdate**
 > OrganizationApiKeyRule orgsApiKeyRulesUpdate(org, slugPerm, data)
 
@@ -408,45 +488,54 @@ Full update of an API key rule.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-OrganizationApiKeyRuleRequest data = new OrganizationApiKeyRuleRequest(); // OrganizationApiKeyRuleRequest | 
-try {
-    OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    OrganizationApiKeyRuleRequest data = new OrganizationApiKeyRuleRequest(); // OrganizationApiKeyRuleRequest | 
+    try {
+      OrganizationApiKeyRule result = apiInstance.orgsApiKeyRulesUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsApiKeyRulesUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**OrganizationApiKeyRuleRequest**](OrganizationApiKeyRuleRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -461,7 +550,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsCustomDomainsList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsCustomDomainsList"></a>
 # **orgsCustomDomainsList**
 > List&lt;OrganizationCustomDomains&gt; orgsCustomDomainsList(org, page, pageSize)
 
@@ -472,45 +568,54 @@ Get the details for all custom domains.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<OrganizationCustomDomains> result = apiInstance.orgsCustomDomainsList(org, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsCustomDomainsList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<OrganizationCustomDomains> result = apiInstance.orgsCustomDomainsList(org, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsCustomDomainsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -522,10 +627,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of custom domains for the organization. |  -  |
+| **402** | Custom Domains are not available; upgrade your account! |  -  |
+| **404** | Organization not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsDelete"></a>
 # **orgsDelete**
 > orgsDelete(org)
 
@@ -536,40 +650,49 @@ Delete the specified organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    apiInstance.orgsDelete(org);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      apiInstance.orgsDelete(org);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
@@ -581,10 +704,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsDenyPolicyCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsDenyPolicyCreate"></a>
 # **orgsDenyPolicyCreate**
 > PackageDenyPolicy orgsDenyPolicyCreate(org, data)
 
@@ -595,43 +725,52 @@ Create a package deny policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-PackageDenyPolicyRequest data = new PackageDenyPolicyRequest(); // PackageDenyPolicyRequest | 
-try {
-    PackageDenyPolicy result = apiInstance.orgsDenyPolicyCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDenyPolicyCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    PackageDenyPolicyRequest data = new PackageDenyPolicyRequest(); // PackageDenyPolicyRequest | 
+    try {
+      PackageDenyPolicy result = apiInstance.orgsDenyPolicyCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsDenyPolicyCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -646,7 +785,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsDenyPolicyDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsDenyPolicyDelete"></a>
 # **orgsDenyPolicyDelete**
 > orgsDenyPolicyDelete(org, slugPerm)
 
@@ -657,42 +803,51 @@ Delete a package deny policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    apiInstance.orgsDenyPolicyDelete(org, slugPerm);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDenyPolicyDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      apiInstance.orgsDenyPolicyDelete(org, slugPerm);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsDenyPolicyDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -704,10 +859,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsDenyPolicyList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsDenyPolicyList"></a>
 # **orgsDenyPolicyList**
 > List&lt;PackageDenyPolicy&gt; orgsDenyPolicyList(org, page, pageSize)
 
@@ -718,45 +880,54 @@ Get a list of all package deny policies.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<PackageDenyPolicy> result = apiInstance.orgsDenyPolicyList(org, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDenyPolicyList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<PackageDenyPolicy> result = apiInstance.orgsDenyPolicyList(org, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsDenyPolicyList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -768,10 +939,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsDenyPolicyPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsDenyPolicyPartialUpdate"></a>
 # **orgsDenyPolicyPartialUpdate**
 > PackageDenyPolicy orgsDenyPolicyPartialUpdate(org, slugPerm, data)
 
@@ -782,45 +960,54 @@ Partially update a package deny policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-PackageDenyPolicyRequestPatch data = new PackageDenyPolicyRequestPatch(); // PackageDenyPolicyRequestPatch | 
-try {
-    PackageDenyPolicy result = apiInstance.orgsDenyPolicyPartialUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDenyPolicyPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    PackageDenyPolicyRequestPatch data = new PackageDenyPolicyRequestPatch(); // PackageDenyPolicyRequestPatch | 
+    try {
+      PackageDenyPolicy result = apiInstance.orgsDenyPolicyPartialUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsDenyPolicyPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**PackageDenyPolicyRequestPatch**](PackageDenyPolicyRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**PackageDenyPolicyRequestPatch**](PackageDenyPolicyRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -835,7 +1022,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsDenyPolicyRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsDenyPolicyRead"></a>
 # **orgsDenyPolicyRead**
 > PackageDenyPolicy orgsDenyPolicyRead(org, slugPerm)
 
@@ -846,43 +1040,52 @@ Get a package deny policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    PackageDenyPolicy result = apiInstance.orgsDenyPolicyRead(org, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDenyPolicyRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      PackageDenyPolicy result = apiInstance.orgsDenyPolicyRead(org, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsDenyPolicyRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -894,10 +1097,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsDenyPolicyUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsDenyPolicyUpdate"></a>
 # **orgsDenyPolicyUpdate**
 > PackageDenyPolicy orgsDenyPolicyUpdate(org, slugPerm, data)
 
@@ -908,45 +1118,54 @@ Update a package deny policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-PackageDenyPolicyRequest data = new PackageDenyPolicyRequest(); // PackageDenyPolicyRequest | 
-try {
-    PackageDenyPolicy result = apiInstance.orgsDenyPolicyUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsDenyPolicyUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    PackageDenyPolicyRequest data = new PackageDenyPolicyRequest(); // PackageDenyPolicyRequest | 
+    try {
+      PackageDenyPolicy result = apiInstance.orgsDenyPolicyUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsDenyPolicyUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**PackageDenyPolicyRequest**](PackageDenyPolicyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -961,7 +1180,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsInvitesCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsInvitesCreate"></a>
 # **orgsInvitesCreate**
 > OrganizationInvite orgsInvitesCreate(org, data)
 
@@ -972,43 +1198,52 @@ Create an organization invite for a specific user
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationInviteRequest data = new OrganizationInviteRequest(); // OrganizationInviteRequest | 
-try {
-    OrganizationInvite result = apiInstance.orgsInvitesCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsInvitesCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationInviteRequest data = new OrganizationInviteRequest(); // OrganizationInviteRequest | 
+    try {
+      OrganizationInvite result = apiInstance.orgsInvitesCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsInvitesCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationInviteRequest**](OrganizationInviteRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationInviteRequest**](OrganizationInviteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1023,7 +1258,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsInvitesDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Invite sent |  -  |
+| **400** | The invite cannot be created. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsInvitesDelete"></a>
 # **orgsInvitesDelete**
 > orgsInvitesDelete(org, slugPerm)
 
@@ -1034,42 +1276,51 @@ Delete a specific organization invite
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    apiInstance.orgsInvitesDelete(org, slugPerm);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsInvitesDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      apiInstance.orgsInvitesDelete(org, slugPerm);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsInvitesDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -1081,10 +1332,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsInvitesExtend"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Deleted the organization invite successfully. |  -  |
+| **400** | The organization invite cannot be deleted. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsInvitesExtend"></a>
 # **orgsInvitesExtend**
 > OrganizationInviteExtend orgsInvitesExtend(org, slugPerm)
 
@@ -1095,43 +1353,52 @@ Extend an organization invite.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    OrganizationInviteExtend result = apiInstance.orgsInvitesExtend(org, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsInvitesExtend");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      OrganizationInviteExtend result = apiInstance.orgsInvitesExtend(org, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsInvitesExtend");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -1143,10 +1410,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsInvitesList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The invite has been extended |  -  |
+| **404** | Invite not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsInvitesList"></a>
 # **orgsInvitesList**
 > List&lt;OrganizationInvite&gt; orgsInvitesList(org, page, pageSize)
 
@@ -1157,45 +1432,54 @@ Get a list of all invites for an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<OrganizationInvite> result = apiInstance.orgsInvitesList(org, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsInvitesList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<OrganizationInvite> result = apiInstance.orgsInvitesList(org, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsInvitesList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -1207,10 +1491,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsInvitesPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of organization invites |  -  |
+| **404** | Organization invites not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsInvitesPartialUpdate"></a>
 # **orgsInvitesPartialUpdate**
 > OrganizationInvite orgsInvitesPartialUpdate(org, slugPerm, data)
 
@@ -1221,45 +1513,54 @@ Update a specific organization invite.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-OrganizationInviteUpdateRequestPatch data = new OrganizationInviteUpdateRequestPatch(); // OrganizationInviteUpdateRequestPatch | 
-try {
-    OrganizationInvite result = apiInstance.orgsInvitesPartialUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsInvitesPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    OrganizationInviteUpdateRequestPatch data = new OrganizationInviteUpdateRequestPatch(); // OrganizationInviteUpdateRequestPatch | 
+    try {
+      OrganizationInvite result = apiInstance.orgsInvitesPartialUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsInvitesPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**OrganizationInviteUpdateRequestPatch**](OrganizationInviteUpdateRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**OrganizationInviteUpdateRequestPatch**](OrganizationInviteUpdateRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -1274,7 +1575,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsInvitesResend"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Invite updated |  -  |
+| **400** | The invite cannot be updated. |  -  |
+| **404** | Invite not found. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsInvitesResend"></a>
 # **orgsInvitesResend**
 > OrganizationInviteExtend orgsInvitesResend(org, slugPerm)
 
@@ -1285,43 +1594,52 @@ Resend an organization invite.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    OrganizationInviteExtend result = apiInstance.orgsInvitesResend(org, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsInvitesResend");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      OrganizationInviteExtend result = apiInstance.orgsInvitesResend(org, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsInvitesResend");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -1333,10 +1651,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The invite has been resent |  -  |
+| **404** | Invite not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyCreate"></a>
 # **orgsLicensePolicyCreate**
 > OrganizationPackageLicensePolicy orgsLicensePolicyCreate(org, data)
 
@@ -1347,43 +1673,52 @@ Create a package license policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationPackageLicensePolicyRequest data = new OrganizationPackageLicensePolicyRequest(); // OrganizationPackageLicensePolicyRequest | 
-try {
-    OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationPackageLicensePolicyRequest data = new OrganizationPackageLicensePolicyRequest(); // OrganizationPackageLicensePolicyRequest | 
+    try {
+      OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationPackageLicensePolicyRequest**](OrganizationPackageLicensePolicyRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationPackageLicensePolicyRequest**](OrganizationPackageLicensePolicyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1398,7 +1733,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyDelete"></a>
 # **orgsLicensePolicyDelete**
 > orgsLicensePolicyDelete(org, slugPerm)
 
@@ -1409,42 +1751,51 @@ Delete a package license policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    apiInstance.orgsLicensePolicyDelete(org, slugPerm);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      apiInstance.orgsLicensePolicyDelete(org, slugPerm);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -1456,10 +1807,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyEvaluationCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyEvaluationCreate"></a>
 # **orgsLicensePolicyEvaluationCreate**
 > PackageLicensePolicyEvaluationRequest orgsLicensePolicyEvaluationCreate(org, policySlugPerm, data)
 
@@ -1470,45 +1828,54 @@ Create an evaluation request for this policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String policySlugPerm = "policySlugPerm_example"; // String | 
-PackageLicensePolicyEvaluationRequestRequest data = new PackageLicensePolicyEvaluationRequestRequest(); // PackageLicensePolicyEvaluationRequestRequest | 
-try {
-    PackageLicensePolicyEvaluationRequest result = apiInstance.orgsLicensePolicyEvaluationCreate(org, policySlugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String policySlugPerm = "policySlugPerm_example"; // String | 
+    Object data = null; // Object | 
+    try {
+      PackageLicensePolicyEvaluationRequest result = apiInstance.orgsLicensePolicyEvaluationCreate(org, policySlugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **policySlugPerm** | **String**|  |
- **data** | [**PackageLicensePolicyEvaluationRequestRequest**](PackageLicensePolicyEvaluationRequestRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **policySlugPerm** | **String**|  | |
+| **data** | **Object**|  | [optional] |
 
 ### Return type
 
@@ -1523,7 +1890,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyEvaluationList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyEvaluationList"></a>
 # **orgsLicensePolicyEvaluationList**
 > List&lt;PackageLicensePolicyEvaluationRequest&gt; orgsLicensePolicyEvaluationList(org, policySlugPerm, page, pageSize)
 
@@ -1534,47 +1908,56 @@ List evaluation requests for this policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String policySlugPerm = "policySlugPerm_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<PackageLicensePolicyEvaluationRequest> result = apiInstance.orgsLicensePolicyEvaluationList(org, policySlugPerm, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String policySlugPerm = "policySlugPerm_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<PackageLicensePolicyEvaluationRequest> result = apiInstance.orgsLicensePolicyEvaluationList(org, policySlugPerm, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **policySlugPerm** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **policySlugPerm** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -1586,10 +1969,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyEvaluationRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyEvaluationRead"></a>
 # **orgsLicensePolicyEvaluationRead**
 > PackageLicensePolicyEvaluationRequest orgsLicensePolicyEvaluationRead(org, policySlugPerm, slugPerm)
 
@@ -1600,45 +1990,54 @@ Retrieve an evaluation request for this policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String policySlugPerm = "policySlugPerm_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    PackageLicensePolicyEvaluationRequest result = apiInstance.orgsLicensePolicyEvaluationRead(org, policySlugPerm, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String policySlugPerm = "policySlugPerm_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      PackageLicensePolicyEvaluationRequest result = apiInstance.orgsLicensePolicyEvaluationRead(org, policySlugPerm, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyEvaluationRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **policySlugPerm** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **policySlugPerm** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -1650,10 +2049,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyList"></a>
 # **orgsLicensePolicyList**
 > List&lt;OrganizationPackageLicensePolicy&gt; orgsLicensePolicyList(org, page, pageSize)
 
@@ -1664,45 +2070,54 @@ Get a list of all package license policies.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<OrganizationPackageLicensePolicy> result = apiInstance.orgsLicensePolicyList(org, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<OrganizationPackageLicensePolicy> result = apiInstance.orgsLicensePolicyList(org, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -1714,10 +2129,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyPartialUpdate"></a>
 # **orgsLicensePolicyPartialUpdate**
 > OrganizationPackageLicensePolicy orgsLicensePolicyPartialUpdate(org, slugPerm, data)
 
@@ -1728,45 +2150,54 @@ Partially update a package license policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-OrganizationPackageLicensePolicyRequestPatch data = new OrganizationPackageLicensePolicyRequestPatch(); // OrganizationPackageLicensePolicyRequestPatch | 
-try {
-    OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyPartialUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    OrganizationPackageLicensePolicyRequestPatch data = new OrganizationPackageLicensePolicyRequestPatch(); // OrganizationPackageLicensePolicyRequestPatch | 
+    try {
+      OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyPartialUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**OrganizationPackageLicensePolicyRequestPatch**](OrganizationPackageLicensePolicyRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**OrganizationPackageLicensePolicyRequestPatch**](OrganizationPackageLicensePolicyRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -1781,7 +2212,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyRead"></a>
 # **orgsLicensePolicyRead**
 > OrganizationPackageLicensePolicy orgsLicensePolicyRead(org, slugPerm)
 
@@ -1792,43 +2230,52 @@ Get a package license policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyRead(org, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyRead(org, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -1840,10 +2287,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyUpdate"></a>
 # **orgsLicensePolicyUpdate**
 > OrganizationPackageLicensePolicy orgsLicensePolicyUpdate(org, slugPerm, data)
 
@@ -1854,45 +2308,54 @@ Update a package license policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-OrganizationPackageLicensePolicyRequest data = new OrganizationPackageLicensePolicyRequest(); // OrganizationPackageLicensePolicyRequest | 
-try {
-    OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    OrganizationPackageLicensePolicyRequest data = new OrganizationPackageLicensePolicyRequest(); // OrganizationPackageLicensePolicyRequest | 
+    try {
+      OrganizationPackageLicensePolicy result = apiInstance.orgsLicensePolicyUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**OrganizationPackageLicensePolicyRequest**](OrganizationPackageLicensePolicyRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**OrganizationPackageLicensePolicyRequest**](OrganizationPackageLicensePolicyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1907,7 +2370,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsLicensePolicyViolationList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsLicensePolicyViolationList"></a>
 # **orgsLicensePolicyViolationList**
 > PackageLicensePolicyViolationLogCursorPage orgsLicensePolicyViolationList(org, cursor, pageSize)
 
@@ -1918,45 +2388,54 @@ List all current license policy violations for this Organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String cursor = "cursor_example"; // String | The pagination cursor value.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    PackageLicensePolicyViolationLogCursorPage result = apiInstance.orgsLicensePolicyViolationList(org, cursor, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsLicensePolicyViolationList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String cursor = "cursor_example"; // String | The pagination cursor value.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      PackageLicensePolicyViolationLogCursorPage result = apiInstance.orgsLicensePolicyViolationList(org, cursor, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsLicensePolicyViolationList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **cursor** | **String**| The pagination cursor value. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **cursor** | **String**| The pagination cursor value. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -1968,10 +2447,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsList"></a>
 # **orgsList**
 > List&lt;Organization&gt; orgsList(page, pageSize, sort)
 
@@ -1982,45 +2468,54 @@ Get a list of all the organizations you are associated with.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, created_at, slug.
-try {
-    List<Organization> result = apiInstance.orgsList(page, pageSize, sort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, created_at, slug.
+    try {
+      List<Organization> result = apiInstance.orgsList(page, pageSize, sort);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
- **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at, slug. | [optional] [default to name]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
+| **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, created_at, slug. | [optional] [default to name] |
 
 ### Return type
 
@@ -2032,10 +2527,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsMembersDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersDelete"></a>
 # **orgsMembersDelete**
 > orgsMembersDelete(org, member)
 
@@ -2046,42 +2548,51 @@ Removes a member from the organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String member = "member_example"; // String | 
-try {
-    apiInstance.orgsMembersDelete(org, member);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String member = "member_example"; // String | 
+    try {
+      apiInstance.orgsMembersDelete(org, member);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **member** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **member** | **String**|  | |
 
 ### Return type
 
@@ -2093,10 +2604,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsMembersList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Removed the organization member successfully. |  -  |
+| **400** | The organization member cannot be deleted. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersList"></a>
 # **orgsMembersList**
 > List&lt;OrganizationMembership&gt; orgsMembersList(org, page, pageSize, isActive, query, sort)
 
@@ -2107,51 +2625,60 @@ Get the details for all organization members.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-Boolean isActive = false; // Boolean | Filter for active/inactive users.
-String query = ""; // String | A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role
-String sort = "user_name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-user_name`). Available options: user_name, role.
-try {
-    List<OrganizationMembership> result = apiInstance.orgsMembersList(org, page, pageSize, isActive, query, sort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    Boolean isActive = false; // Boolean | Filter for active/inactive users.
+    String query = "query_example"; // String | A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role
+    String sort = "user_name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-user_name`). Available options: user_name, role.
+    try {
+      List<OrganizationMembership> result = apiInstance.orgsMembersList(org, page, pageSize, isActive, query, sort);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
- **isActive** | **Boolean**| Filter for active/inactive users. | [optional] [default to false]
- **query** | **String**| A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role | [optional] [default to ]
- **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role. | [optional] [default to user_name]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
+| **isActive** | **Boolean**| Filter for active/inactive users. | [optional] [default to false] |
+| **query** | **String**| A search term for querying of members within an Organization.Available options are: email, org, user, userslug, inactive, user_name, role | [optional] |
+| **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-user_name&#x60;). Available options: user_name, role. | [optional] [default to user_name] |
 
 ### Return type
 
@@ -2163,10 +2690,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsMembersPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of organization&#39;s members |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersPartialUpdate"></a>
 # **orgsMembersPartialUpdate**
 > OrganizationMembership orgsMembersPartialUpdate(org, member, data)
 
@@ -2177,45 +2711,54 @@ Views for working with organization members.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String member = "member_example"; // String | 
-OrganizationMembershipRequestPatch data = new OrganizationMembershipRequestPatch(); // OrganizationMembershipRequestPatch | 
-try {
-    OrganizationMembership result = apiInstance.orgsMembersPartialUpdate(org, member, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String member = "member_example"; // String | 
+    Object data = null; // Object | 
+    try {
+      OrganizationMembership result = apiInstance.orgsMembersPartialUpdate(org, member, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **member** | **String**|  |
- **data** | [**OrganizationMembershipRequestPatch**](OrganizationMembershipRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **member** | **String**|  | |
+| **data** | **Object**|  | [optional] |
 
 ### Return type
 
@@ -2230,7 +2773,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsMembersRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersRead"></a>
 # **orgsMembersRead**
 > OrganizationMembership orgsMembersRead(org, member)
 
@@ -2241,43 +2791,52 @@ Get the details for a specific organization member.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String member = "member_example"; // String | 
-try {
-    OrganizationMembership result = apiInstance.orgsMembersRead(org, member);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String member = "member_example"; // String | 
+    try {
+      OrganizationMembership result = apiInstance.orgsMembersRead(org, member);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **member** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **member** | **String**|  | |
 
 ### Return type
 
@@ -2289,10 +2848,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsMembersRefresh"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersRefresh"></a>
 # **orgsMembersRefresh**
 > orgsMembersRefresh(org, member)
 
@@ -2303,42 +2869,51 @@ Refresh a member of the organization&#39;s API key.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String member = "member_example"; // String | 
-try {
-    apiInstance.orgsMembersRefresh(org, member);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersRefresh");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String member = "member_example"; // String | 
+    try {
+      apiInstance.orgsMembersRefresh(org, member);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersRefresh");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **member** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **member** | **String**|  | |
 
 ### Return type
 
@@ -2350,10 +2925,18 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsMembersRemove"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Org member API key has been refreshed. |  -  |
+| **400** | The org member&#39;s API key cannot be refreshed. |  -  |
+| **404** | Org member not found. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersRemove"></a>
 # **orgsMembersRemove**
 > orgsMembersRemove(org, member)
 
@@ -2364,42 +2947,51 @@ Removes a member from the organization (deprecated, use DELETE instead).
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String member = "member_example"; // String | 
-try {
-    apiInstance.orgsMembersRemove(org, member);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersRemove");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String member = "member_example"; // String | 
+    try {
+      apiInstance.orgsMembersRemove(org, member);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersRemove");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **member** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **member** | **String**|  | |
 
 ### Return type
 
@@ -2411,10 +3003,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsMembersUpdateRole"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Removed the organization member successfully. |  -  |
+| **400** | The organization member cannot be deleted. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersUpdateRole"></a>
 # **orgsMembersUpdateRole**
 > OrganizationMembershipRoleUpdate orgsMembersUpdateRole(org, member, data)
 
@@ -2425,45 +3024,54 @@ Update a member&#39;s role in the organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String member = "member_example"; // String | 
-OrganizationMembershipRoleUpdateRequestPatch data = new OrganizationMembershipRoleUpdateRequestPatch(); // OrganizationMembershipRoleUpdateRequestPatch | 
-try {
-    OrganizationMembershipRoleUpdate result = apiInstance.orgsMembersUpdateRole(org, member, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersUpdateRole");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String member = "member_example"; // String | 
+    OrganizationMembershipRoleUpdateRequestPatch data = new OrganizationMembershipRoleUpdateRequestPatch(); // OrganizationMembershipRoleUpdateRequestPatch | 
+    try {
+      OrganizationMembershipRoleUpdate result = apiInstance.orgsMembersUpdateRole(org, member, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersUpdateRole");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **member** | **String**|  |
- **data** | [**OrganizationMembershipRoleUpdateRequestPatch**](OrganizationMembershipRoleUpdateRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **member** | **String**|  | |
+| **data** | [**OrganizationMembershipRoleUpdateRequestPatch**](OrganizationMembershipRoleUpdateRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -2478,7 +3086,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsMembersUpdateVisibility"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsMembersUpdateVisibility"></a>
 # **orgsMembersUpdateVisibility**
 > OrganizationMembershipVisibilityUpdate orgsMembersUpdateVisibility(org, member, data)
 
@@ -2489,45 +3104,54 @@ Update a member&#39;s visibility in the organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String member = "member_example"; // String | 
-OrganizationMembershipVisibilityUpdateRequestPatch data = new OrganizationMembershipVisibilityUpdateRequestPatch(); // OrganizationMembershipVisibilityUpdateRequestPatch | 
-try {
-    OrganizationMembershipVisibilityUpdate result = apiInstance.orgsMembersUpdateVisibility(org, member, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsMembersUpdateVisibility");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String member = "member_example"; // String | 
+    OrganizationMembershipVisibilityUpdateRequestPatch data = new OrganizationMembershipVisibilityUpdateRequestPatch(); // OrganizationMembershipVisibilityUpdateRequestPatch | 
+    try {
+      OrganizationMembershipVisibilityUpdate result = apiInstance.orgsMembersUpdateVisibility(org, member, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsMembersUpdateVisibility");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **member** | **String**|  |
- **data** | [**OrganizationMembershipVisibilityUpdateRequestPatch**](OrganizationMembershipVisibilityUpdateRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **member** | **String**|  | |
+| **data** | [**OrganizationMembershipVisibilityUpdateRequestPatch**](OrganizationMembershipVisibilityUpdateRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -2542,7 +3166,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectCreate"></a>
 # **orgsOpenidConnectCreate**
 > ProviderSettingsWrite orgsOpenidConnectCreate(org, data)
 
@@ -2553,43 +3184,52 @@ Create the OpenID Connect provider settings for the org.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-ProviderSettingsWriteRequest data = new ProviderSettingsWriteRequest(); // ProviderSettingsWriteRequest | 
-try {
-    ProviderSettingsWrite result = apiInstance.orgsOpenidConnectCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    ProviderSettingsWriteRequest data = new ProviderSettingsWriteRequest(); // ProviderSettingsWriteRequest | 
+    try {
+      ProviderSettingsWrite result = apiInstance.orgsOpenidConnectCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2604,7 +3244,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created the OpenID Connect provider settings for the org |  -  |
+| **404** | Organization not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectDelete"></a>
 # **orgsOpenidConnectDelete**
 > orgsOpenidConnectDelete(org, slugPerm)
 
@@ -2615,42 +3263,51 @@ Delete a specific OpenID Connect provider setting for the org.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    apiInstance.orgsOpenidConnectDelete(org, slugPerm);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      apiInstance.orgsOpenidConnectDelete(org, slugPerm);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -2662,10 +3319,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectDynamicMappingsList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Deleted the specified OpenID Connect provider setting successfully. |  -  |
+| **400** | The specified OpenID Connect provider setting cannot be deleted. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectDynamicMappingsList"></a>
 # **orgsOpenidConnectDynamicMappingsList**
 > List&lt;DynamicMapping&gt; orgsOpenidConnectDynamicMappingsList(org, providerSetting, page, pageSize)
 
@@ -2676,47 +3340,56 @@ Retrieve the list of OpenID Connect dynamic mappings for the provider setting.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String providerSetting = "providerSetting_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<DynamicMapping> result = apiInstance.orgsOpenidConnectDynamicMappingsList(org, providerSetting, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDynamicMappingsList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String providerSetting = "providerSetting_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<DynamicMapping> result = apiInstance.orgsOpenidConnectDynamicMappingsList(org, providerSetting, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDynamicMappingsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **providerSetting** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **providerSetting** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -2728,10 +3401,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectDynamicMappingsRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of OpenID Connect dynamic mappings for the selected provider setting |  -  |
+| **404** | Organization or Provider Setting not found (see detail) |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectDynamicMappingsRead"></a>
 # **orgsOpenidConnectDynamicMappingsRead**
 > DynamicMapping orgsOpenidConnectDynamicMappingsRead(org, providerSetting, claimValue)
 
@@ -2742,45 +3423,54 @@ Retrieve a specific OpenID Connect dynamic mapping for the provider setting.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String providerSetting = "providerSetting_example"; // String | 
-String claimValue = "claimValue_example"; // String | 
-try {
-    DynamicMapping result = apiInstance.orgsOpenidConnectDynamicMappingsRead(org, providerSetting, claimValue);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDynamicMappingsRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String providerSetting = "providerSetting_example"; // String | 
+    String claimValue = "claimValue_example"; // String | 
+    try {
+      DynamicMapping result = apiInstance.orgsOpenidConnectDynamicMappingsRead(org, providerSetting, claimValue);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectDynamicMappingsRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **providerSetting** | **String**|  |
- **claimValue** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **providerSetting** | **String**|  | |
+| **claimValue** | **String**|  | |
 
 ### Return type
 
@@ -2792,10 +3482,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the specified OpenID Connect dynamic mapping |  -  |
+| **404** | Organization, Provider Setting or Dynamic Mapping with claim not found (see detail) |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectList"></a>
 # **orgsOpenidConnectList**
 > List&lt;ProviderSettings&gt; orgsOpenidConnectList(org, page, pageSize, query, sort)
 
@@ -2806,49 +3504,58 @@ Retrieve the list of OpenID Connect provider settings for the org.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-String query = ""; // String | A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account
-String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
-try {
-    List<ProviderSettings> result = apiInstance.orgsOpenidConnectList(org, page, pageSize, query, sort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    String query = "query_example"; // String | A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account
+    String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name.
+    try {
+      List<ProviderSettings> result = apiInstance.orgsOpenidConnectList(org, page, pageSize, query, sort);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
- **query** | **String**| A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account | [optional] [default to ]
- **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
+| **query** | **String**| A search term for querying of OpenID Connect (OIDC) provider settings.Available options are: name, provider_url, service_account | [optional] |
+| **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name. | [optional] [default to name] |
 
 ### Return type
 
@@ -2860,10 +3567,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of OpenID Connect provider settings for the org |  -  |
+| **404** | Organization not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectPartialUpdate"></a>
 # **orgsOpenidConnectPartialUpdate**
 > ProviderSettingsWrite orgsOpenidConnectPartialUpdate(org, slugPerm, data)
 
@@ -2874,45 +3589,54 @@ Update a specific OpenID Connect provider setting for the org.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-ProviderSettingsWriteRequestPatch data = new ProviderSettingsWriteRequestPatch(); // ProviderSettingsWriteRequestPatch | 
-try {
-    ProviderSettingsWrite result = apiInstance.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    ProviderSettingsWriteRequestPatch data = new ProviderSettingsWriteRequestPatch(); // ProviderSettingsWriteRequestPatch | 
+    try {
+      ProviderSettingsWrite result = apiInstance.orgsOpenidConnectPartialUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**ProviderSettingsWriteRequestPatch**](ProviderSettingsWriteRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**ProviderSettingsWriteRequestPatch**](ProviderSettingsWriteRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -2927,7 +3651,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated the specified OpenID Connect provider setting for the org |  -  |
+| **404** | Organization not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectRead"></a>
 # **orgsOpenidConnectRead**
 > ProviderSettings orgsOpenidConnectRead(org, slugPerm)
 
@@ -2938,43 +3670,52 @@ Retrieve a specific OpenID Connect provider setting for the org.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    ProviderSettings result = apiInstance.orgsOpenidConnectRead(org, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      ProviderSettings result = apiInstance.orgsOpenidConnectRead(org, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -2986,10 +3727,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsOpenidConnectUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsOpenidConnectUpdate"></a>
 # **orgsOpenidConnectUpdate**
 > ProviderSettingsWrite orgsOpenidConnectUpdate(org, slugPerm, data)
 
@@ -3000,45 +3748,54 @@ Update a specific OpenID Connect provider setting for the org.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-ProviderSettingsWriteRequest data = new ProviderSettingsWriteRequest(); // ProviderSettingsWriteRequest | 
-try {
-    ProviderSettingsWrite result = apiInstance.orgsOpenidConnectUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsOpenidConnectUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    ProviderSettingsWriteRequest data = new ProviderSettingsWriteRequest(); // ProviderSettingsWriteRequest | 
+    try {
+      ProviderSettingsWrite result = apiInstance.orgsOpenidConnectUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsOpenidConnectUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**ProviderSettingsWriteRequest**](ProviderSettingsWriteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -3053,7 +3810,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated the specified OpenID Connect provider setting for the org |  -  |
+| **404** | Organization not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsRead"></a>
 # **orgsRead**
 > Organization orgsRead(org)
 
@@ -3064,41 +3829,50 @@ Get the details for the specific organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    Organization result = apiInstance.orgsRead(org);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      Organization result = apiInstance.orgsRead(org);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
@@ -3110,59 +3884,73 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsRetrieveUsageLimits"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsRetrieveUsageLimits"></a>
 # **orgsRetrieveUsageLimits**
-> InlineResponse200 orgsRetrieveUsageLimits(org)
-
-
+> OrgsRetrieveUsageLimits200Response orgsRetrieveUsageLimits(org)
 
 
 
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    InlineResponse200 result = apiInstance.orgsRetrieveUsageLimits(org);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsRetrieveUsageLimits");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      OrgsRetrieveUsageLimits200Response result = apiInstance.orgsRetrieveUsageLimits(org);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsRetrieveUsageLimits");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**OrgsRetrieveUsageLimits200Response**](OrgsRetrieveUsageLimits200Response.md)
 
 ### Authorization
 
@@ -3170,10 +3958,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsSamlAuthenticationPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Organization usage limits configuration. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlAuthenticationPartialUpdate"></a>
 # **orgsSamlAuthenticationPartialUpdate**
 > OrganizationSAMLAuth orgsSamlAuthenticationPartialUpdate(org, data)
 
@@ -3184,43 +3979,52 @@ Update the SAML Authentication settings for this Organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationSAMLAuthRequestPatch data = new OrganizationSAMLAuthRequestPatch(); // OrganizationSAMLAuthRequestPatch | 
-try {
-    OrganizationSAMLAuth result = apiInstance.orgsSamlAuthenticationPartialUpdate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlAuthenticationPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationSAMLAuthRequestPatch data = new OrganizationSAMLAuthRequestPatch(); // OrganizationSAMLAuthRequestPatch | 
+    try {
+      OrganizationSAMLAuth result = apiInstance.orgsSamlAuthenticationPartialUpdate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlAuthenticationPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationSAMLAuthRequestPatch**](OrganizationSAMLAuthRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationSAMLAuthRequestPatch**](OrganizationSAMLAuthRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -3235,7 +4039,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsSamlAuthenticationRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated the SAML Authentication settings. |  -  |
+| **402** | SAML Authentication is not available; please upgrade your account! |  -  |
+| **404** | Organization not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlAuthenticationRead"></a>
 # **orgsSamlAuthenticationRead**
 > OrganizationSAMLAuth orgsSamlAuthenticationRead(org)
 
@@ -3246,41 +4059,50 @@ Retrieve the SAML Authentication settings for this Organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    OrganizationSAMLAuth result = apiInstance.orgsSamlAuthenticationRead(org);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlAuthenticationRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      OrganizationSAMLAuth result = apiInstance.orgsSamlAuthenticationRead(org);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlAuthenticationRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
@@ -3292,10 +4114,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsSamlGroupSyncCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the SAML Authentication settings. |  -  |
+| **402** | SAML Authentication is not available; please upgrade your account! |  -  |
+| **404** | Organization not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlGroupSyncCreate"></a>
 # **orgsSamlGroupSyncCreate**
 > OrganizationGroupSync orgsSamlGroupSyncCreate(org, data)
 
@@ -3306,43 +4137,52 @@ Create a new SAML Group Sync mapping within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationGroupSyncRequest data = new OrganizationGroupSyncRequest(); // OrganizationGroupSyncRequest | 
-try {
-    OrganizationGroupSync result = apiInstance.orgsSamlGroupSyncCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationGroupSyncRequest data = new OrganizationGroupSyncRequest(); // OrganizationGroupSyncRequest | 
+    try {
+      OrganizationGroupSync result = apiInstance.orgsSamlGroupSyncCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationGroupSyncRequest**](OrganizationGroupSyncRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationGroupSyncRequest**](OrganizationGroupSyncRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -3357,7 +4197,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsSamlGroupSyncDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The SAML Group Sync mapping was created. |  -  |
+| **404** | Org namespace not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlGroupSyncDelete"></a>
 # **orgsSamlGroupSyncDelete**
 > orgsSamlGroupSyncDelete(org, slugPerm)
 
@@ -3368,42 +4216,51 @@ Delete a SAML Group Sync mapping from an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    apiInstance.orgsSamlGroupSyncDelete(org, slugPerm);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      apiInstance.orgsSamlGroupSyncDelete(org, slugPerm);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -3415,10 +4272,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsSamlGroupSyncDisable"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Mapping removed successfully |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlGroupSyncDisable"></a>
 # **orgsSamlGroupSyncDisable**
 > orgsSamlGroupSyncDisable(org)
 
@@ -3429,40 +4293,49 @@ Disable SAML Group Sync for this organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    apiInstance.orgsSamlGroupSyncDisable(org);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncDisable");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      apiInstance.orgsSamlGroupSyncDisable(org);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncDisable");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
@@ -3474,10 +4347,18 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsSamlGroupSyncEnable"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | SAML Group Sync has been disabled for this organization. |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlGroupSyncEnable"></a>
 # **orgsSamlGroupSyncEnable**
 > orgsSamlGroupSyncEnable(org)
 
@@ -3488,40 +4369,49 @@ Enable SAML Group Sync for this organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    apiInstance.orgsSamlGroupSyncEnable(org);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncEnable");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      apiInstance.orgsSamlGroupSyncEnable(org);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncEnable");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
@@ -3533,10 +4423,18 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsSamlGroupSyncList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | SAML Group Sync has been enabled for this organization. |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlGroupSyncList"></a>
 # **orgsSamlGroupSyncList**
 > List&lt;OrganizationGroupSync&gt; orgsSamlGroupSyncList(org, page, pageSize)
 
@@ -3547,45 +4445,54 @@ Get the details of all SAML Group Sync mapping within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<OrganizationGroupSync> result = apiInstance.orgsSamlGroupSyncList(org, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<OrganizationGroupSync> result = apiInstance.orgsSamlGroupSyncList(org, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -3597,10 +4504,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsSamlGroupSyncStatus"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of all SAML Group Sync mappings for this org |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsSamlGroupSyncStatus"></a>
 # **orgsSamlGroupSyncStatus**
 > OrganizationGroupSyncStatus orgsSamlGroupSyncStatus(org)
 
@@ -3611,41 +4526,50 @@ Retrieve the SAML Group Sync status for this organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-try {
-    OrganizationGroupSyncStatus result = apiInstance.orgsSamlGroupSyncStatus(org);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncStatus");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    try {
+      OrganizationGroupSyncStatus result = apiInstance.orgsSamlGroupSyncStatus(org);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsSamlGroupSyncStatus");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
 
 ### Return type
 
@@ -3657,10 +4581,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsServicesCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the SAML Group Sync status for this organization. |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsServicesCreate"></a>
 # **orgsServicesCreate**
 > Service orgsServicesCreate(org, data)
 
@@ -3671,43 +4603,52 @@ Create a service within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-ServiceRequest data = new ServiceRequest(); // ServiceRequest | 
-try {
-    Service result = apiInstance.orgsServicesCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsServicesCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    ServiceRequest data = new ServiceRequest(); // ServiceRequest | 
+    try {
+      Service result = apiInstance.orgsServicesCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsServicesCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**ServiceRequest**](ServiceRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**ServiceRequest**](ServiceRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -3722,7 +4663,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsServicesDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Created the service within the org |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsServicesDelete"></a>
 # **orgsServicesDelete**
 > orgsServicesDelete(org, service)
 
@@ -3733,42 +4682,51 @@ Delete a specific service
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String service = "service_example"; // String | 
-try {
-    apiInstance.orgsServicesDelete(org, service);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsServicesDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String service = "service_example"; // String | 
+    try {
+      apiInstance.orgsServicesDelete(org, service);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsServicesDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **service** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **service** | **String**|  | |
 
 ### Return type
 
@@ -3780,10 +4738,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsServicesList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Deleted the service successfully. |  -  |
+| **400** | The service cannot be deleted. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsServicesList"></a>
 # **orgsServicesList**
 > List&lt;Service&gt; orgsServicesList(org, page, pageSize, query, sort)
 
@@ -3794,49 +4759,58 @@ Get a list of all services within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-String query = ""; // String | A search term for querying of services within an Organization.Available options are: name, role
-String sort = "created_at"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-created_at`). Available options: created_at, name, role.
-try {
-    List<Service> result = apiInstance.orgsServicesList(org, page, pageSize, query, sort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsServicesList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    String query = "query_example"; // String | A search term for querying of services within an Organization.Available options are: name, role
+    String sort = "created_at"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-created_at`). Available options: created_at, name, role.
+    try {
+      List<Service> result = apiInstance.orgsServicesList(org, page, pageSize, query, sort);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsServicesList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
- **query** | **String**| A search term for querying of services within an Organization.Available options are: name, role | [optional] [default to ]
- **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-created_at&#x60;). Available options: created_at, name, role. | [optional] [default to created_at]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
+| **query** | **String**| A search term for querying of services within an Organization.Available options are: name, role | [optional] |
+| **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-created_at&#x60;). Available options: created_at, name, role. | [optional] [default to created_at] |
 
 ### Return type
 
@@ -3848,10 +4822,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsServicesPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of services within the org |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsServicesPartialUpdate"></a>
 # **orgsServicesPartialUpdate**
 > Service orgsServicesPartialUpdate(org, service, data)
 
@@ -3862,45 +4844,54 @@ Update a service within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String service = "service_example"; // String | 
-ServiceRequestPatch data = new ServiceRequestPatch(); // ServiceRequestPatch | 
-try {
-    Service result = apiInstance.orgsServicesPartialUpdate(org, service, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsServicesPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String service = "service_example"; // String | 
+    ServiceRequestPatch data = new ServiceRequestPatch(); // ServiceRequestPatch | 
+    try {
+      Service result = apiInstance.orgsServicesPartialUpdate(org, service, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsServicesPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **service** | **String**|  |
- **data** | [**ServiceRequestPatch**](ServiceRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **service** | **String**|  | |
+| **data** | [**ServiceRequestPatch**](ServiceRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -3915,7 +4906,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsServicesRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated the service within the org |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsServicesRead"></a>
 # **orgsServicesRead**
 > Service orgsServicesRead(org, service)
 
@@ -3926,43 +4925,52 @@ Retrieve details of a single service within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String service = "service_example"; // String | 
-try {
-    Service result = apiInstance.orgsServicesRead(org, service);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsServicesRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String service = "service_example"; // String | 
+    try {
+      Service result = apiInstance.orgsServicesRead(org, service);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsServicesRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **service** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **service** | **String**|  | |
 
 ### Return type
 
@@ -3974,10 +4982,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsServicesRefresh"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsServicesRefresh"></a>
 # **orgsServicesRefresh**
 > Service orgsServicesRefresh(org, service)
 
@@ -3988,43 +5003,52 @@ Refresh service API token.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String service = "service_example"; // String | 
-try {
-    Service result = apiInstance.orgsServicesRefresh(org, service);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsServicesRefresh");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String service = "service_example"; // String | 
+    try {
+      Service result = apiInstance.orgsServicesRefresh(org, service);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsServicesRefresh");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **service** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **service** | **String**|  | |
 
 ### Return type
 
@@ -4036,10 +5060,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsTeamsCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Refreshed the service token successfully. |  -  |
+| **400** | The service token cannot be refreshed. |  -  |
+| **404** | Org namespace not found |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsCreate"></a>
 # **orgsTeamsCreate**
 > OrganizationTeam orgsTeamsCreate(org, data)
 
@@ -4050,43 +5082,52 @@ Create a team for this organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationTeamRequest data = new OrganizationTeamRequest(); // OrganizationTeamRequest | 
-try {
-    OrganizationTeam result = apiInstance.orgsTeamsCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationTeamRequest data = new OrganizationTeamRequest(); // OrganizationTeamRequest | 
+    try {
+      OrganizationTeam result = apiInstance.orgsTeamsCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationTeamRequest**](OrganizationTeamRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationTeamRequest**](OrganizationTeamRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -4101,7 +5142,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsTeamsDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Team created |  -  |
+| **400** | The team cannot be created. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsDelete"></a>
 # **orgsTeamsDelete**
 > orgsTeamsDelete(org, team)
 
@@ -4112,42 +5160,51 @@ Delete a specific team in a organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String team = "team_example"; // String | 
-try {
-    apiInstance.orgsTeamsDelete(org, team);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String team = "team_example"; // String | 
+    try {
+      apiInstance.orgsTeamsDelete(org, team);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **team** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **team** | **String**|  | |
 
 ### Return type
 
@@ -4159,10 +5216,18 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsTeamsList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Deleted the team successfully. |  -  |
+| **400** | The team cannot be deleted. |  -  |
+| **404** | Team not found. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsList"></a>
 # **orgsTeamsList**
 > List&lt;OrganizationTeam&gt; orgsTeamsList(org, page, pageSize, forUser, query, sort)
 
@@ -4173,51 +5238,60 @@ Get the details of all teams within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-Boolean forUser = false; // Boolean | Filter for teams that you are a member of.
-String query = ""; // String | A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug
-String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, members.
-try {
-    List<OrganizationTeam> result = apiInstance.orgsTeamsList(org, page, pageSize, forUser, query, sort);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    Boolean forUser = false; // Boolean | Filter for teams that you are a member of.
+    String query = "query_example"; // String | A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug
+    String sort = "name"; // String | A field for sorting objects in ascending or descending order. Use `-` prefix for descending order (e.g., `-name`). Available options: name, members.
+    try {
+      List<OrganizationTeam> result = apiInstance.orgsTeamsList(org, page, pageSize, forUser, query, sort);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
- **forUser** | **Boolean**| Filter for teams that you are a member of. | [optional] [default to false]
- **query** | **String**| A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug | [optional] [default to ]
- **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, members. | [optional] [default to name]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
+| **forUser** | **Boolean**| Filter for teams that you are a member of. | [optional] [default to false] |
+| **query** | **String**| A search term for querying of teams within an Organization.Available options are: name, slug, user, userslug | [optional] |
+| **sort** | **String**| A field for sorting objects in ascending or descending order. Use &#x60;-&#x60; prefix for descending order (e.g., &#x60;-name&#x60;). Available options: name, members. | [optional] [default to name] |
 
 ### Return type
 
@@ -4229,10 +5303,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsTeamsMembersCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the list of teams within the org |  -  |
+| **404** | Org namespace not found |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsMembersCreate"></a>
 # **orgsTeamsMembersCreate**
 > OrganizationTeamMembers orgsTeamsMembersCreate(org, team, data)
 
@@ -4243,45 +5325,54 @@ Add users to a team.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String team = "team_example"; // String | 
-OrganizationTeamMembers data = new OrganizationTeamMembers(); // OrganizationTeamMembers | 
-try {
-    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersCreate(org, team, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsMembersCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String team = "team_example"; // String | 
+    OrganizationTeamMembers data = new OrganizationTeamMembers(); // OrganizationTeamMembers | 
+    try {
+      OrganizationTeamMembers result = apiInstance.orgsTeamsMembersCreate(org, team, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsMembersCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **team** | **String**|  |
- **data** | [**OrganizationTeamMembers**](OrganizationTeamMembers.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **team** | **String**|  | |
+| **data** | [**OrganizationTeamMembers**](OrganizationTeamMembers.md)|  | [optional] |
 
 ### Return type
 
@@ -4296,7 +5387,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsTeamsMembersList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The users were added to the team. |  -  |
+| **404** | Team not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsMembersList"></a>
 # **orgsTeamsMembersList**
 > OrganizationTeamMembers orgsTeamsMembersList(org, team, userKind)
 
@@ -4307,45 +5406,54 @@ List all members for the team.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String team = "team_example"; // String | 
-String userKind = ""; // String | Filter accounts by type. Possible values are 'user' and 'service'. If not provided, only users are returned.
-try {
-    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersList(org, team, userKind);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsMembersList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String team = "team_example"; // String | 
+    String userKind = "userKind_example"; // String | Filter accounts by type. Possible values are 'user' and 'service'. If not provided, only users are returned.
+    try {
+      OrganizationTeamMembers result = apiInstance.orgsTeamsMembersList(org, team, userKind);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsMembersList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **team** | **String**|  |
- **userKind** | **String**| Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. | [optional] [default to ]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **team** | **String**|  | |
+| **userKind** | **String**| Filter accounts by type. Possible values are &#39;user&#39; and &#39;service&#39;. If not provided, only users are returned. | [optional] |
 
 ### Return type
 
@@ -4357,10 +5465,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsTeamsMembersUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved users for the specified team. |  -  |
+| **404** | Team not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsMembersUpdate"></a>
 # **orgsTeamsMembersUpdate**
 > OrganizationTeamMembers orgsTeamsMembersUpdate(org, team, data)
 
@@ -4371,45 +5487,54 @@ Replace all team members.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String team = "team_example"; // String | 
-OrganizationTeamMembers data = new OrganizationTeamMembers(); // OrganizationTeamMembers | 
-try {
-    OrganizationTeamMembers result = apiInstance.orgsTeamsMembersUpdate(org, team, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsMembersUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String team = "team_example"; // String | 
+    OrganizationTeamMembers data = new OrganizationTeamMembers(); // OrganizationTeamMembers | 
+    try {
+      OrganizationTeamMembers result = apiInstance.orgsTeamsMembersUpdate(org, team, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsMembersUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **team** | **String**|  |
- **data** | [**OrganizationTeamMembers**](OrganizationTeamMembers.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **team** | **String**|  | |
+| **data** | [**OrganizationTeamMembers**](OrganizationTeamMembers.md)|  | [optional] |
 
 ### Return type
 
@@ -4424,7 +5549,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsTeamsPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | The team members were replaced. |  -  |
+| **404** | Team not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsPartialUpdate"></a>
 # **orgsTeamsPartialUpdate**
 > OrganizationTeam orgsTeamsPartialUpdate(org, team, data)
 
@@ -4435,45 +5568,54 @@ Update a specific team in a organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String team = "team_example"; // String | 
-OrganizationTeamRequestPatch data = new OrganizationTeamRequestPatch(); // OrganizationTeamRequestPatch | 
-try {
-    OrganizationTeam result = apiInstance.orgsTeamsPartialUpdate(org, team, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String team = "team_example"; // String | 
+    OrganizationTeamRequestPatch data = new OrganizationTeamRequestPatch(); // OrganizationTeamRequestPatch | 
+    try {
+      OrganizationTeam result = apiInstance.orgsTeamsPartialUpdate(org, team, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **team** | **String**|  |
- **data** | [**OrganizationTeamRequestPatch**](OrganizationTeamRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **team** | **String**|  | |
+| **data** | [**OrganizationTeamRequestPatch**](OrganizationTeamRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -4488,7 +5630,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsTeamsRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated the specified team. |  -  |
+| **400** | The team cannot be edited. |  -  |
+| **404** | Team not found. |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsTeamsRead"></a>
 # **orgsTeamsRead**
 > OrganizationTeam orgsTeamsRead(org, team)
 
@@ -4499,43 +5649,52 @@ Get the details of a specific team within an organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String team = "team_example"; // String | 
-try {
-    OrganizationTeam result = apiInstance.orgsTeamsRead(org, team);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsTeamsRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String team = "team_example"; // String | 
+    try {
+      OrganizationTeam result = apiInstance.orgsTeamsRead(org, team);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsTeamsRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **team** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **team** | **String**|  | |
 
 ### Return type
 
@@ -4547,61 +5706,76 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsUpdateUsageLimits"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Retrieved the details of the requested team. |  -  |
+| **404** | Team not found. |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsUpdateUsageLimits"></a>
 # **orgsUpdateUsageLimits**
-> InlineResponse2001 orgsUpdateUsageLimits(org, data)
-
-
+> OrgsUpdateUsageLimits200Response orgsUpdateUsageLimits(org, data)
 
 
 
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationUsageUpdateRequestPatch data = new OrganizationUsageUpdateRequestPatch(); // OrganizationUsageUpdateRequestPatch | 
-try {
-    InlineResponse2001 result = apiInstance.orgsUpdateUsageLimits(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsUpdateUsageLimits");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationUsageUpdateRequestPatch data = new OrganizationUsageUpdateRequestPatch(); // OrganizationUsageUpdateRequestPatch | 
+    try {
+      OrgsUpdateUsageLimits200Response result = apiInstance.orgsUpdateUsageLimits(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsUpdateUsageLimits");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationUsageUpdateRequestPatch**](OrganizationUsageUpdateRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationUsageUpdateRequestPatch**](OrganizationUsageUpdateRequestPatch.md)|  | [optional] |
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**OrgsUpdateUsageLimits200Response**](OrgsUpdateUsageLimits200Response.md)
 
 ### Authorization
 
@@ -4612,7 +5786,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Organization usage limits configuration updated. |  -  |
+| **422** | Invalid input |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyCreate"></a>
 # **orgsVulnerabilityPolicyCreate**
 > OrganizationPackageVulnerabilityPolicy orgsVulnerabilityPolicyCreate(org, data)
 
@@ -4623,43 +5804,52 @@ Create a package vulnerability policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-OrganizationPackageVulnerabilityPolicyRequest data = new OrganizationPackageVulnerabilityPolicyRequest(); // OrganizationPackageVulnerabilityPolicyRequest | 
-try {
-    OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyCreate(org, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    OrganizationPackageVulnerabilityPolicyRequest data = new OrganizationPackageVulnerabilityPolicyRequest(); // OrganizationPackageVulnerabilityPolicyRequest | 
+    try {
+      OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyCreate(org, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **data** | [**OrganizationPackageVulnerabilityPolicyRequest**](OrganizationPackageVulnerabilityPolicyRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **data** | [**OrganizationPackageVulnerabilityPolicyRequest**](OrganizationPackageVulnerabilityPolicyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -4674,7 +5864,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyDelete"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyDelete"></a>
 # **orgsVulnerabilityPolicyDelete**
 > orgsVulnerabilityPolicyDelete(org, slugPerm)
 
@@ -4685,42 +5882,51 @@ Delete a package vulnerability policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    apiInstance.orgsVulnerabilityPolicyDelete(org, slugPerm);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyDelete");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      apiInstance.orgsVulnerabilityPolicyDelete(org, slugPerm);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -4732,10 +5938,17 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyEvaluationCreate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyEvaluationCreate"></a>
 # **orgsVulnerabilityPolicyEvaluationCreate**
 > PackageVulnerabilityPolicyEvaluationRequest orgsVulnerabilityPolicyEvaluationCreate(org, policySlugPerm, data)
 
@@ -4746,45 +5959,54 @@ Create an evaluation request for this policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String policySlugPerm = "policySlugPerm_example"; // String | 
-PackageVulnerabilityPolicyEvaluationRequestRequest data = new PackageVulnerabilityPolicyEvaluationRequestRequest(); // PackageVulnerabilityPolicyEvaluationRequestRequest | 
-try {
-    PackageVulnerabilityPolicyEvaluationRequest result = apiInstance.orgsVulnerabilityPolicyEvaluationCreate(org, policySlugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationCreate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String policySlugPerm = "policySlugPerm_example"; // String | 
+    Object data = null; // Object | 
+    try {
+      PackageVulnerabilityPolicyEvaluationRequest result = apiInstance.orgsVulnerabilityPolicyEvaluationCreate(org, policySlugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **policySlugPerm** | **String**|  |
- **data** | [**PackageVulnerabilityPolicyEvaluationRequestRequest**](PackageVulnerabilityPolicyEvaluationRequestRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **policySlugPerm** | **String**|  | |
+| **data** | **Object**|  | [optional] |
 
 ### Return type
 
@@ -4799,7 +6021,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyEvaluationList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyEvaluationList"></a>
 # **orgsVulnerabilityPolicyEvaluationList**
 > List&lt;PackageVulnerabilityPolicyEvaluationRequest&gt; orgsVulnerabilityPolicyEvaluationList(org, policySlugPerm, page, pageSize)
 
@@ -4810,47 +6039,56 @@ List evaluation requests for this policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String policySlugPerm = "policySlugPerm_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<PackageVulnerabilityPolicyEvaluationRequest> result = apiInstance.orgsVulnerabilityPolicyEvaluationList(org, policySlugPerm, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String policySlugPerm = "policySlugPerm_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<PackageVulnerabilityPolicyEvaluationRequest> result = apiInstance.orgsVulnerabilityPolicyEvaluationList(org, policySlugPerm, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **policySlugPerm** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **policySlugPerm** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -4862,10 +6100,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyEvaluationRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyEvaluationRead"></a>
 # **orgsVulnerabilityPolicyEvaluationRead**
 > PackageVulnerabilityPolicyEvaluationRequest orgsVulnerabilityPolicyEvaluationRead(org, policySlugPerm, slugPerm)
 
@@ -4876,45 +6121,54 @@ Retrieve an evaluation request for this policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String policySlugPerm = "policySlugPerm_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    PackageVulnerabilityPolicyEvaluationRequest result = apiInstance.orgsVulnerabilityPolicyEvaluationRead(org, policySlugPerm, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String policySlugPerm = "policySlugPerm_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      PackageVulnerabilityPolicyEvaluationRequest result = apiInstance.orgsVulnerabilityPolicyEvaluationRead(org, policySlugPerm, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyEvaluationRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **policySlugPerm** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **policySlugPerm** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -4926,10 +6180,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyList"></a>
 # **orgsVulnerabilityPolicyList**
 > List&lt;OrganizationPackageVulnerabilityPolicy&gt; orgsVulnerabilityPolicyList(org, page, pageSize)
 
@@ -4940,45 +6201,54 @@ Get a list of all package vulnerability policies.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    List<OrganizationPackageVulnerabilityPolicy> result = apiInstance.orgsVulnerabilityPolicyList(org, page, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    java.math.BigInteger page = new java.math.BigInteger(); // java.math.BigInteger | A page number within the paginated result set.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      List<OrganizationPackageVulnerabilityPolicy> result = apiInstance.orgsVulnerabilityPolicyList(org, page, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **page** | **java.math.BigInteger**| A page number within the paginated result set. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -4990,10 +6260,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyPartialUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyPartialUpdate"></a>
 # **orgsVulnerabilityPolicyPartialUpdate**
 > OrganizationPackageVulnerabilityPolicy orgsVulnerabilityPolicyPartialUpdate(org, slugPerm, data)
 
@@ -5004,45 +6281,54 @@ Partially update a package vulnerability policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-OrganizationPackageVulnerabilityPolicyRequestPatch data = new OrganizationPackageVulnerabilityPolicyRequestPatch(); // OrganizationPackageVulnerabilityPolicyRequestPatch | 
-try {
-    OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyPartialUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyPartialUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    OrganizationPackageVulnerabilityPolicyRequestPatch data = new OrganizationPackageVulnerabilityPolicyRequestPatch(); // OrganizationPackageVulnerabilityPolicyRequestPatch | 
+    try {
+      OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyPartialUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyPartialUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**OrganizationPackageVulnerabilityPolicyRequestPatch**](OrganizationPackageVulnerabilityPolicyRequestPatch.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**OrganizationPackageVulnerabilityPolicyRequestPatch**](OrganizationPackageVulnerabilityPolicyRequestPatch.md)|  | [optional] |
 
 ### Return type
 
@@ -5057,7 +6343,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyRead"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyRead"></a>
 # **orgsVulnerabilityPolicyRead**
 > OrganizationPackageVulnerabilityPolicy orgsVulnerabilityPolicyRead(org, slugPerm)
 
@@ -5068,43 +6361,52 @@ Get a package vulnerability policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-try {
-    OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyRead(org, slugPerm);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyRead");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    try {
+      OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyRead(org, slugPerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
 
 ### Return type
 
@@ -5116,10 +6418,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyUpdate"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyUpdate"></a>
 # **orgsVulnerabilityPolicyUpdate**
 > OrganizationPackageVulnerabilityPolicy orgsVulnerabilityPolicyUpdate(org, slugPerm, data)
 
@@ -5130,45 +6439,54 @@ Update a package vulnerability policy.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String slugPerm = "slugPerm_example"; // String | 
-OrganizationPackageVulnerabilityPolicyRequest data = new OrganizationPackageVulnerabilityPolicyRequest(); // OrganizationPackageVulnerabilityPolicyRequest | 
-try {
-    OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyUpdate(org, slugPerm, data);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyUpdate");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String slugPerm = "slugPerm_example"; // String | 
+    OrganizationPackageVulnerabilityPolicyRequest data = new OrganizationPackageVulnerabilityPolicyRequest(); // OrganizationPackageVulnerabilityPolicyRequest | 
+    try {
+      OrganizationPackageVulnerabilityPolicy result = apiInstance.orgsVulnerabilityPolicyUpdate(org, slugPerm, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **slugPerm** | **String**|  |
- **data** | [**OrganizationPackageVulnerabilityPolicyRequest**](OrganizationPackageVulnerabilityPolicyRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **slugPerm** | **String**|  | |
+| **data** | [**OrganizationPackageVulnerabilityPolicyRequest**](OrganizationPackageVulnerabilityPolicyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -5183,7 +6501,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="orgsVulnerabilityPolicyViolationList"></a>
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
+
+<a id="orgsVulnerabilityPolicyViolationList"></a>
 # **orgsVulnerabilityPolicyViolationList**
 > PackageVulnerabilityPolicyViolationLogCursorPage orgsVulnerabilityPolicyViolationList(org, cursor, pageSize)
 
@@ -5194,45 +6519,54 @@ List all current vulnerability policy violations for this Organization.
 ### Example
 ```java
 // Import classes:
-//import io.cloudsmith.api.ApiClient;
-//import io.cloudsmith.api.ApiException;
-//import io.cloudsmith.api.Configuration;
-//import io.cloudsmith.api.auth.*;
-//import io.cloudsmith.api.apis.OrgsApi;
+import io.cloudsmith.api.ApiClient;
+import io.cloudsmith.api.ApiException;
+import io.cloudsmith.api.Configuration;
+import io.cloudsmith.api.auth.*;
+import io.cloudsmith.api.models.*;
+import io.cloudsmith.api.apis.OrgsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.cloudsmith.io");
+    
+    // Configure API key authorization: apikey
+    ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
+    apikey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apikey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: apikey
-ApiKeyAuth apikey = (ApiKeyAuth) defaultClient.getAuthentication("apikey");
-apikey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+    // Configure HTTP basic authorization: basic
+    HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+    basic.setUsername("YOUR USERNAME");
+    basic.setPassword("YOUR PASSWORD");
 
-// Configure HTTP basic authorization: basic
-HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
-basic.setUsername("YOUR USERNAME");
-basic.setPassword("YOUR PASSWORD");
-
-OrgsApi apiInstance = new OrgsApi();
-String org = "org_example"; // String | 
-String cursor = "cursor_example"; // String | The pagination cursor value.
-java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
-try {
-    PackageVulnerabilityPolicyViolationLogCursorPage result = apiInstance.orgsVulnerabilityPolicyViolationList(org, cursor, pageSize);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyViolationList");
-    e.printStackTrace();
+    OrgsApi apiInstance = new OrgsApi(defaultClient);
+    String org = "org_example"; // String | 
+    String cursor = "cursor_example"; // String | The pagination cursor value.
+    java.math.BigInteger pageSize = new java.math.BigInteger(); // java.math.BigInteger | Number of results to return per page.
+    try {
+      PackageVulnerabilityPolicyViolationLogCursorPage result = apiInstance.orgsVulnerabilityPolicyViolationList(org, cursor, pageSize);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling OrgsApi#orgsVulnerabilityPolicyViolationList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  |
- **cursor** | **String**| The pagination cursor value. | [optional]
- **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **org** | **String**|  | |
+| **cursor** | **String**| The pagination cursor value. | [optional] |
+| **pageSize** | **java.math.BigInteger**| Number of results to return per page. | [optional] |
 
 ### Return type
 
@@ -5244,6 +6578,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Request could not be processed (see detail). |  -  |
+| **422** | Missing or invalid parameters (see detail). |  -  |
 

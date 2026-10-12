@@ -19,38 +19,61 @@ Create a specific webhook in a repository.
 Create a specific webhook in a repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_webhook import RepositoryWebhook
+from cloudsmith_api.models.repository_webhook_request import RepositoryWebhookRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RepositoryWebhookRequest() # RepositoryWebhookRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.WebhooksApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RepositoryWebhookRequest() # RepositoryWebhookRequest |  (optional)
 
-try:
-    # Create a specific webhook in a repository.
-    api_response = api_instance.webhooks_create(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WebhooksApi->webhooks_create: %s\n" % e)
+    try:
+        # Create a specific webhook in a repository.
+        api_response = api_instance.webhooks_create(owner, repo, data=data)
+        print("The response of WebhooksApi->webhooks_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebhooksApi->webhooks_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -71,6 +94,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created the specified webhook |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhooks_delete**
@@ -81,37 +113,57 @@ Delete a specific webhook in a repository.
 Delete a specific webhook in a repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.WebhooksApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Delete a specific webhook in a repository.
-    api_instance.webhooks_delete(owner, repo, identifier)
-except ApiException as e:
-    print("Exception when calling WebhooksApi->webhooks_delete: %s\n" % e)
+    try:
+        # Delete a specific webhook in a repository.
+        api_instance.webhooks_delete(owner, repo, identifier)
+    except Exception as e:
+        print("Exception when calling WebhooksApi->webhooks_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -129,52 +181,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Deleted the specified webhook successfully. |  -  |
+**400** | The webhook cannot be deleted. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhooks_list**
-> list[RepositoryWebhook] webhooks_list(owner, repo, page=page, page_size=page_size)
+> List[RepositoryWebhook] webhooks_list(owner, repo, page=page, page_size=page_size)
 
 Get a list of all webhooks in a repository.
 
 Get a list of all webhooks in a repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_webhook import RepositoryWebhook
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.WebhooksApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # Get a list of all webhooks in a repository.
-    api_response = api_instance.webhooks_list(owner, repo, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WebhooksApi->webhooks_list: %s\n" % e)
+    try:
+        # Get a list of all webhooks in a repository.
+        api_response = api_instance.webhooks_list(owner, repo, page=page, page_size=page_size)
+        print("The response of WebhooksApi->webhooks_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebhooksApi->webhooks_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -185,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RepositoryWebhook]**](RepositoryWebhook.md)
+[**List[RepositoryWebhook]**](RepositoryWebhook.md)
 
 ### Authorization
 
@@ -193,8 +275,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the list of webhooks |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -206,39 +297,62 @@ Update a specific webhook in a repository.
 Update a specific webhook in a repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_webhook import RepositoryWebhook
+from cloudsmith_api.models.repository_webhook_request_patch import RepositoryWebhookRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryWebhookRequestPatch() # RepositoryWebhookRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.WebhooksApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryWebhookRequestPatch() # RepositoryWebhookRequestPatch |  (optional)
 
-try:
-    # Update a specific webhook in a repository.
-    api_response = api_instance.webhooks_partial_update(owner, repo, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WebhooksApi->webhooks_partial_update: %s\n" % e)
+    try:
+        # Update a specific webhook in a repository.
+        api_response = api_instance.webhooks_partial_update(owner, repo, identifier, data=data)
+        print("The response of WebhooksApi->webhooks_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebhooksApi->webhooks_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -260,6 +374,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated the specified webhook |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhooks_read**
@@ -270,38 +393,60 @@ Views for working with repository webhooks.
 Views for working with repository webhooks.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_webhook import RepositoryWebhook
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.WebhooksApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.WebhooksApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Views for working with repository webhooks.
-    api_response = api_instance.webhooks_read(owner, repo, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WebhooksApi->webhooks_read: %s\n" % e)
+    try:
+        # Views for working with repository webhooks.
+        api_response = api_instance.webhooks_read(owner, repo, identifier)
+        print("The response of WebhooksApi->webhooks_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling WebhooksApi->webhooks_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -319,8 +464,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
