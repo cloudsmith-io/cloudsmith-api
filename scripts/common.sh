@@ -55,6 +55,14 @@ function cloudsmith_version_published {
   [ "${count:-0}" -gt 0 ]
 }
 
+# Dependabot updates bindings/java/release/pom.xml. Write it with the package
+# version, as the pom that the Java binding ships.
+function write_release_pom {
+  awk -v version="$package_version" \
+    '!done && sub(/<version>[^<]*<\/version>/, "<version>" version "</version>") { done = 1 } 1' \
+    "$root_dir/bindings/java/release/pom.xml" > "$1"
+}
+
 function die {
   echo "$@"
   exit 1
