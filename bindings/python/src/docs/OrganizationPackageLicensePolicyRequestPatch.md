@@ -1,6 +1,8 @@
 # OrganizationPackageLicensePolicyRequestPatch
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allow_unknown_licenses** | **bool** |  | [optional] 
@@ -8,8 +10,25 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **on_violation_quarantine** | **bool** |  | [optional] 
 **package_query_string** | **str** |  | [optional] 
-**spdx_identifiers** | **list[str]** |  | [optional] 
+**spdx_identifiers** | **List[str]** |  | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.organization_package_license_policy_request_patch import OrganizationPackageLicensePolicyRequestPatch
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of OrganizationPackageLicensePolicyRequestPatch from a JSON string
+organization_package_license_policy_request_patch_instance = OrganizationPackageLicensePolicyRequestPatch.from_json(json)
+# print the JSON string representation of the object
+print(OrganizationPackageLicensePolicyRequestPatch.to_json())
+
+# convert the object into a dict
+organization_package_license_policy_request_patch_dict = organization_package_license_policy_request_patch_instance.to_dict()
+# create an instance of OrganizationPackageLicensePolicyRequestPatch from a dict
+organization_package_license_policy_request_patch_from_dict = OrganizationPackageLicensePolicyRequestPatch.from_dict(organization_package_license_policy_request_patch_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

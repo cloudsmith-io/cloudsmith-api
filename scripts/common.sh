@@ -5,6 +5,8 @@ api_version=$(curl -s "${api_url}status/check/basic/" | jq -r '.version')
 openapi_url="${api_url}?format=openapi"
 package_version="2.0.37"
 swagger_codegen_cli_image="swaggerapi/swagger-codegen-cli:v2.4.50"
+# Dependabot updates the image in codegen/openapi-generator/Dockerfile.
+openapi_generator_cli_image=$(awk '/^FROM / {print $2}' "$root_dir/codegen/openapi-generator/Dockerfile")
 
 location=$(curl -s $openapi_url | grep Location | cut -d' ' -f2)
 [[ "$location" != "" ]] && {
@@ -39,6 +41,15 @@ common_codegen_options="--git-user-id $git_user_id --git-repo-id $git_repo_id"
 # re-escaping, ruff autofixes) from rewriting those files, so run as the
 # invoking user instead.
 codegen_run_user="$(id -u):$(id -g)"
+
+# Generated models reject enum values that the spec does not list. The API adds
+# enum values over time, so released clients must accept them. Remove the enum
+# lists from the model definitions before generation.
+function write_client_spec {
+  curl -sL --max-time 60 "$openapi_url" \
+    | jq '.definitions |= walk(if type == "object" and (.enum | type) == "array" and ((.type // null) | type) == "string" then del(.enum) else . end)' \
+    > "$1"
+}
 
 function die {
   echo "$@"

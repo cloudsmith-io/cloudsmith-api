@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 # flake8: noqa
 
 # import apis into api package
@@ -26,3 +24,4 @@ from cloudsmith_api.api.user_api import UserApi
 from cloudsmith_api.api.users_api import UsersApi
 from cloudsmith_api.api.vulnerabilities_api import VulnerabilitiesApi
 from cloudsmith_api.api.webhooks_api import WebhooksApi
+

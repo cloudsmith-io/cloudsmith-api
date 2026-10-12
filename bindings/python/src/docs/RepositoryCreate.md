@@ -1,69 +1,71 @@
 # RepositoryCreate
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**active_connection_count** | **int** | Number of active connections for the repository | [optional] 
+**active_connection_count** | **int** | Number of active connections for the repository | [optional] [readonly] 
 **broadcast_state** | **str** | Broadcasting status of a repository. | [optional] [default to 'Off']
-**cdn_url** | **str** | Base URL from which packages and other artifacts are downloaded. | [optional] 
+**cdn_url** | **str** | Base URL from which packages and other artifacts are downloaded. | [optional] [readonly] 
 **content_kind** | **str** | The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time. | [optional] [default to 'Standard']
 **contextual_auth_realm** | **bool** | If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the &#39;WWW-Authenticate&#39; header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials. | [optional] 
 **copy_own** | **bool** | If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 
 **copy_packages** | **str** | This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting. | [optional] [default to 'Read']
 **cosign_signing_enabled** | **bool** | When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository&#39;s ECDSA key. This generates a distinct cosign signature artifact per artifact. | [optional] 
-**created_at** | **datetime** |  | [optional] 
+**created_at** | **datetime** |  | [optional] [readonly] 
 **default_privilege** | **str** | This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings. | [optional] [default to 'None']
 **delete_own** | **bool** | If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 
 **delete_packages** | **str** | This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting. | [optional] [default to 'Admin']
-**deleted_at** | **datetime** | The datetime the repository was manually deleted at. | [optional] 
+**deleted_at** | **datetime** | The datetime the repository was manually deleted at. | [optional] [readonly] 
 **description** | **str** | A description of the repository&#39;s purpose/contents. | [optional] 
-**distributes** | **list[str]** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. | [optional] 
+**distributes** | **List[str]** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. | [optional] 
 **docker_refresh_tokens_enabled** | **bool** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. | [optional] 
-**ecdsa_keys** | [**list[RepositoryEcdsaKey]**](RepositoryEcdsaKey.md) |  | [optional] 
+**ecdsa_keys** | [**List[RepositoryEcdsaKey]**](RepositoryEcdsaKey.md) |  | [optional] [readonly] 
 **enforce_eula** | **bool** | If checked, downloads will explicitly require acceptance of an EULA. | [optional] 
 **generic_package_index_enabled** | **bool** | If checked, HTML indexes will be generated that list all available generic packages in the repository. | [optional] 
-**gpg_keys** | [**list[RepositoryGpgKey]**](RepositoryGpgKey.md) |  | [optional] 
+**gpg_keys** | [**List[RepositoryGpgKey]**](RepositoryGpgKey.md) |  | [optional] [readonly] 
 **index_files** | **bool** | If checked, files contained in packages will be indexed, which increase the synchronisation time required for packages. Note that it is recommended you keep this enabled unless the synchronisation time is significantly impacted. | [optional] 
-**is_open_source** | **bool** |  | [optional] 
-**is_private** | **bool** |  | [optional] 
-**is_public** | **bool** |  | [optional] 
+**is_open_source** | **bool** |  | [optional] [readonly] 
+**is_private** | **bool** |  | [optional] [readonly] 
+**is_public** | **bool** |  | [optional] [readonly] 
 **is_public_hidden** | **bool** | If checked, this repository will be hidden from the list of public broadcasts for the workspace. | [optional] 
 **manage_entitlements_privilege** | **str** | This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository. | [optional] [default to 'Admin']
 **move_own** | **bool** | If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 
 **move_packages** | **str** | This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting. | [optional] [default to 'Admin']
 **name** | **str** | A descriptive name for the repository. | 
-**namespace** | **str** | Namespace to which this repository belongs. | [optional] 
-**namespace_url** | **str** | API endpoint where data about this namespace can be retrieved. | [optional] 
+**namespace** | **str** | Namespace to which this repository belongs. | [optional] [readonly] 
+**namespace_url** | **str** | API endpoint where data about this namespace can be retrieved. | [optional] [readonly] 
 **npm_upstream_tags_take_precedence** | **bool** | If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., &#39;latest&#39;), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version. | [optional] 
 **nuget_native_signing_enabled** | **bool** | When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository&#39;s X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository&#39;s signing certificates including the ones from configured upstreams. | [optional] 
-**num_downloads** | **int** | The number of downloads for packages in the repository. | [optional] 
-**num_policy_violated_packages** | **int** | Number of packages with policy violations in a repository. | [optional] 
-**num_quarantined_packages** | **int** | Number of quarantined packages in a repository. | [optional] 
+**num_downloads** | **int** | The number of downloads for packages in the repository. | [optional] [readonly] 
+**num_policy_violated_packages** | **int** | Number of packages with policy violations in a repository. | [optional] [readonly] 
+**num_quarantined_packages** | **int** | Number of quarantined packages in a repository. | [optional] [readonly] 
 **open_source_license** | **str** | The SPDX identifier of the open source license. | [optional] 
 **open_source_project_url** | **str** | The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source. | [optional] 
-**package_count** | **int** | The number of packages in the repository. | [optional] 
-**package_count_excl_subcomponents** | **int** | The number of packages in the repository excluding subcomponents. | [optional] 
-**package_group_count** | **int** | The number of groups in the repository. | [optional] 
+**package_count** | **int** | The number of packages in the repository. | [optional] [readonly] 
+**package_count_excl_subcomponents** | **int** | The number of packages in the repository excluding subcomponents. | [optional] [readonly] 
+**package_group_count** | **int** | The number of groups in the repository. | [optional] [readonly] 
 **proxy_npmjs** | **bool** | If checked, Npm packages that are not in the repository when requested by clients will automatically be proxied from the public npmjs.org registry. If there is at least one version for a package, others will not be proxied. | [optional] 
 **proxy_pypi** | **bool** | If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied. | [optional] 
 **raw_package_index_enabled** | **bool** | If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository. | [optional] 
 **raw_package_index_signatures_enabled** | **bool** | If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages. | [optional] 
 **replace_packages** | **str** | This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail. | [optional] [default to 'Write']
 **replace_packages_by_default** | **bool** | If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don&#39;t own. | [optional] 
-**repository_type** | **int** | The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. | [optional] 
+**repository_type** | **int** | The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time. | [optional] [readonly] 
 **repository_type_str** | **str** | The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users. | [optional] [default to 'Public']
 **resync_own** | **bool** | If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 
 **resync_packages** | **str** | This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting. | [optional] [default to 'Admin']
 **scan_own** | **bool** | If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 
 **scan_packages** | **str** | This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting. | [optional] [default to 'Read']
-**self_html_url** | **str** | Website URL for this repository. | [optional] 
-**self_url** | **str** | API endpoint where data about this repository can be retrieved. | [optional] 
-**self_webapp_url** | **str** | Webapp URL for this repository. | [optional] 
+**self_html_url** | **str** | Website URL for this repository. | [optional] [readonly] 
+**self_url** | **str** | API endpoint where data about this repository can be retrieved. | [optional] [readonly] 
+**self_webapp_url** | **str** | Webapp URL for this repository. | [optional] [readonly] 
 **show_setup_all** | **bool** | If checked, the Set Me Up help for all formats will always be shown, even if you don&#39;t have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only. | [optional] 
-**size** | **int** | The calculated size of the repository. | [optional] 
-**size_str** | **str** | The calculated size of the repository (human readable). | [optional] 
+**size** | **int** | The calculated size of the repository. | [optional] [readonly] 
+**size_str** | **str** | The calculated size of the repository (human readable). | [optional] [readonly] 
 **slug** | **str** | The slug identifies the repository in URIs. | [optional] 
-**slug_perm** | **str** | The slug_perm immutably identifies the repository. It will never change once a repository has been created. | [optional] 
+**slug_perm** | **str** | The slug_perm immutably identifies the repository. It will never change once a repository has been created. | [optional] [readonly] 
 **storage_region** | **str** | The Cloudsmith region in which package files are stored. | [optional] [default to 'default']
 **strict_npm_validation** | **bool** | If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly. | [optional] 
 **tag_pre_releases_as_latest** | **bool** | If checked, packages pushed with a pre-release component on that version will be marked with the &#39;latest&#39; tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools  | [optional] 
@@ -76,6 +78,23 @@ Name | Type | Description | Notes
 **user_entitlements_enabled** | **bool** | If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users. | [optional] 
 **view_statistics** | **str** | This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI. | [optional] [default to 'Read']
 
+## Example
+
+```python
+from cloudsmith_api.models.repository_create import RepositoryCreate
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RepositoryCreate from a JSON string
+repository_create_instance = RepositoryCreate.from_json(json)
+# print the JSON string representation of the object
+print(RepositoryCreate.to_json())
+
+# convert the object into a dict
+repository_create_dict = repository_create_instance.to_dict()
+# create an instance of RepositoryCreate from a dict
+repository_create_from_dict = RepositoryCreate.from_dict(repository_create_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

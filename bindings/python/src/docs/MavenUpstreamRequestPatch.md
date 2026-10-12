@@ -1,6 +1,8 @@
 # MavenUpstreamRequestPatch
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **auth_mode** | **str** | The authentication mode to use when accessing this upstream.  | [optional] [default to 'None']
@@ -21,6 +23,23 @@ Name | Type | Description | Notes
 **upstream_url** | **str** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  | [optional] 
 **verify_ssl** | **bool** | If enabled, SSL certificates are verified when requests are made to this upstream. It&#39;s recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams. | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.maven_upstream_request_patch import MavenUpstreamRequestPatch
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of MavenUpstreamRequestPatch from a JSON string
+maven_upstream_request_patch_instance = MavenUpstreamRequestPatch.from_json(json)
+# print the JSON string representation of the object
+print(MavenUpstreamRequestPatch.to_json())
+
+# convert the object into a dict
+maven_upstream_request_patch_dict = maven_upstream_request_patch_instance.to_dict()
+# create an instance of MavenUpstreamRequestPatch from a dict
+maven_upstream_request_patch_from_dict = MavenUpstreamRequestPatch.from_dict(maven_upstream_request_patch_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

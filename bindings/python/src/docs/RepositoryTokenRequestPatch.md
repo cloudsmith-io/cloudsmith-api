@@ -1,6 +1,8 @@
 # RepositoryTokenRequestPatch
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eula_required** | **bool** | If checked, a EULA acceptance is required for this token. | [optional] 
@@ -19,6 +21,23 @@ Name | Type | Description | Notes
 **scheduled_reset_period** | **str** |  | [optional] [default to 'Never Reset']
 **token** | **str** |  | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.repository_token_request_patch import RepositoryTokenRequestPatch
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RepositoryTokenRequestPatch from a JSON string
+repository_token_request_patch_instance = RepositoryTokenRequestPatch.from_json(json)
+# print the JSON string representation of the object
+print(RepositoryTokenRequestPatch.to_json())
+
+# convert the object into a dict
+repository_token_request_patch_dict = repository_token_request_patch_instance.to_dict()
+# create an instance of RepositoryTokenRequestPatch from a dict
+repository_token_request_patch_from_dict = RepositoryTokenRequestPatch.from_dict(repository_token_request_patch_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

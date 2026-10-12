@@ -9,47 +9,69 @@ Method | HTTP request | Description
 
 
 # **distros_list**
-> list[DistributionFull] distros_list()
+> List[DistributionFull] distros_list()
 
 Get a list of all supported distributions.
 
 Get a list of all supported distributions.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.distribution_full import DistributionFull
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.DistrosApi(cloudsmith_api.ApiClient(configuration))
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.DistrosApi(api_client)
 
-try:
-    # Get a list of all supported distributions.
-    api_response = api_instance.distros_list()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DistrosApi->distros_list: %s\n" % e)
+    try:
+        # Get a list of all supported distributions.
+        api_response = api_instance.distros_list()
+        print("The response of DistrosApi->distros_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DistrosApi->distros_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[DistributionFull]**](DistributionFull.md)
+[**List[DistributionFull]**](DistributionFull.md)
 
 ### Authorization
 
@@ -57,8 +79,16 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Available package formats retrieved |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -70,36 +100,58 @@ View for viewing/listing distributions.
 View for viewing/listing distributions.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.distribution_full import DistributionFull
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.DistrosApi(cloudsmith_api.ApiClient(configuration))
-slug = 'slug_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.DistrosApi(api_client)
+    slug = 'slug_example' # str | 
 
-try:
-    # View for viewing/listing distributions.
-    api_response = api_instance.distros_read(slug)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DistrosApi->distros_read: %s\n" % e)
+    try:
+        # View for viewing/listing distributions.
+        api_response = api_instance.distros_read(slug)
+        print("The response of DistrosApi->distros_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DistrosApi->distros_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -115,8 +167,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

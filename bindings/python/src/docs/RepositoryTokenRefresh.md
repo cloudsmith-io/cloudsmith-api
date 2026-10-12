@@ -1,25 +1,27 @@
 # RepositoryTokenRefresh
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_private_broadcasts** | **bool** | If enabled, this token can be used for private broadcasts | [optional] 
-**clients** | **int** |  | [optional] 
-**created_at** | **datetime** | The datetime the token was updated at. | [optional] 
-**created_by** | **str** |  | [optional] 
-**created_by_url** | **str** |  | [optional] 
-**default** | **bool** | If selected this is the default token for this repository. | [optional] 
-**disable_url** | **str** |  | [optional] 
-**downloads** | **int** |  | [optional] 
-**enable_url** | **str** |  | [optional] 
+**access_private_broadcasts** | **bool** | If enabled, this token can be used for private broadcasts | [optional] [readonly] 
+**clients** | **int** |  | [optional] [readonly] 
+**created_at** | **datetime** | The datetime the token was updated at. | [optional] [readonly] 
+**created_by** | **str** |  | [optional] [readonly] 
+**created_by_url** | **str** |  | [optional] [readonly] 
+**default** | **bool** | If selected this is the default token for this repository. | [optional] [readonly] 
+**disable_url** | **str** |  | [optional] [readonly] 
+**downloads** | **int** |  | [optional] [readonly] 
+**enable_url** | **str** |  | [optional] [readonly] 
 **eula_accepted** | [**Eula**](Eula.md) |  | [optional] 
-**eula_accepted_at** | **datetime** | The datetime the EULA was accepted at. | [optional] 
-**eula_accepted_from** | **str** |  | [optional] 
+**eula_accepted_at** | **datetime** | The datetime the EULA was accepted at. | [optional] [readonly] 
+**eula_accepted_from** | **str** |  | [optional] [readonly] 
 **eula_required** | **bool** | If checked, a EULA acceptance is required for this token. | [optional] 
-**has_limits** | **bool** |  | [optional] 
-**identifier** | **int** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified an entitlement within a repository. | [optional] 
+**has_limits** | **bool** |  | [optional] [readonly] 
+**identifier** | **int** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified an entitlement within a repository. | [optional] [readonly] 
 **is_active** | **bool** | If enabled, the token will allow downloads based on configured restrictions (if any). | [optional] 
-**is_limited** | **bool** |  | [optional] 
+**is_limited** | **bool** |  | [optional] [readonly] 
 **limit_bandwidth** | **int** | The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.  | [optional] 
 **limit_bandwidth_unit** | **str** |  | [optional] [default to 'Byte']
 **limit_date_range_from** | **datetime** | The starting date/time the token is allowed to be used from. | [optional] 
@@ -29,21 +31,38 @@ Name | Type | Description | Notes
 **limit_package_query** | **str** | The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. | [optional] 
 **limit_path_query** | **str** | THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash. | [optional] 
 **metadata** | **object** |  | [optional] 
-**name** | **str** |  | [optional] 
-**refresh_url** | **str** |  | [optional] 
-**reset_url** | **str** |  | [optional] 
+**name** | **str** |  | [optional] [readonly] 
+**refresh_url** | **str** |  | [optional] [readonly] 
+**reset_url** | **str** |  | [optional] [readonly] 
 **scheduled_reset_at** | **datetime** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. | [optional] 
 **scheduled_reset_period** | **str** |  | [optional] [default to 'Never Reset']
-**self_url** | **str** |  | [optional] 
-**slug_perm** | **str** |  | [optional] 
+**self_url** | **str** |  | [optional] [readonly] 
+**slug_perm** | **str** |  | [optional] [readonly] 
 **token** | **str** |  | [optional] 
-**updated_at** | **datetime** | The datetime the token was updated at. | [optional] 
-**updated_by** | **str** |  | [optional] 
-**updated_by_url** | **str** |  | [optional] 
-**usage** | **str** |  | [optional] 
-**user** | **str** |  | [optional] 
-**user_url** | **str** |  | [optional] 
+**updated_at** | **datetime** | The datetime the token was updated at. | [optional] [readonly] 
+**updated_by** | **str** |  | [optional] [readonly] 
+**updated_by_url** | **str** |  | [optional] [readonly] 
+**usage** | **str** |  | [optional] [readonly] 
+**user** | **str** |  | [optional] [readonly] 
+**user_url** | **str** |  | [optional] [readonly] 
 
+## Example
+
+```python
+from cloudsmith_api.models.repository_token_refresh import RepositoryTokenRefresh
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RepositoryTokenRefresh from a JSON string
+repository_token_refresh_instance = RepositoryTokenRefresh.from_json(json)
+# print the JSON string representation of the object
+print(RepositoryTokenRefresh.to_json())
+
+# convert the object into a dict
+repository_token_refresh_dict = repository_token_refresh_instance.to_dict()
+# create an instance of RepositoryTokenRefresh from a dict
+repository_token_refresh_from_dict = RepositoryTokenRefresh.from_dict(repository_token_refresh_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

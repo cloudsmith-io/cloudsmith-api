@@ -1,22 +1,41 @@
 # OrganizationMembership
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str** |  | [optional] 
-**has_two_factor** | **bool** |  | [optional] 
-**is_active** | **bool** |  | [optional] 
-**joined_at** | **datetime** |  | [optional] 
-**last_login_at** | **datetime** |  | [optional] 
-**last_login_method** | **str** |  | [optional] [default to 'Unknown']
-**role** | **str** |  | [optional] [default to 'Owner']
-**teams** | [**list[MemberTeams]**](MemberTeams.md) |  | [optional] 
-**user** | **str** |  | [optional] 
-**user_id** | **str** |  | [optional] 
-**user_name** | **str** |  | [optional] 
-**user_url** | **str** |  | [optional] 
-**visibility** | **str** |  | [optional] [default to 'Public']
+**email** | **str** |  | [optional] [readonly] 
+**has_two_factor** | **bool** |  | [optional] [readonly] 
+**is_active** | **bool** |  | [optional] [readonly] 
+**joined_at** | **datetime** |  | [optional] [readonly] 
+**last_login_at** | **datetime** |  | [optional] [readonly] 
+**last_login_method** | **str** |  | [optional] [readonly] [default to 'Unknown']
+**role** | **str** |  | [optional] [readonly] [default to 'Owner']
+**teams** | [**List[MemberTeams]**](MemberTeams.md) |  | [optional] [readonly] 
+**user** | **str** |  | [optional] [readonly] 
+**user_id** | **str** |  | [optional] [readonly] 
+**user_name** | **str** |  | [optional] [readonly] 
+**user_url** | **str** |  | [optional] [readonly] 
+**visibility** | **str** |  | [optional] [readonly] [default to 'Public']
 
+## Example
+
+```python
+from cloudsmith_api.models.organization_membership import OrganizationMembership
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of OrganizationMembership from a JSON string
+organization_membership_instance = OrganizationMembership.from_json(json)
+# print the JSON string representation of the object
+print(OrganizationMembership.to_json())
+
+# convert the object into a dict
+organization_membership_dict = organization_membership_instance.to_dict()
+# create an instance of OrganizationMembership from a dict
+organization_membership_from_dict = OrganizationMembership.from_dict(organization_membership_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

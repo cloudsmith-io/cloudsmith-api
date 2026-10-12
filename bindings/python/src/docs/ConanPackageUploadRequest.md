@@ -1,6 +1,8 @@
 # ConanPackageUploadRequest
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conan_channel** | **str** | Conan channel. | [optional] 
@@ -14,6 +16,23 @@ Name | Type | Description | Notes
 **tags** | **str** | A comma-separated values list of tags to add to the package. | [optional] 
 **version** | **str** | The raw version for this package. | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.conan_package_upload_request import ConanPackageUploadRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ConanPackageUploadRequest from a JSON string
+conan_package_upload_request_instance = ConanPackageUploadRequest.from_json(json)
+# print the JSON string representation of the object
+print(ConanPackageUploadRequest.to_json())
+
+# convert the object into a dict
+conan_package_upload_request_dict = conan_package_upload_request_instance.to_dict()
+# create an instance of ConanPackageUploadRequest from a dict
+conan_package_upload_request_from_dict = ConanPackageUploadRequest.from_dict(conan_package_upload_request_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
