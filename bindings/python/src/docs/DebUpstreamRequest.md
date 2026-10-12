@@ -1,13 +1,15 @@
 # DebUpstreamRequest
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **auth_mode** | **str** | The authentication mode to use when accessing this upstream.  | [optional] [default to 'None']
 **auth_secret** | **str** | Secret to provide with requests to upstream. | [optional] 
 **auth_username** | **str** | Username to provide with requests to upstream. | [optional] 
 **component** | **str** | The component to fetch from the upstream | [optional] 
-**distro_versions** | **list[str]** | The distribution version that packages found on this upstream could be associated with. | 
+**distro_versions** | **List[str]** | The distribution version that packages found on this upstream could be associated with. | 
 **extra_header_1** | **str** | The key for extra header #1 to send to upstream. | [optional] 
 **extra_header_2** | **str** | The key for extra header #2 to send to upstream. | [optional] 
 **extra_value_1** | **str** | The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted. | [optional] 
@@ -24,6 +26,23 @@ Name | Type | Description | Notes
 **upstream_url** | **str** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  | 
 **verify_ssl** | **bool** | If enabled, SSL certificates are verified when requests are made to this upstream. It&#39;s recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams. | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.deb_upstream_request import DebUpstreamRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DebUpstreamRequest from a JSON string
+deb_upstream_request_instance = DebUpstreamRequest.from_json(json)
+# print the JSON string representation of the object
+print(DebUpstreamRequest.to_json())
+
+# convert the object into a dict
+deb_upstream_request_dict = deb_upstream_request_instance.to_dict()
+# create an instance of DebUpstreamRequest from a dict
+deb_upstream_request_from_dict = DebUpstreamRequest.from_dict(deb_upstream_request_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

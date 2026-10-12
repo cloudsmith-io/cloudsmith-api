@@ -4,3 +4,33 @@ requires = [
   "wheel>=0.45",
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloudsmith-api"
+# bindings/python/build.sh sets the version from package_version in scripts/common.sh.
+version = "2.0.37"
+description = "Cloudsmith API"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Cloudsmith Ltd", email = "support@cloudsmith.io"},
+]
+keywords = ["Cloudsmith", "OpenAPI", "API client"]
+requires-python = ">=3.10"
+dependencies = [
+  "urllib3>=2.7.0,<3.0.0",
+  "python-dateutil>=2.8.2",
+  "pydantic>=2.11",
+  "typing-extensions>=4.7.1",
+]
+
+[project.urls]
+Homepage = "https://cloudsmith.io"
+Repository = "https://github.com/cloudsmith-io/cloudsmith-api"
+
+[tool.setuptools.packages.find]
+include = ["cloudsmith_api*"]
+
+[tool.setuptools.package-data]
+cloudsmith_api = ["py.typed"]

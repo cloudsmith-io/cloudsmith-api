@@ -2,7 +2,7 @@
 
 [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/badges/version/cloudsmith/api/python/cloudsmith-api/latest/xf=bdist_wheel;xn=cloudsmith-api;xv=py3/?render=true)](https://cloudsmith.io/~cloudsmith/repos/api/packages/detail/python/cloudsmith-api/latest/xf=bdist_wheel;xn=cloudsmith-api;xv=py3/)
 
-The [Cloudsmith](https://cloudsmith.io) API (Application Programmatic Interface) bindings provide libraries in different languages for accessing the service programmatically. The API is fully compliant with the [OpenAPI 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) and the clients are *generated* using [swagger-codegen-cli](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-cli) from the [Swagger Project](https://swagger.io/).
+The [Cloudsmith](https://cloudsmith.io) API (Application Programmatic Interface) bindings provide libraries in different languages for accessing the service programmatically. The API is fully compliant with the [OpenAPI 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) and the clients are *generated*. The Python client uses [OpenAPI Generator](https://openapi-generator.tech). The Java and Ruby clients use [swagger-codegen-cli](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-cli) from the [Swagger Project](https://swagger.io/).
 
 **Please note** that the generated client APIs are intended for developers, and are subject to change as the upstream API evolves over time (especially pre-1.0 releases). If you're looking for something a little more user-friendly, please see the [Cloudsmith CLI](https://github.com/cloudsmith-io/cloudsmith-cli/) application for something that comes pre-baked.
 
@@ -21,7 +21,7 @@ If you need a different binding, [contact us](https://cloudsmith.com/company/con
 
 ## Getting Started
 
-We use [swagger-codegen-cli](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-cli) to generate the bindings by using the [Cloudsmith API schema](https://api.cloudsmith.io/?format=openapi) that is compliant with the [OpenAPI 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).
+We use [OpenAPI Generator](https://openapi-generator.tech) (Python) and [swagger-codegen-cli](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-cli) (Java and Ruby) to generate the bindings by using the [Cloudsmith API schema](https://api.cloudsmith.io/?format=openapi) that is compliant with the [OpenAPI 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).
 
 Each of the supported language bindings has its own directory within the [bindings directory](https://github.com/cloudsmith-io/cloudsmith-api/tree/master/bindings), and three standardised scripts are used:
 
@@ -48,7 +48,7 @@ The host toolchain is managed with [mise](https://mise.jdx.dev/) via the top-lev
 mise install   # installs the pinned host tools (ruby, uv, jq)
 ```
 
-You also need [Docker](https://www.docker.com/) running — binding generation happens inside the pinned `swagger-codegen-cli` image (see `scripts/common.sh`), which mise does not manage.
+You also need [Docker](https://www.docker.com/) running — binding generation happens inside the pinned generator images (see `codegen/` and `scripts/common.sh`), which mise does not manage.
 
 Common tasks:
 

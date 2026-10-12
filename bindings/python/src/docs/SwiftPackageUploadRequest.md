@@ -1,6 +1,8 @@
 # SwiftPackageUploadRequest
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author_name** | **str** | The name of the author of the package. | [optional] 
@@ -15,6 +17,23 @@ Name | Type | Description | Notes
 **tags** | **str** | A comma-separated values list of tags to add to the package. | [optional] 
 **version** | **str** | The raw version for this package. | 
 
+## Example
+
+```python
+from cloudsmith_api.models.swift_package_upload_request import SwiftPackageUploadRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of SwiftPackageUploadRequest from a JSON string
+swift_package_upload_request_instance = SwiftPackageUploadRequest.from_json(json)
+# print the JSON string representation of the object
+print(SwiftPackageUploadRequest.to_json())
+
+# convert the object into a dict
+swift_package_upload_request_dict = swift_package_upload_request_instance.to_dict()
+# create an instance of SwiftPackageUploadRequest from a dict
+swift_package_upload_request_from_dict = SwiftPackageUploadRequest.from_dict(swift_package_upload_request_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

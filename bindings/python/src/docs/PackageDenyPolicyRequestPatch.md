@@ -1,6 +1,8 @@
 # PackageDenyPolicyRequestPatch
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | [optional] 
@@ -8,6 +10,23 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **package_query_string** | **str** | Packages that match this query will trigger this deny rule. | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.package_deny_policy_request_patch import PackageDenyPolicyRequestPatch
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of PackageDenyPolicyRequestPatch from a JSON string
+package_deny_policy_request_patch_instance = PackageDenyPolicyRequestPatch.from_json(json)
+# print the JSON string representation of the object
+print(PackageDenyPolicyRequestPatch.to_json())
+
+# convert the object into a dict
+package_deny_policy_request_patch_dict = package_deny_policy_request_patch_instance.to_dict()
+# create an instance of PackageDenyPolicyRequestPatch from a dict
+package_deny_policy_request_patch_from_dict = PackageDenyPolicyRequestPatch.from_dict(package_deny_policy_request_patch_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

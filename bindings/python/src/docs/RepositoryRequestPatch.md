@@ -1,6 +1,8 @@
 # RepositoryRequestPatch
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **broadcast_state** | **str** | Broadcasting status of a repository. | [optional] [default to 'Off']
@@ -13,7 +15,7 @@ Name | Type | Description | Notes
 **delete_own** | **bool** | If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. | [optional] 
 **delete_packages** | **str** | This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting. | [optional] [default to 'Admin']
 **description** | **str** | A description of the repository&#39;s purpose/contents. | [optional] 
-**distributes** | **list[str]** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. | [optional] 
+**distributes** | **List[str]** | The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION. | [optional] 
 **docker_refresh_tokens_enabled** | **bool** | If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens. | [optional] 
 **enforce_eula** | **bool** | If checked, downloads will explicitly require acceptance of an EULA. | [optional] 
 **generic_package_index_enabled** | **bool** | If checked, HTML indexes will be generated that list all available generic packages in the repository. | [optional] 
@@ -51,6 +53,23 @@ Name | Type | Description | Notes
 **user_entitlements_enabled** | **bool** | If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users. | [optional] 
 **view_statistics** | **str** | This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won&#39;t be able to view any statistics, either via the UI, API or CLI. | [optional] [default to 'Read']
 
+## Example
+
+```python
+from cloudsmith_api.models.repository_request_patch import RepositoryRequestPatch
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RepositoryRequestPatch from a JSON string
+repository_request_patch_instance = RepositoryRequestPatch.from_json(json)
+# print the JSON string representation of the object
+print(RepositoryRequestPatch.to_json())
+
+# convert the object into a dict
+repository_request_patch_dict = repository_request_patch_instance.to_dict()
+# create an instance of RepositoryRequestPatch from a dict
+repository_request_patch_from_dict = RepositoryRequestPatch.from_dict(repository_request_patch_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -5,6 +5,8 @@ api_version=$(curl -s "${api_url}status/check/basic/" | jq -r '.version')
 openapi_url="${api_url}?format=openapi"
 package_version="2.0.37"
 swagger_codegen_cli_image="swaggerapi/swagger-codegen-cli:v2.4.50"
+# Dependabot updates the image in codegen/openapi-generator/Dockerfile.
+openapi_generator_cli_image=$(awk '/^FROM / {print $2}' "$root_dir/codegen/openapi-generator/Dockerfile")
 
 location=$(curl -s $openapi_url | grep Location | cut -d' ' -f2)
 [[ "$location" != "" ]] && {

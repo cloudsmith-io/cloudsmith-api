@@ -1,6 +1,8 @@
 # RepositoryTokenRequest
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eula_required** | **bool** | If checked, a EULA acceptance is required for this token. | [optional] 
@@ -19,6 +21,23 @@ Name | Type | Description | Notes
 **scheduled_reset_period** | **str** |  | [optional] [default to 'Never Reset']
 **token** | **str** |  | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.repository_token_request import RepositoryTokenRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RepositoryTokenRequest from a JSON string
+repository_token_request_instance = RepositoryTokenRequest.from_json(json)
+# print the JSON string representation of the object
+print(RepositoryTokenRequest.to_json())
+
+# convert the object into a dict
+repository_token_request_dict = repository_token_request_instance.to_dict()
+# create an instance of RepositoryTokenRequest from a dict
+repository_token_request_from_dict = RepositoryTokenRequest.from_dict(repository_token_request_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

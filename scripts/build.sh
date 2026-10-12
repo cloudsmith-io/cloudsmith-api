@@ -29,6 +29,7 @@ ensure_docker_daemon() {
 ensure_docker_daemon
 
 docker image pull -q "${swagger_codegen_cli_image:?}"
+docker image pull -q "${openapi_generator_cli_image:?}"
 
 build_language() {
   local language=$1

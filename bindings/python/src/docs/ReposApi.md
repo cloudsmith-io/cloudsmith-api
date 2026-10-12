@@ -179,37 +179,59 @@ Retrieve the GeoIP status for this repository.
 Retrieve the GeoIP status for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_geo_ip_status import RepositoryGeoIpStatus
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Retrieve the GeoIP status for this repository.
-    api_response = api_instance.api_repos_geoip_status(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->api_repos_geoip_status: %s\n" % e)
+    try:
+        # Retrieve the GeoIP status for this repository.
+        api_response = api_instance.api_repos_geoip_status(owner, identifier)
+        print("The response of ReposApi->api_repos_geoip_status:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->api_repos_geoip_status: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -226,8 +248,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the GeoIP status for this repository. |  -  |
+**402** | Geo/IP restrictions are not available; upgrade your account! |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -239,38 +271,61 @@ Update the retention rules for the repository.
 Update the retention rules for the repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_retention_rules import RepositoryRetentionRules
+from cloudsmith_api.models.repository_retention_rules_request_patch import RepositoryRetentionRulesRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RepositoryRetentionRulesRequestPatch() # RepositoryRetentionRulesRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RepositoryRetentionRulesRequestPatch() # RepositoryRetentionRulesRequestPatch |  (optional)
 
-try:
-    # Update the retention rules for the repository.
-    api_response = api_instance.repo_retention_partial_update(owner, repo, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repo_retention_partial_update: %s\n" % e)
+    try:
+        # Update the retention rules for the repository.
+        api_response = api_instance.repo_retention_partial_update(owner, repo, data=data)
+        print("The response of ReposApi->repo_retention_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repo_retention_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -291,6 +346,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Updated the retention rules for the repository. |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repo_retention_read**
@@ -301,37 +365,59 @@ Retrieve the retention rules for the repository.
 Retrieve the retention rules for the repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_retention_rules import RepositoryRetentionRules
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
 
-try:
-    # Retrieve the retention rules for the repository.
-    api_response = api_instance.repo_retention_read(owner, repo)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repo_retention_read: %s\n" % e)
+    try:
+        # Retrieve the retention rules for the repository.
+        api_response = api_instance.repo_retention_read(owner, repo)
+        print("The response of ReposApi->repo_retention_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repo_retention_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -348,8 +434,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the retention rules for the repository. |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -361,38 +456,61 @@ Create a connected repository for this repository.
 Create a connected repository for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.connected_repository import ConnectedRepository
+from cloudsmith_api.models.connected_repository_request import ConnectedRepositoryRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ConnectedRepositoryRequest() # ConnectedRepositoryRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.ConnectedRepositoryRequest() # ConnectedRepositoryRequest |  (optional)
 
-try:
-    # Create a connected repository for this repository.
-    api_response = api_instance.repos_connected_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_connected_create: %s\n" % e)
+    try:
+        # Create a connected repository for this repository.
+        api_response = api_instance.repos_connected_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_connected_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_connected_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -413,6 +531,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The connected repository was created. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_connected_delete**
@@ -423,37 +549,57 @@ Delete a connected repository for this repository.
 Delete a connected repository for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a connected repository for this repository.
-    api_instance.repos_connected_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_connected_delete: %s\n" % e)
+    try:
+        # Delete a connected repository for this repository.
+        api_instance.repos_connected_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_connected_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -471,52 +617,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The connected repository was deleted. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_connected_list**
-> InlineResponse2003 repos_connected_list(owner, identifier, page=page, page_size=page_size)
+> ReposConnectedList200Response repos_connected_list(owner, identifier, page=page, page_size=page_size)
 
 List connected repositories for this repository.
 
 List connected repositories for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repos_connected_list200_response import ReposConnectedList200Response
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List connected repositories for this repository.
-    api_response = api_instance.repos_connected_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_connected_list: %s\n" % e)
+    try:
+        # List connected repositories for this repository.
+        api_response = api_instance.repos_connected_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_connected_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_connected_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -527,7 +703,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**ReposConnectedList200Response**](ReposConnectedList200Response.md)
 
 ### Authorization
 
@@ -535,8 +711,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the list of connected repositories. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -548,39 +732,62 @@ Partially update a connected repository for this repository.
 Partially update a connected repository for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.connected_repository import ConnectedRepository
+from cloudsmith_api.models.connected_repository_request_patch import ConnectedRepositoryRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.ConnectedRepositoryRequestPatch() # ConnectedRepositoryRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.ConnectedRepositoryRequestPatch() # ConnectedRepositoryRequestPatch |  (optional)
 
-try:
-    # Partially update a connected repository for this repository.
-    api_response = api_instance.repos_connected_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_connected_partial_update: %s\n" % e)
+    try:
+        # Partially update a connected repository for this repository.
+        api_response = api_instance.repos_connected_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_connected_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_connected_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -602,6 +809,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The connected repository was partially updated. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_connected_read**
@@ -612,38 +827,60 @@ Retrieve a connected repository for this repository.
 Retrieve a connected repository for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.connected_repository import ConnectedRepository
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a connected repository for this repository.
-    api_response = api_instance.repos_connected_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_connected_read: %s\n" % e)
+    try:
+        # Retrieve a connected repository for this repository.
+        api_response = api_instance.repos_connected_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_connected_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_connected_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -661,8 +898,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the connected repository. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -674,39 +919,62 @@ Update a connected repository for this repository.
 Update a connected repository for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.connected_repository import ConnectedRepository
+from cloudsmith_api.models.connected_repository_request import ConnectedRepositoryRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.ConnectedRepositoryRequest() # ConnectedRepositoryRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.ConnectedRepositoryRequest() # ConnectedRepositoryRequest |  (optional)
 
-try:
-    # Update a connected repository for this repository.
-    api_response = api_instance.repos_connected_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_connected_update: %s\n" % e)
+    try:
+        # Update a connected repository for this repository.
+        api_response = api_instance.repos_connected_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_connected_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_connected_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -728,6 +996,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The connected repository was updated. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_create**
@@ -738,37 +1014,60 @@ Create a new repository in a given namespace.
 Create a new repository in a given namespace.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_create import RepositoryCreate
+from cloudsmith_api.models.repository_create_request import RepositoryCreateRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-data = cloudsmith_api.RepositoryCreateRequest() # RepositoryCreateRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    data = cloudsmith_api.RepositoryCreateRequest() # RepositoryCreateRequest |  (optional)
 
-try:
-    # Create a new repository in a given namespace.
-    api_response = api_instance.repos_create(owner, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_create: %s\n" % e)
+    try:
+        # Create a new repository in a given namespace.
+        api_response = api_instance.repos_create(owner, data=data)
+        print("The response of ReposApi->repos_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -788,45 +1087,74 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | The repository was created. |  -  |
+**404** | Owner namespace not found. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_delete**
 > repos_delete(owner, identifier)
 
+Delete a repository in a given namespace.
 
-
-Delete a repository in a given namespace.  Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
+Note: Repositories are soft-deleted and can be restored within a retention period. During this time, the repository's slug remains reserved and cannot be reused for new repositories.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    api_instance.repos_delete(owner, identifier)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_delete: %s\n" % e)
+    try:
+        api_instance.repos_delete(owner, identifier)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -843,8 +1171,17 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The repository has been scheduled for deletion. |  -  |
+**404** | Unable to find repository with that name in the provided namespace. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -856,38 +1193,61 @@ Set the active ECDSA key for the Repository.
 Set the active ECDSA key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_ecdsa_key import RepositoryEcdsaKey
+from cloudsmith_api.models.repository_ecdsa_key_create import RepositoryEcdsaKeyCreate
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryEcdsaKeyCreate() # RepositoryEcdsaKeyCreate |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryEcdsaKeyCreate() # RepositoryEcdsaKeyCreate |  (optional)
 
-try:
-    # Set the active ECDSA key for the Repository.
-    api_response = api_instance.repos_ecdsa_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ecdsa_create: %s\n" % e)
+    try:
+        # Set the active ECDSA key for the Repository.
+        api_response = api_instance.repos_ecdsa_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_ecdsa_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_ecdsa_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -908,6 +1268,17 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The provided ECDSA key is the same as the current ECDSA key. |  -  |
+**201** | The provided ECDSA key was assigned to the Repository. |  -  |
+**400** | The provided ECDSA key is not valid |  -  |
+**402** | Custom ECDSA keys are not active; upgrade your account! |  -  |
+**404** | Organization/Repository does not exist, or you do not have permissions. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_ecdsa_list**
@@ -918,37 +1289,59 @@ Retrieve the active ECDSA key for the Repository.
 Retrieve the active ECDSA key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_ecdsa_key import RepositoryEcdsaKey
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Retrieve the active ECDSA key for the Repository.
-    api_response = api_instance.repos_ecdsa_list(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ecdsa_list: %s\n" % e)
+    try:
+        # Retrieve the active ECDSA key for the Repository.
+        api_response = api_instance.repos_ecdsa_list(owner, identifier)
+        print("The response of ReposApi->repos_ecdsa_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_ecdsa_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -965,8 +1358,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the active ECDSA key. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -978,37 +1379,59 @@ Regenerate ECDSA Key for the Repository.
 Regenerate ECDSA Key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_ecdsa_key import RepositoryEcdsaKey
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Regenerate ECDSA Key for the Repository.
-    api_response = api_instance.repos_ecdsa_regenerate(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ecdsa_regenerate: %s\n" % e)
+    try:
+        # Regenerate ECDSA Key for the Repository.
+        api_response = api_instance.repos_ecdsa_regenerate(owner, identifier)
+        print("The response of ReposApi->repos_ecdsa_regenerate:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_ecdsa_regenerate: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1025,8 +1448,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An ECDSA key was generated for the Repository. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1038,38 +1469,61 @@ Set the active Ed25519 key for the Repository.
 Set the active Ed25519 key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_ed25519_key import RepositoryEd25519Key
+from cloudsmith_api.models.repository_ed25519_key_create import RepositoryEd25519KeyCreate
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryEd25519KeyCreate() # RepositoryEd25519KeyCreate |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryEd25519KeyCreate() # RepositoryEd25519KeyCreate |  (optional)
 
-try:
-    # Set the active Ed25519 key for the Repository.
-    api_response = api_instance.repos_ed25519_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ed25519_create: %s\n" % e)
+    try:
+        # Set the active Ed25519 key for the Repository.
+        api_response = api_instance.repos_ed25519_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_ed25519_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_ed25519_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1090,6 +1544,17 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The provided Ed25519 key is the same as the current Ed25519 key. |  -  |
+**201** | The provided Ed25519 key was assigned to the Repository. |  -  |
+**400** | The provided Ed25519 key is not valid |  -  |
+**402** | Custom Ed25519 keys are not active; upgrade your account! |  -  |
+**404** | Organization/Repository does not exist, or you do not have permissions. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_ed25519_list**
@@ -1100,37 +1565,59 @@ Retrieve the active Ed25519 key for the Repository.
 Retrieve the active Ed25519 key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_ed25519_key import RepositoryEd25519Key
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Retrieve the active Ed25519 key for the Repository.
-    api_response = api_instance.repos_ed25519_list(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ed25519_list: %s\n" % e)
+    try:
+        # Retrieve the active Ed25519 key for the Repository.
+        api_response = api_instance.repos_ed25519_list(owner, identifier)
+        print("The response of ReposApi->repos_ed25519_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_ed25519_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1147,8 +1634,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the active Ed25519 key. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1160,37 +1655,59 @@ Regenerate Ed25519 Key for the Repository.
 Regenerate Ed25519 Key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_ed25519_key import RepositoryEd25519Key
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Regenerate Ed25519 Key for the Repository.
-    api_response = api_instance.repos_ed25519_regenerate(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_ed25519_regenerate: %s\n" % e)
+    try:
+        # Regenerate Ed25519 Key for the Repository.
+        api_response = api_instance.repos_ed25519_regenerate(owner, identifier)
+        print("The response of ReposApi->repos_ed25519_regenerate:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_ed25519_regenerate: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1207,8 +1724,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An Ed25519 key was generated for the Repository. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1220,43 +1745,63 @@ Disable GeoIP for this repository.
 Disable GeoIP for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RespositoryGeoIpEnableDisableRequest() # RespositoryGeoIpEnableDisableRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = None # object |  (optional)
 
-try:
-    # Disable GeoIP for this repository.
-    api_instance.repos_geoip_disable(owner, identifier, data=data)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_geoip_disable: %s\n" % e)
+    try:
+        # Disable GeoIP for this repository.
+        api_instance.repos_geoip_disable(owner, identifier, data=data)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_geoip_disable: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
+ **data** | **object**|  | [optional] 
 
 ### Return type
 
@@ -1270,6 +1815,16 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | GeoIP has been disabled for this repository. |  -  |
+**402** | Geo/IP restrictions are not available; upgrade your account! |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1281,43 +1836,63 @@ Enable GeoIP for this repository.
 Enable GeoIP for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RespositoryGeoIpEnableDisableRequest() # RespositoryGeoIpEnableDisableRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = None # object |  (optional)
 
-try:
-    # Enable GeoIP for this repository.
-    api_instance.repos_geoip_enable(owner, identifier, data=data)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_geoip_enable: %s\n" % e)
+    try:
+        # Enable GeoIP for this repository.
+        api_instance.repos_geoip_enable(owner, identifier, data=data)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_geoip_enable: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **identifier** | **str**|  | 
- **data** | [**RespositoryGeoIpEnableDisableRequest**](RespositoryGeoIpEnableDisableRequest.md)|  | [optional] 
+ **data** | **object**|  | [optional] 
 
 ### Return type
 
@@ -1332,6 +1907,16 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | GeoIP has been enabled for this repository. |  -  |
+**402** | Geo/IP restrictions are not available; upgrade your account! |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_partial_update**
@@ -1342,38 +1927,61 @@ Partially update repository geoip rules.
 Partially update repository geoip rules.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_geo_ip_rules import RepositoryGeoIpRules
+from cloudsmith_api.models.repository_geo_ip_rules_request_patch import RepositoryGeoIpRulesRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIpRulesRequestPatch() # RepositoryGeoIpRulesRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryGeoIpRulesRequestPatch() # RepositoryGeoIpRulesRequestPatch |  (optional)
 
-try:
-    # Partially update repository geoip rules.
-    api_response = api_instance.repos_geoip_partial_update(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_geoip_partial_update: %s\n" % e)
+    try:
+        # Partially update repository geoip rules.
+        api_response = api_instance.repos_geoip_partial_update(owner, identifier, data=data)
+        print("The response of ReposApi->repos_geoip_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_geoip_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1394,6 +2002,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**402** | Geo/IP restrictions are not available; upgrade your account! |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_read**
@@ -1404,37 +2022,59 @@ List all repository geoip rules.
 List all repository geoip rules.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_geo_ip_rules import RepositoryGeoIpRules
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # List all repository geoip rules.
-    api_response = api_instance.repos_geoip_read(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_geoip_read: %s\n" % e)
+    try:
+        # List all repository geoip rules.
+        api_response = api_instance.repos_geoip_read(owner, identifier)
+        print("The response of ReposApi->repos_geoip_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_geoip_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1451,8 +2091,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**402** | Geo/IP restrictions are not available; upgrade your account! |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1464,38 +2114,61 @@ Test a list of IP addresses against the repository's current GeoIP rules.
 Test a list of IP addresses against the repository's current GeoIP rules.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_geo_ip_test_address import RepositoryGeoIpTestAddress
+from cloudsmith_api.models.repository_geo_ip_test_address_response import RepositoryGeoIpTestAddressResponse
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIpTestAddress() # RepositoryGeoIpTestAddress |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryGeoIpTestAddress() # RepositoryGeoIpTestAddress |  (optional)
 
-try:
-    # Test a list of IP addresses against the repository's current GeoIP rules.
-    api_response = api_instance.repos_geoip_test(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_geoip_test: %s\n" % e)
+    try:
+        # Test a list of IP addresses against the repository's current GeoIP rules.
+        api_response = api_instance.repos_geoip_test(owner, identifier, data=data)
+        print("The response of ReposApi->repos_geoip_test:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_geoip_test: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1516,6 +2189,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successfuly tested addresses against the repository&#39;s GeoIP rules |  -  |
+**402** | Geo/IP restrictions are not available; upgrade your account! |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_geoip_update**
@@ -1526,38 +2209,61 @@ Replace repository geoip rules.
 Replace repository geoip rules.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_geo_ip_rules import RepositoryGeoIpRules
+from cloudsmith_api.models.repository_geo_ip_rules_request import RepositoryGeoIpRulesRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGeoIpRulesRequest() # RepositoryGeoIpRulesRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryGeoIpRulesRequest() # RepositoryGeoIpRulesRequest |  (optional)
 
-try:
-    # Replace repository geoip rules.
-    api_response = api_instance.repos_geoip_update(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_geoip_update: %s\n" % e)
+    try:
+        # Replace repository geoip rules.
+        api_response = api_instance.repos_geoip_update(owner, identifier, data=data)
+        print("The response of ReposApi->repos_geoip_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_geoip_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1578,6 +2284,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**402** | Geo/IP restrictions are not available; upgrade your account! |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_create**
@@ -1588,38 +2304,61 @@ Set the active GPG key for the Repository.
 Set the active GPG key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_gpg_key import RepositoryGpgKey
+from cloudsmith_api.models.repository_gpg_key_create import RepositoryGpgKeyCreate
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryGpgKeyCreate() # RepositoryGpgKeyCreate |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryGpgKeyCreate() # RepositoryGpgKeyCreate |  (optional)
 
-try:
-    # Set the active GPG key for the Repository.
-    api_response = api_instance.repos_gpg_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_gpg_create: %s\n" % e)
+    try:
+        # Set the active GPG key for the Repository.
+        api_response = api_instance.repos_gpg_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_gpg_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_gpg_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1640,6 +2379,17 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The provided GPG key is the same as the current GPG key. |  -  |
+**201** | The provided GPG key was assigned to the Repository. |  -  |
+**400** | The provided GPG key is not valid |  -  |
+**402** | Custom GPG keys are not active; upgrade your account! |  -  |
+**404** | Organization/Repository does not exist, or you do not have permissions. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_gpg_list**
@@ -1650,37 +2400,59 @@ Retrieve the active GPG key for the Repository.
 Retrieve the active GPG key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_gpg_key import RepositoryGpgKey
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Retrieve the active GPG key for the Repository.
-    api_response = api_instance.repos_gpg_list(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_gpg_list: %s\n" % e)
+    try:
+        # Retrieve the active GPG key for the Repository.
+        api_response = api_instance.repos_gpg_list(owner, identifier)
+        print("The response of ReposApi->repos_gpg_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_gpg_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1697,8 +2469,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the active GPG key. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1710,37 +2490,59 @@ Regenerate GPG Key for the Repository.
 Regenerate GPG Key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_gpg_key import RepositoryGpgKey
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Regenerate GPG Key for the Repository.
-    api_response = api_instance.repos_gpg_regenerate(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_gpg_regenerate: %s\n" % e)
+    try:
+        # Regenerate GPG Key for the Repository.
+        api_response = api_instance.repos_gpg_regenerate(owner, identifier)
+        print("The response of ReposApi->repos_gpg_regenerate:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_gpg_regenerate: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1757,65 +2559,95 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A GPG key was generated for the Repository. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_namespace_list**
-> list[Repository] repos_namespace_list(owner, page=page, page_size=page_size, query=query, sort=sort)
+> List[Repository] repos_namespace_list(owner, page=page, page_size=page_size, query=query, sort=sort)
 
 Get a list of all repositories within a namespace.
 
 Get a list of all repositories within a namespace.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository import Repository
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
-query = '' # str | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional) (default to )
-sort = '-created_at' # str | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. (optional) (default to -created_at)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
+    query = 'query_example' # str | A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. (optional)
+    sort = '-created_at' # str | A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. (optional) (default to '-created_at')
 
-try:
-    # Get a list of all repositories within a namespace.
-    api_response = api_instance.repos_namespace_list(owner, page=page, page_size=page_size, query=query, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_namespace_list: %s\n" % e)
+    try:
+        # Get a list of all repositories within a namespace.
+        api_response = api_instance.repos_namespace_list(owner, page=page, page_size=page_size, query=query, sort=sort)
+        print("The response of ReposApi->repos_namespace_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_namespace_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **page** | **int**| A page number within the paginated result set. | [optional] 
  **page_size** | **int**| Number of results to return per page. | [optional] 
- **query** | **str**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] [default to ]
- **sort** | **str**| A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. | [optional] [default to -created_at]
+ **query** | **str**| A search term for querying repositories. Available options are: name, slug. Explicit filters: broadcast_state, repository_type. | [optional] 
+ **sort** | **str**| A field for sorting objects in ascending or descending order. Available options are: created_at, downloads, favorites, name, package_count, size. | [optional] [default to &#39;-created_at&#39;]
 
 ### Return type
 
-[**list[Repository]**](Repository.md)
+[**List[Repository]**](Repository.md)
 
 ### Authorization
 
@@ -1823,8 +2655,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the list of repositories |  -  |
+**404** | Owner namespace not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1836,38 +2677,61 @@ Update details about a repository in a given namespace.
 Update details about a repository in a given namespace.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository import Repository
+from cloudsmith_api.models.repository_request_patch import RepositoryRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryRequestPatch() # RepositoryRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryRequestPatch() # RepositoryRequestPatch |  (optional)
 
-try:
-    # Update details about a repository in a given namespace.
-    api_response = api_instance.repos_partial_update(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_partial_update: %s\n" % e)
+    try:
+        # Update details about a repository in a given namespace.
+        api_response = api_instance.repos_partial_update(owner, identifier, data=data)
+        print("The response of ReposApi->repos_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1888,6 +2752,15 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The repository was updated. |  -  |
+**404** | Unable to find repository with that name in the provided namespace. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_privileges_list**
@@ -1898,39 +2771,61 @@ List all explicity created privileges for the repository.
 List all explicity created privileges for the repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_privilege_input import RepositoryPrivilegeInput
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List all explicity created privileges for the repository.
-    api_response = api_instance.repos_privileges_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_privileges_list: %s\n" % e)
+    try:
+        # List all explicity created privileges for the repository.
+        api_response = api_instance.repos_privileges_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_privileges_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_privileges_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1949,8 +2844,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved privileges for the specified repository |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1962,37 +2866,58 @@ Modify privileges for the repository.
 Modify privileges for the repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_privilege_input_request_patch import RepositoryPrivilegeInputRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryPrivilegeInputRequestPatch() # RepositoryPrivilegeInputRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryPrivilegeInputRequestPatch() # RepositoryPrivilegeInputRequestPatch |  (optional)
 
-try:
-    # Modify privileges for the repository.
-    api_instance.repos_privileges_partial_update(owner, identifier, data=data)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_privileges_partial_update: %s\n" % e)
+    try:
+        # Modify privileges for the repository.
+        api_instance.repos_privileges_partial_update(owner, identifier, data=data)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_privileges_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2013,6 +2938,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Repository privileges updated |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_privileges_update**
@@ -2023,37 +2957,58 @@ Replace all existing repository privileges with those specified.
 Replace all existing repository privileges with those specified.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_privilege_input_request import RepositoryPrivilegeInputRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryPrivilegeInputRequest() # RepositoryPrivilegeInputRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryPrivilegeInputRequest() # RepositoryPrivilegeInputRequest |  (optional)
 
-try:
-    # Replace all existing repository privileges with those specified.
-    api_instance.repos_privileges_update(owner, identifier, data=data)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_privileges_update: %s\n" % e)
+    try:
+        # Replace all existing repository privileges with those specified.
+        api_instance.repos_privileges_update(owner, identifier, data=data)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_privileges_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2074,6 +3029,15 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Repository privileges replaced |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_read**
@@ -2084,37 +3048,59 @@ Get a specific repository.
 Get a specific repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository import Repository
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Get a specific repository.
-    api_response = api_instance.repos_read(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_read: %s\n" % e)
+    try:
+        # Get a specific repository.
+        api_response = api_instance.repos_read(owner, identifier)
+        print("The response of ReposApi->repos_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2131,8 +3117,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the specified repository |  -  |
+**404** | Owner namespace or repository not found |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2144,38 +3139,61 @@ Set the active RSA key for the Repository.
 Set the active RSA key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_rsa_key import RepositoryRsaKey
+from cloudsmith_api.models.repository_rsa_key_create import RepositoryRsaKeyCreate
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RepositoryRsaKeyCreate() # RepositoryRsaKeyCreate |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RepositoryRsaKeyCreate() # RepositoryRsaKeyCreate |  (optional)
 
-try:
-    # Set the active RSA key for the Repository.
-    api_response = api_instance.repos_rsa_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_rsa_create: %s\n" % e)
+    try:
+        # Set the active RSA key for the Repository.
+        api_response = api_instance.repos_rsa_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_rsa_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_rsa_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2196,6 +3214,17 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The provided RSA key is the same as the current RSA key. |  -  |
+**201** | The provided RSA key was assigned to the Repository. |  -  |
+**400** | The provided RSA key is not valid |  -  |
+**402** | Custom RSA keys are not active; upgrade your account! |  -  |
+**404** | Organization/Repository does not exist, or you do not have permissions. |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_rsa_list**
@@ -2206,37 +3235,59 @@ Retrieve the active RSA key for the Repository.
 Retrieve the active RSA key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_rsa_key import RepositoryRsaKey
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Retrieve the active RSA key for the Repository.
-    api_response = api_instance.repos_rsa_list(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_rsa_list: %s\n" % e)
+    try:
+        # Retrieve the active RSA key for the Repository.
+        api_response = api_instance.repos_rsa_list(owner, identifier)
+        print("The response of ReposApi->repos_rsa_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_rsa_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2253,8 +3304,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the active RSA key. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2266,37 +3325,59 @@ Regenerate RSA Key for the Repository.
 Regenerate RSA Key for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_rsa_key import RepositoryRsaKey
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Regenerate RSA Key for the Repository.
-    api_response = api_instance.repos_rsa_regenerate(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_rsa_regenerate: %s\n" % e)
+    try:
+        # Regenerate RSA Key for the Repository.
+        api_response = api_instance.repos_rsa_regenerate(owner, identifier)
+        print("The response of ReposApi->repos_rsa_regenerate:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_rsa_regenerate: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2313,8 +3394,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An RSA key was generated for the Repository. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2326,37 +3415,58 @@ Transfer a repository to a different region.
 Transfer a repository to a different region.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_transfer_region_request import RepositoryTransferRegionRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-repo = 'repo_example' # str | 
-data = cloudsmith_api.RepositoryTransferRegionRequest() # RepositoryTransferRegionRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    repo = 'repo_example' # str | 
+    data = cloudsmith_api.RepositoryTransferRegionRequest() # RepositoryTransferRegionRequest |  (optional)
 
-try:
-    # Transfer a repository to a different region.
-    api_instance.repos_transfer_region(owner, repo, data=data)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_transfer_region: %s\n" % e)
+    try:
+        # Transfer a repository to a different region.
+        api_instance.repos_transfer_region(owner, repo, data=data)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_transfer_region: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2377,6 +3487,16 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Repository region transfer initiated. |  -  |
+**404** | Owner, namespace or repository not found. |  -  |
+**402** | Custom storage regions not available on plan; upgrade your account! |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_alpine_create**
@@ -2387,38 +3507,61 @@ Create an Alpine upstream config for this repository.
 Create an Alpine upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.alpine_upstream import AlpineUpstream
+from cloudsmith_api.models.alpine_upstream_request import AlpineUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.AlpineUpstreamRequest() # AlpineUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.AlpineUpstreamRequest() # AlpineUpstreamRequest |  (optional)
 
-try:
-    # Create an Alpine upstream config for this repository.
-    api_response = api_instance.repos_upstream_alpine_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_alpine_create: %s\n" % e)
+    try:
+        # Create an Alpine upstream config for this repository.
+        api_response = api_instance.repos_upstream_alpine_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_alpine_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_alpine_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2439,6 +3582,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_alpine_delete**
@@ -2449,37 +3600,57 @@ Delete an Alpine upstream config for this repository.
 Delete an Alpine upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete an Alpine upstream config for this repository.
-    api_instance.repos_upstream_alpine_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_alpine_delete: %s\n" % e)
+    try:
+        # Delete an Alpine upstream config for this repository.
+        api_instance.repos_upstream_alpine_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_alpine_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2497,52 +3668,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_alpine_list**
-> list[AlpineUpstream] repos_upstream_alpine_list(owner, identifier, page=page, page_size=page_size)
+> List[AlpineUpstream] repos_upstream_alpine_list(owner, identifier, page=page, page_size=page_size)
 
 List Alpine upstream configs for this repository.
 
 List Alpine upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.alpine_upstream import AlpineUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Alpine upstream configs for this repository.
-    api_response = api_instance.repos_upstream_alpine_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_alpine_list: %s\n" % e)
+    try:
+        # List Alpine upstream configs for this repository.
+        api_response = api_instance.repos_upstream_alpine_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_alpine_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_alpine_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2553,7 +3754,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[AlpineUpstream]**](AlpineUpstream.md)
+[**List[AlpineUpstream]**](AlpineUpstream.md)
 
 ### Authorization
 
@@ -2561,8 +3762,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2574,39 +3783,62 @@ Partially update an Alpine upstream config for this repository.
 Partially update an Alpine upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.alpine_upstream import AlpineUpstream
+from cloudsmith_api.models.alpine_upstream_request_patch import AlpineUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.AlpineUpstreamRequestPatch() # AlpineUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.AlpineUpstreamRequestPatch() # AlpineUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update an Alpine upstream config for this repository.
-    api_response = api_instance.repos_upstream_alpine_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_alpine_partial_update: %s\n" % e)
+    try:
+        # Partially update an Alpine upstream config for this repository.
+        api_response = api_instance.repos_upstream_alpine_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_alpine_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_alpine_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2628,6 +3860,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_alpine_read**
@@ -2638,38 +3878,60 @@ Retrieve an Alpine upstream config for this repository.
 Retrieve an Alpine upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.alpine_upstream import AlpineUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve an Alpine upstream config for this repository.
-    api_response = api_instance.repos_upstream_alpine_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_alpine_read: %s\n" % e)
+    try:
+        # Retrieve an Alpine upstream config for this repository.
+        api_response = api_instance.repos_upstream_alpine_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_alpine_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_alpine_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2687,8 +3949,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2700,39 +3970,62 @@ Update an Alpine upstream config for this repository.
 Update an Alpine upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.alpine_upstream import AlpineUpstream
+from cloudsmith_api.models.alpine_upstream_request import AlpineUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.AlpineUpstreamRequest() # AlpineUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.AlpineUpstreamRequest() # AlpineUpstreamRequest |  (optional)
 
-try:
-    # Update an Alpine upstream config for this repository.
-    api_response = api_instance.repos_upstream_alpine_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_alpine_update: %s\n" % e)
+    try:
+        # Update an Alpine upstream config for this repository.
+        api_response = api_instance.repos_upstream_alpine_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_alpine_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_alpine_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2754,6 +4047,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cargo_create**
@@ -2764,38 +4065,61 @@ Create a Cargo upstream config for this repository.
 Create a Cargo upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cargo_upstream import CargoUpstream
+from cloudsmith_api.models.cargo_upstream_request import CargoUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.CargoUpstreamRequest() # CargoUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.CargoUpstreamRequest() # CargoUpstreamRequest |  (optional)
 
-try:
-    # Create a Cargo upstream config for this repository.
-    api_response = api_instance.repos_upstream_cargo_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cargo_create: %s\n" % e)
+    try:
+        # Create a Cargo upstream config for this repository.
+        api_response = api_instance.repos_upstream_cargo_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_cargo_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cargo_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2816,6 +4140,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cargo_delete**
@@ -2826,37 +4158,57 @@ Delete a Cargo upstream config for this repository.
 Delete a Cargo upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Cargo upstream config for this repository.
-    api_instance.repos_upstream_cargo_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cargo_delete: %s\n" % e)
+    try:
+        # Delete a Cargo upstream config for this repository.
+        api_instance.repos_upstream_cargo_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cargo_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2874,52 +4226,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cargo_list**
-> list[CargoUpstream] repos_upstream_cargo_list(owner, identifier, page=page, page_size=page_size)
+> List[CargoUpstream] repos_upstream_cargo_list(owner, identifier, page=page, page_size=page_size)
 
 List Cargo upstream configs for this repository.
 
 List Cargo upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cargo_upstream import CargoUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Cargo upstream configs for this repository.
-    api_response = api_instance.repos_upstream_cargo_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cargo_list: %s\n" % e)
+    try:
+        # List Cargo upstream configs for this repository.
+        api_response = api_instance.repos_upstream_cargo_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_cargo_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cargo_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2930,7 +4312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[CargoUpstream]**](CargoUpstream.md)
+[**List[CargoUpstream]**](CargoUpstream.md)
 
 ### Authorization
 
@@ -2938,8 +4320,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2951,39 +4341,62 @@ Partially update a Cargo upstream config for this repository.
 Partially update a Cargo upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cargo_upstream import CargoUpstream
+from cloudsmith_api.models.cargo_upstream_request_patch import CargoUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.CargoUpstreamRequestPatch() # CargoUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.CargoUpstreamRequestPatch() # CargoUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Cargo upstream config for this repository.
-    api_response = api_instance.repos_upstream_cargo_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cargo_partial_update: %s\n" % e)
+    try:
+        # Partially update a Cargo upstream config for this repository.
+        api_response = api_instance.repos_upstream_cargo_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_cargo_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cargo_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3005,6 +4418,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cargo_read**
@@ -3015,38 +4436,60 @@ Retrieve a Cargo upstream config for this repository.
 Retrieve a Cargo upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cargo_upstream import CargoUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Cargo upstream config for this repository.
-    api_response = api_instance.repos_upstream_cargo_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cargo_read: %s\n" % e)
+    try:
+        # Retrieve a Cargo upstream config for this repository.
+        api_response = api_instance.repos_upstream_cargo_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_cargo_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cargo_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3064,8 +4507,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3077,39 +4528,62 @@ Update a Cargo upstream config for this repository.
 Update a Cargo upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cargo_upstream import CargoUpstream
+from cloudsmith_api.models.cargo_upstream_request import CargoUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.CargoUpstreamRequest() # CargoUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.CargoUpstreamRequest() # CargoUpstreamRequest |  (optional)
 
-try:
-    # Update a Cargo upstream config for this repository.
-    api_response = api_instance.repos_upstream_cargo_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cargo_update: %s\n" % e)
+    try:
+        # Update a Cargo upstream config for this repository.
+        api_response = api_instance.repos_upstream_cargo_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_cargo_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cargo_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3131,6 +4605,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_composer_create**
@@ -3141,38 +4623,61 @@ Create a Composer upstream config for this repository.
 Create a Composer upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.composer_upstream import ComposerUpstream
+from cloudsmith_api.models.composer_upstream_request import ComposerUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.ComposerUpstreamRequest() # ComposerUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.ComposerUpstreamRequest() # ComposerUpstreamRequest |  (optional)
 
-try:
-    # Create a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_create: %s\n" % e)
+    try:
+        # Create a Composer upstream config for this repository.
+        api_response = api_instance.repos_upstream_composer_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_composer_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_composer_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3193,6 +4698,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_composer_delete**
@@ -3203,37 +4716,57 @@ Delete a Composer upstream config for this repository.
 Delete a Composer upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Composer upstream config for this repository.
-    api_instance.repos_upstream_composer_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_delete: %s\n" % e)
+    try:
+        # Delete a Composer upstream config for this repository.
+        api_instance.repos_upstream_composer_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_composer_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3251,52 +4784,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_composer_list**
-> list[ComposerUpstream] repos_upstream_composer_list(owner, identifier, page=page, page_size=page_size)
+> List[ComposerUpstream] repos_upstream_composer_list(owner, identifier, page=page, page_size=page_size)
 
 List Composer upstream configs for this repository.
 
 List Composer upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.composer_upstream import ComposerUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Composer upstream configs for this repository.
-    api_response = api_instance.repos_upstream_composer_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_list: %s\n" % e)
+    try:
+        # List Composer upstream configs for this repository.
+        api_response = api_instance.repos_upstream_composer_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_composer_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_composer_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3307,7 +4870,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[ComposerUpstream]**](ComposerUpstream.md)
+[**List[ComposerUpstream]**](ComposerUpstream.md)
 
 ### Authorization
 
@@ -3315,8 +4878,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3328,39 +4899,62 @@ Partially update a Composer upstream config for this repository.
 Partially update a Composer upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.composer_upstream import ComposerUpstream
+from cloudsmith_api.models.composer_upstream_request_patch import ComposerUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.ComposerUpstreamRequestPatch() # ComposerUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.ComposerUpstreamRequestPatch() # ComposerUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_partial_update: %s\n" % e)
+    try:
+        # Partially update a Composer upstream config for this repository.
+        api_response = api_instance.repos_upstream_composer_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_composer_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_composer_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3382,6 +4976,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_composer_read**
@@ -3392,38 +4994,60 @@ Retrieve a Composer upstream config for this repository.
 Retrieve a Composer upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.composer_upstream import ComposerUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_read: %s\n" % e)
+    try:
+        # Retrieve a Composer upstream config for this repository.
+        api_response = api_instance.repos_upstream_composer_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_composer_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_composer_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3441,8 +5065,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3454,39 +5086,62 @@ Update a Composer upstream config for this repository.
 Update a Composer upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.composer_upstream import ComposerUpstream
+from cloudsmith_api.models.composer_upstream_request import ComposerUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.ComposerUpstreamRequest() # ComposerUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.ComposerUpstreamRequest() # ComposerUpstreamRequest |  (optional)
 
-try:
-    # Update a Composer upstream config for this repository.
-    api_response = api_instance.repos_upstream_composer_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_composer_update: %s\n" % e)
+    try:
+        # Update a Composer upstream config for this repository.
+        api_response = api_instance.repos_upstream_composer_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_composer_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_composer_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3508,6 +5163,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_conda_create**
@@ -3518,38 +5181,61 @@ Create a Conda upstream config for this repository.
 Create a Conda upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conda_upstream import CondaUpstream
+from cloudsmith_api.models.conda_upstream_request import CondaUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.CondaUpstreamRequest() # CondaUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.CondaUpstreamRequest() # CondaUpstreamRequest |  (optional)
 
-try:
-    # Create a Conda upstream config for this repository.
-    api_response = api_instance.repos_upstream_conda_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_conda_create: %s\n" % e)
+    try:
+        # Create a Conda upstream config for this repository.
+        api_response = api_instance.repos_upstream_conda_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_conda_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_conda_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3570,6 +5256,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_conda_delete**
@@ -3580,37 +5274,57 @@ Delete a Conda upstream config for this repository.
 Delete a Conda upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Conda upstream config for this repository.
-    api_instance.repos_upstream_conda_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_conda_delete: %s\n" % e)
+    try:
+        # Delete a Conda upstream config for this repository.
+        api_instance.repos_upstream_conda_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_conda_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3628,52 +5342,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_conda_list**
-> list[CondaUpstream] repos_upstream_conda_list(owner, identifier, page=page, page_size=page_size)
+> List[CondaUpstream] repos_upstream_conda_list(owner, identifier, page=page, page_size=page_size)
 
 List Conda upstream configs for this repository.
 
 List Conda upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conda_upstream import CondaUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Conda upstream configs for this repository.
-    api_response = api_instance.repos_upstream_conda_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_conda_list: %s\n" % e)
+    try:
+        # List Conda upstream configs for this repository.
+        api_response = api_instance.repos_upstream_conda_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_conda_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_conda_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3684,7 +5428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[CondaUpstream]**](CondaUpstream.md)
+[**List[CondaUpstream]**](CondaUpstream.md)
 
 ### Authorization
 
@@ -3692,8 +5436,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3705,39 +5457,62 @@ Partially update a Conda upstream config for this repository.
 Partially update a Conda upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conda_upstream import CondaUpstream
+from cloudsmith_api.models.conda_upstream_request_patch import CondaUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.CondaUpstreamRequestPatch() # CondaUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.CondaUpstreamRequestPatch() # CondaUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Conda upstream config for this repository.
-    api_response = api_instance.repos_upstream_conda_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_conda_partial_update: %s\n" % e)
+    try:
+        # Partially update a Conda upstream config for this repository.
+        api_response = api_instance.repos_upstream_conda_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_conda_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_conda_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3759,6 +5534,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_conda_read**
@@ -3769,38 +5552,60 @@ Retrieve a Conda upstream config for this repository.
 Retrieve a Conda upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conda_upstream import CondaUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Conda upstream config for this repository.
-    api_response = api_instance.repos_upstream_conda_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_conda_read: %s\n" % e)
+    try:
+        # Retrieve a Conda upstream config for this repository.
+        api_response = api_instance.repos_upstream_conda_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_conda_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_conda_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3818,8 +5623,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3831,39 +5644,62 @@ Update a Conda upstream config for this repository.
 Update a Conda upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.conda_upstream import CondaUpstream
+from cloudsmith_api.models.conda_upstream_request import CondaUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.CondaUpstreamRequest() # CondaUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.CondaUpstreamRequest() # CondaUpstreamRequest |  (optional)
 
-try:
-    # Update a Conda upstream config for this repository.
-    api_response = api_instance.repos_upstream_conda_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_conda_update: %s\n" % e)
+    try:
+        # Update a Conda upstream config for this repository.
+        api_response = api_instance.repos_upstream_conda_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_conda_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_conda_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3885,6 +5721,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cran_create**
@@ -3895,38 +5739,61 @@ Create a CRAN upstream config for this repository.
 Create a CRAN upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cran_upstream import CranUpstream
+from cloudsmith_api.models.cran_upstream_request import CranUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.CranUpstreamRequest() # CranUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.CranUpstreamRequest() # CranUpstreamRequest |  (optional)
 
-try:
-    # Create a CRAN upstream config for this repository.
-    api_response = api_instance.repos_upstream_cran_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cran_create: %s\n" % e)
+    try:
+        # Create a CRAN upstream config for this repository.
+        api_response = api_instance.repos_upstream_cran_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_cran_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cran_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -3947,6 +5814,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cran_delete**
@@ -3957,37 +5832,57 @@ Delete a CRAN upstream config for this repository.
 Delete a CRAN upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a CRAN upstream config for this repository.
-    api_instance.repos_upstream_cran_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cran_delete: %s\n" % e)
+    try:
+        # Delete a CRAN upstream config for this repository.
+        api_instance.repos_upstream_cran_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cran_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4005,52 +5900,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cran_list**
-> list[CranUpstream] repos_upstream_cran_list(owner, identifier, page=page, page_size=page_size)
+> List[CranUpstream] repos_upstream_cran_list(owner, identifier, page=page, page_size=page_size)
 
 List CRAN upstream configs for this repository.
 
 List CRAN upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cran_upstream import CranUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List CRAN upstream configs for this repository.
-    api_response = api_instance.repos_upstream_cran_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cran_list: %s\n" % e)
+    try:
+        # List CRAN upstream configs for this repository.
+        api_response = api_instance.repos_upstream_cran_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_cran_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cran_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4061,7 +5986,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[CranUpstream]**](CranUpstream.md)
+[**List[CranUpstream]**](CranUpstream.md)
 
 ### Authorization
 
@@ -4069,8 +5994,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4082,39 +6015,62 @@ Partially update a CRAN upstream config for this repository.
 Partially update a CRAN upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cran_upstream import CranUpstream
+from cloudsmith_api.models.cran_upstream_request_patch import CranUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.CranUpstreamRequestPatch() # CranUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.CranUpstreamRequestPatch() # CranUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a CRAN upstream config for this repository.
-    api_response = api_instance.repos_upstream_cran_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cran_partial_update: %s\n" % e)
+    try:
+        # Partially update a CRAN upstream config for this repository.
+        api_response = api_instance.repos_upstream_cran_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_cran_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cran_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4136,6 +6092,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_cran_read**
@@ -4146,38 +6110,60 @@ Retrieve a CRAN upstream config for this repository.
 Retrieve a CRAN upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cran_upstream import CranUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a CRAN upstream config for this repository.
-    api_response = api_instance.repos_upstream_cran_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cran_read: %s\n" % e)
+    try:
+        # Retrieve a CRAN upstream config for this repository.
+        api_response = api_instance.repos_upstream_cran_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_cran_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cran_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4195,8 +6181,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4208,39 +6202,62 @@ Update a CRAN upstream config for this repository.
 Update a CRAN upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.cran_upstream import CranUpstream
+from cloudsmith_api.models.cran_upstream_request import CranUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.CranUpstreamRequest() # CranUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.CranUpstreamRequest() # CranUpstreamRequest |  (optional)
 
-try:
-    # Update a CRAN upstream config for this repository.
-    api_response = api_instance.repos_upstream_cran_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_cran_update: %s\n" % e)
+    try:
+        # Update a CRAN upstream config for this repository.
+        api_response = api_instance.repos_upstream_cran_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_cran_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_cran_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4262,6 +6279,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_dart_create**
@@ -4272,38 +6297,61 @@ Create a Dart upstream config for this repository.
 Create a Dart upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.dart_upstream import DartUpstream
+from cloudsmith_api.models.dart_upstream_request import DartUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.DartUpstreamRequest() # DartUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.DartUpstreamRequest() # DartUpstreamRequest |  (optional)
 
-try:
-    # Create a Dart upstream config for this repository.
-    api_response = api_instance.repos_upstream_dart_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_dart_create: %s\n" % e)
+    try:
+        # Create a Dart upstream config for this repository.
+        api_response = api_instance.repos_upstream_dart_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_dart_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_dart_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4324,6 +6372,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_dart_delete**
@@ -4334,37 +6390,57 @@ Delete a Dart upstream config for this repository.
 Delete a Dart upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Dart upstream config for this repository.
-    api_instance.repos_upstream_dart_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_dart_delete: %s\n" % e)
+    try:
+        # Delete a Dart upstream config for this repository.
+        api_instance.repos_upstream_dart_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_dart_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4382,52 +6458,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_dart_list**
-> list[DartUpstream] repos_upstream_dart_list(owner, identifier, page=page, page_size=page_size)
+> List[DartUpstream] repos_upstream_dart_list(owner, identifier, page=page, page_size=page_size)
 
 List Dart upstream configs for this repository.
 
 List Dart upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.dart_upstream import DartUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Dart upstream configs for this repository.
-    api_response = api_instance.repos_upstream_dart_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_dart_list: %s\n" % e)
+    try:
+        # List Dart upstream configs for this repository.
+        api_response = api_instance.repos_upstream_dart_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_dart_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_dart_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4438,7 +6544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[DartUpstream]**](DartUpstream.md)
+[**List[DartUpstream]**](DartUpstream.md)
 
 ### Authorization
 
@@ -4446,8 +6552,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4459,39 +6573,62 @@ Partially update a Dart upstream config for this repository.
 Partially update a Dart upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.dart_upstream import DartUpstream
+from cloudsmith_api.models.dart_upstream_request_patch import DartUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.DartUpstreamRequestPatch() # DartUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.DartUpstreamRequestPatch() # DartUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Dart upstream config for this repository.
-    api_response = api_instance.repos_upstream_dart_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_dart_partial_update: %s\n" % e)
+    try:
+        # Partially update a Dart upstream config for this repository.
+        api_response = api_instance.repos_upstream_dart_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_dart_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_dart_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4513,6 +6650,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_dart_read**
@@ -4523,38 +6668,60 @@ Retrieve a Dart upstream config for this repository.
 Retrieve a Dart upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.dart_upstream import DartUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Dart upstream config for this repository.
-    api_response = api_instance.repos_upstream_dart_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_dart_read: %s\n" % e)
+    try:
+        # Retrieve a Dart upstream config for this repository.
+        api_response = api_instance.repos_upstream_dart_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_dart_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_dart_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4572,8 +6739,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4585,39 +6760,62 @@ Update a Dart upstream config for this repository.
 Update a Dart upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.dart_upstream import DartUpstream
+from cloudsmith_api.models.dart_upstream_request import DartUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.DartUpstreamRequest() # DartUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.DartUpstreamRequest() # DartUpstreamRequest |  (optional)
 
-try:
-    # Update a Dart upstream config for this repository.
-    api_response = api_instance.repos_upstream_dart_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_dart_update: %s\n" % e)
+    try:
+        # Update a Dart upstream config for this repository.
+        api_response = api_instance.repos_upstream_dart_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_dart_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_dart_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4639,6 +6837,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_deb_create**
@@ -4649,38 +6855,61 @@ Create a Debian upstream config for this repository.
 Create a Debian upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.deb_upstream import DebUpstream
+from cloudsmith_api.models.deb_upstream_request import DebUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.DebUpstreamRequest() # DebUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.DebUpstreamRequest() # DebUpstreamRequest |  (optional)
 
-try:
-    # Create a Debian upstream config for this repository.
-    api_response = api_instance.repos_upstream_deb_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_deb_create: %s\n" % e)
+    try:
+        # Create a Debian upstream config for this repository.
+        api_response = api_instance.repos_upstream_deb_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_deb_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_deb_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4701,6 +6930,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_deb_delete**
@@ -4711,37 +6948,57 @@ Delete a Debian upstream config for this repository.
 Delete a Debian upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Debian upstream config for this repository.
-    api_instance.repos_upstream_deb_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_deb_delete: %s\n" % e)
+    try:
+        # Delete a Debian upstream config for this repository.
+        api_instance.repos_upstream_deb_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_deb_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4759,52 +7016,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_deb_list**
-> list[DebUpstream] repos_upstream_deb_list(owner, identifier, page=page, page_size=page_size)
+> List[DebUpstream] repos_upstream_deb_list(owner, identifier, page=page, page_size=page_size)
 
 List Debian upstream configs for this repository.
 
 List Debian upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.deb_upstream import DebUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Debian upstream configs for this repository.
-    api_response = api_instance.repos_upstream_deb_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_deb_list: %s\n" % e)
+    try:
+        # List Debian upstream configs for this repository.
+        api_response = api_instance.repos_upstream_deb_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_deb_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_deb_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4815,7 +7102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[DebUpstream]**](DebUpstream.md)
+[**List[DebUpstream]**](DebUpstream.md)
 
 ### Authorization
 
@@ -4823,8 +7110,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4836,39 +7131,62 @@ Partially update a Debian upstream config for this repository.
 Partially update a Debian upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.deb_upstream import DebUpstream
+from cloudsmith_api.models.deb_upstream_request_patch import DebUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.DebUpstreamRequestPatch() # DebUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.DebUpstreamRequestPatch() # DebUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Debian upstream config for this repository.
-    api_response = api_instance.repos_upstream_deb_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_deb_partial_update: %s\n" % e)
+    try:
+        # Partially update a Debian upstream config for this repository.
+        api_response = api_instance.repos_upstream_deb_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_deb_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_deb_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4890,6 +7208,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_deb_read**
@@ -4900,38 +7226,60 @@ Retrieve a Debian upstream config for this repository.
 Retrieve a Debian upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.deb_upstream import DebUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Debian upstream config for this repository.
-    api_response = api_instance.repos_upstream_deb_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_deb_read: %s\n" % e)
+    try:
+        # Retrieve a Debian upstream config for this repository.
+        api_response = api_instance.repos_upstream_deb_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_deb_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_deb_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4949,8 +7297,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4962,39 +7318,62 @@ Update a Debian upstream config for this repository.
 Update a Debian upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.deb_upstream import DebUpstream
+from cloudsmith_api.models.deb_upstream_request import DebUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.DebUpstreamRequest() # DebUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.DebUpstreamRequest() # DebUpstreamRequest |  (optional)
 
-try:
-    # Update a Debian upstream config for this repository.
-    api_response = api_instance.repos_upstream_deb_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_deb_update: %s\n" % e)
+    try:
+        # Update a Debian upstream config for this repository.
+        api_response = api_instance.repos_upstream_deb_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_deb_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_deb_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5016,6 +7395,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_docker_create**
@@ -5026,38 +7413,61 @@ Create a Docker upstream config for this repository.
 Create a Docker upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.docker_upstream import DockerUpstream
+from cloudsmith_api.models.docker_upstream_request import DockerUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.DockerUpstreamRequest() # DockerUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.DockerUpstreamRequest() # DockerUpstreamRequest |  (optional)
 
-try:
-    # Create a Docker upstream config for this repository.
-    api_response = api_instance.repos_upstream_docker_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_docker_create: %s\n" % e)
+    try:
+        # Create a Docker upstream config for this repository.
+        api_response = api_instance.repos_upstream_docker_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_docker_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_docker_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5078,6 +7488,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_docker_delete**
@@ -5088,37 +7506,57 @@ Delete a Docker upstream config for this repository.
 Delete a Docker upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Docker upstream config for this repository.
-    api_instance.repos_upstream_docker_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_docker_delete: %s\n" % e)
+    try:
+        # Delete a Docker upstream config for this repository.
+        api_instance.repos_upstream_docker_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_docker_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5136,52 +7574,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_docker_list**
-> list[DockerUpstream] repos_upstream_docker_list(owner, identifier, page=page, page_size=page_size)
+> List[DockerUpstream] repos_upstream_docker_list(owner, identifier, page=page, page_size=page_size)
 
 List Docker upstream configs for this repository.
 
 List Docker upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.docker_upstream import DockerUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Docker upstream configs for this repository.
-    api_response = api_instance.repos_upstream_docker_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_docker_list: %s\n" % e)
+    try:
+        # List Docker upstream configs for this repository.
+        api_response = api_instance.repos_upstream_docker_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_docker_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_docker_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5192,7 +7660,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[DockerUpstream]**](DockerUpstream.md)
+[**List[DockerUpstream]**](DockerUpstream.md)
 
 ### Authorization
 
@@ -5200,8 +7668,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5213,39 +7689,62 @@ Partially update a Docker upstream config for this repository.
 Partially update a Docker upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.docker_upstream import DockerUpstream
+from cloudsmith_api.models.docker_upstream_request_patch import DockerUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.DockerUpstreamRequestPatch() # DockerUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.DockerUpstreamRequestPatch() # DockerUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Docker upstream config for this repository.
-    api_response = api_instance.repos_upstream_docker_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_docker_partial_update: %s\n" % e)
+    try:
+        # Partially update a Docker upstream config for this repository.
+        api_response = api_instance.repos_upstream_docker_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_docker_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_docker_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5267,6 +7766,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_docker_read**
@@ -5277,38 +7784,60 @@ Retrieve a Docker upstream config for this repository.
 Retrieve a Docker upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.docker_upstream import DockerUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Docker upstream config for this repository.
-    api_response = api_instance.repos_upstream_docker_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_docker_read: %s\n" % e)
+    try:
+        # Retrieve a Docker upstream config for this repository.
+        api_response = api_instance.repos_upstream_docker_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_docker_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_docker_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5326,8 +7855,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5339,39 +7876,62 @@ Update a Docker upstream config for this repository.
 Update a Docker upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.docker_upstream import DockerUpstream
+from cloudsmith_api.models.docker_upstream_request import DockerUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.DockerUpstreamRequest() # DockerUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.DockerUpstreamRequest() # DockerUpstreamRequest |  (optional)
 
-try:
-    # Update a Docker upstream config for this repository.
-    api_response = api_instance.repos_upstream_docker_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_docker_update: %s\n" % e)
+    try:
+        # Update a Docker upstream config for this repository.
+        api_response = api_instance.repos_upstream_docker_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_docker_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_docker_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5393,6 +7953,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_generic_create**
@@ -5403,38 +7971,61 @@ Create a Generic upstream config for this repository.
 Create a Generic upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.generic_upstream import GenericUpstream
+from cloudsmith_api.models.generic_upstream_request import GenericUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.GenericUpstreamRequest() # GenericUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.GenericUpstreamRequest() # GenericUpstreamRequest |  (optional)
 
-try:
-    # Create a Generic upstream config for this repository.
-    api_response = api_instance.repos_upstream_generic_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_generic_create: %s\n" % e)
+    try:
+        # Create a Generic upstream config for this repository.
+        api_response = api_instance.repos_upstream_generic_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_generic_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_generic_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5455,6 +8046,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_generic_delete**
@@ -5465,37 +8064,57 @@ Delete a Generic upstream config for this repository.
 Delete a Generic upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Generic upstream config for this repository.
-    api_instance.repos_upstream_generic_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_generic_delete: %s\n" % e)
+    try:
+        # Delete a Generic upstream config for this repository.
+        api_instance.repos_upstream_generic_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_generic_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5513,52 +8132,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_generic_list**
-> list[GenericUpstream] repos_upstream_generic_list(owner, identifier, page=page, page_size=page_size)
+> List[GenericUpstream] repos_upstream_generic_list(owner, identifier, page=page, page_size=page_size)
 
 List Generic upstream configs for this repository.
 
 List Generic upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.generic_upstream import GenericUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Generic upstream configs for this repository.
-    api_response = api_instance.repos_upstream_generic_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_generic_list: %s\n" % e)
+    try:
+        # List Generic upstream configs for this repository.
+        api_response = api_instance.repos_upstream_generic_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_generic_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_generic_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5569,7 +8218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[GenericUpstream]**](GenericUpstream.md)
+[**List[GenericUpstream]**](GenericUpstream.md)
 
 ### Authorization
 
@@ -5577,8 +8226,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5590,39 +8247,62 @@ Partially update a Generic upstream config for this repository.
 Partially update a Generic upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.generic_upstream import GenericUpstream
+from cloudsmith_api.models.generic_upstream_request_patch import GenericUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.GenericUpstreamRequestPatch() # GenericUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.GenericUpstreamRequestPatch() # GenericUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Generic upstream config for this repository.
-    api_response = api_instance.repos_upstream_generic_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_generic_partial_update: %s\n" % e)
+    try:
+        # Partially update a Generic upstream config for this repository.
+        api_response = api_instance.repos_upstream_generic_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_generic_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_generic_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5644,6 +8324,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_generic_read**
@@ -5654,38 +8342,60 @@ Retrieve a Generic upstream config for this repository.
 Retrieve a Generic upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.generic_upstream import GenericUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Generic upstream config for this repository.
-    api_response = api_instance.repos_upstream_generic_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_generic_read: %s\n" % e)
+    try:
+        # Retrieve a Generic upstream config for this repository.
+        api_response = api_instance.repos_upstream_generic_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_generic_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_generic_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5703,8 +8413,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5716,39 +8434,62 @@ Update a Generic upstream config for this repository.
 Update a Generic upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.generic_upstream import GenericUpstream
+from cloudsmith_api.models.generic_upstream_request import GenericUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.GenericUpstreamRequest() # GenericUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.GenericUpstreamRequest() # GenericUpstreamRequest |  (optional)
 
-try:
-    # Update a Generic upstream config for this repository.
-    api_response = api_instance.repos_upstream_generic_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_generic_update: %s\n" % e)
+    try:
+        # Update a Generic upstream config for this repository.
+        api_response = api_instance.repos_upstream_generic_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_generic_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_generic_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5770,6 +8511,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_go_create**
@@ -5780,38 +8529,61 @@ Create a Go upstream config for this repository.
 Create a Go upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.go_upstream import GoUpstream
+from cloudsmith_api.models.go_upstream_request import GoUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.GoUpstreamRequest() # GoUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.GoUpstreamRequest() # GoUpstreamRequest |  (optional)
 
-try:
-    # Create a Go upstream config for this repository.
-    api_response = api_instance.repos_upstream_go_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_go_create: %s\n" % e)
+    try:
+        # Create a Go upstream config for this repository.
+        api_response = api_instance.repos_upstream_go_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_go_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_go_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5832,6 +8604,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_go_delete**
@@ -5842,37 +8622,57 @@ Delete a Go upstream config for this repository.
 Delete a Go upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Go upstream config for this repository.
-    api_instance.repos_upstream_go_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_go_delete: %s\n" % e)
+    try:
+        # Delete a Go upstream config for this repository.
+        api_instance.repos_upstream_go_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_go_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5890,52 +8690,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_go_list**
-> list[GoUpstream] repos_upstream_go_list(owner, identifier, page=page, page_size=page_size)
+> List[GoUpstream] repos_upstream_go_list(owner, identifier, page=page, page_size=page_size)
 
 List Go upstream configs for this repository.
 
 List Go upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.go_upstream import GoUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Go upstream configs for this repository.
-    api_response = api_instance.repos_upstream_go_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_go_list: %s\n" % e)
+    try:
+        # List Go upstream configs for this repository.
+        api_response = api_instance.repos_upstream_go_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_go_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_go_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -5946,7 +8776,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[GoUpstream]**](GoUpstream.md)
+[**List[GoUpstream]**](GoUpstream.md)
 
 ### Authorization
 
@@ -5954,8 +8784,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5967,39 +8805,62 @@ Partially update a Go upstream config for this repository.
 Partially update a Go upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.go_upstream import GoUpstream
+from cloudsmith_api.models.go_upstream_request_patch import GoUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.GoUpstreamRequestPatch() # GoUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.GoUpstreamRequestPatch() # GoUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Go upstream config for this repository.
-    api_response = api_instance.repos_upstream_go_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_go_partial_update: %s\n" % e)
+    try:
+        # Partially update a Go upstream config for this repository.
+        api_response = api_instance.repos_upstream_go_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_go_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_go_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6021,6 +8882,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_go_read**
@@ -6031,38 +8900,60 @@ Retrieve a Go upstream config for this repository.
 Retrieve a Go upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.go_upstream import GoUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Go upstream config for this repository.
-    api_response = api_instance.repos_upstream_go_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_go_read: %s\n" % e)
+    try:
+        # Retrieve a Go upstream config for this repository.
+        api_response = api_instance.repos_upstream_go_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_go_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_go_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6080,8 +8971,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6093,39 +8992,62 @@ Update a Go upstream config for this repository.
 Update a Go upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.go_upstream import GoUpstream
+from cloudsmith_api.models.go_upstream_request import GoUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.GoUpstreamRequest() # GoUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.GoUpstreamRequest() # GoUpstreamRequest |  (optional)
 
-try:
-    # Update a Go upstream config for this repository.
-    api_response = api_instance.repos_upstream_go_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_go_update: %s\n" % e)
+    try:
+        # Update a Go upstream config for this repository.
+        api_response = api_instance.repos_upstream_go_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_go_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_go_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6147,6 +9069,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_helm_create**
@@ -6157,38 +9087,61 @@ Create a Helm upstream config for this repository.
 Create a Helm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.helm_upstream import HelmUpstream
+from cloudsmith_api.models.helm_upstream_request import HelmUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.HelmUpstreamRequest() # HelmUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.HelmUpstreamRequest() # HelmUpstreamRequest |  (optional)
 
-try:
-    # Create a Helm upstream config for this repository.
-    api_response = api_instance.repos_upstream_helm_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_helm_create: %s\n" % e)
+    try:
+        # Create a Helm upstream config for this repository.
+        api_response = api_instance.repos_upstream_helm_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_helm_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_helm_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6209,6 +9162,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_helm_delete**
@@ -6219,37 +9180,57 @@ Delete a Helm upstream config for this repository.
 Delete a Helm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Helm upstream config for this repository.
-    api_instance.repos_upstream_helm_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_helm_delete: %s\n" % e)
+    try:
+        # Delete a Helm upstream config for this repository.
+        api_instance.repos_upstream_helm_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_helm_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6267,52 +9248,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_helm_list**
-> list[HelmUpstream] repos_upstream_helm_list(owner, identifier, page=page, page_size=page_size)
+> List[HelmUpstream] repos_upstream_helm_list(owner, identifier, page=page, page_size=page_size)
 
 List Helm upstream configs for this repository.
 
 List Helm upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.helm_upstream import HelmUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Helm upstream configs for this repository.
-    api_response = api_instance.repos_upstream_helm_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_helm_list: %s\n" % e)
+    try:
+        # List Helm upstream configs for this repository.
+        api_response = api_instance.repos_upstream_helm_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_helm_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_helm_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6323,7 +9334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[HelmUpstream]**](HelmUpstream.md)
+[**List[HelmUpstream]**](HelmUpstream.md)
 
 ### Authorization
 
@@ -6331,8 +9342,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6344,39 +9363,62 @@ Partially update a Helm upstream config for this repository.
 Partially update a Helm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.helm_upstream import HelmUpstream
+from cloudsmith_api.models.helm_upstream_request_patch import HelmUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HelmUpstreamRequestPatch() # HelmUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.HelmUpstreamRequestPatch() # HelmUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Helm upstream config for this repository.
-    api_response = api_instance.repos_upstream_helm_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_helm_partial_update: %s\n" % e)
+    try:
+        # Partially update a Helm upstream config for this repository.
+        api_response = api_instance.repos_upstream_helm_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_helm_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_helm_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6398,6 +9440,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_helm_read**
@@ -6408,38 +9458,60 @@ Retrieve a Helm upstream config for this repository.
 Retrieve a Helm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.helm_upstream import HelmUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Helm upstream config for this repository.
-    api_response = api_instance.repos_upstream_helm_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_helm_read: %s\n" % e)
+    try:
+        # Retrieve a Helm upstream config for this repository.
+        api_response = api_instance.repos_upstream_helm_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_helm_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_helm_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6457,8 +9529,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6470,39 +9550,62 @@ Update a Helm upstream config for this repository.
 Update a Helm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.helm_upstream import HelmUpstream
+from cloudsmith_api.models.helm_upstream_request import HelmUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HelmUpstreamRequest() # HelmUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.HelmUpstreamRequest() # HelmUpstreamRequest |  (optional)
 
-try:
-    # Update a Helm upstream config for this repository.
-    api_response = api_instance.repos_upstream_helm_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_helm_update: %s\n" % e)
+    try:
+        # Update a Helm upstream config for this repository.
+        api_response = api_instance.repos_upstream_helm_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_helm_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_helm_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6524,6 +9627,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_hex_create**
@@ -6534,38 +9645,61 @@ Create a Hex upstream config for this repository.
 Create a Hex upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.hex_upstream import HexUpstream
+from cloudsmith_api.models.hex_upstream_request import HexUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.HexUpstreamRequest() # HexUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.HexUpstreamRequest() # HexUpstreamRequest |  (optional)
 
-try:
-    # Create a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_create: %s\n" % e)
+    try:
+        # Create a Hex upstream config for this repository.
+        api_response = api_instance.repos_upstream_hex_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_hex_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_hex_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6586,6 +9720,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_hex_delete**
@@ -6596,37 +9738,57 @@ Delete a Hex upstream config for this repository.
 Delete a Hex upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Hex upstream config for this repository.
-    api_instance.repos_upstream_hex_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_delete: %s\n" % e)
+    try:
+        # Delete a Hex upstream config for this repository.
+        api_instance.repos_upstream_hex_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_hex_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6644,52 +9806,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_hex_list**
-> list[HexUpstream] repos_upstream_hex_list(owner, identifier, page=page, page_size=page_size)
+> List[HexUpstream] repos_upstream_hex_list(owner, identifier, page=page, page_size=page_size)
 
 List Hex upstream configs for this repository.
 
 List Hex upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.hex_upstream import HexUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Hex upstream configs for this repository.
-    api_response = api_instance.repos_upstream_hex_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_list: %s\n" % e)
+    try:
+        # List Hex upstream configs for this repository.
+        api_response = api_instance.repos_upstream_hex_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_hex_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_hex_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6700,7 +9892,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[HexUpstream]**](HexUpstream.md)
+[**List[HexUpstream]**](HexUpstream.md)
 
 ### Authorization
 
@@ -6708,8 +9900,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6721,39 +9921,62 @@ Partially update a Hex upstream config for this repository.
 Partially update a Hex upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.hex_upstream import HexUpstream
+from cloudsmith_api.models.hex_upstream_request_patch import HexUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HexUpstreamRequestPatch() # HexUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.HexUpstreamRequestPatch() # HexUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_partial_update: %s\n" % e)
+    try:
+        # Partially update a Hex upstream config for this repository.
+        api_response = api_instance.repos_upstream_hex_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_hex_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_hex_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6775,6 +9998,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_hex_read**
@@ -6785,38 +10016,60 @@ Retrieve a Hex upstream config for this repository.
 Retrieve a Hex upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.hex_upstream import HexUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_read: %s\n" % e)
+    try:
+        # Retrieve a Hex upstream config for this repository.
+        api_response = api_instance.repos_upstream_hex_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_hex_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_hex_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6834,8 +10087,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6847,39 +10108,62 @@ Update a Hex upstream config for this repository.
 Update a Hex upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.hex_upstream import HexUpstream
+from cloudsmith_api.models.hex_upstream_request import HexUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HexUpstreamRequest() # HexUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.HexUpstreamRequest() # HexUpstreamRequest |  (optional)
 
-try:
-    # Update a Hex upstream config for this repository.
-    api_response = api_instance.repos_upstream_hex_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_hex_update: %s\n" % e)
+    try:
+        # Update a Hex upstream config for this repository.
+        api_response = api_instance.repos_upstream_hex_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_hex_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_hex_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6901,6 +10185,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_huggingface_create**
@@ -6911,38 +10203,61 @@ Create a HuggingFace upstream config for this repository.
 Create a HuggingFace upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.huggingface_upstream import HuggingfaceUpstream
+from cloudsmith_api.models.huggingface_upstream_request import HuggingfaceUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.HuggingfaceUpstreamRequest() # HuggingfaceUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.HuggingfaceUpstreamRequest() # HuggingfaceUpstreamRequest |  (optional)
 
-try:
-    # Create a HuggingFace upstream config for this repository.
-    api_response = api_instance.repos_upstream_huggingface_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_huggingface_create: %s\n" % e)
+    try:
+        # Create a HuggingFace upstream config for this repository.
+        api_response = api_instance.repos_upstream_huggingface_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_huggingface_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_huggingface_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -6963,6 +10278,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_huggingface_delete**
@@ -6973,37 +10296,57 @@ Delete a HuggingFace upstream config for this repository.
 Delete a HuggingFace upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a HuggingFace upstream config for this repository.
-    api_instance.repos_upstream_huggingface_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_huggingface_delete: %s\n" % e)
+    try:
+        # Delete a HuggingFace upstream config for this repository.
+        api_instance.repos_upstream_huggingface_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_huggingface_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7021,52 +10364,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_huggingface_list**
-> list[HuggingfaceUpstream] repos_upstream_huggingface_list(owner, identifier, page=page, page_size=page_size)
+> List[HuggingfaceUpstream] repos_upstream_huggingface_list(owner, identifier, page=page, page_size=page_size)
 
 List HuggingFace upstream configs for this repository.
 
 List HuggingFace upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.huggingface_upstream import HuggingfaceUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List HuggingFace upstream configs for this repository.
-    api_response = api_instance.repos_upstream_huggingface_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_huggingface_list: %s\n" % e)
+    try:
+        # List HuggingFace upstream configs for this repository.
+        api_response = api_instance.repos_upstream_huggingface_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_huggingface_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_huggingface_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7077,7 +10450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[HuggingfaceUpstream]**](HuggingfaceUpstream.md)
+[**List[HuggingfaceUpstream]**](HuggingfaceUpstream.md)
 
 ### Authorization
 
@@ -7085,8 +10458,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7098,39 +10479,62 @@ Partially update a HuggingFace upstream config for this repository.
 Partially update a HuggingFace upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.huggingface_upstream import HuggingfaceUpstream
+from cloudsmith_api.models.huggingface_upstream_request_patch import HuggingfaceUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HuggingfaceUpstreamRequestPatch() # HuggingfaceUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.HuggingfaceUpstreamRequestPatch() # HuggingfaceUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a HuggingFace upstream config for this repository.
-    api_response = api_instance.repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_huggingface_partial_update: %s\n" % e)
+    try:
+        # Partially update a HuggingFace upstream config for this repository.
+        api_response = api_instance.repos_upstream_huggingface_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_huggingface_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_huggingface_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7152,6 +10556,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_huggingface_read**
@@ -7162,38 +10574,60 @@ Retrieve a HuggingFace upstream config for this repository.
 Retrieve a HuggingFace upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.huggingface_upstream import HuggingfaceUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a HuggingFace upstream config for this repository.
-    api_response = api_instance.repos_upstream_huggingface_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_huggingface_read: %s\n" % e)
+    try:
+        # Retrieve a HuggingFace upstream config for this repository.
+        api_response = api_instance.repos_upstream_huggingface_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_huggingface_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_huggingface_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7211,8 +10645,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7224,39 +10666,62 @@ Update a HuggingFace upstream config for this repository.
 Update a HuggingFace upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.huggingface_upstream import HuggingfaceUpstream
+from cloudsmith_api.models.huggingface_upstream_request import HuggingfaceUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.HuggingfaceUpstreamRequest() # HuggingfaceUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.HuggingfaceUpstreamRequest() # HuggingfaceUpstreamRequest |  (optional)
 
-try:
-    # Update a HuggingFace upstream config for this repository.
-    api_response = api_instance.repos_upstream_huggingface_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_huggingface_update: %s\n" % e)
+    try:
+        # Update a HuggingFace upstream config for this repository.
+        api_response = api_instance.repos_upstream_huggingface_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_huggingface_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_huggingface_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7278,6 +10743,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_maven_create**
@@ -7288,38 +10761,61 @@ Create a Maven upstream config for this repository.
 Create a Maven upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.maven_upstream import MavenUpstream
+from cloudsmith_api.models.maven_upstream_request import MavenUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.MavenUpstreamRequest() # MavenUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.MavenUpstreamRequest() # MavenUpstreamRequest |  (optional)
 
-try:
-    # Create a Maven upstream config for this repository.
-    api_response = api_instance.repos_upstream_maven_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_maven_create: %s\n" % e)
+    try:
+        # Create a Maven upstream config for this repository.
+        api_response = api_instance.repos_upstream_maven_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_maven_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_maven_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7340,6 +10836,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_maven_delete**
@@ -7350,37 +10854,57 @@ Delete a Maven upstream config for this repository.
 Delete a Maven upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Maven upstream config for this repository.
-    api_instance.repos_upstream_maven_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_maven_delete: %s\n" % e)
+    try:
+        # Delete a Maven upstream config for this repository.
+        api_instance.repos_upstream_maven_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_maven_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7398,52 +10922,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_maven_list**
-> list[MavenUpstream] repos_upstream_maven_list(owner, identifier, page=page, page_size=page_size)
+> List[MavenUpstream] repos_upstream_maven_list(owner, identifier, page=page, page_size=page_size)
 
 List Maven upstream configs for this repository.
 
 List Maven upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.maven_upstream import MavenUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Maven upstream configs for this repository.
-    api_response = api_instance.repos_upstream_maven_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_maven_list: %s\n" % e)
+    try:
+        # List Maven upstream configs for this repository.
+        api_response = api_instance.repos_upstream_maven_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_maven_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_maven_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7454,7 +11008,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[MavenUpstream]**](MavenUpstream.md)
+[**List[MavenUpstream]**](MavenUpstream.md)
 
 ### Authorization
 
@@ -7462,8 +11016,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7475,39 +11037,62 @@ Partially update a Maven upstream config for this repository.
 Partially update a Maven upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.maven_upstream import MavenUpstream
+from cloudsmith_api.models.maven_upstream_request_patch import MavenUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.MavenUpstreamRequestPatch() # MavenUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.MavenUpstreamRequestPatch() # MavenUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Maven upstream config for this repository.
-    api_response = api_instance.repos_upstream_maven_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_maven_partial_update: %s\n" % e)
+    try:
+        # Partially update a Maven upstream config for this repository.
+        api_response = api_instance.repos_upstream_maven_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_maven_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_maven_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7529,6 +11114,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_maven_read**
@@ -7539,38 +11132,60 @@ Retrieve a Maven upstream config for this repository.
 Retrieve a Maven upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.maven_upstream import MavenUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Maven upstream config for this repository.
-    api_response = api_instance.repos_upstream_maven_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_maven_read: %s\n" % e)
+    try:
+        # Retrieve a Maven upstream config for this repository.
+        api_response = api_instance.repos_upstream_maven_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_maven_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_maven_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7588,8 +11203,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7601,39 +11224,62 @@ Update a Maven upstream config for this repository.
 Update a Maven upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.maven_upstream import MavenUpstream
+from cloudsmith_api.models.maven_upstream_request import MavenUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.MavenUpstreamRequest() # MavenUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.MavenUpstreamRequest() # MavenUpstreamRequest |  (optional)
 
-try:
-    # Update a Maven upstream config for this repository.
-    api_response = api_instance.repos_upstream_maven_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_maven_update: %s\n" % e)
+    try:
+        # Update a Maven upstream config for this repository.
+        api_response = api_instance.repos_upstream_maven_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_maven_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_maven_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7655,6 +11301,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nix_create**
@@ -7665,38 +11319,61 @@ Create a Nix upstream config for this repository.
 Create a Nix upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nix_upstream import NixUpstream
+from cloudsmith_api.models.nix_upstream_request import NixUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.NixUpstreamRequest() # NixUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.NixUpstreamRequest() # NixUpstreamRequest |  (optional)
 
-try:
-    # Create a Nix upstream config for this repository.
-    api_response = api_instance.repos_upstream_nix_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nix_create: %s\n" % e)
+    try:
+        # Create a Nix upstream config for this repository.
+        api_response = api_instance.repos_upstream_nix_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_nix_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nix_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7717,6 +11394,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nix_delete**
@@ -7727,37 +11412,57 @@ Delete a Nix upstream config for this repository.
 Delete a Nix upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Nix upstream config for this repository.
-    api_instance.repos_upstream_nix_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nix_delete: %s\n" % e)
+    try:
+        # Delete a Nix upstream config for this repository.
+        api_instance.repos_upstream_nix_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nix_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7775,52 +11480,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nix_list**
-> list[NixUpstream] repos_upstream_nix_list(owner, identifier, page=page, page_size=page_size)
+> List[NixUpstream] repos_upstream_nix_list(owner, identifier, page=page, page_size=page_size)
 
 List Nix upstream configs for this repository.
 
 List Nix upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nix_upstream import NixUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Nix upstream configs for this repository.
-    api_response = api_instance.repos_upstream_nix_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nix_list: %s\n" % e)
+    try:
+        # List Nix upstream configs for this repository.
+        api_response = api_instance.repos_upstream_nix_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_nix_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nix_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7831,7 +11566,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[NixUpstream]**](NixUpstream.md)
+[**List[NixUpstream]**](NixUpstream.md)
 
 ### Authorization
 
@@ -7839,8 +11574,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7852,39 +11595,62 @@ Partially update a Nix upstream config for this repository.
 Partially update a Nix upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nix_upstream import NixUpstream
+from cloudsmith_api.models.nix_upstream_request_patch import NixUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.NixUpstreamRequestPatch() # NixUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.NixUpstreamRequestPatch() # NixUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Nix upstream config for this repository.
-    api_response = api_instance.repos_upstream_nix_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nix_partial_update: %s\n" % e)
+    try:
+        # Partially update a Nix upstream config for this repository.
+        api_response = api_instance.repos_upstream_nix_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_nix_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nix_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7906,6 +11672,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nix_read**
@@ -7916,38 +11690,60 @@ Retrieve a Nix upstream config for this repository.
 Retrieve a Nix upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nix_upstream import NixUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Nix upstream config for this repository.
-    api_response = api_instance.repos_upstream_nix_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nix_read: %s\n" % e)
+    try:
+        # Retrieve a Nix upstream config for this repository.
+        api_response = api_instance.repos_upstream_nix_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_nix_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nix_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -7965,8 +11761,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7978,39 +11782,62 @@ Update a Nix upstream config for this repository.
 Update a Nix upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nix_upstream import NixUpstream
+from cloudsmith_api.models.nix_upstream_request import NixUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.NixUpstreamRequest() # NixUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.NixUpstreamRequest() # NixUpstreamRequest |  (optional)
 
-try:
-    # Update a Nix upstream config for this repository.
-    api_response = api_instance.repos_upstream_nix_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nix_update: %s\n" % e)
+    try:
+        # Update a Nix upstream config for this repository.
+        api_response = api_instance.repos_upstream_nix_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_nix_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nix_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8032,6 +11859,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_npm_create**
@@ -8042,38 +11877,61 @@ Create a npm upstream config for this repository.
 Create a npm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.npm_upstream import NpmUpstream
+from cloudsmith_api.models.npm_upstream_request import NpmUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.NpmUpstreamRequest() # NpmUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.NpmUpstreamRequest() # NpmUpstreamRequest |  (optional)
 
-try:
-    # Create a npm upstream config for this repository.
-    api_response = api_instance.repos_upstream_npm_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_npm_create: %s\n" % e)
+    try:
+        # Create a npm upstream config for this repository.
+        api_response = api_instance.repos_upstream_npm_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_npm_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_npm_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8094,6 +11952,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_npm_delete**
@@ -8104,37 +11970,57 @@ Delete a npm upstream config for this repository.
 Delete a npm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a npm upstream config for this repository.
-    api_instance.repos_upstream_npm_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_npm_delete: %s\n" % e)
+    try:
+        # Delete a npm upstream config for this repository.
+        api_instance.repos_upstream_npm_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_npm_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8152,52 +12038,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_npm_list**
-> list[NpmUpstream] repos_upstream_npm_list(owner, identifier, page=page, page_size=page_size)
+> List[NpmUpstream] repos_upstream_npm_list(owner, identifier, page=page, page_size=page_size)
 
 List npm upstream configs for this repository.
 
 List npm upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.npm_upstream import NpmUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List npm upstream configs for this repository.
-    api_response = api_instance.repos_upstream_npm_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_npm_list: %s\n" % e)
+    try:
+        # List npm upstream configs for this repository.
+        api_response = api_instance.repos_upstream_npm_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_npm_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_npm_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8208,7 +12124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[NpmUpstream]**](NpmUpstream.md)
+[**List[NpmUpstream]**](NpmUpstream.md)
 
 ### Authorization
 
@@ -8216,8 +12132,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -8229,39 +12153,62 @@ Partially update a npm upstream config for this repository.
 Partially update a npm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.npm_upstream import NpmUpstream
+from cloudsmith_api.models.npm_upstream_request_patch import NpmUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.NpmUpstreamRequestPatch() # NpmUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.NpmUpstreamRequestPatch() # NpmUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a npm upstream config for this repository.
-    api_response = api_instance.repos_upstream_npm_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_npm_partial_update: %s\n" % e)
+    try:
+        # Partially update a npm upstream config for this repository.
+        api_response = api_instance.repos_upstream_npm_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_npm_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_npm_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8283,6 +12230,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_npm_read**
@@ -8293,38 +12248,60 @@ Retrieve a npm upstream config for this repository.
 Retrieve a npm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.npm_upstream import NpmUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a npm upstream config for this repository.
-    api_response = api_instance.repos_upstream_npm_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_npm_read: %s\n" % e)
+    try:
+        # Retrieve a npm upstream config for this repository.
+        api_response = api_instance.repos_upstream_npm_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_npm_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_npm_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8342,8 +12319,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -8355,39 +12340,62 @@ Update a npm upstream config for this repository.
 Update a npm upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.npm_upstream import NpmUpstream
+from cloudsmith_api.models.npm_upstream_request import NpmUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.NpmUpstreamRequest() # NpmUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.NpmUpstreamRequest() # NpmUpstreamRequest |  (optional)
 
-try:
-    # Update a npm upstream config for this repository.
-    api_response = api_instance.repos_upstream_npm_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_npm_update: %s\n" % e)
+    try:
+        # Update a npm upstream config for this repository.
+        api_response = api_instance.repos_upstream_npm_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_npm_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_npm_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8409,6 +12417,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nuget_create**
@@ -8419,38 +12435,61 @@ Create a NuGet upstream config for this repository.
 Create a NuGet upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nuget_upstream import NugetUpstream
+from cloudsmith_api.models.nuget_upstream_request import NugetUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.NugetUpstreamRequest() # NugetUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.NugetUpstreamRequest() # NugetUpstreamRequest |  (optional)
 
-try:
-    # Create a NuGet upstream config for this repository.
-    api_response = api_instance.repos_upstream_nuget_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nuget_create: %s\n" % e)
+    try:
+        # Create a NuGet upstream config for this repository.
+        api_response = api_instance.repos_upstream_nuget_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_nuget_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nuget_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8471,6 +12510,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nuget_delete**
@@ -8481,37 +12528,57 @@ Delete a NuGet upstream config for this repository.
 Delete a NuGet upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a NuGet upstream config for this repository.
-    api_instance.repos_upstream_nuget_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nuget_delete: %s\n" % e)
+    try:
+        # Delete a NuGet upstream config for this repository.
+        api_instance.repos_upstream_nuget_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nuget_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8529,52 +12596,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nuget_list**
-> list[NugetUpstream] repos_upstream_nuget_list(owner, identifier, page=page, page_size=page_size)
+> List[NugetUpstream] repos_upstream_nuget_list(owner, identifier, page=page, page_size=page_size)
 
 List NuGet upstream configs for this repository.
 
 List NuGet upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nuget_upstream import NugetUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List NuGet upstream configs for this repository.
-    api_response = api_instance.repos_upstream_nuget_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nuget_list: %s\n" % e)
+    try:
+        # List NuGet upstream configs for this repository.
+        api_response = api_instance.repos_upstream_nuget_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_nuget_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nuget_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8585,7 +12682,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[NugetUpstream]**](NugetUpstream.md)
+[**List[NugetUpstream]**](NugetUpstream.md)
 
 ### Authorization
 
@@ -8593,8 +12690,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -8606,39 +12711,62 @@ Partially update a NuGet upstream config for this repository.
 Partially update a NuGet upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nuget_upstream import NugetUpstream
+from cloudsmith_api.models.nuget_upstream_request_patch import NugetUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.NugetUpstreamRequestPatch() # NugetUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.NugetUpstreamRequestPatch() # NugetUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a NuGet upstream config for this repository.
-    api_response = api_instance.repos_upstream_nuget_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nuget_partial_update: %s\n" % e)
+    try:
+        # Partially update a NuGet upstream config for this repository.
+        api_response = api_instance.repos_upstream_nuget_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_nuget_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nuget_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8660,6 +12788,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_nuget_read**
@@ -8670,38 +12806,60 @@ Retrieve a NuGet upstream config for this repository.
 Retrieve a NuGet upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nuget_upstream import NugetUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a NuGet upstream config for this repository.
-    api_response = api_instance.repos_upstream_nuget_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nuget_read: %s\n" % e)
+    try:
+        # Retrieve a NuGet upstream config for this repository.
+        api_response = api_instance.repos_upstream_nuget_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_nuget_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nuget_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8719,8 +12877,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -8732,39 +12898,62 @@ Update a NuGet upstream config for this repository.
 Update a NuGet upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.nuget_upstream import NugetUpstream
+from cloudsmith_api.models.nuget_upstream_request import NugetUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.NugetUpstreamRequest() # NugetUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.NugetUpstreamRequest() # NugetUpstreamRequest |  (optional)
 
-try:
-    # Update a NuGet upstream config for this repository.
-    api_response = api_instance.repos_upstream_nuget_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_nuget_update: %s\n" % e)
+    try:
+        # Update a NuGet upstream config for this repository.
+        api_response = api_instance.repos_upstream_nuget_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_nuget_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_nuget_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8786,6 +12975,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_python_create**
@@ -8796,38 +12993,61 @@ Create a Python upstream config for this repository.
 Create a Python upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.python_upstream import PythonUpstream
+from cloudsmith_api.models.python_upstream_request import PythonUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.PythonUpstreamRequest() # PythonUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.PythonUpstreamRequest() # PythonUpstreamRequest |  (optional)
 
-try:
-    # Create a Python upstream config for this repository.
-    api_response = api_instance.repos_upstream_python_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_python_create: %s\n" % e)
+    try:
+        # Create a Python upstream config for this repository.
+        api_response = api_instance.repos_upstream_python_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_python_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_python_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8848,6 +13068,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_python_delete**
@@ -8858,37 +13086,57 @@ Delete a Python upstream config for this repository.
 Delete a Python upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Python upstream config for this repository.
-    api_instance.repos_upstream_python_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_python_delete: %s\n" % e)
+    try:
+        # Delete a Python upstream config for this repository.
+        api_instance.repos_upstream_python_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_python_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8906,52 +13154,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_python_list**
-> list[PythonUpstream] repos_upstream_python_list(owner, identifier, page=page, page_size=page_size)
+> List[PythonUpstream] repos_upstream_python_list(owner, identifier, page=page, page_size=page_size)
 
 List Python upstream configs for this repository.
 
 List Python upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.python_upstream import PythonUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Python upstream configs for this repository.
-    api_response = api_instance.repos_upstream_python_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_python_list: %s\n" % e)
+    try:
+        # List Python upstream configs for this repository.
+        api_response = api_instance.repos_upstream_python_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_python_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_python_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -8962,7 +13240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[PythonUpstream]**](PythonUpstream.md)
+[**List[PythonUpstream]**](PythonUpstream.md)
 
 ### Authorization
 
@@ -8970,8 +13248,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -8983,39 +13269,62 @@ Partially update a Python upstream config for this repository.
 Partially update a Python upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.python_upstream import PythonUpstream
+from cloudsmith_api.models.python_upstream_request_patch import PythonUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.PythonUpstreamRequestPatch() # PythonUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.PythonUpstreamRequestPatch() # PythonUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Python upstream config for this repository.
-    api_response = api_instance.repos_upstream_python_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_python_partial_update: %s\n" % e)
+    try:
+        # Partially update a Python upstream config for this repository.
+        api_response = api_instance.repos_upstream_python_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_python_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_python_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9037,6 +13346,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_python_read**
@@ -9047,38 +13364,60 @@ Retrieve a Python upstream config for this repository.
 Retrieve a Python upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.python_upstream import PythonUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Python upstream config for this repository.
-    api_response = api_instance.repos_upstream_python_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_python_read: %s\n" % e)
+    try:
+        # Retrieve a Python upstream config for this repository.
+        api_response = api_instance.repos_upstream_python_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_python_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_python_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9096,8 +13435,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -9109,39 +13456,62 @@ Update a Python upstream config for this repository.
 Update a Python upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.python_upstream import PythonUpstream
+from cloudsmith_api.models.python_upstream_request import PythonUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.PythonUpstreamRequest() # PythonUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.PythonUpstreamRequest() # PythonUpstreamRequest |  (optional)
 
-try:
-    # Update a Python upstream config for this repository.
-    api_response = api_instance.repos_upstream_python_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_python_update: %s\n" % e)
+    try:
+        # Update a Python upstream config for this repository.
+        api_response = api_instance.repos_upstream_python_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_python_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_python_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9163,6 +13533,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_rpm_create**
@@ -9173,38 +13551,61 @@ Create a RedHat upstream config for this repository.
 Create a RedHat upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.rpm_upstream import RpmUpstream
+from cloudsmith_api.models.rpm_upstream_request import RpmUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RpmUpstreamRequest() # RpmUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RpmUpstreamRequest() # RpmUpstreamRequest |  (optional)
 
-try:
-    # Create a RedHat upstream config for this repository.
-    api_response = api_instance.repos_upstream_rpm_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_rpm_create: %s\n" % e)
+    try:
+        # Create a RedHat upstream config for this repository.
+        api_response = api_instance.repos_upstream_rpm_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_rpm_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_rpm_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9225,6 +13626,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_rpm_delete**
@@ -9235,37 +13644,57 @@ Delete a RedHat upstream config for this repository.
 Delete a RedHat upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a RedHat upstream config for this repository.
-    api_instance.repos_upstream_rpm_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_rpm_delete: %s\n" % e)
+    try:
+        # Delete a RedHat upstream config for this repository.
+        api_instance.repos_upstream_rpm_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_rpm_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9283,52 +13712,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_rpm_list**
-> list[RpmUpstream] repos_upstream_rpm_list(owner, identifier, page=page, page_size=page_size)
+> List[RpmUpstream] repos_upstream_rpm_list(owner, identifier, page=page, page_size=page_size)
 
 List RedHat upstream configs for this repository.
 
 List RedHat upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.rpm_upstream import RpmUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List RedHat upstream configs for this repository.
-    api_response = api_instance.repos_upstream_rpm_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_rpm_list: %s\n" % e)
+    try:
+        # List RedHat upstream configs for this repository.
+        api_response = api_instance.repos_upstream_rpm_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_rpm_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_rpm_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9339,7 +13798,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RpmUpstream]**](RpmUpstream.md)
+[**List[RpmUpstream]**](RpmUpstream.md)
 
 ### Authorization
 
@@ -9347,8 +13806,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -9360,39 +13827,62 @@ Partially update a RedHat upstream config for this repository.
 Partially update a RedHat upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.rpm_upstream import RpmUpstream
+from cloudsmith_api.models.rpm_upstream_request_patch import RpmUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.RpmUpstreamRequestPatch() # RpmUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.RpmUpstreamRequestPatch() # RpmUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a RedHat upstream config for this repository.
-    api_response = api_instance.repos_upstream_rpm_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_rpm_partial_update: %s\n" % e)
+    try:
+        # Partially update a RedHat upstream config for this repository.
+        api_response = api_instance.repos_upstream_rpm_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_rpm_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_rpm_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9414,6 +13904,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_rpm_read**
@@ -9424,38 +13922,60 @@ Retrieve a RedHat upstream config for this repository.
 Retrieve a RedHat upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.rpm_upstream import RpmUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a RedHat upstream config for this repository.
-    api_response = api_instance.repos_upstream_rpm_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_rpm_read: %s\n" % e)
+    try:
+        # Retrieve a RedHat upstream config for this repository.
+        api_response = api_instance.repos_upstream_rpm_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_rpm_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_rpm_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9473,8 +13993,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -9486,39 +14014,62 @@ Update a RedHat upstream config for this repository.
 Update a RedHat upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.rpm_upstream import RpmUpstream
+from cloudsmith_api.models.rpm_upstream_request import RpmUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.RpmUpstreamRequest() # RpmUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.RpmUpstreamRequest() # RpmUpstreamRequest |  (optional)
 
-try:
-    # Update a RedHat upstream config for this repository.
-    api_response = api_instance.repos_upstream_rpm_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_rpm_update: %s\n" % e)
+    try:
+        # Update a RedHat upstream config for this repository.
+        api_response = api_instance.repos_upstream_rpm_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_rpm_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_rpm_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9540,6 +14091,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_ruby_create**
@@ -9550,38 +14109,61 @@ Create a Ruby upstream config for this repository.
 Create a Ruby upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.ruby_upstream import RubyUpstream
+from cloudsmith_api.models.ruby_upstream_request import RubyUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.RubyUpstreamRequest() # RubyUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.RubyUpstreamRequest() # RubyUpstreamRequest |  (optional)
 
-try:
-    # Create a Ruby upstream config for this repository.
-    api_response = api_instance.repos_upstream_ruby_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_ruby_create: %s\n" % e)
+    try:
+        # Create a Ruby upstream config for this repository.
+        api_response = api_instance.repos_upstream_ruby_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_ruby_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_ruby_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9602,6 +14184,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_ruby_delete**
@@ -9612,37 +14202,57 @@ Delete a Ruby upstream config for this repository.
 Delete a Ruby upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Ruby upstream config for this repository.
-    api_instance.repos_upstream_ruby_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_ruby_delete: %s\n" % e)
+    try:
+        # Delete a Ruby upstream config for this repository.
+        api_instance.repos_upstream_ruby_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_ruby_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9660,52 +14270,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_ruby_list**
-> list[RubyUpstream] repos_upstream_ruby_list(owner, identifier, page=page, page_size=page_size)
+> List[RubyUpstream] repos_upstream_ruby_list(owner, identifier, page=page, page_size=page_size)
 
 List Ruby upstream configs for this repository.
 
 List Ruby upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.ruby_upstream import RubyUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Ruby upstream configs for this repository.
-    api_response = api_instance.repos_upstream_ruby_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_ruby_list: %s\n" % e)
+    try:
+        # List Ruby upstream configs for this repository.
+        api_response = api_instance.repos_upstream_ruby_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_ruby_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_ruby_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9716,7 +14356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[RubyUpstream]**](RubyUpstream.md)
+[**List[RubyUpstream]**](RubyUpstream.md)
 
 ### Authorization
 
@@ -9724,8 +14364,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -9737,39 +14385,62 @@ Partially update a Ruby upstream config for this repository.
 Partially update a Ruby upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.ruby_upstream import RubyUpstream
+from cloudsmith_api.models.ruby_upstream_request_patch import RubyUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.RubyUpstreamRequestPatch() # RubyUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.RubyUpstreamRequestPatch() # RubyUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Ruby upstream config for this repository.
-    api_response = api_instance.repos_upstream_ruby_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_ruby_partial_update: %s\n" % e)
+    try:
+        # Partially update a Ruby upstream config for this repository.
+        api_response = api_instance.repos_upstream_ruby_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_ruby_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_ruby_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9791,6 +14462,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_ruby_read**
@@ -9801,38 +14480,60 @@ Retrieve a Ruby upstream config for this repository.
 Retrieve a Ruby upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.ruby_upstream import RubyUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Ruby upstream config for this repository.
-    api_response = api_instance.repos_upstream_ruby_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_ruby_read: %s\n" % e)
+    try:
+        # Retrieve a Ruby upstream config for this repository.
+        api_response = api_instance.repos_upstream_ruby_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_ruby_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_ruby_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9850,8 +14551,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -9863,39 +14572,62 @@ Update a Ruby upstream config for this repository.
 Update a Ruby upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.ruby_upstream import RubyUpstream
+from cloudsmith_api.models.ruby_upstream_request import RubyUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.RubyUpstreamRequest() # RubyUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.RubyUpstreamRequest() # RubyUpstreamRequest |  (optional)
 
-try:
-    # Update a Ruby upstream config for this repository.
-    api_response = api_instance.repos_upstream_ruby_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_ruby_update: %s\n" % e)
+    try:
+        # Update a Ruby upstream config for this repository.
+        api_response = api_instance.repos_upstream_ruby_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_ruby_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_ruby_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9917,6 +14649,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_swift_create**
@@ -9927,38 +14667,61 @@ Create a Swift upstream config for this repository.
 Create a Swift upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.swift_upstream import SwiftUpstream
+from cloudsmith_api.models.swift_upstream_request import SwiftUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-data = cloudsmith_api.SwiftUpstreamRequest() # SwiftUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    data = cloudsmith_api.SwiftUpstreamRequest() # SwiftUpstreamRequest |  (optional)
 
-try:
-    # Create a Swift upstream config for this repository.
-    api_response = api_instance.repos_upstream_swift_create(owner, identifier, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_swift_create: %s\n" % e)
+    try:
+        # Create a Swift upstream config for this repository.
+        api_response = api_instance.repos_upstream_swift_create(owner, identifier, data=data)
+        print("The response of ReposApi->repos_upstream_swift_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_swift_create: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -9979,6 +14742,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_swift_delete**
@@ -9989,37 +14760,57 @@ Delete a Swift upstream config for this repository.
 Delete a Swift upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Delete a Swift upstream config for this repository.
-    api_instance.repos_upstream_swift_delete(owner, identifier, slug_perm)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_swift_delete: %s\n" % e)
+    try:
+        # Delete a Swift upstream config for this repository.
+        api_instance.repos_upstream_swift_delete(owner, identifier, slug_perm)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_swift_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10037,52 +14828,82 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_swift_list**
-> list[SwiftUpstream] repos_upstream_swift_list(owner, identifier, page=page, page_size=page_size)
+> List[SwiftUpstream] repos_upstream_swift_list(owner, identifier, page=page, page_size=page_size)
 
 List Swift upstream configs for this repository.
 
 List Swift upstream configs for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.swift_upstream import SwiftUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # List Swift upstream configs for this repository.
-    api_response = api_instance.repos_upstream_swift_list(owner, identifier, page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_swift_list: %s\n" % e)
+    try:
+        # List Swift upstream configs for this repository.
+        api_response = api_instance.repos_upstream_swift_list(owner, identifier, page=page, page_size=page_size)
+        print("The response of ReposApi->repos_upstream_swift_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_swift_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10093,7 +14914,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[SwiftUpstream]**](SwiftUpstream.md)
+[**List[SwiftUpstream]**](SwiftUpstream.md)
 
 ### Authorization
 
@@ -10101,8 +14922,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -10114,39 +14943,62 @@ Partially update a Swift upstream config for this repository.
 Partially update a Swift upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.swift_upstream import SwiftUpstream
+from cloudsmith_api.models.swift_upstream_request_patch import SwiftUpstreamRequestPatch
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.SwiftUpstreamRequestPatch() # SwiftUpstreamRequestPatch |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.SwiftUpstreamRequestPatch() # SwiftUpstreamRequestPatch |  (optional)
 
-try:
-    # Partially update a Swift upstream config for this repository.
-    api_response = api_instance.repos_upstream_swift_partial_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_swift_partial_update: %s\n" % e)
+    try:
+        # Partially update a Swift upstream config for this repository.
+        api_response = api_instance.repos_upstream_swift_partial_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_swift_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_swift_partial_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10168,6 +15020,14 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_upstream_swift_read**
@@ -10178,38 +15038,60 @@ Retrieve a Swift upstream config for this repository.
 Retrieve a Swift upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.swift_upstream import SwiftUpstream
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
 
-try:
-    # Retrieve a Swift upstream config for this repository.
-    api_response = api_instance.repos_upstream_swift_read(owner, identifier, slug_perm)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_swift_read: %s\n" % e)
+    try:
+        # Retrieve a Swift upstream config for this repository.
+        api_response = api_instance.repos_upstream_swift_read(owner, identifier, slug_perm)
+        print("The response of ReposApi->repos_upstream_swift_read:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_swift_read: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10227,8 +15109,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -10240,39 +15130,62 @@ Update a Swift upstream config for this repository.
 Update a Swift upstream config for this repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.swift_upstream import SwiftUpstream
+from cloudsmith_api.models.swift_upstream_request import SwiftUpstreamRequest
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
-slug_perm = 'slug_perm_example' # str | 
-data = cloudsmith_api.SwiftUpstreamRequest() # SwiftUpstreamRequest |  (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
+    slug_perm = 'slug_perm_example' # str | 
+    data = cloudsmith_api.SwiftUpstreamRequest() # SwiftUpstreamRequest |  (optional)
 
-try:
-    # Update a Swift upstream config for this repository.
-    api_response = api_instance.repos_upstream_swift_update(owner, identifier, slug_perm, data=data)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_upstream_swift_update: %s\n" % e)
+    try:
+        # Update a Swift upstream config for this repository.
+        api_response = api_instance.repos_upstream_swift_update(owner, identifier, slug_perm, data=data)
+        print("The response of ReposApi->repos_upstream_swift_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_upstream_swift_update: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10294,47 +15207,77 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **repos_user_list**
-> list[Repository] repos_user_list(page=page, page_size=page_size)
+> List[Repository] repos_user_list(page=page, page_size=page_size)
 
 Get a list of all repositories associated with current user.
 
 Get a list of all repositories associated with current user.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository import Repository
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-page = 56 # int | A page number within the paginated result set. (optional)
-page_size = 56 # int | Number of results to return per page. (optional)
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
-try:
-    # Get a list of all repositories associated with current user.
-    api_response = api_instance.repos_user_list(page=page, page_size=page_size)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_user_list: %s\n" % e)
+    try:
+        # Get a list of all repositories associated with current user.
+        api_response = api_instance.repos_user_list(page=page, page_size=page_size)
+        print("The response of ReposApi->repos_user_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_user_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10343,7 +15286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Repository]**](Repository.md)
+[**List[Repository]**](Repository.md)
 
 ### Authorization
 
@@ -10351,8 +15294,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the list of repositories |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -10364,37 +15315,59 @@ Retrieve the active X.509 ECDSA certificate for the Repository.
 Retrieve the active X.509 ECDSA certificate for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_x509_ecdsa_certificate import RepositoryX509EcdsaCertificate
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Retrieve the active X.509 ECDSA certificate for the Repository.
-    api_response = api_instance.repos_x509_ecdsa_list(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_x509_ecdsa_list: %s\n" % e)
+    try:
+        # Retrieve the active X.509 ECDSA certificate for the Repository.
+        api_response = api_instance.repos_x509_ecdsa_list(owner, identifier)
+        print("The response of ReposApi->repos_x509_ecdsa_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_x509_ecdsa_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10411,8 +15384,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the active X.509 ECDSA Certificate. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -10424,37 +15405,59 @@ Retrieve the active X.509 RSA certificate for the Repository.
 Retrieve the active X.509 RSA certificate for the Repository.
 
 ### Example
+
+* Api Key Authentication (apikey):
+* Basic Authentication (basic):
+
 ```python
-from __future__ import print_function
-import time
 import cloudsmith_api
+from cloudsmith_api.models.repository_x509_rsa_certificate import RepositoryX509RsaCertificate
 from cloudsmith_api.rest import ApiException
 from pprint import pprint
 
+# Defining the host is optional and defaults to https://api.cloudsmith.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cloudsmith_api.Configuration(
+    host = "https://api.cloudsmith.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: apikey
-configuration = cloudsmith_api.Configuration()
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
+configuration.api_key['apikey'] = os.environ["API_KEY"]
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apikey'] = 'Bearer'
+
 # Configure HTTP basic authorization: basic
-configuration = cloudsmith_api.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+configuration = cloudsmith_api.Configuration(
+    username = os.environ["USERNAME"],
+    password = os.environ["PASSWORD"]
+)
 
-# create an instance of the API class
-api_instance = cloudsmith_api.ReposApi(cloudsmith_api.ApiClient(configuration))
-owner = 'owner_example' # str | 
-identifier = 'identifier_example' # str | 
+# Enter a context with an instance of the API client
+with cloudsmith_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloudsmith_api.ReposApi(api_client)
+    owner = 'owner_example' # str | 
+    identifier = 'identifier_example' # str | 
 
-try:
-    # Retrieve the active X.509 RSA certificate for the Repository.
-    api_response = api_instance.repos_x509_rsa_list(owner, identifier)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ReposApi->repos_x509_rsa_list: %s\n" % e)
+    try:
+        # Retrieve the active X.509 RSA certificate for the Repository.
+        api_response = api_instance.repos_x509_rsa_list(owner, identifier)
+        print("The response of ReposApi->repos_x509_rsa_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ReposApi->repos_x509_rsa_list: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10471,8 +15474,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved the active X.509 RSA Certificate. |  -  |
+**400** | Request could not be processed (see detail). |  -  |
+**422** | Missing or invalid parameters (see detail). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

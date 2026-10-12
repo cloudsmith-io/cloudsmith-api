@@ -1,6 +1,8 @@
 # ComposerPackageUploadRequest
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **package_file** | **str** | The primary file for the package. | 
@@ -8,6 +10,23 @@ Name | Type | Description | Notes
 **tags** | **str** | A comma-separated values list of tags to add to the package. | [optional] 
 **version** | **str** | The raw version for this package. | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.composer_package_upload_request import ComposerPackageUploadRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ComposerPackageUploadRequest from a JSON string
+composer_package_upload_request_instance = ComposerPackageUploadRequest.from_json(json)
+# print the JSON string representation of the object
+print(ComposerPackageUploadRequest.to_json())
+
+# convert the object into a dict
+composer_package_upload_request_dict = composer_package_upload_request_instance.to_dict()
+# create an instance of ComposerPackageUploadRequest from a dict
+composer_package_upload_request_from_dict = ComposerPackageUploadRequest.from_dict(composer_package_upload_request_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

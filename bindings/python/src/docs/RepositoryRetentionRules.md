@@ -1,6 +1,8 @@
 # RepositoryRetentionRules
 
+
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **retention_count_limit** | **int** | The maximum X number of packages to retain. | [optional] 
@@ -12,6 +14,23 @@ Name | Type | Description | Notes
 **retention_package_query_string** | **str** | A package search expression which, if provided, filters the packages to be deleted.&lt;br&gt;For example, a search expression of &#x60;name:foo&#x60; will result in only packages called &#39;foo&#39; being deleted, or a search expression of &#x60;tag:~latest&#x60; will prevent any packages tagged &#39;latest&#39; from being deleted.&lt;br&gt;Refer to the Cloudsmith documentation for package query syntax. | [optional] 
 **retention_size_limit** | **int** | The maximum X total size (in bytes) of packages to retain. | [optional] 
 
+## Example
+
+```python
+from cloudsmith_api.models.repository_retention_rules import RepositoryRetentionRules
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RepositoryRetentionRules from a JSON string
+repository_retention_rules_instance = RepositoryRetentionRules.from_json(json)
+# print the JSON string representation of the object
+print(RepositoryRetentionRules.to_json())
+
+# convert the object into a dict
+repository_retention_rules_dict = repository_retention_rules_instance.to_dict()
+# create an instance of RepositoryRetentionRules from a dict
+repository_retention_rules_from_dict = RepositoryRetentionRules.from_dict(repository_retention_rules_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
