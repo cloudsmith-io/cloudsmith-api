@@ -302,6 +302,13 @@ class TestPackagesApi(unittest.TestCase):
         """
         pass
 
+    def test_packages_upload_skills(self):
+        """Test case for packages_upload_skills
+
+        Create a new AI Skills package  # noqa: E501
+        """
+        pass
+
     def test_packages_upload_swift(self):
         """Test case for packages_upload_swift
 
@@ -509,6 +516,13 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_ruby
 
         Validate parameters for create Ruby package  # noqa: E501
+        """
+        pass
+
+    def test_packages_validate_upload_skills(self):
+        """Test case for packages_validate_upload_skills
+
+        Validate parameters for create AI Skills package  # noqa: E501
         """
         pass
 

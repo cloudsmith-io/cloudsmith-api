@@ -14,6 +14,9 @@ require 'date'
 
 module CloudsmithApi
 class ErrorDetail
+  # A machine-readable code for the error. Only set for validation errors.
+  attr_accessor :code
+
   # An extended message for the response.
   attr_accessor :detail
 
@@ -23,6 +26,7 @@ class ErrorDetail
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
+      :'code' => :'code',
       :'detail' => :'detail',
       :'fields' => :'fields'
     }
@@ -31,6 +35,7 @@ class ErrorDetail
   # Attribute type mapping.
   def self.swagger_types
     {
+      :'code' => :'String',
       :'detail' => :'String',
       :'fields' => :'Hash<String, Array<String>>'
     }
@@ -43,6 +48,10 @@ class ErrorDetail
 
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+    if attributes.has_key?(:'code')
+      self.code = attributes[:'code']
+    end
 
     if attributes.has_key?(:'detail')
       self.detail = attributes[:'detail']
@@ -78,6 +87,7 @@ class ErrorDetail
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
+        code == o.code &&
         detail == o.detail &&
         fields == o.fields
   end
@@ -91,7 +101,7 @@ class ErrorDetail
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [detail, fields].hash
+    [code, detail, fields].hash
   end
 
     # Builds the object from hash

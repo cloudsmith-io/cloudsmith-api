@@ -33,28 +33,59 @@ class ErrorDetail(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'code': 'str',
         'detail': 'str',
         'fields': 'dict(str, list[str])'
     }
 
     attribute_map = {
+        'code': 'code',
         'detail': 'detail',
         'fields': 'fields'
     }
 
-    def __init__(self, detail=None, fields=None, _configuration=None):  # noqa: E501
+    def __init__(self, code=None, detail=None, fields=None, _configuration=None):  # noqa: E501
         """ErrorDetail - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._code = None
         self._detail = None
         self._fields = None
         self.discriminator = None
 
+        if code is not None:
+            self.code = code
         self.detail = detail
         if fields is not None:
             self.fields = fields
+
+    @property
+    def code(self):
+        """Gets the code of this ErrorDetail.
+
+        A machine-readable code for the error. Only set for validation errors.
+
+        :return: The code of this ErrorDetail.
+        :rtype: str
+        """
+        return self._code
+
+    @code.setter
+    def code(self, code):
+        """Sets the code of this ErrorDetail.
+
+        A machine-readable code for the error. Only set for validation errors.
+
+        :param code: The code of this ErrorDetail.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                code is not None and len(code) < 1):
+            raise ValueError("Invalid value for `code`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._code = code
 
     @property
     def detail(self):
