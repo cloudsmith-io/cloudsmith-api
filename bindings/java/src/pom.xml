@@ -223,7 +223,7 @@
         </dependency>
             <!-- Bean Validation Impl. used to perform BeanValidation -->
             <dependency>
-                <groupId>org.hibernate.validator</groupId>
+                <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>6.2.5.Final</version>
             </dependency>

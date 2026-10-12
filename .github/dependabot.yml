@@ -74,7 +74,7 @@ updates:
       interval: "weekly"
     ignore:
       # These majors use the jakarta.* namespace. The generated code imports javax.*.
-      - dependency-name: "org.hibernate.validator:hibernate-validator"
+      - dependency-name: "org.hibernate:hibernate-validator"
         versions: [">= 7"]
       - dependency-name: "org.glassfish:jakarta.el"
         versions: [">= 4"]
