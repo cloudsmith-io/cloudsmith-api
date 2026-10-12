@@ -44,6 +44,28 @@ updates:
         update-types:
           - "minor"
           - "patch"
+  - package-ecosystem: "docker"
+    cooldown:
+      default-days: 7
+    directory: "/codegen"
+    schedule:
+      interval: "weekly"
+    groups:
+      docker-all:
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
+      docker-major:
+        patterns: ["*"]
+        update-types:
+          - "major"
+      docker-security:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types:
+          - "minor"
+          - "patch"
   # The build deletes and regenerates bindings/*/src, which reverts any update
   # to these manifests. Change the codegen templates to update these versions.
   # The ignore rules also stop security update pull requests. The alerts stay open.
