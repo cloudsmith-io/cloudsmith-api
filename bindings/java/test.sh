@@ -10,3 +10,9 @@ src_dir="$self_dir/src"
 
 cd $src_dir
 mvn test
+
+mvn -q dependency:build-classpath -Dmdep.outputFile=target/classpath.txt
+classpath="target/classes:$(cat target/classpath.txt)"
+mkdir -p target/compat-tests
+javac -cp "$classpath" -d target/compat-tests "$self_dir"/tests/*.java
+java -cp "target/compat-tests:$classpath" ForwardCompatibilityTest

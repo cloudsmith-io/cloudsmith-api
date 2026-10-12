@@ -1,29 +1,26 @@
 
+
 # OrganizationInviteExtend
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**email** | **String** | The email of the user to be invited. |  [optional]
-**expiresAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**inviter** | **String** |  |  [optional]
-**inviterUrl** | **String** |  |  [optional]
-**org** | **String** |  |  [optional]
-**role** | [**RoleEnum**](#RoleEnum) | The role to be assigned to the invited user. |  [optional]
-**slugPerm** | **String** | The slug_perm of the invite to be extended. |  [optional]
-**teams** | [**List&lt;OrganizationTeamInvite&gt;**](OrganizationTeamInvite.md) |  |  [optional]
-**user** | **String** | The slug of the user to be invited. |  [optional]
-**userUrl** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**email** | **String** | The email of the user to be invited. |  [optional] |
+|**expiresAt** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**inviter** | **String** |  |  [optional] [readonly] |
+|**inviterUrl** | **URI** |  |  [optional] [readonly] |
+|**org** | **String** |  |  [optional] [readonly] |
+|**role** | **String** | The role to be assigned to the invited user. |  [optional] |
+|**slugPerm** | **String** | The slug_perm of the invite to be extended. |  [optional] [readonly] |
+|**teams** | [**List&lt;OrganizationTeamInvite&gt;**](OrganizationTeamInvite.md) |  |  [optional] |
+|**user** | **String** | The slug of the user to be invited. |  [optional] |
+|**userUrl** | **URI** |  |  [optional] [readonly] |
 
 
-<a name="RoleEnum"></a>
-## Enum: RoleEnum
-Name | Value
----- | -----
-OWNER | &quot;Owner&quot;
-MANAGER | &quot;Manager&quot;
-MEMBER | &quot;Member&quot;
-COLLABORATOR | &quot;Collaborator&quot;
+## Implemented Interfaces
 
+* Serializable
 
 

@@ -1,27 +1,23 @@
 
+
 # PackageLicensePolicyEvaluationRequest
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**evaluationCount** | **java.math.BigInteger** |  |  [optional]
-**policy** | [**NestedLicensePolicy**](NestedLicensePolicy.md) |  |  [optional]
-**slugPerm** | **String** |  |  [optional]
-**status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
-**updatedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
-**violationCount** | **java.math.BigInteger** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**createdAt** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**evaluationCount** | **java.math.BigInteger** |  |  [optional] [readonly] |
+|**policy** | [**NestedLicensePolicy**](NestedLicensePolicy.md) |  |  [optional] |
+|**slugPerm** | **String** |  |  [optional] [readonly] |
+|**status** | **String** |  |  [optional] [readonly] |
+|**updatedAt** | **OffsetDateTime** |  |  [optional] [readonly] |
+|**violationCount** | **java.math.BigInteger** |  |  [optional] [readonly] |
 
 
-<a name="StatusEnum"></a>
-## Enum: StatusEnum
-Name | Value
----- | -----
-PENDING | &quot;Pending&quot;
-IN_PROGRESS | &quot;In Progress&quot;
-COMPLETE | &quot;Complete&quot;
-CANCELLED | &quot;Cancelled&quot;
-ERRORED | &quot;Errored&quot;
+## Implemented Interfaces
 
+* Serializable
 
 

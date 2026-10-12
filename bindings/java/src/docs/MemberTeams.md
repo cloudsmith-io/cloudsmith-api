@@ -1,20 +1,19 @@
 
+
 # MemberTeams
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** |  |  [optional]
-**role** | [**RoleEnum**](#RoleEnum) |  |  [optional]
-**slug** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**name** | **String** |  |  [optional] [readonly] |
+|**role** | **String** |  |  [optional] [readonly] |
+|**slug** | **String** |  |  [optional] [readonly] |
 
 
-<a name="RoleEnum"></a>
-## Enum: RoleEnum
-Name | Value
----- | -----
-MANAGER | &quot;Manager&quot;
-MEMBER | &quot;Member&quot;
+## Implemented Interfaces
 
+* Serializable
 
 

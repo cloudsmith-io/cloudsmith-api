@@ -1,11 +1,18 @@
 
+
 # StorageRegion
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**label** | **String** | Name of the storage region | 
-**slug** | **String** | Slug for the storage region | 
 
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**label** | **String** | Name of the storage region |  |
+|**slug** | **String** | Slug for the storage region |  |
+
+
+## Implemented Interfaces
+
+* Serializable
 
 

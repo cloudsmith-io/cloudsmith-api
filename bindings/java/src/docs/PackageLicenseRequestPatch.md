@@ -1,30 +1,21 @@
 
+
 # PackageLicenseRequestPatch
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**action** | [**ActionEnum**](#ActionEnum) |  |  [optional]
-**licenseNotes** | **String** |  |  [optional]
-**licenseOverride** | [**LicenseOverrideEnum**](#LicenseOverrideEnum) |  |  [optional]
-**licenseUrl** | **String** |  |  [optional]
-**spdxLicense** | **String** |  | 
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**action** | **String** |  |  [optional] |
+|**licenseNotes** | **String** |  |  [optional] |
+|**licenseOverride** | **String** |  |  [optional] |
+|**licenseUrl** | **URI** |  |  [optional] |
+|**spdxLicense** | **String** |  |  |
 
 
-<a name="ActionEnum"></a>
-## Enum: ActionEnum
-Name | Value
----- | -----
-UPDATE | &quot;Update&quot;
+## Implemented Interfaces
 
-
-<a name="LicenseOverrideEnum"></a>
-## Enum: LicenseOverrideEnum
-Name | Value
----- | -----
-NONE | &quot;None&quot;
-IGNORED | &quot;Ignored&quot;
-PURCHASED | &quot;Purchased&quot;
-
+* Serializable
 
 

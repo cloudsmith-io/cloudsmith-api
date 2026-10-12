@@ -1,112 +1,105 @@
 
+
 # RpmPackageUpload
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**architectures** | [**List&lt;Architecture&gt;**](Architecture.md) |  |  [optional]
-**cdnUrl** | **String** |  |  [optional]
-**checksumMd5** | **String** |  |  [optional]
-**checksumSha1** | **String** |  |  [optional]
-**checksumSha256** | **String** |  |  [optional]
-**checksumSha512** | **String** |  |  [optional]
-**dependenciesChecksumMd5** | **String** | A checksum of all of the package&#39;s dependencies. |  [optional]
-**dependenciesUrl** | **String** |  |  [optional]
-**description** | **String** | A textual description of this package. |  [optional]
-**displayName** | **String** |  |  [optional]
-**displaySource** | **String** | Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith). |  [optional]
-**distro** | [**Distribution**](Distribution.md) |  |  [optional]
-**distroVersion** | [**DistributionVersion**](DistributionVersion.md) |  |  [optional]
-**downloads** | **java.math.BigInteger** |  |  [optional]
-**epoch** | **java.math.BigInteger** | The epoch of the package version (if any). |  [optional]
-**extension** | **String** |  |  [optional]
-**filename** | **String** |  |  [optional]
-**files** | [**List&lt;PackageFile&gt;**](PackageFile.md) |  |  [optional]
-**format** | **String** |  |  [optional]
-**formatUrl** | **String** |  |  [optional]
-**freeableStorage** | **java.math.BigInteger** | Amount of storage that will be freed if this package is deleted |  [optional]
-**fullyQualifiedName** | **String** |  |  [optional]
-**identifierPerm** | **String** | Unique and permanent identifier for the package. |  [optional]
-**identifiers** | **Map&lt;String, String&gt;** | Return a map of identifier field names and their values. |  [optional]
-**indexed** | **Boolean** |  |  [optional]
-**isCancellable** | **Boolean** |  |  [optional]
-**isCopyable** | **Boolean** |  |  [optional]
-**isDeleteable** | **Boolean** |  |  [optional]
-**isDownloadable** | **Boolean** |  |  [optional]
-**isHidden** | **Boolean** |  |  [optional]
-**isMoveable** | **Boolean** |  |  [optional]
-**isQuarantinable** | **Boolean** |  |  [optional]
-**isQuarantined** | **Boolean** |  |  [optional]
-**isResyncable** | **Boolean** |  |  [optional]
-**isSecurityScannable** | **Boolean** |  |  [optional]
-**isSyncAwaiting** | **Boolean** |  |  [optional]
-**isSyncCompleted** | **Boolean** |  |  [optional]
-**isSyncFailed** | **Boolean** |  |  [optional]
-**isSyncInFlight** | **Boolean** |  |  [optional]
-**isSyncInProgress** | **Boolean** |  |  [optional]
-**license** | **String** | The license of this package. |  [optional]
-**name** | **String** | The name of this package. |  [optional]
-**namespace** | **String** |  |  [optional]
-**namespaceUrl** | **String** |  |  [optional]
-**numFiles** | **java.math.BigInteger** |  |  [optional]
-**originRepository** | **String** |  |  [optional]
-**originRepositoryUrl** | **String** |  |  [optional]
-**osiApproved** | **Boolean** | Whether the package&#39;s SPDX license is OSI-approved. |  [optional]
-**packageType** | **java.math.BigInteger** | The type of package contents. |  [optional]
-**policyViolated** | **Boolean** | Whether or not the package has violated any policy. |  [optional]
-**rawLicense** | **String** | The raw license string. |  [optional]
-**release** | **String** | The release of the package version (if any). |  [optional]
-**repository** | **String** |  |  [optional]
-**repositoryUrl** | **String** |  |  [optional]
-**securityScanCompletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was completed. |  [optional]
-**securityScanStartedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was started. |  [optional]
-**securityScanStatus** | [**SecurityScanStatusEnum**](#SecurityScanStatusEnum) |  |  [optional]
-**securityScanStatusUpdatedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning status was updated. |  [optional]
-**selfHtmlUrl** | **String** |  |  [optional]
-**selfUrl** | **String** |  |  [optional]
-**selfWebappUrl** | **String** |  |  [optional]
-**signatureUrl** | **String** |  |  [optional]
-**size** | **java.math.BigInteger** | The calculated size of the package. |  [optional]
-**slug** | **String** | The public unique identifier for the package. |  [optional]
-**slugPerm** | **String** |  |  [optional]
-**spdxLicense** | **String** | The SPDX license identifier for this package. |  [optional]
-**stage** | **java.math.BigInteger** | The synchronisation (in progress) stage of the package. |  [optional]
-**stageStr** | **String** |  |  [optional]
-**stageUpdatedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the package stage was updated at. |  [optional]
-**status** | **java.math.BigInteger** | The synchronisation status of the package. |  [optional]
-**statusReason** | **String** | A textual description for the synchronous status reason (if any |  [optional]
-**statusStr** | **String** |  |  [optional]
-**statusUpdatedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the package status was updated at. |  [optional]
-**statusUrl** | **String** |  |  [optional]
-**storePath** | **String** | Absolute store path for the package, including store hash and name. |  [optional]
-**subtype** | **String** |  |  [optional]
-**summary** | **String** | A one-liner synopsis of this package. |  [optional]
-**syncFinishedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the package sync was finished at. |  [optional]
-**syncProgress** | **java.math.BigInteger** | Synchronisation progress (from 0-100) |  [optional]
-**tagsAutomatic** | [**Tags**](Tags.md) |  |  [optional]
-**tagsImmutable** | [**Tags**](Tags.md) |  |  [optional]
-**tagsStatic** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) | All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension. |  [optional]
-**typeDisplay** | **String** |  |  [optional]
-**uploadedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The date this package was uploaded. |  [optional]
-**uploader** | **String** |  |  [optional]
-**uploaderUrl** | **String** |  |  [optional]
-**version** | **String** | The raw version for this package. |  [optional]
-**versionOrig** | **String** |  |  [optional]
-**vulnerabilityScanResultsUrl** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**architectures** | [**List&lt;Architecture&gt;**](Architecture.md) |  |  [optional] [readonly] |
+|**cdnUrl** | **String** |  |  [optional] [readonly] |
+|**checksumMd5** | **String** |  |  [optional] [readonly] |
+|**checksumSha1** | **String** |  |  [optional] [readonly] |
+|**checksumSha256** | **String** |  |  [optional] [readonly] |
+|**checksumSha512** | **String** |  |  [optional] [readonly] |
+|**dependenciesChecksumMd5** | **String** | A checksum of all of the package&#39;s dependencies. |  [optional] [readonly] |
+|**dependenciesUrl** | **URI** |  |  [optional] [readonly] |
+|**description** | **String** | A textual description of this package. |  [optional] [readonly] |
+|**displayName** | **String** |  |  [optional] [readonly] |
+|**displaySource** | **String** | Where the package originated, for example: &#39;upstream&#39; (proxied/cached from a configured upstream), &#39;connected_repository&#39; (blended in from a connected target repository), or &#39;manual_upload&#39; (uploaded directly to Cloudsmith). |  [optional] [readonly] |
+|**distro** | [**Distribution**](Distribution.md) |  |  [optional] |
+|**distroVersion** | [**DistributionVersion**](DistributionVersion.md) |  |  [optional] |
+|**downloads** | **java.math.BigInteger** |  |  [optional] [readonly] |
+|**epoch** | **java.math.BigInteger** | The epoch of the package version (if any). |  [optional] [readonly] |
+|**extension** | **String** |  |  [optional] [readonly] |
+|**filename** | **String** |  |  [optional] [readonly] |
+|**files** | [**List&lt;PackageFile&gt;**](PackageFile.md) |  |  [optional] [readonly] |
+|**format** | **String** |  |  [optional] [readonly] |
+|**formatUrl** | **URI** |  |  [optional] [readonly] |
+|**freeableStorage** | **java.math.BigInteger** | Amount of storage that will be freed if this package is deleted |  [optional] [readonly] |
+|**fullyQualifiedName** | **String** |  |  [optional] [readonly] |
+|**identifierPerm** | **String** | Unique and permanent identifier for the package. |  [optional] [readonly] |
+|**identifiers** | **Map&lt;String, String&gt;** | Return a map of identifier field names and their values. |  [optional] [readonly] |
+|**indexed** | **Boolean** |  |  [optional] [readonly] |
+|**isCancellable** | **Boolean** |  |  [optional] [readonly] |
+|**isCopyable** | **Boolean** |  |  [optional] [readonly] |
+|**isDeleteable** | **Boolean** |  |  [optional] [readonly] |
+|**isDownloadable** | **Boolean** |  |  [optional] [readonly] |
+|**isHidden** | **Boolean** |  |  [optional] [readonly] |
+|**isMoveable** | **Boolean** |  |  [optional] [readonly] |
+|**isQuarantinable** | **Boolean** |  |  [optional] [readonly] |
+|**isQuarantined** | **Boolean** |  |  [optional] [readonly] |
+|**isResyncable** | **Boolean** |  |  [optional] [readonly] |
+|**isSecurityScannable** | **Boolean** |  |  [optional] [readonly] |
+|**isSyncAwaiting** | **Boolean** |  |  [optional] [readonly] |
+|**isSyncCompleted** | **Boolean** |  |  [optional] [readonly] |
+|**isSyncFailed** | **Boolean** |  |  [optional] [readonly] |
+|**isSyncInFlight** | **Boolean** |  |  [optional] [readonly] |
+|**isSyncInProgress** | **Boolean** |  |  [optional] [readonly] |
+|**license** | **String** | The license of this package. |  [optional] [readonly] |
+|**name** | **String** | The name of this package. |  [optional] [readonly] |
+|**namespace** | **String** |  |  [optional] [readonly] |
+|**namespaceUrl** | **URI** |  |  [optional] [readonly] |
+|**numFiles** | **java.math.BigInteger** |  |  [optional] [readonly] |
+|**originRepository** | **String** |  |  [optional] [readonly] |
+|**originRepositoryUrl** | **URI** |  |  [optional] [readonly] |
+|**osiApproved** | **Boolean** | Whether the package&#39;s SPDX license is OSI-approved. |  [optional] [readonly] |
+|**packageType** | **java.math.BigInteger** | The type of package contents. |  [optional] [readonly] |
+|**policyViolated** | **Boolean** | Whether or not the package has violated any policy. |  [optional] [readonly] |
+|**rawLicense** | **String** | The raw license string. |  [optional] [readonly] |
+|**release** | **String** | The release of the package version (if any). |  [optional] [readonly] |
+|**repository** | **String** |  |  [optional] [readonly] |
+|**repositoryUrl** | **URI** |  |  [optional] [readonly] |
+|**securityScanCompletedAt** | **OffsetDateTime** | The datetime the security scanning was completed. |  [optional] [readonly] |
+|**securityScanStartedAt** | **OffsetDateTime** | The datetime the security scanning was started. |  [optional] [readonly] |
+|**securityScanStatus** | **String** |  |  [optional] [readonly] |
+|**securityScanStatusUpdatedAt** | **OffsetDateTime** | The datetime the security scanning status was updated. |  [optional] [readonly] |
+|**selfHtmlUrl** | **String** |  |  [optional] [readonly] |
+|**selfUrl** | **URI** |  |  [optional] [readonly] |
+|**selfWebappUrl** | **String** |  |  [optional] [readonly] |
+|**signatureUrl** | **String** |  |  [optional] [readonly] |
+|**size** | **java.math.BigInteger** | The calculated size of the package. |  [optional] [readonly] |
+|**slug** | **String** | The public unique identifier for the package. |  [optional] [readonly] |
+|**slugPerm** | **String** |  |  [optional] [readonly] |
+|**spdxLicense** | **String** | The SPDX license identifier for this package. |  [optional] [readonly] |
+|**stage** | **java.math.BigInteger** | The synchronisation (in progress) stage of the package. |  [optional] [readonly] |
+|**stageStr** | **String** |  |  [optional] [readonly] |
+|**stageUpdatedAt** | **OffsetDateTime** | The datetime the package stage was updated at. |  [optional] [readonly] |
+|**status** | **java.math.BigInteger** | The synchronisation status of the package. |  [optional] [readonly] |
+|**statusReason** | **String** | A textual description for the synchronous status reason (if any |  [optional] [readonly] |
+|**statusStr** | **String** |  |  [optional] [readonly] |
+|**statusUpdatedAt** | **OffsetDateTime** | The datetime the package status was updated at. |  [optional] [readonly] |
+|**statusUrl** | **URI** |  |  [optional] [readonly] |
+|**storePath** | **String** | Absolute store path for the package, including store hash and name. |  [optional] [readonly] |
+|**subtype** | **String** |  |  [optional] [readonly] |
+|**summary** | **String** | A one-liner synopsis of this package. |  [optional] [readonly] |
+|**syncFinishedAt** | **OffsetDateTime** | The datetime the package sync was finished at. |  [optional] [readonly] |
+|**syncProgress** | **java.math.BigInteger** | Synchronisation progress (from 0-100) |  [optional] [readonly] |
+|**tagsAutomatic** | **Object** | All tags on the package, grouped by tag type. This includes immutable tags, but doesn&#39;t distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field. |  [optional] |
+|**tagsImmutable** | **Object** | All tags on the package, grouped by tag type. This includes immutable tags, but doesn&#39;t distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field. |  [optional] |
+|**tagsStatic** | **Map&lt;String, List&lt;String&gt;&gt;** | All static tags on the package, grouped by context. Static tags are derived from the package&#39;s properties at request time and carry a &#39;context&#39; (rather than a tag type). Includes format-specific badges and the package&#39;s architecture, subtype, and extension. |  [optional] [readonly] |
+|**typeDisplay** | **String** |  |  [optional] [readonly] |
+|**uploadedAt** | **OffsetDateTime** | The date this package was uploaded. |  [optional] [readonly] |
+|**uploader** | **String** |  |  [optional] [readonly] |
+|**uploaderUrl** | **URI** |  |  [optional] [readonly] |
+|**version** | **String** | The raw version for this package. |  [optional] [readonly] |
+|**versionOrig** | **String** |  |  [optional] [readonly] |
+|**vulnerabilityScanResultsUrl** | **URI** |  |  [optional] [readonly] |
 
 
-<a name="SecurityScanStatusEnum"></a>
-## Enum: SecurityScanStatusEnum
-Name | Value
----- | -----
-AWAITING_SECURITY_SCAN | &quot;Awaiting Security Scan&quot;
-SECURITY_SCANNING_IN_PROGRESS | &quot;Security Scanning in Progress&quot;
-SCAN_DETECTED_VULNERABILITIES | &quot;Scan Detected Vulnerabilities&quot;
-SCAN_DETECTED_NO_VULNERABILITIES | &quot;Scan Detected No Vulnerabilities&quot;
-SECURITY_SCANNING_DISABLED | &quot;Security Scanning Disabled&quot;
-SECURITY_SCANNING_FAILED | &quot;Security Scanning Failed&quot;
-SECURITY_SCANNING_SKIPPED | &quot;Security Scanning Skipped&quot;
-SECURITY_SCANNING_NOT_SUPPORTED | &quot;Security Scanning Not Supported&quot;
+## Implemented Interfaces
 
+* Serializable
 
 

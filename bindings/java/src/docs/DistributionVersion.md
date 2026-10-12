@@ -1,11 +1,19 @@
 
+
 # DistributionVersion
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** | The textual name for this version. |  [optional]
-**slug** | **String** | The slug identifier for this version |  [optional]
+A list of the versions for this distribution
 
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**name** | **String** | The textual name for this version. |  [optional] |
+|**slug** | **String** | The slug identifier for this version |  [optional] [readonly] |
+
+
+## Implemented Interfaces
+
+* Serializable
 
 
