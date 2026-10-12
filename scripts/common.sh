@@ -40,6 +40,20 @@ common_codegen_options="--git-user-id $git_user_id --git-repo-id $git_repo_id"
 # invoking user instead.
 codegen_run_user="$(id -u):$(id -g)"
 
+# CircleCI deploys on every merge to master, and most merges do not change the
+# version. Cloudsmith rejects a second upload of the same version, so check
+# for a completed package of this version before a deploy.
+function cloudsmith_version_published {
+  local format=$1
+  local query="format:$format AND name:^$project_dash\$ AND version:^$package_version\$ AND status:completed"
+  local auth=()
+  [ -n "$CLOUDSMITH_API_KEY" ] && auth=(-H "X-Api-Key: $CLOUDSMITH_API_KEY")
+  local count
+  count=$(curl -sf --max-time 30 -G "${api_url}v1/packages/${cloudsmith_repo_api}/" "${auth[@]}" \
+    --data-urlencode "query=$query" | jq 'length') || return 1
+  [ "${count:-0}" -gt 0 ]
+}
+
 function die {
   echo "$@"
   exit 1
