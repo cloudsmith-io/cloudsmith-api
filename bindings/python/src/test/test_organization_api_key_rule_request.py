@@ -40,11 +40,11 @@ class TestOrganizationApiKeyRuleRequest(unittest.TestCase):
                 is_enabled = True,
                 max_age_hours = 24,
                 refresh_immediately = True,
-                rule_type = 'All Accounts'
+                rule_type = ''
             )
         else:
             return OrganizationApiKeyRuleRequest(
-                rule_type = 'All Accounts',
+                rule_type = '',
         )
         """
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -34,16 +34,6 @@ class PackageFileUploadRequest(BaseModel):
     method: Optional[StrictStr] = Field(default='post', description="The method to use for package file upload.")
     sha256_checksum: Optional[Annotated[str, Field(min_length=64, strict=True, max_length=64)]] = Field(default=None, description="SHA256 checksum for a PUT-based package file upload.")
     __properties: ClassVar[List[str]] = ["filename", "md5_checksum", "method", "sha256_checksum"]
-
-    @field_validator('method')
-    def method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['put_parts', 'put', 'post', 'presigned', 'unsigned_put']):
-            raise ValueError("must be one of enum values ('put_parts', 'put', 'post', 'presigned', 'unsigned_put')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

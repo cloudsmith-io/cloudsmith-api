@@ -44,16 +44,6 @@ class ConnectedRepository(BaseModel):
     target_repository_summary: Optional[ConnectedRepositoryTargetSummary] = None
     __properties: ClassVar[List[str]] = ["can_view_target_repository_settings", "configured_upstreams", "created_at", "disable_reason", "disable_reason_text", "is_active", "priority", "slug_perm", "target_repository", "target_repository_summary"]
 
-    @field_validator('disable_reason')
-    def disable_reason_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['N/A', 'The connection contains a circular reference']):
-            raise ValueError("must be one of enum values ('N/A', 'The connection contains a circular reference')")
-        return value
-
     @field_validator('slug_perm', mode="before")
     def slug_perm_validate_regular_expression(cls, value):
         """Validates the regular expression"""

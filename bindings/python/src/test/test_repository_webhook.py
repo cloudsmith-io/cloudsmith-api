@@ -42,7 +42,7 @@ class TestRepositoryWebhook(unittest.TestCase):
                 disable_reason = 56,
                 disable_reason_str = '0',
                 events = [
-                    '*'
+                    ''
                     ],
                 identifier = 56,
                 is_active = True,
@@ -73,7 +73,7 @@ class TestRepositoryWebhook(unittest.TestCase):
         else:
             return RepositoryWebhook(
                 events = [
-                    '*'
+                    ''
                     ],
                 target_url = '0',
                 templates = [

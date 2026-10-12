@@ -36,13 +36,13 @@ class TestOrganizationTeamServiceMember(unittest.TestCase):
         model = OrganizationTeamServiceMember()
         if include_optional:
             return OrganizationTeamServiceMember(
-                role = 'Manager',
+                role = '',
                 user = '0',
                 user_kind = 'User'
             )
         else:
             return OrganizationTeamServiceMember(
-                role = 'Manager',
+                role = '',
                 user = '0',
         )
         """

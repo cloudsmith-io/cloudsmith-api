@@ -60,17 +60,6 @@ class RepositoryWebhook(BaseModel):
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.")
     __properties: ClassVar[List[str]] = ["created_at", "created_by", "created_by_url", "disable_reason", "disable_reason_str", "events", "identifier", "is_active", "is_last_response_bad", "last_response_status", "last_response_status_str", "num_sent", "package_query", "request_body_format", "request_body_format_str", "request_body_template_format", "request_body_template_format_str", "request_content_type", "secret_header", "self_url", "slug_perm", "target_url", "templates", "updated_at", "updated_by", "updated_by_url", "verify_ssl"]
 
-    @field_validator('events')
-    def events_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        for i in value:
-            if i not in set(['*', 'package.created', 'package.deleted', 'package.downloaded', 'package.failed', 'package.quarantined', 'package.released', 'package.restored', 'package.security_scanned', 'package.synced', 'package.syncing', 'package.tags_updated']):
-                raise ValueError("each list item must be one of ('*', 'package.created', 'package.deleted', 'package.downloaded', 'package.failed', 'package.quarantined', 'package.released', 'package.restored', 'package.security_scanned', 'package.synced', 'package.syncing', 'package.tags_updated')")
-        return value
-
     @field_validator('secret_header', mode="before")
     def secret_header_validate_regular_expression(cls, value):
         """Validates the regular expression"""

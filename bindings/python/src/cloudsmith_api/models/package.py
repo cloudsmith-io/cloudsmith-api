@@ -130,16 +130,6 @@ class Package(BaseModel):
     vulnerability_scan_results_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["architectures", "cdn_url", "checksum_md5", "checksum_sha1", "checksum_sha256", "checksum_sha512", "dependencies_checksum_md5", "dependencies_url", "description", "display_name", "display_source", "distro", "distro_version", "downloads", "epoch", "extension", "filename", "filepath", "files", "format", "format_url", "freeable_storage", "fully_qualified_name", "identifier_perm", "identifiers", "indexed", "is_cancellable", "is_copyable", "is_deleteable", "is_downloadable", "is_hidden", "is_malware_detected", "is_moveable", "is_quarantinable", "is_quarantined", "is_resyncable", "is_security_scannable", "is_sync_awaiting", "is_sync_completed", "is_sync_failed", "is_sync_in_flight", "is_sync_in_progress", "license", "name", "namespace", "namespace_url", "num_files", "origin_repository", "origin_repository_url", "osi_approved", "package_type", "policy_violated", "raw_license", "release", "repository", "repository_url", "security_scan_completed_at", "security_scan_started_at", "security_scan_status", "security_scan_status_updated_at", "self_html_url", "self_url", "self_webapp_url", "signature_url", "size", "slug", "slug_perm", "spdx_license", "stage", "stage_str", "stage_updated_at", "status", "status_reason", "status_str", "status_updated_at", "status_url", "store_path", "subtype", "summary", "sync_finished_at", "sync_progress", "tags", "tags_automatic", "tags_immutable", "tags_static", "type_display", "uploaded_at", "uploader", "uploader_url", "version", "version_orig", "vulnerability_counts", "vulnerability_scan_results_url"]
 
-    @field_validator('security_scan_status')
-    def security_scan_status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported']):
-            raise ValueError("must be one of enum values ('Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported')")
-        return value
-
     @field_validator('slug', mode="before")
     def slug_validate_regular_expression(cls, value):
         """Validates the regular expression"""

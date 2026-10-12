@@ -132,16 +132,6 @@ class SkillsPackageUpload(BaseModel):
             raise ValueError(r"must validate the regular expression /\A[a-z0-9]+(?:-[a-z0-9]+)*$/")
         return value
 
-    @field_validator('security_scan_status')
-    def security_scan_status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported']):
-            raise ValueError("must be one of enum values ('Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported')")
-        return value
-
     @field_validator('slug', mode="before")
     def slug_validate_regular_expression(cls, value):
         """Validates the regular expression"""

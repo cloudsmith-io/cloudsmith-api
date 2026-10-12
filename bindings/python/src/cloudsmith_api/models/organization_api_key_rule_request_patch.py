@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -35,16 +35,6 @@ class OrganizationApiKeyRuleRequestPatch(BaseModel):
     refresh_immediately: Optional[StrictBool] = Field(default=None, description="If set to True, API keys that violate this rule will be replaced immediately after the request is made. There is no way to undo this.")
     rule_type: Optional[StrictStr] = Field(default=None, description="Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only.")
     __properties: ClassVar[List[str]] = ["enforce_refresh", "is_enabled", "max_age_hours", "refresh_immediately", "rule_type"]
-
-    @field_validator('rule_type')
-    def rule_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['All Accounts', 'Service Accounts', 'User Accounts']):
-            raise ValueError("must be one of enum values ('All Accounts', 'Service Accounts', 'User Accounts')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

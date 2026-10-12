@@ -34,16 +34,6 @@ class ServiceTeams(BaseModel):
     slug: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The teams associated with the service")
     __properties: ClassVar[List[str]] = ["name", "role", "slug"]
 
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Manager', 'Member']):
-            raise ValueError("must be one of enum values ('Manager', 'Member')")
-        return value
-
     @field_validator('slug', mode="before")
     def slug_validate_regular_expression(cls, value):
         """Validates the regular expression"""

@@ -36,7 +36,7 @@ class TestPackageRecycleBin(unittest.TestCase):
         model = PackageRecycleBin()
         if include_optional:
             return PackageRecycleBin(
-                action = 'hard_delete',
+                action = '',
                 identifiers = [
                     '0'
                     ],
@@ -44,7 +44,7 @@ class TestPackageRecycleBin(unittest.TestCase):
             )
         else:
             return PackageRecycleBin(
-                action = 'hard_delete',
+                action = '',
                 identifiers = [
                     '0'
                     ],

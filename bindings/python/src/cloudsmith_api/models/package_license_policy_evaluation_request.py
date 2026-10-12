@@ -50,16 +50,6 @@ class PackageLicensePolicyEvaluationRequest(BaseModel):
             raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
         return value
 
-    @field_validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Pending', 'In Progress', 'Complete', 'Cancelled', 'Errored']):
-            raise ValueError("must be one of enum values ('Pending', 'In Progress', 'Complete', 'Cancelled', 'Errored')")
-        return value
-
     model_config = ConfigDict(
         validate_by_name=True,
         validate_by_alias=True,

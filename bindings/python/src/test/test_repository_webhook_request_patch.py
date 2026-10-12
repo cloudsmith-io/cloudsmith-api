@@ -37,7 +37,7 @@ class TestRepositoryWebhookRequestPatch(unittest.TestCase):
         if include_optional:
             return RepositoryWebhookRequestPatch(
                 events = [
-                    '*'
+                    ''
                     ],
                 is_active = True,
                 package_query = '',

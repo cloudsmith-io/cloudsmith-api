@@ -59,16 +59,6 @@ class RecycleBinPackage(BaseModel):
     vulnerability_counts: Optional[WebOSVSeverityCounts] = None
     __properties: ClassVar[List[str]] = ["action_by", "downloads", "filename", "format", "fully_qualified_name", "identifiers", "invoked_retention_rule", "is_deleteable", "is_malware_detected", "is_quarantined", "is_restorable", "name", "policy_violated", "repository", "security_scan_completed_at", "security_scan_status", "size", "slug_perm", "status", "status_updated_at", "tags", "type_display", "uploaded_at", "uploader", "version", "vulnerability_counts"]
 
-    @field_validator('security_scan_status')
-    def security_scan_status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported']):
-            raise ValueError("must be one of enum values ('Awaiting Security Scan', 'Security Scanning in Progress', 'Scan Detected Vulnerabilities', 'Scan Detected No Vulnerabilities', 'Security Scanning Disabled', 'Security Scanning Failed', 'Security Scanning Skipped', 'Security Scanning Not Supported')")
-        return value
-
     @field_validator('slug_perm', mode="before")
     def slug_perm_validate_regular_expression(cls, value):
         """Validates the regular expression"""

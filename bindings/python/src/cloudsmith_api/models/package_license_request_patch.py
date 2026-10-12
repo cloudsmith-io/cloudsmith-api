@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -35,26 +35,6 @@ class PackageLicenseRequestPatch(BaseModel):
     license_url: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
     spdx_license: Annotated[str, Field(min_length=1, strict=True, max_length=255)]
     __properties: ClassVar[List[str]] = ["action", "license_notes", "license_override", "license_url", "spdx_license"]
-
-    @field_validator('action')
-    def action_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Update']):
-            raise ValueError("must be one of enum values ('Update')")
-        return value
-
-    @field_validator('license_override')
-    def license_override_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['None', 'Ignored', 'Purchased']):
-            raise ValueError("must be one of enum values ('None', 'Ignored', 'Purchased')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -34,13 +34,6 @@ class PackageBulkAction(BaseModel):
     repository: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The repository name to filter packages to. If not provided, the action will be performed across all accessible repositories in the workspace.")
     target_repository: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug of the target repository")
     __properties: ClassVar[List[str]] = ["action", "identifiers", "repository", "target_repository"]
-
-    @field_validator('action')
-    def action_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Delete', 'Resync', 'Quarantine', 'Unquarantine', 'Move', 'Copy', 'Rescan']):
-            raise ValueError("must be one of enum values ('Delete', 'Resync', 'Quarantine', 'Unquarantine', 'Move', 'Copy', 'Rescan')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,34 +37,6 @@ class FormatSupportUpstream(BaseModel):
     signature_verification: Optional[StrictStr] = Field(default='Unsupported', description="The signature verification supported by the upstream format")
     trust: StrictBool = Field(description="If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.")
     __properties: ClassVar[List[str]] = ["auth_modes", "cache_only", "caching", "indexing", "indexing_behavior", "proxying", "signature_verification", "trust"]
-
-    @field_validator('auth_modes')
-    def auth_modes_validate_enum(cls, value):
-        """Validates the enum"""
-        for i in value:
-            if i not in set(['Username and Password', 'Token', 'Certificate and Key']):
-                raise ValueError("each list item must be one of ('Username and Password', 'Token', 'Certificate and Key')")
-        return value
-
-    @field_validator('indexing_behavior')
-    def indexing_behavior_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Unsupported', 'Ahead-of-time (static) indexing', 'Just-in-time (dynamic) indexing']):
-            raise ValueError("must be one of enum values ('Unsupported', 'Ahead-of-time (static) indexing', 'Just-in-time (dynamic) indexing')")
-        return value
-
-    @field_validator('signature_verification')
-    def signature_verification_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Unsupported', 'Repository Metadata', 'Packages', 'Repository Metadata and Packages']):
-            raise ValueError("must be one of enum values ('Unsupported', 'Repository Metadata', 'Packages', 'Repository Metadata and Packages')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

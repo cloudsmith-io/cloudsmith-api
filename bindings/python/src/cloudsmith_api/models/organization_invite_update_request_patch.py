@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,16 +30,6 @@ class OrganizationInviteUpdateRequestPatch(BaseModel):
     """ # noqa: E501
     role: Optional[StrictStr] = Field(default='Member', description="The role to be assigned to the invited user.")
     __properties: ClassVar[List[str]] = ["role"]
-
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Owner', 'Manager', 'Member', 'Collaborator']):
-            raise ValueError("must be one of enum values ('Owner', 'Manager', 'Member', 'Collaborator')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

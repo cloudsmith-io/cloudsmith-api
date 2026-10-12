@@ -51,16 +51,6 @@ class DebUpstreamRequest(BaseModel):
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates are verified when requests are made to this upstream. It's recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams.")
     __properties: ClassVar[List[str]] = ["auth_mode", "auth_secret", "auth_username", "component", "distro_versions", "extra_header_1", "extra_header_2", "extra_value_1", "extra_value_2", "gpg_key_inline", "gpg_key_url", "gpg_verification", "include_sources", "is_active", "mode", "name", "priority", "upstream_distribution", "upstream_url", "verify_ssl"]
 
-    @field_validator('auth_mode')
-    def auth_mode_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['None', 'Username and Password']):
-            raise ValueError("must be one of enum values ('None', 'Username and Password')")
-        return value
-
     @field_validator('extra_header_1', mode="before")
     def extra_header_1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
@@ -99,26 +89,6 @@ class DebUpstreamRequest(BaseModel):
 
         if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
             raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
-
-    @field_validator('gpg_verification')
-    def gpg_verification_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Allow All', 'Warn on Invalid', 'Reject Invalid']):
-            raise ValueError("must be one of enum values ('Allow All', 'Warn on Invalid', 'Reject Invalid')")
-        return value
-
-    @field_validator('mode')
-    def mode_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Proxy Only', 'Cache and Proxy', 'Cache Only']):
-            raise ValueError("must be one of enum values ('Proxy Only', 'Cache and Proxy', 'Cache Only')")
         return value
 
     @field_validator('name', mode="before")

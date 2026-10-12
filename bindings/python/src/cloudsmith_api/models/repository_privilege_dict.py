@@ -35,13 +35,6 @@ class RepositoryPrivilegeDict(BaseModel):
     user: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The user identifier (slug).")
     __properties: ClassVar[List[str]] = ["privilege", "service", "team", "user"]
 
-    @field_validator('privilege')
-    def privilege_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Admin', 'Write', 'Read']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read')")
-        return value
-
     @field_validator('service', mode="before")
     def service_validate_regular_expression(cls, value):
         """Validates the regular expression"""

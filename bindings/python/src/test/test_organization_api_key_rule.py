@@ -41,14 +41,14 @@ class TestOrganizationApiKeyRule(unittest.TestCase):
                 is_enabled = True,
                 last_applied_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 max_age_hours = 24,
-                rule_type = 'All Accounts',
+                rule_type = '',
                 slug = 'z0',
                 slug_perm = 'z0',
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return OrganizationApiKeyRule(
-                rule_type = 'All Accounts',
+                rule_type = '',
         )
         """
 

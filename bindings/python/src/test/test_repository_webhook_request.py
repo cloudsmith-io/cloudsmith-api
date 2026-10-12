@@ -37,7 +37,7 @@ class TestRepositoryWebhookRequest(unittest.TestCase):
         if include_optional:
             return RepositoryWebhookRequest(
                 events = [
-                    '*'
+                    ''
                     ],
                 is_active = True,
                 package_query = '',
@@ -58,7 +58,7 @@ class TestRepositoryWebhookRequest(unittest.TestCase):
         else:
             return RepositoryWebhookRequest(
                 events = [
-                    '*'
+                    ''
                     ],
                 target_url = '0',
                 templates = [

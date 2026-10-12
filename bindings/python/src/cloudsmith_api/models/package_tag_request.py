@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -33,16 +33,6 @@ class PackageTagRequest(BaseModel):
     is_immutable: Optional[StrictBool] = Field(default=False, description="If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.")
     tags: Optional[List[Annotated[str, Field(min_length=1, strict=True, max_length=255)]]] = Field(default=None, description="A list of tags to apply the action to. Not required for clears.")
     __properties: ClassVar[List[str]] = ["action", "is_immutable", "tags"]
-
-    @field_validator('action')
-    def action_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Add', 'Clear', 'Replace', 'Remove']):
-            raise ValueError("must be one of enum values ('Add', 'Clear', 'Replace', 'Remove')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

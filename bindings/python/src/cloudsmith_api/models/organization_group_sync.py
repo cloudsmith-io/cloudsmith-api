@@ -36,16 +36,6 @@ class OrganizationGroupSync(BaseModel):
     team: Annotated[str, Field(strict=True)]
     __properties: ClassVar[List[str]] = ["idp_key", "idp_value", "role", "slug_perm", "team"]
 
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Manager', 'Member']):
-            raise ValueError("must be one of enum values ('Manager', 'Member')")
-        return value
-
     @field_validator('slug_perm', mode="before")
     def slug_perm_validate_regular_expression(cls, value):
         """Validates the regular expression"""

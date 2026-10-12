@@ -36,14 +36,14 @@ class TestRepositoryPrivilegeDict(unittest.TestCase):
         model = RepositoryPrivilegeDict()
         if include_optional:
             return RepositoryPrivilegeDict(
-                privilege = 'Admin',
+                privilege = '',
                 service = 'z0',
                 team = 'z0',
                 user = 'z0'
             )
         else:
             return RepositoryPrivilegeDict(
-                privilege = 'Admin',
+                privilege = '',
         )
         """
 

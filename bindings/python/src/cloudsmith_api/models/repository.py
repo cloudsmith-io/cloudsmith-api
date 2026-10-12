@@ -106,76 +106,6 @@ class Repository(BaseModel):
     view_statistics: Optional[StrictStr] = Field(default='Read', description="This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
     __properties: ClassVar[List[str]] = ["active_connection_count", "broadcast_state", "cdn_url", "content_kind", "contextual_auth_realm", "copy_own", "copy_packages", "cosign_signing_enabled", "created_at", "default_privilege", "delete_own", "delete_packages", "deleted_at", "description", "distributes", "docker_refresh_tokens_enabled", "ecdsa_keys", "enforce_eula", "generic_package_index_enabled", "gpg_keys", "index_files", "is_open_source", "is_private", "is_public", "is_public_hidden", "manage_entitlements_privilege", "move_own", "move_packages", "name", "namespace", "namespace_url", "npm_upstream_tags_take_precedence", "nuget_native_signing_enabled", "num_downloads", "num_policy_violated_packages", "num_quarantined_packages", "open_source_license", "open_source_project_url", "package_count", "package_count_excl_subcomponents", "package_group_count", "proxy_npmjs", "proxy_pypi", "raw_package_index_enabled", "raw_package_index_signatures_enabled", "replace_packages", "replace_packages_by_default", "repository_type", "repository_type_str", "resync_own", "resync_packages", "scan_own", "scan_packages", "self_html_url", "self_url", "self_webapp_url", "show_setup_all", "size", "size_str", "slug", "slug_perm", "storage_region", "strict_npm_validation", "tag_pre_releases_as_latest", "use_debian_labels", "use_default_cargo_upstream", "use_entitlements_privilege", "use_noarch_packages", "use_source_packages", "use_vulnerability_scanning", "user_entitlements_enabled", "view_statistics"]
 
-    @field_validator('broadcast_state')
-    def broadcast_state_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Off', 'Private', 'Internal', 'Public', 'Open-Source']):
-            raise ValueError("must be one of enum values ('Off', 'Private', 'Internal', 'Public', 'Open-Source')")
-        return value
-
-    @field_validator('content_kind')
-    def content_kind_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Standard', 'Distribution', 'Upstream']):
-            raise ValueError("must be one of enum values ('Standard', 'Distribution', 'Upstream')")
-        return value
-
-    @field_validator('copy_packages')
-    def copy_packages_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write', 'Read']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read')")
-        return value
-
-    @field_validator('default_privilege')
-    def default_privilege_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write', 'Read', 'None']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read', 'None')")
-        return value
-
-    @field_validator('delete_packages')
-    def delete_packages_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write']):
-            raise ValueError("must be one of enum values ('Admin', 'Write')")
-        return value
-
-    @field_validator('manage_entitlements_privilege')
-    def manage_entitlements_privilege_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write', 'Read']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read')")
-        return value
-
-    @field_validator('move_packages')
-    def move_packages_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write', 'Read']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read')")
-        return value
-
     @field_validator('name', mode="before")
     def name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
@@ -193,46 +123,6 @@ class Repository(BaseModel):
             raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
         return value
 
-    @field_validator('replace_packages')
-    def replace_packages_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write']):
-            raise ValueError("must be one of enum values ('Admin', 'Write')")
-        return value
-
-    @field_validator('repository_type_str')
-    def repository_type_str_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Public', 'Private', 'Open-Source']):
-            raise ValueError("must be one of enum values ('Public', 'Private', 'Open-Source')")
-        return value
-
-    @field_validator('resync_packages')
-    def resync_packages_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write']):
-            raise ValueError("must be one of enum values ('Admin', 'Write')")
-        return value
-
-    @field_validator('scan_packages')
-    def scan_packages_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write', 'Read']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read')")
-        return value
-
     @field_validator('slug_perm', mode="before")
     def slug_perm_validate_regular_expression(cls, value):
         """Validates the regular expression"""
@@ -241,26 +131,6 @@ class Repository(BaseModel):
 
         if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
             raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('use_entitlements_privilege')
-    def use_entitlements_privilege_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write', 'Read']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read')")
-        return value
-
-    @field_validator('view_statistics')
-    def view_statistics_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Admin', 'Write', 'Read']):
-            raise ValueError("must be one of enum values ('Admin', 'Write', 'Read')")
         return value
 
     model_config = ConfigDict(

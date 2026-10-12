@@ -41,16 +41,6 @@ class PackageDenyPolicy(BaseModel):
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["action", "created_at", "description", "enabled", "name", "package_query_string", "slug_perm", "status", "updated_at"]
 
-    @field_validator('action')
-    def action_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Block downloads']):
-            raise ValueError("must be one of enum values ('Block downloads')")
-        return value
-
     @field_validator('slug_perm', mode="before")
     def slug_perm_validate_regular_expression(cls, value):
         """Validates the regular expression"""
@@ -59,16 +49,6 @@ class PackageDenyPolicy(BaseModel):
 
         if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
             raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Pending', 'In Progress', 'Complete', 'Cancelled', 'Errored']):
-            raise ValueError("must be one of enum values ('Pending', 'In Progress', 'Complete', 'Cancelled', 'Errored')")
         return value
 
     model_config = ConfigDict(

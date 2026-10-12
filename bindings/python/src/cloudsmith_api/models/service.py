@@ -43,16 +43,6 @@ class Service(BaseModel):
     teams: Optional[List[ServiceTeams]] = None
     __properties: ClassVar[List[str]] = ["created_at", "created_by", "created_by_url", "description", "key", "key_expires_at", "name", "role", "slug", "teams"]
 
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Manager', 'Member']):
-            raise ValueError("must be one of enum values ('Manager', 'Member')")
-        return value
-
     @field_validator('slug', mode="before")
     def slug_validate_regular_expression(cls, value):
         """Validates the regular expression"""

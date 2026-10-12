@@ -43,16 +43,6 @@ class OrganizationInvite(BaseModel):
     user_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["email", "expires_at", "inviter", "inviter_url", "org", "role", "slug_perm", "teams", "user", "user_url"]
 
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Owner', 'Manager', 'Member', 'Collaborator']):
-            raise ValueError("must be one of enum values ('Owner', 'Manager', 'Member', 'Collaborator')")
-        return value
-
     @field_validator('slug_perm', mode="before")
     def slug_perm_validate_regular_expression(cls, value):
         """Validates the regular expression"""

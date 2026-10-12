@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cloudsmith_api.models.organization_team_invite import OrganizationTeamInvite
@@ -35,16 +35,6 @@ class OrganizationInviteRequest(BaseModel):
     teams: Optional[List[OrganizationTeamInvite]] = None
     user: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug of the user to be invited.")
     __properties: ClassVar[List[str]] = ["email", "role", "teams", "user"]
-
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Owner', 'Manager', 'Member', 'Collaborator']):
-            raise ValueError("must be one of enum values ('Owner', 'Manager', 'Member', 'Collaborator')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

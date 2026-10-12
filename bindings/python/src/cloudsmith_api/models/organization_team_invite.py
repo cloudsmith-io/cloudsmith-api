@@ -33,16 +33,6 @@ class OrganizationTeamInvite(BaseModel):
     team: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The team identifier (slug).")
     __properties: ClassVar[List[str]] = ["role", "team"]
 
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Manager', 'Member']):
-            raise ValueError("must be one of enum values ('Manager', 'Member')")
-        return value
-
     @field_validator('team', mode="before")
     def team_validate_regular_expression(cls, value):
         """Validates the regular expression"""

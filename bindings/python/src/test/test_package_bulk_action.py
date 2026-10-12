@@ -36,7 +36,7 @@ class TestPackageBulkAction(unittest.TestCase):
         model = PackageBulkAction()
         if include_optional:
             return PackageBulkAction(
-                action = 'Delete',
+                action = '',
                 identifiers = [
                     '0'
                     ],
@@ -45,7 +45,7 @@ class TestPackageBulkAction(unittest.TestCase):
             )
         else:
             return PackageBulkAction(
-                action = 'Delete',
+                action = '',
                 identifiers = [
                     '0'
                     ],

@@ -38,7 +38,7 @@ class TestRepositoryPrivilegeInput(unittest.TestCase):
             return RepositoryPrivilegeInput(
                 privileges = [
                     cloudsmith_api.models.repository_privilege_dict.RepositoryPrivilegeDict(
-                        privilege = 'Admin', 
+                        privilege = '', 
                         service = 'z0', 
                         team = 'z0', 
                         user = 'z0', )
@@ -48,7 +48,7 @@ class TestRepositoryPrivilegeInput(unittest.TestCase):
             return RepositoryPrivilegeInput(
                 privileges = [
                     cloudsmith_api.models.repository_privilege_dict.RepositoryPrivilegeDict(
-                        privilege = 'Admin', 
+                        privilege = '', 
                         service = 'z0', 
                         team = 'z0', 
                         user = 'z0', )

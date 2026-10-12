@@ -38,7 +38,7 @@ class TestRepositoryPrivilegeInputRequestPatch(unittest.TestCase):
             return RepositoryPrivilegeInputRequestPatch(
                 privileges = [
                     cloudsmith_api.models.repository_privilege_dict.RepositoryPrivilegeDict(
-                        privilege = 'Admin', 
+                        privilege = '', 
                         service = 'z0', 
                         team = 'z0', 
                         user = 'z0', )

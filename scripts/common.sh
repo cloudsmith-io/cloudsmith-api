@@ -42,6 +42,15 @@ common_codegen_options="--git-user-id $git_user_id --git-repo-id $git_repo_id"
 # invoking user instead.
 codegen_run_user="$(id -u):$(id -g)"
 
+# Generated models reject enum values that the spec does not list. The API adds
+# enum values over time, so released clients must accept them. Remove the enum
+# lists from the model definitions before generation.
+function write_client_spec {
+  curl -sL --max-time 60 "$openapi_url" \
+    | jq '.definitions |= walk(if type == "object" and (.enum | type) == "array" and ((.type // null) | type) == "string" then del(.enum) else . end)' \
+    > "$1"
+}
+
 function die {
   echo "$@"
   exit 1

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -42,36 +42,6 @@ class OrganizationMembershipVisibilityUpdate(BaseModel):
     user_url: Optional[StrictStr] = None
     visibility: Optional[StrictStr] = 'Public'
     __properties: ClassVar[List[str]] = ["email", "has_two_factor", "joined_at", "last_login_at", "last_login_method", "role", "user", "user_id", "user_name", "user_url", "visibility"]
-
-    @field_validator('last_login_method')
-    def last_login_method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Unknown', 'Password', 'Social', 'SAML', 'OIDC']):
-            raise ValueError("must be one of enum values ('Unknown', 'Password', 'Social', 'SAML', 'OIDC')")
-        return value
-
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Owner', 'Manager', 'Member', 'Collaborator']):
-            raise ValueError("must be one of enum values ('Owner', 'Manager', 'Member', 'Collaborator')")
-        return value
-
-    @field_validator('visibility')
-    def visibility_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Public', 'Private']):
-            raise ValueError("must be one of enum values ('Public', 'Private')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

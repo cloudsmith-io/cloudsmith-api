@@ -73,26 +73,6 @@ class RepositoryToken(BaseModel):
     user_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["access_private_broadcasts", "clients", "created_at", "created_by", "created_by_url", "default", "disable_url", "downloads", "enable_url", "eula_accepted", "eula_accepted_at", "eula_accepted_from", "eula_required", "has_limits", "identifier", "is_active", "is_limited", "limit_bandwidth", "limit_bandwidth_unit", "limit_date_range_from", "limit_date_range_to", "limit_num_clients", "limit_num_downloads", "limit_package_query", "limit_path_query", "metadata", "name", "refresh_url", "reset_url", "scheduled_reset_at", "scheduled_reset_period", "self_url", "slug_perm", "token", "updated_at", "updated_by", "updated_by_url", "usage", "user", "user_url"]
 
-    @field_validator('limit_bandwidth_unit')
-    def limit_bandwidth_unit_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte']):
-            raise ValueError("must be one of enum values ('Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte')")
-        return value
-
-    @field_validator('scheduled_reset_period')
-    def scheduled_reset_period_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual']):
-            raise ValueError("must be one of enum values ('Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual')")
-        return value
-
     @field_validator('slug_perm', mode="before")
     def slug_perm_validate_regular_expression(cls, value):
         """Validates the regular expression"""

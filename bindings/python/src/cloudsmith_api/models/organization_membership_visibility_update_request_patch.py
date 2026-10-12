@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,16 +30,6 @@ class OrganizationMembershipVisibilityUpdateRequestPatch(BaseModel):
     """ # noqa: E501
     visibility: Optional[StrictStr] = 'Public'
     __properties: ClassVar[List[str]] = ["visibility"]
-
-    @field_validator('visibility')
-    def visibility_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Public', 'Private']):
-            raise ValueError("must be one of enum values ('Public', 'Private')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -41,13 +41,6 @@ class OrganizationApiKeyRule(BaseModel):
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["created_at", "enforce_refresh", "is_enabled", "last_applied_at", "max_age_hours", "rule_type", "slug", "slug_perm", "updated_at"]
 
-    @field_validator('rule_type')
-    def rule_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['All Accounts', 'Service Accounts', 'User Accounts']):
-            raise ValueError("must be one of enum values ('All Accounts', 'Service Accounts', 'User Accounts')")
-        return value
-
     @field_validator('slug', mode="before")
     def slug_validate_regular_expression(cls, value):
         """Validates the regular expression"""

@@ -6,3 +6,4 @@
 
 # Jetbrains IDEs
 .idea
+bindings/*/.openapi.json

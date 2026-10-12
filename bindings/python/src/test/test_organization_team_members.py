@@ -38,7 +38,7 @@ class TestOrganizationTeamMembers(unittest.TestCase):
             return OrganizationTeamMembers(
                 members = [
                     cloudsmith_api.models.organization_team_service_member.OrganizationTeamServiceMember(
-                        role = 'Manager', 
+                        role = '', 
                         user = '0', 
                         user_kind = 'User', )
                     ]
@@ -47,7 +47,7 @@ class TestOrganizationTeamMembers(unittest.TestCase):
             return OrganizationTeamMembers(
                 members = [
                     cloudsmith_api.models.organization_team_service_member.OrganizationTeamServiceMember(
-                        role = 'Manager', 
+                        role = '', 
                         user = '0', 
                         user_kind = 'User', )
                     ],

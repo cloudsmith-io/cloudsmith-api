@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -33,23 +33,6 @@ class OrganizationTeamServiceMember(BaseModel):
     user: Annotated[str, Field(min_length=1, strict=True)]
     user_kind: Optional[StrictStr] = 'User'
     __properties: ClassVar[List[str]] = ["role", "user", "user_kind"]
-
-    @field_validator('role')
-    def role_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Manager', 'Member']):
-            raise ValueError("must be one of enum values ('Manager', 'Member')")
-        return value
-
-    @field_validator('user_kind')
-    def user_kind_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['User', 'Service']):
-            raise ValueError("must be one of enum values ('User', 'Service')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -34,26 +34,6 @@ class PackageDependency(BaseModel):
     operator: Optional[StrictStr] = '='
     version: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=128)]] = None
     __properties: ClassVar[List[str]] = ["dep_type", "name", "operator", "version"]
-
-    @field_validator('dep_type')
-    def dep_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Depends', 'Pre-Depends', 'Recommends', 'Suggests', 'Enhances', 'Replaces', 'Breaks', 'Built-Using', 'Build-Depends', 'Build-Depends-Indep', 'Build-Conflicts', 'Build-Conflicts-Indep', 'Conflicts', 'Provides', 'Obsoletes', 'Requires', 'Runtime', 'Development', 'Compile', 'Provided', 'Test', 'System', 'Import', 'Excluded', 'Build-Requires', 'Python-Requires']):
-            raise ValueError("must be one of enum values ('Depends', 'Pre-Depends', 'Recommends', 'Suggests', 'Enhances', 'Replaces', 'Breaks', 'Built-Using', 'Build-Depends', 'Build-Depends-Indep', 'Build-Conflicts', 'Build-Conflicts-Indep', 'Conflicts', 'Provides', 'Obsoletes', 'Requires', 'Runtime', 'Development', 'Compile', 'Provided', 'Test', 'System', 'Import', 'Excluded', 'Build-Requires', 'Python-Requires')")
-        return value
-
-    @field_validator('operator')
-    def operator_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['=', '!=', '<', '<<', '<=', '>', '>>', '>=', '~=', '~>', 'matches']):
-            raise ValueError("must be one of enum values ('=', '!=', '<', '<<', '<=', '>', '>>', '>=', '~=', '~>', 'matches')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

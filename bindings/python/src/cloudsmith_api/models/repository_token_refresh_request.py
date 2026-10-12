@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -45,26 +45,6 @@ class RepositoryTokenRefreshRequest(BaseModel):
     scheduled_reset_period: Optional[StrictStr] = 'Never Reset'
     token: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
     __properties: ClassVar[List[str]] = ["eula_required", "is_active", "limit_bandwidth", "limit_bandwidth_unit", "limit_date_range_from", "limit_date_range_to", "limit_num_clients", "limit_num_downloads", "limit_package_query", "limit_path_query", "metadata", "scheduled_reset_at", "scheduled_reset_period", "token"]
-
-    @field_validator('limit_bandwidth_unit')
-    def limit_bandwidth_unit_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte']):
-            raise ValueError("must be one of enum values ('Byte', 'Kilobyte', 'Megabyte', 'Gigabyte', 'Terabyte', 'Petabyte', 'Exabyte', 'Zettabyte', 'Yottabyte')")
-        return value
-
-    @field_validator('scheduled_reset_period')
-    def scheduled_reset_period_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual']):
-            raise ValueError("must be one of enum values ('Never Reset', 'Daily', 'Weekly', 'Fortnightly', 'Monthly', 'Bi-Monthly', 'Quarterly', 'Every 6 months', 'Annual')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -40,16 +40,6 @@ class RepositoryX509RsaCertificate(BaseModel):
     default: Optional[StrictBool] = Field(default=None, description="If selected this is the default key for this repository.")
     issuing_status: Optional[StrictStr] = 'Certificate is pending to be issued'
     __properties: ClassVar[List[str]] = ["active", "certificate", "certificate_chain", "certificate_chain_fingerprint", "certificate_chain_fingerprint_short", "certificate_fingerprint", "certificate_fingerprint_short", "created_at", "default", "issuing_status"]
-
-    @field_validator('issuing_status')
-    def issuing_status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Certificate is pending to be issued', 'Certificate successfully issued', 'Error issuing certificate']):
-            raise ValueError("must be one of enum values ('Certificate is pending to be issued', 'Certificate successfully issued', 'Error issuing certificate')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

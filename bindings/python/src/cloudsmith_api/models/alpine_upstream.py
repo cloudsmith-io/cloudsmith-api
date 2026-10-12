@@ -61,26 +61,6 @@ class AlpineUpstream(BaseModel):
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates are verified when requests are made to this upstream. It's recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams.")
     __properties: ClassVar[List[str]] = ["auth_mode", "auth_secret", "auth_username", "available", "can_reindex", "created_at", "disable_reason", "disable_reason_text", "extra_header_1", "extra_header_2", "extra_value_1", "extra_value_2", "has_failed_signature_verification", "index_package_count", "index_status", "is_active", "last_indexed", "mode", "name", "pending_validation", "priority", "rsa_key_inline", "rsa_key_url", "rsa_verification", "rsa_verification_status", "slug_perm", "updated_at", "upstream_url", "verify_ssl"]
 
-    @field_validator('auth_mode')
-    def auth_mode_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['None', 'Username and Password']):
-            raise ValueError("must be one of enum values ('None', 'Username and Password')")
-        return value
-
-    @field_validator('disable_reason')
-    def disable_reason_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream\'s APKINDEX signature', 'Upstream was disabled by request of user']):
-            raise ValueError("must be one of enum values ('N/A', 'Upstream points to its own repository', 'Missing upstream source', 'RSA key did not verify the upstream\'s APKINDEX signature', 'Upstream was disabled by request of user')")
-        return value
-
     @field_validator('extra_header_1', mode="before")
     def extra_header_1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
@@ -121,41 +101,11 @@ class AlpineUpstream(BaseModel):
             raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
         return value
 
-    @field_validator('mode')
-    def mode_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Proxy Only', 'Cache and Proxy', 'Cache Only']):
-            raise ValueError("must be one of enum values ('Proxy Only', 'Cache and Proxy', 'Cache Only')")
-        return value
-
     @field_validator('name', mode="before")
     def name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if isinstance(value, str) and not re.match(r"^\w[\w \-\'\.\/()]+$", value):
             raise ValueError(r"must validate the regular expression /^\w[\w \-'\.\/()]+$/")
-        return value
-
-    @field_validator('rsa_verification')
-    def rsa_verification_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Allow All', 'Warn on Invalid', 'Reject Invalid']):
-            raise ValueError("must be one of enum values ('Allow All', 'Warn on Invalid', 'Reject Invalid')")
-        return value
-
-    @field_validator('rsa_verification_status')
-    def rsa_verification_status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Unknown', 'Invalid', 'Valid', 'Invalid (No Key)']):
-            raise ValueError("must be one of enum values ('Unknown', 'Invalid', 'Valid', 'Invalid (No Key)')")
         return value
 
     @field_validator('slug_perm', mode="before")
