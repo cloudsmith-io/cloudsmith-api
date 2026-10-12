@@ -4,7 +4,7 @@ Please refer to Cloudsmith's standard guide on [Open-Source Contributing](https:
 
 ## Updating bindings
 
-The host toolchain is managed with [mise](https://mise.jdx.dev/) via the top-level `.mise.toml`, so local and CI environments use the same tools. Run `mise install` once to get them. You also need [Docker](https://www.docker.com/) running, as generation happens inside the pinned `swagger-codegen-cli` image (see `scripts/common.sh`). Linting (`ruff`) runs automatically as part of the build.
+The host toolchain is managed with [mise](https://mise.jdx.dev/) via the top-level `.mise.toml`, so local and CI environments use the same tools. Run `mise install` once to get them. You also need [Docker](https://www.docker.com/) running, as generation happens inside the pinned `swagger-codegen-cli` image (see `codegen/Dockerfile`). Linting (`ruff`) runs automatically as part of the build.
 
 ### Manual approach
 

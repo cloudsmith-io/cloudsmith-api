@@ -48,7 +48,7 @@ The host toolchain is managed with [mise](https://mise.jdx.dev/) via the top-lev
 mise install   # installs the pinned host tools (ruby, uv, jq)
 ```
 
-You also need [Docker](https://www.docker.com/) running — binding generation happens inside the pinned `swagger-codegen-cli` image (see `scripts/common.sh`), which mise does not manage.
+You also need [Docker](https://www.docker.com/) running — binding generation happens inside the pinned `swagger-codegen-cli` image (see `codegen/Dockerfile`), which mise does not manage.
 
 Common tasks:
 

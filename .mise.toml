@@ -1,6 +1,6 @@
 # Host toolchain for working with this repo. Note: binding generation runs
 # inside the pinned swaggerapi/swagger-codegen-cli Docker image (see
-# scripts/common.sh), so Docker remains a separate prerequisite that mise does
+# codegen/Dockerfile), so Docker remains a separate prerequisite that mise does
 # not manage. The CircleCI test matrix pins its own runtimes via cimg images.
 
 [tools]
