@@ -2,29 +2,31 @@
 
 All URIs are relative to *https://api.cloudsmith.io*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**formats_list**](FormatsApi.md#formats_list) | **GET** /formats/ | Get a list of all supported package formats.
-[**formats_read**](FormatsApi.md#formats_read) | **GET** /formats/{slug}/ | Get a specific supported package format.
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**formats_list**](FormatsApi.md#formats_list) | **GET** /formats/ | Get a list of all supported package formats. |
+| [**formats_read**](FormatsApi.md#formats_read) | **GET** /formats/{slug}/ | Get a specific supported package format. |
 
 
-# **formats_list**
-> Array&lt;Format&gt; formats_list
+## formats_list
+
+> <Array<Format>> formats_list
 
 Get a list of all supported package formats.
 
 Get a list of all supported package formats.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -34,15 +36,34 @@ end
 api_instance = CloudsmithApi::FormatsApi.new
 
 begin
-  #Get a list of all supported package formats.
+  # Get a list of all supported package formats.
   result = api_instance.formats_list
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling FormatsApi->formats_list: #{e}"
+  puts "Error when calling FormatsApi->formats_list: #{e}"
+end
+```
+
+#### Using the formats_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Format>>, Integer, Hash)> formats_list_with_http_info
+
+```ruby
+begin
+  # Get a list of all supported package formats.
+  data, status_code, headers = api_instance.formats_list_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Format>>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling FormatsApi->formats_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -55,28 +76,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## formats_read
 
-# **formats_read**
-> Format formats_read(slug)
-
-Get a specific supported package format.
+> <Format> formats_read(slug)
 
 Get a specific supported package format.
 
-### Example
+Get a specific supported package format.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -84,24 +106,40 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::FormatsApi.new
-
 slug = 'slug_example' # String | 
 
-
 begin
-  #Get a specific supported package format.
+  # Get a specific supported package format.
   result = api_instance.formats_read(slug)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling FormatsApi->formats_read: #{e}"
+  puts "Error when calling FormatsApi->formats_read: #{e}"
+end
+```
+
+#### Using the formats_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Format>, Integer, Hash)> formats_read_with_http_info(slug)
+
+```ruby
+begin
+  # Get a specific supported package format.
+  data, status_code, headers = api_instance.formats_read_with_http_info(slug)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Format>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling FormatsApi->formats_read_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **String**|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **slug** | **String** |  |  |
 
 ### Return type
 
@@ -113,8 +151,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

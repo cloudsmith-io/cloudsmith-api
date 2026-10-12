@@ -1,8 +1,18 @@
 # CloudsmithApi::RepositoryPrivilegeInputRequest
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**privileges** | [**Array&lt;RepositoryPrivilegeDict&gt;**](RepositoryPrivilegeDict.md) | List of objects with explicit privileges to the repository. | 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **privileges** | [**Array&lt;RepositoryPrivilegeDict&gt;**](RepositoryPrivilegeDict.md) | List of objects with explicit privileges to the repository. |  |
+
+## Example
+
+```ruby
+require 'cloudsmith-api'
+
+instance = CloudsmithApi::RepositoryPrivilegeInputRequest.new(
+  privileges: null
+)
+```
 

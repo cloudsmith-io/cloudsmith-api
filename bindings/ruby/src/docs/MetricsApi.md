@@ -2,30 +2,32 @@
 
 All URIs are relative to *https://api.cloudsmith.io*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**metrics_entitlements_account_list**](MetricsApi.md#metrics_entitlements_account_list) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account.
-[**metrics_entitlements_repo_list**](MetricsApi.md#metrics_entitlements_repo_list) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository.
-[**metrics_packages_list**](MetricsApi.md#metrics_packages_list) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository.
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**metrics_entitlements_account_list**](MetricsApi.md#metrics_entitlements_account_list) | **GET** /metrics/entitlements/{owner}/ | View for listing entitlement token metrics, across an account. |
+| [**metrics_entitlements_repo_list**](MetricsApi.md#metrics_entitlements_repo_list) | **GET** /metrics/entitlements/{owner}/{repo}/ | View for listing entitlement token metrics, for a repository. |
+| [**metrics_packages_list**](MetricsApi.md#metrics_packages_list) | **GET** /metrics/packages/{owner}/{repo}/ | View for listing package usage metrics, for a repository. |
 
 
-# **metrics_entitlements_account_list**
-> EntitlementUsageMetrics metrics_entitlements_account_list(owner, opts)
+## metrics_entitlements_account_list
+
+> <EntitlementUsageMetrics> metrics_entitlements_account_list(owner, opts)
 
 View for listing entitlement token metrics, across an account.
 
 View for listing entitlement token metrics, across an account.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -33,10 +35,8 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::MetricsApi.new
-
 owner = 'owner_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
   finish: 'finish_example', # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -45,24 +45,42 @@ opts = {
 }
 
 begin
-  #View for listing entitlement token metrics, across an account.
+  # View for listing entitlement token metrics, across an account.
   result = api_instance.metrics_entitlements_account_list(owner, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_entitlements_account_list: #{e}"
+  puts "Error when calling MetricsApi->metrics_entitlements_account_list: #{e}"
+end
+```
+
+#### Using the metrics_entitlements_account_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EntitlementUsageMetrics>, Integer, Hash)> metrics_entitlements_account_list_with_http_info(owner, opts)
+
+```ruby
+begin
+  # View for listing entitlement token metrics, across an account.
+  data, status_code, headers = api_instance.metrics_entitlements_account_list_with_http_info(owner, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EntitlementUsageMetrics>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling MetricsApi->metrics_entitlements_account_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
+| **finish** | **String** | Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] |
+| **start** | **String** | Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] |
+| **tokens** | **String** | A comma seperated list of tokens (slug perm) to include in the results. | [optional] |
 
 ### Return type
 
@@ -74,28 +92,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## metrics_entitlements_repo_list
 
-# **metrics_entitlements_repo_list**
-> EntitlementUsageMetrics metrics_entitlements_repo_list(owner, repo, opts)
-
-View for listing entitlement token metrics, for a repository.
+> <EntitlementUsageMetrics> metrics_entitlements_repo_list(owner, repo, opts)
 
 View for listing entitlement token metrics, for a repository.
 
-### Example
+View for listing entitlement token metrics, for a repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -103,12 +122,9 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::MetricsApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
   finish: 'finish_example', # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -117,25 +133,43 @@ opts = {
 }
 
 begin
-  #View for listing entitlement token metrics, for a repository.
+  # View for listing entitlement token metrics, for a repository.
   result = api_instance.metrics_entitlements_repo_list(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_entitlements_repo_list: #{e}"
+  puts "Error when calling MetricsApi->metrics_entitlements_repo_list: #{e}"
+end
+```
+
+#### Using the metrics_entitlements_repo_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EntitlementUsageMetrics>, Integer, Hash)> metrics_entitlements_repo_list_with_http_info(owner, repo, opts)
+
+```ruby
+begin
+  # View for listing entitlement token metrics, for a repository.
+  data, status_code, headers = api_instance.metrics_entitlements_repo_list_with_http_info(owner, repo, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EntitlementUsageMetrics>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling MetricsApi->metrics_entitlements_repo_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **tokens** | **String**| A comma seperated list of tokens (slug perm) to include in the results. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
+| **finish** | **String** | Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] |
+| **start** | **String** | Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] |
+| **tokens** | **String** | A comma seperated list of tokens (slug perm) to include in the results. | [optional] |
 
 ### Return type
 
@@ -147,28 +181,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## metrics_packages_list
 
-# **metrics_packages_list**
-> PackageUsageMetrics metrics_packages_list(owner, repo, opts)
-
-View for listing package usage metrics, for a repository.
+> <PackageUsageMetrics> metrics_packages_list(owner, repo, opts)
 
 View for listing package usage metrics, for a repository.
 
-### Example
+View for listing package usage metrics, for a repository.
+
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -176,12 +211,9 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::MetricsApi.new
-
 owner = 'owner_example' # String | 
-
 repo = 'repo_example' # String | 
-
-opts = { 
+opts = {
   page: 56, # Integer | A page number within the paginated result set.
   page_size: 56, # Integer | Number of results to return per page.
   finish: 'finish_example', # String | Include metrics upto and including this UTC date or UTC datetime. For example '2020-12-31' or '2021-12-13T00:00:00Z'.
@@ -190,25 +222,43 @@ opts = {
 }
 
 begin
-  #View for listing package usage metrics, for a repository.
+  # View for listing package usage metrics, for a repository.
   result = api_instance.metrics_packages_list(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling MetricsApi->metrics_packages_list: #{e}"
+  puts "Error when calling MetricsApi->metrics_packages_list: #{e}"
+end
+```
+
+#### Using the metrics_packages_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PackageUsageMetrics>, Integer, Hash)> metrics_packages_list_with_http_info(owner, repo, opts)
+
+```ruby
+begin
+  # View for listing package usage metrics, for a repository.
+  data, status_code, headers = api_instance.metrics_packages_list_with_http_info(owner, repo, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PackageUsageMetrics>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling MetricsApi->metrics_packages_list_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **page** | **Integer**| A page number within the paginated result set. | [optional] 
- **page_size** | **Integer**| Number of results to return per page. | [optional] 
- **finish** | **String**| Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
- **packages** | **String**| A comma seperated list of packages (slug perm) to include in the results. | [optional] 
- **start** | **String**| Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **owner** | **String** |  |  |
+| **repo** | **String** |  |  |
+| **page** | **Integer** | A page number within the paginated result set. | [optional] |
+| **page_size** | **Integer** | Number of results to return per page. | [optional] |
+| **finish** | **String** | Include metrics upto and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] |
+| **packages** | **String** | A comma seperated list of packages (slug perm) to include in the results. | [optional] |
+| **start** | **String** | Include metrics from and including this UTC date or UTC datetime. For example &#39;2020-12-31&#39; or &#39;2021-12-13T00:00:00Z&#39;. | [optional] |
 
 ### Return type
 
@@ -220,8 +270,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

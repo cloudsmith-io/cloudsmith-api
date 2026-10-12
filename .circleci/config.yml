@@ -80,7 +80,7 @@ workflows:
       - test:
           name: "Test Ruby"
           language: ruby
-          docker_image: cimg/ruby:2.6
+          docker_image: cimg/ruby:3.3
       - deploy_bindings:
           requires:
             - "Test Ruby"
@@ -90,7 +90,7 @@ workflows:
                - master
           name: "Deploy Ruby"
           language: ruby
-          docker_image: cimg/ruby:2.6
+          docker_image: cimg/ruby:3.3
       - test:
           name: "Test Python 3.10"
           language: python

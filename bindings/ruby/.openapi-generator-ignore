@@ -1,0 +1,4 @@
+.gitlab-ci.yml
+.rubocop.yml
+.travis.yml
+git_push.sh

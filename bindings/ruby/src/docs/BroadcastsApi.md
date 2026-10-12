@@ -2,28 +2,30 @@
 
 All URIs are relative to *https://api.cloudsmith.io*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**broadcasts_create_broadcast_token**](BroadcastsApi.md#broadcasts_create_broadcast_token) | **POST** /broadcasts/{org}/broadcast-token/ | Create a broadcast token.
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**broadcasts_create_broadcast_token**](BroadcastsApi.md#broadcasts_create_broadcast_token) | **POST** /broadcasts/{org}/broadcast-token/ | Create a broadcast token. |
 
 
-# **broadcasts_create_broadcast_token**
-> BroadcastToken broadcasts_create_broadcast_token(org, opts)
+## broadcasts_create_broadcast_token
+
+> <BroadcastToken> broadcasts_create_broadcast_token(org, opts)
 
 Create a broadcast token.
 
 Create a broadcast token.
 
-### Example
+### Examples
+
 ```ruby
-# load the gem
+require 'time'
 require 'cloudsmith-api'
 # setup authorization
 CloudsmithApi.configure do |config|
   # Configure API key authorization: apikey
   config.api_key['X-Api-Key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
+  # config.api_key_prefix['X-Api-Key'] = 'Bearer'
 
   # Configure HTTP basic authorization: basic
   config.username = 'YOUR USERNAME'
@@ -31,28 +33,44 @@ CloudsmithApi.configure do |config|
 end
 
 api_instance = CloudsmithApi::BroadcastsApi.new
-
 org = 'org_example' # String | 
-
-opts = { 
-  data: CloudsmithApi::BroadcastTokenInput.new # BroadcastTokenInput | 
+opts = {
+  data: CloudsmithApi::BroadcastTokenInput.new({entitlement_token: 'entitlement_token_example'}) # BroadcastTokenInput | 
 }
 
 begin
-  #Create a broadcast token.
+  # Create a broadcast token.
   result = api_instance.broadcasts_create_broadcast_token(org, opts)
   p result
 rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling BroadcastsApi->broadcasts_create_broadcast_token: #{e}"
+  puts "Error when calling BroadcastsApi->broadcasts_create_broadcast_token: #{e}"
+end
+```
+
+#### Using the broadcasts_create_broadcast_token_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<BroadcastToken>, Integer, Hash)> broadcasts_create_broadcast_token_with_http_info(org, opts)
+
+```ruby
+begin
+  # Create a broadcast token.
+  data, status_code, headers = api_instance.broadcasts_create_broadcast_token_with_http_info(org, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <BroadcastToken>
+rescue CloudsmithApi::ApiError => e
+  puts "Error when calling BroadcastsApi->broadcasts_create_broadcast_token_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **org** | **String**|  | 
- **data** | [**BroadcastTokenInput**](BroadcastTokenInput.md)|  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **org** | **String** |  |  |
+| **data** | [**BroadcastTokenInput**](BroadcastTokenInput.md) |  | [optional] |
 
 ### Return type
 
@@ -64,8 +82,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
