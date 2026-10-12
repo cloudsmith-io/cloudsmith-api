@@ -67,9 +67,19 @@ workflows:
           name: "Test Java"
           language: java
           docker_image: cimg/openjdk:8.0
+      - test:
+          name: "Test Java 21"
+          language: java
+          docker_image: cimg/openjdk:21.0
+      - test:
+          name: "Test Java 25"
+          language: java
+          docker_image: cimg/openjdk:25.0
       - deploy_bindings:
           requires:
             - "Test Java"
+            - "Test Java 21"
+            - "Test Java 25"
           filters:
             branches:
               only:
@@ -81,9 +91,24 @@ workflows:
           name: "Test Ruby"
           language: ruby
           docker_image: cimg/ruby:2.6
+      - test:
+          name: "Test Ruby 3.3"
+          language: ruby
+          docker_image: cimg/ruby:3.3
+      - test:
+          name: "Test Ruby 3.4"
+          language: ruby
+          docker_image: cimg/ruby:3.4
+      - test:
+          name: "Test Ruby 4.0"
+          language: ruby
+          docker_image: cimg/ruby:4.0
       - deploy_bindings:
           requires:
             - "Test Ruby"
+            - "Test Ruby 3.3"
+            - "Test Ruby 3.4"
+            - "Test Ruby 4.0"
           filters:
             branches:
              only:
@@ -96,9 +121,33 @@ workflows:
           language: python
           extra_env: TOXENV=py3
           docker_image: cimg/python:3.10
+      - test:
+          name: "Test Python 3.11"
+          language: python
+          extra_env: TOXENV=py3
+          docker_image: cimg/python:3.11
+      - test:
+          name: "Test Python 3.12"
+          language: python
+          extra_env: TOXENV=py3
+          docker_image: cimg/python:3.12
+      - test:
+          name: "Test Python 3.13"
+          language: python
+          extra_env: TOXENV=py3
+          docker_image: cimg/python:3.13
+      - test:
+          name: "Test Python 3.14"
+          language: python
+          extra_env: TOXENV=py3
+          docker_image: cimg/python:3.14
       - deploy_bindings:
           requires:
             - "Test Python 3.10"
+            - "Test Python 3.11"
+            - "Test Python 3.12"
+            - "Test Python 3.13"
+            - "Test Python 3.14"
           filters:
             branches:
              only:
