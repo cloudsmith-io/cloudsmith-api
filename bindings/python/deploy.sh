@@ -40,6 +40,11 @@ upload_to_cloudsmith() {
   cloudsmith push python ${cloudsmith_repo_api} "${distribution_filepath}" --skip-errors --no-wait-for-sync
 }
 
+if cloudsmith_version_published python; then
+  echo "Version $package_version is already published. Skipping the deploy."
+  exit 0
+fi
+
 set -e
 cd "$src_dir"
 install_dependencies

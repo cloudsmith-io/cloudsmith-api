@@ -30,6 +30,11 @@ upload_to_cloudsmith() {
     --skip-errors
 }
 
+if cloudsmith_version_published maven; then
+  echo "Version $package_version is already published. Skipping the deploy."
+  exit 0
+fi
+
 set -e
 cd $src_dir
 build_distribution
