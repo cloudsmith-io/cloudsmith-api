@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,12 +28,12 @@ class StorageAllocatedLimit(BaseModel):
     """
     StorageAllocatedLimit
     """ # noqa: E501
-    configured: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
-    peak: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
-    percentage_used: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=10)]] = None
-    plan_limit: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
-    used: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
-    used_pre_deduplication: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
+    configured: Optional[StrictStr] = None
+    peak: Optional[StrictStr] = None
+    percentage_used: Optional[StrictStr] = None
+    plan_limit: Optional[StrictStr] = None
+    used: Optional[StrictStr] = None
+    used_pre_deduplication: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["configured", "peak", "percentage_used", "plan_limit", "used", "used_pre_deduplication"]
 
     model_config = ConfigDict(

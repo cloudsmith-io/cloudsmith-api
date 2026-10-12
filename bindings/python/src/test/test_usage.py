@@ -36,9 +36,9 @@ class TestUsage(unittest.TestCase):
         model = Usage()
         if include_optional:
             return Usage(
-                limit = '0',
-                percentage = '0',
-                used = '0'
+                limit = '',
+                percentage = '',
+                used = ''
             )
         else:
             return Usage(

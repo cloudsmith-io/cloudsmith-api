@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**downloaded** | [**Usage**](Usage.md) |  | 
-**storage_used** | [**StorageUsage**](StorageUsage.md) |  | 
-**uploaded** | [**Usage**](Usage.md) |  | 
+**downloaded** | [**Usage**](Usage.md) |  | [optional] 
+**storage_used** | [**StorageUsage**](StorageUsage.md) |  | [optional] 
+**uploaded** | [**Usage**](Usage.md) |  | [optional] 
 
 ## Example
 

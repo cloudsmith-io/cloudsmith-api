@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **bool** |  | [optional] [readonly] 
 **is_sync_in_progress** | **bool** |  | [optional] [readonly] 
 **license** | **str** | The license of this package. | [optional] [readonly] 
-**name** | **str** | The name of this package. | 
+**name** | **str** | The name of this package. | [optional] 
 **namespace** | **str** |  | [optional] [readonly] 
 **namespace_url** | **str** |  | [optional] [readonly] 
 **num_files** | **int** |  | [optional] [readonly] 
@@ -55,14 +55,14 @@ Name | Type | Description | Notes
 **osi_approved** | **bool** | Whether the package&#39;s SPDX license is OSI-approved. | [optional] [readonly] 
 **package_type** | **int** | The type of package contents. | [optional] [readonly] 
 **policy_violated** | **bool** | Whether or not the package has violated any policy. | [optional] [readonly] 
-**provider** | **str** | The virtual machine provider for the box. | 
+**provider** | **str** | The virtual machine provider for the box. | [optional] 
 **raw_license** | **str** | The raw license string. | [optional] [readonly] 
 **release** | **str** | The release of the package version (if any). | [optional] [readonly] 
 **repository** | **str** |  | [optional] [readonly] 
 **repository_url** | **str** |  | [optional] [readonly] 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] [readonly] 
 **security_scan_started_at** | **datetime** | The datetime the security scanning was started. | [optional] [readonly] 
-**security_scan_status** | **str** |  | [optional] [readonly] [default to 'Awaiting Security Scan']
+**security_scan_status** | **str** |  | [optional] [readonly] 
 **security_scan_status_updated_at** | **datetime** | The datetime the security scanning status was updated. | [optional] [readonly] 
 **self_html_url** | **str** |  | [optional] [readonly] 
 **self_url** | **str** |  | [optional] [readonly] 
@@ -92,7 +92,7 @@ Name | Type | Description | Notes
 **uploaded_at** | **datetime** | The date this package was uploaded. | [optional] [readonly] 
 **uploader** | **str** |  | [optional] [readonly] 
 **uploader_url** | **str** |  | [optional] [readonly] 
-**version** | **str** | The raw version for this package. | 
+**version** | **str** | The raw version for this package. | [optional] 
 **version_orig** | **str** |  | [optional] [readonly] 
 **vulnerability_scan_results_url** | **str** |  | [optional] [readonly] 
 

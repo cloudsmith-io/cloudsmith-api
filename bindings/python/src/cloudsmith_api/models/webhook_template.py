@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class WebhookTemplate(BaseModel):
     """
     WebhookTemplate
     """ # noqa: E501
-    event: Annotated[str, Field(min_length=1, strict=True, max_length=128)]
-    template: Optional[Annotated[str, Field(strict=True, max_length=4096)]] = None
+    event: Optional[StrictStr] = None
+    template: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["event", "template"]
 
     model_config = ConfigDict(

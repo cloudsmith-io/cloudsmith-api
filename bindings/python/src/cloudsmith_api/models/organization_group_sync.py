@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,29 +28,12 @@ class OrganizationGroupSync(BaseModel):
     """
     OrganizationGroupSync
     """ # noqa: E501
-    idp_key: Annotated[str, Field(min_length=1, strict=True, max_length=100)]
-    idp_value: Annotated[str, Field(min_length=1, strict=True, max_length=100)]
-    role: Optional[StrictStr] = 'Member'
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    team: Annotated[str, Field(strict=True)]
+    idp_key: Optional[StrictStr] = None
+    idp_value: Optional[StrictStr] = None
+    role: Optional[StrictStr] = None
+    slug_perm: Optional[StrictStr] = None
+    team: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["idp_key", "idp_value", "role", "slug_perm", "team"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('team', mode="before")
-    def team_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -108,7 +90,7 @@ class OrganizationGroupSync(BaseModel):
         _obj = cls.model_validate({
             "idp_key": obj.get("idp_key"),
             "idp_value": obj.get("idp_value"),
-            "role": obj.get("role") if obj.get("role") is not None else 'Member',
+            "role": obj.get("role"),
             "slug_perm": obj.get("slug_perm"),
             "team": obj.get("team")
         })

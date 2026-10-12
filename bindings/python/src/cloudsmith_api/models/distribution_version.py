@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class DistributionVersion(BaseModel):
     """
     A list of the versions for this distribution
     """ # noqa: E501
-    name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The textual name for this version.")
-    slug: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug identifier for this version")
+    name: Optional[StrictStr] = Field(default=None, description="The textual name for this version.")
+    slug: Optional[StrictStr] = Field(default=None, description="The slug identifier for this version")
     __properties: ClassVar[List[str]] = ["name", "slug"]
 
     model_config = ConfigDict(

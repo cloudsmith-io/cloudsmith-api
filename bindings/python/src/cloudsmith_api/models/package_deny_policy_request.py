@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class PackageDenyPolicyRequest(BaseModel):
     """
     PackageDenyPolicyRequest
     """ # noqa: E501
-    description: Optional[Annotated[str, Field(strict=True, max_length=250)]] = None
+    description: Optional[StrictStr] = None
     enabled: Optional[StrictBool] = Field(default=None, description="Whether this rule is enabled or disabled.")
-    name: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
-    package_query_string: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Packages that match this query will trigger this deny rule.")
+    name: Optional[StrictStr] = None
+    package_query_string: Optional[StrictStr] = Field(default=None, description="Packages that match this query will trigger this deny rule.")
     __properties: ClassVar[List[str]] = ["description", "enabled", "name", "package_query_string"]
 
     model_config = ConfigDict(

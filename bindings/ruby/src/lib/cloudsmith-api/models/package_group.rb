@@ -103,14 +103,10 @@ module CloudsmithApi
 
       if attributes.key?(:'count')
         self.count = attributes[:'count']
-      else
-        self.count = nil
       end
 
       if attributes.key?(:'last_push')
         self.last_push = attributes[:'last_push']
-      else
-        self.last_push = nil
       end
 
       if attributes.key?(:'name')
@@ -119,14 +115,10 @@ module CloudsmithApi
 
       if attributes.key?(:'num_downloads')
         self.num_downloads = attributes[:'num_downloads']
-      else
-        self.num_downloads = nil
       end
 
       if attributes.key?(:'size')
         self.size = attributes[:'size']
-      else
-        self.size = nil
       end
     end
 
@@ -135,10 +127,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -146,22 +134,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@name.nil? && @name.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
     end
 
     # Checks equality by comparing each attribute.

@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,14 +28,14 @@ class RawPackageUploadRequest(BaseModel):
     """
     RawPackageUploadRequest
     """ # noqa: E501
-    content_type: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=64)]] = Field(default=None, description="A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.")
-    description: Optional[Annotated[str, Field(strict=True, max_length=12288)]] = Field(default=None, description="A textual description of this package.")
-    name: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="The name of this package.")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
+    content_type: Optional[StrictStr] = Field(default=None, description="A custom content/media (also known as MIME) type to be sent when downloading this file. By default Cloudsmith will attempt to detect the type, but if you need to override it, you can specify it here.")
+    description: Optional[StrictStr] = Field(default=None, description="A textual description of this package.")
+    name: Optional[StrictStr] = Field(default=None, description="The name of this package.")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    summary: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="A one-liner synopsis of this package.")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
-    version: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The raw version for this package.")
+    summary: Optional[StrictStr] = Field(default=None, description="A one-liner synopsis of this package.")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    version: Optional[StrictStr] = Field(default=None, description="The raw version for this package.")
     __properties: ClassVar[List[str]] = ["content_type", "description", "name", "package_file", "republish", "summary", "tags", "version"]
 
     model_config = ConfigDict(

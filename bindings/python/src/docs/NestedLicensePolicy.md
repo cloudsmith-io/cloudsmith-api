@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **on_violation_quarantine** | **bool** |  | [optional] [readonly] 
 **package_query_string** | **str** |  | [optional] [readonly] 
 **slug_perm** | **str** |  | [optional] [readonly] 
-**spdx_identifiers** | **List[str]** |  | 
+**spdx_identifiers** | **List[str]** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **url** | **str** |  | [optional] [readonly] 
 

@@ -51,7 +51,7 @@
 |**isSyncInProgress** | **Boolean** |  |  [optional] [readonly] |
 |**license** | **String** | The license of this package. |  [optional] [readonly] |
 |**licenseUrl** | **URI** | The license URL of this package. |  [optional] |
-|**name** | **String** | The name of this package. |  |
+|**name** | **String** | The name of this package. |  [optional] |
 |**namespace** | **String** |  |  [optional] [readonly] |
 |**namespaceUrl** | **URI** |  |  [optional] [readonly] |
 |**numFiles** | **java.math.BigInteger** |  |  [optional] [readonly] |
@@ -65,7 +65,7 @@
 |**release** | **String** | The release of the package version (if any). |  [optional] [readonly] |
 |**repository** | **String** |  |  [optional] [readonly] |
 |**repositoryUrl** | **URI** | The URL of the SCM repository for the package. |  [optional] |
-|**scope** | **String** | A scope provides a namespace for related packages within the package registry. |  |
+|**scope** | **String** | A scope provides a namespace for related packages within the package registry. |  [optional] |
 |**securityScanCompletedAt** | **OffsetDateTime** | The datetime the security scanning was completed. |  [optional] [readonly] |
 |**securityScanStartedAt** | **OffsetDateTime** | The datetime the security scanning was started. |  [optional] [readonly] |
 |**securityScanStatus** | **String** |  |  [optional] [readonly] |
@@ -98,7 +98,7 @@
 |**uploadedAt** | **OffsetDateTime** | The date this package was uploaded. |  [optional] [readonly] |
 |**uploader** | **String** |  |  [optional] [readonly] |
 |**uploaderUrl** | **URI** |  |  [optional] [readonly] |
-|**version** | **String** | The raw version for this package. |  |
+|**version** | **String** | The raw version for this package. |  [optional] |
 |**versionOrig** | **String** |  |  [optional] [readonly] |
 |**vulnerabilityScanResultsUrl** | **URI** |  |  [optional] [readonly] |
 

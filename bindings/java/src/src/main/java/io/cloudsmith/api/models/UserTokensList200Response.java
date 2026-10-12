@@ -60,7 +60,7 @@ public class UserTokensList200Response implements Serializable {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
-  private List<UserAuthenticationToken> results = new ArrayList<>();
+  private List<UserAuthenticationToken> results;
 
   public UserTokensList200Response() {
   }

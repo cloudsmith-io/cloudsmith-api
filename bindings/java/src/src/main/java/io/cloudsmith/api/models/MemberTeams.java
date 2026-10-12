@@ -62,7 +62,7 @@ public class MemberTeams implements Serializable {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Manager";
+  private String role;
 
   public static final String SERIALIZED_NAME_SLUG = "slug";
   @SerializedName(SERIALIZED_NAME_SLUG)

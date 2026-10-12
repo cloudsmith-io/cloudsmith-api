@@ -39,20 +39,13 @@ class TestRepositoryGeoIpTestAddressResponse(unittest.TestCase):
                 addresses = [
                     cloudsmith_api.models.repository_geo_ip_test_address_response_dict.RepositoryGeoIpTestAddressResponseDict(
                         allowed = True, 
-                        country_code = '0', 
-                        ip_address = '0', 
-                        reason = '0', )
+                        country_code = '', 
+                        ip_address = '', 
+                        reason = '', )
                     ]
             )
         else:
             return RepositoryGeoIpTestAddressResponse(
-                addresses = [
-                    cloudsmith_api.models.repository_geo_ip_test_address_response_dict.RepositoryGeoIpTestAddressResponseDict(
-                        allowed = True, 
-                        country_code = '0', 
-                        ip_address = '0', 
-                        reason = '0', )
-                    ],
         )
         """
 

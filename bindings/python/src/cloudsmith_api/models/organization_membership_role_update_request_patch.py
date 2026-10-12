@@ -28,7 +28,7 @@ class OrganizationMembershipRoleUpdateRequestPatch(BaseModel):
     """
     OrganizationMembershipRoleUpdateRequestPatch
     """ # noqa: E501
-    role: Optional[StrictStr] = 'Owner'
+    role: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["role"]
 
     model_config = ConfigDict(
@@ -82,7 +82,7 @@ class OrganizationMembershipRoleUpdateRequestPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "role": obj.get("role") if obj.get("role") is not None else 'Owner'
+            "role": obj.get("role")
         })
         return _obj
 

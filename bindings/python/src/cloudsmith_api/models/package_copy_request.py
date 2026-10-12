@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +28,7 @@ class PackageCopyRequest(BaseModel):
     """
     PackageCopyRequest
     """ # noqa: E501
-    destination: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The name of the destination repository without the namespace.")
+    destination: Optional[StrictStr] = Field(default=None, description="The name of the destination repository without the namespace.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
     __properties: ClassVar[List[str]] = ["destination", "republish"]
 

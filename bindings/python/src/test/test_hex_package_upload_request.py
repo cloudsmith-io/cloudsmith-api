@@ -36,13 +36,12 @@ class TestHexPackageUploadRequest(unittest.TestCase):
         model = HexPackageUploadRequest()
         if include_optional:
             return HexPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return HexPackageUploadRequest(
-                package_file = '0',
         )
         """
 

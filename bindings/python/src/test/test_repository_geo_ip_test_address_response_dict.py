@@ -37,16 +37,12 @@ class TestRepositoryGeoIpTestAddressResponseDict(unittest.TestCase):
         if include_optional:
             return RepositoryGeoIpTestAddressResponseDict(
                 allowed = True,
-                country_code = '0',
-                ip_address = '0',
-                reason = '0'
+                country_code = '',
+                ip_address = '',
+                reason = ''
             )
         else:
             return RepositoryGeoIpTestAddressResponseDict(
-                allowed = True,
-                country_code = '0',
-                ip_address = '0',
-                reason = '0',
         )
         """
 

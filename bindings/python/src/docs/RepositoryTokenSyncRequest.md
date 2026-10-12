@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | **str** | The source repository slug (in the same owner namespace). | 
+**source** | **str** | The source repository slug (in the same owner namespace). | [optional] 
 
 ## Example
 

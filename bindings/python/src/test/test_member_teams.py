@@ -36,9 +36,9 @@ class TestMemberTeams(unittest.TestCase):
         model = MemberTeams()
         if include_optional:
             return MemberTeams(
-                name = '0',
-                role = 'Manager',
-                slug = 'z0'
+                name = '',
+                role = '',
+                slug = ''
             )
         else:
             return MemberTeams(

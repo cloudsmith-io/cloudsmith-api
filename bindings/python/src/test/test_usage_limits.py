@@ -37,32 +37,20 @@ class TestUsageLimits(unittest.TestCase):
         if include_optional:
             return UsageLimits(
                 bandwidth = cloudsmith_api.models.allocated_limit.AllocatedLimit(
-                    configured = '0', 
-                    percentage_used = '0', 
-                    plan_limit = '0', 
-                    used = '0', ),
+                    configured = '', 
+                    percentage_used = '', 
+                    plan_limit = '', 
+                    used = '', ),
                 storage = cloudsmith_api.models.storage_allocated_limit.StorageAllocatedLimit(
-                    configured = '0', 
-                    peak = '0', 
-                    percentage_used = '0', 
-                    plan_limit = '0', 
-                    used = '0', 
-                    used_pre_deduplication = '0', )
+                    configured = '', 
+                    peak = '', 
+                    percentage_used = '', 
+                    plan_limit = '', 
+                    used = '', 
+                    used_pre_deduplication = '', )
             )
         else:
             return UsageLimits(
-                bandwidth = cloudsmith_api.models.allocated_limit.AllocatedLimit(
-                    configured = '0', 
-                    percentage_used = '0', 
-                    plan_limit = '0', 
-                    used = '0', ),
-                storage = cloudsmith_api.models.storage_allocated_limit.StorageAllocatedLimit(
-                    configured = '0', 
-                    peak = '0', 
-                    percentage_used = '0', 
-                    plan_limit = '0', 
-                    used = '0', 
-                    used_pre_deduplication = '0', ),
         )
         """
 

@@ -36,12 +36,11 @@ class TestRepositoryGpgKeyCreate(unittest.TestCase):
         model = RepositoryGpgKeyCreate()
         if include_optional:
             return RepositoryGpgKeyCreate(
-                gpg_passphrase = '0',
-                gpg_private_key = '0'
+                gpg_passphrase = '',
+                gpg_private_key = ''
             )
         else:
             return RepositoryGpgKeyCreate(
-                gpg_private_key = '0',
         )
         """
 

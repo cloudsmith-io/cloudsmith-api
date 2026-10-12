@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**rsaPassphrase** | **String** | The RSA passphrase used for signing. |  [optional] |
-|**rsaPrivateKey** | **String** | The RSA private key. |  |
+|**rsaPrivateKey** | **String** | The RSA private key. |  [optional] |
 
 
 ## Implemented Interfaces

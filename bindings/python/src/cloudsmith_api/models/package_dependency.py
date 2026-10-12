@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class PackageDependency(BaseModel):
     """
     PackageDependency
     """ # noqa: E501
-    dep_type: Optional[StrictStr] = 'Depends'
-    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = None
-    operator: Optional[StrictStr] = '='
-    version: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=128)]] = None
+    dep_type: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
+    operator: Optional[StrictStr] = None
+    version: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["dep_type", "name", "operator", "version"]
 
     model_config = ConfigDict(
@@ -104,9 +103,9 @@ class PackageDependency(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "dep_type": obj.get("dep_type") if obj.get("dep_type") is not None else 'Depends',
+            "dep_type": obj.get("dep_type"),
             "name": obj.get("name"),
-            "operator": obj.get("operator") if "operator" in obj else '=',
+            "operator": obj.get("operator"),
             "version": obj.get("version")
         })
         return _obj

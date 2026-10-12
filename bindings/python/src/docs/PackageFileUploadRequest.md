@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filename** | **str** | Filename for the package file upload. | 
+**filename** | **str** | Filename for the package file upload. | [optional] 
 **md5_checksum** | **str** | MD5 checksum for a POST-based package file upload. | [optional] 
-**method** | **str** | The method to use for package file upload. | [optional] [default to 'post']
+**method** | **str** | The method to use for package file upload. | [optional] 
 **sha256_checksum** | **str** | SHA256 checksum for a PUT-based package file upload. | [optional] 
 
 ## Example

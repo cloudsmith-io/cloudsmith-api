@@ -35,7 +35,7 @@ end
 api_instance = CloudsmithApi::BroadcastsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::BroadcastTokenInput.new({entitlement_token: 'entitlement_token_example'}) # BroadcastTokenInput | 
+  data: CloudsmithApi::BroadcastTokenInput.new # BroadcastTokenInput | 
 }
 
 begin

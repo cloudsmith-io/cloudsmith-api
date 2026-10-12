@@ -111,7 +111,7 @@ public class OrganizationCustomDomains implements Serializable {
   public static final String SERIALIZED_NAME_PRIMARY = "primary";
   @SerializedName(SERIALIZED_NAME_PRIMARY)
   @javax.annotation.Nullable
-  private Boolean primary = true;
+  private Boolean primary;
 
   public static final String SERIALIZED_NAME_REDIRECT_ROOT = "redirect_root";
   @SerializedName(SERIALIZED_NAME_REDIRECT_ROOT)
@@ -125,7 +125,7 @@ public class OrganizationCustomDomains implements Serializable {
 
   public static final String SERIALIZED_NAME_REPOSITORY = "repository";
   @SerializedName(SERIALIZED_NAME_REPOSITORY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private OrganizationCustomDomainNestedRepo repository;
 
   public static final String SERIALIZED_NAME_REPOSITORY_ONLY = "repository_only";
@@ -333,7 +333,7 @@ public class OrganizationCustomDomains implements Serializable {
 
 
 
-  public OrganizationCustomDomains repository(@javax.annotation.Nonnull OrganizationCustomDomainNestedRepo repository) {
+  public OrganizationCustomDomains repository(@javax.annotation.Nullable OrganizationCustomDomainNestedRepo repository) {
     this.repository = repository;
     return this;
   }
@@ -342,12 +342,12 @@ public class OrganizationCustomDomains implements Serializable {
    * Get repository
    * @return repository
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public OrganizationCustomDomainNestedRepo getRepository() {
     return repository;
   }
 
-  public void setRepository(@javax.annotation.Nonnull OrganizationCustomDomainNestedRepo repository) {
+  public void setRepository(@javax.annotation.Nullable OrganizationCustomDomainNestedRepo repository) {
     this.repository = repository;
   }
 
@@ -485,7 +485,7 @@ public class OrganizationCustomDomains implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("backend_kind", "created_at", "created_by", "dns_alias_value", "dns_cert_name", "dns_cert_value", "domain_type", "enabled", "host", "namespace", "primary", "redirect_root", "redirect_root_url", "repository", "repository_only", "slug_perm", "validated", "validated_at"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("repository"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -508,13 +508,6 @@ public class OrganizationCustomDomains implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationCustomDomains` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrganizationCustomDomains.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("dns_alias_value") != null && !jsonObj.get("dns_alias_value").isJsonNull()) && !jsonObj.get("dns_alias_value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns_alias_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns_alias_value").toString()));
@@ -531,8 +524,10 @@ public class OrganizationCustomDomains implements Serializable {
       if ((jsonObj.get("redirect_root_url") != null && !jsonObj.get("redirect_root_url").isJsonNull()) && !jsonObj.get("redirect_root_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `redirect_root_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirect_root_url").toString()));
       }
-      // validate the required field `repository`
-      OrganizationCustomDomainNestedRepo.validateJsonElement(jsonObj.get("repository"));
+      // validate the optional field `repository`
+      if (jsonObj.get("repository") != null && !jsonObj.get("repository").isJsonNull()) {
+        OrganizationCustomDomainNestedRepo.validateJsonElement(jsonObj.get("repository"));
+      }
       if ((jsonObj.get("slug_perm") != null && !jsonObj.get("slug_perm").isJsonNull()) && !jsonObj.get("slug_perm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slug_perm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slug_perm").toString()));
       }

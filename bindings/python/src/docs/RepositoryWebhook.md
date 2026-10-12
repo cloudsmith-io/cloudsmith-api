@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **created_by_url** | **str** |  | [optional] [readonly] 
 **disable_reason** | **int** |  | [optional] [readonly] 
 **disable_reason_str** | **str** |  | [optional] [readonly] 
-**events** | **List[str]** |  | 
+**events** | **List[str]** |  | [optional] 
 **identifier** | **int** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified a webhook request within a repository. | [optional] [readonly] 
 **is_active** | **bool** | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. | [optional] 
 **is_last_response_bad** | **bool** |  | [optional] [readonly] 
@@ -26,8 +26,8 @@ Name | Type | Description | Notes
 **secret_header** | **str** | The header to send the predefined secret in. This must be unique from existing headers or it won&#39;t be sent. You can use this as a form of authentication on the endpoint side. | [optional] 
 **self_url** | **str** |  | [optional] [readonly] 
 **slug_perm** | **str** |  | [optional] [readonly] 
-**target_url** | **str** | The destination URL that webhook payloads will be POST&#39;ed to. | 
-**templates** | [**List[WebhookTemplate]**](WebhookTemplate.md) |  | 
+**target_url** | **str** | The destination URL that webhook payloads will be POST&#39;ed to. | [optional] 
+**templates** | [**List[WebhookTemplate]**](WebhookTemplate.md) |  | [optional] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **updated_by** | **str** |  | [optional] [readonly] 
 **updated_by_url** | **str** |  | [optional] [readonly] 

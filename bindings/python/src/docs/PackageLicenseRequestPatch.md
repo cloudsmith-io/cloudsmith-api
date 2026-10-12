@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str** |  | [optional] [default to 'Update']
+**action** | **str** |  | [optional] 
 **license_notes** | **str** |  | [optional] 
-**license_override** | **str** |  | [optional] [default to 'None']
+**license_override** | **str** |  | [optional] 
 **license_url** | **str** |  | [optional] 
-**spdx_license** | **str** |  | 
+**spdx_license** | **str** |  | [optional] 
 
 ## Example
 

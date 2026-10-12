@@ -85,8 +85,6 @@ module CloudsmithApi
 
       if attributes.key?(:'gpg_private_key')
         self.gpg_private_key = attributes[:'gpg_private_key']
-      else
-        self.gpg_private_key = nil
       end
     end
 
@@ -95,18 +93,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@gpg_passphrase.nil? && @gpg_passphrase.to_s.length < 1
-        invalid_properties.push('invalid value for "gpg_passphrase", the character length must be greater than or equal to 1.')
-      end
-
-      if @gpg_private_key.nil?
-        invalid_properties.push('invalid value for "gpg_private_key", gpg_private_key cannot be nil.')
-      end
-
-      if @gpg_private_key.to_s.length < 1
-        invalid_properties.push('invalid value for "gpg_private_key", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -114,38 +100,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@gpg_passphrase.nil? && @gpg_passphrase.to_s.length < 1
-      return false if @gpg_private_key.nil?
-      return false if @gpg_private_key.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] gpg_passphrase Value to be assigned
-    def gpg_passphrase=(gpg_passphrase)
-      if gpg_passphrase.nil?
-        fail ArgumentError, 'gpg_passphrase cannot be nil'
-      end
-
-      if gpg_passphrase.to_s.length < 1
-        fail ArgumentError, 'invalid value for "gpg_passphrase", the character length must be greater than or equal to 1.'
-      end
-
-      @gpg_passphrase = gpg_passphrase
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] gpg_private_key Value to be assigned
-    def gpg_private_key=(gpg_private_key)
-      if gpg_private_key.nil?
-        fail ArgumentError, 'gpg_private_key cannot be nil'
-      end
-
-      if gpg_private_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "gpg_private_key", the character length must be greater than or equal to 1.'
-      end
-
-      @gpg_private_key = gpg_private_key
     end
 
     # Checks equality by comparing each attribute.

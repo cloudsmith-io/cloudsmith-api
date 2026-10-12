@@ -37,9 +37,9 @@ class TestOrganizationTeamRequestPatch(unittest.TestCase):
         if include_optional:
             return OrganizationTeamRequestPatch(
                 description = '',
-                name = 'eBXK5y0',
-                slug = 'z0',
-                visibility = 'Visible'
+                name = '',
+                slug = '',
+                visibility = ''
             )
         else:
             return OrganizationTeamRequestPatch(

@@ -80,12 +80,12 @@ public class OrganizationMembershipVisibilityUpdate implements Serializable {
   public static final String SERIALIZED_NAME_LAST_LOGIN_METHOD = "last_login_method";
   @SerializedName(SERIALIZED_NAME_LAST_LOGIN_METHOD)
   @javax.annotation.Nullable
-  private String lastLoginMethod = "Unknown";
+  private String lastLoginMethod;
 
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Owner";
+  private String role;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -110,7 +110,7 @@ public class OrganizationMembershipVisibilityUpdate implements Serializable {
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
   @javax.annotation.Nullable
-  private String visibility = "Public";
+  private String visibility;
 
   public OrganizationMembershipVisibilityUpdate() {
   }

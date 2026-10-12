@@ -105,8 +105,6 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'on_violation_quarantine')
@@ -121,8 +119,6 @@ module CloudsmithApi
         if (value = attributes[:'spdx_identifiers']).is_a?(Array)
           self.spdx_identifiers = value
         end
-      else
-        self.spdx_identifiers = nil
       end
     end
 
@@ -131,34 +127,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@description.nil? && @description.to_s.length > 250
-        invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 250.')
-      end
-
-      if !@description.nil? && @description.to_s.length < 1
-        invalid_properties.push('invalid value for "description", the character length must be greater than or equal to 1.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 100
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 100.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@package_query_string.nil? && @package_query_string.to_s.length < 1
-        invalid_properties.push('invalid value for "package_query_string", the character length must be greater than or equal to 1.')
-      end
-
-      if @spdx_identifiers.nil?
-        invalid_properties.push('invalid value for "spdx_identifiers", spdx_identifiers cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -166,56 +134,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@description.nil? && @description.to_s.length > 250
-      return false if !@description.nil? && @description.to_s.length < 1
-      return false if @name.nil?
-      return false if @name.to_s.length > 100
-      return false if @name.to_s.length < 1
-      return false if !@package_query_string.nil? && @package_query_string.to_s.length < 1
-      return false if @spdx_identifiers.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
-      if !description.nil? && description.to_s.length > 250
-        fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 250.'
-      end
-
-      if !description.nil? && description.to_s.length < 1
-        fail ArgumentError, 'invalid value for "description", the character length must be greater than or equal to 1.'
-      end
-
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 100
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 100.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] package_query_string Value to be assigned
-    def package_query_string=(package_query_string)
-      if !package_query_string.nil? && package_query_string.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_query_string", the character length must be greater than or equal to 1.'
-      end
-
-      @package_query_string = package_query_string
     end
 
     # Custom attribute writer method with validation

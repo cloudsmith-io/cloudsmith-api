@@ -140,14 +140,10 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'package_file')
         self.package_file = attributes[:'package_file']
-      else
-        self.package_file = nil
       end
 
       if attributes.key?(:'readme_url')
@@ -164,8 +160,6 @@ module CloudsmithApi
 
       if attributes.key?(:'scope')
         self.scope = attributes[:'scope']
-      else
-        self.scope = nil
       end
 
       if attributes.key?(:'tags')
@@ -174,8 +168,6 @@ module CloudsmithApi
 
       if attributes.key?(:'version')
         self.version = attributes[:'version']
-      else
-        self.version = nil
       end
     end
 
@@ -184,70 +176,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@author_name.nil? && @author_name.to_s.length < 1
-        invalid_properties.push('invalid value for "author_name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@author_org.nil? && @author_org.to_s.length < 1
-        invalid_properties.push('invalid value for "author_org", the character length must be greater than or equal to 1.')
-      end
-
-      if !@license_url.nil? && @license_url.to_s.length > 200
-        invalid_properties.push('invalid value for "license_url", the character length must be smaller than or equal to 200.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 200
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 200.')
-      end
-
-      if @package_file.nil?
-        invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-      end
-
-      if @package_file.to_s.length < 1
-        invalid_properties.push('invalid value for "package_file", the character length must be greater than or equal to 1.')
-      end
-
-      if !@readme_url.nil? && @readme_url.to_s.length < 1
-        invalid_properties.push('invalid value for "readme_url", the character length must be greater than or equal to 1.')
-      end
-
-      if !@repository_url.nil? && @repository_url.to_s.length < 1
-        invalid_properties.push('invalid value for "repository_url", the character length must be greater than or equal to 1.')
-      end
-
-      if @scope.nil?
-        invalid_properties.push('invalid value for "scope", scope cannot be nil.')
-      end
-
-      if @scope.to_s.length > 39
-        invalid_properties.push('invalid value for "scope", the character length must be smaller than or equal to 39.')
-      end
-
-      if @scope.to_s.length < 1
-        invalid_properties.push('invalid value for "scope", the character length must be greater than or equal to 1.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length > 1024
-        invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length < 1
-        invalid_properties.push('invalid value for "tags", the character length must be greater than or equal to 1.')
-      end
-
-      if @version.nil?
-        invalid_properties.push('invalid value for "version", version cannot be nil.')
-      end
-
-      if @version.to_s.length > 255
-        invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 255.')
-      end
-
       invalid_properties
     end
 
@@ -255,163 +183,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@author_name.nil? && @author_name.to_s.length < 1
-      return false if !@author_org.nil? && @author_org.to_s.length < 1
-      return false if !@license_url.nil? && @license_url.to_s.length > 200
-      return false if @name.nil?
-      return false if @name.to_s.length > 200
-      return false if @package_file.nil?
-      return false if @package_file.to_s.length < 1
-      return false if !@readme_url.nil? && @readme_url.to_s.length < 1
-      return false if !@repository_url.nil? && @repository_url.to_s.length < 1
-      return false if @scope.nil?
-      return false if @scope.to_s.length > 39
-      return false if @scope.to_s.length < 1
-      return false if !@tags.nil? && @tags.to_s.length > 1024
-      return false if !@tags.nil? && @tags.to_s.length < 1
-      return false if @version.nil?
-      return false if @version.to_s.length > 255
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] author_name Value to be assigned
-    def author_name=(author_name)
-      if author_name.nil?
-        fail ArgumentError, 'author_name cannot be nil'
-      end
-
-      if author_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "author_name", the character length must be greater than or equal to 1.'
-      end
-
-      @author_name = author_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] author_org Value to be assigned
-    def author_org=(author_org)
-      if author_org.nil?
-        fail ArgumentError, 'author_org cannot be nil'
-      end
-
-      if author_org.to_s.length < 1
-        fail ArgumentError, 'invalid value for "author_org", the character length must be greater than or equal to 1.'
-      end
-
-      @author_org = author_org
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] license_url Value to be assigned
-    def license_url=(license_url)
-      if !license_url.nil? && license_url.to_s.length > 200
-        fail ArgumentError, 'invalid value for "license_url", the character length must be smaller than or equal to 200.'
-      end
-
-      @license_url = license_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 200
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 200.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] package_file Value to be assigned
-    def package_file=(package_file)
-      if package_file.nil?
-        fail ArgumentError, 'package_file cannot be nil'
-      end
-
-      if package_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_file", the character length must be greater than or equal to 1.'
-      end
-
-      @package_file = package_file
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] readme_url Value to be assigned
-    def readme_url=(readme_url)
-      if readme_url.nil?
-        fail ArgumentError, 'readme_url cannot be nil'
-      end
-
-      if readme_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "readme_url", the character length must be greater than or equal to 1.'
-      end
-
-      @readme_url = readme_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] repository_url Value to be assigned
-    def repository_url=(repository_url)
-      if repository_url.nil?
-        fail ArgumentError, 'repository_url cannot be nil'
-      end
-
-      if repository_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "repository_url", the character length must be greater than or equal to 1.'
-      end
-
-      @repository_url = repository_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] scope Value to be assigned
-    def scope=(scope)
-      if scope.nil?
-        fail ArgumentError, 'scope cannot be nil'
-      end
-
-      if scope.to_s.length > 39
-        fail ArgumentError, 'invalid value for "scope", the character length must be smaller than or equal to 39.'
-      end
-
-      if scope.to_s.length < 1
-        fail ArgumentError, 'invalid value for "scope", the character length must be greater than or equal to 1.'
-      end
-
-      @scope = scope
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tags Value to be assigned
-    def tags=(tags)
-      if !tags.nil? && tags.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-      end
-
-      if !tags.nil? && tags.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tags", the character length must be greater than or equal to 1.'
-      end
-
-      @tags = tags
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if version.nil?
-        fail ArgumentError, 'version cannot be nil'
-      end
-
-      if version.to_s.length > 255
-        fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 255.'
-      end
-
-      @version = version
     end
 
     # Checks equality by comparing each attribute.

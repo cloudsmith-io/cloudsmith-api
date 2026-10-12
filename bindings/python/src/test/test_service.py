@@ -37,24 +37,23 @@ class TestService(unittest.TestCase):
         if include_optional:
             return Service(
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                created_by = '0',
+                created_by = '',
                 created_by_url = '',
-                description = '0',
+                description = '',
                 key = '',
                 key_expires_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                name = '0',
-                role = 'Member',
-                slug = 'z0',
+                name = '',
+                role = '',
+                slug = '',
                 teams = [
                     cloudsmith_api.models.service_teams.ServiceTeams(
-                        name = '0', 
-                        role = 'Manager', 
-                        slug = 'z0', )
+                        name = '', 
+                        role = '', 
+                        slug = '', )
                     ]
             )
         else:
             return Service(
-                name = '0',
         )
         """
 

@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **saml_auth_enabled** | **Boolean** |  |  |
-| **saml_auth_enforced** | **Boolean** |  |  |
+| **saml_auth_enabled** | **Boolean** |  | [optional] |
+| **saml_auth_enforced** | **Boolean** |  | [optional] |
 | **saml_metadata_inline** | **String** | If configured, SAML metadata will be used as entered instead of retrieved from a remote URL. | [optional] |
 | **saml_metadata_inline_webapp** | **String** | When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application. | [optional] |
 | **saml_metadata_url** | **String** | If configured, SAML metadata be retrieved from a remote URL. | [optional] |

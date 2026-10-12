@@ -76,7 +76,7 @@ public class NamespaceAuditLog implements Serializable {
 
   public static final String SERIALIZED_NAME_ACTOR_LOCATION = "actor_location";
   @SerializedName(SERIALIZED_NAME_ACTOR_LOCATION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private GeoIpLocation actorLocation;
 
   public static final String SERIALIZED_NAME_ACTOR_SLUG_PERM = "actor_slug_perm";
@@ -91,42 +91,42 @@ public class NamespaceAuditLog implements Serializable {
 
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String context;
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String event;
 
   public static final String SERIALIZED_NAME_EVENT_AT = "event_at";
   @SerializedName(SERIALIZED_NAME_EVENT_AT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private OffsetDateTime eventAt;
 
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String _object;
 
   public static final String SERIALIZED_NAME_OBJECT_KIND = "object_kind";
   @SerializedName(SERIALIZED_NAME_OBJECT_KIND)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String objectKind;
 
   public static final String SERIALIZED_NAME_OBJECT_SLUG_PERM = "object_slug_perm";
   @SerializedName(SERIALIZED_NAME_OBJECT_SLUG_PERM)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String objectSlugPerm;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String target;
 
   public static final String SERIALIZED_NAME_TARGET_KIND = "target_kind";
   @SerializedName(SERIALIZED_NAME_TARGET_KIND)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String targetKind;
 
   public static final String SERIALIZED_NAME_TARGET_SLUG_PERM = "target_slug_perm";
@@ -202,7 +202,7 @@ public class NamespaceAuditLog implements Serializable {
 
 
 
-  public NamespaceAuditLog actorLocation(@javax.annotation.Nonnull GeoIpLocation actorLocation) {
+  public NamespaceAuditLog actorLocation(@javax.annotation.Nullable GeoIpLocation actorLocation) {
     this.actorLocation = actorLocation;
     return this;
   }
@@ -211,12 +211,12 @@ public class NamespaceAuditLog implements Serializable {
    * Get actorLocation
    * @return actorLocation
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public GeoIpLocation getActorLocation() {
     return actorLocation;
   }
 
-  public void setActorLocation(@javax.annotation.Nonnull GeoIpLocation actorLocation) {
+  public void setActorLocation(@javax.annotation.Nullable GeoIpLocation actorLocation) {
     this.actorLocation = actorLocation;
   }
 
@@ -251,7 +251,7 @@ public class NamespaceAuditLog implements Serializable {
 
 
 
-  public NamespaceAuditLog context(@javax.annotation.Nonnull String context) {
+  public NamespaceAuditLog context(@javax.annotation.Nullable String context) {
     this.context = context;
     return this;
   }
@@ -260,17 +260,17 @@ public class NamespaceAuditLog implements Serializable {
    * Get context
    * @return context
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getContext() {
     return context;
   }
 
-  public void setContext(@javax.annotation.Nonnull String context) {
+  public void setContext(@javax.annotation.Nullable String context) {
     this.context = context;
   }
 
 
-  public NamespaceAuditLog event(@javax.annotation.Nonnull String event) {
+  public NamespaceAuditLog event(@javax.annotation.Nullable String event) {
     this.event = event;
     return this;
   }
@@ -279,17 +279,17 @@ public class NamespaceAuditLog implements Serializable {
    * Get event
    * @return event
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getEvent() {
     return event;
   }
 
-  public void setEvent(@javax.annotation.Nonnull String event) {
+  public void setEvent(@javax.annotation.Nullable String event) {
     this.event = event;
   }
 
 
-  public NamespaceAuditLog eventAt(@javax.annotation.Nonnull OffsetDateTime eventAt) {
+  public NamespaceAuditLog eventAt(@javax.annotation.Nullable OffsetDateTime eventAt) {
     this.eventAt = eventAt;
     return this;
   }
@@ -298,17 +298,17 @@ public class NamespaceAuditLog implements Serializable {
    * Get eventAt
    * @return eventAt
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public OffsetDateTime getEventAt() {
     return eventAt;
   }
 
-  public void setEventAt(@javax.annotation.Nonnull OffsetDateTime eventAt) {
+  public void setEventAt(@javax.annotation.Nullable OffsetDateTime eventAt) {
     this.eventAt = eventAt;
   }
 
 
-  public NamespaceAuditLog _object(@javax.annotation.Nonnull String _object) {
+  public NamespaceAuditLog _object(@javax.annotation.Nullable String _object) {
     this._object = _object;
     return this;
   }
@@ -317,17 +317,17 @@ public class NamespaceAuditLog implements Serializable {
    * Get _object
    * @return _object
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getObject() {
     return _object;
   }
 
-  public void setObject(@javax.annotation.Nonnull String _object) {
+  public void setObject(@javax.annotation.Nullable String _object) {
     this._object = _object;
   }
 
 
-  public NamespaceAuditLog objectKind(@javax.annotation.Nonnull String objectKind) {
+  public NamespaceAuditLog objectKind(@javax.annotation.Nullable String objectKind) {
     this.objectKind = objectKind;
     return this;
   }
@@ -336,17 +336,17 @@ public class NamespaceAuditLog implements Serializable {
    * Get objectKind
    * @return objectKind
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getObjectKind() {
     return objectKind;
   }
 
-  public void setObjectKind(@javax.annotation.Nonnull String objectKind) {
+  public void setObjectKind(@javax.annotation.Nullable String objectKind) {
     this.objectKind = objectKind;
   }
 
 
-  public NamespaceAuditLog objectSlugPerm(@javax.annotation.Nonnull String objectSlugPerm) {
+  public NamespaceAuditLog objectSlugPerm(@javax.annotation.Nullable String objectSlugPerm) {
     this.objectSlugPerm = objectSlugPerm;
     return this;
   }
@@ -355,17 +355,17 @@ public class NamespaceAuditLog implements Serializable {
    * Get objectSlugPerm
    * @return objectSlugPerm
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getObjectSlugPerm() {
     return objectSlugPerm;
   }
 
-  public void setObjectSlugPerm(@javax.annotation.Nonnull String objectSlugPerm) {
+  public void setObjectSlugPerm(@javax.annotation.Nullable String objectSlugPerm) {
     this.objectSlugPerm = objectSlugPerm;
   }
 
 
-  public NamespaceAuditLog target(@javax.annotation.Nonnull String target) {
+  public NamespaceAuditLog target(@javax.annotation.Nullable String target) {
     this.target = target;
     return this;
   }
@@ -374,17 +374,17 @@ public class NamespaceAuditLog implements Serializable {
    * Get target
    * @return target
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTarget() {
     return target;
   }
 
-  public void setTarget(@javax.annotation.Nonnull String target) {
+  public void setTarget(@javax.annotation.Nullable String target) {
     this.target = target;
   }
 
 
-  public NamespaceAuditLog targetKind(@javax.annotation.Nonnull String targetKind) {
+  public NamespaceAuditLog targetKind(@javax.annotation.Nullable String targetKind) {
     this.targetKind = targetKind;
     return this;
   }
@@ -393,12 +393,12 @@ public class NamespaceAuditLog implements Serializable {
    * Get targetKind
    * @return targetKind
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTargetKind() {
     return targetKind;
   }
 
-  public void setTargetKind(@javax.annotation.Nonnull String targetKind) {
+  public void setTargetKind(@javax.annotation.Nullable String targetKind) {
     this.targetKind = targetKind;
   }
 
@@ -518,7 +518,7 @@ public class NamespaceAuditLog implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("actor", "actor_ip_address", "actor_kind", "actor_location", "actor_slug_perm", "actor_url", "context", "event", "event_at", "object", "object_kind", "object_slug_perm", "target", "target_kind", "target_slug_perm", "uuid"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("actor", "actor_ip_address", "actor_location", "actor_slug_perm", "context", "event", "event_at", "object", "object_kind", "object_slug_perm", "target", "target_kind"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -541,13 +541,6 @@ public class NamespaceAuditLog implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NamespaceAuditLog` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : NamespaceAuditLog.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("actor") != null && !jsonObj.get("actor").isJsonNull()) && !jsonObj.get("actor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actor").toString()));
@@ -558,33 +551,35 @@ public class NamespaceAuditLog implements Serializable {
       if ((jsonObj.get("actor_kind") != null && !jsonObj.get("actor_kind").isJsonNull()) && !jsonObj.get("actor_kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actor_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actor_kind").toString()));
       }
-      // validate the required field `actor_location`
-      GeoIpLocation.validateJsonElement(jsonObj.get("actor_location"));
+      // validate the optional field `actor_location`
+      if (jsonObj.get("actor_location") != null && !jsonObj.get("actor_location").isJsonNull()) {
+        GeoIpLocation.validateJsonElement(jsonObj.get("actor_location"));
+      }
       if ((jsonObj.get("actor_slug_perm") != null && !jsonObj.get("actor_slug_perm").isJsonNull()) && !jsonObj.get("actor_slug_perm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actor_slug_perm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actor_slug_perm").toString()));
       }
       if ((jsonObj.get("actor_url") != null && !jsonObj.get("actor_url").isJsonNull()) && !jsonObj.get("actor_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actor_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actor_url").toString()));
       }
-      if (!jsonObj.get("context").isJsonPrimitive()) {
+      if ((jsonObj.get("context") != null && !jsonObj.get("context").isJsonNull()) && !jsonObj.get("context").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `context` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context").toString()));
       }
-      if (!jsonObj.get("event").isJsonPrimitive()) {
+      if ((jsonObj.get("event") != null && !jsonObj.get("event").isJsonNull()) && !jsonObj.get("event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event").toString()));
       }
-      if (!jsonObj.get("object").isJsonPrimitive()) {
+      if ((jsonObj.get("object") != null && !jsonObj.get("object").isJsonNull()) && !jsonObj.get("object").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `object` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object").toString()));
       }
-      if (!jsonObj.get("object_kind").isJsonPrimitive()) {
+      if ((jsonObj.get("object_kind") != null && !jsonObj.get("object_kind").isJsonNull()) && !jsonObj.get("object_kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `object_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object_kind").toString()));
       }
-      if (!jsonObj.get("object_slug_perm").isJsonPrimitive()) {
+      if ((jsonObj.get("object_slug_perm") != null && !jsonObj.get("object_slug_perm").isJsonNull()) && !jsonObj.get("object_slug_perm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `object_slug_perm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object_slug_perm").toString()));
       }
-      if (!jsonObj.get("target").isJsonPrimitive()) {
+      if ((jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull()) && !jsonObj.get("target").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
-      if (!jsonObj.get("target_kind").isJsonPrimitive()) {
+      if ((jsonObj.get("target_kind") != null && !jsonObj.get("target_kind").isJsonNull()) && !jsonObj.get("target_kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_kind").toString()));
       }
       if ((jsonObj.get("target_slug_perm") != null && !jsonObj.get("target_slug_perm").isJsonNull()) && !jsonObj.get("target_slug_perm").isJsonPrimitive()) {

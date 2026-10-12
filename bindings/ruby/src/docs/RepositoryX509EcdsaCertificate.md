@@ -13,7 +13,7 @@
 | **certificate_fingerprint_short** | **String** |  | [optional][readonly] |
 | **created_at** | **Time** |  | [optional][readonly] |
 | **default** | **Boolean** | If selected this is the default key for this repository. | [optional][readonly] |
-| **issuing_status** | **String** |  | [optional][default to &#39;Certificate is pending to be issued&#39;] |
+| **issuing_status** | **String** |  | [optional] |
 
 ## Example
 

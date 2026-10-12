@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**idpKey** | **String** |  |  |
-|**idpValue** | **String** |  |  |
-|**organization** | **String** |  |  |
+|**idpKey** | **String** |  |  [optional] |
+|**idpValue** | **String** |  |  [optional] |
+|**organization** | **String** |  |  [optional] |
 |**role** | **String** |  |  [optional] |
-|**team** | **String** |  |  |
+|**team** | **String** |  |  [optional] |
 
 
 ## Implemented Interfaces

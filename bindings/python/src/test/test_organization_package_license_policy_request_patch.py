@@ -37,10 +37,10 @@ class TestOrganizationPackageLicensePolicyRequestPatch(unittest.TestCase):
         if include_optional:
             return OrganizationPackageLicensePolicyRequestPatch(
                 allow_unknown_licenses = True,
-                description = '0',
-                name = '0',
+                description = '',
+                name = '',
                 on_violation_quarantine = True,
-                package_query_string = '0',
+                package_query_string = '',
                 spdx_identifiers = [
                     ''
                     ]

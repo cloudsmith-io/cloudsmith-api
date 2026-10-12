@@ -36,18 +36,16 @@ class TestDebPackageUploadRequest(unittest.TestCase):
         model = DebPackageUploadRequest()
         if include_optional:
             return DebPackageUploadRequest(
-                changes_file = '0',
-                component = 'main',
-                distribution = '0',
-                package_file = '0',
+                changes_file = '',
+                component = '',
+                distribution = '',
+                package_file = '',
                 republish = True,
-                sources_file = '0',
-                tags = '0'
+                sources_file = '',
+                tags = ''
             )
         else:
             return DebPackageUploadRequest(
-                distribution = '0',
-                package_file = '0',
         )
         """
 

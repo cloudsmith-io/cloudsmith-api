@@ -36,11 +36,10 @@ class TestRepositoryTokenSyncRequest(unittest.TestCase):
         model = RepositoryTokenSyncRequest()
         if include_optional:
             return RepositoryTokenSyncRequest(
-                source = '0'
+                source = ''
             )
         else:
             return RepositoryTokenSyncRequest(
-                source = '0',
         )
         """
 

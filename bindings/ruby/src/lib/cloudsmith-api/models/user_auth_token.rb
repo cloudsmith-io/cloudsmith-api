@@ -102,14 +102,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@token.nil? && @token.to_s.length < 1
-        invalid_properties.push('invalid value for "token", the character length must be greater than or equal to 1.')
-      end
-
-      if !@two_factor_token.nil? && @two_factor_token.to_s.length < 1
-        invalid_properties.push('invalid value for "two_factor_token", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -117,37 +109,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@token.nil? && @token.to_s.length < 1
-      return false if !@two_factor_token.nil? && @two_factor_token.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] token Value to be assigned
-    def token=(token)
-      if token.nil?
-        fail ArgumentError, 'token cannot be nil'
-      end
-
-      if token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "token", the character length must be greater than or equal to 1.'
-      end
-
-      @token = token
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] two_factor_token Value to be assigned
-    def two_factor_token=(two_factor_token)
-      if two_factor_token.nil?
-        fail ArgumentError, 'two_factor_token cannot be nil'
-      end
-
-      if two_factor_token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "two_factor_token", the character length must be greater than or equal to 1.'
-      end
-
-      @two_factor_token = two_factor_token
     end
 
     # Checks equality by comparing each attribute.

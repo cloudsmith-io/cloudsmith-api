@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **backend_kind** | **int** |  | [optional] 
-**count** | **int** |  | 
-**last_push** | **datetime** |  | 
+**count** | **int** |  | [optional] 
+**last_push** | **datetime** |  | [optional] 
 **name** | **str** |  | [optional] 
-**num_downloads** | **int** |  | 
-**size** | **int** |  | 
+**num_downloads** | **int** |  | [optional] 
+**size** | **int** |  | [optional] 
 
 ## Example
 

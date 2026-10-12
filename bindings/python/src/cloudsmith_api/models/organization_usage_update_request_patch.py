@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,8 +29,8 @@ class OrganizationUsageUpdateRequestPatch(BaseModel):
     OrganizationUsageUpdateRequestPatch
     """ # noqa: E501
     allow_open_source_overage: Optional[StrictBool] = None
-    bandwidth_overage_limit: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    storage_overage_limit: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    bandwidth_overage_limit: Optional[StrictInt] = None
+    storage_overage_limit: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["allow_open_source_overage", "bandwidth_overage_limit", "storage_overage_limit"]
 
     model_config = ConfigDict(

@@ -42,13 +42,13 @@ class TestPackageFile(unittest.TestCase):
                 checksum_sha256 = '',
                 checksum_sha512 = '',
                 downloads = 56,
-                filename = '0',
+                filename = '',
                 is_downloadable = True,
                 is_primary = True,
                 is_synchronised = True,
                 signature_url = '',
                 size = 56,
-                slug_perm = 'z0',
+                slug_perm = '',
                 tag = ''
             )
         else:

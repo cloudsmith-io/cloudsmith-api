@@ -28,7 +28,7 @@ class RepositoryTransferRegion(BaseModel):
     """
     RepositoryTransferRegion
     """ # noqa: E501
-    storage_region: Optional[StrictStr] = Field(default='default', description="The Cloudsmith region in which package files are stored.")
+    storage_region: Optional[StrictStr] = Field(default=None, description="The Cloudsmith region in which package files are stored.")
     __properties: ClassVar[List[str]] = ["storage_region"]
 
     model_config = ConfigDict(
@@ -82,7 +82,7 @@ class RepositoryTransferRegion(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "storage_region": obj.get("storage_region") if obj.get("storage_region") is not None else 'default'
+            "storage_region": obj.get("storage_region")
         })
         return _obj
 

@@ -36,13 +36,12 @@ class TestCocoapodsPackageUploadRequest(unittest.TestCase):
         model = CocoapodsPackageUploadRequest()
         if include_optional:
             return CocoapodsPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return CocoapodsPackageUploadRequest(
-                package_file = '0',
         )
         """
 

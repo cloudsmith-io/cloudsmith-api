@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.service_teams import ServiceTeams
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,9 +29,9 @@ class ServiceRequestPatch(BaseModel):
     """
     ServiceRequestPatch
     """ # noqa: E501
-    description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="The description of the service")
-    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=120)]] = Field(default=None, description="The name of the service")
-    role: Optional[StrictStr] = Field(default='Member', description="The role of the service.")
+    description: Optional[StrictStr] = Field(default=None, description="The description of the service")
+    name: Optional[StrictStr] = Field(default=None, description="The name of the service")
+    role: Optional[StrictStr] = Field(default=None, description="The role of the service.")
     teams: Optional[List[ServiceTeams]] = None
     __properties: ClassVar[List[str]] = ["description", "name", "role", "teams"]
 
@@ -95,7 +94,7 @@ class ServiceRequestPatch(BaseModel):
         _obj = cls.model_validate({
             "description": obj.get("description"),
             "name": obj.get("name"),
-            "role": obj.get("role") if obj.get("role") is not None else 'Member',
+            "role": obj.get("role"),
             "teams": [ServiceTeams.from_dict(_item) for _item in obj["teams"]] if obj.get("teams") is not None else None
         })
         return _obj

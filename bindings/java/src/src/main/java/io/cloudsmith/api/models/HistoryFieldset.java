@@ -58,23 +58,23 @@ public class HistoryFieldset implements Serializable {
 
   public static final String SERIALIZED_NAME_DOWNLOADED = "downloaded";
   @SerializedName(SERIALIZED_NAME_DOWNLOADED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Usage downloaded;
 
   public static final String SERIALIZED_NAME_STORAGE_USED = "storage_used";
   @SerializedName(SERIALIZED_NAME_STORAGE_USED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private StorageUsage storageUsed;
 
   public static final String SERIALIZED_NAME_UPLOADED = "uploaded";
   @SerializedName(SERIALIZED_NAME_UPLOADED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Usage uploaded;
 
   public HistoryFieldset() {
   }
 
-  public HistoryFieldset downloaded(@javax.annotation.Nonnull Usage downloaded) {
+  public HistoryFieldset downloaded(@javax.annotation.Nullable Usage downloaded) {
     this.downloaded = downloaded;
     return this;
   }
@@ -83,17 +83,17 @@ public class HistoryFieldset implements Serializable {
    * Get downloaded
    * @return downloaded
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Usage getDownloaded() {
     return downloaded;
   }
 
-  public void setDownloaded(@javax.annotation.Nonnull Usage downloaded) {
+  public void setDownloaded(@javax.annotation.Nullable Usage downloaded) {
     this.downloaded = downloaded;
   }
 
 
-  public HistoryFieldset storageUsed(@javax.annotation.Nonnull StorageUsage storageUsed) {
+  public HistoryFieldset storageUsed(@javax.annotation.Nullable StorageUsage storageUsed) {
     this.storageUsed = storageUsed;
     return this;
   }
@@ -102,17 +102,17 @@ public class HistoryFieldset implements Serializable {
    * Get storageUsed
    * @return storageUsed
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public StorageUsage getStorageUsed() {
     return storageUsed;
   }
 
-  public void setStorageUsed(@javax.annotation.Nonnull StorageUsage storageUsed) {
+  public void setStorageUsed(@javax.annotation.Nullable StorageUsage storageUsed) {
     this.storageUsed = storageUsed;
   }
 
 
-  public HistoryFieldset uploaded(@javax.annotation.Nonnull Usage uploaded) {
+  public HistoryFieldset uploaded(@javax.annotation.Nullable Usage uploaded) {
     this.uploaded = uploaded;
     return this;
   }
@@ -121,12 +121,12 @@ public class HistoryFieldset implements Serializable {
    * Get uploaded
    * @return uploaded
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Usage getUploaded() {
     return uploaded;
   }
 
-  public void setUploaded(@javax.annotation.Nonnull Usage uploaded) {
+  public void setUploaded(@javax.annotation.Nullable Usage uploaded) {
     this.uploaded = uploaded;
   }
 
@@ -179,7 +179,7 @@ public class HistoryFieldset implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("downloaded", "storage_used", "uploaded"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("downloaded", "storage_used", "uploaded"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -202,20 +202,19 @@ public class HistoryFieldset implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HistoryFieldset` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : HistoryFieldset.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `downloaded`
-      Usage.validateJsonElement(jsonObj.get("downloaded"));
-      // validate the required field `storage_used`
-      StorageUsage.validateJsonElement(jsonObj.get("storage_used"));
-      // validate the required field `uploaded`
-      Usage.validateJsonElement(jsonObj.get("uploaded"));
+      // validate the optional field `downloaded`
+      if (jsonObj.get("downloaded") != null && !jsonObj.get("downloaded").isJsonNull()) {
+        Usage.validateJsonElement(jsonObj.get("downloaded"));
+      }
+      // validate the optional field `storage_used`
+      if (jsonObj.get("storage_used") != null && !jsonObj.get("storage_used").isJsonNull()) {
+        StorageUsage.validateJsonElement(jsonObj.get("storage_used"));
+      }
+      // validate the optional field `uploaded`
+      if (jsonObj.get("uploaded") != null && !jsonObj.get("uploaded").isJsonNull()) {
+        Usage.validateJsonElement(jsonObj.get("uploaded"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

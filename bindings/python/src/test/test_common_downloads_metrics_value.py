@@ -40,7 +40,6 @@ class TestCommonDownloadsMetricsValue(unittest.TestCase):
             )
         else:
             return CommonDownloadsMetricsValue(
-                value = 56,
         )
         """
 

@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,11 +28,11 @@ class NixPackageUploadRequest(BaseModel):
     """
     NixPackageUploadRequest
     """ # noqa: E501
-    narinfo_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
+    narinfo_file: Optional[StrictStr] = Field(default=None, description="The narinfo sidecar metadata file (<storeHash>.narinfo). Optional — the package can be completed later by publishing the matching narinfo via the native HTTP PUT path.")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
-    version: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The raw version for this package.")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    version: Optional[StrictStr] = Field(default=None, description="The raw version for this package.")
     __properties: ClassVar[List[str]] = ["narinfo_file", "package_file", "republish", "tags", "version"]
 
     model_config = ConfigDict(

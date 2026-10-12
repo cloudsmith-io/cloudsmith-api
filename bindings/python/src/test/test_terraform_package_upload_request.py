@@ -36,13 +36,12 @@ class TestTerraformPackageUploadRequest(unittest.TestCase):
         model = TerraformPackageUploadRequest()
         if include_optional:
             return TerraformPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return TerraformPackageUploadRequest(
-                package_file = '0',
         )
         """
 

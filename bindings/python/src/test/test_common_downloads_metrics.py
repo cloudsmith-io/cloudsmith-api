@@ -47,14 +47,6 @@ class TestCommonDownloadsMetrics(unittest.TestCase):
             )
         else:
             return CommonDownloadsMetrics(
-                average = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                    value = 56, ),
-                highest = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                    value = 56, ),
-                lowest = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                    value = 56, ),
-                total = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                    value = 56, ),
         )
         """
 

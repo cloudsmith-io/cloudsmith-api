@@ -36,7 +36,7 @@ end
 api_instance = CloudsmithApi::RecycleBinApi.new
 owner = 'owner_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageRecycleBin.new({action: 'action_example', identifiers: ['identifiers_example']}) # PackageRecycleBin | 
+  data: CloudsmithApi::PackageRecycleBin.new # PackageRecycleBin | 
 }
 
 begin

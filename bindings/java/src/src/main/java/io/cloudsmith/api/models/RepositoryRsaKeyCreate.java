@@ -61,7 +61,7 @@ public class RepositoryRsaKeyCreate implements Serializable {
 
   public static final String SERIALIZED_NAME_RSA_PRIVATE_KEY = "rsa_private_key";
   @SerializedName(SERIALIZED_NAME_RSA_PRIVATE_KEY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String rsaPrivateKey;
 
   public RepositoryRsaKeyCreate() {
@@ -86,7 +86,7 @@ public class RepositoryRsaKeyCreate implements Serializable {
   }
 
 
-  public RepositoryRsaKeyCreate rsaPrivateKey(@javax.annotation.Nonnull String rsaPrivateKey) {
+  public RepositoryRsaKeyCreate rsaPrivateKey(@javax.annotation.Nullable String rsaPrivateKey) {
     this.rsaPrivateKey = rsaPrivateKey;
     return this;
   }
@@ -95,12 +95,12 @@ public class RepositoryRsaKeyCreate implements Serializable {
    * The RSA private key.
    * @return rsaPrivateKey
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getRsaPrivateKey() {
     return rsaPrivateKey;
   }
 
-  public void setRsaPrivateKey(@javax.annotation.Nonnull String rsaPrivateKey) {
+  public void setRsaPrivateKey(@javax.annotation.Nullable String rsaPrivateKey) {
     this.rsaPrivateKey = rsaPrivateKey;
   }
 
@@ -151,7 +151,7 @@ public class RepositoryRsaKeyCreate implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("rsa_passphrase", "rsa_private_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("rsa_private_key"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class RepositoryRsaKeyCreate implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryRsaKeyCreate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryRsaKeyCreate.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("rsa_passphrase") != null && !jsonObj.get("rsa_passphrase").isJsonNull()) && !jsonObj.get("rsa_passphrase").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rsa_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rsa_passphrase").toString()));
       }
-      if (!jsonObj.get("rsa_private_key").isJsonPrimitive()) {
+      if ((jsonObj.get("rsa_private_key") != null && !jsonObj.get("rsa_private_key").isJsonNull()) && !jsonObj.get("rsa_private_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rsa_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rsa_private_key").toString()));
       }
   }

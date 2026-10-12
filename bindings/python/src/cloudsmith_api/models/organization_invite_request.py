@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.organization_team_invite import OrganizationTeamInvite
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,10 +29,10 @@ class OrganizationInviteRequest(BaseModel):
     """
     OrganizationInviteRequest
     """ # noqa: E501
-    email: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The email of the user to be invited.")
-    role: Optional[StrictStr] = Field(default='Member', description="The role to be assigned to the invited user.")
+    email: Optional[StrictStr] = Field(default=None, description="The email of the user to be invited.")
+    role: Optional[StrictStr] = Field(default=None, description="The role to be assigned to the invited user.")
     teams: Optional[List[OrganizationTeamInvite]] = None
-    user: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug of the user to be invited.")
+    user: Optional[StrictStr] = Field(default=None, description="The slug of the user to be invited.")
     __properties: ClassVar[List[str]] = ["email", "role", "teams", "user"]
 
     model_config = ConfigDict(
@@ -94,7 +93,7 @@ class OrganizationInviteRequest(BaseModel):
 
         _obj = cls.model_validate({
             "email": obj.get("email"),
-            "role": obj.get("role") if obj.get("role") is not None else 'Member',
+            "role": obj.get("role"),
             "teams": [OrganizationTeamInvite.from_dict(_item) for _item in obj["teams"]] if obj.get("teams") is not None else None,
             "user": obj.get("user")
         })

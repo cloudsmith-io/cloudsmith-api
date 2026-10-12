@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allow** | **List[str]** | The allowed CIDRs for this repository | 
-**deny** | **List[str]** | The denied CIDRs for this repository | 
+**allow** | **List[str]** | The allowed CIDRs for this repository | [optional] 
+**deny** | **List[str]** | The denied CIDRs for this repository | [optional] 
 
 ## Example
 

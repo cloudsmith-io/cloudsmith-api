@@ -39,18 +39,12 @@ class TestOrganizationTeamMembers(unittest.TestCase):
                 members = [
                     cloudsmith_api.models.organization_team_service_member.OrganizationTeamServiceMember(
                         role = '', 
-                        user = '0', 
-                        user_kind = 'User', )
+                        user = '', 
+                        user_kind = '', )
                     ]
             )
         else:
             return OrganizationTeamMembers(
-                members = [
-                    cloudsmith_api.models.organization_team_service_member.OrganizationTeamServiceMember(
-                        role = '', 
-                        user = '0', 
-                        user_kind = 'User', )
-                    ],
         )
         """
 

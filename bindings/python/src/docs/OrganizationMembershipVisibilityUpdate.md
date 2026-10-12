@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **has_two_factor** | **bool** |  | [optional] [readonly] 
 **joined_at** | **datetime** |  | [optional] [readonly] 
 **last_login_at** | **datetime** |  | [optional] [readonly] 
-**last_login_method** | **str** |  | [optional] [readonly] [default to 'Unknown']
-**role** | **str** |  | [optional] [readonly] [default to 'Owner']
+**last_login_method** | **str** |  | [optional] [readonly] 
+**role** | **str** |  | [optional] [readonly] 
 **user** | **str** |  | [optional] [readonly] 
 **user_id** | **str** |  | [optional] [readonly] 
 **user_name** | **str** |  | [optional] [readonly] 
 **user_url** | **str** |  | [optional] [readonly] 
-**visibility** | **str** |  | [optional] [default to 'Public']
+**visibility** | **str** |  | [optional] 
 
 ## Example
 

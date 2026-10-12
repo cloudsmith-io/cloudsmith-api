@@ -143,18 +143,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@mapping_claim.nil? && @mapping_claim.to_s.length < 1
-        invalid_properties.push('invalid value for "mapping_claim", the character length must be greater than or equal to 1.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@provider_url.nil? && @provider_url.to_s.length < 1
-        invalid_properties.push('invalid value for "provider_url", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -162,48 +150,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@mapping_claim.nil? && @mapping_claim.to_s.length < 1
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@provider_url.nil? && @provider_url.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] mapping_claim Value to be assigned
-    def mapping_claim=(mapping_claim)
-      if !mapping_claim.nil? && mapping_claim.to_s.length < 1
-        fail ArgumentError, 'invalid value for "mapping_claim", the character length must be greater than or equal to 1.'
-      end
-
-      @mapping_claim = mapping_claim
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] provider_url Value to be assigned
-    def provider_url=(provider_url)
-      if provider_url.nil?
-        fail ArgumentError, 'provider_url cannot be nil'
-      end
-
-      if provider_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "provider_url", the character length must be greater than or equal to 1.'
-      end
-
-      @provider_url = provider_url
     end
 
     # Custom attribute writer method with validation

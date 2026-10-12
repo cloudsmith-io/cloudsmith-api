@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **enabled** | **bool** | If checked, the domain is enabled. | [optional] [readonly] 
 **host** | **str** |  | [optional] [readonly] 
 **namespace** | **int** |  | [optional] [readonly] 
-**primary** | **bool** | If checked, this domain is the preferred/primary domain in the case that there are other overlapping domains (e.g. for the same repository, package format, etc.) | [optional] [readonly] [default to True]
+**primary** | **bool** | If checked, this domain is the preferred/primary domain in the case that there are other overlapping domains (e.g. for the same repository, package format, etc.) | [optional] [readonly] 
 **redirect_root** | **bool** | If checked, the domain root redirects to the repository. | [optional] [readonly] 
 **redirect_root_url** | **str** | Where root requests should be redirected to if redirect_root is enabled. | [optional] [readonly] 
-**repository** | [**OrganizationCustomDomainNestedRepo**](OrganizationCustomDomainNestedRepo.md) |  | 
+**repository** | [**OrganizationCustomDomainNestedRepo**](OrganizationCustomDomainNestedRepo.md) |  | [optional] 
 **repository_only** | **bool** | If checked, the domain applies to a specific repository only. | [optional] [readonly] 
 **slug_perm** | **str** |  | [optional] [readonly] 
 **validated** | **bool** | If validated, the domain is ready for requests. | [optional] [readonly] 

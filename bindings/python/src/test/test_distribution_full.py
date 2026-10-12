@@ -36,21 +36,20 @@ class TestDistributionFull(unittest.TestCase):
         model = DistributionFull()
         if include_optional:
             return DistributionFull(
-                format = '0',
+                format = '',
                 format_url = '',
-                name = '0',
+                name = '',
                 self_url = '',
-                slug = '0',
+                slug = '',
                 variants = '',
                 versions = [
                     cloudsmith_api.models.distribution_version.DistributionVersion(
                         name = '', 
-                        slug = '0', )
+                        slug = '', )
                     ]
             )
         else:
             return DistributionFull(
-                name = '0',
         )
         """
 

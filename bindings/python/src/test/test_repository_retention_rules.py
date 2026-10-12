@@ -36,14 +36,14 @@ class TestRepositoryRetentionRules(unittest.TestCase):
         model = RepositoryRetentionRules()
         if include_optional:
             return RepositoryRetentionRules(
-                retention_count_limit = 0,
-                retention_days_limit = 0,
+                retention_count_limit = 56,
+                retention_days_limit = 56,
                 retention_enabled = True,
                 retention_group_by_format = True,
                 retention_group_by_name = True,
                 retention_group_by_package_type = True,
                 retention_package_query_string = '',
-                retention_size_limit = 0
+                retention_size_limit = 56
             )
         else:
             return RepositoryRetentionRules(

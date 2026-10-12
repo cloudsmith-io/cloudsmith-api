@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.organization_custom_domain_nested_repo import OrganizationCustomDomainNestedRepo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -39,27 +38,17 @@ class OrganizationCustomDomains(BaseModel):
     dns_cert_value: Optional[StrictStr] = Field(default=None, description="The CNAME value to use to allow us to generate a TLS cert.")
     domain_type: Optional[StrictInt] = Field(default=None, description="The type for the custom domain.")
     enabled: Optional[StrictBool] = Field(default=None, description="If checked, the domain is enabled.")
-    host: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    host: Optional[StrictStr] = None
     namespace: Optional[StrictInt] = None
-    primary: Optional[StrictBool] = Field(default=True, description="If checked, this domain is the preferred/primary domain in the case that there are other overlapping domains (e.g. for the same repository, package format, etc.)")
+    primary: Optional[StrictBool] = Field(default=None, description="If checked, this domain is the preferred/primary domain in the case that there are other overlapping domains (e.g. for the same repository, package format, etc.)")
     redirect_root: Optional[StrictBool] = Field(default=None, description="If checked, the domain root redirects to the repository.")
     redirect_root_url: Optional[StrictStr] = Field(default=None, description="Where root requests should be redirected to if redirect_root is enabled.")
-    repository: OrganizationCustomDomainNestedRepo
+    repository: Optional[OrganizationCustomDomainNestedRepo] = None
     repository_only: Optional[StrictBool] = Field(default=None, description="If checked, the domain applies to a specific repository only.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    slug_perm: Optional[StrictStr] = None
     validated: Optional[StrictBool] = Field(default=None, description="If validated, the domain is ready for requests.")
     validated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["backend_kind", "created_at", "created_by", "dns_alias_value", "dns_cert_name", "dns_cert_value", "domain_type", "enabled", "host", "namespace", "primary", "redirect_root", "redirect_root_url", "repository", "repository_only", "slug_perm", "validated", "validated_at"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -189,7 +178,7 @@ class OrganizationCustomDomains(BaseModel):
             "enabled": obj.get("enabled"),
             "host": obj.get("host"),
             "namespace": obj.get("namespace"),
-            "primary": obj.get("primary") if obj.get("primary") is not None else True,
+            "primary": obj.get("primary"),
             "redirect_root": obj.get("redirect_root"),
             "redirect_root_url": obj.get("redirect_root_url"),
             "repository": OrganizationCustomDomainNestedRepo.from_dict(obj["repository"]) if obj.get("repository") is not None else None,

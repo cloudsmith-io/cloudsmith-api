@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.repository_geo_ip_cidr import RepositoryGeoIpCidr
 from cloudsmith_api.models.repository_geo_ip_country_code import RepositoryGeoIpCountryCode
 from typing import Optional, Set
@@ -30,8 +30,8 @@ class RepositoryGeoIpRules(BaseModel):
     """
     RepositoryGeoIpRules
     """ # noqa: E501
-    cidr: RepositoryGeoIpCidr
-    country_code: RepositoryGeoIpCountryCode
+    cidr: Optional[RepositoryGeoIpCidr] = None
+    country_code: Optional[RepositoryGeoIpCountryCode] = None
     __properties: ClassVar[List[str]] = ["cidr", "country_code"]
 
     model_config = ConfigDict(

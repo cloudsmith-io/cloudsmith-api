@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.webhook_template import WebhookTemplate
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,53 +31,33 @@ class RepositoryWebhook(BaseModel):
     RepositoryWebhook
     """ # noqa: E501
     created_at: Optional[datetime] = None
-    created_by: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    created_by: Optional[StrictStr] = None
     created_by_url: Optional[StrictStr] = None
     disable_reason: Optional[StrictInt] = None
-    disable_reason_str: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    events: Optional[List[StrictStr]]
+    disable_reason_str: Optional[StrictStr] = None
+    events: Optional[List[StrictStr]] = None
     identifier: Optional[StrictInt] = Field(default=None, description="Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified a webhook request within a repository.")
     is_active: Optional[StrictBool] = Field(default=None, description="If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.")
     is_last_response_bad: Optional[StrictBool] = None
     last_response_status: Optional[StrictInt] = None
-    last_response_status_str: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    last_response_status_str: Optional[StrictStr] = None
     num_sent: Optional[StrictInt] = None
-    package_query: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
+    package_query: Optional[StrictStr] = Field(default=None, description="The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
     request_body_format: Optional[StrictInt] = Field(default=None, description="The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.")
-    request_body_format_str: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    request_body_format_str: Optional[StrictStr] = None
     request_body_template_format: Optional[StrictInt] = Field(default=None, description="The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.")
-    request_body_template_format_str: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    request_content_type: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value that will be sent for the 'Content Type' header. ")
-    secret_header: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.")
+    request_body_template_format_str: Optional[StrictStr] = None
+    request_content_type: Optional[StrictStr] = Field(default=None, description="The value that will be sent for the 'Content Type' header. ")
+    secret_header: Optional[StrictStr] = Field(default=None, description="The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.")
     self_url: Optional[StrictStr] = None
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    target_url: Annotated[str, Field(min_length=1, strict=True, max_length=2000)] = Field(description="The destination URL that webhook payloads will be POST'ed to.")
-    templates: Optional[List[Optional[WebhookTemplate]]]
+    slug_perm: Optional[StrictStr] = None
+    target_url: Optional[StrictStr] = Field(default=None, description="The destination URL that webhook payloads will be POST'ed to.")
+    templates: Optional[List[Optional[WebhookTemplate]]] = None
     updated_at: Optional[datetime] = None
-    updated_by: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    updated_by: Optional[StrictStr] = None
     updated_by_url: Optional[StrictStr] = None
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.")
     __properties: ClassVar[List[str]] = ["created_at", "created_by", "created_by_url", "disable_reason", "disable_reason_str", "events", "identifier", "is_active", "is_last_response_bad", "last_response_status", "last_response_status_str", "num_sent", "package_query", "request_body_format", "request_body_format_str", "request_body_template_format", "request_body_template_format_str", "request_content_type", "secret_header", "self_url", "slug_perm", "target_url", "templates", "updated_at", "updated_by", "updated_by_url", "verify_ssl"]
-
-    @field_validator('secret_header', mode="before")
-    def secret_header_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

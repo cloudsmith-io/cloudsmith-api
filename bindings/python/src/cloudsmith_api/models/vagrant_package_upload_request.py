@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,12 +28,12 @@ class VagrantPackageUploadRequest(BaseModel):
     """
     VagrantPackageUploadRequest
     """ # noqa: E501
-    name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="The name of this package.")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
-    provider: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The virtual machine provider for the box.")
+    name: Optional[StrictStr] = Field(default=None, description="The name of this package.")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
+    provider: Optional[StrictStr] = Field(default=None, description="The virtual machine provider for the box.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
-    version: Annotated[str, Field(strict=True, max_length=255)] = Field(description="The raw version for this package.")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    version: Optional[StrictStr] = Field(default=None, description="The raw version for this package.")
     __properties: ClassVar[List[str]] = ["name", "package_file", "provider", "republish", "tags", "version"]
 
     model_config = ConfigDict(

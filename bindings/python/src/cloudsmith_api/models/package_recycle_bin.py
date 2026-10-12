@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class PackageRecycleBin(BaseModel):
     """
     PackageRecycleBin
     """ # noqa: E501
-    action: StrictStr = Field(description="The action to perform on soft-deleted packages.")
-    identifiers: Annotated[List[Annotated[str, Field(min_length=1, strict=True, max_length=255)]], Field(min_length=1, max_length=100)] = Field(description="A list of soft-deleted package identifiers to action.")
-    repository: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The repository name to filter packages to. If not provided, the action will be performed across all accessible repositories in the workspace.")
+    action: Optional[StrictStr] = Field(default=None, description="The action to perform on soft-deleted packages.")
+    identifiers: Optional[List[StrictStr]] = Field(default=None, description="A list of soft-deleted package identifiers to action.")
+    repository: Optional[StrictStr] = Field(default=None, description="The repository name to filter packages to. If not provided, the action will be performed across all accessible repositories in the workspace.")
     __properties: ClassVar[List[str]] = ["action", "identifiers", "repository"]
 
     model_config = ConfigDict(

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addresses** | [**List[RepositoryGeoIpTestAddressResponseDict]**](RepositoryGeoIpTestAddressResponseDict.md) | The IP address test results ordered by allowed | 
+**addresses** | [**List[RepositoryGeoIpTestAddressResponseDict]**](RepositoryGeoIpTestAddressResponseDict.md) | The IP address test results ordered by allowed | [optional] 
 
 ## Example
 

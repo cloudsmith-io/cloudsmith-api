@@ -56,7 +56,7 @@ public class BroadcastTokenInput implements Serializable {
 
   public static final String SERIALIZED_NAME_ENTITLEMENT_TOKEN = "entitlement_token";
   @SerializedName(SERIALIZED_NAME_ENTITLEMENT_TOKEN)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String entitlementToken;
 
   public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
@@ -67,7 +67,7 @@ public class BroadcastTokenInput implements Serializable {
   public BroadcastTokenInput() {
   }
 
-  public BroadcastTokenInput entitlementToken(@javax.annotation.Nonnull String entitlementToken) {
+  public BroadcastTokenInput entitlementToken(@javax.annotation.Nullable String entitlementToken) {
     this.entitlementToken = entitlementToken;
     return this;
   }
@@ -76,12 +76,12 @@ public class BroadcastTokenInput implements Serializable {
    * Repository entitlement token used to authorize the creation of a broadcast token
    * @return entitlementToken
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getEntitlementToken() {
     return entitlementToken;
   }
 
-  public void setEntitlementToken(@javax.annotation.Nonnull String entitlementToken) {
+  public void setEntitlementToken(@javax.annotation.Nullable String entitlementToken) {
     this.entitlementToken = entitlementToken;
   }
 
@@ -93,7 +93,6 @@ public class BroadcastTokenInput implements Serializable {
 
   /**
    * Token expiry time in seconds (optional, defaults to 3600 seconds)
-   * minimum: 1
    * @return expiresIn
    */
   @javax.annotation.Nullable
@@ -152,7 +151,7 @@ public class BroadcastTokenInput implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("entitlement_token", "expires_in"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("entitlement_token"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -175,15 +174,8 @@ public class BroadcastTokenInput implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BroadcastTokenInput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BroadcastTokenInput.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("entitlement_token").isJsonPrimitive()) {
+      if ((jsonObj.get("entitlement_token") != null && !jsonObj.get("entitlement_token").isJsonNull()) && !jsonObj.get("entitlement_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entitlement_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entitlement_token").toString()));
       }
   }

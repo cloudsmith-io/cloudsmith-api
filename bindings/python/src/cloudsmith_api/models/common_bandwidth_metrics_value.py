@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class CommonBandwidthMetricsValue(BaseModel):
     """
     Average bandwidth usage in the specified period, e.g. a day
     """ # noqa: E501
-    display: Annotated[str, Field(min_length=1, strict=True, max_length=64)] = Field(description="Bandwidth usage value")
-    units: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default='bytes', description="Unit of measurement e.g. bytes")
-    value: StrictInt = Field(description="Human readable version of display value")
+    display: Optional[StrictStr] = Field(default=None, description="Bandwidth usage value")
+    units: Optional[StrictStr] = Field(default=None, description="Unit of measurement e.g. bytes")
+    value: Optional[StrictInt] = Field(default=None, description="Human readable version of display value")
     __properties: ClassVar[List[str]] = ["display", "units", "value"]
 
     model_config = ConfigDict(
@@ -86,7 +85,7 @@ class CommonBandwidthMetricsValue(BaseModel):
 
         _obj = cls.model_validate({
             "display": obj.get("display"),
-            "units": obj.get("units") if obj.get("units") is not None else 'bytes',
+            "units": obj.get("units"),
             "value": obj.get("value")
         })
         return _obj

@@ -57,13 +57,13 @@ public class Quota implements Serializable {
 
   public static final String SERIALIZED_NAME_USAGE = "usage";
   @SerializedName(SERIALIZED_NAME_USAGE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private UsageFieldset usage;
 
   public Quota() {
   }
 
-  public Quota usage(@javax.annotation.Nonnull UsageFieldset usage) {
+  public Quota usage(@javax.annotation.Nullable UsageFieldset usage) {
     this.usage = usage;
     return this;
   }
@@ -72,12 +72,12 @@ public class Quota implements Serializable {
    * Get usage
    * @return usage
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public UsageFieldset getUsage() {
     return usage;
   }
 
-  public void setUsage(@javax.annotation.Nonnull UsageFieldset usage) {
+  public void setUsage(@javax.annotation.Nullable UsageFieldset usage) {
     this.usage = usage;
   }
 
@@ -126,7 +126,7 @@ public class Quota implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("usage"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("usage"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -149,16 +149,11 @@ public class Quota implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Quota` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Quota.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `usage`
-      UsageFieldset.validateJsonElement(jsonObj.get("usage"));
+      // validate the optional field `usage`
+      if (jsonObj.get("usage") != null && !jsonObj.get("usage").isJsonNull()) {
+        UsageFieldset.validateJsonElement(jsonObj.get("usage"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

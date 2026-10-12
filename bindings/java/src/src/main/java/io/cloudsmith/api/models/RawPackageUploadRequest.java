@@ -72,7 +72,7 @@ public class RawPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_REPUBLISH = "republish";
@@ -155,7 +155,7 @@ public class RawPackageUploadRequest implements Serializable {
   }
 
 
-  public RawPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public RawPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -164,12 +164,12 @@ public class RawPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -319,7 +319,7 @@ public class RawPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("content_type", "description", "name", "package_file", "republish", "summary", "tags", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("package_file"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -342,13 +342,6 @@ public class RawPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RawPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RawPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("content_type") != null && !jsonObj.get("content_type").isJsonNull()) && !jsonObj.get("content_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `content_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content_type").toString()));
@@ -359,7 +352,7 @@ public class RawPackageUploadRequest implements Serializable {
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("summary") != null && !jsonObj.get("summary").isJsonNull()) && !jsonObj.get("summary").isJsonPrimitive()) {

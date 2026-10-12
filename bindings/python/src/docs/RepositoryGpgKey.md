@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** | If selected this is the active key for this repository. | [optional] [readonly] 
-**comment** | **str** |  | 
+**comment** | **str** |  | [optional] 
 **created_at** | **datetime** |  | [optional] [readonly] 
 **default** | **bool** | If selected this is the default key for this repository. | [optional] [readonly] 
 **fingerprint** | **str** | The long identifier used by GPG for this key. | [optional] [readonly] 

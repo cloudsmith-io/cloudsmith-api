@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**destination** | **str** | The name of the destination repository without the namespace. | 
+**destination** | **str** | The name of the destination repository without the namespace. | [optional] 
 
 ## Example
 

@@ -94,8 +94,6 @@ public class Eula implements Serializable {
 
   /**
    * A sequential identifier that increments by one for each new commit in a repository.
-   * minimum: 0
-   * maximum: 2147483647
    * @return number
    */
   @javax.annotation.Nullable

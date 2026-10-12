@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**privileges** | [**List[RepositoryPrivilegeDict]**](RepositoryPrivilegeDict.md) | List of objects with explicit privileges to the repository. | 
+**privileges** | [**List[RepositoryPrivilegeDict]**](RepositoryPrivilegeDict.md) | List of objects with explicit privileges to the repository. | [optional] 
 
 ## Example
 

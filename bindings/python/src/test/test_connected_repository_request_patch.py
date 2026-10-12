@@ -37,8 +37,8 @@ class TestConnectedRepositoryRequestPatch(unittest.TestCase):
         if include_optional:
             return ConnectedRepositoryRequestPatch(
                 is_active = True,
-                priority = 1,
-                target_repository = 'z'
+                priority = 56,
+                target_repository = ''
             )
         else:
             return ConnectedRepositoryRequestPatch(

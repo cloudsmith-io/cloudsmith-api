@@ -36,23 +36,19 @@ class TestConanPackageUploadRequest(unittest.TestCase):
         model = ConanPackageUploadRequest()
         if include_optional:
             return ConanPackageUploadRequest(
-                conan_channel = '0',
-                conan_prefix = '0',
-                info_file = '0',
-                manifest_file = '0',
-                metadata_file = '0',
+                conan_channel = '',
+                conan_prefix = '',
+                info_file = '',
+                manifest_file = '',
+                metadata_file = '',
                 name = '',
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0',
+                tags = '',
                 version = ''
             )
         else:
             return ConanPackageUploadRequest(
-                info_file = '0',
-                manifest_file = '0',
-                metadata_file = '0',
-                package_file = '0',
         )
         """
 

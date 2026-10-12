@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **allow_unknown_licenses** | **bool** |  | [optional] 
 **created_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str** |  | [optional] 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **on_violation_quarantine** | **bool** |  | [optional] 
 **package_query_string** | **str** |  | [optional] 
 **slug_perm** | **str** |  | [optional] [readonly] 
-**spdx_identifiers** | **List[str]** |  | 
+**spdx_identifiers** | **List[str]** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 
 ## Example

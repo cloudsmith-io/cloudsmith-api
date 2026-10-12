@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.distribution import Distribution
 from cloudsmith_api.models.format_support import FormatSupport
 from typing import Optional, Set
@@ -31,15 +30,15 @@ class Format(BaseModel):
     """
     Format
     """ # noqa: E501
-    description: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Description of the package format")
+    description: Optional[StrictStr] = Field(default=None, description="Description of the package format")
     distributions: Optional[List[Optional[Distribution]]] = Field(default=None, description="The distributions supported by this package format")
-    extensions: List[Annotated[str, Field(min_length=1, strict=True)]] = Field(description="A non-exhaustive list of extensions supported")
-    name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Name for the package format")
-    premium: StrictBool = Field(description="If true the package format is a premium-only feature")
-    premium_plan_id: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The minimum plan id required for this package format")
-    premium_plan_name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The minimum plan name required for this package format")
-    slug: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Slug for the package format")
-    supports: FormatSupport
+    extensions: Optional[List[StrictStr]] = Field(default=None, description="A non-exhaustive list of extensions supported")
+    name: Optional[StrictStr] = Field(default=None, description="Name for the package format")
+    premium: Optional[StrictBool] = Field(default=None, description="If true the package format is a premium-only feature")
+    premium_plan_id: Optional[StrictStr] = Field(default=None, description="The minimum plan id required for this package format")
+    premium_plan_name: Optional[StrictStr] = Field(default=None, description="The minimum plan name required for this package format")
+    slug: Optional[StrictStr] = Field(default=None, description="Slug for the package format")
+    supports: Optional[FormatSupport] = None
     __properties: ClassVar[List[str]] = ["description", "distributions", "extensions", "name", "premium", "premium_plan_id", "premium_plan_name", "slug", "supports"]
 
     model_config = ConfigDict(

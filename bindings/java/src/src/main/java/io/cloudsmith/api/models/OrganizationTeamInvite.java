@@ -57,11 +57,11 @@ public class OrganizationTeamInvite implements Serializable {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Member";
+  private String role;
 
   public static final String SERIALIZED_NAME_TEAM = "team";
   @SerializedName(SERIALIZED_NAME_TEAM)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String team;
 
   public OrganizationTeamInvite() {
@@ -86,7 +86,7 @@ public class OrganizationTeamInvite implements Serializable {
   }
 
 
-  public OrganizationTeamInvite team(@javax.annotation.Nonnull String team) {
+  public OrganizationTeamInvite team(@javax.annotation.Nullable String team) {
     this.team = team;
     return this;
   }
@@ -95,12 +95,12 @@ public class OrganizationTeamInvite implements Serializable {
    * The team identifier (slug).
    * @return team
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTeam() {
     return team;
   }
 
-  public void setTeam(@javax.annotation.Nonnull String team) {
+  public void setTeam(@javax.annotation.Nullable String team) {
     this.team = team;
   }
 
@@ -151,7 +151,7 @@ public class OrganizationTeamInvite implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("role", "team"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("team"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class OrganizationTeamInvite implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationTeamInvite` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrganizationTeamInvite.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
-      if (!jsonObj.get("team").isJsonPrimitive()) {
+      if ((jsonObj.get("team") != null && !jsonObj.get("team").isJsonNull()) && !jsonObj.get("team").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `team` to be a primitive type in the JSON string but got `%s`", jsonObj.get("team").toString()));
       }
   }

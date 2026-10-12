@@ -10,11 +10,11 @@
 |**allowUnknownLicenses** | **Boolean** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] [readonly] |
 |**description** | **String** |  |  [optional] |
-|**name** | **String** |  |  |
+|**name** | **String** |  |  [optional] |
 |**onViolationQuarantine** | **Boolean** |  |  [optional] |
 |**packageQueryString** | **String** |  |  [optional] |
 |**slugPerm** | **String** |  |  [optional] [readonly] |
-|**spdxIdentifiers** | **Set&lt;String&gt;** |  |  |
+|**spdxIdentifiers** | **Set&lt;String&gt;** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] [readonly] |
 
 

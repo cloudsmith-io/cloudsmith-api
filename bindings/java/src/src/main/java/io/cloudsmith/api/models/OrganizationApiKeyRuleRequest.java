@@ -77,7 +77,7 @@ public class OrganizationApiKeyRuleRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_RULE_TYPE = "rule_type";
   @SerializedName(SERIALIZED_NAME_RULE_TYPE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String ruleType;
 
   public OrganizationApiKeyRuleRequest() {
@@ -128,8 +128,6 @@ public class OrganizationApiKeyRuleRequest implements Serializable {
 
   /**
    * The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value.
-   * minimum: 24
-   * maximum: 2147483647
    * @return maxAgeHours
    */
   @javax.annotation.Nullable
@@ -161,7 +159,7 @@ public class OrganizationApiKeyRuleRequest implements Serializable {
   }
 
 
-  public OrganizationApiKeyRuleRequest ruleType(@javax.annotation.Nonnull String ruleType) {
+  public OrganizationApiKeyRuleRequest ruleType(@javax.annotation.Nullable String ruleType) {
     this.ruleType = ruleType;
     return this;
   }
@@ -170,12 +168,12 @@ public class OrganizationApiKeyRuleRequest implements Serializable {
    * Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only.
    * @return ruleType
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getRuleType() {
     return ruleType;
   }
 
-  public void setRuleType(@javax.annotation.Nonnull String ruleType) {
+  public void setRuleType(@javax.annotation.Nullable String ruleType) {
     this.ruleType = ruleType;
   }
 
@@ -243,7 +241,7 @@ public class OrganizationApiKeyRuleRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("enforce_refresh", "is_enabled", "max_age_hours", "refresh_immediately", "rule_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("rule_type"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -266,15 +264,8 @@ public class OrganizationApiKeyRuleRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationApiKeyRuleRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrganizationApiKeyRuleRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("rule_type").isJsonPrimitive()) {
+      if ((jsonObj.get("rule_type") != null && !jsonObj.get("rule_type").isJsonNull()) && !jsonObj.get("rule_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rule_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rule_type").toString()));
       }
   }

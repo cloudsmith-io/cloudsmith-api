@@ -45,12 +45,6 @@ class TestRepositoryGeoIpCidr(unittest.TestCase):
             )
         else:
             return RepositoryGeoIpCidr(
-                allow = [
-                    ''
-                    ],
-                deny = [
-                    ''
-                    ],
         )
         """
 

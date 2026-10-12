@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **history** | [**Array&lt;History&gt;**](History.md) |  |  |
+| **history** | [**Array&lt;History&gt;**](History.md) |  | [optional] |
 
 ## Example
 

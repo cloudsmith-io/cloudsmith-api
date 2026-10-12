@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.allocated_limit import AllocatedLimit
 from cloudsmith_api.models.storage_allocated_limit import StorageAllocatedLimit
 from typing import Optional, Set
@@ -30,8 +30,8 @@ class UsageLimits(BaseModel):
     """
     UsageLimits
     """ # noqa: E501
-    bandwidth: AllocatedLimit
-    storage: StorageAllocatedLimit
+    bandwidth: Optional[AllocatedLimit] = None
+    storage: Optional[StorageAllocatedLimit] = None
     __properties: ClassVar[List[str]] = ["bandwidth", "storage"]
 
     model_config = ConfigDict(

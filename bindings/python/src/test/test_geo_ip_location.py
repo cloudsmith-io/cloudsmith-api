@@ -36,20 +36,16 @@ class TestGeoIpLocation(unittest.TestCase):
         model = GeoIpLocation()
         if include_optional:
             return GeoIpLocation(
-                city = '0',
-                continent = '0',
-                country = '0',
+                city = '',
+                continent = '',
+                country = '',
                 country_code = '',
                 latitude = '',
                 longitude = '',
-                postal_code = '0'
+                postal_code = ''
             )
         else:
             return GeoIpLocation(
-                city = '0',
-                continent = '0',
-                country = '0',
-                postal_code = '0',
         )
         """
 

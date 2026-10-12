@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**package_file** | **str** | The primary file for the package. | 
+**name** | **str** |  | [optional] 
+**package_file** | **str** | The primary file for the package. | [optional] 
 **republish** | **bool** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
 **tags** | **str** | A comma-separated values list of tags to add to the package. | [optional] 
-**version** | **str** |  | 
+**version** | **str** |  | [optional] 
 
 ## Example
 

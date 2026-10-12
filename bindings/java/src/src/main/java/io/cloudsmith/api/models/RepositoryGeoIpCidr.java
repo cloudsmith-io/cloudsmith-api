@@ -58,18 +58,18 @@ public class RepositoryGeoIpCidr implements Serializable {
 
   public static final String SERIALIZED_NAME_ALLOW = "allow";
   @SerializedName(SERIALIZED_NAME_ALLOW)
-  @javax.annotation.Nonnull
-  private Set<String> allow = new LinkedHashSet<>();
+  @javax.annotation.Nullable
+  private Set<String> allow;
 
   public static final String SERIALIZED_NAME_DENY = "deny";
   @SerializedName(SERIALIZED_NAME_DENY)
-  @javax.annotation.Nonnull
-  private Set<String> deny = new LinkedHashSet<>();
+  @javax.annotation.Nullable
+  private Set<String> deny;
 
   public RepositoryGeoIpCidr() {
   }
 
-  public RepositoryGeoIpCidr allow(@javax.annotation.Nonnull Set<String> allow) {
+  public RepositoryGeoIpCidr allow(@javax.annotation.Nullable Set<String> allow) {
     this.allow = allow;
     return this;
   }
@@ -86,17 +86,17 @@ public class RepositoryGeoIpCidr implements Serializable {
    * The allowed CIDRs for this repository
    * @return allow
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Set<String> getAllow() {
     return allow;
   }
 
-  public void setAllow(@javax.annotation.Nonnull Set<String> allow) {
+  public void setAllow(@javax.annotation.Nullable Set<String> allow) {
     this.allow = allow;
   }
 
 
-  public RepositoryGeoIpCidr deny(@javax.annotation.Nonnull Set<String> deny) {
+  public RepositoryGeoIpCidr deny(@javax.annotation.Nullable Set<String> deny) {
     this.deny = deny;
     return this;
   }
@@ -113,12 +113,12 @@ public class RepositoryGeoIpCidr implements Serializable {
    * The denied CIDRs for this repository
    * @return deny
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Set<String> getDeny() {
     return deny;
   }
 
-  public void setDeny(@javax.annotation.Nonnull Set<String> deny) {
+  public void setDeny(@javax.annotation.Nullable Set<String> deny) {
     this.deny = deny;
   }
 
@@ -169,7 +169,7 @@ public class RepositoryGeoIpCidr implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("allow", "deny"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("allow", "deny"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -192,24 +192,13 @@ public class RepositoryGeoIpCidr implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryGeoIpCidr` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryGeoIpCidr.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("allow") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("allow").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allow") != null && !jsonObj.get("allow").isJsonNull() && !jsonObj.get("allow").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allow` to be an array in the JSON string but got `%s`", jsonObj.get("allow").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("deny") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("deny").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("deny") != null && !jsonObj.get("deny").isJsonNull() && !jsonObj.get("deny").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `deny` to be an array in the JSON string but got `%s`", jsonObj.get("deny").toString()));
       }
   }

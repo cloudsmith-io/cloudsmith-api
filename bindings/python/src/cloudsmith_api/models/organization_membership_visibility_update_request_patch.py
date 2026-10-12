@@ -28,7 +28,7 @@ class OrganizationMembershipVisibilityUpdateRequestPatch(BaseModel):
     """
     OrganizationMembershipVisibilityUpdateRequestPatch
     """ # noqa: E501
-    visibility: Optional[StrictStr] = 'Public'
+    visibility: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["visibility"]
 
     model_config = ConfigDict(
@@ -82,7 +82,7 @@ class OrganizationMembershipVisibilityUpdateRequestPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "visibility": obj.get("visibility") if obj.get("visibility") is not None else 'Public'
+            "visibility": obj.get("visibility")
         })
         return _obj
 

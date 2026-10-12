@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,11 +28,11 @@ class CranPackageUploadRequest(BaseModel):
     """
     CranPackageUploadRequest
     """ # noqa: E501
-    architecture: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Binary package uploads for macOS should specify the architecture they were built for.")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
-    r_version: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=16)]] = Field(default=None, description="Binary package uploads should specify the version of R they were built for.")
+    architecture: Optional[StrictStr] = Field(default=None, description="Binary package uploads for macOS should specify the architecture they were built for.")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
+    r_version: Optional[StrictStr] = Field(default=None, description="Binary package uploads should specify the version of R they were built for.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
     __properties: ClassVar[List[str]] = ["architecture", "package_file", "r_version", "republish", "tags"]
 
     model_config = ConfigDict(

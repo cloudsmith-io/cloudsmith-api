@@ -98,14 +98,10 @@ module CloudsmithApi
 
       if attributes.key?(:'bandwidth')
         self.bandwidth = attributes[:'bandwidth']
-      else
-        self.bandwidth = nil
       end
 
       if attributes.key?(:'downloads')
         self.downloads = attributes[:'downloads']
-      else
-        self.downloads = nil
       end
 
       if attributes.key?(:'inactive')
@@ -122,14 +118,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @bandwidth.nil?
-        invalid_properties.push('invalid value for "bandwidth", bandwidth cannot be nil.')
-      end
-
-      if @downloads.nil?
-        invalid_properties.push('invalid value for "downloads", downloads cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -137,29 +125,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @bandwidth.nil?
-      return false if @downloads.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] bandwidth Value to be assigned
-    def bandwidth=(bandwidth)
-      if bandwidth.nil?
-        fail ArgumentError, 'bandwidth cannot be nil'
-      end
-
-      @bandwidth = bandwidth
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] downloads Value to be assigned
-    def downloads=(downloads)
-      if downloads.nil?
-        fail ArgumentError, 'downloads cannot be nil'
-      end
-
-      @downloads = downloads
     end
 
     # Checks equality by comparing each attribute.

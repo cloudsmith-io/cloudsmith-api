@@ -40,7 +40,6 @@ class TestRepositoryTokenPrivateBroadcasts(unittest.TestCase):
             )
         else:
             return RepositoryTokenPrivateBroadcasts(
-                access_private_broadcasts = True,
         )
         """
 

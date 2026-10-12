@@ -37,16 +37,15 @@ class TestRepositoryGpgKey(unittest.TestCase):
         if include_optional:
             return RepositoryGpgKey(
                 active = True,
-                comment = '0',
+                comment = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 default = True,
-                fingerprint = '0',
+                fingerprint = '',
                 fingerprint_short = '',
-                public_key = '0'
+                public_key = ''
             )
         else:
             return RepositoryGpgKey(
-                comment = '0',
         )
         """
 

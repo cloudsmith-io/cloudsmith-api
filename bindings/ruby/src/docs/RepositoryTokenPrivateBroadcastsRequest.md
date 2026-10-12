@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **access_private_broadcasts** | **Boolean** | Whether the token should have access to private broadcasts. |  |
+| **access_private_broadcasts** | **Boolean** | Whether the token should have access to private broadcasts. | [optional] |
 
 ## Example
 

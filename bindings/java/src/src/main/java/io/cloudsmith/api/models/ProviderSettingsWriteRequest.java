@@ -63,17 +63,17 @@ public class ProviderSettingsWriteRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_CLAIMS = "claims";
   @SerializedName(SERIALIZED_NAME_CLAIMS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Object claims;
 
   public static final String SERIALIZED_NAME_DYNAMIC_MAPPINGS = "dynamic_mappings";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_MAPPINGS)
   @javax.annotation.Nullable
-  private List<DynamicMapping> dynamicMappings = new ArrayList<>();
+  private List<DynamicMapping> dynamicMappings;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean enabled;
 
   public static final String SERIALIZED_NAME_MAPPING_CLAIM = "mapping_claim";
@@ -83,23 +83,23 @@ public class ProviderSettingsWriteRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PROVIDER_URL = "provider_url";
   @SerializedName(SERIALIZED_NAME_PROVIDER_URL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private URI providerUrl;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNTS = "service_accounts";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNTS)
   @javax.annotation.Nullable
-  private Set<String> serviceAccounts = new LinkedHashSet<>();
+  private Set<String> serviceAccounts;
 
   public ProviderSettingsWriteRequest() {
   }
 
-  public ProviderSettingsWriteRequest claims(@javax.annotation.Nonnull Object claims) {
+  public ProviderSettingsWriteRequest claims(@javax.annotation.Nullable Object claims) {
     this.claims = claims;
     return this;
   }
@@ -108,12 +108,12 @@ public class ProviderSettingsWriteRequest implements Serializable {
    * The set of claims that any received tokens from the provider must contain to authenticate as the configured service account.
    * @return claims
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Object getClaims() {
     return claims;
   }
 
-  public void setClaims(@javax.annotation.Nonnull Object claims) {
+  public void setClaims(@javax.annotation.Nullable Object claims) {
     this.claims = claims;
   }
 
@@ -145,7 +145,7 @@ public class ProviderSettingsWriteRequest implements Serializable {
   }
 
 
-  public ProviderSettingsWriteRequest enabled(@javax.annotation.Nonnull Boolean enabled) {
+  public ProviderSettingsWriteRequest enabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -154,12 +154,12 @@ public class ProviderSettingsWriteRequest implements Serializable {
    * Whether the provider settings should be used for incoming OIDC requests.
    * @return enabled
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getEnabled() {
     return enabled;
   }
 
-  public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
     this.enabled = enabled;
   }
 
@@ -183,7 +183,7 @@ public class ProviderSettingsWriteRequest implements Serializable {
   }
 
 
-  public ProviderSettingsWriteRequest name(@javax.annotation.Nonnull String name) {
+  public ProviderSettingsWriteRequest name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -192,17 +192,17 @@ public class ProviderSettingsWriteRequest implements Serializable {
    * The name of the provider settings are being configured for
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public ProviderSettingsWriteRequest providerUrl(@javax.annotation.Nonnull URI providerUrl) {
+  public ProviderSettingsWriteRequest providerUrl(@javax.annotation.Nullable URI providerUrl) {
     this.providerUrl = providerUrl;
     return this;
   }
@@ -211,12 +211,12 @@ public class ProviderSettingsWriteRequest implements Serializable {
    * The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
    * @return providerUrl
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public URI getProviderUrl() {
     return providerUrl;
   }
 
-  public void setProviderUrl(@javax.annotation.Nonnull URI providerUrl) {
+  public void setProviderUrl(@javax.annotation.Nullable URI providerUrl) {
     this.providerUrl = providerUrl;
   }
 
@@ -315,7 +315,7 @@ public class ProviderSettingsWriteRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("claims", "dynamic_mappings", "enabled", "mapping_claim", "name", "provider_url", "service_accounts"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("claims", "enabled", "name", "provider_url"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -338,13 +338,6 @@ public class ProviderSettingsWriteRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ProviderSettingsWriteRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ProviderSettingsWriteRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("dynamic_mappings") != null && !jsonObj.get("dynamic_mappings").isJsonNull()) {
         JsonArray jsonArraydynamicMappings = jsonObj.getAsJsonArray("dynamic_mappings");
@@ -363,10 +356,10 @@ public class ProviderSettingsWriteRequest implements Serializable {
       if ((jsonObj.get("mapping_claim") != null && !jsonObj.get("mapping_claim").isJsonNull()) && !jsonObj.get("mapping_claim").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mapping_claim` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapping_claim").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("provider_url").isJsonPrimitive()) {
+      if ((jsonObj.get("provider_url") != null && !jsonObj.get("provider_url").isJsonNull()) && !jsonObj.get("provider_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provider_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provider_url").toString()));
       }
       // ensure the optional json data is an array if present

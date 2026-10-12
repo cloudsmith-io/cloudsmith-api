@@ -57,28 +57,28 @@ public class CommonDownloadsMetrics implements Serializable {
 
   public static final String SERIALIZED_NAME_AVERAGE = "average";
   @SerializedName(SERIALIZED_NAME_AVERAGE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonDownloadsMetricsValue average;
 
   public static final String SERIALIZED_NAME_HIGHEST = "highest";
   @SerializedName(SERIALIZED_NAME_HIGHEST)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonDownloadsMetricsValue highest;
 
   public static final String SERIALIZED_NAME_LOWEST = "lowest";
   @SerializedName(SERIALIZED_NAME_LOWEST)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonDownloadsMetricsValue lowest;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonDownloadsMetricsValue total;
 
   public CommonDownloadsMetrics() {
   }
 
-  public CommonDownloadsMetrics average(@javax.annotation.Nonnull CommonDownloadsMetricsValue average) {
+  public CommonDownloadsMetrics average(@javax.annotation.Nullable CommonDownloadsMetricsValue average) {
     this.average = average;
     return this;
   }
@@ -87,17 +87,17 @@ public class CommonDownloadsMetrics implements Serializable {
    * Get average
    * @return average
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonDownloadsMetricsValue getAverage() {
     return average;
   }
 
-  public void setAverage(@javax.annotation.Nonnull CommonDownloadsMetricsValue average) {
+  public void setAverage(@javax.annotation.Nullable CommonDownloadsMetricsValue average) {
     this.average = average;
   }
 
 
-  public CommonDownloadsMetrics highest(@javax.annotation.Nonnull CommonDownloadsMetricsValue highest) {
+  public CommonDownloadsMetrics highest(@javax.annotation.Nullable CommonDownloadsMetricsValue highest) {
     this.highest = highest;
     return this;
   }
@@ -106,17 +106,17 @@ public class CommonDownloadsMetrics implements Serializable {
    * Get highest
    * @return highest
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonDownloadsMetricsValue getHighest() {
     return highest;
   }
 
-  public void setHighest(@javax.annotation.Nonnull CommonDownloadsMetricsValue highest) {
+  public void setHighest(@javax.annotation.Nullable CommonDownloadsMetricsValue highest) {
     this.highest = highest;
   }
 
 
-  public CommonDownloadsMetrics lowest(@javax.annotation.Nonnull CommonDownloadsMetricsValue lowest) {
+  public CommonDownloadsMetrics lowest(@javax.annotation.Nullable CommonDownloadsMetricsValue lowest) {
     this.lowest = lowest;
     return this;
   }
@@ -125,17 +125,17 @@ public class CommonDownloadsMetrics implements Serializable {
    * Get lowest
    * @return lowest
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonDownloadsMetricsValue getLowest() {
     return lowest;
   }
 
-  public void setLowest(@javax.annotation.Nonnull CommonDownloadsMetricsValue lowest) {
+  public void setLowest(@javax.annotation.Nullable CommonDownloadsMetricsValue lowest) {
     this.lowest = lowest;
   }
 
 
-  public CommonDownloadsMetrics total(@javax.annotation.Nonnull CommonDownloadsMetricsValue total) {
+  public CommonDownloadsMetrics total(@javax.annotation.Nullable CommonDownloadsMetricsValue total) {
     this.total = total;
     return this;
   }
@@ -144,12 +144,12 @@ public class CommonDownloadsMetrics implements Serializable {
    * Get total
    * @return total
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonDownloadsMetricsValue getTotal() {
     return total;
   }
 
-  public void setTotal(@javax.annotation.Nonnull CommonDownloadsMetricsValue total) {
+  public void setTotal(@javax.annotation.Nullable CommonDownloadsMetricsValue total) {
     this.total = total;
   }
 
@@ -204,7 +204,7 @@ public class CommonDownloadsMetrics implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("average", "highest", "lowest", "total"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("average", "highest", "lowest", "total"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -227,22 +227,23 @@ public class CommonDownloadsMetrics implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CommonDownloadsMetrics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CommonDownloadsMetrics.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `average`
-      CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("average"));
-      // validate the required field `highest`
-      CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("highest"));
-      // validate the required field `lowest`
-      CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("lowest"));
-      // validate the required field `total`
-      CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("total"));
+      // validate the optional field `average`
+      if (jsonObj.get("average") != null && !jsonObj.get("average").isJsonNull()) {
+        CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("average"));
+      }
+      // validate the optional field `highest`
+      if (jsonObj.get("highest") != null && !jsonObj.get("highest").isJsonNull()) {
+        CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("highest"));
+      }
+      // validate the optional field `lowest`
+      if (jsonObj.get("lowest") != null && !jsonObj.get("lowest").isJsonNull()) {
+        CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("lowest"));
+      }
+      // validate the optional field `total`
+      if (jsonObj.get("total") != null && !jsonObj.get("total").isJsonNull()) {
+        CommonDownloadsMetricsValue.validateJsonElement(jsonObj.get("total"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

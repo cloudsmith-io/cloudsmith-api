@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +28,7 @@ class RepositoryGeoIpTestAddress(BaseModel):
     """
     RepositoryGeoIpTestAddress
     """ # noqa: E501
-    addresses: List[Annotated[str, Field(min_length=1, strict=True)]] = Field(description="The IP addresses to test against this repository")
+    addresses: Optional[List[StrictStr]] = Field(default=None, description="The IP addresses to test against this repository")
     __properties: ClassVar[List[str]] = ["addresses"]
 
     model_config = ConfigDict(

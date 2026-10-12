@@ -61,7 +61,7 @@ public class RepositoryEd25519KeyCreate implements Serializable {
 
   public static final String SERIALIZED_NAME_ED25519_PRIVATE_KEY = "ed25519_private_key";
   @SerializedName(SERIALIZED_NAME_ED25519_PRIVATE_KEY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String ed25519PrivateKey;
 
   public RepositoryEd25519KeyCreate() {
@@ -86,7 +86,7 @@ public class RepositoryEd25519KeyCreate implements Serializable {
   }
 
 
-  public RepositoryEd25519KeyCreate ed25519PrivateKey(@javax.annotation.Nonnull String ed25519PrivateKey) {
+  public RepositoryEd25519KeyCreate ed25519PrivateKey(@javax.annotation.Nullable String ed25519PrivateKey) {
     this.ed25519PrivateKey = ed25519PrivateKey;
     return this;
   }
@@ -95,12 +95,12 @@ public class RepositoryEd25519KeyCreate implements Serializable {
    * The Ed25519 private key.
    * @return ed25519PrivateKey
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getEd25519PrivateKey() {
     return ed25519PrivateKey;
   }
 
-  public void setEd25519PrivateKey(@javax.annotation.Nonnull String ed25519PrivateKey) {
+  public void setEd25519PrivateKey(@javax.annotation.Nullable String ed25519PrivateKey) {
     this.ed25519PrivateKey = ed25519PrivateKey;
   }
 
@@ -151,7 +151,7 @@ public class RepositoryEd25519KeyCreate implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("ed25519_passphrase", "ed25519_private_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("ed25519_private_key"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class RepositoryEd25519KeyCreate implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryEd25519KeyCreate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryEd25519KeyCreate.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("ed25519_passphrase") != null && !jsonObj.get("ed25519_passphrase").isJsonNull()) && !jsonObj.get("ed25519_passphrase").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ed25519_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ed25519_passphrase").toString()));
       }
-      if (!jsonObj.get("ed25519_private_key").isJsonPrimitive()) {
+      if ((jsonObj.get("ed25519_private_key") != null && !jsonObj.get("ed25519_private_key").isJsonNull()) && !jsonObj.get("ed25519_private_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ed25519_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ed25519_private_key").toString()));
       }
   }

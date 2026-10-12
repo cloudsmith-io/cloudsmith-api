@@ -39,23 +39,19 @@ class TestProviderSettingsWriteRequest(unittest.TestCase):
                 claims = cloudsmith_api.models.claims.Claims(),
                 dynamic_mappings = [
                     cloudsmith_api.models.dynamic_mapping.DynamicMapping(
-                        claim_value = '0', 
-                        service_account = '0', )
+                        claim_value = '', 
+                        service_account = '', )
                     ],
                 enabled = True,
-                mapping_claim = '0',
-                name = '0',
-                provider_url = '0',
+                mapping_claim = '',
+                name = '',
+                provider_url = '',
                 service_accounts = [
                     ''
                     ]
             )
         else:
             return ProviderSettingsWriteRequest(
-                claims = cloudsmith_api.models.claims.Claims(),
-                enabled = True,
-                name = '0',
-                provider_url = '0',
         )
         """
 

@@ -66,18 +66,18 @@ public class PackageLicensePolicyViolationLog implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGE = "package";
   @SerializedName(SERIALIZED_NAME_PACKAGE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private PackageVulnerability _package;
 
   public static final String SERIALIZED_NAME_POLICY = "policy";
   @SerializedName(SERIALIZED_NAME_POLICY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private NestedLicensePolicy policy;
 
   public static final String SERIALIZED_NAME_REASONS = "reasons";
   @SerializedName(SERIALIZED_NAME_REASONS)
-  @javax.annotation.Nonnull
-  private List<String> reasons = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<String> reasons;
 
   public PackageLicensePolicyViolationLog() {
   }
@@ -100,7 +100,7 @@ public class PackageLicensePolicyViolationLog implements Serializable {
 
 
 
-  public PackageLicensePolicyViolationLog _package(@javax.annotation.Nonnull PackageVulnerability _package) {
+  public PackageLicensePolicyViolationLog _package(@javax.annotation.Nullable PackageVulnerability _package) {
     this._package = _package;
     return this;
   }
@@ -109,17 +109,17 @@ public class PackageLicensePolicyViolationLog implements Serializable {
    * Get _package
    * @return _package
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public PackageVulnerability getPackage() {
     return _package;
   }
 
-  public void setPackage(@javax.annotation.Nonnull PackageVulnerability _package) {
+  public void setPackage(@javax.annotation.Nullable PackageVulnerability _package) {
     this._package = _package;
   }
 
 
-  public PackageLicensePolicyViolationLog policy(@javax.annotation.Nonnull NestedLicensePolicy policy) {
+  public PackageLicensePolicyViolationLog policy(@javax.annotation.Nullable NestedLicensePolicy policy) {
     this.policy = policy;
     return this;
   }
@@ -128,17 +128,17 @@ public class PackageLicensePolicyViolationLog implements Serializable {
    * Get policy
    * @return policy
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public NestedLicensePolicy getPolicy() {
     return policy;
   }
 
-  public void setPolicy(@javax.annotation.Nonnull NestedLicensePolicy policy) {
+  public void setPolicy(@javax.annotation.Nullable NestedLicensePolicy policy) {
     this.policy = policy;
   }
 
 
-  public PackageLicensePolicyViolationLog reasons(@javax.annotation.Nonnull List<String> reasons) {
+  public PackageLicensePolicyViolationLog reasons(@javax.annotation.Nullable List<String> reasons) {
     this.reasons = reasons;
     return this;
   }
@@ -155,12 +155,12 @@ public class PackageLicensePolicyViolationLog implements Serializable {
    * Get reasons
    * @return reasons
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<String> getReasons() {
     return reasons;
   }
 
-  public void setReasons(@javax.annotation.Nonnull List<String> reasons) {
+  public void setReasons(@javax.annotation.Nullable List<String> reasons) {
     this.reasons = reasons;
   }
 
@@ -215,7 +215,7 @@ public class PackageLicensePolicyViolationLog implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("event_at", "package", "policy", "reasons"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("package", "policy", "reasons"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -238,22 +238,17 @@ public class PackageLicensePolicyViolationLog implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageLicensePolicyViolationLog` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageLicensePolicyViolationLog.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `package`
-      PackageVulnerability.validateJsonElement(jsonObj.get("package"));
-      // validate the required field `policy`
-      NestedLicensePolicy.validateJsonElement(jsonObj.get("policy"));
-      // ensure the required json array is present
-      if (jsonObj.get("reasons") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("reasons").isJsonArray()) {
+      // validate the optional field `package`
+      if (jsonObj.get("package") != null && !jsonObj.get("package").isJsonNull()) {
+        PackageVulnerability.validateJsonElement(jsonObj.get("package"));
+      }
+      // validate the optional field `policy`
+      if (jsonObj.get("policy") != null && !jsonObj.get("policy").isJsonNull()) {
+        NestedLicensePolicy.validateJsonElement(jsonObj.get("policy"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("reasons") != null && !jsonObj.get("reasons").isJsonNull() && !jsonObj.get("reasons").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reasons` to be an array in the JSON string but got `%s`", jsonObj.get("reasons").toString()));
       }
   }

@@ -9,4 +9,13 @@ describe 'forward compatibility' do
 
     expect(repository.broadcast_state).to eq('A value added after this release')
   end
+
+  it 'deserializes a response that breaks the spec constraints' do
+    audit_log = CloudsmithApi::NamespaceAuditLog.build_from_hash(
+      actor: nil, actor_location: nil, context: '', event: 'action.login'
+    )
+
+    expect(audit_log.actor_location).to be_nil
+    expect(audit_log.context).to eq('')
+  end
 end

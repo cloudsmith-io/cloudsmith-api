@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allow** | **List[str]** | The allowed country codes for this repository | 
-**deny** | **List[str]** | The denied country codes for this repository | 
+**allow** | **List[str]** | The allowed country codes for this repository | [optional] 
+**deny** | **List[str]** | The denied country codes for this repository | [optional] 
 
 ## Example
 

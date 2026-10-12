@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -33,7 +32,7 @@ class RateCheck(BaseModel):
     limit: Optional[StrictInt] = Field(default=None, description="The maximum number of requests that you are permitted to send per hour")
     remaining: Optional[StrictInt] = Field(default=None, description="The number of requests that are remaining in the current rate limit window")
     reset: Optional[StrictInt] = Field(default=None, description="The UTC epoch timestamp at which the current rate limit window will reset")
-    reset_iso_8601: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The ISO 8601 datetime at which the current rate limit window will reset")
+    reset_iso_8601: Optional[StrictStr] = Field(default=None, description="The ISO 8601 datetime at which the current rate limit window will reset")
     throttled: Optional[StrictBool] = Field(default=None, description="If true, throttling is currently being enforced.")
     __properties: ClassVar[List[str]] = ["interval", "limit", "remaining", "reset", "reset_iso_8601", "throttled"]
 

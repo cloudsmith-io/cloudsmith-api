@@ -58,13 +58,13 @@ public class PackageRecycleBin implements Serializable {
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String action;
 
   public static final String SERIALIZED_NAME_IDENTIFIERS = "identifiers";
   @SerializedName(SERIALIZED_NAME_IDENTIFIERS)
-  @javax.annotation.Nonnull
-  private List<String> identifiers = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<String> identifiers;
 
   public static final String SERIALIZED_NAME_REPOSITORY = "repository";
   @SerializedName(SERIALIZED_NAME_REPOSITORY)
@@ -74,7 +74,7 @@ public class PackageRecycleBin implements Serializable {
   public PackageRecycleBin() {
   }
 
-  public PackageRecycleBin action(@javax.annotation.Nonnull String action) {
+  public PackageRecycleBin action(@javax.annotation.Nullable String action) {
     this.action = action;
     return this;
   }
@@ -83,17 +83,17 @@ public class PackageRecycleBin implements Serializable {
    * The action to perform on soft-deleted packages.
    * @return action
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getAction() {
     return action;
   }
 
-  public void setAction(@javax.annotation.Nonnull String action) {
+  public void setAction(@javax.annotation.Nullable String action) {
     this.action = action;
   }
 
 
-  public PackageRecycleBin identifiers(@javax.annotation.Nonnull List<String> identifiers) {
+  public PackageRecycleBin identifiers(@javax.annotation.Nullable List<String> identifiers) {
     this.identifiers = identifiers;
     return this;
   }
@@ -110,12 +110,12 @@ public class PackageRecycleBin implements Serializable {
    * A list of soft-deleted package identifiers to action.
    * @return identifiers
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<String> getIdentifiers() {
     return identifiers;
   }
 
-  public void setIdentifiers(@javax.annotation.Nonnull List<String> identifiers) {
+  public void setIdentifiers(@javax.annotation.Nullable List<String> identifiers) {
     this.identifiers = identifiers;
   }
 
@@ -187,7 +187,7 @@ public class PackageRecycleBin implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("action", "identifiers", "repository"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("action", "identifiers"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -210,21 +210,12 @@ public class PackageRecycleBin implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageRecycleBin` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageRecycleBin.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("action").isJsonPrimitive()) {
+      if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("identifiers") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("identifiers").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("identifiers") != null && !jsonObj.get("identifiers").isJsonNull() && !jsonObj.get("identifiers").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `identifiers` to be an array in the JSON string but got `%s`", jsonObj.get("identifiers").toString()));
       }
       if ((jsonObj.get("repository") != null && !jsonObj.get("repository").isJsonNull()) && !jsonObj.get("repository").isJsonPrimitive()) {

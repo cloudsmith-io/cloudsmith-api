@@ -36,12 +36,12 @@ class TestStorageAllocatedLimit(unittest.TestCase):
         model = StorageAllocatedLimit()
         if include_optional:
             return StorageAllocatedLimit(
-                configured = '0',
-                peak = '0',
-                percentage_used = '0',
-                plan_limit = '0',
-                used = '0',
-                used_pre_deduplication = '0'
+                configured = '',
+                peak = '',
+                percentage_used = '',
+                plan_limit = '',
+                used = '',
+                used_pre_deduplication = ''
             )
         else:
             return StorageAllocatedLimit(

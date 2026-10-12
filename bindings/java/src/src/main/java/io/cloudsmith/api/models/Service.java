@@ -92,13 +92,13 @@ public class Service implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Member";
+  private String role;
 
   public static final String SERIALIZED_NAME_SLUG = "slug";
   @SerializedName(SERIALIZED_NAME_SLUG)
@@ -108,7 +108,7 @@ public class Service implements Serializable {
   public static final String SERIALIZED_NAME_TEAMS = "teams";
   @SerializedName(SERIALIZED_NAME_TEAMS)
   @javax.annotation.Nullable
-  private List<ServiceTeams> teams = new ArrayList<>();
+  private List<ServiceTeams> teams;
 
   public Service() {
   }
@@ -204,7 +204,7 @@ public class Service implements Serializable {
 
 
 
-  public Service name(@javax.annotation.Nonnull String name) {
+  public Service name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -213,12 +213,12 @@ public class Service implements Serializable {
    * The name of the service
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -353,7 +353,7 @@ public class Service implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("created_at", "created_by", "created_by_url", "description", "key", "key_expires_at", "name", "role", "slug", "teams"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -376,13 +376,6 @@ public class Service implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Service` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Service.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
@@ -396,7 +389,7 @@ public class Service implements Serializable {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {

@@ -113,8 +113,6 @@ module CloudsmithApi
 
       if attributes.key?(:'rule_type')
         self.rule_type = attributes[:'rule_type']
-      else
-        self.rule_type = nil
       end
     end
 
@@ -123,18 +121,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@max_age_hours.nil? && @max_age_hours > 2147483647
-        invalid_properties.push('invalid value for "max_age_hours", must be smaller than or equal to 2147483647.')
-      end
-
-      if !@max_age_hours.nil? && @max_age_hours < 24
-        invalid_properties.push('invalid value for "max_age_hours", must be greater than or equal to 24.')
-      end
-
-      if @rule_type.nil?
-        invalid_properties.push('invalid value for "rule_type", rule_type cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -142,34 +128,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@max_age_hours.nil? && @max_age_hours > 2147483647
-      return false if !@max_age_hours.nil? && @max_age_hours < 24
-      return false if @rule_type.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] max_age_hours Value to be assigned
-    def max_age_hours=(max_age_hours)
-      if !max_age_hours.nil? && max_age_hours > 2147483647
-        fail ArgumentError, 'invalid value for "max_age_hours", must be smaller than or equal to 2147483647.'
-      end
-
-      if !max_age_hours.nil? && max_age_hours < 24
-        fail ArgumentError, 'invalid value for "max_age_hours", must be greater than or equal to 24.'
-      end
-
-      @max_age_hours = max_age_hours
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] rule_type Value to be assigned
-    def rule_type=(rule_type)
-      if rule_type.nil?
-        fail ArgumentError, 'rule_type cannot be nil'
-      end
-
-      @rule_type = rule_type
     end
 
     # Checks equality by comparing each attribute.

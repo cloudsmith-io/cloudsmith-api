@@ -21,7 +21,6 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,15 +29,15 @@ class UserProfile(BaseModel):
     """
     UserProfile
     """ # noqa: E501
-    company: Optional[Annotated[str, Field(strict=True, max_length=64)]] = None
-    first_name: Annotated[str, Field(min_length=1, strict=True, max_length=120)]
-    job_title: Optional[Annotated[str, Field(strict=True, max_length=64)]] = None
+    company: Optional[StrictStr] = None
+    first_name: Optional[StrictStr] = None
+    job_title: Optional[StrictStr] = None
     joined_at: Optional[datetime] = None
-    last_name: Annotated[str, Field(min_length=1, strict=True, max_length=120)]
-    name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    last_name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
     slug: Optional[StrictStr] = None
     slug_perm: Optional[StrictStr] = None
-    tagline: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
+    tagline: Optional[StrictStr] = Field(default=None, description="Your tagline is a sentence about you. Make it funny. Make it professional. Either way, it's public and it represents who you are.")
     url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["company", "first_name", "job_title", "joined_at", "last_name", "name", "slug", "slug_perm", "tagline", "url"]
 

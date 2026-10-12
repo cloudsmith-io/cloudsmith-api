@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,17 +28,10 @@ class ServiceTeams(BaseModel):
     """
     ServiceTeams
     """ # noqa: E501
-    name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The name of the team")
-    role: Optional[StrictStr] = Field(default='Manager', description="The team role associated with the service")
-    slug: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The teams associated with the service")
+    name: Optional[StrictStr] = Field(default=None, description="The name of the team")
+    role: Optional[StrictStr] = Field(default=None, description="The team role associated with the service")
+    slug: Optional[StrictStr] = Field(default=None, description="The teams associated with the service")
     __properties: ClassVar[List[str]] = ["name", "role", "slug"]
-
-    @field_validator('slug', mode="before")
-    def slug_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -95,7 +87,7 @@ class ServiceTeams(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "role": obj.get("role") if obj.get("role") is not None else 'Manager',
+            "role": obj.get("role"),
             "slug": obj.get("slug")
         })
         return _obj

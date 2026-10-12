@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class RepositoryGpgKeyCreate(BaseModel):
     """
     RepositoryGpgKeyCreate
     """ # noqa: E501
-    gpg_passphrase: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The GPG passphrase used for signing.")
-    gpg_private_key: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The GPG private key.")
+    gpg_passphrase: Optional[StrictStr] = Field(default=None, description="The GPG passphrase used for signing.")
+    gpg_private_key: Optional[StrictStr] = Field(default=None, description="The GPG private key.")
     __properties: ClassVar[List[str]] = ["gpg_passphrase", "gpg_private_key"]
 
     model_config = ConfigDict(

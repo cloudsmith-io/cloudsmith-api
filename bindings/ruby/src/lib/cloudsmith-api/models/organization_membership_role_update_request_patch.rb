@@ -75,8 +75,6 @@ module CloudsmithApi
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
-      else
-        self.role = 'Owner'
       end
     end
 

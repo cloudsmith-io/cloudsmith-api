@@ -56,7 +56,7 @@ public class RepositoryPrivilegeDict implements Serializable {
 
   public static final String SERIALIZED_NAME_PRIVILEGE = "privilege";
   @SerializedName(SERIALIZED_NAME_PRIVILEGE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String privilege;
 
   public static final String SERIALIZED_NAME_SERVICE = "service";
@@ -77,7 +77,7 @@ public class RepositoryPrivilegeDict implements Serializable {
   public RepositoryPrivilegeDict() {
   }
 
-  public RepositoryPrivilegeDict privilege(@javax.annotation.Nonnull String privilege) {
+  public RepositoryPrivilegeDict privilege(@javax.annotation.Nullable String privilege) {
     this.privilege = privilege;
     return this;
   }
@@ -86,12 +86,12 @@ public class RepositoryPrivilegeDict implements Serializable {
    * The level of privilege that the user or team should be granted to the specified repository.
    * @return privilege
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPrivilege() {
     return privilege;
   }
 
-  public void setPrivilege(@javax.annotation.Nonnull String privilege) {
+  public void setPrivilege(@javax.annotation.Nullable String privilege) {
     this.privilege = privilege;
   }
 
@@ -203,7 +203,7 @@ public class RepositoryPrivilegeDict implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("privilege", "service", "team", "user"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("privilege"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -226,15 +226,8 @@ public class RepositoryPrivilegeDict implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryPrivilegeDict` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryPrivilegeDict.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("privilege").isJsonPrimitive()) {
+      if ((jsonObj.get("privilege") != null && !jsonObj.get("privilege").isJsonNull()) && !jsonObj.get("privilege").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `privilege` to be a primitive type in the JSON string but got `%s`", jsonObj.get("privilege").toString()));
       }
       if ((jsonObj.get("service") != null && !jsonObj.get("service").isJsonNull()) && !jsonObj.get("service").isJsonPrimitive()) {

@@ -21,6 +21,7 @@ cat > $build_json <<EOC
     "artifactUrl": "$openapi_url",
     "artifactVersion": "$package_version",
     "artifactDescription": "$summary",
+    "containerDefaultToNull": true,
     "dateLibrary": "java8",
     "developerName": "$author",
     "developerEmail": "$author_email",

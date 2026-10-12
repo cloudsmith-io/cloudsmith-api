@@ -64,13 +64,13 @@ public class ErrorDetail implements Serializable {
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String detail;
 
   public static final String SERIALIZED_NAME_FIELDS = "fields";
   @SerializedName(SERIALIZED_NAME_FIELDS)
   @javax.annotation.Nullable
-  private Map<String, List<String>> fields = new HashMap<>();
+  private Map<String, List<String>> fields;
 
   public ErrorDetail() {
   }
@@ -94,7 +94,7 @@ public class ErrorDetail implements Serializable {
   }
 
 
-  public ErrorDetail detail(@javax.annotation.Nonnull String detail) {
+  public ErrorDetail detail(@javax.annotation.Nullable String detail) {
     this.detail = detail;
     return this;
   }
@@ -103,12 +103,12 @@ public class ErrorDetail implements Serializable {
    * An extended message for the response.
    * @return detail
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getDetail() {
     return detail;
   }
 
-  public void setDetail(@javax.annotation.Nonnull String detail) {
+  public void setDetail(@javax.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
@@ -188,7 +188,7 @@ public class ErrorDetail implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("code", "detail", "fields"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("detail"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -211,18 +211,11 @@ public class ErrorDetail implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ErrorDetail` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ErrorDetail.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
-      if (!jsonObj.get("detail").isJsonPrimitive()) {
+      if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull()) && !jsonObj.get("detail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detail").toString()));
       }
   }

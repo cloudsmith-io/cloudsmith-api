@@ -18,7 +18,7 @@
 |**limitPackageQuery** | **String** | The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata. |  [optional] |
 |**limitPathQuery** | **String** | THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash. |  [optional] |
 |**metadata** | **Object** |  |  [optional] |
-|**name** | **String** |  |  |
+|**name** | **String** |  |  [optional] |
 |**scheduledResetAt** | **OffsetDateTime** | The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero. |  [optional] |
 |**scheduledResetPeriod** | **String** |  |  [optional] |
 |**token** | **String** |  |  [optional] |

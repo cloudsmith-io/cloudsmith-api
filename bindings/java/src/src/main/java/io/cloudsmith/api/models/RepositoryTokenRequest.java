@@ -74,7 +74,7 @@ public class RepositoryTokenRequest implements Serializable {
   public static final String SERIALIZED_NAME_LIMIT_BANDWIDTH_UNIT = "limit_bandwidth_unit";
   @SerializedName(SERIALIZED_NAME_LIMIT_BANDWIDTH_UNIT)
   @javax.annotation.Nullable
-  private String limitBandwidthUnit = "Byte";
+  private String limitBandwidthUnit;
 
   public static final String SERIALIZED_NAME_LIMIT_DATE_RANGE_FROM = "limit_date_range_from";
   @SerializedName(SERIALIZED_NAME_LIMIT_DATE_RANGE_FROM)
@@ -113,7 +113,7 @@ public class RepositoryTokenRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_SCHEDULED_RESET_AT = "scheduled_reset_at";
@@ -124,7 +124,7 @@ public class RepositoryTokenRequest implements Serializable {
   public static final String SERIALIZED_NAME_SCHEDULED_RESET_PERIOD = "scheduled_reset_period";
   @SerializedName(SERIALIZED_NAME_SCHEDULED_RESET_PERIOD)
   @javax.annotation.Nullable
-  private String scheduledResetPeriod = "Never Reset";
+  private String scheduledResetPeriod;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -179,8 +179,6 @@ public class RepositoryTokenRequest implements Serializable {
 
   /**
    * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
-   * minimum: -9223372036854775808
-   * maximum: 9223372036854775807
    * @return limitBandwidth
    */
   @javax.annotation.Nullable
@@ -257,8 +255,6 @@ public class RepositoryTokenRequest implements Serializable {
 
   /**
    * The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
-   * minimum: -9223372036854775808
-   * maximum: 9223372036854775807
    * @return limitNumClients
    */
   @javax.annotation.Nullable
@@ -278,8 +274,6 @@ public class RepositoryTokenRequest implements Serializable {
 
   /**
    * The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
-   * minimum: -9223372036854775808
-   * maximum: 9223372036854775807
    * @return limitNumDownloads
    */
   @javax.annotation.Nullable
@@ -349,7 +343,7 @@ public class RepositoryTokenRequest implements Serializable {
   }
 
 
-  public RepositoryTokenRequest name(@javax.annotation.Nonnull String name) {
+  public RepositoryTokenRequest name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -358,12 +352,12 @@ public class RepositoryTokenRequest implements Serializable {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -508,7 +502,7 @@ public class RepositoryTokenRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("eula_required", "is_active", "limit_bandwidth", "limit_bandwidth_unit", "limit_date_range_from", "limit_date_range_to", "limit_num_clients", "limit_num_downloads", "limit_package_query", "limit_path_query", "metadata", "name", "scheduled_reset_at", "scheduled_reset_period", "token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -531,13 +525,6 @@ public class RepositoryTokenRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryTokenRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryTokenRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("limit_bandwidth_unit") != null && !jsonObj.get("limit_bandwidth_unit").isJsonNull()) && !jsonObj.get("limit_bandwidth_unit").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `limit_bandwidth_unit` to be a primitive type in the JSON string but got `%s`", jsonObj.get("limit_bandwidth_unit").toString()));
@@ -548,7 +535,7 @@ public class RepositoryTokenRequest implements Serializable {
       if ((jsonObj.get("limit_path_query") != null && !jsonObj.get("limit_path_query").isJsonNull()) && !jsonObj.get("limit_path_query").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `limit_path_query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("limit_path_query").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("scheduled_reset_period") != null && !jsonObj.get("scheduled_reset_period").isJsonNull()) && !jsonObj.get("scheduled_reset_period").isJsonPrimitive()) {

@@ -72,7 +72,7 @@ public class PackageDenyPolicyRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGE_QUERY_STRING = "package_query_string";
   @SerializedName(SERIALIZED_NAME_PACKAGE_QUERY_STRING)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageQueryString;
 
   public PackageDenyPolicyRequest() {
@@ -135,7 +135,7 @@ public class PackageDenyPolicyRequest implements Serializable {
   }
 
 
-  public PackageDenyPolicyRequest packageQueryString(@javax.annotation.Nonnull String packageQueryString) {
+  public PackageDenyPolicyRequest packageQueryString(@javax.annotation.Nullable String packageQueryString) {
     this.packageQueryString = packageQueryString;
     return this;
   }
@@ -144,12 +144,12 @@ public class PackageDenyPolicyRequest implements Serializable {
    * Packages that match this query will trigger this deny rule.
    * @return packageQueryString
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageQueryString() {
     return packageQueryString;
   }
 
-  public void setPackageQueryString(@javax.annotation.Nonnull String packageQueryString) {
+  public void setPackageQueryString(@javax.annotation.Nullable String packageQueryString) {
     this.packageQueryString = packageQueryString;
   }
 
@@ -215,7 +215,7 @@ public class PackageDenyPolicyRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("description", "enabled", "name", "package_query_string"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("package_query_string"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -238,13 +238,6 @@ public class PackageDenyPolicyRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageDenyPolicyRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageDenyPolicyRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
@@ -252,7 +245,7 @@ public class PackageDenyPolicyRequest implements Serializable {
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_query_string").isJsonPrimitive()) {
+      if ((jsonObj.get("package_query_string") != null && !jsonObj.get("package_query_string").isJsonNull()) && !jsonObj.get("package_query_string").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_query_string` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_query_string").toString()));
       }
   }

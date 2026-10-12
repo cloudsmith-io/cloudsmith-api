@@ -91,8 +91,6 @@ module CloudsmithApi
 
       if attributes.key?(:'privilege')
         self.privilege = attributes[:'privilege']
-      else
-        self.privilege = nil
       end
 
       if attributes.key?(:'service')
@@ -113,37 +111,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @privilege.nil?
-        invalid_properties.push('invalid value for "privilege", privilege cannot be nil.')
-      end
-
-      if !@service.nil? && @service.to_s.length < 1
-        invalid_properties.push('invalid value for "service", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@service.nil? && @service !~ pattern
-        invalid_properties.push("invalid value for \"service\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@team.nil? && @team.to_s.length < 1
-        invalid_properties.push('invalid value for "team", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@team.nil? && @team !~ pattern
-        invalid_properties.push("invalid value for \"team\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@user.nil? && @user.to_s.length < 1
-        invalid_properties.push('invalid value for "user", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@user.nil? && @user !~ pattern
-        invalid_properties.push("invalid value for \"user\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -151,81 +118,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @privilege.nil?
-      return false if !@service.nil? && @service.to_s.length < 1
-      return false if !@service.nil? && @service !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@team.nil? && @team.to_s.length < 1
-      return false if !@team.nil? && @team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@user.nil? && @user.to_s.length < 1
-      return false if !@user.nil? && @user !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] privilege Value to be assigned
-    def privilege=(privilege)
-      if privilege.nil?
-        fail ArgumentError, 'privilege cannot be nil'
-      end
-
-      @privilege = privilege
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] service Value to be assigned
-    def service=(service)
-      if service.nil?
-        fail ArgumentError, 'service cannot be nil'
-      end
-
-      if service.to_s.length < 1
-        fail ArgumentError, 'invalid value for "service", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if service !~ pattern
-        fail ArgumentError, "invalid value for \"service\", must conform to the pattern #{pattern}."
-      end
-
-      @service = service
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] team Value to be assigned
-    def team=(team)
-      if team.nil?
-        fail ArgumentError, 'team cannot be nil'
-      end
-
-      if team.to_s.length < 1
-        fail ArgumentError, 'invalid value for "team", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if team !~ pattern
-        fail ArgumentError, "invalid value for \"team\", must conform to the pattern #{pattern}."
-      end
-
-      @team = team
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] user Value to be assigned
-    def user=(user)
-      if user.nil?
-        fail ArgumentError, 'user cannot be nil'
-      end
-
-      if user.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if user !~ pattern
-        fail ArgumentError, "invalid value for \"user\", must conform to the pattern #{pattern}."
-      end
-
-      @user = user
     end
 
     # Checks equality by comparing each attribute.

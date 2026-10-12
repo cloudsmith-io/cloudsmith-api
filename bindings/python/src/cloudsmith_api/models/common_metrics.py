@@ -31,8 +31,8 @@ class CommonMetrics(BaseModel):
     CommonMetrics
     """ # noqa: E501
     active: Optional[StrictInt] = Field(default=None, description="Number of packages with at least 1 download")
-    bandwidth: CommonBandwidthMetrics
-    downloads: CommonDownloadsMetrics
+    bandwidth: Optional[CommonBandwidthMetrics] = None
+    downloads: Optional[CommonDownloadsMetrics] = None
     inactive: Optional[StrictInt] = Field(default=None, description="Packages with zero downloads")
     total: Optional[StrictInt] = Field(default=None, description="Total number of packages in repo")
     __properties: ClassVar[List[str]] = ["active", "bandwidth", "downloads", "inactive", "total"]

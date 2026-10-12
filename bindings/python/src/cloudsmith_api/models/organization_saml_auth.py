@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,12 +28,12 @@ class OrganizationSAMLAuth(BaseModel):
     """
     OrganizationSAMLAuth
     """ # noqa: E501
-    saml_auth_enabled: StrictBool
-    saml_auth_enforced: StrictBool
-    saml_metadata_inline: Optional[Annotated[str, Field(strict=True, max_length=32000)]] = Field(default=None, description="If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.")
-    saml_metadata_inline_webapp: Optional[Annotated[str, Field(strict=True, max_length=32000)]] = Field(default=None, description="When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.")
-    saml_metadata_url: Optional[Annotated[str, Field(strict=True, max_length=254)]] = Field(default=None, description="If configured, SAML metadata be retrieved from a remote URL.")
-    saml_metadata_url_webapp: Optional[Annotated[str, Field(strict=True, max_length=254)]] = Field(default=None, description="When configured, this SAML metadata URL is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.")
+    saml_auth_enabled: Optional[StrictBool] = None
+    saml_auth_enforced: Optional[StrictBool] = None
+    saml_metadata_inline: Optional[StrictStr] = Field(default=None, description="If configured, SAML metadata will be used as entered instead of retrieved from a remote URL.")
+    saml_metadata_inline_webapp: Optional[StrictStr] = Field(default=None, description="When configured, this inline SAML metadata is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.")
+    saml_metadata_url: Optional[StrictStr] = Field(default=None, description="If configured, SAML metadata be retrieved from a remote URL.")
+    saml_metadata_url_webapp: Optional[StrictStr] = Field(default=None, description="When configured, this SAML metadata URL is used instead of the legacy app SAML configuration when signing into the new Cloudsmith web application.")
     __properties: ClassVar[List[str]] = ["saml_auth_enabled", "saml_auth_enforced", "saml_metadata_inline", "saml_metadata_inline_webapp", "saml_metadata_url", "saml_metadata_url_webapp"]
 
     model_config = ConfigDict(

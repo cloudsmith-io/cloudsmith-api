@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,11 +30,11 @@ class PackageGroup(BaseModel):
     PackageGroup
     """ # noqa: E501
     backend_kind: Optional[StrictInt] = None
-    count: Optional[StrictInt]
-    last_push: Optional[datetime]
-    name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    num_downloads: Optional[StrictInt]
-    size: Optional[StrictInt]
+    count: Optional[StrictInt] = None
+    last_push: Optional[datetime] = None
+    name: Optional[StrictStr] = None
+    num_downloads: Optional[StrictInt] = None
+    size: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["backend_kind", "count", "last_push", "name", "num_downloads", "size"]
 
     model_config = ConfigDict(

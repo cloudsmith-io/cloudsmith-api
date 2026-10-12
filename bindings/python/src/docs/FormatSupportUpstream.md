@@ -6,14 +6,14 @@ The upstream support for the package format
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**auth_modes** | **List[str]** | The authentication modes supported by the upstream format | 
-**cache_only** | **bool** | If true the upstream format supports cache-only mode. | 
-**caching** | **bool** | If true the upstream format supports caching | 
-**indexing** | **bool** | If true the upstream format supports indexing | 
-**indexing_behavior** | **str** | The behavior of the upstream when indexing | [optional] [default to 'Unsupported']
-**proxying** | **bool** | If true the upstream format supports proxying | 
-**signature_verification** | **str** | The signature verification supported by the upstream format | [optional] [default to 'Unsupported']
-**trust** | **bool** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | 
+**auth_modes** | **List[str]** | The authentication modes supported by the upstream format | [optional] 
+**cache_only** | **bool** | If true the upstream format supports cache-only mode. | [optional] 
+**caching** | **bool** | If true the upstream format supports caching | [optional] 
+**indexing** | **bool** | If true the upstream format supports indexing | [optional] 
+**indexing_behavior** | **str** | The behavior of the upstream when indexing | [optional] 
+**proxying** | **bool** | If true the upstream format supports proxying | [optional] 
+**signature_verification** | **str** | The signature verification supported by the upstream format | [optional] 
+**trust** | **bool** | If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources. | [optional] 
 
 ## Example
 

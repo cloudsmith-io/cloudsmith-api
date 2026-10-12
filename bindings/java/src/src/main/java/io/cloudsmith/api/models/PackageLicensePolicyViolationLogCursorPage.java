@@ -72,7 +72,7 @@ public class PackageLicensePolicyViolationLogCursorPage implements Serializable 
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
-  private List<PackageLicensePolicyViolationLog> results = new ArrayList<>();
+  private List<PackageLicensePolicyViolationLog> results;
 
   public PackageLicensePolicyViolationLogCursorPage() {
   }

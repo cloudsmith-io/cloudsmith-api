@@ -57,7 +57,7 @@ public class GenericPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_FILEPATH = "filepath";
   @SerializedName(SERIALIZED_NAME_FILEPATH)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String filepath;
 
   public static final String SERIALIZED_NAME_NAME = "name";
@@ -67,7 +67,7 @@ public class GenericPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_REPUBLISH = "republish";
@@ -88,7 +88,7 @@ public class GenericPackageUploadRequest implements Serializable {
   public GenericPackageUploadRequest() {
   }
 
-  public GenericPackageUploadRequest filepath(@javax.annotation.Nonnull String filepath) {
+  public GenericPackageUploadRequest filepath(@javax.annotation.Nullable String filepath) {
     this.filepath = filepath;
     return this;
   }
@@ -97,12 +97,12 @@ public class GenericPackageUploadRequest implements Serializable {
    * The full filepath of the package including filename.
    * @return filepath
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getFilepath() {
     return filepath;
   }
 
-  public void setFilepath(@javax.annotation.Nonnull String filepath) {
+  public void setFilepath(@javax.annotation.Nullable String filepath) {
     this.filepath = filepath;
   }
 
@@ -126,7 +126,7 @@ public class GenericPackageUploadRequest implements Serializable {
   }
 
 
-  public GenericPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public GenericPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -135,12 +135,12 @@ public class GenericPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -267,7 +267,7 @@ public class GenericPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("filepath", "name", "package_file", "republish", "tags", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("filepath", "package_file"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -290,21 +290,14 @@ public class GenericPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GenericPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GenericPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("filepath").isJsonPrimitive()) {
+      if ((jsonObj.get("filepath") != null && !jsonObj.get("filepath").isJsonNull()) && !jsonObj.get("filepath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filepath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filepath").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) && !jsonObj.get("tags").isJsonPrimitive()) {

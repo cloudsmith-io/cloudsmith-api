@@ -36,17 +36,16 @@ class TestOrganization(unittest.TestCase):
         model = Organization()
         if include_optional:
             return Organization(
-                country = '0',
+                country = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 location = '',
-                name = '0',
+                name = '',
                 slug = '',
                 slug_perm = '',
                 tagline = ''
             )
         else:
             return Organization(
-                name = '0',
         )
         """
 

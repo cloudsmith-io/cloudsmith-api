@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**privilege** | **str** | The level of privilege that the user or team should be granted to the specified repository. | 
+**privilege** | **str** | The level of privilege that the user or team should be granted to the specified repository. | [optional] 
 **service** | **str** | The service identifier (slug). | [optional] 
 **team** | **str** | The team identifier (slug). | [optional] 
 **user** | **str** | The user identifier (slug). | [optional] 

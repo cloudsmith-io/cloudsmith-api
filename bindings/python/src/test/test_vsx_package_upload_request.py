@@ -36,13 +36,12 @@ class TestVsxPackageUploadRequest(unittest.TestCase):
         model = VsxPackageUploadRequest()
         if include_optional:
             return VsxPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return VsxPackageUploadRequest(
-                package_file = '0',
         )
         """
 

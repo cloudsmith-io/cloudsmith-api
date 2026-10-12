@@ -106,7 +106,7 @@ public class RepositoryWebhookRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_TARGET_URL = "target_url";
   @SerializedName(SERIALIZED_NAME_TARGET_URL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private URI targetUrl;
 
   public static final String SERIALIZED_NAME_TEMPLATES = "templates";
@@ -301,7 +301,7 @@ public class RepositoryWebhookRequest implements Serializable {
   }
 
 
-  public RepositoryWebhookRequest targetUrl(@javax.annotation.Nonnull URI targetUrl) {
+  public RepositoryWebhookRequest targetUrl(@javax.annotation.Nullable URI targetUrl) {
     this.targetUrl = targetUrl;
     return this;
   }
@@ -310,12 +310,12 @@ public class RepositoryWebhookRequest implements Serializable {
    * The destination URL that webhook payloads will be POST&#39;ed to.
    * @return targetUrl
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public URI getTargetUrl() {
     return targetUrl;
   }
 
-  public void setTargetUrl(@javax.annotation.Nonnull URI targetUrl) {
+  public void setTargetUrl(@javax.annotation.Nullable URI targetUrl) {
     this.targetUrl = targetUrl;
   }
 
@@ -443,7 +443,7 @@ public class RepositoryWebhookRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("events", "is_active", "package_query", "request_body_format", "request_body_template_format", "request_content_type", "secret_header", "secret_value", "signature_key", "target_url", "templates", "verify_ssl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("events", "target_url", "templates"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -466,18 +466,9 @@ public class RepositoryWebhookRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryWebhookRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryWebhookRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("events") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("events").isJsonArray() && !jsonObj.get("events").isJsonNull()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull() && !jsonObj.get("events").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
       }
       if ((jsonObj.get("package_query") != null && !jsonObj.get("package_query").isJsonNull()) && !jsonObj.get("package_query").isJsonPrimitive()) {
@@ -495,17 +486,21 @@ public class RepositoryWebhookRequest implements Serializable {
       if ((jsonObj.get("signature_key") != null && !jsonObj.get("signature_key").isJsonNull()) && !jsonObj.get("signature_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `signature_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature_key").toString()));
       }
-      if (!jsonObj.get("target_url").isJsonPrimitive()) {
+      if ((jsonObj.get("target_url") != null && !jsonObj.get("target_url").isJsonNull()) && !jsonObj.get("target_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_url").toString()));
       }
       if (jsonObj.get("templates") != null && !jsonObj.get("templates").isJsonNull()) {
-        if (!jsonObj.get("templates").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
-        }
         JsonArray jsonArraytemplates = jsonObj.getAsJsonArray("templates");
-        // validate the required field `templates` (array)
-        for (int i = 0; i < jsonArraytemplates.size(); i++) {
-          WebhookTemplate.validateJsonElement(jsonArraytemplates.get(i));
+        if (jsonArraytemplates != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("templates").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
+          }
+
+          // validate the optional field `templates` (array)
+          for (int i = 0; i < jsonArraytemplates.size(); i++) {
+            WebhookTemplate.validateJsonElement(jsonArraytemplates.get(i));
+          };
         }
       }
   }

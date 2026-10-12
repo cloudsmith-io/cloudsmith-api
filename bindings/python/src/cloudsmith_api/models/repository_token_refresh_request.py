@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,18 +31,18 @@ class RepositoryTokenRefreshRequest(BaseModel):
     """ # noqa: E501
     eula_required: Optional[StrictBool] = Field(default=None, description="If checked, a EULA acceptance is required for this token.")
     is_active: Optional[StrictBool] = Field(default=None, description="If enabled, the token will allow downloads based on configured restrictions (if any).")
-    limit_bandwidth: Optional[Annotated[int, Field(le=9223372036854775807, strict=True, ge=-9223372036854775808)]] = Field(default=None, description="The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
-    limit_bandwidth_unit: Optional[StrictStr] = 'Byte'
+    limit_bandwidth: Optional[StrictInt] = Field(default=None, description="The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+    limit_bandwidth_unit: Optional[StrictStr] = None
     limit_date_range_from: Optional[datetime] = Field(default=None, description="The starting date/time the token is allowed to be used from.")
     limit_date_range_to: Optional[datetime] = Field(default=None, description="The ending date/time the token is allowed to be used until.")
-    limit_num_clients: Optional[Annotated[int, Field(le=9223372036854775807, strict=True, ge=-9223372036854775808)]] = Field(default=None, description="The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
-    limit_num_downloads: Optional[Annotated[int, Field(le=9223372036854775807, strict=True, ge=-9223372036854775808)]] = Field(default=None, description="The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
-    limit_package_query: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.")
-    limit_path_query: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
+    limit_num_clients: Optional[StrictInt] = Field(default=None, description="The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+    limit_num_downloads: Optional[StrictInt] = Field(default=None, description="The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+    limit_package_query: Optional[StrictStr] = Field(default=None, description="The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.")
+    limit_path_query: Optional[StrictStr] = Field(default=None, description="THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
     metadata: Optional[Dict[str, Any]] = None
     scheduled_reset_at: Optional[datetime] = Field(default=None, description="The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.")
-    scheduled_reset_period: Optional[StrictStr] = 'Never Reset'
-    token: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    scheduled_reset_period: Optional[StrictStr] = None
+    token: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["eula_required", "is_active", "limit_bandwidth", "limit_bandwidth_unit", "limit_date_range_from", "limit_date_range_to", "limit_num_clients", "limit_num_downloads", "limit_package_query", "limit_path_query", "metadata", "scheduled_reset_at", "scheduled_reset_period", "token"]
 
     model_config = ConfigDict(
@@ -155,7 +154,7 @@ class RepositoryTokenRefreshRequest(BaseModel):
             "eula_required": obj.get("eula_required"),
             "is_active": obj.get("is_active"),
             "limit_bandwidth": obj.get("limit_bandwidth"),
-            "limit_bandwidth_unit": obj.get("limit_bandwidth_unit") if "limit_bandwidth_unit" in obj else 'Byte',
+            "limit_bandwidth_unit": obj.get("limit_bandwidth_unit"),
             "limit_date_range_from": obj.get("limit_date_range_from"),
             "limit_date_range_to": obj.get("limit_date_range_to"),
             "limit_num_clients": obj.get("limit_num_clients"),
@@ -164,7 +163,7 @@ class RepositoryTokenRefreshRequest(BaseModel):
             "limit_path_query": obj.get("limit_path_query"),
             "metadata": obj.get("metadata"),
             "scheduled_reset_at": obj.get("scheduled_reset_at"),
-            "scheduled_reset_period": obj.get("scheduled_reset_period") if "scheduled_reset_period" in obj else 'Never Reset',
+            "scheduled_reset_period": obj.get("scheduled_reset_period"),
             "token": obj.get("token")
         })
         return _obj

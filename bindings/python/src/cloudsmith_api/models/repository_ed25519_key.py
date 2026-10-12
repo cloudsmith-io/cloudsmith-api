@@ -21,7 +21,6 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -33,10 +32,10 @@ class RepositoryEd25519Key(BaseModel):
     active: Optional[StrictBool] = Field(default=None, description="If selected this is the active key for this repository.")
     created_at: Optional[datetime] = None
     default: Optional[StrictBool] = Field(default=None, description="If selected this is the default key for this repository.")
-    fingerprint: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Uppercase hex-encoded SHA-256 fingerprint of the public key.")
+    fingerprint: Optional[StrictStr] = Field(default=None, description="Uppercase hex-encoded SHA-256 fingerprint of the public key.")
     fingerprint_short: Optional[StrictStr] = None
-    public_key: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The public key given to repository users.")
-    public_key_wire: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The public key in `<name>:<base64>` wire format, ready to paste into Nix `trusted-public-keys`.")
+    public_key: Optional[StrictStr] = Field(default=None, description="The public key given to repository users.")
+    public_key_wire: Optional[StrictStr] = Field(default=None, description="The public key in `<name>:<base64>` wire format, ready to paste into Nix `trusted-public-keys`.")
     __properties: ClassVar[List[str]] = ["active", "created_at", "default", "fingerprint", "fingerprint_short", "public_key", "public_key_wire"]
 
     model_config = ConfigDict(

@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dep_type** | **str** |  | [optional] [readonly] [default to 'Depends']
+**dep_type** | **str** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] [readonly] 
-**operator** | **str** |  | [optional] [readonly] [default to '=']
+**operator** | **str** |  | [optional] [readonly] 
 **version** | **str** |  | [optional] [readonly] 
 
 ## Example

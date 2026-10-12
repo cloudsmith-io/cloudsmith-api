@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | **str** |  | [optional] [default to 'Owner']
+**role** | **str** |  | [optional] 
 
 ## Example
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **evaluation_count** | **int** |  | [optional] [readonly] 
 **policy** | [**NestedLicensePolicy**](NestedLicensePolicy.md) |  | [optional] 
 **slug_perm** | **str** |  | [optional] [readonly] 
-**status** | **str** |  | [optional] [readonly] [default to 'Pending']
+**status** | **str** |  | [optional] [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **violation_count** | **int** |  | [optional] [readonly] 
 

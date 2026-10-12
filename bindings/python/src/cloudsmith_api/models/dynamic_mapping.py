@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class DynamicMapping(BaseModel):
     """
     The dynamic mappings of `mapping_claim` values to service accounts. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
     """ # noqa: E501
-    claim_value: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
-    service_account: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The service account associated with the provider setting and `claim_value`  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
+    claim_value: Optional[StrictStr] = Field(default=None, description="The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped `service_account`.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
+    service_account: Optional[StrictStr] = Field(default=None, description="The service account associated with the provider setting and `claim_value`  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
     __properties: ClassVar[List[str]] = ["claim_value", "service_account"]
 
     model_config = ConfigDict(

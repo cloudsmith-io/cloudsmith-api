@@ -64,7 +64,7 @@ Name | Type | Description | Notes
 **repository_url** | **str** |  | [optional] [readonly] 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] [readonly] 
 **security_scan_started_at** | **datetime** | The datetime the security scanning was started. | [optional] [readonly] 
-**security_scan_status** | **str** |  | [optional] [readonly] [default to 'Awaiting Security Scan']
+**security_scan_status** | **str** |  | [optional] [readonly] 
 **security_scan_status_updated_at** | **datetime** | The datetime the security scanning status was updated. | [optional] [readonly] 
 **self_html_url** | **str** |  | [optional] [readonly] 
 **self_url** | **str** |  | [optional] [readonly] 

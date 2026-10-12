@@ -52,19 +52,6 @@ class TestHistoryFieldsetRaw(unittest.TestCase):
             )
         else:
             return HistoryFieldsetRaw(
-                downloaded = cloudsmith_api.models.usage_raw.UsageRaw(
-                    limit = 56, 
-                    percentage = '', 
-                    used = 56, ),
-                storage_used = cloudsmith_api.models.storage_usage_raw.StorageUsageRaw(
-                    limit = 56, 
-                    peak = 56, 
-                    percentage = '', 
-                    used = 56, ),
-                uploaded = cloudsmith_api.models.usage_raw.UsageRaw(
-                    limit = 56, 
-                    percentage = '', 
-                    used = 56, ),
         )
         """
 

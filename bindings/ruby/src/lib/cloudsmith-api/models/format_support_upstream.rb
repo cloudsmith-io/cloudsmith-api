@@ -114,50 +114,34 @@ module CloudsmithApi
         if (value = attributes[:'auth_modes']).is_a?(Array)
           self.auth_modes = value
         end
-      else
-        self.auth_modes = nil
       end
 
       if attributes.key?(:'cache_only')
         self.cache_only = attributes[:'cache_only']
-      else
-        self.cache_only = nil
       end
 
       if attributes.key?(:'caching')
         self.caching = attributes[:'caching']
-      else
-        self.caching = nil
       end
 
       if attributes.key?(:'indexing')
         self.indexing = attributes[:'indexing']
-      else
-        self.indexing = nil
       end
 
       if attributes.key?(:'indexing_behavior')
         self.indexing_behavior = attributes[:'indexing_behavior']
-      else
-        self.indexing_behavior = 'Unsupported'
       end
 
       if attributes.key?(:'proxying')
         self.proxying = attributes[:'proxying']
-      else
-        self.proxying = nil
       end
 
       if attributes.key?(:'signature_verification')
         self.signature_verification = attributes[:'signature_verification']
-      else
-        self.signature_verification = 'Unsupported'
       end
 
       if attributes.key?(:'trust')
         self.trust = attributes[:'trust']
-      else
-        self.trust = nil
       end
     end
 
@@ -166,30 +150,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @auth_modes.nil?
-        invalid_properties.push('invalid value for "auth_modes", auth_modes cannot be nil.')
-      end
-
-      if @cache_only.nil?
-        invalid_properties.push('invalid value for "cache_only", cache_only cannot be nil.')
-      end
-
-      if @caching.nil?
-        invalid_properties.push('invalid value for "caching", caching cannot be nil.')
-      end
-
-      if @indexing.nil?
-        invalid_properties.push('invalid value for "indexing", indexing cannot be nil.')
-      end
-
-      if @proxying.nil?
-        invalid_properties.push('invalid value for "proxying", proxying cannot be nil.')
-      end
-
-      if @trust.nil?
-        invalid_properties.push('invalid value for "trust", trust cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -197,73 +157,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @auth_modes.nil?
-      return false if @cache_only.nil?
-      return false if @caching.nil?
-      return false if @indexing.nil?
-      return false if @proxying.nil?
-      return false if @trust.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] auth_modes Value to be assigned
-    def auth_modes=(auth_modes)
-      if auth_modes.nil?
-        fail ArgumentError, 'auth_modes cannot be nil'
-      end
-
-      @auth_modes = auth_modes
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] cache_only Value to be assigned
-    def cache_only=(cache_only)
-      if cache_only.nil?
-        fail ArgumentError, 'cache_only cannot be nil'
-      end
-
-      @cache_only = cache_only
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] caching Value to be assigned
-    def caching=(caching)
-      if caching.nil?
-        fail ArgumentError, 'caching cannot be nil'
-      end
-
-      @caching = caching
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] indexing Value to be assigned
-    def indexing=(indexing)
-      if indexing.nil?
-        fail ArgumentError, 'indexing cannot be nil'
-      end
-
-      @indexing = indexing
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] proxying Value to be assigned
-    def proxying=(proxying)
-      if proxying.nil?
-        fail ArgumentError, 'proxying cannot be nil'
-      end
-
-      @proxying = proxying
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] trust Value to be assigned
-    def trust=(trust)
-      if trust.nil?
-        fail ArgumentError, 'trust cannot be nil'
-      end
-
-      @trust = trust
     end
 
     # Checks equality by comparing each attribute.

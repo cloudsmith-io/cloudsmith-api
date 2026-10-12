@@ -36,7 +36,7 @@ class TestOrganizationMembershipVisibilityUpdateRequestPatch(unittest.TestCase):
         model = OrganizationMembershipVisibilityUpdateRequestPatch()
         if include_optional:
             return OrganizationMembershipVisibilityUpdateRequestPatch(
-                visibility = 'Public'
+                visibility = ''
             )
         else:
             return OrganizationMembershipVisibilityUpdateRequestPatch(

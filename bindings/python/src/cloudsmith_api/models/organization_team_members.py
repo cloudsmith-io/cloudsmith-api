@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.organization_team_service_member import OrganizationTeamServiceMember
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class OrganizationTeamMembers(BaseModel):
     """
     OrganizationTeamMembers
     """ # noqa: E501
-    members: List[OrganizationTeamServiceMember] = Field(description="The team members")
+    members: Optional[List[OrganizationTeamServiceMember]] = Field(default=None, description="The team members")
     __properties: ClassVar[List[str]] = ["members"]
 
     model_config = ConfigDict(

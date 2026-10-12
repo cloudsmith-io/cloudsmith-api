@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str** | The action to perform on the packages. | 
-**identifiers** | **List[str]** | A list of package identifiers to apply the action to. | 
+**action** | **str** | The action to perform on the packages. | [optional] 
+**identifiers** | **List[str]** | A list of package identifiers to apply the action to. | [optional] 
 **repository** | **str** | The repository name to filter packages to. If not provided, the action will be performed across all accessible repositories in the workspace. | [optional] 
 **target_repository** | **str** | The slug of the target repository | [optional] 
 

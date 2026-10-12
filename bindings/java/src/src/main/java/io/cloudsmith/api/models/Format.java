@@ -61,7 +61,7 @@ public class Format implements Serializable {
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_DISTRIBUTIONS = "distributions";
@@ -71,17 +71,17 @@ public class Format implements Serializable {
 
   public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
   @SerializedName(SERIALIZED_NAME_EXTENSIONS)
-  @javax.annotation.Nonnull
-  private List<String> extensions = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<String> extensions;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PREMIUM = "premium";
   @SerializedName(SERIALIZED_NAME_PREMIUM)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean premium;
 
   public static final String SERIALIZED_NAME_PREMIUM_PLAN_ID = "premium_plan_id";
@@ -96,18 +96,18 @@ public class Format implements Serializable {
 
   public static final String SERIALIZED_NAME_SLUG = "slug";
   @SerializedName(SERIALIZED_NAME_SLUG)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String slug;
 
   public static final String SERIALIZED_NAME_SUPPORTS = "supports";
   @SerializedName(SERIALIZED_NAME_SUPPORTS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private FormatSupport supports;
 
   public Format() {
   }
 
-  public Format description(@javax.annotation.Nonnull String description) {
+  public Format description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
@@ -116,12 +116,12 @@ public class Format implements Serializable {
    * Description of the package format
    * @return description
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nonnull String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
@@ -153,7 +153,7 @@ public class Format implements Serializable {
   }
 
 
-  public Format extensions(@javax.annotation.Nonnull List<String> extensions) {
+  public Format extensions(@javax.annotation.Nullable List<String> extensions) {
     this.extensions = extensions;
     return this;
   }
@@ -170,17 +170,17 @@ public class Format implements Serializable {
    * A non-exhaustive list of extensions supported
    * @return extensions
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<String> getExtensions() {
     return extensions;
   }
 
-  public void setExtensions(@javax.annotation.Nonnull List<String> extensions) {
+  public void setExtensions(@javax.annotation.Nullable List<String> extensions) {
     this.extensions = extensions;
   }
 
 
-  public Format name(@javax.annotation.Nonnull String name) {
+  public Format name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -189,17 +189,17 @@ public class Format implements Serializable {
    * Name for the package format
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public Format premium(@javax.annotation.Nonnull Boolean premium) {
+  public Format premium(@javax.annotation.Nullable Boolean premium) {
     this.premium = premium;
     return this;
   }
@@ -208,12 +208,12 @@ public class Format implements Serializable {
    * If true the package format is a premium-only feature
    * @return premium
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getPremium() {
     return premium;
   }
 
-  public void setPremium(@javax.annotation.Nonnull Boolean premium) {
+  public void setPremium(@javax.annotation.Nullable Boolean premium) {
     this.premium = premium;
   }
 
@@ -256,7 +256,7 @@ public class Format implements Serializable {
   }
 
 
-  public Format slug(@javax.annotation.Nonnull String slug) {
+  public Format slug(@javax.annotation.Nullable String slug) {
     this.slug = slug;
     return this;
   }
@@ -265,17 +265,17 @@ public class Format implements Serializable {
    * Slug for the package format
    * @return slug
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSlug() {
     return slug;
   }
 
-  public void setSlug(@javax.annotation.Nonnull String slug) {
+  public void setSlug(@javax.annotation.Nullable String slug) {
     this.slug = slug;
   }
 
 
-  public Format supports(@javax.annotation.Nonnull FormatSupport supports) {
+  public Format supports(@javax.annotation.Nullable FormatSupport supports) {
     this.supports = supports;
     return this;
   }
@@ -284,12 +284,12 @@ public class Format implements Serializable {
    * Get supports
    * @return supports
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public FormatSupport getSupports() {
     return supports;
   }
 
-  public void setSupports(@javax.annotation.Nonnull FormatSupport supports) {
+  public void setSupports(@javax.annotation.Nullable FormatSupport supports) {
     this.supports = supports;
   }
 
@@ -365,7 +365,7 @@ public class Format implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("description", "distributions", "extensions", "name", "premium", "premium_plan_id", "premium_plan_name", "slug", "supports"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("description", "extensions", "name", "premium", "slug", "supports"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -388,15 +388,8 @@ public class Format implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Format` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Format.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("description").isJsonPrimitive()) {
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (jsonObj.get("distributions") != null && !jsonObj.get("distributions").isJsonNull()) {
@@ -413,13 +406,11 @@ public class Format implements Serializable {
           };
         }
       }
-      // ensure the required json array is present
-      if (jsonObj.get("extensions") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("extensions").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("extensions") != null && !jsonObj.get("extensions").isJsonNull() && !jsonObj.get("extensions").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `extensions` to be an array in the JSON string but got `%s`", jsonObj.get("extensions").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("premium_plan_id") != null && !jsonObj.get("premium_plan_id").isJsonNull()) && !jsonObj.get("premium_plan_id").isJsonPrimitive()) {
@@ -428,11 +419,13 @@ public class Format implements Serializable {
       if ((jsonObj.get("premium_plan_name") != null && !jsonObj.get("premium_plan_name").isJsonNull()) && !jsonObj.get("premium_plan_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `premium_plan_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("premium_plan_name").toString()));
       }
-      if (!jsonObj.get("slug").isJsonPrimitive()) {
+      if ((jsonObj.get("slug") != null && !jsonObj.get("slug").isJsonNull()) && !jsonObj.get("slug").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slug` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slug").toString()));
       }
-      // validate the required field `supports`
-      FormatSupport.validateJsonElement(jsonObj.get("supports"));
+      // validate the optional field `supports`
+      if (jsonObj.get("supports") != null && !jsonObj.get("supports").isJsonNull()) {
+        FormatSupport.validateJsonElement(jsonObj.get("supports"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

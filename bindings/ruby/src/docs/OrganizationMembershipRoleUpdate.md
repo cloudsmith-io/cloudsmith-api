@@ -8,13 +8,13 @@
 | **has_two_factor** | **Boolean** |  | [optional][readonly] |
 | **joined_at** | **Time** |  | [optional][readonly] |
 | **last_login_at** | **Time** |  | [optional][readonly] |
-| **last_login_method** | **String** |  | [optional][readonly][default to &#39;Unknown&#39;] |
-| **role** | **String** |  | [optional][default to &#39;Owner&#39;] |
+| **last_login_method** | **String** |  | [optional][readonly] |
+| **role** | **String** |  | [optional] |
 | **user** | **String** |  | [optional][readonly] |
 | **user_id** | **String** |  | [optional][readonly] |
 | **user_name** | **String** |  | [optional][readonly] |
 | **user_url** | **String** |  | [optional][readonly] |
-| **visibility** | **String** |  | [optional][readonly][default to &#39;Public&#39;] |
+| **visibility** | **String** |  | [optional][readonly] |
 
 ## Example
 

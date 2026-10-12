@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class Usage(BaseModel):
     """
     Usage
     """ # noqa: E501
-    limit: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
-    percentage: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=10)]] = None
-    used: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
+    limit: Optional[StrictStr] = None
+    percentage: Optional[StrictStr] = None
+    used: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["limit", "percentage", "used"]
 
     model_config = ConfigDict(

@@ -6,10 +6,10 @@
 | ---- | ---- | ----------- | ----- |
 | **allow_unknown_licenses** | **Boolean** |  | [optional] |
 | **description** | **String** |  | [optional] |
-| **name** | **String** |  |  |
+| **name** | **String** |  | [optional] |
 | **on_violation_quarantine** | **Boolean** |  | [optional] |
 | **package_query_string** | **String** |  | [optional] |
-| **spdx_identifiers** | **Array&lt;String&gt;** |  |  |
+| **spdx_identifiers** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 

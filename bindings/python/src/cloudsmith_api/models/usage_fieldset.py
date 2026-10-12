@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.usage_limits import UsageLimits
 from cloudsmith_api.models.usage_limits_raw import UsageLimitsRaw
 from typing import Optional, Set
@@ -30,8 +30,8 @@ class UsageFieldset(BaseModel):
     """
     UsageFieldset
     """ # noqa: E501
-    display: UsageLimits
-    raw: UsageLimitsRaw
+    display: Optional[UsageLimits] = None
+    raw: Optional[UsageLimitsRaw] = None
     __properties: ClassVar[List[str]] = ["display", "raw"]
 
     model_config = ConfigDict(

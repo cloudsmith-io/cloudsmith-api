@@ -91,20 +91,14 @@ module CloudsmithApi
 
       if attributes.key?(:'idp_key')
         self.idp_key = attributes[:'idp_key']
-      else
-        self.idp_key = nil
       end
 
       if attributes.key?(:'idp_value')
         self.idp_value = attributes[:'idp_value']
-      else
-        self.idp_value = nil
       end
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
-      else
-        self.role = 'Member'
       end
 
       if attributes.key?(:'slug_perm')
@@ -113,8 +107,6 @@ module CloudsmithApi
 
       if attributes.key?(:'team')
         self.team = attributes[:'team']
-      else
-        self.team = nil
       end
     end
 
@@ -123,48 +115,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @idp_key.nil?
-        invalid_properties.push('invalid value for "idp_key", idp_key cannot be nil.')
-      end
-
-      if @idp_key.to_s.length > 100
-        invalid_properties.push('invalid value for "idp_key", the character length must be smaller than or equal to 100.')
-      end
-
-      if @idp_key.to_s.length < 1
-        invalid_properties.push('invalid value for "idp_key", the character length must be greater than or equal to 1.')
-      end
-
-      if @idp_value.nil?
-        invalid_properties.push('invalid value for "idp_value", idp_value cannot be nil.')
-      end
-
-      if @idp_value.to_s.length > 100
-        invalid_properties.push('invalid value for "idp_value", the character length must be smaller than or equal to 100.')
-      end
-
-      if @idp_value.to_s.length < 1
-        invalid_properties.push('invalid value for "idp_value", the character length must be greater than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
-      if @team.nil?
-        invalid_properties.push('invalid value for "team", team cannot be nil.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if @team !~ pattern
-        invalid_properties.push("invalid value for \"team\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -172,87 +122,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @idp_key.nil?
-      return false if @idp_key.to_s.length > 100
-      return false if @idp_key.to_s.length < 1
-      return false if @idp_value.nil?
-      return false if @idp_value.to_s.length > 100
-      return false if @idp_value.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if @team.nil?
-      return false if @team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] idp_key Value to be assigned
-    def idp_key=(idp_key)
-      if idp_key.nil?
-        fail ArgumentError, 'idp_key cannot be nil'
-      end
-
-      if idp_key.to_s.length > 100
-        fail ArgumentError, 'invalid value for "idp_key", the character length must be smaller than or equal to 100.'
-      end
-
-      if idp_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "idp_key", the character length must be greater than or equal to 1.'
-      end
-
-      @idp_key = idp_key
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] idp_value Value to be assigned
-    def idp_value=(idp_value)
-      if idp_value.nil?
-        fail ArgumentError, 'idp_value cannot be nil'
-      end
-
-      if idp_value.to_s.length > 100
-        fail ArgumentError, 'invalid value for "idp_value", the character length must be smaller than or equal to 100.'
-      end
-
-      if idp_value.to_s.length < 1
-        fail ArgumentError, 'invalid value for "idp_value", the character length must be greater than or equal to 1.'
-      end
-
-      @idp_value = idp_value
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] team Value to be assigned
-    def team=(team)
-      if team.nil?
-        fail ArgumentError, 'team cannot be nil'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if team !~ pattern
-        fail ArgumentError, "invalid value for \"team\", must conform to the pattern #{pattern}."
-      end
-
-      @team = team
     end
 
     # Checks equality by comparing each attribute.

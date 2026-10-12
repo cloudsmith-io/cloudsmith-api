@@ -36,10 +36,10 @@ class TestPackageDependency(unittest.TestCase):
         model = PackageDependency()
         if include_optional:
             return PackageDependency(
-                dep_type = 'Depends',
-                name = '0',
-                operator = '=',
-                version = '0'
+                dep_type = '',
+                name = '',
+                operator = '',
+                version = ''
             )
         else:
             return PackageDependency(

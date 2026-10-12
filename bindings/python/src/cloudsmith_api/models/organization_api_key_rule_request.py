@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,9 +30,9 @@ class OrganizationApiKeyRuleRequest(BaseModel):
     """ # noqa: E501
     enforce_refresh: Optional[StrictBool] = Field(default=None, description="When enabled, API keys that violate the organization's rule will be replaced automatically.")
     is_enabled: Optional[StrictBool] = Field(default=None, description="Whether this rule is currently active and enforced.")
-    max_age_hours: Optional[Annotated[int, Field(le=2147483647, strict=True, ge=24)]] = Field(default=None, description="The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value.")
+    max_age_hours: Optional[StrictInt] = Field(default=None, description="The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value.")
     refresh_immediately: Optional[StrictBool] = Field(default=None, description="If set to True, API keys that violate this rule will be replaced immediately after the request is made. There is no way to undo this.")
-    rule_type: StrictStr = Field(description="Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only.")
+    rule_type: Optional[StrictStr] = Field(default=None, description="Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only.")
     __properties: ClassVar[List[str]] = ["enforce_refresh", "is_enabled", "max_age_hours", "refresh_immediately", "rule_type"]
 
     model_config = ConfigDict(

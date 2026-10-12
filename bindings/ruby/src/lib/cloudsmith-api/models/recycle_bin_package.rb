@@ -260,8 +260,6 @@ module CloudsmithApi
 
       if attributes.key?(:'security_scan_status')
         self.security_scan_status = attributes[:'security_scan_status']
-      else
-        self.security_scan_status = 'Awaiting Security Scan'
       end
 
       if attributes.key?(:'size')
@@ -310,39 +308,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@action_by.nil? && @action_by.to_s.length < 1
-        invalid_properties.push('invalid value for "action_by", the character length must be greater than or equal to 1.')
-      end
-
-      if !@filename.nil? && @filename.to_s.length < 1
-        invalid_properties.push('invalid value for "filename", the character length must be greater than or equal to 1.')
-      end
-
-      if !@format.nil? && @format.to_s.length < 1
-        invalid_properties.push('invalid value for "format", the character length must be greater than or equal to 1.')
-      end
-
-      if !@fully_qualified_name.nil? && @fully_qualified_name.to_s.length < 1
-        invalid_properties.push('invalid value for "fully_qualified_name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@repository.nil? && @repository.to_s.length < 1
-        invalid_properties.push('invalid value for "repository", the character length must be greater than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@uploader.nil? && @uploader.to_s.length < 1
-        invalid_properties.push('invalid value for "uploader", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -350,110 +315,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@action_by.nil? && @action_by.to_s.length < 1
-      return false if !@filename.nil? && @filename.to_s.length < 1
-      return false if !@format.nil? && @format.to_s.length < 1
-      return false if !@fully_qualified_name.nil? && @fully_qualified_name.to_s.length < 1
-      return false if !@repository.nil? && @repository.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@uploader.nil? && @uploader.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] action_by Value to be assigned
-    def action_by=(action_by)
-      if !action_by.nil? && action_by.to_s.length < 1
-        fail ArgumentError, 'invalid value for "action_by", the character length must be greater than or equal to 1.'
-      end
-
-      @action_by = action_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] filename Value to be assigned
-    def filename=(filename)
-      if filename.nil?
-        fail ArgumentError, 'filename cannot be nil'
-      end
-
-      if filename.to_s.length < 1
-        fail ArgumentError, 'invalid value for "filename", the character length must be greater than or equal to 1.'
-      end
-
-      @filename = filename
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] format Value to be assigned
-    def format=(format)
-      if format.nil?
-        fail ArgumentError, 'format cannot be nil'
-      end
-
-      if format.to_s.length < 1
-        fail ArgumentError, 'invalid value for "format", the character length must be greater than or equal to 1.'
-      end
-
-      @format = format
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] fully_qualified_name Value to be assigned
-    def fully_qualified_name=(fully_qualified_name)
-      if !fully_qualified_name.nil? && fully_qualified_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "fully_qualified_name", the character length must be greater than or equal to 1.'
-      end
-
-      @fully_qualified_name = fully_qualified_name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] repository Value to be assigned
-    def repository=(repository)
-      if repository.nil?
-        fail ArgumentError, 'repository cannot be nil'
-      end
-
-      if repository.to_s.length < 1
-        fail ArgumentError, 'invalid value for "repository", the character length must be greater than or equal to 1.'
-      end
-
-      @repository = repository
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] uploader Value to be assigned
-    def uploader=(uploader)
-      if uploader.nil?
-        fail ArgumentError, 'uploader cannot be nil'
-      end
-
-      if uploader.to_s.length < 1
-        fail ArgumentError, 'invalid value for "uploader", the character length must be greater than or equal to 1.'
-      end
-
-      @uploader = uploader
     end
 
     # Checks equality by comparing each attribute.

@@ -4,11 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **idp_key** | **String** |  |  |
-| **idp_value** | **String** |  |  |
-| **role** | **String** |  | [optional][default to &#39;Member&#39;] |
+| **idp_key** | **String** |  | [optional] |
+| **idp_value** | **String** |  | [optional] |
+| **role** | **String** |  | [optional] |
 | **slug_perm** | **String** |  | [optional][readonly] |
-| **team** | **String** |  |  |
+| **team** | **String** |  | [optional] |
 
 ## Example
 

@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class PackageBulkActionResponse(BaseModel):
     """
     PackageBulkActionResponse
     """ # noqa: E501
-    action: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The action that was performed.")
-    packages_actioned: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = Field(default=None, description="List of package identifiers that were successfully actioned.")
+    action: Optional[StrictStr] = Field(default=None, description="The action that was performed.")
+    packages_actioned: Optional[List[StrictStr]] = Field(default=None, description="List of package identifiers that were successfully actioned.")
     packages_failed_to_action: Optional[Dict[str, Dict[str, Optional[StrictStr]]]] = Field(default=None, description="Dictionary of package identifiers that failed with their error details.")
     __properties: ClassVar[List[str]] = ["action", "packages_actioned", "packages_failed_to_action"]
 

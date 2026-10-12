@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **policy_violated** | **bool** | Whether or not the package has violated any policy. | [optional] [readonly] 
 **repository** | **str** |  | [optional] [readonly] 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] [readonly] 
-**security_scan_status** | **str** |  | [optional] [readonly] [default to 'Awaiting Security Scan']
+**security_scan_status** | **str** |  | [optional] [readonly] 
 **size** | **int** | The calculated size of the package. | [optional] [readonly] 
 **slug_perm** | **str** |  | [optional] [readonly] 
 **status** | **int** | The synchronisation status of the package. | [optional] [readonly] 

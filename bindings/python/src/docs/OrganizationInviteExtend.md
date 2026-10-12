@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **inviter** | **str** |  | [optional] [readonly] 
 **inviter_url** | **str** |  | [optional] [readonly] 
 **org** | **str** |  | [optional] [readonly] 
-**role** | **str** | The role to be assigned to the invited user. | [optional] [default to 'Member']
+**role** | **str** | The role to be assigned to the invited user. | [optional] 
 **slug_perm** | **str** | The slug_perm of the invite to be extended. | [optional] [readonly] 
 **teams** | [**List[OrganizationTeamInvite]**](OrganizationTeamInvite.md) |  | [optional] 
 **user** | **str** | The slug of the user to be invited. | [optional] 

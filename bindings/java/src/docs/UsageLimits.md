@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**bandwidth** | [**AllocatedLimit**](AllocatedLimit.md) |  |  |
-|**storage** | [**StorageAllocatedLimit**](StorageAllocatedLimit.md) |  |  |
+|**bandwidth** | [**AllocatedLimit**](AllocatedLimit.md) |  |  [optional] |
+|**storage** | [**StorageAllocatedLimit**](StorageAllocatedLimit.md) |  |  [optional] |
 
 
 ## Implemented Interfaces

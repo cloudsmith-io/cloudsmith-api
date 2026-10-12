@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.usage_fieldset import UsageFieldset
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class Quota(BaseModel):
     """
     Quota
     """ # noqa: E501
-    usage: UsageFieldset
+    usage: Optional[UsageFieldset] = None
     __properties: ClassVar[List[str]] = ["usage"]
 
     model_config = ConfigDict(

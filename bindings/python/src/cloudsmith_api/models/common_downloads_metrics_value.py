@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class CommonDownloadsMetricsValue(BaseModel):
     """
     CommonDownloadsMetricsValue
     """ # noqa: E501
-    value: StrictInt
+    value: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["value"]
 
     model_config = ConfigDict(

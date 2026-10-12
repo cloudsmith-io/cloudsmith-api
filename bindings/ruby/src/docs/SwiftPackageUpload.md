@@ -48,7 +48,7 @@
 | **is_sync_in_progress** | **Boolean** |  | [optional][readonly] |
 | **license** | **String** | The license of this package. | [optional][readonly] |
 | **license_url** | **String** | The license URL of this package. | [optional] |
-| **name** | **String** | The name of this package. |  |
+| **name** | **String** | The name of this package. | [optional] |
 | **namespace** | **String** |  | [optional][readonly] |
 | **namespace_url** | **String** |  | [optional][readonly] |
 | **num_files** | **Integer** |  | [optional][readonly] |
@@ -62,10 +62,10 @@
 | **release** | **String** | The release of the package version (if any). | [optional][readonly] |
 | **repository** | **String** |  | [optional][readonly] |
 | **repository_url** | **String** | The URL of the SCM repository for the package. | [optional] |
-| **scope** | **String** | A scope provides a namespace for related packages within the package registry. |  |
+| **scope** | **String** | A scope provides a namespace for related packages within the package registry. | [optional] |
 | **security_scan_completed_at** | **Time** | The datetime the security scanning was completed. | [optional][readonly] |
 | **security_scan_started_at** | **Time** | The datetime the security scanning was started. | [optional][readonly] |
-| **security_scan_status** | **String** |  | [optional][readonly][default to &#39;Awaiting Security Scan&#39;] |
+| **security_scan_status** | **String** |  | [optional][readonly] |
 | **security_scan_status_updated_at** | **Time** | The datetime the security scanning status was updated. | [optional][readonly] |
 | **self_html_url** | **String** |  | [optional][readonly] |
 | **self_url** | **String** |  | [optional][readonly] |
@@ -95,7 +95,7 @@
 | **uploaded_at** | **Time** | The date this package was uploaded. | [optional][readonly] |
 | **uploader** | **String** |  | [optional][readonly] |
 | **uploader_url** | **String** |  | [optional][readonly] |
-| **version** | **String** | The raw version for this package. |  |
+| **version** | **String** | The raw version for this package. | [optional] |
 | **version_orig** | **String** |  | [optional][readonly] |
 | **vulnerability_scan_results_url** | **String** |  | [optional][readonly] |
 

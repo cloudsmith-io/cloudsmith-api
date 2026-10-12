@@ -59,13 +59,13 @@ public class QuotaHistory implements Serializable {
 
   public static final String SERIALIZED_NAME_HISTORY = "history";
   @SerializedName(SERIALIZED_NAME_HISTORY)
-  @javax.annotation.Nonnull
-  private List<History> history = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<History> history;
 
   public QuotaHistory() {
   }
 
-  public QuotaHistory history(@javax.annotation.Nonnull List<History> history) {
+  public QuotaHistory history(@javax.annotation.Nullable List<History> history) {
     this.history = history;
     return this;
   }
@@ -82,12 +82,12 @@ public class QuotaHistory implements Serializable {
    * Get history
    * @return history
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<History> getHistory() {
     return history;
   }
 
-  public void setHistory(@javax.annotation.Nonnull List<History> history) {
+  public void setHistory(@javax.annotation.Nullable List<History> history) {
     this.history = history;
   }
 
@@ -136,7 +136,7 @@ public class QuotaHistory implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("history"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("history"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -159,22 +159,19 @@ public class QuotaHistory implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `QuotaHistory` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : QuotaHistory.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("history") != null) {
-        if (!jsonObj.get("history").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `history` to be an array in the JSON string but got `%s`", jsonObj.get("history").toString()));
-        }
+      if (jsonObj.get("history") != null && !jsonObj.get("history").isJsonNull()) {
         JsonArray jsonArrayhistory = jsonObj.getAsJsonArray("history");
-        // validate the required field `history` (array)
-        for (int i = 0; i < jsonArrayhistory.size(); i++) {
-          History.validateJsonElement(jsonArrayhistory.get(i));
+        if (jsonArrayhistory != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("history").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `history` to be an array in the JSON string but got `%s`", jsonObj.get("history").toString()));
+          }
+
+          // validate the optional field `history` (array)
+          for (int i = 0; i < jsonArrayhistory.size(); i++) {
+            History.validateJsonElement(jsonArrayhistory.get(i));
+          };
         }
       }
   }

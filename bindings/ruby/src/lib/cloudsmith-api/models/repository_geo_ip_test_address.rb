@@ -78,8 +78,6 @@ module CloudsmithApi
         if (value = attributes[:'addresses']).is_a?(Array)
           self.addresses = value
         end
-      else
-        self.addresses = nil
       end
     end
 
@@ -88,10 +86,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @addresses.nil?
-        invalid_properties.push('invalid value for "addresses", addresses cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -99,18 +93,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @addresses.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] addresses Value to be assigned
-    def addresses=(addresses)
-      if addresses.nil?
-        fail ArgumentError, 'addresses cannot be nil'
-      end
-
-      @addresses = addresses
     end
 
     # Checks equality by comparing each attribute.

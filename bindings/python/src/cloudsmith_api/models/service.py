@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.service_teams import ServiceTeams
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,26 +31,16 @@ class Service(BaseModel):
     Service
     """ # noqa: E501
     created_at: Optional[datetime] = None
-    created_by: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    created_by: Optional[StrictStr] = None
     created_by_url: Optional[StrictStr] = None
-    description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="The description of the service")
+    description: Optional[StrictStr] = Field(default=None, description="The description of the service")
     key: Optional[StrictStr] = Field(default=None, description="The API key of the service")
     key_expires_at: Optional[datetime] = Field(default=None, description="The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.")
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=120)] = Field(description="The name of the service")
-    role: Optional[StrictStr] = Field(default='Member', description="The role of the service.")
-    slug: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug of the service")
+    name: Optional[StrictStr] = Field(default=None, description="The name of the service")
+    role: Optional[StrictStr] = Field(default=None, description="The role of the service.")
+    slug: Optional[StrictStr] = Field(default=None, description="The slug of the service")
     teams: Optional[List[ServiceTeams]] = None
     __properties: ClassVar[List[str]] = ["created_at", "created_by", "created_by_url", "description", "key", "key_expires_at", "name", "role", "slug", "teams"]
-
-    @field_validator('slug', mode="before")
-    def slug_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -134,7 +123,7 @@ class Service(BaseModel):
             "key": obj.get("key"),
             "key_expires_at": obj.get("key_expires_at"),
             "name": obj.get("name"),
-            "role": obj.get("role") if obj.get("role") is not None else 'Member',
+            "role": obj.get("role"),
             "slug": obj.get("slug"),
             "teams": [ServiceTeams.from_dict(_item) for _item in obj["teams"]] if obj.get("teams") is not None else None
         })

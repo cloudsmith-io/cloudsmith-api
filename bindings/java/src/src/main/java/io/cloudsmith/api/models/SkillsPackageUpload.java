@@ -68,7 +68,7 @@ public class SkillsPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_ARCHITECTURES = "architectures";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURES)
   @javax.annotation.Nullable
-  private List<Architecture> architectures = new ArrayList<>();
+  private List<Architecture> architectures;
 
   public static final String SERIALIZED_NAME_CDN_URL = "cdn_url";
   @SerializedName(SERIALIZED_NAME_CDN_URL)
@@ -153,7 +153,7 @@ public class SkillsPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
   @javax.annotation.Nullable
-  private List<PackageFile> files = new ArrayList<>();
+  private List<PackageFile> files;
 
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
@@ -183,7 +183,7 @@ public class SkillsPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_IDENTIFIERS = "identifiers";
   @SerializedName(SERIALIZED_NAME_IDENTIFIERS)
   @javax.annotation.Nullable
-  private Map<String, String> identifiers = new HashMap<>();
+  private Map<String, String> identifiers;
 
   public static final String SERIALIZED_NAME_INDEXED = "indexed";
   @SerializedName(SERIALIZED_NAME_INDEXED)
@@ -272,7 +272,7 @@ public class SkillsPackageUpload implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
@@ -348,7 +348,7 @@ public class SkillsPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_SECURITY_SCAN_STATUS = "security_scan_status";
   @SerializedName(SERIALIZED_NAME_SECURITY_SCAN_STATUS)
   @javax.annotation.Nullable
-  private String securityScanStatus = "Awaiting Security Scan";
+  private String securityScanStatus;
 
   public static final String SERIALIZED_NAME_SECURITY_SCAN_STATUS_UPDATED_AT = "security_scan_status_updated_at";
   @SerializedName(SERIALIZED_NAME_SECURITY_SCAN_STATUS_UPDATED_AT)
@@ -473,7 +473,7 @@ public class SkillsPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_TAGS_STATIC = "tags_static";
   @SerializedName(SERIALIZED_NAME_TAGS_STATIC)
   @javax.annotation.Nullable
-  private Map<String, List<String>> tagsStatic = new HashMap<>();
+  private Map<String, List<String>> tagsStatic;
 
   public static final String SERIALIZED_NAME_TYPE_DISPLAY = "type_display";
   @SerializedName(SERIALIZED_NAME_TYPE_DISPLAY)
@@ -497,7 +497,7 @@ public class SkillsPackageUpload implements Serializable {
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String version;
 
   public static final String SERIALIZED_NAME_VERSION_ORIG = "version_orig";
@@ -1151,7 +1151,7 @@ public class SkillsPackageUpload implements Serializable {
 
 
 
-  public SkillsPackageUpload name(@javax.annotation.Nonnull String name) {
+  public SkillsPackageUpload name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -1160,12 +1160,12 @@ public class SkillsPackageUpload implements Serializable {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -1670,7 +1670,7 @@ public class SkillsPackageUpload implements Serializable {
 
 
 
-  public SkillsPackageUpload version(@javax.annotation.Nonnull String version) {
+  public SkillsPackageUpload version(@javax.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
@@ -1679,12 +1679,12 @@ public class SkillsPackageUpload implements Serializable {
    * Get version
    * @return version
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(@javax.annotation.Nonnull String version) {
+  public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
   }
 
@@ -1942,7 +1942,7 @@ public class SkillsPackageUpload implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("architectures", "cdn_url", "checksum_md5", "checksum_sha1", "checksum_sha256", "checksum_sha512", "dependencies_checksum_md5", "dependencies_url", "description", "display_name", "display_source", "distro", "distro_version", "downloads", "epoch", "extension", "filename", "files", "format", "format_url", "freeable_storage", "fully_qualified_name", "identifier_perm", "identifiers", "indexed", "is_cancellable", "is_copyable", "is_deleteable", "is_downloadable", "is_hidden", "is_moveable", "is_quarantinable", "is_quarantined", "is_resyncable", "is_security_scannable", "is_sync_awaiting", "is_sync_completed", "is_sync_failed", "is_sync_in_flight", "is_sync_in_progress", "license", "name", "namespace", "namespace_url", "num_files", "origin_repository", "origin_repository_url", "osi_approved", "package_type", "policy_violated", "raw_license", "release", "repository", "repository_url", "security_scan_completed_at", "security_scan_started_at", "security_scan_status", "security_scan_status_updated_at", "self_html_url", "self_url", "self_webapp_url", "signature_url", "size", "slug", "slug_perm", "spdx_license", "stage", "stage_str", "stage_updated_at", "status", "status_reason", "status_str", "status_updated_at", "status_url", "store_path", "subtype", "summary", "sync_finished_at", "sync_progress", "tags_automatic", "tags_immutable", "tags_static", "type_display", "uploaded_at", "uploader", "uploader_url", "version", "version_orig", "vulnerability_scan_results_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "version"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -1963,13 +1963,6 @@ public class SkillsPackageUpload implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SkillsPackageUpload.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SkillsPackageUpload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SkillsPackageUpload.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -2060,7 +2053,7 @@ public class SkillsPackageUpload implements Serializable {
       if ((jsonObj.get("license") != null && !jsonObj.get("license").isJsonNull()) && !jsonObj.get("license").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `license` to be a primitive type in the JSON string but got `%s`", jsonObj.get("license").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
@@ -2141,7 +2134,7 @@ public class SkillsPackageUpload implements Serializable {
       if ((jsonObj.get("uploader_url") != null && !jsonObj.get("uploader_url").isJsonNull()) && !jsonObj.get("uploader_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uploader_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uploader_url").toString()));
       }
-      if (!jsonObj.get("version").isJsonPrimitive()) {
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
       if ((jsonObj.get("version_orig") != null && !jsonObj.get("version_orig").isJsonNull()) && !jsonObj.get("version_orig").isJsonPrimitive()) {

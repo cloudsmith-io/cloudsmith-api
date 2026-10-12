@@ -59,7 +59,7 @@ public class MavenUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_AUTH_MODE = "auth_mode";
   @SerializedName(SERIALIZED_NAME_AUTH_MODE)
   @javax.annotation.Nullable
-  private String authMode = "None";
+  private String authMode;
 
   public static final String SERIALIZED_NAME_AUTH_SECRET = "auth_secret";
   @SerializedName(SERIALIZED_NAME_AUTH_SECRET)
@@ -104,7 +104,7 @@ public class MavenUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_GPG_VERIFICATION = "gpg_verification";
   @SerializedName(SERIALIZED_NAME_GPG_VERIFICATION)
   @javax.annotation.Nullable
-  private String gpgVerification = "Allow All";
+  private String gpgVerification;
 
   public static final String SERIALIZED_NAME_IS_ACTIVE = "is_active";
   @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
@@ -114,7 +114,7 @@ public class MavenUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
   @javax.annotation.Nullable
-  private String mode = "Proxy Only";
+  private String mode;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -129,7 +129,7 @@ public class MavenUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_TRUST_LEVEL = "trust_level";
   @SerializedName(SERIALIZED_NAME_TRUST_LEVEL)
   @javax.annotation.Nullable
-  private String trustLevel = "Trusted";
+  private String trustLevel;
 
   public static final String SERIALIZED_NAME_UPSTREAM_URL = "upstream_url";
   @SerializedName(SERIALIZED_NAME_UPSTREAM_URL)
@@ -398,8 +398,6 @@ public class MavenUpstreamRequestPatch implements Serializable {
 
   /**
    * Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
-   * minimum: 1
-   * maximum: 32767
    * @return priority
    */
   @javax.annotation.Nullable

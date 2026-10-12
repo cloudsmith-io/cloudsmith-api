@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **is_active** | **bool** |  | [optional] [readonly] 
 **joined_at** | **datetime** |  | [optional] [readonly] 
 **last_login_at** | **datetime** |  | [optional] [readonly] 
-**last_login_method** | **str** |  | [optional] [readonly] [default to 'Unknown']
-**role** | **str** |  | [optional] [readonly] [default to 'Owner']
+**last_login_method** | **str** |  | [optional] [readonly] 
+**role** | **str** |  | [optional] [readonly] 
 **teams** | [**List[MemberTeams]**](MemberTeams.md) |  | [optional] [readonly] 
 **user** | **str** |  | [optional] [readonly] 
 **user_id** | **str** |  | [optional] [readonly] 
 **user_name** | **str** |  | [optional] [readonly] 
 **user_url** | **str** |  | [optional] [readonly] 
-**visibility** | **str** |  | [optional] [readonly] [default to 'Public']
+**visibility** | **str** |  | [optional] [readonly] 
 
 ## Example
 

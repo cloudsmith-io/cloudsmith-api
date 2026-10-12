@@ -60,7 +60,7 @@ public class RepositoryPrivilegeInputRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_PRIVILEGES = "privileges";
   @SerializedName(SERIALIZED_NAME_PRIVILEGES)
   @javax.annotation.Nullable
-  private List<RepositoryPrivilegeDict> privileges = new ArrayList<>();
+  private List<RepositoryPrivilegeDict> privileges;
 
   public RepositoryPrivilegeInputRequestPatch() {
   }

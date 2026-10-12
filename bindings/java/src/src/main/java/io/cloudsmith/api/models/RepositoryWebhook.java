@@ -167,7 +167,7 @@ public class RepositoryWebhook implements Serializable {
 
   public static final String SERIALIZED_NAME_TARGET_URL = "target_url";
   @SerializedName(SERIALIZED_NAME_TARGET_URL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private URI targetUrl;
 
   public static final String SERIALIZED_NAME_TEMPLATES = "templates";
@@ -532,7 +532,7 @@ public class RepositoryWebhook implements Serializable {
 
 
 
-  public RepositoryWebhook targetUrl(@javax.annotation.Nonnull URI targetUrl) {
+  public RepositoryWebhook targetUrl(@javax.annotation.Nullable URI targetUrl) {
     this.targetUrl = targetUrl;
     return this;
   }
@@ -541,12 +541,12 @@ public class RepositoryWebhook implements Serializable {
    * The destination URL that webhook payloads will be POST&#39;ed to.
    * @return targetUrl
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public URI getTargetUrl() {
     return targetUrl;
   }
 
-  public void setTargetUrl(@javax.annotation.Nonnull URI targetUrl) {
+  public void setTargetUrl(@javax.annotation.Nullable URI targetUrl) {
     this.targetUrl = targetUrl;
   }
 
@@ -737,7 +737,7 @@ public class RepositoryWebhook implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("created_at", "created_by", "created_by_url", "disable_reason", "disable_reason_str", "events", "identifier", "is_active", "is_last_response_bad", "last_response_status", "last_response_status_str", "num_sent", "package_query", "request_body_format", "request_body_format_str", "request_body_template_format", "request_body_template_format_str", "request_content_type", "secret_header", "self_url", "slug_perm", "target_url", "templates", "updated_at", "updated_by", "updated_by_url", "verify_ssl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("events", "target_url", "templates"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -760,13 +760,6 @@ public class RepositoryWebhook implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryWebhook` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryWebhook.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
@@ -777,10 +770,8 @@ public class RepositoryWebhook implements Serializable {
       if ((jsonObj.get("disable_reason_str") != null && !jsonObj.get("disable_reason_str").isJsonNull()) && !jsonObj.get("disable_reason_str").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `disable_reason_str` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disable_reason_str").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("events") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("events").isJsonArray() && !jsonObj.get("events").isJsonNull()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull() && !jsonObj.get("events").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
       }
       if ((jsonObj.get("last_response_status_str") != null && !jsonObj.get("last_response_status_str").isJsonNull()) && !jsonObj.get("last_response_status_str").isJsonPrimitive()) {
@@ -807,17 +798,21 @@ public class RepositoryWebhook implements Serializable {
       if ((jsonObj.get("slug_perm") != null && !jsonObj.get("slug_perm").isJsonNull()) && !jsonObj.get("slug_perm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slug_perm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slug_perm").toString()));
       }
-      if (!jsonObj.get("target_url").isJsonPrimitive()) {
+      if ((jsonObj.get("target_url") != null && !jsonObj.get("target_url").isJsonNull()) && !jsonObj.get("target_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_url").toString()));
       }
       if (jsonObj.get("templates") != null && !jsonObj.get("templates").isJsonNull()) {
-        if (!jsonObj.get("templates").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
-        }
         JsonArray jsonArraytemplates = jsonObj.getAsJsonArray("templates");
-        // validate the required field `templates` (array)
-        for (int i = 0; i < jsonArraytemplates.size(); i++) {
-          WebhookTemplate.validateJsonElement(jsonArraytemplates.get(i));
+        if (jsonArraytemplates != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("templates").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templates` to be an array in the JSON string but got `%s`", jsonObj.get("templates").toString()));
+          }
+
+          // validate the optional field `templates` (array)
+          for (int i = 0; i < jsonArraytemplates.size(); i++) {
+            WebhookTemplate.validateJsonElement(jsonArraytemplates.get(i));
+          };
         }
       }
       if ((jsonObj.get("updated_by") != null && !jsonObj.get("updated_by").isJsonNull()) && !jsonObj.get("updated_by").isJsonPrimitive()) {

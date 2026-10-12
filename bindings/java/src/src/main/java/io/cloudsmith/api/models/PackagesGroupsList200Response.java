@@ -60,7 +60,7 @@ public class PackagesGroupsList200Response implements Serializable {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
-  private List<PackageGroup> results = new ArrayList<>();
+  private List<PackageGroup> results;
 
   public PackagesGroupsList200Response() {
   }

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addresses** | **List[str]** | The IP addresses to test against this repository | 
+**addresses** | **List[str]** | The IP addresses to test against this repository | [optional] 
 
 ## Example
 

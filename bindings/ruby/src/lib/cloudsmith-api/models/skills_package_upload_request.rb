@@ -95,14 +95,10 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'package_file')
         self.package_file = attributes[:'package_file']
-      else
-        self.package_file = nil
       end
 
       if attributes.key?(:'republish')
@@ -115,8 +111,6 @@ module CloudsmithApi
 
       if attributes.key?(:'version')
         self.version = attributes[:'version']
-      else
-        self.version = nil
       end
     end
 
@@ -125,51 +119,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 64
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 64.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/\A[a-z0-9]+(?:-[a-z0-9]+)*$/)
-      if @name !~ pattern
-        invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
-      end
-
-      if @package_file.nil?
-        invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-      end
-
-      if @package_file.to_s.length < 1
-        invalid_properties.push('invalid value for "package_file", the character length must be greater than or equal to 1.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length > 1024
-        invalid_properties.push('invalid value for "tags", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@tags.nil? && @tags.to_s.length < 1
-        invalid_properties.push('invalid value for "tags", the character length must be greater than or equal to 1.')
-      end
-
-      if @version.nil?
-        invalid_properties.push('invalid value for "version", version cannot be nil.')
-      end
-
-      if @version.to_s.length > 255
-        invalid_properties.push('invalid value for "version", the character length must be smaller than or equal to 255.')
-      end
-
-      if @version.to_s.length < 1
-        invalid_properties.push('invalid value for "version", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -177,87 +126,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @name.nil?
-      return false if @name.to_s.length > 64
-      return false if @name.to_s.length < 1
-      return false if @name !~ Regexp.new(/\A[a-z0-9]+(?:-[a-z0-9]+)*$/)
-      return false if @package_file.nil?
-      return false if @package_file.to_s.length < 1
-      return false if !@tags.nil? && @tags.to_s.length > 1024
-      return false if !@tags.nil? && @tags.to_s.length < 1
-      return false if @version.nil?
-      return false if @version.to_s.length > 255
-      return false if @version.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 64
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 64.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/\A[a-z0-9]+(?:-[a-z0-9]+)*$/)
-      if name !~ pattern
-        fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] package_file Value to be assigned
-    def package_file=(package_file)
-      if package_file.nil?
-        fail ArgumentError, 'package_file cannot be nil'
-      end
-
-      if package_file.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_file", the character length must be greater than or equal to 1.'
-      end
-
-      @package_file = package_file
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tags Value to be assigned
-    def tags=(tags)
-      if !tags.nil? && tags.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "tags", the character length must be smaller than or equal to 1024.'
-      end
-
-      if !tags.nil? && tags.to_s.length < 1
-        fail ArgumentError, 'invalid value for "tags", the character length must be greater than or equal to 1.'
-      end
-
-      @tags = tags
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if version.nil?
-        fail ArgumentError, 'version cannot be nil'
-      end
-
-      if version.to_s.length > 255
-        fail ArgumentError, 'invalid value for "version", the character length must be smaller than or equal to 255.'
-      end
-
-      if version.to_s.length < 1
-        fail ArgumentError, 'invalid value for "version", the character length must be greater than or equal to 1.'
-      end
-
-      @version = version
     end
 
     # Checks equality by comparing each attribute.

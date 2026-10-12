@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class PackageFilePartsUpload(BaseModel):
     """
     PackageFilePartsUpload
     """ # noqa: E501
-    identifier: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The identifier for the file to use uploading parts.")
-    upload_querystring: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The querystring to use for the next-step PUT upload.")
-    upload_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The URL to use for the next-step PUT upload")
+    identifier: Optional[StrictStr] = Field(default=None, description="The identifier for the file to use uploading parts.")
+    upload_querystring: Optional[StrictStr] = Field(default=None, description="The querystring to use for the next-step PUT upload.")
+    upload_url: Optional[StrictStr] = Field(default=None, description="The URL to use for the next-step PUT upload")
     __properties: ClassVar[List[str]] = ["identifier", "upload_querystring", "upload_url"]
 
     model_config = ConfigDict(

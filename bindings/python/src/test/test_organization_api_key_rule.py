@@ -40,15 +40,14 @@ class TestOrganizationApiKeyRule(unittest.TestCase):
                 enforce_refresh = True,
                 is_enabled = True,
                 last_applied_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                max_age_hours = 24,
+                max_age_hours = 56,
                 rule_type = '',
-                slug = 'z0',
-                slug_perm = 'z0',
+                slug = '',
+                slug_perm = '',
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return OrganizationApiKeyRule(
-                rule_type = '',
         )
         """
 

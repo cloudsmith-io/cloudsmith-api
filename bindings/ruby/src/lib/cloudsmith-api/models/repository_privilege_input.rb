@@ -78,8 +78,6 @@ module CloudsmithApi
         if (value = attributes[:'privileges']).is_a?(Array)
           self.privileges = value
         end
-      else
-        self.privileges = nil
       end
     end
 
@@ -88,10 +86,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @privileges.nil?
-        invalid_properties.push('invalid value for "privileges", privileges cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -99,18 +93,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @privileges.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] privileges Value to be assigned
-    def privileges=(privileges)
-      if privileges.nil?
-        fail ArgumentError, 'privileges cannot be nil'
-      end
-
-      @privileges = privileges
     end
 
     # Checks equality by comparing each attribute.

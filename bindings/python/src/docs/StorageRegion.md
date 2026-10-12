@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**label** | **str** | Name of the storage region | 
-**slug** | **str** | Slug for the storage region | 
+**label** | **str** | Name of the storage region | [optional] 
+**slug** | **str** | Slug for the storage region | [optional] 
 
 ## Example
 

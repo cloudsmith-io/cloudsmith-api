@@ -99,7 +99,6 @@ public class OrganizationUsageUpdate implements Serializable {
 
   /**
    * Get bandwidthOverageLimit
-   * minimum: 0
    * @return bandwidthOverageLimit
    */
   @javax.annotation.Nullable
@@ -119,7 +118,6 @@ public class OrganizationUsageUpdate implements Serializable {
 
   /**
    * Get storageOverageLimit
-   * minimum: 0
    * @return storageOverageLimit
    */
   @javax.annotation.Nullable

@@ -36,12 +36,11 @@ class TestPackageCopyRequest(unittest.TestCase):
         model = PackageCopyRequest()
         if include_optional:
             return PackageCopyRequest(
-                destination = '0',
+                destination = '',
                 republish = True
             )
         else:
             return PackageCopyRequest(
-                destination = '0',
         )
         """
 

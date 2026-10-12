@@ -116,7 +116,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationApiKeyRuleRequest.new({rule_type: 'rule_type_example'}) # OrganizationApiKeyRuleRequest | 
+  data: CloudsmithApi::OrganizationApiKeyRuleRequest.new # OrganizationApiKeyRuleRequest | 
 }
 
 begin
@@ -505,7 +505,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationApiKeyRuleRequest.new({rule_type: 'rule_type_example'}) # OrganizationApiKeyRuleRequest | 
+  data: CloudsmithApi::OrganizationApiKeyRuleRequest.new # OrganizationApiKeyRuleRequest | 
 }
 
 begin
@@ -740,7 +740,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageDenyPolicyRequest.new({package_query_string: 'package_query_string_example'}) # PackageDenyPolicyRequest | 
+  data: CloudsmithApi::PackageDenyPolicyRequest.new # PackageDenyPolicyRequest | 
 }
 
 begin
@@ -1135,7 +1135,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageDenyPolicyRequest.new({package_query_string: 'package_query_string_example'}) # PackageDenyPolicyRequest | 
+  data: CloudsmithApi::PackageDenyPolicyRequest.new # PackageDenyPolicyRequest | 
 }
 
 begin
@@ -1686,7 +1686,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationPackageLicensePolicyRequest.new({name: 'name_example', spdx_identifiers: ['spdx_identifiers_example']}) # OrganizationPackageLicensePolicyRequest | 
+  data: CloudsmithApi::OrganizationPackageLicensePolicyRequest.new # OrganizationPackageLicensePolicyRequest | 
 }
 
 begin
@@ -2324,7 +2324,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationPackageLicensePolicyRequest.new({name: 'name_example', spdx_identifiers: ['spdx_identifiers_example']}) # OrganizationPackageLicensePolicyRequest | 
+  data: CloudsmithApi::OrganizationPackageLicensePolicyRequest.new # OrganizationPackageLicensePolicyRequest | 
 }
 
 begin
@@ -3201,7 +3201,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::ProviderSettingsWriteRequest.new({claims: 3.56, enabled: false, name: 'name_example', provider_url: 'provider_url_example'}) # ProviderSettingsWriteRequest | 
+  data: CloudsmithApi::ProviderSettingsWriteRequest.new # ProviderSettingsWriteRequest | 
 }
 
 begin
@@ -3762,7 +3762,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::ProviderSettingsWriteRequest.new({claims: 3.56, enabled: false, name: 'name_example', provider_url: 'provider_url_example'}) # ProviderSettingsWriteRequest | 
+  data: CloudsmithApi::ProviderSettingsWriteRequest.new # ProviderSettingsWriteRequest | 
 }
 
 begin
@@ -4144,7 +4144,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationGroupSyncRequest.new({idp_key: 'idp_key_example', idp_value: 'idp_value_example', organization: 'organization_example', team: 'team_example'}) # OrganizationGroupSyncRequest | 
+  data: CloudsmithApi::OrganizationGroupSyncRequest.new # OrganizationGroupSyncRequest | 
 }
 
 begin
@@ -4603,7 +4603,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::ServiceRequest.new({name: 'name_example'}) # ServiceRequest | 
+  data: CloudsmithApi::ServiceRequest.new # ServiceRequest | 
 }
 
 begin
@@ -5078,7 +5078,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationTeamRequest.new({name: 'name_example'}) # OrganizationTeamRequest | 
+  data: CloudsmithApi::OrganizationTeamRequest.new # OrganizationTeamRequest | 
 }
 
 begin
@@ -5321,7 +5321,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 team = 'team_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationTeamMembers.new({members: [CloudsmithApi::OrganizationTeamServiceMember.new({role: 'role_example', user: 'user_example'})]}) # OrganizationTeamMembers | 
+  data: CloudsmithApi::OrganizationTeamMembers.new # OrganizationTeamMembers | 
 }
 
 begin
@@ -5483,7 +5483,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 team = 'team_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationTeamMembers.new({members: [CloudsmithApi::OrganizationTeamServiceMember.new({role: 'role_example', user: 'user_example'})]}) # OrganizationTeamMembers | 
+  data: CloudsmithApi::OrganizationTeamMembers.new # OrganizationTeamMembers | 
 }
 
 begin
@@ -5798,7 +5798,7 @@ end
 api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationPackageVulnerabilityPolicyRequest.new({name: 'name_example'}) # OrganizationPackageVulnerabilityPolicyRequest | 
+  data: CloudsmithApi::OrganizationPackageVulnerabilityPolicyRequest.new # OrganizationPackageVulnerabilityPolicyRequest | 
 }
 
 begin
@@ -6436,7 +6436,7 @@ api_instance = CloudsmithApi::OrgsApi.new
 org = 'org_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::OrganizationPackageVulnerabilityPolicyRequest.new({name: 'name_example'}) # OrganizationPackageVulnerabilityPolicyRequest | 
+  data: CloudsmithApi::OrganizationPackageVulnerabilityPolicyRequest.new # OrganizationPackageVulnerabilityPolicyRequest | 
 }
 
 begin

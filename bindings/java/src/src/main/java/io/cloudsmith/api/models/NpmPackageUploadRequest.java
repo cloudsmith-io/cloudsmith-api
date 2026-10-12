@@ -58,11 +58,11 @@ public class NpmPackageUploadRequest implements Serializable {
   public static final String SERIALIZED_NAME_NPM_DIST_TAG = "npm_dist_tag";
   @SerializedName(SERIALIZED_NAME_NPM_DIST_TAG)
   @javax.annotation.Nullable
-  private String npmDistTag = "latest";
+  private String npmDistTag;
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_REPUBLISH = "republish";
@@ -97,7 +97,7 @@ public class NpmPackageUploadRequest implements Serializable {
   }
 
 
-  public NpmPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public NpmPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -106,12 +106,12 @@ public class NpmPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -215,7 +215,7 @@ public class NpmPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("npm_dist_tag", "package_file", "republish", "tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("package_file"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -238,18 +238,11 @@ public class NpmPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NpmPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : NpmPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("npm_dist_tag") != null && !jsonObj.get("npm_dist_tag").isJsonNull()) && !jsonObj.get("npm_dist_tag").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `npm_dist_tag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("npm_dist_tag").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) && !jsonObj.get("tags").isJsonPrimitive()) {

@@ -36,13 +36,12 @@ class TestDockerPackageUploadRequest(unittest.TestCase):
         model = DockerPackageUploadRequest()
         if include_optional:
             return DockerPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return DockerPackageUploadRequest(
-                package_file = '0',
         )
         """
 

@@ -37,10 +37,10 @@ class TestRepositoryWebhook(unittest.TestCase):
         if include_optional:
             return RepositoryWebhook(
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                created_by = '0',
+                created_by = '',
                 created_by_url = '',
                 disable_reason = 56,
-                disable_reason_str = '0',
+                disable_reason_str = '',
                 events = [
                     ''
                     ],
@@ -48,39 +48,30 @@ class TestRepositoryWebhook(unittest.TestCase):
                 is_active = True,
                 is_last_response_bad = True,
                 last_response_status = 56,
-                last_response_status_str = '0',
+                last_response_status_str = '',
                 num_sent = 56,
                 package_query = '',
                 request_body_format = 56,
-                request_body_format_str = '0',
+                request_body_format_str = '',
                 request_body_template_format = 56,
-                request_body_template_format_str = '0',
+                request_body_template_format_str = '',
                 request_content_type = '',
-                secret_header = 'z',
+                secret_header = '',
                 self_url = '',
-                slug_perm = 'z0',
-                target_url = '0',
+                slug_perm = '',
+                target_url = '',
                 templates = [
                     cloudsmith_api.models.webhook_template.WebhookTemplate(
-                        event = '0', 
+                        event = '', 
                         template = '', )
                     ],
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                updated_by = '0',
+                updated_by = '',
                 updated_by_url = '',
                 verify_ssl = True
             )
         else:
             return RepositoryWebhook(
-                events = [
-                    ''
-                    ],
-                target_url = '0',
-                templates = [
-                    cloudsmith_api.models.webhook_template.WebhookTemplate(
-                        event = '0', 
-                        template = '', )
-                    ],
         )
         """
 

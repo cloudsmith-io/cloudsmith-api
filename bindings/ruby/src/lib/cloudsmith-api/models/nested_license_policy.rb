@@ -143,8 +143,6 @@ module CloudsmithApi
         if (value = attributes[:'spdx_identifiers']).is_a?(Array)
           self.spdx_identifiers = value
         end
-      else
-        self.spdx_identifiers = nil
       end
 
       if attributes.key?(:'updated_at')
@@ -161,31 +159,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@description.nil? && @description.to_s.length < 1
-        invalid_properties.push('invalid value for "description", the character length must be greater than or equal to 1.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@package_query_string.nil? && @package_query_string.to_s.length < 1
-        invalid_properties.push('invalid value for "package_query_string", the character length must be greater than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
-      if @spdx_identifiers.nil?
-        invalid_properties.push('invalid value for "spdx_identifiers", spdx_identifiers cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -193,66 +166,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@description.nil? && @description.to_s.length < 1
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@package_query_string.nil? && @package_query_string.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if @spdx_identifiers.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
-      if !description.nil? && description.to_s.length < 1
-        fail ArgumentError, 'invalid value for "description", the character length must be greater than or equal to 1.'
-      end
-
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] package_query_string Value to be assigned
-    def package_query_string=(package_query_string)
-      if !package_query_string.nil? && package_query_string.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_query_string", the character length must be greater than or equal to 1.'
-      end
-
-      @package_query_string = package_query_string
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
     end
 
     # Custom attribute writer method with validation

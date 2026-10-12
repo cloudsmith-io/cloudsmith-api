@@ -36,12 +36,11 @@ class TestRepositoryEd25519KeyCreate(unittest.TestCase):
         model = RepositoryEd25519KeyCreate()
         if include_optional:
             return RepositoryEd25519KeyCreate(
-                ed25519_passphrase = '0',
-                ed25519_private_key = '0'
+                ed25519_passphrase = '',
+                ed25519_private_key = ''
             )
         else:
             return RepositoryEd25519KeyCreate(
-                ed25519_private_key = '0',
         )
         """
 

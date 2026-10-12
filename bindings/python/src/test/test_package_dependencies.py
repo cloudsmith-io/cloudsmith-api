@@ -38,21 +38,14 @@ class TestPackageDependencies(unittest.TestCase):
             return PackageDependencies(
                 dependencies = [
                     cloudsmith_api.models.package_dependency.PackageDependency(
-                        dep_type = 'Depends', 
-                        name = '0', 
-                        operator = '=', 
-                        version = '0', )
+                        dep_type = '', 
+                        name = '', 
+                        operator = '', 
+                        version = '', )
                     ]
             )
         else:
             return PackageDependencies(
-                dependencies = [
-                    cloudsmith_api.models.package_dependency.PackageDependency(
-                        dep_type = 'Depends', 
-                        name = '0', 
-                        operator = '=', 
-                        version = '0', )
-                    ],
         )
         """
 

@@ -35,7 +35,7 @@ end
 api_instance = CloudsmithApi::OpenidApi.new
 owner = 'owner_example' # String | 
 opts = {
-  data: CloudsmithApi::OidcRequest.new({oidc_token: 'oidc_token_example', service_slug: 'service_slug_example'}) # OidcRequest | 
+  data: CloudsmithApi::OidcRequest.new # OidcRequest | 
 }
 
 begin

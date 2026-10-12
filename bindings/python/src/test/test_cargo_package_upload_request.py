@@ -36,13 +36,12 @@ class TestCargoPackageUploadRequest(unittest.TestCase):
         model = CargoPackageUploadRequest()
         if include_optional:
             return CargoPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return CargoPackageUploadRequest(
-                package_file = '0',
         )
         """
 

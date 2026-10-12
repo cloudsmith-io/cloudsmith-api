@@ -36,40 +36,38 @@ class TestAlpineUpstream(unittest.TestCase):
         model = AlpineUpstream()
         if include_optional:
             return AlpineUpstream(
-                auth_mode = 'None',
+                auth_mode = '',
                 auth_secret = '',
                 auth_username = '',
                 available = True,
                 can_reindex = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                disable_reason = 'N/A',
+                disable_reason = '',
                 disable_reason_text = '',
-                extra_header_1 = 'z',
-                extra_header_2 = 'z',
-                extra_value_1 = 'j',
-                extra_value_2 = 'j',
+                extra_header_1 = '',
+                extra_header_2 = '',
+                extra_value_1 = '',
+                extra_value_2 = '',
                 has_failed_signature_verification = True,
                 index_package_count = 56,
                 index_status = '',
                 is_active = True,
                 last_indexed = '',
-                mode = 'Proxy Only',
-                name = 'eBXK5y0',
+                mode = '',
+                name = '',
                 pending_validation = True,
-                priority = 1,
+                priority = 56,
                 rsa_key_inline = '',
                 rsa_key_url = '',
-                rsa_verification = 'Allow All',
-                rsa_verification_status = 'Unknown',
-                slug_perm = 'z0',
+                rsa_verification = '',
+                rsa_verification_status = '',
+                slug_perm = '',
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                upstream_url = '0',
+                upstream_url = '',
                 verify_ssl = True
             )
         else:
             return AlpineUpstream(
-                name = 'eBXK5y0',
-                upstream_url = '0',
         )
         """
 

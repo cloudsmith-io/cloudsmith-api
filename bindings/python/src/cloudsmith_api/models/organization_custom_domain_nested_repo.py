@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,19 +28,9 @@ class OrganizationCustomDomainNestedRepo(BaseModel):
     """
     OrganizationCustomDomainNestedRepo
     """ # noqa: E501
-    name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="A descriptive name for the repository.")
-    slug: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The slug identifies the repository in URIs.")
+    name: Optional[StrictStr] = Field(default=None, description="A descriptive name for the repository.")
+    slug: Optional[StrictStr] = Field(default=None, description="The slug identifies the repository in URIs.")
     __properties: ClassVar[List[str]] = ["name", "slug"]
-
-    @field_validator('slug', mode="before")
-    def slug_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

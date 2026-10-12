@@ -36,15 +36,13 @@ class TestRpmPackageUploadRequest(unittest.TestCase):
         model = RpmPackageUploadRequest()
         if include_optional:
             return RpmPackageUploadRequest(
-                distribution = '0',
-                package_file = '0',
+                distribution = '',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return RpmPackageUploadRequest(
-                distribution = '0',
-                package_file = '0',
         )
         """
 

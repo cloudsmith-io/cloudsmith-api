@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,20 +28,10 @@ class ConnectedRepositoryRequestPatch(BaseModel):
     """
     ConnectedRepositoryRequestPatch
     """ # noqa: E501
-    is_active: Optional[StrictBool] = False
-    priority: Optional[Annotated[int, Field(le=32767, strict=True, ge=1)]] = Field(default=None, description="Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first.")
-    target_repository: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The slug of the target repository to connect to.")
+    is_active: Optional[StrictBool] = None
+    priority: Optional[StrictInt] = Field(default=None, description="Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first.")
+    target_repository: Optional[StrictStr] = Field(default=None, description="The slug of the target repository to connect to.")
     __properties: ClassVar[List[str]] = ["is_active", "priority", "target_repository"]
-
-    @field_validator('target_repository', mode="before")
-    def target_repository_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -95,7 +84,7 @@ class ConnectedRepositoryRequestPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "is_active": obj.get("is_active") if obj.get("is_active") is not None else False,
+            "is_active": obj.get("is_active"),
             "priority": obj.get("priority"),
             "target_repository": obj.get("target_repository")
         })

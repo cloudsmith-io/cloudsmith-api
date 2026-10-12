@@ -85,7 +85,7 @@ public class OrganizationPackageLicensePolicyRequestPatch implements Serializabl
   public static final String SERIALIZED_NAME_SPDX_IDENTIFIERS = "spdx_identifiers";
   @SerializedName(SERIALIZED_NAME_SPDX_IDENTIFIERS)
   @javax.annotation.Nullable
-  private Set<String> spdxIdentifiers = new LinkedHashSet<>();
+  private Set<String> spdxIdentifiers;
 
   public OrganizationPackageLicensePolicyRequestPatch() {
   }

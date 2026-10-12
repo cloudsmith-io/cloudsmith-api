@@ -67,17 +67,17 @@ public class ConanPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_INFO_FILE = "info_file";
   @SerializedName(SERIALIZED_NAME_INFO_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String infoFile;
 
   public static final String SERIALIZED_NAME_MANIFEST_FILE = "manifest_file";
   @SerializedName(SERIALIZED_NAME_MANIFEST_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String manifestFile;
 
   public static final String SERIALIZED_NAME_METADATA_FILE = "metadata_file";
   @SerializedName(SERIALIZED_NAME_METADATA_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String metadataFile;
 
   public static final String SERIALIZED_NAME_NAME = "name";
@@ -87,7 +87,7 @@ public class ConanPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_REPUBLISH = "republish";
@@ -146,7 +146,7 @@ public class ConanPackageUploadRequest implements Serializable {
   }
 
 
-  public ConanPackageUploadRequest infoFile(@javax.annotation.Nonnull String infoFile) {
+  public ConanPackageUploadRequest infoFile(@javax.annotation.Nullable String infoFile) {
     this.infoFile = infoFile;
     return this;
   }
@@ -155,17 +155,17 @@ public class ConanPackageUploadRequest implements Serializable {
    * The info file is an python file containing the package metadata.
    * @return infoFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getInfoFile() {
     return infoFile;
   }
 
-  public void setInfoFile(@javax.annotation.Nonnull String infoFile) {
+  public void setInfoFile(@javax.annotation.Nullable String infoFile) {
     this.infoFile = infoFile;
   }
 
 
-  public ConanPackageUploadRequest manifestFile(@javax.annotation.Nonnull String manifestFile) {
+  public ConanPackageUploadRequest manifestFile(@javax.annotation.Nullable String manifestFile) {
     this.manifestFile = manifestFile;
     return this;
   }
@@ -174,17 +174,17 @@ public class ConanPackageUploadRequest implements Serializable {
    * The info file is an python file containing the package metadata.
    * @return manifestFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getManifestFile() {
     return manifestFile;
   }
 
-  public void setManifestFile(@javax.annotation.Nonnull String manifestFile) {
+  public void setManifestFile(@javax.annotation.Nullable String manifestFile) {
     this.manifestFile = manifestFile;
   }
 
 
-  public ConanPackageUploadRequest metadataFile(@javax.annotation.Nonnull String metadataFile) {
+  public ConanPackageUploadRequest metadataFile(@javax.annotation.Nullable String metadataFile) {
     this.metadataFile = metadataFile;
     return this;
   }
@@ -193,12 +193,12 @@ public class ConanPackageUploadRequest implements Serializable {
    * The conan file is an python file containing the package metadata.
    * @return metadataFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getMetadataFile() {
     return metadataFile;
   }
 
-  public void setMetadataFile(@javax.annotation.Nonnull String metadataFile) {
+  public void setMetadataFile(@javax.annotation.Nullable String metadataFile) {
     this.metadataFile = metadataFile;
   }
 
@@ -222,7 +222,7 @@ public class ConanPackageUploadRequest implements Serializable {
   }
 
 
-  public ConanPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public ConanPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -231,12 +231,12 @@ public class ConanPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -371,7 +371,7 @@ public class ConanPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("conan_channel", "conan_prefix", "info_file", "manifest_file", "metadata_file", "name", "package_file", "republish", "tags", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("info_file", "manifest_file", "metadata_file", "package_file"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -394,13 +394,6 @@ public class ConanPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConanPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ConanPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("conan_channel") != null && !jsonObj.get("conan_channel").isJsonNull()) && !jsonObj.get("conan_channel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conan_channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conan_channel").toString()));
@@ -408,19 +401,19 @@ public class ConanPackageUploadRequest implements Serializable {
       if ((jsonObj.get("conan_prefix") != null && !jsonObj.get("conan_prefix").isJsonNull()) && !jsonObj.get("conan_prefix").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conan_prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conan_prefix").toString()));
       }
-      if (!jsonObj.get("info_file").isJsonPrimitive()) {
+      if ((jsonObj.get("info_file") != null && !jsonObj.get("info_file").isJsonNull()) && !jsonObj.get("info_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `info_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("info_file").toString()));
       }
-      if (!jsonObj.get("manifest_file").isJsonPrimitive()) {
+      if ((jsonObj.get("manifest_file") != null && !jsonObj.get("manifest_file").isJsonNull()) && !jsonObj.get("manifest_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `manifest_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("manifest_file").toString()));
       }
-      if (!jsonObj.get("metadata_file").isJsonPrimitive()) {
+      if ((jsonObj.get("metadata_file") != null && !jsonObj.get("metadata_file").isJsonNull()) && !jsonObj.get("metadata_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `metadata_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata_file").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) && !jsonObj.get("tags").isJsonPrimitive()) {

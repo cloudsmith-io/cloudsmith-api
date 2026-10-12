@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the service | [optional] 
 **key** | **str** | The API key of the service | [optional] [readonly] 
 **key_expires_at** | **datetime** | The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy. | [optional] [readonly] 
-**name** | **str** | The name of the service | 
-**role** | **str** | The role of the service. | [optional] [default to 'Member']
+**name** | **str** | The name of the service | [optional] 
+**role** | **str** | The role of the service. | [optional] 
 **slug** | **str** | The slug of the service | [optional] [readonly] 
 **teams** | [**List[ServiceTeams]**](ServiceTeams.md) |  | [optional] 
 

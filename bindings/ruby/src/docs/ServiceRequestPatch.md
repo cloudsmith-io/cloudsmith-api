@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **description** | **String** | The description of the service | [optional] |
 | **name** | **String** | The name of the service | [optional] |
-| **role** | **String** | The role of the service. | [optional][default to &#39;Member&#39;] |
+| **role** | **String** | The role of the service. | [optional] |
 | **teams** | [**Array&lt;ServiceTeams&gt;**](ServiceTeams.md) |  | [optional] |
 
 ## Example

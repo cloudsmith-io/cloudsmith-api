@@ -45,7 +45,7 @@
 | **is_sync_in_flight** | **Boolean** |  | [optional][readonly] |
 | **is_sync_in_progress** | **Boolean** |  | [optional][readonly] |
 | **license** | **String** | The license of this package. | [optional][readonly] |
-| **name** | **String** |  |  |
+| **name** | **String** |  | [optional] |
 | **namespace** | **String** |  | [optional][readonly] |
 | **namespace_url** | **String** |  | [optional][readonly] |
 | **num_files** | **Integer** |  | [optional][readonly] |
@@ -60,7 +60,7 @@
 | **repository_url** | **String** |  | [optional][readonly] |
 | **security_scan_completed_at** | **Time** | The datetime the security scanning was completed. | [optional][readonly] |
 | **security_scan_started_at** | **Time** | The datetime the security scanning was started. | [optional][readonly] |
-| **security_scan_status** | **String** |  | [optional][readonly][default to &#39;Awaiting Security Scan&#39;] |
+| **security_scan_status** | **String** |  | [optional][readonly] |
 | **security_scan_status_updated_at** | **Time** | The datetime the security scanning status was updated. | [optional][readonly] |
 | **self_html_url** | **String** |  | [optional][readonly] |
 | **self_url** | **String** |  | [optional][readonly] |
@@ -90,7 +90,7 @@
 | **uploaded_at** | **Time** | The date this package was uploaded. | [optional][readonly] |
 | **uploader** | **String** |  | [optional][readonly] |
 | **uploader_url** | **String** |  | [optional][readonly] |
-| **version** | **String** |  |  |
+| **version** | **String** |  | [optional] |
 | **version_orig** | **String** |  | [optional][readonly] |
 | **vulnerability_scan_results_url** | **String** |  | [optional][readonly] |
 

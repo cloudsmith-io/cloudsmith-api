@@ -56,23 +56,23 @@ public class OrganizationTeamServiceMember implements Serializable {
 
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String role;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String user;
 
   public static final String SERIALIZED_NAME_USER_KIND = "user_kind";
   @SerializedName(SERIALIZED_NAME_USER_KIND)
   @javax.annotation.Nullable
-  private String userKind = "User";
+  private String userKind;
 
   public OrganizationTeamServiceMember() {
   }
 
-  public OrganizationTeamServiceMember role(@javax.annotation.Nonnull String role) {
+  public OrganizationTeamServiceMember role(@javax.annotation.Nullable String role) {
     this.role = role;
     return this;
   }
@@ -81,17 +81,17 @@ public class OrganizationTeamServiceMember implements Serializable {
    * Get role
    * @return role
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getRole() {
     return role;
   }
 
-  public void setRole(@javax.annotation.Nonnull String role) {
+  public void setRole(@javax.annotation.Nullable String role) {
     this.role = role;
   }
 
 
-  public OrganizationTeamServiceMember user(@javax.annotation.Nonnull String user) {
+  public OrganizationTeamServiceMember user(@javax.annotation.Nullable String user) {
     this.user = user;
     return this;
   }
@@ -100,12 +100,12 @@ public class OrganizationTeamServiceMember implements Serializable {
    * Get user
    * @return user
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getUser() {
     return user;
   }
 
-  public void setUser(@javax.annotation.Nonnull String user) {
+  public void setUser(@javax.annotation.Nullable String user) {
     this.user = user;
   }
 
@@ -177,7 +177,7 @@ public class OrganizationTeamServiceMember implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("role", "user", "user_kind"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("role", "user"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -200,18 +200,11 @@ public class OrganizationTeamServiceMember implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationTeamServiceMember` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrganizationTeamServiceMember.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("role").isJsonPrimitive()) {
+      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
-      if (!jsonObj.get("user").isJsonPrimitive()) {
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       if ((jsonObj.get("user_kind") != null && !jsonObj.get("user_kind").isJsonNull()) && !jsonObj.get("user_kind").isJsonPrimitive()) {

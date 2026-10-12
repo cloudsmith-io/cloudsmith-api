@@ -37,8 +37,8 @@ class TestUserBrief(unittest.TestCase):
         if include_optional:
             return UserBrief(
                 authenticated = True,
-                email = '0',
-                name = '0',
+                email = '',
+                name = '',
                 profile_url = '',
                 self_url = '',
                 slug = '',

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **auth_mode** | **String** | The authentication mode to use when accessing this upstream.  | [optional][default to &#39;None&#39;] |
+| **auth_mode** | **String** | The authentication mode to use when accessing this upstream.  | [optional] |
 | **auth_secret** | **String** | Secret to provide with requests to upstream. | [optional] |
 | **auth_username** | **String** | Username to provide with requests to upstream. | [optional] |
 | **component** | **String** | The component to fetch from the upstream | [optional] |
@@ -15,10 +15,10 @@
 | **extra_value_2** | **String** | The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted. | [optional] |
 | **gpg_key_inline** | **String** | A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install. | [optional] |
 | **gpg_key_url** | **String** | When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install. | [optional] |
-| **gpg_verification** | **String** | The GPG signature verification mode for this upstream. | [optional][default to &#39;Allow All&#39;] |
+| **gpg_verification** | **String** | The GPG signature verification mode for this upstream. | [optional] |
 | **include_sources** | **Boolean** | When true, source packages will be available from this upstream. | [optional] |
 | **is_active** | **Boolean** | Whether or not this upstream is active and ready for requests. | [optional] |
-| **mode** | **String** | The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode. | [optional][default to &#39;Proxy Only&#39;] |
+| **mode** | **String** | The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode. | [optional] |
 | **name** | **String** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. | [optional] |
 | **priority** | **Integer** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. | [optional] |
 | **upstream_distribution** | **String** | The distribution to fetch from the upstream | [optional] |

@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.dynamic_mapping import DynamicMapping
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,9 +32,9 @@ class ProviderSettingsWriteRequestPatch(BaseModel):
     claims: Optional[Dict[str, Any]] = Field(default=None, description="The set of claims that any received tokens from the provider must contain to authenticate as the configured service account.")
     dynamic_mappings: Optional[List[DynamicMapping]] = Field(default=None, description="The dynamic mappings of `mapping_claim` values to service accounts. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
     enabled: Optional[StrictBool] = Field(default=None, description="Whether the provider settings should be used for incoming OIDC requests.")
-    mapping_claim: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The OIDC claim to use for mapping to service accounts in dynamic_mappings. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
-    name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The name of the provider settings are being configured for")
-    provider_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
+    mapping_claim: Optional[StrictStr] = Field(default=None, description="The OIDC claim to use for mapping to service accounts in dynamic_mappings. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
+    name: Optional[StrictStr] = Field(default=None, description="The name of the provider settings are being configured for")
+    provider_url: Optional[StrictStr] = Field(default=None, description="The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
     service_accounts: Optional[List[StrictStr]] = Field(default=None, description="The service accounts associated with these provider settings. Cannot be provided if `mapping_claim` or `dynamic_mappings` are specified.")
     __properties: ClassVar[List[str]] = ["claims", "dynamic_mappings", "enabled", "mapping_claim", "name", "provider_url", "service_accounts"]
 

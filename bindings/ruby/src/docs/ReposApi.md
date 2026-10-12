@@ -435,7 +435,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::ConnectedRepositoryRequest.new({target_repository: 'target_repository_example'}) # ConnectedRepositoryRequest | 
+  data: CloudsmithApi::ConnectedRepositoryRequest.new # ConnectedRepositoryRequest | 
 }
 
 begin
@@ -840,7 +840,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::ConnectedRepositoryRequest.new({target_repository: 'target_repository_example'}) # ConnectedRepositoryRequest | 
+  data: CloudsmithApi::ConnectedRepositoryRequest.new # ConnectedRepositoryRequest | 
 }
 
 begin
@@ -921,7 +921,7 @@ end
 api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryCreateRequest.new({name: 'name_example'}) # RepositoryCreateRequest | 
+  data: CloudsmithApi::RepositoryCreateRequest.new # RepositoryCreateRequest | 
 }
 
 begin
@@ -1077,7 +1077,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryEcdsaKeyCreate.new({ecdsa_private_key: 'ecdsa_private_key_example'}) # RepositoryEcdsaKeyCreate | 
+  data: CloudsmithApi::RepositoryEcdsaKeyCreate.new # RepositoryEcdsaKeyCreate | 
 }
 
 begin
@@ -1312,7 +1312,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryEd25519KeyCreate.new({ed25519_private_key: 'ed25519_private_key_example'}) # RepositoryEd25519KeyCreate | 
+  data: CloudsmithApi::RepositoryEd25519KeyCreate.new # RepositoryEd25519KeyCreate | 
 }
 
 begin
@@ -1865,7 +1865,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryGeoIpTestAddress.new({addresses: ['addresses_example']}) # RepositoryGeoIpTestAddress | 
+  data: CloudsmithApi::RepositoryGeoIpTestAddress.new # RepositoryGeoIpTestAddress | 
 }
 
 begin
@@ -1946,7 +1946,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryGeoIpRulesRequest.new({cidr: CloudsmithApi::RepositoryGeoIpCidr.new({allow: ['allow_example'], deny: ['deny_example']}), country_code: CloudsmithApi::RepositoryGeoIpCountryCode.new({allow: ['allow_example'], deny: ['deny_example']})}) # RepositoryGeoIpRulesRequest | 
+  data: CloudsmithApi::RepositoryGeoIpRulesRequest.new # RepositoryGeoIpRulesRequest | 
 }
 
 begin
@@ -2027,7 +2027,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryGpgKeyCreate.new({gpg_private_key: 'gpg_private_key_example'}) # RepositoryGpgKeyCreate | 
+  data: CloudsmithApi::RepositoryGpgKeyCreate.new # RepositoryGpgKeyCreate | 
 }
 
 begin
@@ -2591,7 +2591,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryPrivilegeInputRequest.new({privileges: [CloudsmithApi::RepositoryPrivilegeDict.new({privilege: 'privilege_example'})]}) # RepositoryPrivilegeInputRequest | 
+  data: CloudsmithApi::RepositoryPrivilegeInputRequest.new # RepositoryPrivilegeInputRequest | 
 }
 
 begin
@@ -2748,7 +2748,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryRsaKeyCreate.new({rsa_private_key: 'rsa_private_key_example'}) # RepositoryRsaKeyCreate | 
+  data: CloudsmithApi::RepositoryRsaKeyCreate.new # RepositoryRsaKeyCreate | 
 }
 
 begin
@@ -3063,7 +3063,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::AlpineUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # AlpineUpstreamRequest | 
+  data: CloudsmithApi::AlpineUpstreamRequest.new # AlpineUpstreamRequest | 
 }
 
 begin
@@ -3468,7 +3468,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::AlpineUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # AlpineUpstreamRequest | 
+  data: CloudsmithApi::AlpineUpstreamRequest.new # AlpineUpstreamRequest | 
 }
 
 begin
@@ -3550,7 +3550,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::CargoUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # CargoUpstreamRequest | 
+  data: CloudsmithApi::CargoUpstreamRequest.new # CargoUpstreamRequest | 
 }
 
 begin
@@ -3955,7 +3955,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::CargoUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # CargoUpstreamRequest | 
+  data: CloudsmithApi::CargoUpstreamRequest.new # CargoUpstreamRequest | 
 }
 
 begin
@@ -4037,7 +4037,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::ComposerUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # ComposerUpstreamRequest | 
+  data: CloudsmithApi::ComposerUpstreamRequest.new # ComposerUpstreamRequest | 
 }
 
 begin
@@ -4442,7 +4442,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::ComposerUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # ComposerUpstreamRequest | 
+  data: CloudsmithApi::ComposerUpstreamRequest.new # ComposerUpstreamRequest | 
 }
 
 begin
@@ -4524,7 +4524,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::CondaUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # CondaUpstreamRequest | 
+  data: CloudsmithApi::CondaUpstreamRequest.new # CondaUpstreamRequest | 
 }
 
 begin
@@ -4929,7 +4929,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::CondaUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # CondaUpstreamRequest | 
+  data: CloudsmithApi::CondaUpstreamRequest.new # CondaUpstreamRequest | 
 }
 
 begin
@@ -5011,7 +5011,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::CranUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # CranUpstreamRequest | 
+  data: CloudsmithApi::CranUpstreamRequest.new # CranUpstreamRequest | 
 }
 
 begin
@@ -5416,7 +5416,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::CranUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # CranUpstreamRequest | 
+  data: CloudsmithApi::CranUpstreamRequest.new # CranUpstreamRequest | 
 }
 
 begin
@@ -5498,7 +5498,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::DartUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # DartUpstreamRequest | 
+  data: CloudsmithApi::DartUpstreamRequest.new # DartUpstreamRequest | 
 }
 
 begin
@@ -5903,7 +5903,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::DartUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # DartUpstreamRequest | 
+  data: CloudsmithApi::DartUpstreamRequest.new # DartUpstreamRequest | 
 }
 
 begin
@@ -5985,7 +5985,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::DebUpstreamRequest.new({distro_versions: ['distro_versions_example'], name: 'name_example', upstream_url: 'upstream_url_example'}) # DebUpstreamRequest | 
+  data: CloudsmithApi::DebUpstreamRequest.new # DebUpstreamRequest | 
 }
 
 begin
@@ -6390,7 +6390,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::DebUpstreamRequest.new({distro_versions: ['distro_versions_example'], name: 'name_example', upstream_url: 'upstream_url_example'}) # DebUpstreamRequest | 
+  data: CloudsmithApi::DebUpstreamRequest.new # DebUpstreamRequest | 
 }
 
 begin
@@ -6472,7 +6472,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::DockerUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # DockerUpstreamRequest | 
+  data: CloudsmithApi::DockerUpstreamRequest.new # DockerUpstreamRequest | 
 }
 
 begin
@@ -6877,7 +6877,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::DockerUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # DockerUpstreamRequest | 
+  data: CloudsmithApi::DockerUpstreamRequest.new # DockerUpstreamRequest | 
 }
 
 begin
@@ -6959,7 +6959,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::GenericUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # GenericUpstreamRequest | 
+  data: CloudsmithApi::GenericUpstreamRequest.new # GenericUpstreamRequest | 
 }
 
 begin
@@ -7364,7 +7364,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::GenericUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # GenericUpstreamRequest | 
+  data: CloudsmithApi::GenericUpstreamRequest.new # GenericUpstreamRequest | 
 }
 
 begin
@@ -7446,7 +7446,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::GoUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # GoUpstreamRequest | 
+  data: CloudsmithApi::GoUpstreamRequest.new # GoUpstreamRequest | 
 }
 
 begin
@@ -7851,7 +7851,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::GoUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # GoUpstreamRequest | 
+  data: CloudsmithApi::GoUpstreamRequest.new # GoUpstreamRequest | 
 }
 
 begin
@@ -7933,7 +7933,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::HelmUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # HelmUpstreamRequest | 
+  data: CloudsmithApi::HelmUpstreamRequest.new # HelmUpstreamRequest | 
 }
 
 begin
@@ -8338,7 +8338,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::HelmUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # HelmUpstreamRequest | 
+  data: CloudsmithApi::HelmUpstreamRequest.new # HelmUpstreamRequest | 
 }
 
 begin
@@ -8420,7 +8420,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::HexUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # HexUpstreamRequest | 
+  data: CloudsmithApi::HexUpstreamRequest.new # HexUpstreamRequest | 
 }
 
 begin
@@ -8825,7 +8825,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::HexUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # HexUpstreamRequest | 
+  data: CloudsmithApi::HexUpstreamRequest.new # HexUpstreamRequest | 
 }
 
 begin
@@ -8907,7 +8907,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::HuggingfaceUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # HuggingfaceUpstreamRequest | 
+  data: CloudsmithApi::HuggingfaceUpstreamRequest.new # HuggingfaceUpstreamRequest | 
 }
 
 begin
@@ -9312,7 +9312,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::HuggingfaceUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # HuggingfaceUpstreamRequest | 
+  data: CloudsmithApi::HuggingfaceUpstreamRequest.new # HuggingfaceUpstreamRequest | 
 }
 
 begin
@@ -9394,7 +9394,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::MavenUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # MavenUpstreamRequest | 
+  data: CloudsmithApi::MavenUpstreamRequest.new # MavenUpstreamRequest | 
 }
 
 begin
@@ -9799,7 +9799,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::MavenUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # MavenUpstreamRequest | 
+  data: CloudsmithApi::MavenUpstreamRequest.new # MavenUpstreamRequest | 
 }
 
 begin
@@ -9881,7 +9881,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::NixUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # NixUpstreamRequest | 
+  data: CloudsmithApi::NixUpstreamRequest.new # NixUpstreamRequest | 
 }
 
 begin
@@ -10286,7 +10286,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::NixUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # NixUpstreamRequest | 
+  data: CloudsmithApi::NixUpstreamRequest.new # NixUpstreamRequest | 
 }
 
 begin
@@ -10368,7 +10368,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::NpmUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # NpmUpstreamRequest | 
+  data: CloudsmithApi::NpmUpstreamRequest.new # NpmUpstreamRequest | 
 }
 
 begin
@@ -10773,7 +10773,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::NpmUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # NpmUpstreamRequest | 
+  data: CloudsmithApi::NpmUpstreamRequest.new # NpmUpstreamRequest | 
 }
 
 begin
@@ -10855,7 +10855,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::NugetUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # NugetUpstreamRequest | 
+  data: CloudsmithApi::NugetUpstreamRequest.new # NugetUpstreamRequest | 
 }
 
 begin
@@ -11260,7 +11260,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::NugetUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # NugetUpstreamRequest | 
+  data: CloudsmithApi::NugetUpstreamRequest.new # NugetUpstreamRequest | 
 }
 
 begin
@@ -11342,7 +11342,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::PythonUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # PythonUpstreamRequest | 
+  data: CloudsmithApi::PythonUpstreamRequest.new # PythonUpstreamRequest | 
 }
 
 begin
@@ -11747,7 +11747,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::PythonUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # PythonUpstreamRequest | 
+  data: CloudsmithApi::PythonUpstreamRequest.new # PythonUpstreamRequest | 
 }
 
 begin
@@ -11829,7 +11829,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RpmUpstreamRequest.new({distro_version: 'distro_version_example', name: 'name_example', upstream_url: 'upstream_url_example'}) # RpmUpstreamRequest | 
+  data: CloudsmithApi::RpmUpstreamRequest.new # RpmUpstreamRequest | 
 }
 
 begin
@@ -12234,7 +12234,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::RpmUpstreamRequest.new({distro_version: 'distro_version_example', name: 'name_example', upstream_url: 'upstream_url_example'}) # RpmUpstreamRequest | 
+  data: CloudsmithApi::RpmUpstreamRequest.new # RpmUpstreamRequest | 
 }
 
 begin
@@ -12316,7 +12316,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RubyUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # RubyUpstreamRequest | 
+  data: CloudsmithApi::RubyUpstreamRequest.new # RubyUpstreamRequest | 
 }
 
 begin
@@ -12721,7 +12721,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::RubyUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # RubyUpstreamRequest | 
+  data: CloudsmithApi::RubyUpstreamRequest.new # RubyUpstreamRequest | 
 }
 
 begin
@@ -12803,7 +12803,7 @@ api_instance = CloudsmithApi::ReposApi.new
 owner = 'owner_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::SwiftUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # SwiftUpstreamRequest | 
+  data: CloudsmithApi::SwiftUpstreamRequest.new # SwiftUpstreamRequest | 
 }
 
 begin
@@ -13208,7 +13208,7 @@ owner = 'owner_example' # String |
 identifier = 'identifier_example' # String | 
 slug_perm = 'slug_perm_example' # String | 
 opts = {
-  data: CloudsmithApi::SwiftUpstreamRequest.new({name: 'name_example', upstream_url: 'upstream_url_example'}) # SwiftUpstreamRequest | 
+  data: CloudsmithApi::SwiftUpstreamRequest.new # SwiftUpstreamRequest | 
 }
 
 begin

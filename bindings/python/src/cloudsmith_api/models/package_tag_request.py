@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class PackageTagRequest(BaseModel):
     """
     PackageTagRequest
     """ # noqa: E501
-    action: Optional[StrictStr] = 'Add'
-    is_immutable: Optional[StrictBool] = Field(default=False, description="If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.")
-    tags: Optional[List[Annotated[str, Field(min_length=1, strict=True, max_length=255)]]] = Field(default=None, description="A list of tags to apply the action to. Not required for clears.")
+    action: Optional[StrictStr] = None
+    is_immutable: Optional[StrictBool] = Field(default=None, description="If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.")
+    tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags to apply the action to. Not required for clears.")
     __properties: ClassVar[List[str]] = ["action", "is_immutable", "tags"]
 
     model_config = ConfigDict(
@@ -95,8 +94,8 @@ class PackageTagRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "action": obj.get("action") if "action" in obj else 'Add',
-            "is_immutable": obj.get("is_immutable") if obj.get("is_immutable") is not None else False,
+            "action": obj.get("action"),
+            "is_immutable": obj.get("is_immutable"),
             "tags": obj.get("tags")
         })
         return _obj

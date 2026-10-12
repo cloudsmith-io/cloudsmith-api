@@ -110,8 +110,6 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'self_url')
@@ -138,30 +136,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@format.nil? && @format.to_s.length < 1
-        invalid_properties.push('invalid value for "format", the character length must be greater than or equal to 1.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 32
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 32.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be greater than or equal to 1.')
-      end
-
-      if !@variants.nil? && @variants.to_s.length > 128
-        invalid_properties.push('invalid value for "variants", the character length must be smaller than or equal to 128.')
-      end
-
       invalid_properties
     end
 
@@ -169,69 +143,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@format.nil? && @format.to_s.length < 1
-      return false if @name.nil?
-      return false if @name.to_s.length > 32
-      return false if @name.to_s.length < 1
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      return false if !@variants.nil? && @variants.to_s.length > 128
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] format Value to be assigned
-    def format=(format)
-      if format.nil?
-        fail ArgumentError, 'format cannot be nil'
-      end
-
-      if format.to_s.length < 1
-        fail ArgumentError, 'invalid value for "format", the character length must be greater than or equal to 1.'
-      end
-
-      @format = format
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 32
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 32.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if slug.nil?
-        fail ArgumentError, 'slug cannot be nil'
-      end
-
-      if slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be greater than or equal to 1.'
-      end
-
-      @slug = slug
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] variants Value to be assigned
-    def variants=(variants)
-      if !variants.nil? && variants.to_s.length > 128
-        fail ArgumentError, 'invalid value for "variants", the character length must be smaller than or equal to 128.'
-      end
-
-      @variants = variants
     end
 
     # Checks equality by comparing each attribute.

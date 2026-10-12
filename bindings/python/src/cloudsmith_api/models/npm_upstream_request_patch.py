@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,71 +28,21 @@ class NpmUpstreamRequestPatch(BaseModel):
     """
     NpmUpstreamRequestPatch
     """ # noqa: E501
-    auth_mode: Optional[StrictStr] = Field(default='None', description="The authentication mode to use when accessing this upstream. ")
-    auth_secret: Optional[Annotated[str, Field(strict=True, max_length=4096)]] = Field(default=None, description="Secret to provide with requests to upstream.")
-    auth_username: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="Username to provide with requests to upstream.")
-    extra_header_1: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The key for extra header #1 to send to upstream.")
-    extra_header_2: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The key for extra header #2 to send to upstream.")
-    extra_value_1: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
-    extra_value_2: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
+    auth_mode: Optional[StrictStr] = Field(default=None, description="The authentication mode to use when accessing this upstream. ")
+    auth_secret: Optional[StrictStr] = Field(default=None, description="Secret to provide with requests to upstream.")
+    auth_username: Optional[StrictStr] = Field(default=None, description="Username to provide with requests to upstream.")
+    extra_header_1: Optional[StrictStr] = Field(default=None, description="The key for extra header #1 to send to upstream.")
+    extra_header_2: Optional[StrictStr] = Field(default=None, description="The key for extra header #2 to send to upstream.")
+    extra_value_1: Optional[StrictStr] = Field(default=None, description="The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
+    extra_value_2: Optional[StrictStr] = Field(default=None, description="The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
     is_active: Optional[StrictBool] = Field(default=None, description="Whether or not this upstream is active and ready for requests.")
-    mode: Optional[StrictStr] = Field(default='Proxy Only', description="The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.")
-    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=64)]] = Field(default=None, description="A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.")
-    priority: Optional[Annotated[int, Field(le=32767, strict=True, ge=1)]] = Field(default=None, description="Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.")
-    trust_level: Optional[StrictStr] = Field(default='Trusted', description="Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
-    upstream_url: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, description="The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. ")
+    mode: Optional[StrictStr] = Field(default=None, description="The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.")
+    name: Optional[StrictStr] = Field(default=None, description="A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.")
+    priority: Optional[StrictInt] = Field(default=None, description="Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.")
+    trust_level: Optional[StrictStr] = Field(default=None, description="Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
+    upstream_url: Optional[StrictStr] = Field(default=None, description="The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. ")
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates are verified when requests are made to this upstream. It's recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams.")
     __properties: ClassVar[List[str]] = ["auth_mode", "auth_secret", "auth_username", "extra_header_1", "extra_header_2", "extra_value_1", "extra_value_2", "is_active", "mode", "name", "priority", "trust_level", "upstream_url", "verify_ssl"]
-
-    @field_validator('extra_header_1', mode="before")
-    def extra_header_1_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('extra_header_2', mode="before")
-    def extra_header_2_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('extra_value_1', mode="before")
-    def extra_value_1_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
-            raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
-
-    @field_validator('extra_value_2', mode="before")
-    def extra_value_2_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
-            raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
-
-    @field_validator('name', mode="before")
-    def name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^\w[\w \-\'\.\/()]+$", value):
-            raise ValueError(r"must validate the regular expression /^\w[\w \-'\.\/()]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -176,7 +125,7 @@ class NpmUpstreamRequestPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "auth_mode": obj.get("auth_mode") if obj.get("auth_mode") is not None else 'None',
+            "auth_mode": obj.get("auth_mode"),
             "auth_secret": obj.get("auth_secret"),
             "auth_username": obj.get("auth_username"),
             "extra_header_1": obj.get("extra_header_1"),
@@ -184,10 +133,10 @@ class NpmUpstreamRequestPatch(BaseModel):
             "extra_value_1": obj.get("extra_value_1"),
             "extra_value_2": obj.get("extra_value_2"),
             "is_active": obj.get("is_active"),
-            "mode": obj.get("mode") if obj.get("mode") is not None else 'Proxy Only',
+            "mode": obj.get("mode"),
             "name": obj.get("name"),
             "priority": obj.get("priority"),
-            "trust_level": obj.get("trust_level") if obj.get("trust_level") is not None else 'Trusted',
+            "trust_level": obj.get("trust_level"),
             "upstream_url": obj.get("upstream_url"),
             "verify_ssl": obj.get("verify_ssl")
         })

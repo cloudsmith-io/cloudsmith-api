@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **usage** | [**UsageFieldset**](UsageFieldset.md) |  |  |
+| **usage** | [**UsageFieldset**](UsageFieldset.md) |  | [optional] |
 
 ## Example
 

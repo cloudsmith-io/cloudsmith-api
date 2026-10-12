@@ -60,7 +60,7 @@ public class DockerUpstream implements Serializable {
   public static final String SERIALIZED_NAME_AUTH_MODE = "auth_mode";
   @SerializedName(SERIALIZED_NAME_AUTH_MODE)
   @javax.annotation.Nullable
-  private String authMode = "None";
+  private String authMode;
 
   public static final String SERIALIZED_NAME_AUTH_SECRET = "auth_secret";
   @SerializedName(SERIALIZED_NAME_AUTH_SECRET)
@@ -85,7 +85,7 @@ public class DockerUpstream implements Serializable {
   public static final String SERIALIZED_NAME_DISABLE_REASON = "disable_reason";
   @SerializedName(SERIALIZED_NAME_DISABLE_REASON)
   @javax.annotation.Nullable
-  private String disableReason = "N/A";
+  private String disableReason;
 
   public static final String SERIALIZED_NAME_DISABLE_REASON_TEXT = "disable_reason_text";
   @SerializedName(SERIALIZED_NAME_DISABLE_REASON_TEXT)
@@ -125,11 +125,11 @@ public class DockerUpstream implements Serializable {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
   @javax.annotation.Nullable
-  private String mode = "Proxy Only";
+  private String mode;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PENDING_VALIDATION = "pending_validation";
@@ -154,7 +154,7 @@ public class DockerUpstream implements Serializable {
 
   public static final String SERIALIZED_NAME_UPSTREAM_URL = "upstream_url";
   @SerializedName(SERIALIZED_NAME_UPSTREAM_URL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private URI upstreamUrl;
 
   public static final String SERIALIZED_NAME_VERIFY_SSL = "verify_ssl";
@@ -412,7 +412,7 @@ public class DockerUpstream implements Serializable {
   }
 
 
-  public DockerUpstream name(@javax.annotation.Nonnull String name) {
+  public DockerUpstream name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -421,12 +421,12 @@ public class DockerUpstream implements Serializable {
    * A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -449,8 +449,6 @@ public class DockerUpstream implements Serializable {
 
   /**
    * Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
-   * minimum: 1
-   * maximum: 32767
    * @return priority
    */
   @javax.annotation.Nullable
@@ -485,7 +483,7 @@ public class DockerUpstream implements Serializable {
 
 
 
-  public DockerUpstream upstreamUrl(@javax.annotation.Nonnull URI upstreamUrl) {
+  public DockerUpstream upstreamUrl(@javax.annotation.Nullable URI upstreamUrl) {
     this.upstreamUrl = upstreamUrl;
     return this;
   }
@@ -494,12 +492,12 @@ public class DockerUpstream implements Serializable {
    * The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. 
    * @return upstreamUrl
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public URI getUpstreamUrl() {
     return upstreamUrl;
   }
 
-  public void setUpstreamUrl(@javax.annotation.Nonnull URI upstreamUrl) {
+  public void setUpstreamUrl(@javax.annotation.Nullable URI upstreamUrl) {
     this.upstreamUrl = upstreamUrl;
   }
 
@@ -618,7 +616,7 @@ public class DockerUpstream implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("auth_mode", "auth_secret", "auth_username", "available", "created_at", "disable_reason", "disable_reason_text", "extra_header_1", "extra_header_2", "extra_value_1", "extra_value_2", "has_failed_signature_verification", "is_active", "mode", "name", "pending_validation", "priority", "slug_perm", "updated_at", "upstream_url", "verify_ssl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "upstream_url"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -639,13 +637,6 @@ public class DockerUpstream implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DockerUpstream.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DockerUpstream` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DockerUpstream.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -679,13 +670,13 @@ public class DockerUpstream implements Serializable {
       if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) && !jsonObj.get("mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("slug_perm") != null && !jsonObj.get("slug_perm").isJsonNull()) && !jsonObj.get("slug_perm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slug_perm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slug_perm").toString()));
       }
-      if (!jsonObj.get("upstream_url").isJsonPrimitive()) {
+      if ((jsonObj.get("upstream_url") != null && !jsonObj.get("upstream_url").isJsonNull()) && !jsonObj.get("upstream_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `upstream_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upstream_url").toString()));
       }
   }

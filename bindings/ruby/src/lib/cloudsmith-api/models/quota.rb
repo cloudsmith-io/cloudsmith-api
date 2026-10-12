@@ -75,8 +75,6 @@ module CloudsmithApi
 
       if attributes.key?(:'usage')
         self.usage = attributes[:'usage']
-      else
-        self.usage = nil
       end
     end
 
@@ -85,10 +83,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @usage.nil?
-        invalid_properties.push('invalid value for "usage", usage cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -96,18 +90,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @usage.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] usage Value to be assigned
-    def usage=(usage)
-      if usage.nil?
-        fail ArgumentError, 'usage cannot be nil'
-      end
-
-      @usage = usage
     end
 
     # Checks equality by comparing each attribute.

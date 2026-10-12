@@ -57,13 +57,13 @@ public class PackageUsageMetrics implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGES = "packages";
   @SerializedName(SERIALIZED_NAME_PACKAGES)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonMetrics packages;
 
   public PackageUsageMetrics() {
   }
 
-  public PackageUsageMetrics packages(@javax.annotation.Nonnull CommonMetrics packages) {
+  public PackageUsageMetrics packages(@javax.annotation.Nullable CommonMetrics packages) {
     this.packages = packages;
     return this;
   }
@@ -72,12 +72,12 @@ public class PackageUsageMetrics implements Serializable {
    * Get packages
    * @return packages
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonMetrics getPackages() {
     return packages;
   }
 
-  public void setPackages(@javax.annotation.Nonnull CommonMetrics packages) {
+  public void setPackages(@javax.annotation.Nullable CommonMetrics packages) {
     this.packages = packages;
   }
 
@@ -126,7 +126,7 @@ public class PackageUsageMetrics implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("packages"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("packages"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -149,16 +149,11 @@ public class PackageUsageMetrics implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageUsageMetrics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageUsageMetrics.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `packages`
-      CommonMetrics.validateJsonElement(jsonObj.get("packages"));
+      // validate the optional field `packages`
+      if (jsonObj.get("packages") != null && !jsonObj.get("packages").isJsonNull()) {
+        CommonMetrics.validateJsonElement(jsonObj.get("packages"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

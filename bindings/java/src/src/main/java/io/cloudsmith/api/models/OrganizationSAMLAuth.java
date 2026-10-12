@@ -58,12 +58,12 @@ public class OrganizationSAMLAuth implements Serializable {
 
   public static final String SERIALIZED_NAME_SAML_AUTH_ENABLED = "saml_auth_enabled";
   @SerializedName(SERIALIZED_NAME_SAML_AUTH_ENABLED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean samlAuthEnabled;
 
   public static final String SERIALIZED_NAME_SAML_AUTH_ENFORCED = "saml_auth_enforced";
   @SerializedName(SERIALIZED_NAME_SAML_AUTH_ENFORCED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean samlAuthEnforced;
 
   public static final String SERIALIZED_NAME_SAML_METADATA_INLINE = "saml_metadata_inline";
@@ -89,7 +89,7 @@ public class OrganizationSAMLAuth implements Serializable {
   public OrganizationSAMLAuth() {
   }
 
-  public OrganizationSAMLAuth samlAuthEnabled(@javax.annotation.Nonnull Boolean samlAuthEnabled) {
+  public OrganizationSAMLAuth samlAuthEnabled(@javax.annotation.Nullable Boolean samlAuthEnabled) {
     this.samlAuthEnabled = samlAuthEnabled;
     return this;
   }
@@ -98,17 +98,17 @@ public class OrganizationSAMLAuth implements Serializable {
    * Get samlAuthEnabled
    * @return samlAuthEnabled
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getSamlAuthEnabled() {
     return samlAuthEnabled;
   }
 
-  public void setSamlAuthEnabled(@javax.annotation.Nonnull Boolean samlAuthEnabled) {
+  public void setSamlAuthEnabled(@javax.annotation.Nullable Boolean samlAuthEnabled) {
     this.samlAuthEnabled = samlAuthEnabled;
   }
 
 
-  public OrganizationSAMLAuth samlAuthEnforced(@javax.annotation.Nonnull Boolean samlAuthEnforced) {
+  public OrganizationSAMLAuth samlAuthEnforced(@javax.annotation.Nullable Boolean samlAuthEnforced) {
     this.samlAuthEnforced = samlAuthEnforced;
     return this;
   }
@@ -117,12 +117,12 @@ public class OrganizationSAMLAuth implements Serializable {
    * Get samlAuthEnforced
    * @return samlAuthEnforced
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getSamlAuthEnforced() {
     return samlAuthEnforced;
   }
 
-  public void setSamlAuthEnforced(@javax.annotation.Nonnull Boolean samlAuthEnforced) {
+  public void setSamlAuthEnforced(@javax.annotation.Nullable Boolean samlAuthEnforced) {
     this.samlAuthEnforced = samlAuthEnforced;
   }
 
@@ -268,7 +268,7 @@ public class OrganizationSAMLAuth implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("saml_auth_enabled", "saml_auth_enforced", "saml_metadata_inline", "saml_metadata_inline_webapp", "saml_metadata_url", "saml_metadata_url_webapp"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("saml_auth_enabled", "saml_auth_enforced"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -289,13 +289,6 @@ public class OrganizationSAMLAuth implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!OrganizationSAMLAuth.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationSAMLAuth` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrganizationSAMLAuth.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

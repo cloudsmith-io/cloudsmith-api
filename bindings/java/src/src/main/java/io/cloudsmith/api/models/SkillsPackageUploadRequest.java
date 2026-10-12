@@ -57,12 +57,12 @@ public class SkillsPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_REPUBLISH = "republish";
@@ -77,13 +77,13 @@ public class SkillsPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String version;
 
   public SkillsPackageUploadRequest() {
   }
 
-  public SkillsPackageUploadRequest name(@javax.annotation.Nonnull String name) {
+  public SkillsPackageUploadRequest name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -92,17 +92,17 @@ public class SkillsPackageUploadRequest implements Serializable {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public SkillsPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public SkillsPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -111,12 +111,12 @@ public class SkillsPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -159,7 +159,7 @@ public class SkillsPackageUploadRequest implements Serializable {
   }
 
 
-  public SkillsPackageUploadRequest version(@javax.annotation.Nonnull String version) {
+  public SkillsPackageUploadRequest version(@javax.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
@@ -168,12 +168,12 @@ public class SkillsPackageUploadRequest implements Serializable {
    * Get version
    * @return version
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(@javax.annotation.Nonnull String version) {
+  public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
   }
 
@@ -241,7 +241,7 @@ public class SkillsPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("name", "package_file", "republish", "tags", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "package_file", "version"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -264,24 +264,17 @@ public class SkillsPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SkillsPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SkillsPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) && !jsonObj.get("tags").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
-      if (!jsonObj.get("version").isJsonPrimitive()) {
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
   }

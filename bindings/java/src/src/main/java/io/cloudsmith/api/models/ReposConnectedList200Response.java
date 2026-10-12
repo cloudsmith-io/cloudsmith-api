@@ -60,7 +60,7 @@ public class ReposConnectedList200Response implements Serializable {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
-  private List<ConnectedRepository> results = new ArrayList<>();
+  private List<ConnectedRepository> results;
 
   public ReposConnectedList200Response() {
   }

@@ -36,24 +36,20 @@ class TestSwiftPackageUploadRequest(unittest.TestCase):
         model = SwiftPackageUploadRequest()
         if include_optional:
             return SwiftPackageUploadRequest(
-                author_name = '0',
-                author_org = '0',
+                author_name = '',
+                author_org = '',
                 license_url = '',
                 name = '',
-                package_file = '0',
-                readme_url = '0',
-                repository_url = '0',
+                package_file = '',
+                readme_url = '',
+                repository_url = '',
                 republish = True,
-                scope = '0',
-                tags = '0',
+                scope = '',
+                tags = '',
                 version = ''
             )
         else:
             return SwiftPackageUploadRequest(
-                name = '',
-                package_file = '0',
-                scope = '0',
-                version = '',
         )
         """
 

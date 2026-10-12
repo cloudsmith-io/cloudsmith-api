@@ -7,11 +7,11 @@
 | **allow_unknown_licenses** | **Boolean** |  | [optional] |
 | **created_at** | **Time** |  | [optional][readonly] |
 | **description** | **String** |  | [optional] |
-| **name** | **String** |  |  |
+| **name** | **String** |  | [optional] |
 | **on_violation_quarantine** | **Boolean** |  | [optional] |
 | **package_query_string** | **String** |  | [optional] |
 | **slug_perm** | **String** |  | [optional][readonly] |
-| **spdx_identifiers** | **Array&lt;String&gt;** |  |  |
+| **spdx_identifiers** | **Array&lt;String&gt;** |  | [optional] |
 | **updated_at** | **Time** |  | [optional][readonly] |
 
 ## Example

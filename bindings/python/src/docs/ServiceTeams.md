@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | The name of the team | [optional] [readonly] 
-**role** | **str** | The team role associated with the service | [optional] [default to 'Manager']
-**slug** | **str** | The teams associated with the service | 
+**role** | **str** | The team role associated with the service | [optional] 
+**slug** | **str** | The teams associated with the service | [optional] 
 
 ## Example
 

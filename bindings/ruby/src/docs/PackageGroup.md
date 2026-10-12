@@ -5,11 +5,11 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **backend_kind** | **Integer** |  | [optional] |
-| **count** | **Integer** |  |  |
-| **last_push** | **Time** |  |  |
+| **count** | **Integer** |  | [optional] |
+| **last_push** | **Time** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **num_downloads** | **Integer** |  |  |
-| **size** | **Integer** |  |  |
+| **num_downloads** | **Integer** |  | [optional] |
+| **size** | **Integer** |  | [optional] |
 
 ## Example
 

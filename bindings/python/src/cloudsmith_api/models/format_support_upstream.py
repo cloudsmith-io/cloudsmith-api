@@ -28,14 +28,14 @@ class FormatSupportUpstream(BaseModel):
     """
     The upstream support for the package format
     """ # noqa: E501
-    auth_modes: List[StrictStr] = Field(description="The authentication modes supported by the upstream format")
-    cache_only: StrictBool = Field(description="If true the upstream format supports cache-only mode.")
-    caching: StrictBool = Field(description="If true the upstream format supports caching")
-    indexing: StrictBool = Field(description="If true the upstream format supports indexing")
-    indexing_behavior: Optional[StrictStr] = Field(default='Unsupported', description="The behavior of the upstream when indexing")
-    proxying: StrictBool = Field(description="If true the upstream format supports proxying")
-    signature_verification: Optional[StrictStr] = Field(default='Unsupported', description="The signature verification supported by the upstream format")
-    trust: StrictBool = Field(description="If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.")
+    auth_modes: Optional[List[StrictStr]] = Field(default=None, description="The authentication modes supported by the upstream format")
+    cache_only: Optional[StrictBool] = Field(default=None, description="If true the upstream format supports cache-only mode.")
+    caching: Optional[StrictBool] = Field(default=None, description="If true the upstream format supports caching")
+    indexing: Optional[StrictBool] = Field(default=None, description="If true the upstream format supports indexing")
+    indexing_behavior: Optional[StrictStr] = Field(default=None, description="The behavior of the upstream when indexing")
+    proxying: Optional[StrictBool] = Field(default=None, description="If true the upstream format supports proxying")
+    signature_verification: Optional[StrictStr] = Field(default=None, description="The signature verification supported by the upstream format")
+    trust: Optional[StrictBool] = Field(default=None, description="If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.")
     __properties: ClassVar[List[str]] = ["auth_modes", "cache_only", "caching", "indexing", "indexing_behavior", "proxying", "signature_verification", "trust"]
 
     model_config = ConfigDict(
@@ -93,9 +93,9 @@ class FormatSupportUpstream(BaseModel):
             "cache_only": obj.get("cache_only"),
             "caching": obj.get("caching"),
             "indexing": obj.get("indexing"),
-            "indexing_behavior": obj.get("indexing_behavior") if obj.get("indexing_behavior") is not None else 'Unsupported',
+            "indexing_behavior": obj.get("indexing_behavior"),
             "proxying": obj.get("proxying"),
-            "signature_verification": obj.get("signature_verification") if obj.get("signature_verification") is not None else 'Unsupported',
+            "signature_verification": obj.get("signature_verification"),
             "trust": obj.get("trust")
         })
         return _obj

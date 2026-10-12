@@ -39,10 +39,10 @@ class TestRepositoryEd25519Key(unittest.TestCase):
                 active = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 default = True,
-                fingerprint = '0',
+                fingerprint = '',
                 fingerprint_short = '',
-                public_key = '0',
-                public_key_wire = '0'
+                public_key = '',
+                public_key_wire = ''
             )
         else:
             return RepositoryEd25519Key(

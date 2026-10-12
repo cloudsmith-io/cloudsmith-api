@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  | [optional][readonly] |
-| **role** | **String** |  | [optional][readonly][default to &#39;Manager&#39;] |
+| **role** | **String** |  | [optional][readonly] |
 | **slug** | **String** |  | [optional][readonly] |
 
 ## Example

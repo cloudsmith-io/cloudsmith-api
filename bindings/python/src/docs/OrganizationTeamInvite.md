@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | **str** | The role to be assigned to the invited user in the team. | [optional] [default to 'Member']
-**team** | **str** | The team identifier (slug). | 
+**role** | **str** | The role to be assigned to the invited user in the team. | [optional] 
+**team** | **str** | The team identifier (slug). | [optional] 
 
 ## Example
 

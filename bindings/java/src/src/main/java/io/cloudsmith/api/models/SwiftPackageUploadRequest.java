@@ -73,12 +73,12 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_README_URL = "readme_url";
@@ -98,7 +98,7 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_SCOPE = "scope";
   @SerializedName(SERIALIZED_NAME_SCOPE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String scope;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
@@ -108,7 +108,7 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String version;
 
   public SwiftPackageUploadRequest() {
@@ -171,7 +171,7 @@ public class SwiftPackageUploadRequest implements Serializable {
   }
 
 
-  public SwiftPackageUploadRequest name(@javax.annotation.Nonnull String name) {
+  public SwiftPackageUploadRequest name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -180,17 +180,17 @@ public class SwiftPackageUploadRequest implements Serializable {
    * The name of this package.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public SwiftPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public SwiftPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -199,12 +199,12 @@ public class SwiftPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -266,7 +266,7 @@ public class SwiftPackageUploadRequest implements Serializable {
   }
 
 
-  public SwiftPackageUploadRequest scope(@javax.annotation.Nonnull String scope) {
+  public SwiftPackageUploadRequest scope(@javax.annotation.Nullable String scope) {
     this.scope = scope;
     return this;
   }
@@ -275,12 +275,12 @@ public class SwiftPackageUploadRequest implements Serializable {
    * A scope provides a namespace for related packages within the package registry.
    * @return scope
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getScope() {
     return scope;
   }
 
-  public void setScope(@javax.annotation.Nonnull String scope) {
+  public void setScope(@javax.annotation.Nullable String scope) {
     this.scope = scope;
   }
 
@@ -304,7 +304,7 @@ public class SwiftPackageUploadRequest implements Serializable {
   }
 
 
-  public SwiftPackageUploadRequest version(@javax.annotation.Nonnull String version) {
+  public SwiftPackageUploadRequest version(@javax.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
@@ -313,12 +313,12 @@ public class SwiftPackageUploadRequest implements Serializable {
    * The raw version for this package.
    * @return version
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(@javax.annotation.Nonnull String version) {
+  public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
   }
 
@@ -398,7 +398,7 @@ public class SwiftPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("author_name", "author_org", "license_url", "name", "package_file", "readme_url", "repository_url", "republish", "scope", "tags", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "package_file", "scope", "version"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -421,13 +421,6 @@ public class SwiftPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SwiftPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SwiftPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("author_name") != null && !jsonObj.get("author_name").isJsonNull()) && !jsonObj.get("author_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `author_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("author_name").toString()));
@@ -438,10 +431,10 @@ public class SwiftPackageUploadRequest implements Serializable {
       if ((jsonObj.get("license_url") != null && !jsonObj.get("license_url").isJsonNull()) && !jsonObj.get("license_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `license_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("license_url").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("readme_url") != null && !jsonObj.get("readme_url").isJsonNull()) && !jsonObj.get("readme_url").isJsonPrimitive()) {
@@ -450,13 +443,13 @@ public class SwiftPackageUploadRequest implements Serializable {
       if ((jsonObj.get("repository_url") != null && !jsonObj.get("repository_url").isJsonNull()) && !jsonObj.get("repository_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `repository_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repository_url").toString()));
       }
-      if (!jsonObj.get("scope").isJsonPrimitive()) {
+      if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
       }
       if ((jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) && !jsonObj.get("tags").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
-      if (!jsonObj.get("version").isJsonPrimitive()) {
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
   }

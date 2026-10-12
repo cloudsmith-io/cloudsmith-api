@@ -238,8 +238,6 @@ module CloudsmithApi
 
       if attributes.key?(:'auth_mode')
         self.auth_mode = attributes[:'auth_mode']
-      else
-        self.auth_mode = 'None'
       end
 
       if attributes.key?(:'auth_secret')
@@ -264,8 +262,6 @@ module CloudsmithApi
 
       if attributes.key?(:'disable_reason')
         self.disable_reason = attributes[:'disable_reason']
-      else
-        self.disable_reason = 'N/A'
       end
 
       if attributes.key?(:'disable_reason_text')
@@ -274,8 +270,6 @@ module CloudsmithApi
 
       if attributes.key?(:'distro_version')
         self.distro_version = attributes[:'distro_version']
-      else
-        self.distro_version = nil
       end
 
       if attributes.key?(:'extra_header_1')
@@ -308,8 +302,6 @@ module CloudsmithApi
 
       if attributes.key?(:'gpg_verification')
         self.gpg_verification = attributes[:'gpg_verification']
-      else
-        self.gpg_verification = 'Allow All'
       end
 
       if attributes.key?(:'has_failed_signature_verification')
@@ -338,14 +330,10 @@ module CloudsmithApi
 
       if attributes.key?(:'mode')
         self.mode = attributes[:'mode']
-      else
-        self.mode = 'Proxy Only'
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'pending_validation')
@@ -366,14 +354,10 @@ module CloudsmithApi
 
       if attributes.key?(:'upstream_url')
         self.upstream_url = attributes[:'upstream_url']
-      else
-        self.upstream_url = nil
       end
 
       if attributes.key?(:'verification_status')
         self.verification_status = attributes[:'verification_status']
-      else
-        self.verification_status = 'Unknown'
       end
 
       if attributes.key?(:'verify_ssl')
@@ -386,104 +370,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@auth_secret.nil? && @auth_secret.to_s.length > 4096
-        invalid_properties.push('invalid value for "auth_secret", the character length must be smaller than or equal to 4096.')
-      end
-
-      if !@auth_username.nil? && @auth_username.to_s.length > 64
-        invalid_properties.push('invalid value for "auth_username", the character length must be smaller than or equal to 64.')
-      end
-
-      if @distro_version.nil?
-        invalid_properties.push('invalid value for "distro_version", distro_version cannot be nil.')
-      end
-
-      if !@extra_header_1.nil? && @extra_header_1.to_s.length > 64
-        invalid_properties.push('invalid value for "extra_header_1", the character length must be smaller than or equal to 64.')
-      end
-
-      pattern = Regexp.new(/^[-\w]+$/)
-      if !@extra_header_1.nil? && @extra_header_1 !~ pattern
-        invalid_properties.push("invalid value for \"extra_header_1\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@extra_header_2.nil? && @extra_header_2.to_s.length > 64
-        invalid_properties.push('invalid value for "extra_header_2", the character length must be smaller than or equal to 64.')
-      end
-
-      pattern = Regexp.new(/^[-\w]+$/)
-      if !@extra_header_2.nil? && @extra_header_2 !~ pattern
-        invalid_properties.push("invalid value for \"extra_header_2\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@extra_value_1.nil? && @extra_value_1.to_s.length > 128
-        invalid_properties.push('invalid value for "extra_value_1", the character length must be smaller than or equal to 128.')
-      end
-
-      pattern = Regexp.new(/^[^\n\r]+$/)
-      if !@extra_value_1.nil? && @extra_value_1 !~ pattern
-        invalid_properties.push("invalid value for \"extra_value_1\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@extra_value_2.nil? && @extra_value_2.to_s.length > 128
-        invalid_properties.push('invalid value for "extra_value_2", the character length must be smaller than or equal to 128.')
-      end
-
-      pattern = Regexp.new(/^[^\n\r]+$/)
-      if !@extra_value_2.nil? && @extra_value_2 !~ pattern
-        invalid_properties.push("invalid value for \"extra_value_2\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@gpg_key_url.nil? && @gpg_key_url.to_s.length > 254
-        invalid_properties.push('invalid value for "gpg_key_url", the character length must be smaller than or equal to 254.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 64
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 64.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^\w[\w \-'\.\/()]+$/)
-      if @name !~ pattern
-        invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@priority.nil? && @priority > 32767
-        invalid_properties.push('invalid value for "priority", must be smaller than or equal to 32767.')
-      end
-
-      if !@priority.nil? && @priority < 1
-        invalid_properties.push('invalid value for "priority", must be greater than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
-      if @upstream_url.nil?
-        invalid_properties.push('invalid value for "upstream_url", upstream_url cannot be nil.')
-      end
-
-      if @upstream_url.to_s.length > 200
-        invalid_properties.push('invalid value for "upstream_url", the character length must be smaller than or equal to 200.')
-      end
-
-      if @upstream_url.to_s.length < 1
-        invalid_properties.push('invalid value for "upstream_url", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -491,208 +377,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@auth_secret.nil? && @auth_secret.to_s.length > 4096
-      return false if !@auth_username.nil? && @auth_username.to_s.length > 64
-      return false if @distro_version.nil?
-      return false if !@extra_header_1.nil? && @extra_header_1.to_s.length > 64
-      return false if !@extra_header_1.nil? && @extra_header_1 !~ Regexp.new(/^[-\w]+$/)
-      return false if !@extra_header_2.nil? && @extra_header_2.to_s.length > 64
-      return false if !@extra_header_2.nil? && @extra_header_2 !~ Regexp.new(/^[-\w]+$/)
-      return false if !@extra_value_1.nil? && @extra_value_1.to_s.length > 128
-      return false if !@extra_value_1.nil? && @extra_value_1 !~ Regexp.new(/^[^\n\r]+$/)
-      return false if !@extra_value_2.nil? && @extra_value_2.to_s.length > 128
-      return false if !@extra_value_2.nil? && @extra_value_2 !~ Regexp.new(/^[^\n\r]+$/)
-      return false if !@gpg_key_url.nil? && @gpg_key_url.to_s.length > 254
-      return false if @name.nil?
-      return false if @name.to_s.length > 64
-      return false if @name.to_s.length < 1
-      return false if @name !~ Regexp.new(/^\w[\w \-'\.\/()]+$/)
-      return false if !@priority.nil? && @priority > 32767
-      return false if !@priority.nil? && @priority < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if @upstream_url.nil?
-      return false if @upstream_url.to_s.length > 200
-      return false if @upstream_url.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] auth_secret Value to be assigned
-    def auth_secret=(auth_secret)
-      if !auth_secret.nil? && auth_secret.to_s.length > 4096
-        fail ArgumentError, 'invalid value for "auth_secret", the character length must be smaller than or equal to 4096.'
-      end
-
-      @auth_secret = auth_secret
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] auth_username Value to be assigned
-    def auth_username=(auth_username)
-      if !auth_username.nil? && auth_username.to_s.length > 64
-        fail ArgumentError, 'invalid value for "auth_username", the character length must be smaller than or equal to 64.'
-      end
-
-      @auth_username = auth_username
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] distro_version Value to be assigned
-    def distro_version=(distro_version)
-      if distro_version.nil?
-        fail ArgumentError, 'distro_version cannot be nil'
-      end
-
-      @distro_version = distro_version
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] extra_header_1 Value to be assigned
-    def extra_header_1=(extra_header_1)
-      if !extra_header_1.nil? && extra_header_1.to_s.length > 64
-        fail ArgumentError, 'invalid value for "extra_header_1", the character length must be smaller than or equal to 64.'
-      end
-
-      pattern = Regexp.new(/^[-\w]+$/)
-      if !extra_header_1.nil? && extra_header_1 !~ pattern
-        fail ArgumentError, "invalid value for \"extra_header_1\", must conform to the pattern #{pattern}."
-      end
-
-      @extra_header_1 = extra_header_1
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] extra_header_2 Value to be assigned
-    def extra_header_2=(extra_header_2)
-      if !extra_header_2.nil? && extra_header_2.to_s.length > 64
-        fail ArgumentError, 'invalid value for "extra_header_2", the character length must be smaller than or equal to 64.'
-      end
-
-      pattern = Regexp.new(/^[-\w]+$/)
-      if !extra_header_2.nil? && extra_header_2 !~ pattern
-        fail ArgumentError, "invalid value for \"extra_header_2\", must conform to the pattern #{pattern}."
-      end
-
-      @extra_header_2 = extra_header_2
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] extra_value_1 Value to be assigned
-    def extra_value_1=(extra_value_1)
-      if !extra_value_1.nil? && extra_value_1.to_s.length > 128
-        fail ArgumentError, 'invalid value for "extra_value_1", the character length must be smaller than or equal to 128.'
-      end
-
-      pattern = Regexp.new(/^[^\n\r]+$/)
-      if !extra_value_1.nil? && extra_value_1 !~ pattern
-        fail ArgumentError, "invalid value for \"extra_value_1\", must conform to the pattern #{pattern}."
-      end
-
-      @extra_value_1 = extra_value_1
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] extra_value_2 Value to be assigned
-    def extra_value_2=(extra_value_2)
-      if !extra_value_2.nil? && extra_value_2.to_s.length > 128
-        fail ArgumentError, 'invalid value for "extra_value_2", the character length must be smaller than or equal to 128.'
-      end
-
-      pattern = Regexp.new(/^[^\n\r]+$/)
-      if !extra_value_2.nil? && extra_value_2 !~ pattern
-        fail ArgumentError, "invalid value for \"extra_value_2\", must conform to the pattern #{pattern}."
-      end
-
-      @extra_value_2 = extra_value_2
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] gpg_key_url Value to be assigned
-    def gpg_key_url=(gpg_key_url)
-      if !gpg_key_url.nil? && gpg_key_url.to_s.length > 254
-        fail ArgumentError, 'invalid value for "gpg_key_url", the character length must be smaller than or equal to 254.'
-      end
-
-      @gpg_key_url = gpg_key_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 64
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 64.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^\w[\w \-'\.\/()]+$/)
-      if name !~ pattern
-        fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] priority Value to be assigned
-    def priority=(priority)
-      if priority.nil?
-        fail ArgumentError, 'priority cannot be nil'
-      end
-
-      if priority > 32767
-        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 32767.'
-      end
-
-      if priority < 1
-        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
-      end
-
-      @priority = priority
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] upstream_url Value to be assigned
-    def upstream_url=(upstream_url)
-      if upstream_url.nil?
-        fail ArgumentError, 'upstream_url cannot be nil'
-      end
-
-      if upstream_url.to_s.length > 200
-        fail ArgumentError, 'invalid value for "upstream_url", the character length must be smaller than or equal to 200.'
-      end
-
-      if upstream_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "upstream_url", the character length must be greater than or equal to 1.'
-      end
-
-      @upstream_url = upstream_url
     end
 
     # Checks equality by comparing each attribute.

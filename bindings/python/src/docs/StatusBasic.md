@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**detail** | **str** | The message describing the state of the API. | [optional] [readonly] [default to 'Cloudsmith API is operational.']
-**version** | **str** | The current version for the Cloudsmith service. | [optional] [readonly] [default to '1.0']
+**detail** | **str** | The message describing the state of the API. | [optional] [readonly] 
+**version** | **str** | The current version for the Cloudsmith service. | [optional] [readonly] 
 
 ## Example
 

@@ -71,7 +71,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_BROADCAST_STATE = "broadcast_state";
   @SerializedName(SERIALIZED_NAME_BROADCAST_STATE)
   @javax.annotation.Nullable
-  private String broadcastState = "Off";
+  private String broadcastState;
 
   public static final String SERIALIZED_NAME_CDN_URL = "cdn_url";
   @SerializedName(SERIALIZED_NAME_CDN_URL)
@@ -81,7 +81,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_CONTENT_KIND = "content_kind";
   @SerializedName(SERIALIZED_NAME_CONTENT_KIND)
   @javax.annotation.Nullable
-  private String contentKind = "Standard";
+  private String contentKind;
 
   public static final String SERIALIZED_NAME_CONTEXTUAL_AUTH_REALM = "contextual_auth_realm";
   @SerializedName(SERIALIZED_NAME_CONTEXTUAL_AUTH_REALM)
@@ -96,7 +96,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_COPY_PACKAGES = "copy_packages";
   @SerializedName(SERIALIZED_NAME_COPY_PACKAGES)
   @javax.annotation.Nullable
-  private String copyPackages = "Read";
+  private String copyPackages;
 
   public static final String SERIALIZED_NAME_COSIGN_SIGNING_ENABLED = "cosign_signing_enabled";
   @SerializedName(SERIALIZED_NAME_COSIGN_SIGNING_ENABLED)
@@ -111,7 +111,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_DEFAULT_PRIVILEGE = "default_privilege";
   @SerializedName(SERIALIZED_NAME_DEFAULT_PRIVILEGE)
   @javax.annotation.Nullable
-  private String defaultPrivilege = "None";
+  private String defaultPrivilege;
 
   public static final String SERIALIZED_NAME_DELETE_OWN = "delete_own";
   @SerializedName(SERIALIZED_NAME_DELETE_OWN)
@@ -121,7 +121,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_DELETE_PACKAGES = "delete_packages";
   @SerializedName(SERIALIZED_NAME_DELETE_PACKAGES)
   @javax.annotation.Nullable
-  private String deletePackages = "Admin";
+  private String deletePackages;
 
   public static final String SERIALIZED_NAME_DELETED_AT = "deleted_at";
   @SerializedName(SERIALIZED_NAME_DELETED_AT)
@@ -136,7 +136,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_DISTRIBUTES = "distributes";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTES)
   @javax.annotation.Nullable
-  private Set<String> distributes = new LinkedHashSet<>();
+  private Set<String> distributes;
 
   public static final String SERIALIZED_NAME_DOCKER_REFRESH_TOKENS_ENABLED = "docker_refresh_tokens_enabled";
   @SerializedName(SERIALIZED_NAME_DOCKER_REFRESH_TOKENS_ENABLED)
@@ -146,7 +146,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_ECDSA_KEYS = "ecdsa_keys";
   @SerializedName(SERIALIZED_NAME_ECDSA_KEYS)
   @javax.annotation.Nullable
-  private List<RepositoryEcdsaKey> ecdsaKeys = new ArrayList<>();
+  private List<RepositoryEcdsaKey> ecdsaKeys;
 
   public static final String SERIALIZED_NAME_ENFORCE_EULA = "enforce_eula";
   @SerializedName(SERIALIZED_NAME_ENFORCE_EULA)
@@ -161,7 +161,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_GPG_KEYS = "gpg_keys";
   @SerializedName(SERIALIZED_NAME_GPG_KEYS)
   @javax.annotation.Nullable
-  private List<RepositoryGpgKey> gpgKeys = new ArrayList<>();
+  private List<RepositoryGpgKey> gpgKeys;
 
   public static final String SERIALIZED_NAME_INDEX_FILES = "index_files";
   @SerializedName(SERIALIZED_NAME_INDEX_FILES)
@@ -191,7 +191,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_MANAGE_ENTITLEMENTS_PRIVILEGE = "manage_entitlements_privilege";
   @SerializedName(SERIALIZED_NAME_MANAGE_ENTITLEMENTS_PRIVILEGE)
   @javax.annotation.Nullable
-  private String manageEntitlementsPrivilege = "Admin";
+  private String manageEntitlementsPrivilege;
 
   public static final String SERIALIZED_NAME_MOVE_OWN = "move_own";
   @SerializedName(SERIALIZED_NAME_MOVE_OWN)
@@ -201,11 +201,11 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_MOVE_PACKAGES = "move_packages";
   @SerializedName(SERIALIZED_NAME_MOVE_PACKAGES)
   @javax.annotation.Nullable
-  private String movePackages = "Admin";
+  private String movePackages;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
@@ -291,7 +291,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_REPLACE_PACKAGES = "replace_packages";
   @SerializedName(SERIALIZED_NAME_REPLACE_PACKAGES)
   @javax.annotation.Nullable
-  private String replacePackages = "Write";
+  private String replacePackages;
 
   public static final String SERIALIZED_NAME_REPLACE_PACKAGES_BY_DEFAULT = "replace_packages_by_default";
   @SerializedName(SERIALIZED_NAME_REPLACE_PACKAGES_BY_DEFAULT)
@@ -306,7 +306,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_REPOSITORY_TYPE_STR = "repository_type_str";
   @SerializedName(SERIALIZED_NAME_REPOSITORY_TYPE_STR)
   @javax.annotation.Nullable
-  private String repositoryTypeStr = "Public";
+  private String repositoryTypeStr;
 
   public static final String SERIALIZED_NAME_RESYNC_OWN = "resync_own";
   @SerializedName(SERIALIZED_NAME_RESYNC_OWN)
@@ -316,7 +316,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_RESYNC_PACKAGES = "resync_packages";
   @SerializedName(SERIALIZED_NAME_RESYNC_PACKAGES)
   @javax.annotation.Nullable
-  private String resyncPackages = "Admin";
+  private String resyncPackages;
 
   public static final String SERIALIZED_NAME_SCAN_OWN = "scan_own";
   @SerializedName(SERIALIZED_NAME_SCAN_OWN)
@@ -326,7 +326,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_SCAN_PACKAGES = "scan_packages";
   @SerializedName(SERIALIZED_NAME_SCAN_PACKAGES)
   @javax.annotation.Nullable
-  private String scanPackages = "Read";
+  private String scanPackages;
 
   public static final String SERIALIZED_NAME_SELF_HTML_URL = "self_html_url";
   @SerializedName(SERIALIZED_NAME_SELF_HTML_URL)
@@ -371,7 +371,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_STORAGE_REGION = "storage_region";
   @SerializedName(SERIALIZED_NAME_STORAGE_REGION)
   @javax.annotation.Nullable
-  private String storageRegion = "default";
+  private String storageRegion;
 
   public static final String SERIALIZED_NAME_STRICT_NPM_VALIDATION = "strict_npm_validation";
   @SerializedName(SERIALIZED_NAME_STRICT_NPM_VALIDATION)
@@ -396,7 +396,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_USE_ENTITLEMENTS_PRIVILEGE = "use_entitlements_privilege";
   @SerializedName(SERIALIZED_NAME_USE_ENTITLEMENTS_PRIVILEGE)
   @javax.annotation.Nullable
-  private String useEntitlementsPrivilege = "Read";
+  private String useEntitlementsPrivilege;
 
   public static final String SERIALIZED_NAME_USE_NOARCH_PACKAGES = "use_noarch_packages";
   @SerializedName(SERIALIZED_NAME_USE_NOARCH_PACKAGES)
@@ -421,7 +421,7 @@ public class Repository implements Serializable {
   public static final String SERIALIZED_NAME_VIEW_STATISTICS = "view_statistics";
   @SerializedName(SERIALIZED_NAME_VIEW_STATISTICS)
   @javax.annotation.Nullable
-  private String viewStatistics = "Read";
+  private String viewStatistics;
 
   public Repository() {
   }
@@ -949,7 +949,7 @@ public class Repository implements Serializable {
   }
 
 
-  public Repository name(@javax.annotation.Nonnull String name) {
+  public Repository name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -958,12 +958,12 @@ public class Repository implements Serializable {
    * A descriptive name for the repository.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -1854,7 +1854,7 @@ public class Repository implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("active_connection_count", "broadcast_state", "cdn_url", "content_kind", "contextual_auth_realm", "copy_own", "copy_packages", "cosign_signing_enabled", "created_at", "default_privilege", "delete_own", "delete_packages", "deleted_at", "description", "distributes", "docker_refresh_tokens_enabled", "ecdsa_keys", "enforce_eula", "generic_package_index_enabled", "gpg_keys", "index_files", "is_open_source", "is_private", "is_public", "is_public_hidden", "manage_entitlements_privilege", "move_own", "move_packages", "name", "namespace", "namespace_url", "npm_upstream_tags_take_precedence", "nuget_native_signing_enabled", "num_downloads", "num_policy_violated_packages", "num_quarantined_packages", "open_source_license", "open_source_project_url", "package_count", "package_count_excl_subcomponents", "package_group_count", "proxy_npmjs", "proxy_pypi", "raw_package_index_enabled", "raw_package_index_signatures_enabled", "replace_packages", "replace_packages_by_default", "repository_type", "repository_type_str", "resync_own", "resync_packages", "scan_own", "scan_packages", "self_html_url", "self_url", "self_webapp_url", "show_setup_all", "size", "size_str", "slug", "slug_perm", "storage_region", "strict_npm_validation", "tag_pre_releases_as_latest", "use_debian_labels", "use_default_cargo_upstream", "use_entitlements_privilege", "use_noarch_packages", "use_source_packages", "use_vulnerability_scanning", "user_entitlements_enabled", "view_statistics"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -1875,13 +1875,6 @@ public class Repository implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Repository.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Repository` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Repository.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -1944,7 +1937,7 @@ public class Repository implements Serializable {
       if ((jsonObj.get("move_packages") != null && !jsonObj.get("move_packages").isJsonNull()) && !jsonObj.get("move_packages").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `move_packages` to be a primitive type in the JSON string but got `%s`", jsonObj.get("move_packages").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {

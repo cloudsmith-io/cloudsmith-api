@@ -36,13 +36,12 @@ class TestServiceTeams(unittest.TestCase):
         model = ServiceTeams()
         if include_optional:
             return ServiceTeams(
-                name = '0',
-                role = 'Manager',
-                slug = 'z0'
+                name = '',
+                role = '',
+                slug = ''
             )
         else:
             return ServiceTeams(
-                slug = 'z0',
         )
         """
 

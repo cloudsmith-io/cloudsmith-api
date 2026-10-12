@@ -81,14 +81,10 @@ module CloudsmithApi
 
       if attributes.key?(:'detail')
         self.detail = attributes[:'detail']
-      else
-        self.detail = 'Cloudsmith API is operational.'
       end
 
       if attributes.key?(:'version')
         self.version = attributes[:'version']
-      else
-        self.version = '1.0'
       end
     end
 
@@ -97,14 +93,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@detail.nil? && @detail.to_s.length < 1
-        invalid_properties.push('invalid value for "detail", the character length must be greater than or equal to 1.')
-      end
-
-      if !@version.nil? && @version.to_s.length < 1
-        invalid_properties.push('invalid value for "version", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -112,37 +100,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@detail.nil? && @detail.to_s.length < 1
-      return false if !@version.nil? && @version.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] detail Value to be assigned
-    def detail=(detail)
-      if detail.nil?
-        fail ArgumentError, 'detail cannot be nil'
-      end
-
-      if detail.to_s.length < 1
-        fail ArgumentError, 'invalid value for "detail", the character length must be greater than or equal to 1.'
-      end
-
-      @detail = detail
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] version Value to be assigned
-    def version=(version)
-      if version.nil?
-        fail ArgumentError, 'version cannot be nil'
-      end
-
-      if version.to_s.length < 1
-        fail ArgumentError, 'invalid value for "version", the character length must be greater than or equal to 1.'
-      end
-
-      @version = version
     end
 
     # Checks equality by comparing each attribute.

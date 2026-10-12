@@ -36,13 +36,12 @@ class TestGoPackageUploadRequest(unittest.TestCase):
         model = GoPackageUploadRequest()
         if include_optional:
             return GoPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return GoPackageUploadRequest(
-                package_file = '0',
         )
         """
 

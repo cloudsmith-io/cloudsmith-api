@@ -91,8 +91,6 @@ module CloudsmithApi
 
       if attributes.key?(:'filename')
         self.filename = attributes[:'filename']
-      else
-        self.filename = nil
       end
 
       if attributes.key?(:'md5_checksum')
@@ -101,8 +99,6 @@ module CloudsmithApi
 
       if attributes.key?(:'method')
         self.method = attributes[:'method']
-      else
-        self.method = 'post'
       end
 
       if attributes.key?(:'sha256_checksum')
@@ -115,34 +111,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @filename.nil?
-        invalid_properties.push('invalid value for "filename", filename cannot be nil.')
-      end
-
-      if @filename.to_s.length > 255
-        invalid_properties.push('invalid value for "filename", the character length must be smaller than or equal to 255.')
-      end
-
-      if @filename.to_s.length < 1
-        invalid_properties.push('invalid value for "filename", the character length must be greater than or equal to 1.')
-      end
-
-      if !@md5_checksum.nil? && @md5_checksum.to_s.length > 32
-        invalid_properties.push('invalid value for "md5_checksum", the character length must be smaller than or equal to 32.')
-      end
-
-      if !@md5_checksum.nil? && @md5_checksum.to_s.length < 32
-        invalid_properties.push('invalid value for "md5_checksum", the character length must be greater than or equal to 32.')
-      end
-
-      if !@sha256_checksum.nil? && @sha256_checksum.to_s.length > 64
-        invalid_properties.push('invalid value for "sha256_checksum", the character length must be smaller than or equal to 64.')
-      end
-
-      if !@sha256_checksum.nil? && @sha256_checksum.to_s.length < 64
-        invalid_properties.push('invalid value for "sha256_checksum", the character length must be greater than or equal to 64.')
-      end
-
       invalid_properties
     end
 
@@ -150,68 +118,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @filename.nil?
-      return false if @filename.to_s.length > 255
-      return false if @filename.to_s.length < 1
-      return false if !@md5_checksum.nil? && @md5_checksum.to_s.length > 32
-      return false if !@md5_checksum.nil? && @md5_checksum.to_s.length < 32
-      return false if !@sha256_checksum.nil? && @sha256_checksum.to_s.length > 64
-      return false if !@sha256_checksum.nil? && @sha256_checksum.to_s.length < 64
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] filename Value to be assigned
-    def filename=(filename)
-      if filename.nil?
-        fail ArgumentError, 'filename cannot be nil'
-      end
-
-      if filename.to_s.length > 255
-        fail ArgumentError, 'invalid value for "filename", the character length must be smaller than or equal to 255.'
-      end
-
-      if filename.to_s.length < 1
-        fail ArgumentError, 'invalid value for "filename", the character length must be greater than or equal to 1.'
-      end
-
-      @filename = filename
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] md5_checksum Value to be assigned
-    def md5_checksum=(md5_checksum)
-      if md5_checksum.nil?
-        fail ArgumentError, 'md5_checksum cannot be nil'
-      end
-
-      if md5_checksum.to_s.length > 32
-        fail ArgumentError, 'invalid value for "md5_checksum", the character length must be smaller than or equal to 32.'
-      end
-
-      if md5_checksum.to_s.length < 32
-        fail ArgumentError, 'invalid value for "md5_checksum", the character length must be greater than or equal to 32.'
-      end
-
-      @md5_checksum = md5_checksum
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] sha256_checksum Value to be assigned
-    def sha256_checksum=(sha256_checksum)
-      if sha256_checksum.nil?
-        fail ArgumentError, 'sha256_checksum cannot be nil'
-      end
-
-      if sha256_checksum.to_s.length > 64
-        fail ArgumentError, 'invalid value for "sha256_checksum", the character length must be smaller than or equal to 64.'
-      end
-
-      if sha256_checksum.to_s.length < 64
-        fail ArgumentError, 'invalid value for "sha256_checksum", the character length must be greater than or equal to 64.'
-      end
-
-      @sha256_checksum = sha256_checksum
     end
 
     # Checks equality by comparing each attribute.

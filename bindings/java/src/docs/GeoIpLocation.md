@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**city** | **String** |  |  |
-|**continent** | **String** |  |  |
-|**country** | **String** |  |  |
+|**city** | **String** |  |  [optional] |
+|**continent** | **String** |  |  [optional] |
+|**country** | **String** |  |  [optional] |
 |**countryCode** | **String** |  |  [optional] [readonly] |
 |**latitude** | **BigDecimal** |  |  [optional] |
 |**longitude** | **BigDecimal** |  |  [optional] |
-|**postalCode** | **String** |  |  |
+|**postalCode** | **String** |  |  [optional] |
 
 
 ## Implemented Interfaces

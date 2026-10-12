@@ -36,20 +36,20 @@ class TestAlpineUpstreamRequestPatch(unittest.TestCase):
         model = AlpineUpstreamRequestPatch()
         if include_optional:
             return AlpineUpstreamRequestPatch(
-                auth_mode = 'None',
+                auth_mode = '',
                 auth_secret = '',
                 auth_username = '',
-                extra_header_1 = 'z',
-                extra_header_2 = 'z',
-                extra_value_1 = 'j',
-                extra_value_2 = 'j',
+                extra_header_1 = '',
+                extra_header_2 = '',
+                extra_value_1 = '',
+                extra_value_2 = '',
                 is_active = True,
-                mode = 'Proxy Only',
-                name = 'eBXK5y0',
-                priority = 1,
+                mode = '',
+                name = '',
+                priority = 56,
                 rsa_key_url = '',
-                rsa_verification = 'Allow All',
-                upstream_url = '0',
+                rsa_verification = '',
+                upstream_url = '',
                 verify_ssl = True
             )
         else:

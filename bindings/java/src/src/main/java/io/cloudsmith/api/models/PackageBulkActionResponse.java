@@ -66,12 +66,12 @@ public class PackageBulkActionResponse implements Serializable {
   public static final String SERIALIZED_NAME_PACKAGES_ACTIONED = "packages_actioned";
   @SerializedName(SERIALIZED_NAME_PACKAGES_ACTIONED)
   @javax.annotation.Nullable
-  private List<String> packagesActioned = new ArrayList<>();
+  private List<String> packagesActioned;
 
   public static final String SERIALIZED_NAME_PACKAGES_FAILED_TO_ACTION = "packages_failed_to_action";
   @SerializedName(SERIALIZED_NAME_PACKAGES_FAILED_TO_ACTION)
   @javax.annotation.Nullable
-  private Map<String, Map<String, String>> packagesFailedToAction = new HashMap<>();
+  private Map<String, Map<String, String>> packagesFailedToAction;
 
   public PackageBulkActionResponse() {
   }

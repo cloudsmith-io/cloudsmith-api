@@ -36,17 +36,16 @@ class TestErrorDetail(unittest.TestCase):
         model = ErrorDetail()
         if include_optional:
             return ErrorDetail(
-                code = '0',
-                detail = '0',
+                code = '',
+                detail = '',
                 fields = {
                     'key' : [
-                        '0'
+                        ''
                         ]
                     }
             )
         else:
             return ErrorDetail(
-                detail = '0',
         )
         """
 

@@ -36,11 +36,11 @@ class TestPackageFileUpload(unittest.TestCase):
         model = PackageFileUpload()
         if include_optional:
             return PackageFileUpload(
-                identifier = '0',
+                identifier = '',
                 upload_fields = cloudsmith_api.models.upload_fields.Upload fields(),
                 upload_headers = cloudsmith_api.models.upload_headers.Upload headers(),
-                upload_querystring = '0',
-                upload_url = '0'
+                upload_querystring = '',
+                upload_url = ''
             )
         else:
             return PackageFileUpload(

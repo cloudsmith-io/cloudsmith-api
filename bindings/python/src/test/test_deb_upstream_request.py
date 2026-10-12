@@ -36,36 +36,31 @@ class TestDebUpstreamRequest(unittest.TestCase):
         model = DebUpstreamRequest()
         if include_optional:
             return DebUpstreamRequest(
-                auth_mode = 'None',
+                auth_mode = '',
                 auth_secret = '',
                 auth_username = '',
-                component = '0',
+                component = '',
                 distro_versions = [
                     ''
                     ],
-                extra_header_1 = 'z',
-                extra_header_2 = 'z',
-                extra_value_1 = 'j',
-                extra_value_2 = 'j',
+                extra_header_1 = '',
+                extra_header_2 = '',
+                extra_value_1 = '',
+                extra_value_2 = '',
                 gpg_key_inline = '',
                 gpg_key_url = '',
-                gpg_verification = 'Allow All',
+                gpg_verification = '',
                 include_sources = True,
                 is_active = True,
-                mode = 'Proxy Only',
-                name = 'eBXK5y0',
-                priority = 1,
-                upstream_distribution = '0',
-                upstream_url = '0',
+                mode = '',
+                name = '',
+                priority = 56,
+                upstream_distribution = '',
+                upstream_url = '',
                 verify_ssl = True
             )
         else:
             return DebUpstreamRequest(
-                distro_versions = [
-                    ''
-                    ],
-                name = 'eBXK5y0',
-                upstream_url = '0',
         )
         """
 

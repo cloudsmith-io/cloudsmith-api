@@ -21,7 +21,6 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,12 +30,12 @@ class RepositoryGpgKey(BaseModel):
     RepositoryGpgKey
     """ # noqa: E501
     active: Optional[StrictBool] = Field(default=None, description="If selected this is the active key for this repository.")
-    comment: Annotated[str, Field(min_length=1, strict=True)]
+    comment: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     default: Optional[StrictBool] = Field(default=None, description="If selected this is the default key for this repository.")
-    fingerprint: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The long identifier used by GPG for this key.")
+    fingerprint: Optional[StrictStr] = Field(default=None, description="The long identifier used by GPG for this key.")
     fingerprint_short: Optional[StrictStr] = None
-    public_key: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The public key given to repository users.")
+    public_key: Optional[StrictStr] = Field(default=None, description="The public key given to repository users.")
     __properties: ClassVar[List[str]] = ["active", "comment", "created_at", "default", "fingerprint", "fingerprint_short", "public_key"]
 
     model_config = ConfigDict(

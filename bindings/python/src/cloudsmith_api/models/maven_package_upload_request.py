@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,21 +28,21 @@ class MavenPackageUploadRequest(BaseModel):
     """
     MavenPackageUploadRequest
     """ # noqa: E501
-    artifact_id: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The ID of the artifact.")
-    extra_files: Optional[List[Annotated[str, Field(min_length=1, strict=True)]]] = Field(default=None, description="Extra files to include in the package. This can be a single file or multiple files.")
-    group_id: Optional[Annotated[str, Field(strict=True, max_length=2083)]] = Field(default=None, description="Artifact's group ID.")
-    ivy_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The ivy file is an XML file describing the dependencies of the project.")
-    javadoc_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Adds bundled Java documentation to the Maven package")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
-    packaging: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="Artifact's Maven packaging type.")
-    pom_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The POM file is an XML file containing the Maven coordinates.")
+    artifact_id: Optional[StrictStr] = Field(default=None, description="The ID of the artifact.")
+    extra_files: Optional[List[StrictStr]] = Field(default=None, description="Extra files to include in the package. This can be a single file or multiple files.")
+    group_id: Optional[StrictStr] = Field(default=None, description="Artifact's group ID.")
+    ivy_file: Optional[StrictStr] = Field(default=None, description="The ivy file is an XML file describing the dependencies of the project.")
+    javadoc_file: Optional[StrictStr] = Field(default=None, description="Adds bundled Java documentation to the Maven package")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
+    packaging: Optional[StrictStr] = Field(default=None, description="Artifact's Maven packaging type.")
+    pom_file: Optional[StrictStr] = Field(default=None, description="The POM file is an XML file containing the Maven coordinates.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    sbt_version: Optional[Annotated[str, Field(strict=True, max_length=64)]] = None
-    scala_version: Optional[Annotated[str, Field(strict=True, max_length=64)]] = None
-    sources_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Adds bundled Java source code to the Maven package.")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
-    tests_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Adds bundled Java tests to the Maven package.")
-    version: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The raw version for this package.")
+    sbt_version: Optional[StrictStr] = None
+    scala_version: Optional[StrictStr] = None
+    sources_file: Optional[StrictStr] = Field(default=None, description="Adds bundled Java source code to the Maven package.")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    tests_file: Optional[StrictStr] = Field(default=None, description="Adds bundled Java tests to the Maven package.")
+    version: Optional[StrictStr] = Field(default=None, description="The raw version for this package.")
     __properties: ClassVar[List[str]] = ["artifact_id", "extra_files", "group_id", "ivy_file", "javadoc_file", "package_file", "packaging", "pom_file", "republish", "sbt_version", "scala_version", "sources_file", "tags", "tests_file", "version"]
 
     model_config = ConfigDict(

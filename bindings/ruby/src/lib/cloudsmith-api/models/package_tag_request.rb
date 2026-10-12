@@ -87,14 +87,10 @@ module CloudsmithApi
 
       if attributes.key?(:'action')
         self.action = attributes[:'action']
-      else
-        self.action = 'Add'
       end
 
       if attributes.key?(:'is_immutable')
         self.is_immutable = attributes[:'is_immutable']
-      else
-        self.is_immutable = false
       end
 
       if attributes.key?(:'tags')

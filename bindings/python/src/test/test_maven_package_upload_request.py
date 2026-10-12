@@ -36,27 +36,26 @@ class TestMavenPackageUploadRequest(unittest.TestCase):
         model = MavenPackageUploadRequest()
         if include_optional:
             return MavenPackageUploadRequest(
-                artifact_id = '0',
+                artifact_id = '',
                 extra_files = [
-                    '0'
+                    ''
                     ],
                 group_id = '',
-                ivy_file = '0',
-                javadoc_file = '0',
-                package_file = '0',
+                ivy_file = '',
+                javadoc_file = '',
+                package_file = '',
                 packaging = '',
-                pom_file = '0',
+                pom_file = '',
                 republish = True,
                 sbt_version = '',
                 scala_version = '',
-                sources_file = '0',
-                tags = '0',
-                tests_file = '0',
+                sources_file = '',
+                tags = '',
+                tests_file = '',
                 version = ''
             )
         else:
             return MavenPackageUploadRequest(
-                package_file = '0',
         )
         """
 

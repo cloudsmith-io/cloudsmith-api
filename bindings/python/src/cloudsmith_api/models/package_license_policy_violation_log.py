@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.nested_license_policy import NestedLicensePolicy
 from cloudsmith_api.models.package_vulnerability import PackageVulnerability
 from typing import Optional, Set
@@ -33,9 +32,9 @@ class PackageLicensePolicyViolationLog(BaseModel):
     PackageLicensePolicyViolationLog
     """ # noqa: E501
     event_at: Optional[datetime] = None
-    package: PackageVulnerability
-    policy: NestedLicensePolicy
-    reasons: List[Annotated[str, Field(min_length=1, strict=True)]]
+    package: Optional[PackageVulnerability] = None
+    policy: Optional[NestedLicensePolicy] = None
+    reasons: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["event_at", "package", "policy", "reasons"]
 
     model_config = ConfigDict(

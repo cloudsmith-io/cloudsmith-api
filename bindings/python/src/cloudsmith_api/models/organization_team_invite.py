@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,16 +28,9 @@ class OrganizationTeamInvite(BaseModel):
     """
     OrganizationTeamInvite
     """ # noqa: E501
-    role: Optional[StrictStr] = Field(default='Member', description="The role to be assigned to the invited user in the team.")
-    team: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The team identifier (slug).")
+    role: Optional[StrictStr] = Field(default=None, description="The role to be assigned to the invited user in the team.")
+    team: Optional[StrictStr] = Field(default=None, description="The team identifier (slug).")
     __properties: ClassVar[List[str]] = ["role", "team"]
-
-    @field_validator('team', mode="before")
-    def team_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -91,7 +83,7 @@ class OrganizationTeamInvite(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "role": obj.get("role") if obj.get("role") is not None else 'Member',
+            "role": obj.get("role"),
             "team": obj.get("team")
         })
         return _obj

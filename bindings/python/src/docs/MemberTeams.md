@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] [readonly] 
-**role** | **str** |  | [optional] [readonly] [default to 'Manager']
+**role** | **str** |  | [optional] [readonly] 
 **slug** | **str** |  | [optional] [readonly] 
 
 ## Example

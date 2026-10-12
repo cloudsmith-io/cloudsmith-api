@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,17 +29,17 @@ class OrganizationMembershipRoleUpdate(BaseModel):
     """
     OrganizationMembershipRoleUpdate
     """ # noqa: E501
-    email: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    email: Optional[StrictStr] = None
     has_two_factor: Optional[StrictBool] = None
     joined_at: Optional[datetime] = None
     last_login_at: Optional[datetime] = None
-    last_login_method: Optional[StrictStr] = 'Unknown'
-    role: Optional[StrictStr] = 'Owner'
-    user: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    user_id: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    user_name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    last_login_method: Optional[StrictStr] = None
+    role: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
+    user_id: Optional[StrictStr] = None
+    user_name: Optional[StrictStr] = None
     user_url: Optional[StrictStr] = None
-    visibility: Optional[StrictStr] = 'Public'
+    visibility: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["email", "has_two_factor", "joined_at", "last_login_at", "last_login_method", "role", "user", "user_id", "user_name", "user_url", "visibility"]
 
     model_config = ConfigDict(
@@ -123,13 +122,13 @@ class OrganizationMembershipRoleUpdate(BaseModel):
             "has_two_factor": obj.get("has_two_factor"),
             "joined_at": obj.get("joined_at"),
             "last_login_at": obj.get("last_login_at"),
-            "last_login_method": obj.get("last_login_method") if obj.get("last_login_method") is not None else 'Unknown',
-            "role": obj.get("role") if obj.get("role") is not None else 'Owner',
+            "last_login_method": obj.get("last_login_method"),
+            "role": obj.get("role"),
             "user": obj.get("user"),
             "user_id": obj.get("user_id"),
             "user_name": obj.get("user_name"),
             "user_url": obj.get("user_url"),
-            "visibility": obj.get("visibility") if obj.get("visibility") is not None else 'Public'
+            "visibility": obj.get("visibility")
         })
         return _obj
 

@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**oidcToken** | **String** | Serialized OIDC token. |  |
-|**serviceSlug** | **String** | Slug for the service account. |  |
+|**oidcToken** | **String** | Serialized OIDC token. |  [optional] |
+|**serviceSlug** | **String** | Slug for the service account. |  [optional] |
 
 
 ## Implemented Interfaces

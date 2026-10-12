@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.repository_geo_ip_test_address_response_dict import RepositoryGeoIpTestAddressResponseDict
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class RepositoryGeoIpTestAddressResponse(BaseModel):
     """
     RepositoryGeoIpTestAddressResponse
     """ # noqa: E501
-    addresses: List[RepositoryGeoIpTestAddressResponseDict] = Field(description="The IP address test results ordered by allowed")
+    addresses: Optional[List[RepositoryGeoIpTestAddressResponseDict]] = Field(default=None, description="The IP address test results ordered by allowed")
     __properties: ClassVar[List[str]] = ["addresses"]
 
     model_config = ConfigDict(

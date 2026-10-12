@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **bandwidth** | [**AllocatedLimitRaw**](AllocatedLimitRaw.md) |  |  |
-| **storage** | [**StorageAllocatedLimitRaw**](StorageAllocatedLimitRaw.md) |  |  |
+| **bandwidth** | [**AllocatedLimitRaw**](AllocatedLimitRaw.md) |  | [optional] |
+| **storage** | [**StorageAllocatedLimitRaw**](StorageAllocatedLimitRaw.md) |  | [optional] |
 
 ## Example
 

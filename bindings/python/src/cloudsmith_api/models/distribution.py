@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class Distribution(BaseModel):
     """
     The distributions supported by this package format
     """ # noqa: E501
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=32)]
+    name: Optional[StrictStr] = None
     self_url: Optional[StrictStr] = None
-    slug: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug identifier for this distribution")
-    variants: Optional[Annotated[str, Field(strict=True, max_length=128)]] = None
+    slug: Optional[StrictStr] = Field(default=None, description="The slug identifier for this distribution")
+    variants: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["name", "self_url", "slug", "variants"]
 
     model_config = ConfigDict(

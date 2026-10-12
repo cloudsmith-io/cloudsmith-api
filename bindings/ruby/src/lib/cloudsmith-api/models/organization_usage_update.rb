@@ -101,14 +101,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@bandwidth_overage_limit.nil? && @bandwidth_overage_limit < 0
-        invalid_properties.push('invalid value for "bandwidth_overage_limit", must be greater than or equal to 0.')
-      end
-
-      if !@storage_overage_limit.nil? && @storage_overage_limit < 0
-        invalid_properties.push('invalid value for "storage_overage_limit", must be greater than or equal to 0.')
-      end
-
       invalid_properties
     end
 
@@ -116,29 +108,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@bandwidth_overage_limit.nil? && @bandwidth_overage_limit < 0
-      return false if !@storage_overage_limit.nil? && @storage_overage_limit < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] bandwidth_overage_limit Value to be assigned
-    def bandwidth_overage_limit=(bandwidth_overage_limit)
-      if !bandwidth_overage_limit.nil? && bandwidth_overage_limit < 0
-        fail ArgumentError, 'invalid value for "bandwidth_overage_limit", must be greater than or equal to 0.'
-      end
-
-      @bandwidth_overage_limit = bandwidth_overage_limit
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] storage_overage_limit Value to be assigned
-    def storage_overage_limit=(storage_overage_limit)
-      if !storage_overage_limit.nil? && storage_overage_limit < 0
-        fail ArgumentError, 'invalid value for "storage_overage_limit", must be greater than or equal to 0.'
-      end
-
-      @storage_overage_limit = storage_overage_limit
     end
 
     # Checks equality by comparing each attribute.

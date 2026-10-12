@@ -56,23 +56,23 @@ public class CommonBandwidthMetricsValue implements Serializable {
 
   public static final String SERIALIZED_NAME_DISPLAY = "display";
   @SerializedName(SERIALIZED_NAME_DISPLAY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String display;
 
   public static final String SERIALIZED_NAME_UNITS = "units";
   @SerializedName(SERIALIZED_NAME_UNITS)
   @javax.annotation.Nullable
-  private String units = "bytes";
+  private String units;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private java.math.BigInteger value;
 
   public CommonBandwidthMetricsValue() {
   }
 
-  public CommonBandwidthMetricsValue display(@javax.annotation.Nonnull String display) {
+  public CommonBandwidthMetricsValue display(@javax.annotation.Nullable String display) {
     this.display = display;
     return this;
   }
@@ -81,12 +81,12 @@ public class CommonBandwidthMetricsValue implements Serializable {
    * Bandwidth usage value
    * @return display
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getDisplay() {
     return display;
   }
 
-  public void setDisplay(@javax.annotation.Nonnull String display) {
+  public void setDisplay(@javax.annotation.Nullable String display) {
     this.display = display;
   }
 
@@ -110,7 +110,7 @@ public class CommonBandwidthMetricsValue implements Serializable {
   }
 
 
-  public CommonBandwidthMetricsValue value(@javax.annotation.Nonnull java.math.BigInteger value) {
+  public CommonBandwidthMetricsValue value(@javax.annotation.Nullable java.math.BigInteger value) {
     this.value = value;
     return this;
   }
@@ -119,12 +119,12 @@ public class CommonBandwidthMetricsValue implements Serializable {
    * Human readable version of display value
    * @return value
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public java.math.BigInteger getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull java.math.BigInteger value) {
+  public void setValue(@javax.annotation.Nullable java.math.BigInteger value) {
     this.value = value;
   }
 
@@ -177,7 +177,7 @@ public class CommonBandwidthMetricsValue implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("display", "units", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("display", "value"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -200,15 +200,8 @@ public class CommonBandwidthMetricsValue implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CommonBandwidthMetricsValue` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CommonBandwidthMetricsValue.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("display").isJsonPrimitive()) {
+      if ((jsonObj.get("display") != null && !jsonObj.get("display").isJsonNull()) && !jsonObj.get("display").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display").toString()));
       }
       if ((jsonObj.get("units") != null && !jsonObj.get("units").isJsonNull()) && !jsonObj.get("units").isJsonPrimitive()) {

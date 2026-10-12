@@ -36,10 +36,10 @@ class TestAllocatedLimit(unittest.TestCase):
         model = AllocatedLimit()
         if include_optional:
             return AllocatedLimit(
-                configured = '0',
-                percentage_used = '0',
-                plan_limit = '0',
-                used = '0'
+                configured = '',
+                percentage_used = '',
+                plan_limit = '',
+                used = ''
             )
         else:
             return AllocatedLimit(

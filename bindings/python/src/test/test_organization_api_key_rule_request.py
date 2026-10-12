@@ -38,13 +38,12 @@ class TestOrganizationApiKeyRuleRequest(unittest.TestCase):
             return OrganizationApiKeyRuleRequest(
                 enforce_refresh = True,
                 is_enabled = True,
-                max_age_hours = 24,
+                max_age_hours = 56,
                 refresh_immediately = True,
                 rule_type = ''
             )
         else:
             return OrganizationApiKeyRuleRequest(
-                rule_type = '',
         )
         """
 

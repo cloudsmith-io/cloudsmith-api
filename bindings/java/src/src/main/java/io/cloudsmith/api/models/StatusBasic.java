@@ -57,12 +57,12 @@ public class StatusBasic implements Serializable {
   public static final String SERIALIZED_NAME_DETAIL = "detail";
   @SerializedName(SERIALIZED_NAME_DETAIL)
   @javax.annotation.Nullable
-  private String detail = "Cloudsmith API is operational.";
+  private String detail;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   @javax.annotation.Nullable
-  private String version = "1.0";
+  private String version;
 
   public StatusBasic() {
   }

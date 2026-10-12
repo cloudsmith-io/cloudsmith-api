@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **days** | **int** |  | [optional] 
-**display** | [**HistoryFieldset**](HistoryFieldset.md) |  | 
-**end** | **datetime** |  | 
-**plan** | **str** |  | 
-**raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  | 
-**start** | **datetime** |  | 
+**display** | [**HistoryFieldset**](HistoryFieldset.md) |  | [optional] 
+**end** | **datetime** |  | [optional] 
+**plan** | **str** |  | [optional] 
+**raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  | [optional] 
+**start** | **datetime** |  | [optional] 
 
 ## Example
 

@@ -36,8 +36,8 @@ class TestStatusBasic(unittest.TestCase):
         model = StatusBasic()
         if include_optional:
             return StatusBasic(
-                detail = 'Cloudsmith API is operational.',
-                version = '1.0'
+                detail = '',
+                version = ''
             )
         else:
             return StatusBasic(

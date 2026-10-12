@@ -105,8 +105,6 @@ public class RepositoryRetentionRulesRequestPatch implements Serializable {
 
   /**
    * The maximum X number of packages to retain.
-   * minimum: 0
-   * maximum: 10000
    * @return retentionCountLimit
    */
   @javax.annotation.Nullable
@@ -126,8 +124,6 @@ public class RepositoryRetentionRulesRequestPatch implements Serializable {
 
   /**
    * The X number of days of packages to retain.
-   * minimum: 0
-   * maximum: 180
    * @return retentionDaysLimit
    */
   @javax.annotation.Nullable
@@ -242,8 +238,6 @@ public class RepositoryRetentionRulesRequestPatch implements Serializable {
 
   /**
    * The maximum X total size (in bytes) of packages to retain.
-   * minimum: 0
-   * maximum: 21474836480
    * @return retentionSizeLimit
    */
   @javax.annotation.Nullable

@@ -61,12 +61,12 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_BROADCAST_STATE = "broadcast_state";
   @SerializedName(SERIALIZED_NAME_BROADCAST_STATE)
   @javax.annotation.Nullable
-  private String broadcastState = "Off";
+  private String broadcastState;
 
   public static final String SERIALIZED_NAME_CONTENT_KIND = "content_kind";
   @SerializedName(SERIALIZED_NAME_CONTENT_KIND)
   @javax.annotation.Nullable
-  private String contentKind = "Standard";
+  private String contentKind;
 
   public static final String SERIALIZED_NAME_CONTEXTUAL_AUTH_REALM = "contextual_auth_realm";
   @SerializedName(SERIALIZED_NAME_CONTEXTUAL_AUTH_REALM)
@@ -81,7 +81,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_COPY_PACKAGES = "copy_packages";
   @SerializedName(SERIALIZED_NAME_COPY_PACKAGES)
   @javax.annotation.Nullable
-  private String copyPackages = "Read";
+  private String copyPackages;
 
   public static final String SERIALIZED_NAME_COSIGN_SIGNING_ENABLED = "cosign_signing_enabled";
   @SerializedName(SERIALIZED_NAME_COSIGN_SIGNING_ENABLED)
@@ -91,7 +91,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_DEFAULT_PRIVILEGE = "default_privilege";
   @SerializedName(SERIALIZED_NAME_DEFAULT_PRIVILEGE)
   @javax.annotation.Nullable
-  private String defaultPrivilege = "None";
+  private String defaultPrivilege;
 
   public static final String SERIALIZED_NAME_DELETE_OWN = "delete_own";
   @SerializedName(SERIALIZED_NAME_DELETE_OWN)
@@ -101,7 +101,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_DELETE_PACKAGES = "delete_packages";
   @SerializedName(SERIALIZED_NAME_DELETE_PACKAGES)
   @javax.annotation.Nullable
-  private String deletePackages = "Admin";
+  private String deletePackages;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -111,7 +111,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_DISTRIBUTES = "distributes";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTES)
   @javax.annotation.Nullable
-  private Set<String> distributes = new LinkedHashSet<>();
+  private Set<String> distributes;
 
   public static final String SERIALIZED_NAME_DOCKER_REFRESH_TOKENS_ENABLED = "docker_refresh_tokens_enabled";
   @SerializedName(SERIALIZED_NAME_DOCKER_REFRESH_TOKENS_ENABLED)
@@ -141,7 +141,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_MANAGE_ENTITLEMENTS_PRIVILEGE = "manage_entitlements_privilege";
   @SerializedName(SERIALIZED_NAME_MANAGE_ENTITLEMENTS_PRIVILEGE)
   @javax.annotation.Nullable
-  private String manageEntitlementsPrivilege = "Admin";
+  private String manageEntitlementsPrivilege;
 
   public static final String SERIALIZED_NAME_MOVE_OWN = "move_own";
   @SerializedName(SERIALIZED_NAME_MOVE_OWN)
@@ -151,7 +151,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_MOVE_PACKAGES = "move_packages";
   @SerializedName(SERIALIZED_NAME_MOVE_PACKAGES)
   @javax.annotation.Nullable
-  private String movePackages = "Admin";
+  private String movePackages;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -201,7 +201,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_REPLACE_PACKAGES = "replace_packages";
   @SerializedName(SERIALIZED_NAME_REPLACE_PACKAGES)
   @javax.annotation.Nullable
-  private String replacePackages = "Write";
+  private String replacePackages;
 
   public static final String SERIALIZED_NAME_REPLACE_PACKAGES_BY_DEFAULT = "replace_packages_by_default";
   @SerializedName(SERIALIZED_NAME_REPLACE_PACKAGES_BY_DEFAULT)
@@ -211,7 +211,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_REPOSITORY_TYPE_STR = "repository_type_str";
   @SerializedName(SERIALIZED_NAME_REPOSITORY_TYPE_STR)
   @javax.annotation.Nullable
-  private String repositoryTypeStr = "Public";
+  private String repositoryTypeStr;
 
   public static final String SERIALIZED_NAME_RESYNC_OWN = "resync_own";
   @SerializedName(SERIALIZED_NAME_RESYNC_OWN)
@@ -221,7 +221,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_RESYNC_PACKAGES = "resync_packages";
   @SerializedName(SERIALIZED_NAME_RESYNC_PACKAGES)
   @javax.annotation.Nullable
-  private String resyncPackages = "Admin";
+  private String resyncPackages;
 
   public static final String SERIALIZED_NAME_SCAN_OWN = "scan_own";
   @SerializedName(SERIALIZED_NAME_SCAN_OWN)
@@ -231,7 +231,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_SCAN_PACKAGES = "scan_packages";
   @SerializedName(SERIALIZED_NAME_SCAN_PACKAGES)
   @javax.annotation.Nullable
-  private String scanPackages = "Read";
+  private String scanPackages;
 
   public static final String SERIALIZED_NAME_SHOW_SETUP_ALL = "show_setup_all";
   @SerializedName(SERIALIZED_NAME_SHOW_SETUP_ALL)
@@ -266,7 +266,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_USE_ENTITLEMENTS_PRIVILEGE = "use_entitlements_privilege";
   @SerializedName(SERIALIZED_NAME_USE_ENTITLEMENTS_PRIVILEGE)
   @javax.annotation.Nullable
-  private String useEntitlementsPrivilege = "Read";
+  private String useEntitlementsPrivilege;
 
   public static final String SERIALIZED_NAME_USE_NOARCH_PACKAGES = "use_noarch_packages";
   @SerializedName(SERIALIZED_NAME_USE_NOARCH_PACKAGES)
@@ -291,7 +291,7 @@ public class RepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_VIEW_STATISTICS = "view_statistics";
   @SerializedName(SERIALIZED_NAME_VIEW_STATISTICS)
   @javax.annotation.Nullable
-  private String viewStatistics = "Read";
+  private String viewStatistics;
 
   public RepositoryRequestPatch() {
   }

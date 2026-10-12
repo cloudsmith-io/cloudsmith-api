@@ -37,13 +37,12 @@ class TestOrganizationTeamRequest(unittest.TestCase):
         if include_optional:
             return OrganizationTeamRequest(
                 description = '',
-                name = 'eBXK5y0',
-                slug = 'z0',
-                visibility = 'Visible'
+                name = '',
+                slug = '',
+                visibility = ''
             )
         else:
             return OrganizationTeamRequest(
-                name = 'eBXK5y0',
         )
         """
 

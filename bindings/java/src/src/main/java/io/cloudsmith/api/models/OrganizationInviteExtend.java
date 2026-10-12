@@ -88,7 +88,7 @@ public class OrganizationInviteExtend implements Serializable {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Member";
+  private String role;
 
   public static final String SERIALIZED_NAME_SLUG_PERM = "slug_perm";
   @SerializedName(SERIALIZED_NAME_SLUG_PERM)
@@ -98,7 +98,7 @@ public class OrganizationInviteExtend implements Serializable {
   public static final String SERIALIZED_NAME_TEAMS = "teams";
   @SerializedName(SERIALIZED_NAME_TEAMS)
   @javax.annotation.Nullable
-  private List<OrganizationTeamInvite> teams = new ArrayList<>();
+  private List<OrganizationTeamInvite> teams;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)

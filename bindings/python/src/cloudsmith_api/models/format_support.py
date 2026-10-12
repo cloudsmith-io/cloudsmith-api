@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.format_support_upstream import FormatSupportUpstream
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,13 +29,13 @@ class FormatSupport(BaseModel):
     """
     A set of what the package format supports
     """ # noqa: E501
-    dependencies: StrictBool = Field(description="If true the package format supports dependencies")
-    distributions: StrictBool = Field(description="If true the package format supports distributions")
-    file_lists: StrictBool = Field(description="If true the package format supports file lists")
-    filepaths: StrictBool = Field(description="If true the package format supports filepaths")
-    metadata: StrictBool = Field(description="If true the package format supports metadata")
-    upstreams: FormatSupportUpstream
-    versioning: StrictBool = Field(description="If true the package format supports versioning")
+    dependencies: Optional[StrictBool] = Field(default=None, description="If true the package format supports dependencies")
+    distributions: Optional[StrictBool] = Field(default=None, description="If true the package format supports distributions")
+    file_lists: Optional[StrictBool] = Field(default=None, description="If true the package format supports file lists")
+    filepaths: Optional[StrictBool] = Field(default=None, description="If true the package format supports filepaths")
+    metadata: Optional[StrictBool] = Field(default=None, description="If true the package format supports metadata")
+    upstreams: Optional[FormatSupportUpstream] = None
+    versioning: Optional[StrictBool] = Field(default=None, description="If true the package format supports versioning")
     __properties: ClassVar[List[str]] = ["dependencies", "distributions", "file_lists", "filepaths", "metadata", "upstreams", "versioning"]
 
     model_config = ConfigDict(

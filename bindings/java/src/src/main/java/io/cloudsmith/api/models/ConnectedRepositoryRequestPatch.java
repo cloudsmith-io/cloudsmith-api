@@ -57,7 +57,7 @@ public class ConnectedRepositoryRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_IS_ACTIVE = "is_active";
   @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
   @javax.annotation.Nullable
-  private Boolean isActive = false;
+  private Boolean isActive;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
@@ -98,8 +98,6 @@ public class ConnectedRepositoryRequestPatch implements Serializable {
 
   /**
    * Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first.
-   * minimum: 1
-   * maximum: 32767
    * @return priority
    */
   @javax.annotation.Nullable

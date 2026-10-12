@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.eula import Eula
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +33,7 @@ class RepositoryToken(BaseModel):
     access_private_broadcasts: Optional[StrictBool] = Field(default=None, description="If enabled, this token can be used for private broadcasts")
     clients: Optional[StrictInt] = None
     created_at: Optional[datetime] = Field(default=None, description="The datetime the token was updated at.")
-    created_by: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    created_by: Optional[StrictStr] = None
     created_by_url: Optional[StrictStr] = None
     default: Optional[StrictBool] = Field(default=None, description="If selected this is the default token for this repository.")
     disable_url: Optional[StrictStr] = None
@@ -42,46 +41,36 @@ class RepositoryToken(BaseModel):
     enable_url: Optional[StrictStr] = None
     eula_accepted: Optional[Eula] = None
     eula_accepted_at: Optional[datetime] = Field(default=None, description="The datetime the EULA was accepted at.")
-    eula_accepted_from: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    eula_accepted_from: Optional[StrictStr] = None
     eula_required: Optional[StrictBool] = Field(default=None, description="If checked, a EULA acceptance is required for this token.")
     has_limits: Optional[StrictBool] = None
     identifier: Optional[StrictInt] = Field(default=None, description="Deprecated (23-05-15): Please use 'slug_perm' instead. Previously: A monotonically increasing number that identified an entitlement within a repository.")
     is_active: Optional[StrictBool] = Field(default=None, description="If enabled, the token will allow downloads based on configured restrictions (if any).")
     is_limited: Optional[StrictBool] = None
-    limit_bandwidth: Optional[Annotated[int, Field(le=9223372036854775807, strict=True, ge=-9223372036854775808)]] = Field(default=None, description="The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
-    limit_bandwidth_unit: Optional[StrictStr] = 'Byte'
+    limit_bandwidth: Optional[StrictInt] = Field(default=None, description="The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. ")
+    limit_bandwidth_unit: Optional[StrictStr] = None
     limit_date_range_from: Optional[datetime] = Field(default=None, description="The starting date/time the token is allowed to be used from.")
     limit_date_range_to: Optional[datetime] = Field(default=None, description="The ending date/time the token is allowed to be used until.")
-    limit_num_clients: Optional[Annotated[int, Field(le=9223372036854775807, strict=True, ge=-9223372036854775808)]] = Field(default=None, description="The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
-    limit_num_downloads: Optional[Annotated[int, Field(le=9223372036854775807, strict=True, ge=-9223372036854775808)]] = Field(default=None, description="The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
-    limit_package_query: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.")
-    limit_path_query: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
+    limit_num_clients: Optional[StrictInt] = Field(default=None, description="The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+    limit_num_downloads: Optional[StrictInt] = Field(default=None, description="The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.")
+    limit_package_query: Optional[StrictStr] = Field(default=None, description="The package-based search query to apply to restrict downloads to. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. This will still allow access to non-package files, such as metadata.")
+    limit_path_query: Optional[StrictStr] = Field(default=None, description="THIS WILL SOON BE DEPRECATED, please use limit_package_query instead. The path-based search query to apply to restrict downloads to. This supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. The path evaluated does not include the domain name, the namespace, the entitlement code used, the package format, etc. and it always starts with a forward slash.")
     metadata: Optional[Dict[str, Any]] = None
-    name: Annotated[str, Field(min_length=1, strict=True)]
+    name: Optional[StrictStr] = None
     refresh_url: Optional[StrictStr] = None
     reset_url: Optional[StrictStr] = None
     scheduled_reset_at: Optional[datetime] = Field(default=None, description="The time at which the scheduled reset period has elapsed and the token limits were automatically reset to zero.")
-    scheduled_reset_period: Optional[StrictStr] = 'Never Reset'
+    scheduled_reset_period: Optional[StrictStr] = None
     self_url: Optional[StrictStr] = None
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    token: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    slug_perm: Optional[StrictStr] = None
+    token: Optional[StrictStr] = None
     updated_at: Optional[datetime] = Field(default=None, description="The datetime the token was updated at.")
-    updated_by: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    updated_by: Optional[StrictStr] = None
     updated_by_url: Optional[StrictStr] = None
-    usage: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    user: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    usage: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     user_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["access_private_broadcasts", "clients", "created_at", "created_by", "created_by_url", "default", "disable_url", "downloads", "enable_url", "eula_accepted", "eula_accepted_at", "eula_accepted_from", "eula_required", "has_limits", "identifier", "is_active", "is_limited", "limit_bandwidth", "limit_bandwidth_unit", "limit_date_range_from", "limit_date_range_to", "limit_num_clients", "limit_num_downloads", "limit_package_query", "limit_path_query", "metadata", "name", "refresh_url", "reset_url", "scheduled_reset_at", "scheduled_reset_period", "self_url", "slug_perm", "token", "updated_at", "updated_by", "updated_by_url", "usage", "user", "user_url"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -303,7 +292,7 @@ class RepositoryToken(BaseModel):
             "is_active": obj.get("is_active"),
             "is_limited": obj.get("is_limited"),
             "limit_bandwidth": obj.get("limit_bandwidth"),
-            "limit_bandwidth_unit": obj.get("limit_bandwidth_unit") if "limit_bandwidth_unit" in obj else 'Byte',
+            "limit_bandwidth_unit": obj.get("limit_bandwidth_unit"),
             "limit_date_range_from": obj.get("limit_date_range_from"),
             "limit_date_range_to": obj.get("limit_date_range_to"),
             "limit_num_clients": obj.get("limit_num_clients"),
@@ -315,7 +304,7 @@ class RepositoryToken(BaseModel):
             "refresh_url": obj.get("refresh_url"),
             "reset_url": obj.get("reset_url"),
             "scheduled_reset_at": obj.get("scheduled_reset_at"),
-            "scheduled_reset_period": obj.get("scheduled_reset_period") if "scheduled_reset_period" in obj else 'Never Reset',
+            "scheduled_reset_period": obj.get("scheduled_reset_period"),
             "self_url": obj.get("self_url"),
             "slug_perm": obj.get("slug_perm"),
             "token": obj.get("token"),

@@ -36,9 +36,9 @@ class TestPackageBulkActionResponse(unittest.TestCase):
         model = PackageBulkActionResponse()
         if include_optional:
             return PackageBulkActionResponse(
-                action = '0',
+                action = '',
                 packages_actioned = [
-                    '0'
+                    ''
                     ],
                 packages_failed_to_action = {
                     'key' : {

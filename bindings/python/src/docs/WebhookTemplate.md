@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event** | **str** |  | 
+**event** | **str** |  | [optional] 
 **template** | **str** |  | [optional] 
 
 ## Example

@@ -40,7 +40,7 @@ class TestRateCheck(unittest.TestCase):
                 limit = 56,
                 remaining = 56,
                 reset = 56,
-                reset_iso_8601 = '0',
+                reset_iso_8601 = '',
                 throttled = True
             )
         else:

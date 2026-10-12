@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.package_dependency import PackageDependency
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PackageDependencies(BaseModel):
     """
     PackageDependencies
     """ # noqa: E501
-    dependencies: List[PackageDependency]
+    dependencies: Optional[List[PackageDependency]] = None
     __properties: ClassVar[List[str]] = ["dependencies"]
 
     model_config = ConfigDict(

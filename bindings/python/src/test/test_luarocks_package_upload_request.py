@@ -36,13 +36,12 @@ class TestLuarocksPackageUploadRequest(unittest.TestCase):
         model = LuarocksPackageUploadRequest()
         if include_optional:
             return LuarocksPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return LuarocksPackageUploadRequest(
-                package_file = '0',
         )
         """
 

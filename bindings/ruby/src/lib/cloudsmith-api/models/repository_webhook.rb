@@ -216,8 +216,6 @@ module CloudsmithApi
         if (value = attributes[:'events']).is_a?(Array)
           self.events = value
         end
-      else
-        self.events = nil
       end
 
       if attributes.key?(:'identifier')
@@ -282,16 +280,12 @@ module CloudsmithApi
 
       if attributes.key?(:'target_url')
         self.target_url = attributes[:'target_url']
-      else
-        self.target_url = nil
       end
 
       if attributes.key?(:'templates')
         if (value = attributes[:'templates']).is_a?(Array)
           self.templates = value
         end
-      else
-        self.templates = nil
       end
 
       if attributes.key?(:'updated_at')
@@ -316,68 +310,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@created_by.nil? && @created_by.to_s.length < 1
-        invalid_properties.push('invalid value for "created_by", the character length must be greater than or equal to 1.')
-      end
-
-      if !@disable_reason_str.nil? && @disable_reason_str.to_s.length < 1
-        invalid_properties.push('invalid value for "disable_reason_str", the character length must be greater than or equal to 1.')
-      end
-
-      if !@last_response_status_str.nil? && @last_response_status_str.to_s.length < 1
-        invalid_properties.push('invalid value for "last_response_status_str", the character length must be greater than or equal to 1.')
-      end
-
-      if !@package_query.nil? && @package_query.to_s.length > 1024
-        invalid_properties.push('invalid value for "package_query", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@request_body_format_str.nil? && @request_body_format_str.to_s.length < 1
-        invalid_properties.push('invalid value for "request_body_format_str", the character length must be greater than or equal to 1.')
-      end
-
-      if !@request_body_template_format_str.nil? && @request_body_template_format_str.to_s.length < 1
-        invalid_properties.push('invalid value for "request_body_template_format_str", the character length must be greater than or equal to 1.')
-      end
-
-      if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-        invalid_properties.push('invalid value for "request_content_type", the character length must be smaller than or equal to 128.')
-      end
-
-      if !@secret_header.nil? && @secret_header.to_s.length > 64
-        invalid_properties.push('invalid value for "secret_header", the character length must be smaller than or equal to 64.')
-      end
-
-      pattern = Regexp.new(/^[-\w]+$/)
-      if !@secret_header.nil? && @secret_header !~ pattern
-        invalid_properties.push("invalid value for \"secret_header\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
-      if @target_url.nil?
-        invalid_properties.push('invalid value for "target_url", target_url cannot be nil.')
-      end
-
-      if @target_url.to_s.length > 2000
-        invalid_properties.push('invalid value for "target_url", the character length must be smaller than or equal to 2000.')
-      end
-
-      if @target_url.to_s.length < 1
-        invalid_properties.push('invalid value for "target_url", the character length must be greater than or equal to 1.')
-      end
-
-      if !@updated_by.nil? && @updated_by.to_s.length < 1
-        invalid_properties.push('invalid value for "updated_by", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -385,178 +317,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@created_by.nil? && @created_by.to_s.length < 1
-      return false if !@disable_reason_str.nil? && @disable_reason_str.to_s.length < 1
-      return false if !@last_response_status_str.nil? && @last_response_status_str.to_s.length < 1
-      return false if !@package_query.nil? && @package_query.to_s.length > 1024
-      return false if !@request_body_format_str.nil? && @request_body_format_str.to_s.length < 1
-      return false if !@request_body_template_format_str.nil? && @request_body_template_format_str.to_s.length < 1
-      return false if !@request_content_type.nil? && @request_content_type.to_s.length > 128
-      return false if !@secret_header.nil? && @secret_header.to_s.length > 64
-      return false if !@secret_header.nil? && @secret_header !~ Regexp.new(/^[-\w]+$/)
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if @target_url.nil?
-      return false if @target_url.to_s.length > 2000
-      return false if @target_url.to_s.length < 1
-      return false if !@updated_by.nil? && @updated_by.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] created_by Value to be assigned
-    def created_by=(created_by)
-      if created_by.nil?
-        fail ArgumentError, 'created_by cannot be nil'
-      end
-
-      if created_by.to_s.length < 1
-        fail ArgumentError, 'invalid value for "created_by", the character length must be greater than or equal to 1.'
-      end
-
-      @created_by = created_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] disable_reason_str Value to be assigned
-    def disable_reason_str=(disable_reason_str)
-      if disable_reason_str.nil?
-        fail ArgumentError, 'disable_reason_str cannot be nil'
-      end
-
-      if disable_reason_str.to_s.length < 1
-        fail ArgumentError, 'invalid value for "disable_reason_str", the character length must be greater than or equal to 1.'
-      end
-
-      @disable_reason_str = disable_reason_str
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] last_response_status_str Value to be assigned
-    def last_response_status_str=(last_response_status_str)
-      if last_response_status_str.nil?
-        fail ArgumentError, 'last_response_status_str cannot be nil'
-      end
-
-      if last_response_status_str.to_s.length < 1
-        fail ArgumentError, 'invalid value for "last_response_status_str", the character length must be greater than or equal to 1.'
-      end
-
-      @last_response_status_str = last_response_status_str
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] package_query Value to be assigned
-    def package_query=(package_query)
-      if !package_query.nil? && package_query.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "package_query", the character length must be smaller than or equal to 1024.'
-      end
-
-      @package_query = package_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] request_body_format_str Value to be assigned
-    def request_body_format_str=(request_body_format_str)
-      if request_body_format_str.nil?
-        fail ArgumentError, 'request_body_format_str cannot be nil'
-      end
-
-      if request_body_format_str.to_s.length < 1
-        fail ArgumentError, 'invalid value for "request_body_format_str", the character length must be greater than or equal to 1.'
-      end
-
-      @request_body_format_str = request_body_format_str
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] request_body_template_format_str Value to be assigned
-    def request_body_template_format_str=(request_body_template_format_str)
-      if request_body_template_format_str.nil?
-        fail ArgumentError, 'request_body_template_format_str cannot be nil'
-      end
-
-      if request_body_template_format_str.to_s.length < 1
-        fail ArgumentError, 'invalid value for "request_body_template_format_str", the character length must be greater than or equal to 1.'
-      end
-
-      @request_body_template_format_str = request_body_template_format_str
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] request_content_type Value to be assigned
-    def request_content_type=(request_content_type)
-      if !request_content_type.nil? && request_content_type.to_s.length > 128
-        fail ArgumentError, 'invalid value for "request_content_type", the character length must be smaller than or equal to 128.'
-      end
-
-      @request_content_type = request_content_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] secret_header Value to be assigned
-    def secret_header=(secret_header)
-      if !secret_header.nil? && secret_header.to_s.length > 64
-        fail ArgumentError, 'invalid value for "secret_header", the character length must be smaller than or equal to 64.'
-      end
-
-      pattern = Regexp.new(/^[-\w]+$/)
-      if !secret_header.nil? && secret_header !~ pattern
-        fail ArgumentError, "invalid value for \"secret_header\", must conform to the pattern #{pattern}."
-      end
-
-      @secret_header = secret_header
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] target_url Value to be assigned
-    def target_url=(target_url)
-      if target_url.nil?
-        fail ArgumentError, 'target_url cannot be nil'
-      end
-
-      if target_url.to_s.length > 2000
-        fail ArgumentError, 'invalid value for "target_url", the character length must be smaller than or equal to 2000.'
-      end
-
-      if target_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "target_url", the character length must be greater than or equal to 1.'
-      end
-
-      @target_url = target_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] updated_by Value to be assigned
-    def updated_by=(updated_by)
-      if updated_by.nil?
-        fail ArgumentError, 'updated_by cannot be nil'
-      end
-
-      if updated_by.to_s.length < 1
-        fail ArgumentError, 'invalid value for "updated_by", the character length must be greater than or equal to 1.'
-      end
-
-      @updated_by = updated_by
     end
 
     # Checks equality by comparing each attribute.

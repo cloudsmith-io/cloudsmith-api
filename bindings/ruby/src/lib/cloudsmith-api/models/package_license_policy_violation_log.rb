@@ -91,22 +91,16 @@ module CloudsmithApi
 
       if attributes.key?(:'package')
         self.package = attributes[:'package']
-      else
-        self.package = nil
       end
 
       if attributes.key?(:'policy')
         self.policy = attributes[:'policy']
-      else
-        self.policy = nil
       end
 
       if attributes.key?(:'reasons')
         if (value = attributes[:'reasons']).is_a?(Array)
           self.reasons = value
         end
-      else
-        self.reasons = nil
       end
     end
 
@@ -115,18 +109,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @package.nil?
-        invalid_properties.push('invalid value for "package", package cannot be nil.')
-      end
-
-      if @policy.nil?
-        invalid_properties.push('invalid value for "policy", policy cannot be nil.')
-      end
-
-      if @reasons.nil?
-        invalid_properties.push('invalid value for "reasons", reasons cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -134,40 +116,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @package.nil?
-      return false if @policy.nil?
-      return false if @reasons.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] package Value to be assigned
-    def package=(package)
-      if package.nil?
-        fail ArgumentError, 'package cannot be nil'
-      end
-
-      @package = package
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] policy Value to be assigned
-    def policy=(policy)
-      if policy.nil?
-        fail ArgumentError, 'policy cannot be nil'
-      end
-
-      @policy = policy
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] reasons Value to be assigned
-    def reasons=(reasons)
-      if reasons.nil?
-        fail ArgumentError, 'reasons cannot be nil'
-      end
-
-      @reasons = reasons
     end
 
     # Checks equality by comparing each attribute.

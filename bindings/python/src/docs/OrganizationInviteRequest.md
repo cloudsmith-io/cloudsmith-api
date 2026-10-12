@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **str** | The email of the user to be invited. | [optional] 
-**role** | **str** | The role to be assigned to the invited user. | [optional] [default to 'Member']
+**role** | **str** | The role to be assigned to the invited user. | [optional] 
 **teams** | [**List[OrganizationTeamInvite]**](OrganizationTeamInvite.md) |  | [optional] 
 **user** | **str** | The slug of the user to be invited. | [optional] 
 

@@ -58,18 +58,18 @@ public class UsageFieldset implements Serializable {
 
   public static final String SERIALIZED_NAME_DISPLAY = "display";
   @SerializedName(SERIALIZED_NAME_DISPLAY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private UsageLimits display;
 
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private UsageLimitsRaw raw;
 
   public UsageFieldset() {
   }
 
-  public UsageFieldset display(@javax.annotation.Nonnull UsageLimits display) {
+  public UsageFieldset display(@javax.annotation.Nullable UsageLimits display) {
     this.display = display;
     return this;
   }
@@ -78,17 +78,17 @@ public class UsageFieldset implements Serializable {
    * Get display
    * @return display
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public UsageLimits getDisplay() {
     return display;
   }
 
-  public void setDisplay(@javax.annotation.Nonnull UsageLimits display) {
+  public void setDisplay(@javax.annotation.Nullable UsageLimits display) {
     this.display = display;
   }
 
 
-  public UsageFieldset raw(@javax.annotation.Nonnull UsageLimitsRaw raw) {
+  public UsageFieldset raw(@javax.annotation.Nullable UsageLimitsRaw raw) {
     this.raw = raw;
     return this;
   }
@@ -97,12 +97,12 @@ public class UsageFieldset implements Serializable {
    * Get raw
    * @return raw
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public UsageLimitsRaw getRaw() {
     return raw;
   }
 
-  public void setRaw(@javax.annotation.Nonnull UsageLimitsRaw raw) {
+  public void setRaw(@javax.annotation.Nullable UsageLimitsRaw raw) {
     this.raw = raw;
   }
 
@@ -153,7 +153,7 @@ public class UsageFieldset implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("display", "raw"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("display", "raw"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -176,18 +176,15 @@ public class UsageFieldset implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UsageFieldset` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UsageFieldset.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `display`
-      UsageLimits.validateJsonElement(jsonObj.get("display"));
-      // validate the required field `raw`
-      UsageLimitsRaw.validateJsonElement(jsonObj.get("raw"));
+      // validate the optional field `display`
+      if (jsonObj.get("display") != null && !jsonObj.get("display").isJsonNull()) {
+        UsageLimits.validateJsonElement(jsonObj.get("display"));
+      }
+      // validate the optional field `raw`
+      if (jsonObj.get("raw") != null && !jsonObj.get("raw").isJsonNull()) {
+        UsageLimitsRaw.validateJsonElement(jsonObj.get("raw"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

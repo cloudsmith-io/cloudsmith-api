@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class PackageFileUploadRequest(BaseModel):
     """
     PackageFileUploadRequest
     """ # noqa: E501
-    filename: Annotated[str, Field(min_length=1, strict=True, max_length=255)] = Field(description="Filename for the package file upload.")
-    md5_checksum: Optional[Annotated[str, Field(min_length=32, strict=True, max_length=32)]] = Field(default=None, description="MD5 checksum for a POST-based package file upload.")
-    method: Optional[StrictStr] = Field(default='post', description="The method to use for package file upload.")
-    sha256_checksum: Optional[Annotated[str, Field(min_length=64, strict=True, max_length=64)]] = Field(default=None, description="SHA256 checksum for a PUT-based package file upload.")
+    filename: Optional[StrictStr] = Field(default=None, description="Filename for the package file upload.")
+    md5_checksum: Optional[StrictStr] = Field(default=None, description="MD5 checksum for a POST-based package file upload.")
+    method: Optional[StrictStr] = Field(default=None, description="The method to use for package file upload.")
+    sha256_checksum: Optional[StrictStr] = Field(default=None, description="SHA256 checksum for a PUT-based package file upload.")
     __properties: ClassVar[List[str]] = ["filename", "md5_checksum", "method", "sha256_checksum"]
 
     model_config = ConfigDict(
@@ -88,7 +87,7 @@ class PackageFileUploadRequest(BaseModel):
         _obj = cls.model_validate({
             "filename": obj.get("filename"),
             "md5_checksum": obj.get("md5_checksum"),
-            "method": obj.get("method") if obj.get("method") is not None else 'post',
+            "method": obj.get("method"),
             "sha256_checksum": obj.get("sha256_checksum")
         })
         return _obj

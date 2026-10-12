@@ -36,10 +36,10 @@ class TestStorageUsage(unittest.TestCase):
         model = StorageUsage()
         if include_optional:
             return StorageUsage(
-                limit = '0',
-                peak = '0',
-                percentage = '0',
-                used = '0'
+                limit = '',
+                peak = '',
+                percentage = '',
+                used = ''
             )
         else:
             return StorageUsage(

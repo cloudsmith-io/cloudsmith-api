@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,26 +29,16 @@ class PackageDenyPolicy(BaseModel):
     """
     PackageDenyPolicy
     """ # noqa: E501
-    action: Optional[StrictStr] = 'Block downloads'
+    action: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
-    description: Optional[Annotated[str, Field(strict=True, max_length=250)]] = None
+    description: Optional[StrictStr] = None
     enabled: Optional[StrictBool] = Field(default=None, description="Whether this rule is enabled or disabled.")
-    name: Optional[Annotated[str, Field(strict=True, max_length=100)]] = None
-    package_query_string: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Packages that match this query will trigger this deny rule.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    status: Optional[StrictStr] = 'In Progress'
+    name: Optional[StrictStr] = None
+    package_query_string: Optional[StrictStr] = Field(default=None, description="Packages that match this query will trigger this deny rule.")
+    slug_perm: Optional[StrictStr] = None
+    status: Optional[StrictStr] = None
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["action", "created_at", "description", "enabled", "name", "package_query_string", "slug_perm", "status", "updated_at"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -122,14 +111,14 @@ class PackageDenyPolicy(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "action": obj.get("action") if obj.get("action") is not None else 'Block downloads',
+            "action": obj.get("action"),
             "created_at": obj.get("created_at"),
             "description": obj.get("description"),
             "enabled": obj.get("enabled"),
             "name": obj.get("name"),
             "package_query_string": obj.get("package_query_string"),
             "slug_perm": obj.get("slug_perm"),
-            "status": obj.get("status") if obj.get("status") is not None else 'In Progress',
+            "status": obj.get("status"),
             "updated_at": obj.get("updated_at")
         })
         return _obj

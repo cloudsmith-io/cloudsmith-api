@@ -79,14 +79,10 @@ module CloudsmithApi
 
       if attributes.key?(:'cidr')
         self.cidr = attributes[:'cidr']
-      else
-        self.cidr = nil
       end
 
       if attributes.key?(:'country_code')
         self.country_code = attributes[:'country_code']
-      else
-        self.country_code = nil
       end
     end
 
@@ -95,14 +91,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @cidr.nil?
-        invalid_properties.push('invalid value for "cidr", cidr cannot be nil.')
-      end
-
-      if @country_code.nil?
-        invalid_properties.push('invalid value for "country_code", country_code cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -110,29 +98,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @cidr.nil?
-      return false if @country_code.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] cidr Value to be assigned
-    def cidr=(cidr)
-      if cidr.nil?
-        fail ArgumentError, 'cidr cannot be nil'
-      end
-
-      @cidr = cidr
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] country_code Value to be assigned
-    def country_code=(country_code)
-      if country_code.nil?
-        fail ArgumentError, 'country_code cannot be nil'
-      end
-
-      @country_code = country_code
     end
 
     # Checks equality by comparing each attribute.

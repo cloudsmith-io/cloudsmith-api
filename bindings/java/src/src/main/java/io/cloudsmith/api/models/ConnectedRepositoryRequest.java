@@ -57,7 +57,7 @@ public class ConnectedRepositoryRequest implements Serializable {
   public static final String SERIALIZED_NAME_IS_ACTIVE = "is_active";
   @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
   @javax.annotation.Nullable
-  private Boolean isActive = false;
+  private Boolean isActive;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
@@ -66,7 +66,7 @@ public class ConnectedRepositoryRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_TARGET_REPOSITORY = "target_repository";
   @SerializedName(SERIALIZED_NAME_TARGET_REPOSITORY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String targetRepository;
 
   public ConnectedRepositoryRequest() {
@@ -98,8 +98,6 @@ public class ConnectedRepositoryRequest implements Serializable {
 
   /**
    * Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first.
-   * minimum: 1
-   * maximum: 32767
    * @return priority
    */
   @javax.annotation.Nullable
@@ -112,7 +110,7 @@ public class ConnectedRepositoryRequest implements Serializable {
   }
 
 
-  public ConnectedRepositoryRequest targetRepository(@javax.annotation.Nonnull String targetRepository) {
+  public ConnectedRepositoryRequest targetRepository(@javax.annotation.Nullable String targetRepository) {
     this.targetRepository = targetRepository;
     return this;
   }
@@ -121,12 +119,12 @@ public class ConnectedRepositoryRequest implements Serializable {
    * The slug of the target repository to connect to.
    * @return targetRepository
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTargetRepository() {
     return targetRepository;
   }
 
-  public void setTargetRepository(@javax.annotation.Nonnull String targetRepository) {
+  public void setTargetRepository(@javax.annotation.Nullable String targetRepository) {
     this.targetRepository = targetRepository;
   }
 
@@ -179,7 +177,7 @@ public class ConnectedRepositoryRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("is_active", "priority", "target_repository"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("target_repository"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -202,15 +200,8 @@ public class ConnectedRepositoryRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConnectedRepositoryRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ConnectedRepositoryRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("target_repository").isJsonPrimitive()) {
+      if ((jsonObj.get("target_repository") != null && !jsonObj.get("target_repository").isJsonNull()) && !jsonObj.get("target_repository").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_repository").toString()));
       }
   }

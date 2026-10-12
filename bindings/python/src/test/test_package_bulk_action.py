@@ -38,17 +38,13 @@ class TestPackageBulkAction(unittest.TestCase):
             return PackageBulkAction(
                 action = '',
                 identifiers = [
-                    '0'
+                    ''
                     ],
-                repository = '0',
-                target_repository = '0'
+                repository = '',
+                target_repository = ''
             )
         else:
             return PackageBulkAction(
-                action = '',
-                identifiers = [
-                    '0'
-                    ],
         )
         """
 

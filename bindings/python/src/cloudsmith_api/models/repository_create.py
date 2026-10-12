@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.repository_ecdsa_key import RepositoryEcdsaKey
 from cloudsmith_api.models.repository_gpg_key import RepositoryGpgKey
 from typing import Optional, Set
@@ -33,20 +32,20 @@ class RepositoryCreate(BaseModel):
     RepositoryCreate
     """ # noqa: E501
     active_connection_count: Optional[StrictInt] = Field(default=None, description="Number of active connections for the repository")
-    broadcast_state: Optional[StrictStr] = Field(default='Off', description="Broadcasting status of a repository.")
+    broadcast_state: Optional[StrictStr] = Field(default=None, description="Broadcasting status of a repository.")
     cdn_url: Optional[StrictStr] = Field(default=None, description="Base URL from which packages and other artifacts are downloaded.")
-    content_kind: Optional[StrictStr] = Field(default='Standard', description="The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.")
+    content_kind: Optional[StrictStr] = Field(default=None, description="The repository content kind determines whether this repository contains packages, or provides a distribution of packages from other repositories. You can only select the content kind at repository creation time.")
     contextual_auth_realm: Optional[StrictBool] = Field(default=None, description="If checked, missing credentials for this repository where basic authentication is required shall present an enriched value in the 'WWW-Authenticate' header containing the namespace and repository. This can be useful for tooling such as SBT where the authentication realm is used to distinguish and disambiguate credentials.")
     copy_own: Optional[StrictBool] = Field(default=None, description="If checked, users can copy any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
-    copy_packages: Optional[StrictStr] = Field(default='Read', description="This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.")
+    copy_packages: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to copy packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific copy setting.")
     cosign_signing_enabled: Optional[StrictBool] = Field(default=None, description="When enabled, all pushed (or pulled from upstream) OCI packages and artifacts will be signed using cosign with the repository's ECDSA key. This generates a distinct cosign signature artifact per artifact.")
     created_at: Optional[datetime] = None
-    default_privilege: Optional[StrictStr] = Field(default='None', description="This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.")
+    default_privilege: Optional[StrictStr] = Field(default=None, description="This defines the default level of privilege that all of your organization members have for this repository. This does not include collaborators, but applies to any member of the org regardless of their own membership role (i.e. it applies to owners, managers and members). Be careful if setting this to admin, because any member will be able to change settings.")
     delete_own: Optional[StrictBool] = Field(default=None, description="If checked, users can delete any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
-    delete_packages: Optional[StrictStr] = Field(default='Admin', description="This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.")
+    delete_packages: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to delete packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific delete setting.")
     deleted_at: Optional[datetime] = Field(default=None, description="The datetime the repository was manually deleted at.")
     description: Optional[StrictStr] = Field(default=None, description="A description of the repository's purpose/contents.")
-    distributes: Optional[List[Annotated[str, Field(strict=True)]]] = Field(default=None, description="The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.")
+    distributes: Optional[List[StrictStr]] = Field(default=None, description="The repositories distributed through this repo. Adding repos here is only valid if the content_kind is DISTRIBUTION.")
     docker_refresh_tokens_enabled: Optional[StrictBool] = Field(default=None, description="If checked, refresh tokens will be issued in addition to access tokens for Docker authentication. This allows unlimited extension of the lifetime of access tokens.")
     ecdsa_keys: Optional[List[RepositoryEcdsaKey]] = None
     enforce_eula: Optional[StrictBool] = Field(default=None, description="If checked, downloads will explicitly require acceptance of an EULA.")
@@ -57,11 +56,11 @@ class RepositoryCreate(BaseModel):
     is_private: Optional[StrictBool] = None
     is_public: Optional[StrictBool] = None
     is_public_hidden: Optional[StrictBool] = Field(default=None, description="If checked, this repository will be hidden from the list of public broadcasts for the workspace.")
-    manage_entitlements_privilege: Optional[StrictStr] = Field(default='Admin', description="This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.")
+    manage_entitlements_privilege: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository.")
     move_own: Optional[StrictBool] = Field(default=None, description="If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
-    move_packages: Optional[StrictStr] = Field(default='Admin', description="This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.")
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="A descriptive name for the repository.")
-    namespace: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Namespace to which this repository belongs.")
+    move_packages: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting.")
+    name: Optional[StrictStr] = Field(default=None, description="A descriptive name for the repository.")
+    namespace: Optional[StrictStr] = Field(default=None, description="Namespace to which this repository belongs.")
     namespace_url: Optional[StrictStr] = Field(default=None, description="API endpoint where data about this namespace can be retrieved.")
     npm_upstream_tags_take_precedence: Optional[StrictBool] = Field(default=None, description="If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., 'latest'), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version.")
     nuget_native_signing_enabled: Optional[StrictBool] = Field(default=None, description="When enabled, all pushed (or pulled from upstream) nuget packages and artifacts will be signed using the repository's X.509 RSA certificate. Additionally, the nuget RepositorySignature index will list all of the repository's signing certificates including the ones from configured upstreams.")
@@ -69,7 +68,7 @@ class RepositoryCreate(BaseModel):
     num_policy_violated_packages: Optional[StrictInt] = Field(default=None, description="Number of packages with policy violations in a repository.")
     num_quarantined_packages: Optional[StrictInt] = Field(default=None, description="Number of quarantined packages in a repository.")
     open_source_license: Optional[StrictStr] = Field(default=None, description="The SPDX identifier of the open source license.")
-    open_source_project_url: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.")
+    open_source_project_url: Optional[StrictStr] = Field(default=None, description="The URL to the Open-Source project, used for validating that the project meets the requirements for Open-Source.")
     package_count: Optional[StrictInt] = Field(default=None, description="The number of packages in the repository.")
     package_count_excl_subcomponents: Optional[StrictInt] = Field(default=None, description="The number of packages in the repository excluding subcomponents.")
     package_group_count: Optional[StrictInt] = Field(default=None, description="The number of groups in the repository.")
@@ -77,61 +76,34 @@ class RepositoryCreate(BaseModel):
     proxy_pypi: Optional[StrictBool] = Field(default=None, description="If checked, Python packages that are not in the repository when requested by clients will automatically be proxied from the public pypi.python.org registry. If there is at least one version for a package, others will not be proxied.")
     raw_package_index_enabled: Optional[StrictBool] = Field(default=None, description="If checked, HTML and JSON indexes will be generated that list all available raw packages in the repository.")
     raw_package_index_signatures_enabled: Optional[StrictBool] = Field(default=None, description="If checked, the HTML and JSON indexes will display raw package GPG signatures alongside the index packages.")
-    replace_packages: Optional[StrictStr] = Field(default='Write', description="This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.")
+    replace_packages: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to republish packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific republish setting. Please note that the user still requires the privilege to delete packages that will be replaced by the new package; otherwise the republish will fail.")
     replace_packages_by_default: Optional[StrictBool] = Field(default=None, description="If checked, uploaded packages will overwrite/replace any others with the same attributes (e.g. same version) by default. This only applies if the user has the required privilege for the republishing AND has the required privilege to delete existing packages that they don't own.")
     repository_type: Optional[StrictInt] = Field(default=None, description="The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Open-Source repositories are always visible to everyone and are restricted by licensing, but are free to use and come with generous bandwidth/storage. You can only select Open-Source at repository creation time.")
-    repository_type_str: Optional[StrictStr] = Field(default='Public', description="The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.")
+    repository_type_str: Optional[StrictStr] = Field(default=None, description="The repository type changes how it is accessed and billed. Private repositories are visible only to you or authorized delegates. Public repositories are visible to all Cloudsmith users.")
     resync_own: Optional[StrictBool] = Field(default=None, description="If checked, users can resync any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
-    resync_packages: Optional[StrictStr] = Field(default='Admin', description="This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.")
+    resync_packages: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to resync packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific resync setting.")
     scan_own: Optional[StrictBool] = Field(default=None, description="If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the 'Access Controls' section of the repository, and any inherited from the org.")
-    scan_packages: Optional[StrictStr] = Field(default='Read', description="This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.")
-    self_html_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Website URL for this repository.")
+    scan_packages: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting.")
+    self_html_url: Optional[StrictStr] = Field(default=None, description="Website URL for this repository.")
     self_url: Optional[StrictStr] = Field(default=None, description="API endpoint where data about this repository can be retrieved.")
-    self_webapp_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Webapp URL for this repository.")
+    self_webapp_url: Optional[StrictStr] = Field(default=None, description="Webapp URL for this repository.")
     show_setup_all: Optional[StrictBool] = Field(default=None, description="If checked, the Set Me Up help for all formats will always be shown, even if you don't have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only.")
     size: Optional[StrictInt] = Field(default=None, description="The calculated size of the repository.")
     size_str: Optional[StrictStr] = Field(default=None, description="The calculated size of the repository (human readable).")
     slug: Optional[StrictStr] = Field(default=None, description="The slug identifies the repository in URIs.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug_perm immutably identifies the repository. It will never change once a repository has been created.")
-    storage_region: Optional[StrictStr] = Field(default='default', description="The Cloudsmith region in which package files are stored.")
+    slug_perm: Optional[StrictStr] = Field(default=None, description="The slug_perm immutably identifies the repository. It will never change once a repository has been created.")
+    storage_region: Optional[StrictStr] = Field(default=None, description="The Cloudsmith region in which package files are stored.")
     strict_npm_validation: Optional[StrictBool] = Field(default=None, description="If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly.")
     tag_pre_releases_as_latest: Optional[StrictBool] = Field(default=None, description="If checked, packages pushed with a pre-release component on that version will be marked with the 'latest' tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools ")
     use_debian_labels: Optional[StrictBool] = Field(default=None, description="If checked, a 'Label' field will be present in Debian-based repositories. It will contain a string that identifies the entitlement token used to authenticate the repository, in the form of 'source=t-<identifier>'; or 'source=none' if no token was used. You can use this to help with pinning.")
     use_default_cargo_upstream: Optional[StrictBool] = Field(default=None, description="If checked, dependencies of uploaded Cargo crates which do not set an explicit value for \"registry\" will be assumed to be available from crates.io. If unchecked, dependencies with unspecified \"registry\" values will be assumed to be available in the registry being uploaded to. Uncheck this if you want to ensure that dependencies are only ever installed from Cloudsmith unless explicitly specified as belong to another registry.")
-    use_entitlements_privilege: Optional[StrictStr] = Field(default='Read', description="This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).")
+    use_entitlements_privilege: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to see/use entitlement tokens with private repositories. If a user does not have the permission, they will only be able to download packages using other credentials, such as email/password via basic authentication. Use this if you want to force users to only use their user-based token, which is tied to their access (if removed, they can't use it).")
     use_noarch_packages: Optional[StrictBool] = Field(default=None, description="If checked, noarch packages (if supported) are enabled in installations/configurations. A noarch package is one that is not tied to specific system architecture (like i686).")
     use_source_packages: Optional[StrictBool] = Field(default=None, description="If checked, source packages (if supported) are enabled in installations/configurations. A source package is one that contains source code rather than built binaries.")
     use_vulnerability_scanning: Optional[StrictBool] = Field(default=None, description="If checked, vulnerability scanning will be enabled for all supported packages within this repository.")
     user_entitlements_enabled: Optional[StrictBool] = Field(default=None, description="If checked, users can use and manage their own user-specific entitlement token for the repository (if private). Otherwise, user-specific entitlements are disabled for all users.")
-    view_statistics: Optional[StrictStr] = Field(default='Read', description="This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
+    view_statistics: Optional[StrictStr] = Field(default=None, description="This defines the minimum level of privilege required for a user to view repository statistics, to include entitlement-based usage, if applicable. If a user does not have the permission, they won't be able to view any statistics, either via the UI, API or CLI.")
     __properties: ClassVar[List[str]] = ["active_connection_count", "broadcast_state", "cdn_url", "content_kind", "contextual_auth_realm", "copy_own", "copy_packages", "cosign_signing_enabled", "created_at", "default_privilege", "delete_own", "delete_packages", "deleted_at", "description", "distributes", "docker_refresh_tokens_enabled", "ecdsa_keys", "enforce_eula", "generic_package_index_enabled", "gpg_keys", "index_files", "is_open_source", "is_private", "is_public", "is_public_hidden", "manage_entitlements_privilege", "move_own", "move_packages", "name", "namespace", "namespace_url", "npm_upstream_tags_take_precedence", "nuget_native_signing_enabled", "num_downloads", "num_policy_violated_packages", "num_quarantined_packages", "open_source_license", "open_source_project_url", "package_count", "package_count_excl_subcomponents", "package_group_count", "proxy_npmjs", "proxy_pypi", "raw_package_index_enabled", "raw_package_index_signatures_enabled", "replace_packages", "replace_packages_by_default", "repository_type", "repository_type_str", "resync_own", "resync_packages", "scan_own", "scan_packages", "self_html_url", "self_url", "self_webapp_url", "show_setup_all", "size", "size_str", "slug", "slug_perm", "storage_region", "strict_npm_validation", "tag_pre_releases_as_latest", "use_debian_labels", "use_default_cargo_upstream", "use_entitlements_privilege", "use_noarch_packages", "use_source_packages", "use_vulnerability_scanning", "user_entitlements_enabled", "view_statistics"]
-
-    @field_validator('name', mode="before")
-    def name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^\w[\w \-\'\.\/()]+$", value):
-            raise ValueError(r"must validate the regular expression /^\w[\w \-'\.\/()]+$/")
-        return value
-
-    @field_validator('namespace', mode="before")
-    def namespace_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -265,17 +237,17 @@ class RepositoryCreate(BaseModel):
 
         _obj = cls.model_validate({
             "active_connection_count": obj.get("active_connection_count"),
-            "broadcast_state": obj.get("broadcast_state") if obj.get("broadcast_state") is not None else 'Off',
+            "broadcast_state": obj.get("broadcast_state"),
             "cdn_url": obj.get("cdn_url"),
-            "content_kind": obj.get("content_kind") if obj.get("content_kind") is not None else 'Standard',
+            "content_kind": obj.get("content_kind"),
             "contextual_auth_realm": obj.get("contextual_auth_realm"),
             "copy_own": obj.get("copy_own"),
-            "copy_packages": obj.get("copy_packages") if obj.get("copy_packages") is not None else 'Read',
+            "copy_packages": obj.get("copy_packages"),
             "cosign_signing_enabled": obj.get("cosign_signing_enabled"),
             "created_at": obj.get("created_at"),
-            "default_privilege": obj.get("default_privilege") if obj.get("default_privilege") is not None else 'None',
+            "default_privilege": obj.get("default_privilege"),
             "delete_own": obj.get("delete_own"),
-            "delete_packages": obj.get("delete_packages") if obj.get("delete_packages") is not None else 'Admin',
+            "delete_packages": obj.get("delete_packages"),
             "deleted_at": obj.get("deleted_at"),
             "description": obj.get("description"),
             "distributes": obj.get("distributes"),
@@ -289,9 +261,9 @@ class RepositoryCreate(BaseModel):
             "is_private": obj.get("is_private"),
             "is_public": obj.get("is_public"),
             "is_public_hidden": obj.get("is_public_hidden"),
-            "manage_entitlements_privilege": obj.get("manage_entitlements_privilege") if obj.get("manage_entitlements_privilege") is not None else 'Admin',
+            "manage_entitlements_privilege": obj.get("manage_entitlements_privilege"),
             "move_own": obj.get("move_own"),
-            "move_packages": obj.get("move_packages") if obj.get("move_packages") is not None else 'Admin',
+            "move_packages": obj.get("move_packages"),
             "name": obj.get("name"),
             "namespace": obj.get("namespace"),
             "namespace_url": obj.get("namespace_url"),
@@ -309,14 +281,14 @@ class RepositoryCreate(BaseModel):
             "proxy_pypi": obj.get("proxy_pypi"),
             "raw_package_index_enabled": obj.get("raw_package_index_enabled"),
             "raw_package_index_signatures_enabled": obj.get("raw_package_index_signatures_enabled"),
-            "replace_packages": obj.get("replace_packages") if obj.get("replace_packages") is not None else 'Write',
+            "replace_packages": obj.get("replace_packages"),
             "replace_packages_by_default": obj.get("replace_packages_by_default"),
             "repository_type": obj.get("repository_type"),
-            "repository_type_str": obj.get("repository_type_str") if obj.get("repository_type_str") is not None else 'Public',
+            "repository_type_str": obj.get("repository_type_str"),
             "resync_own": obj.get("resync_own"),
-            "resync_packages": obj.get("resync_packages") if obj.get("resync_packages") is not None else 'Admin',
+            "resync_packages": obj.get("resync_packages"),
             "scan_own": obj.get("scan_own"),
-            "scan_packages": obj.get("scan_packages") if obj.get("scan_packages") is not None else 'Read',
+            "scan_packages": obj.get("scan_packages"),
             "self_html_url": obj.get("self_html_url"),
             "self_url": obj.get("self_url"),
             "self_webapp_url": obj.get("self_webapp_url"),
@@ -325,17 +297,17 @@ class RepositoryCreate(BaseModel):
             "size_str": obj.get("size_str"),
             "slug": obj.get("slug"),
             "slug_perm": obj.get("slug_perm"),
-            "storage_region": obj.get("storage_region") if obj.get("storage_region") is not None else 'default',
+            "storage_region": obj.get("storage_region"),
             "strict_npm_validation": obj.get("strict_npm_validation"),
             "tag_pre_releases_as_latest": obj.get("tag_pre_releases_as_latest"),
             "use_debian_labels": obj.get("use_debian_labels"),
             "use_default_cargo_upstream": obj.get("use_default_cargo_upstream"),
-            "use_entitlements_privilege": obj.get("use_entitlements_privilege") if obj.get("use_entitlements_privilege") is not None else 'Read',
+            "use_entitlements_privilege": obj.get("use_entitlements_privilege"),
             "use_noarch_packages": obj.get("use_noarch_packages"),
             "use_source_packages": obj.get("use_source_packages"),
             "use_vulnerability_scanning": obj.get("use_vulnerability_scanning"),
             "user_entitlements_enabled": obj.get("user_entitlements_enabled"),
-            "view_statistics": obj.get("view_statistics") if obj.get("view_statistics") is not None else 'Read'
+            "view_statistics": obj.get("view_statistics")
         })
         return _obj
 

@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idp_key** | **str** |  | 
-**idp_value** | **str** |  | 
-**organization** | **str** |  | 
-**role** | **str** |  | [optional] [default to 'Member']
-**team** | **str** |  | 
+**idp_key** | **str** |  | [optional] 
+**idp_value** | **str** |  | [optional] 
+**organization** | **str** |  | [optional] 
+**role** | **str** |  | [optional] 
+**team** | **str** |  | [optional] 
 
 ## Example
 

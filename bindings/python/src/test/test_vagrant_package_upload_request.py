@@ -37,18 +37,14 @@ class TestVagrantPackageUploadRequest(unittest.TestCase):
         if include_optional:
             return VagrantPackageUploadRequest(
                 name = '',
-                package_file = '0',
-                provider = '0',
+                package_file = '',
+                provider = '',
                 republish = True,
-                tags = '0',
+                tags = '',
                 version = ''
             )
         else:
             return VagrantPackageUploadRequest(
-                name = '',
-                package_file = '0',
-                provider = '0',
-                version = '',
         )
         """
 

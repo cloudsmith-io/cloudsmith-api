@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **allow** | **Array&lt;String&gt;** | The allowed country codes for this repository |  |
-| **deny** | **Array&lt;String&gt;** | The denied country codes for this repository |  |
+| **allow** | **Array&lt;String&gt;** | The allowed country codes for this repository | [optional] |
+| **deny** | **Array&lt;String&gt;** | The denied country codes for this repository | [optional] |
 
 ## Example
 

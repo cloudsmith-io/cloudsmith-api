@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,10 +29,10 @@ class OrganizationPackageLicensePolicyRequestPatch(BaseModel):
     OrganizationPackageLicensePolicyRequestPatch
     """ # noqa: E501
     allow_unknown_licenses: Optional[StrictBool] = None
-    description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=250)]] = None
-    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=100)]] = None
+    description: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
     on_violation_quarantine: Optional[StrictBool] = None
-    package_query_string: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    package_query_string: Optional[StrictStr] = None
     spdx_identifiers: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["allow_unknown_licenses", "description", "name", "on_violation_quarantine", "package_query_string", "spdx_identifiers"]
 

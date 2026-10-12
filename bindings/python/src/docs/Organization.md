@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **country** | **str** |  | [optional] [readonly] 
 **created_at** | **datetime** |  | [optional] [readonly] 
 **location** | **str** | The city/town/area your organization is based in. | [optional] [readonly] 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **slug** | **str** |  | [optional] [readonly] 
 **slug_perm** | **str** |  | [optional] [readonly] 
 **tagline** | **str** | A short public descriptive for your organization. | [optional] [readonly] 

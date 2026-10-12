@@ -136,18 +136,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@fingerprint.nil? && @fingerprint.to_s.length < 1
-        invalid_properties.push('invalid value for "fingerprint", the character length must be greater than or equal to 1.')
-      end
-
-      if !@public_key.nil? && @public_key.to_s.length < 1
-        invalid_properties.push('invalid value for "public_key", the character length must be greater than or equal to 1.')
-      end
-
-      if !@public_key_wire.nil? && @public_key_wire.to_s.length < 1
-        invalid_properties.push('invalid value for "public_key_wire", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -155,52 +143,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@fingerprint.nil? && @fingerprint.to_s.length < 1
-      return false if !@public_key.nil? && @public_key.to_s.length < 1
-      return false if !@public_key_wire.nil? && @public_key_wire.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] fingerprint Value to be assigned
-    def fingerprint=(fingerprint)
-      if fingerprint.nil?
-        fail ArgumentError, 'fingerprint cannot be nil'
-      end
-
-      if fingerprint.to_s.length < 1
-        fail ArgumentError, 'invalid value for "fingerprint", the character length must be greater than or equal to 1.'
-      end
-
-      @fingerprint = fingerprint
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] public_key Value to be assigned
-    def public_key=(public_key)
-      if public_key.nil?
-        fail ArgumentError, 'public_key cannot be nil'
-      end
-
-      if public_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "public_key", the character length must be greater than or equal to 1.'
-      end
-
-      @public_key = public_key
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] public_key_wire Value to be assigned
-    def public_key_wire=(public_key_wire)
-      if public_key_wire.nil?
-        fail ArgumentError, 'public_key_wire cannot be nil'
-      end
-
-      if public_key_wire.to_s.length < 1
-        fail ArgumentError, 'invalid value for "public_key_wire", the character length must be greater than or equal to 1.'
-      end
-
-      @public_key_wire = public_key_wire
     end
 
     # Checks equality by comparing each attribute.

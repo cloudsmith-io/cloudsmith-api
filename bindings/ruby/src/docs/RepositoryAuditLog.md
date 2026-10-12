@@ -4,18 +4,18 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **actor** | **String** |  |  |
-| **actor_ip_address** | **String** |  |  |
+| **actor** | **String** |  | [optional] |
+| **actor_ip_address** | **String** |  | [optional] |
 | **actor_kind** | **String** |  | [optional][readonly] |
-| **actor_location** | [**GeoIpLocation**](GeoIpLocation.md) |  |  |
-| **actor_slug_perm** | **String** |  |  |
+| **actor_location** | [**GeoIpLocation**](GeoIpLocation.md) |  | [optional] |
+| **actor_slug_perm** | **String** |  | [optional] |
 | **actor_url** | **String** |  | [optional][readonly] |
-| **context** | **String** |  |  |
-| **event** | **String** |  |  |
-| **event_at** | **Time** |  |  |
-| **object** | **String** |  |  |
-| **object_kind** | **String** |  |  |
-| **object_slug_perm** | **String** |  |  |
+| **context** | **String** |  | [optional] |
+| **event** | **String** |  | [optional] |
+| **event_at** | **Time** |  | [optional] |
+| **object** | **String** |  | [optional] |
+| **object_kind** | **String** |  | [optional] |
+| **object_slug_perm** | **String** |  | [optional] |
 | **uuid** | **String** |  | [optional][readonly] |
 
 ## Example

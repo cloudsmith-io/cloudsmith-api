@@ -53,20 +53,6 @@ class TestRepositoryGeoIpRulesRequest(unittest.TestCase):
             )
         else:
             return RepositoryGeoIpRulesRequest(
-                cidr = cloudsmith_api.models.repository_geo_ip_cidr.RepositoryGeoIpCidr(
-                    allow = [
-                        ''
-                        ], 
-                    deny = [
-                        ''
-                        ], ),
-                country_code = cloudsmith_api.models.repository_geo_ip_country_code.RepositoryGeoIpCountryCode(
-                    allow = [
-                        ''
-                        ], 
-                    deny = [
-                        ''
-                        ], ),
         )
         """
 

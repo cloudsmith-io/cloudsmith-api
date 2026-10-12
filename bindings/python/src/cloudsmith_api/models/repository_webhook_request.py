@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.webhook_template import WebhookTemplate
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,39 +29,19 @@ class RepositoryWebhookRequest(BaseModel):
     """
     RepositoryWebhookRequest
     """ # noqa: E501
-    events: Optional[List[StrictStr]]
+    events: Optional[List[StrictStr]] = None
     is_active: Optional[StrictBool] = Field(default=None, description="If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL.")
-    package_query: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
+    package_query: Optional[StrictStr] = Field(default=None, description="The package-based search query for webhooks to fire. This uses the same syntax as the standard search used for repositories, and also supports boolean logic operators such as OR/AND/NOT and parentheses for grouping. If a package does not match, the webhook will not fire.")
     request_body_format: Optional[StrictInt] = Field(default=None, description="The format of the payloads for webhook requests. Valid options are: (0) JSON, (1) JSON array, (2) form encoded JSON and (3) Handlebars template.")
     request_body_template_format: Optional[StrictInt] = Field(default=None, description="The format of the payloads for webhook requests. Valid options are: (0) Generic/user defined, (1) JSON and (2) XML.")
-    request_content_type: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value that will be sent for the 'Content Type' header. ")
-    secret_header: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.")
-    secret_value: Optional[Annotated[str, Field(strict=True, max_length=512)]] = Field(default=None, description="The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.")
-    signature_key: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=512)]] = Field(default=None, description="The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).")
-    target_url: Annotated[str, Field(min_length=1, strict=True, max_length=2000)] = Field(description="The destination URL that webhook payloads will be POST'ed to.")
-    templates: Optional[List[Optional[WebhookTemplate]]]
+    request_content_type: Optional[StrictStr] = Field(default=None, description="The value that will be sent for the 'Content Type' header. ")
+    secret_header: Optional[StrictStr] = Field(default=None, description="The header to send the predefined secret in. This must be unique from existing headers or it won't be sent. You can use this as a form of authentication on the endpoint side.")
+    secret_value: Optional[StrictStr] = Field(default=None, description="The value for the predefined secret (note: this is treated as a passphrase and is encrypted when we store it). You can use this as a form of authentication on the endpoint side.")
+    signature_key: Optional[StrictStr] = Field(default=None, description="The value for the signature key - This is used to generate an HMAC-based hex digest of the request body, which we send as the X-Cloudsmith-Signature header so that you can ensure that the request wasn't modified by a malicious party (note: this is treated as a passphrase and is encrypted when we store it).")
+    target_url: Optional[StrictStr] = Field(default=None, description="The destination URL that webhook payloads will be POST'ed to.")
+    templates: Optional[List[Optional[WebhookTemplate]]] = None
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates is verified when webhooks are sent. It's recommended to leave this enabled as not verifying the integrity of SSL certificates leaves you susceptible to Man-in-the-Middle (MITM) attacks.")
     __properties: ClassVar[List[str]] = ["events", "is_active", "package_query", "request_body_format", "request_body_template_format", "request_content_type", "secret_header", "secret_value", "signature_key", "target_url", "templates", "verify_ssl"]
-
-    @field_validator('secret_header', mode="before")
-    def secret_header_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('secret_value', mode="before")
-    def secret_value_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
-            raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

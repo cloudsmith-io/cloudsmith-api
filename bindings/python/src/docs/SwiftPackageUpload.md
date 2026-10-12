@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 **is_sync_in_progress** | **bool** |  | [optional] [readonly] 
 **license** | **str** | The license of this package. | [optional] [readonly] 
 **license_url** | **str** | The license URL of this package. | [optional] 
-**name** | **str** | The name of this package. | 
+**name** | **str** | The name of this package. | [optional] 
 **namespace** | **str** |  | [optional] [readonly] 
 **namespace_url** | **str** |  | [optional] [readonly] 
 **num_files** | **int** |  | [optional] [readonly] 
@@ -63,10 +63,10 @@ Name | Type | Description | Notes
 **release** | **str** | The release of the package version (if any). | [optional] [readonly] 
 **repository** | **str** |  | [optional] [readonly] 
 **repository_url** | **str** | The URL of the SCM repository for the package. | [optional] 
-**scope** | **str** | A scope provides a namespace for related packages within the package registry. | 
+**scope** | **str** | A scope provides a namespace for related packages within the package registry. | [optional] 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] [readonly] 
 **security_scan_started_at** | **datetime** | The datetime the security scanning was started. | [optional] [readonly] 
-**security_scan_status** | **str** |  | [optional] [readonly] [default to 'Awaiting Security Scan']
+**security_scan_status** | **str** |  | [optional] [readonly] 
 **security_scan_status_updated_at** | **datetime** | The datetime the security scanning status was updated. | [optional] [readonly] 
 **self_html_url** | **str** |  | [optional] [readonly] 
 **self_url** | **str** |  | [optional] [readonly] 
@@ -96,7 +96,7 @@ Name | Type | Description | Notes
 **uploaded_at** | **datetime** | The date this package was uploaded. | [optional] [readonly] 
 **uploader** | **str** |  | [optional] [readonly] 
 **uploader_url** | **str** |  | [optional] [readonly] 
-**version** | **str** | The raw version for this package. | 
+**version** | **str** | The raw version for this package. | [optional] 
 **version_orig** | **str** |  | [optional] [readonly] 
 **vulnerability_scan_results_url** | **str** |  | [optional] [readonly] 
 

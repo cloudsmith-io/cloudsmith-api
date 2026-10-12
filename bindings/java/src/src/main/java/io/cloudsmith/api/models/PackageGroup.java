@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -220,9 +221,20 @@ public class PackageGroup implements Serializable {
         Objects.equals(this.size, packageGroup.size);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(backendKind, count, lastPush, name, numDownloads, size);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -256,7 +268,7 @@ public class PackageGroup implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("backend_kind", "count", "last_push", "name", "num_downloads", "size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("count", "last_push", "num_downloads", "size"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -277,13 +289,6 @@ public class PackageGroup implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PackageGroup.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageGroup` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageGroup.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

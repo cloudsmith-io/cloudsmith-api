@@ -62,11 +62,11 @@ public class ServiceTeams implements Serializable {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Manager";
+  private String role;
 
   public static final String SERIALIZED_NAME_SLUG = "slug";
   @SerializedName(SERIALIZED_NAME_SLUG)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String slug;
 
   public ServiceTeams() {
@@ -109,7 +109,7 @@ public class ServiceTeams implements Serializable {
   }
 
 
-  public ServiceTeams slug(@javax.annotation.Nonnull String slug) {
+  public ServiceTeams slug(@javax.annotation.Nullable String slug) {
     this.slug = slug;
     return this;
   }
@@ -118,12 +118,12 @@ public class ServiceTeams implements Serializable {
    * The teams associated with the service
    * @return slug
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSlug() {
     return slug;
   }
 
-  public void setSlug(@javax.annotation.Nonnull String slug) {
+  public void setSlug(@javax.annotation.Nullable String slug) {
     this.slug = slug;
   }
 
@@ -176,7 +176,7 @@ public class ServiceTeams implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("name", "role", "slug"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("slug"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -199,13 +199,6 @@ public class ServiceTeams implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ServiceTeams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ServiceTeams.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
@@ -213,7 +206,7 @@ public class ServiceTeams implements Serializable {
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
-      if (!jsonObj.get("slug").isJsonPrimitive()) {
+      if ((jsonObj.get("slug") != null && !jsonObj.get("slug").isJsonNull()) && !jsonObj.get("slug").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slug` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slug").toString()));
       }
   }

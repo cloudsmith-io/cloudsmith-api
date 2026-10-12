@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** | The description of the service | [optional] 
 **name** | **str** | The name of the service | [optional] 
-**role** | **str** | The role of the service. | [optional] [default to 'Member']
+**role** | **str** | The role of the service. | [optional] 
 **teams** | [**List[ServiceTeams]**](ServiceTeams.md) |  | [optional] 
 
 ## Example

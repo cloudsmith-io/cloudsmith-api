@@ -64,7 +64,7 @@ public class UserProfile implements Serializable {
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String firstName;
 
   public static final String SERIALIZED_NAME_JOB_TITLE = "job_title";
@@ -79,7 +79,7 @@ public class UserProfile implements Serializable {
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String lastName;
 
   public static final String SERIALIZED_NAME_NAME = "name";
@@ -142,7 +142,7 @@ public class UserProfile implements Serializable {
   }
 
 
-  public UserProfile firstName(@javax.annotation.Nonnull String firstName) {
+  public UserProfile firstName(@javax.annotation.Nullable String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -151,12 +151,12 @@ public class UserProfile implements Serializable {
    * Get firstName
    * @return firstName
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getFirstName() {
     return firstName;
   }
 
-  public void setFirstName(@javax.annotation.Nonnull String firstName) {
+  public void setFirstName(@javax.annotation.Nullable String firstName) {
     this.firstName = firstName;
   }
 
@@ -199,7 +199,7 @@ public class UserProfile implements Serializable {
   }
 
 
-  public UserProfile lastName(@javax.annotation.Nonnull String lastName) {
+  public UserProfile lastName(@javax.annotation.Nullable String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -208,12 +208,12 @@ public class UserProfile implements Serializable {
    * Get lastName
    * @return lastName
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getLastName() {
     return lastName;
   }
 
-  public void setLastName(@javax.annotation.Nonnull String lastName) {
+  public void setLastName(@javax.annotation.Nullable String lastName) {
     this.lastName = lastName;
   }
 
@@ -354,7 +354,7 @@ public class UserProfile implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("company", "first_name", "job_title", "joined_at", "last_name", "name", "slug", "slug_perm", "tagline", "url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("first_name", "last_name"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -377,24 +377,17 @@ public class UserProfile implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UserProfile` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UserProfile.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("company") != null && !jsonObj.get("company").isJsonNull()) && !jsonObj.get("company").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `company` to be a primitive type in the JSON string but got `%s`", jsonObj.get("company").toString()));
       }
-      if (!jsonObj.get("first_name").isJsonPrimitive()) {
+      if ((jsonObj.get("first_name") != null && !jsonObj.get("first_name").isJsonNull()) && !jsonObj.get("first_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
       }
       if ((jsonObj.get("job_title") != null && !jsonObj.get("job_title").isJsonNull()) && !jsonObj.get("job_title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `job_title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("job_title").toString()));
       }
-      if (!jsonObj.get("last_name").isJsonPrimitive()) {
+      if ((jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()) && !jsonObj.get("last_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {

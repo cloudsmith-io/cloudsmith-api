@@ -71,7 +71,7 @@ public class DistributionFull implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_SELF_URL = "self_url";
@@ -92,7 +92,7 @@ public class DistributionFull implements Serializable {
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
   @SerializedName(SERIALIZED_NAME_VERSIONS)
   @javax.annotation.Nullable
-  private List<DistributionVersion> versions = new ArrayList<>();
+  private List<DistributionVersion> versions;
 
   public DistributionFull() {
   }
@@ -134,7 +134,7 @@ public class DistributionFull implements Serializable {
 
 
 
-  public DistributionFull name(@javax.annotation.Nonnull String name) {
+  public DistributionFull name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -143,12 +143,12 @@ public class DistributionFull implements Serializable {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
@@ -272,7 +272,7 @@ public class DistributionFull implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("format", "format_url", "name", "self_url", "slug", "variants", "versions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -295,13 +295,6 @@ public class DistributionFull implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DistributionFull` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DistributionFull.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
@@ -309,7 +302,7 @@ public class DistributionFull implements Serializable {
       if ((jsonObj.get("format_url") != null && !jsonObj.get("format_url").isJsonNull()) && !jsonObj.get("format_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format_url").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("self_url") != null && !jsonObj.get("self_url").isJsonNull()) && !jsonObj.get("self_url").isJsonPrimitive()) {

@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **event_at** | **datetime** |  | [optional] [readonly] 
-**package** | [**PackageVulnerability**](PackageVulnerability.md) |  | 
-**policy** | [**NestedLicensePolicy**](NestedLicensePolicy.md) |  | 
-**reasons** | **List[str]** |  | 
+**package** | [**PackageVulnerability**](PackageVulnerability.md) |  | [optional] 
+**policy** | [**NestedLicensePolicy**](NestedLicensePolicy.md) |  | [optional] 
+**reasons** | **List[str]** |  | [optional] 
 
 ## Example
 

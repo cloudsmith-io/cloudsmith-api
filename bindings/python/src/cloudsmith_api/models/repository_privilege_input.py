@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.repository_privilege_dict import RepositoryPrivilegeDict
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class RepositoryPrivilegeInput(BaseModel):
     """
     RepositoryPrivilegeInput
     """ # noqa: E501
-    privileges: List[RepositoryPrivilegeDict] = Field(description="List of objects with explicit privileges to the repository.")
+    privileges: Optional[List[RepositoryPrivilegeDict]] = Field(default=None, description="List of objects with explicit privileges to the repository.")
     __properties: ClassVar[List[str]] = ["privileges"]
 
     model_config = ConfigDict(

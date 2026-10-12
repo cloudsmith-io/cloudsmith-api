@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**is_active** | **bool** |  | [optional] [default to False]
+**is_active** | **bool** |  | [optional] 
 **priority** | **int** | Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first. | [optional] 
-**target_repository** | **str** | The slug of the target repository to connect to. | 
+**target_repository** | **str** | The slug of the target repository to connect to. | [optional] 
 
 ## Example
 

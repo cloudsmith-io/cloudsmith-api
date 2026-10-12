@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,17 +28,17 @@ class SwiftPackageUploadRequest(BaseModel):
     """
     SwiftPackageUploadRequest
     """ # noqa: E501
-    author_name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The name of the author of the package.")
-    author_org: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The organization of the author.")
-    license_url: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="The license URL of this package.")
-    name: Annotated[str, Field(strict=True, max_length=200)] = Field(description="The name of this package.")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
-    readme_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The URL of the readme for the package.")
-    repository_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The URL of the SCM repository for the package.")
+    author_name: Optional[StrictStr] = Field(default=None, description="The name of the author of the package.")
+    author_org: Optional[StrictStr] = Field(default=None, description="The organization of the author.")
+    license_url: Optional[StrictStr] = Field(default=None, description="The license URL of this package.")
+    name: Optional[StrictStr] = Field(default=None, description="The name of this package.")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
+    readme_url: Optional[StrictStr] = Field(default=None, description="The URL of the readme for the package.")
+    repository_url: Optional[StrictStr] = Field(default=None, description="The URL of the SCM repository for the package.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    scope: Annotated[str, Field(min_length=1, strict=True, max_length=39)] = Field(description="A scope provides a namespace for related packages within the package registry.")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
-    version: Annotated[str, Field(strict=True, max_length=255)] = Field(description="The raw version for this package.")
+    scope: Optional[StrictStr] = Field(default=None, description="A scope provides a namespace for related packages within the package registry.")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    version: Optional[StrictStr] = Field(default=None, description="The raw version for this package.")
     __properties: ClassVar[List[str]] = ["author_name", "author_org", "license_url", "name", "package_file", "readme_url", "repository_url", "republish", "scope", "tags", "version"]
 
     model_config = ConfigDict(

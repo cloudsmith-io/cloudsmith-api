@@ -59,7 +59,7 @@ public class PackageLicenseRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   @javax.annotation.Nullable
-  private String action = "Update";
+  private String action;
 
   public static final String SERIALIZED_NAME_LICENSE_NOTES = "license_notes";
   @SerializedName(SERIALIZED_NAME_LICENSE_NOTES)
@@ -69,7 +69,7 @@ public class PackageLicenseRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_LICENSE_OVERRIDE = "license_override";
   @SerializedName(SERIALIZED_NAME_LICENSE_OVERRIDE)
   @javax.annotation.Nullable
-  private String licenseOverride = "None";
+  private String licenseOverride;
 
   public static final String SERIALIZED_NAME_LICENSE_URL = "license_url";
   @SerializedName(SERIALIZED_NAME_LICENSE_URL)
@@ -78,7 +78,7 @@ public class PackageLicenseRequestPatch implements Serializable {
 
   public static final String SERIALIZED_NAME_SPDX_LICENSE = "spdx_license";
   @SerializedName(SERIALIZED_NAME_SPDX_LICENSE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String spdxLicense;
 
   public PackageLicenseRequestPatch() {
@@ -160,7 +160,7 @@ public class PackageLicenseRequestPatch implements Serializable {
   }
 
 
-  public PackageLicenseRequestPatch spdxLicense(@javax.annotation.Nonnull String spdxLicense) {
+  public PackageLicenseRequestPatch spdxLicense(@javax.annotation.Nullable String spdxLicense) {
     this.spdxLicense = spdxLicense;
     return this;
   }
@@ -169,12 +169,12 @@ public class PackageLicenseRequestPatch implements Serializable {
    * Get spdxLicense
    * @return spdxLicense
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSpdxLicense() {
     return spdxLicense;
   }
 
-  public void setSpdxLicense(@javax.annotation.Nonnull String spdxLicense) {
+  public void setSpdxLicense(@javax.annotation.Nullable String spdxLicense) {
     this.spdxLicense = spdxLicense;
   }
 
@@ -242,7 +242,7 @@ public class PackageLicenseRequestPatch implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("action", "license_notes", "license_override", "license_url", "spdx_license"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("spdx_license"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -265,13 +265,6 @@ public class PackageLicenseRequestPatch implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageLicenseRequestPatch` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageLicenseRequestPatch.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
@@ -285,7 +278,7 @@ public class PackageLicenseRequestPatch implements Serializable {
       if ((jsonObj.get("license_url") != null && !jsonObj.get("license_url").isJsonNull()) && !jsonObj.get("license_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `license_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("license_url").toString()));
       }
-      if (!jsonObj.get("spdx_license").isJsonPrimitive()) {
+      if ((jsonObj.get("spdx_license") != null && !jsonObj.get("spdx_license").isJsonNull()) && !jsonObj.get("spdx_license").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `spdx_license` to be a primitive type in the JSON string but got `%s`", jsonObj.get("spdx_license").toString()));
       }
   }

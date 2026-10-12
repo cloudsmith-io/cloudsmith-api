@@ -36,18 +36,14 @@ class TestOrganizationGroupSyncRequest(unittest.TestCase):
         model = OrganizationGroupSyncRequest()
         if include_optional:
             return OrganizationGroupSyncRequest(
-                idp_key = '0',
-                idp_value = '0',
+                idp_key = '',
+                idp_value = '',
                 organization = '',
-                role = 'Member',
-                team = 'z'
+                role = '',
+                team = ''
             )
         else:
             return OrganizationGroupSyncRequest(
-                idp_key = '0',
-                idp_value = '0',
-                organization = '',
-                team = 'z',
         )
         """
 

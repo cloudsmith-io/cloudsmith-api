@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class PackageLicense(BaseModel):
     """
     PackageLicense
     """ # noqa: E501
-    license_notes: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = None
-    license_override: Optional[StrictStr] = 'None'
-    license_url: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
-    spdx_license: Annotated[str, Field(min_length=1, strict=True, max_length=255)]
+    license_notes: Optional[StrictStr] = None
+    license_override: Optional[StrictStr] = None
+    license_url: Optional[StrictStr] = None
+    spdx_license: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["license_notes", "license_override", "license_url", "spdx_license"]
 
     model_config = ConfigDict(
@@ -102,7 +101,7 @@ class PackageLicense(BaseModel):
 
         _obj = cls.model_validate({
             "license_notes": obj.get("license_notes"),
-            "license_override": obj.get("license_override") if "license_override" in obj else 'None',
+            "license_override": obj.get("license_override"),
             "license_url": obj.get("license_url"),
             "spdx_license": obj.get("spdx_license")
         })

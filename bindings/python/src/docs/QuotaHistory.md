@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**history** | [**List[History]**](History.md) |  | 
+**history** | [**List[History]**](History.md) |  | [optional] 
 
 ## Example
 

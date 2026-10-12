@@ -87,7 +87,7 @@ public class RecycleBinPackage implements Serializable {
   public static final String SERIALIZED_NAME_IDENTIFIERS = "identifiers";
   @SerializedName(SERIALIZED_NAME_IDENTIFIERS)
   @javax.annotation.Nullable
-  private Map<String, String> identifiers = new HashMap<>();
+  private Map<String, String> identifiers;
 
   public static final String SERIALIZED_NAME_INVOKED_RETENTION_RULE = "invoked_retention_rule";
   @SerializedName(SERIALIZED_NAME_INVOKED_RETENTION_RULE)
@@ -137,7 +137,7 @@ public class RecycleBinPackage implements Serializable {
   public static final String SERIALIZED_NAME_SECURITY_SCAN_STATUS = "security_scan_status";
   @SerializedName(SERIALIZED_NAME_SECURITY_SCAN_STATUS)
   @javax.annotation.Nullable
-  private String securityScanStatus = "Awaiting Security Scan";
+  private String securityScanStatus;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)

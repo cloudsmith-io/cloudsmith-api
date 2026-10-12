@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **allowed** | **Boolean** | The result of the IP test |  |
-| **country_code** | **String** | The country code of the tested IP address |  |
-| **ip_address** | **String** | The IP address that was tested |  |
-| **reason** | **String** | The reason for the result |  |
+| **allowed** | **Boolean** | The result of the IP test | [optional] |
+| **country_code** | **String** | The country code of the tested IP address | [optional] |
+| **ip_address** | **String** | The IP address that was tested | [optional] |
+| **reason** | **String** | The reason for the result | [optional] |
 
 ## Example
 

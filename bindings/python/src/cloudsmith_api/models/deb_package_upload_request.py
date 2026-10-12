@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,24 +28,14 @@ class DebPackageUploadRequest(BaseModel):
     """
     DebPackageUploadRequest
     """ # noqa: E501
-    changes_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The changes archive containing the changes made to the source and debian packaging files")
-    component: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=64)]] = Field(default='main', description="The component (channel) for the package (e.g. 'main', 'unstable', etc.)")
-    distribution: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The distribution to store the package for.")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
+    changes_file: Optional[StrictStr] = Field(default=None, description="The changes archive containing the changes made to the source and debian packaging files")
+    component: Optional[StrictStr] = Field(default=None, description="The component (channel) for the package (e.g. 'main', 'unstable', etc.)")
+    distribution: Optional[StrictStr] = Field(default=None, description="The distribution to store the package for.")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    sources_file: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The sources archive containing the source code for the binary")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    sources_file: Optional[StrictStr] = Field(default=None, description="The sources archive containing the source code for the binary")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
     __properties: ClassVar[List[str]] = ["changes_file", "component", "distribution", "package_file", "republish", "sources_file", "tags"]
-
-    @field_validator('component', mode="before")
-    def component_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-_.\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-_.\w]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -115,7 +104,7 @@ class DebPackageUploadRequest(BaseModel):
 
         _obj = cls.model_validate({
             "changes_file": obj.get("changes_file"),
-            "component": obj.get("component") if obj.get("component") is not None else 'main',
+            "component": obj.get("component"),
             "distribution": obj.get("distribution"),
             "package_file": obj.get("package_file"),
             "republish": obj.get("republish"),
