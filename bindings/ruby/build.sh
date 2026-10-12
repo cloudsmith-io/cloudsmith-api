@@ -12,6 +12,7 @@ template_dir="$self_dir/templates"
 
 rm -rf $src_dir
 mkdir -p $src_dir
+cp "$self_dir/.openapi-generator-ignore" "$src_dir/.openapi-generator-ignore"
 
 cat > $build_json <<EOC
 {
@@ -22,7 +23,7 @@ cat > $build_json <<EOC
     "gemLicense": "$license_spdx",
     "gemHomepage": "$openapi_url",
     "gemName": "$project_dash",
-    "gemRequiredRubyVersion": ">= 1.9",
+    "gemRequiredRubyVersion": ">= 3.3",
     "gemSummary": "$summary",
     "gemVersion": "$package_version",
     "hideGenerationTimestamp": $hide_generation_timestamp,
@@ -31,12 +32,13 @@ cat > $build_json <<EOC
 }
 EOC
 
-docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${swagger_codegen_cli_image:?}" generate \
+write_client_spec "$self_dir/.openapi.json"
+
+docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${openapi_generator_cli_image:?}" generate \
     -c /local/src/build.json \
-    -i $openapi_url \
-    -l ruby \
+    -i /local/.openapi.json \
+    -g ruby \
     -o /local/src \
     -t /local/templates \
     $common_codegen_options
-
-bash $root_dir/scripts/fix-ruby-escaping.sh
+rm -f "$self_dir/.openapi.json"

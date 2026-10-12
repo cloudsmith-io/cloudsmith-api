@@ -15,3 +15,4 @@ bundle config set clean true
 bundle config set path 'vendor/bundle'
 bundle install
 bundle exec rake spec
+bundle exec rspec "$self_dir/tests"

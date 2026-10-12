@@ -1,11 +1,24 @@
 # CloudsmithApi::ServiceRequest
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**description** | **String** | The description of the service | [optional] 
-**name** | **String** | The name of the service | 
-**role** | **String** | The role of the service. | [optional] [default to &#39;Member&#39;]
-**teams** | [**Array&lt;ServiceTeams&gt;**](ServiceTeams.md) |  | [optional] 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **description** | **String** | The description of the service | [optional] |
+| **name** | **String** | The name of the service |  |
+| **role** | **String** | The role of the service. | [optional][default to &#39;Member&#39;] |
+| **teams** | [**Array&lt;ServiceTeams&gt;**](ServiceTeams.md) |  | [optional] |
+
+## Example
+
+```ruby
+require 'cloudsmith-api'
+
+instance = CloudsmithApi::ServiceRequest.new(
+  description: null,
+  name: null,
+  role: null,
+  teams: null
+)
+```
 
