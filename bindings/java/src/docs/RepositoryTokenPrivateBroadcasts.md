@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**accessPrivateBroadcasts** | **Boolean** | Whether the token should have access to private broadcasts. |  |
+|**accessPrivateBroadcasts** | **Boolean** | Whether the token should have access to private broadcasts. |  [optional] |
 
 
 ## Implemented Interfaces

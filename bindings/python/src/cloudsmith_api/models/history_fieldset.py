@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.storage_usage import StorageUsage
 from cloudsmith_api.models.usage import Usage
 from typing import Optional, Set
@@ -30,9 +30,9 @@ class HistoryFieldset(BaseModel):
     """
     HistoryFieldset
     """ # noqa: E501
-    downloaded: Usage
-    storage_used: StorageUsage
-    uploaded: Usage
+    downloaded: Optional[Usage] = None
+    storage_used: Optional[StorageUsage] = None
+    uploaded: Optional[Usage] = None
     __properties: ClassVar[List[str]] = ["downloaded", "storage_used", "uploaded"]
 
     model_config = ConfigDict(

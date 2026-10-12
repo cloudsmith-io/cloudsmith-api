@@ -155,8 +155,6 @@ module CloudsmithApi
 
       if attributes.key?(:'issuing_status')
         self.issuing_status = attributes[:'issuing_status']
-      else
-        self.issuing_status = 'Certificate is pending to be issued'
       end
     end
 

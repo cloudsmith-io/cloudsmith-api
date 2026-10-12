@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,30 +29,10 @@ class Namespace(BaseModel):
     Namespace
     """ # noqa: E501
     name: Optional[StrictStr] = None
-    slug: Optional[Annotated[str, Field(strict=True)]] = None
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    slug: Optional[StrictStr] = None
+    slug_perm: Optional[StrictStr] = None
     type_name: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["name", "slug", "slug_perm", "type_name"]
-
-    @field_validator('slug', mode="before")
-    def slug_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

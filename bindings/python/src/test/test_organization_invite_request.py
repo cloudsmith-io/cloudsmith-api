@@ -36,14 +36,14 @@ class TestOrganizationInviteRequest(unittest.TestCase):
         model = OrganizationInviteRequest()
         if include_optional:
             return OrganizationInviteRequest(
-                email = '0',
-                role = 'Member',
+                email = '',
+                role = '',
                 teams = [
                     cloudsmith_api.models.organization_team_invite.OrganizationTeamInvite(
-                        role = 'Member', 
-                        team = 'z0', )
+                        role = '', 
+                        team = '', )
                     ],
-                user = '0'
+                user = ''
             )
         else:
             return OrganizationInviteRequest(

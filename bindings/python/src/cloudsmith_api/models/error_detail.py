@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class ErrorDetail(BaseModel):
     """
     ErrorDetail
     """ # noqa: E501
-    code: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="A machine-readable code for the error. Only set for validation errors.")
-    detail: Annotated[str, Field(min_length=1, strict=True)] = Field(description="An extended message for the response.")
-    fields: Optional[Dict[str, List[Annotated[str, Field(min_length=1, strict=True)]]]] = Field(default=None, description="A Dictionary of related errors where key: Field and value: Array of Errors related to that field")
+    code: Optional[StrictStr] = Field(default=None, description="A machine-readable code for the error. Only set for validation errors.")
+    detail: Optional[StrictStr] = Field(default=None, description="An extended message for the response.")
+    fields: Optional[Dict[str, List[StrictStr]]] = Field(default=None, description="A Dictionary of related errors where key: Field and value: Array of Errors related to that field")
     __properties: ClassVar[List[str]] = ["code", "detail", "fields"]
 
     model_config = ConfigDict(

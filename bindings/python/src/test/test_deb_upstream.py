@@ -36,50 +36,45 @@ class TestDebUpstream(unittest.TestCase):
         model = DebUpstream()
         if include_optional:
             return DebUpstream(
-                auth_mode = 'None',
+                auth_mode = '',
                 auth_secret = '',
                 auth_username = '',
                 available = True,
                 can_reindex = True,
-                component = '0',
+                component = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                disable_reason = 'N/A',
+                disable_reason = '',
                 disable_reason_text = '',
                 distro_versions = [
                     ''
                     ],
-                extra_header_1 = 'z',
-                extra_header_2 = 'z',
-                extra_value_1 = 'j',
-                extra_value_2 = 'j',
+                extra_header_1 = '',
+                extra_header_2 = '',
+                extra_value_1 = '',
+                extra_value_2 = '',
                 gpg_key_fingerprint_short = '',
                 gpg_key_inline = '',
                 gpg_key_url = '',
-                gpg_verification = 'Allow All',
+                gpg_verification = '',
                 has_failed_signature_verification = True,
                 include_sources = True,
                 index_package_count = 56,
                 index_status = '',
                 is_active = True,
                 last_indexed = '',
-                mode = 'Proxy Only',
-                name = 'eBXK5y0',
+                mode = '',
+                name = '',
                 pending_validation = True,
-                priority = 1,
-                slug_perm = 'z0',
+                priority = 56,
+                slug_perm = '',
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                upstream_distribution = '0',
-                upstream_url = '0',
-                verification_status = 'Unknown',
+                upstream_distribution = '',
+                upstream_url = '',
+                verification_status = '',
                 verify_ssl = True
             )
         else:
             return DebUpstream(
-                distro_versions = [
-                    ''
-                    ],
-                name = 'eBXK5y0',
-                upstream_url = '0',
         )
         """
 

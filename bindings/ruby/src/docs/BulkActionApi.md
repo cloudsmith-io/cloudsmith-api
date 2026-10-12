@@ -35,7 +35,7 @@ end
 api_instance = CloudsmithApi::BulkActionApi.new
 owner = 'owner_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageBulkAction.new({action: 'action_example', identifiers: ['identifiers_example']}) # PackageBulkAction | 
+  data: CloudsmithApi::PackageBulkAction.new # PackageBulkAction | 
 }
 
 begin

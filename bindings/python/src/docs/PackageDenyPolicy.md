@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | **str** |  | [optional] [readonly] [default to 'Block downloads']
+**action** | **str** |  | [optional] [readonly] 
 **created_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str** |  | [optional] 
 **enabled** | **bool** | Whether this rule is enabled or disabled. | [optional] 
 **name** | **str** |  | [optional] 
-**package_query_string** | **str** | Packages that match this query will trigger this deny rule. | 
+**package_query_string** | **str** | Packages that match this query will trigger this deny rule. | [optional] 
 **slug_perm** | **str** |  | [optional] [readonly] 
-**status** | **str** |  | [optional] [readonly] [default to 'In Progress']
+**status** | **str** |  | [optional] [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 
 ## Example

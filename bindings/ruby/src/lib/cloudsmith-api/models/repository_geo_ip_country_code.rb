@@ -83,16 +83,12 @@ module CloudsmithApi
         if (value = attributes[:'allow']).is_a?(Array)
           self.allow = value
         end
-      else
-        self.allow = nil
       end
 
       if attributes.key?(:'deny')
         if (value = attributes[:'deny']).is_a?(Array)
           self.deny = value
         end
-      else
-        self.deny = nil
       end
     end
 
@@ -101,14 +97,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @allow.nil?
-        invalid_properties.push('invalid value for "allow", allow cannot be nil.')
-      end
-
-      if @deny.nil?
-        invalid_properties.push('invalid value for "deny", deny cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -116,8 +104,6 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @allow.nil?
-      return false if @deny.nil?
       true
     end
 

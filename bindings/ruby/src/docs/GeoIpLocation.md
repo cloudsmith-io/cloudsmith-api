@@ -4,13 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **city** | **String** |  |  |
-| **continent** | **String** |  |  |
-| **country** | **String** |  |  |
+| **city** | **String** |  | [optional] |
+| **continent** | **String** |  | [optional] |
+| **country** | **String** |  | [optional] |
 | **country_code** | **String** |  | [optional][readonly] |
 | **latitude** | **Float** |  | [optional] |
 | **longitude** | **Float** |  | [optional] |
-| **postal_code** | **String** |  |  |
+| **postal_code** | **String** |  | [optional] |
 
 ## Example
 

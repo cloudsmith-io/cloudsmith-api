@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **license_notes** | **str** |  | [optional] 
-**license_override** | **str** |  | [optional] [default to 'None']
+**license_override** | **str** |  | [optional] 
 **license_url** | **str** |  | [optional] 
-**spdx_license** | **str** |  | 
+**spdx_license** | **str** |  | [optional] 
 
 ## Example
 

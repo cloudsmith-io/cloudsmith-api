@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**oidc_token** | **str** | Serialized OIDC token. | 
-**service_slug** | **str** | Slug for the service account. | 
+**oidc_token** | **str** | Serialized OIDC token. | [optional] 
+**service_slug** | **str** | Slug for the service account. | [optional] 
 
 ## Example
 

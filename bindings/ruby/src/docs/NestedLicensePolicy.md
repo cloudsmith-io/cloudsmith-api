@@ -11,7 +11,7 @@
 | **on_violation_quarantine** | **Boolean** |  | [optional][readonly] |
 | **package_query_string** | **String** |  | [optional][readonly] |
 | **slug_perm** | **String** |  | [optional][readonly] |
-| **spdx_identifiers** | **Array&lt;String&gt;** |  |  |
+| **spdx_identifiers** | **Array&lt;String&gt;** |  | [optional] |
 | **updated_at** | **Time** |  | [optional][readonly] |
 | **url** | **String** |  | [optional][readonly] |
 

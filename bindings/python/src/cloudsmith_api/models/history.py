@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.history_fieldset import HistoryFieldset
 from cloudsmith_api.models.history_fieldset_raw import HistoryFieldsetRaw
 from typing import Optional, Set
@@ -33,11 +32,11 @@ class History(BaseModel):
     History
     """ # noqa: E501
     days: Optional[StrictInt] = None
-    display: HistoryFieldset
-    end: datetime
-    plan: Annotated[str, Field(min_length=1, strict=True, max_length=64)]
-    raw: HistoryFieldsetRaw
-    start: datetime
+    display: Optional[HistoryFieldset] = None
+    end: Optional[datetime] = None
+    plan: Optional[StrictStr] = None
+    raw: Optional[HistoryFieldsetRaw] = None
+    start: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["days", "display", "end", "plan", "raw", "start"]
 
     model_config = ConfigDict(

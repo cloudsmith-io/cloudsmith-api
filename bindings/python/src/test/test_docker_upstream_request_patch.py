@@ -36,20 +36,20 @@ class TestDockerUpstreamRequestPatch(unittest.TestCase):
         model = DockerUpstreamRequestPatch()
         if include_optional:
             return DockerUpstreamRequestPatch(
-                auth_certificate = '0',
-                auth_certificate_key = '0',
-                auth_mode = 'None',
+                auth_certificate = '',
+                auth_certificate_key = '',
+                auth_mode = '',
                 auth_secret = '',
                 auth_username = '',
-                extra_header_1 = 'z',
-                extra_header_2 = 'z',
-                extra_value_1 = 'j',
-                extra_value_2 = 'j',
+                extra_header_1 = '',
+                extra_header_2 = '',
+                extra_value_1 = '',
+                extra_value_2 = '',
                 is_active = True,
-                mode = 'Proxy Only',
-                name = 'eBXK5y0',
-                priority = 1,
-                upstream_url = '0',
+                mode = '',
+                name = '',
+                priority = 56,
+                upstream_url = '',
                 verify_ssl = True
             )
         else:

@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,8 +29,8 @@ class UserBrief(BaseModel):
     UserBrief
     """ # noqa: E501
     authenticated: Optional[StrictBool] = Field(default=None, description="If true then you're logged in as a user.")
-    email: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=254)]] = Field(default=None, description="Your email address that we use to contact you. This is only visible to you.")
-    name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The full name of the user (if any).")
+    email: Optional[StrictStr] = Field(default=None, description="Your email address that we use to contact you. This is only visible to you.")
+    name: Optional[StrictStr] = Field(default=None, description="The full name of the user (if any).")
     profile_url: Optional[StrictStr] = Field(default=None, description="The URL for the full profile of the user.")
     self_url: Optional[StrictStr] = None
     slug: Optional[StrictStr] = None

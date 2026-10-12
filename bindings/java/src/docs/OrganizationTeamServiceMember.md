@@ -8,8 +8,8 @@ The team members
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**role** | **String** |  |  |
-|**user** | **String** |  |  |
+|**role** | **String** |  |  [optional] |
+|**user** | **String** |  |  [optional] |
 |**userKind** | **String** |  |  [optional] |
 
 

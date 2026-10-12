@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **visibility** | **String** |  | [optional][default to &#39;Public&#39;] |
+| **visibility** | **String** |  | [optional] |
 
 ## Example
 

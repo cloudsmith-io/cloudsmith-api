@@ -94,8 +94,6 @@ module CloudsmithApi
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
-      else
-        self.role = 'Member'
       end
 
       if attributes.key?(:'teams')
@@ -114,14 +112,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@email.nil? && @email.to_s.length < 1
-        invalid_properties.push('invalid value for "email", the character length must be greater than or equal to 1.')
-      end
-
-      if !@user.nil? && @user.to_s.length < 1
-        invalid_properties.push('invalid value for "user", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -129,37 +119,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@email.nil? && @email.to_s.length < 1
-      return false if !@user.nil? && @user.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] email Value to be assigned
-    def email=(email)
-      if email.nil?
-        fail ArgumentError, 'email cannot be nil'
-      end
-
-      if email.to_s.length < 1
-        fail ArgumentError, 'invalid value for "email", the character length must be greater than or equal to 1.'
-      end
-
-      @email = email
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] user Value to be assigned
-    def user=(user)
-      if user.nil?
-        fail ArgumentError, 'user cannot be nil'
-      end
-
-      if user.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user", the character length must be greater than or equal to 1.'
-      end
-
-      @user = user
     end
 
     # Checks equality by comparing each attribute.

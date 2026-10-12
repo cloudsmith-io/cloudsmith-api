@@ -39,17 +39,17 @@ class TestQuota(unittest.TestCase):
                 usage = cloudsmith_api.models.usage_fieldset.UsageFieldset(
                     display = cloudsmith_api.models.usage_limits.UsageLimits(
                         bandwidth = cloudsmith_api.models.allocated_limit.AllocatedLimit(
-                            configured = '0', 
-                            percentage_used = '0', 
-                            plan_limit = '0', 
-                            used = '0', ), 
+                            configured = '', 
+                            percentage_used = '', 
+                            plan_limit = '', 
+                            used = '', ), 
                         storage = cloudsmith_api.models.storage_allocated_limit.StorageAllocatedLimit(
-                            configured = '0', 
-                            peak = '0', 
-                            percentage_used = '0', 
-                            plan_limit = '0', 
-                            used = '0', 
-                            used_pre_deduplication = '0', ), ), 
+                            configured = '', 
+                            peak = '', 
+                            percentage_used = '', 
+                            plan_limit = '', 
+                            used = '', 
+                            used_pre_deduplication = '', ), ), 
                     raw = cloudsmith_api.models.usage_limits_raw.UsageLimitsRaw(
                         bandwidth = cloudsmith_api.models.allocated_limit_raw.AllocatedLimitRaw(
                             configured = 56, 
@@ -66,33 +66,6 @@ class TestQuota(unittest.TestCase):
             )
         else:
             return Quota(
-                usage = cloudsmith_api.models.usage_fieldset.UsageFieldset(
-                    display = cloudsmith_api.models.usage_limits.UsageLimits(
-                        bandwidth = cloudsmith_api.models.allocated_limit.AllocatedLimit(
-                            configured = '0', 
-                            percentage_used = '0', 
-                            plan_limit = '0', 
-                            used = '0', ), 
-                        storage = cloudsmith_api.models.storage_allocated_limit.StorageAllocatedLimit(
-                            configured = '0', 
-                            peak = '0', 
-                            percentage_used = '0', 
-                            plan_limit = '0', 
-                            used = '0', 
-                            used_pre_deduplication = '0', ), ), 
-                    raw = cloudsmith_api.models.usage_limits_raw.UsageLimitsRaw(
-                        bandwidth = cloudsmith_api.models.allocated_limit_raw.AllocatedLimitRaw(
-                            configured = 56, 
-                            percentage_used = '', 
-                            plan_limit = 56, 
-                            used = 56, ), 
-                        storage = cloudsmith_api.models.storage_allocated_limit_raw.StorageAllocatedLimitRaw(
-                            configured = 56, 
-                            peak = 56, 
-                            percentage_used = '', 
-                            plan_limit = 56, 
-                            used = 56, 
-                            used_pre_deduplication = 56, ), ), ),
         )
         """
 

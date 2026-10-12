@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.organization_team_invite import OrganizationTeamInvite
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,27 +30,17 @@ class OrganizationInviteExtend(BaseModel):
     """
     OrganizationInviteExtend
     """ # noqa: E501
-    email: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The email of the user to be invited.")
+    email: Optional[StrictStr] = Field(default=None, description="The email of the user to be invited.")
     expires_at: Optional[datetime] = None
-    inviter: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    inviter: Optional[StrictStr] = None
     inviter_url: Optional[StrictStr] = None
     org: Optional[StrictStr] = None
-    role: Optional[StrictStr] = Field(default='Member', description="The role to be assigned to the invited user.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug_perm of the invite to be extended.")
+    role: Optional[StrictStr] = Field(default=None, description="The role to be assigned to the invited user.")
+    slug_perm: Optional[StrictStr] = Field(default=None, description="The slug_perm of the invite to be extended.")
     teams: Optional[List[OrganizationTeamInvite]] = None
-    user: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug of the user to be invited.")
+    user: Optional[StrictStr] = Field(default=None, description="The slug of the user to be invited.")
     user_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["email", "expires_at", "inviter", "inviter_url", "org", "role", "slug_perm", "teams", "user", "user_url"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -137,7 +126,7 @@ class OrganizationInviteExtend(BaseModel):
             "inviter": obj.get("inviter"),
             "inviter_url": obj.get("inviter_url"),
             "org": obj.get("org"),
-            "role": obj.get("role") if obj.get("role") is not None else 'Member',
+            "role": obj.get("role"),
             "slug_perm": obj.get("slug_perm"),
             "teams": [OrganizationTeamInvite.from_dict(_item) for _item in obj["teams"]] if obj.get("teams") is not None else None,
             "user": obj.get("user"),

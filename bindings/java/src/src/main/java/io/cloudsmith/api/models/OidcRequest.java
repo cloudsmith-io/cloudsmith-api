@@ -56,18 +56,18 @@ public class OidcRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_OIDC_TOKEN = "oidc_token";
   @SerializedName(SERIALIZED_NAME_OIDC_TOKEN)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String oidcToken;
 
   public static final String SERIALIZED_NAME_SERVICE_SLUG = "service_slug";
   @SerializedName(SERIALIZED_NAME_SERVICE_SLUG)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String serviceSlug;
 
   public OidcRequest() {
   }
 
-  public OidcRequest oidcToken(@javax.annotation.Nonnull String oidcToken) {
+  public OidcRequest oidcToken(@javax.annotation.Nullable String oidcToken) {
     this.oidcToken = oidcToken;
     return this;
   }
@@ -76,17 +76,17 @@ public class OidcRequest implements Serializable {
    * Serialized OIDC token.
    * @return oidcToken
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getOidcToken() {
     return oidcToken;
   }
 
-  public void setOidcToken(@javax.annotation.Nonnull String oidcToken) {
+  public void setOidcToken(@javax.annotation.Nullable String oidcToken) {
     this.oidcToken = oidcToken;
   }
 
 
-  public OidcRequest serviceSlug(@javax.annotation.Nonnull String serviceSlug) {
+  public OidcRequest serviceSlug(@javax.annotation.Nullable String serviceSlug) {
     this.serviceSlug = serviceSlug;
     return this;
   }
@@ -95,12 +95,12 @@ public class OidcRequest implements Serializable {
    * Slug for the service account.
    * @return serviceSlug
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getServiceSlug() {
     return serviceSlug;
   }
 
-  public void setServiceSlug(@javax.annotation.Nonnull String serviceSlug) {
+  public void setServiceSlug(@javax.annotation.Nullable String serviceSlug) {
     this.serviceSlug = serviceSlug;
   }
 
@@ -151,7 +151,7 @@ public class OidcRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("oidc_token", "service_slug"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("oidc_token", "service_slug"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class OidcRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OidcRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OidcRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("oidc_token").isJsonPrimitive()) {
+      if ((jsonObj.get("oidc_token") != null && !jsonObj.get("oidc_token").isJsonNull()) && !jsonObj.get("oidc_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oidc_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oidc_token").toString()));
       }
-      if (!jsonObj.get("service_slug").isJsonPrimitive()) {
+      if ((jsonObj.get("service_slug") != null && !jsonObj.get("service_slug").isJsonNull()) && !jsonObj.get("service_slug").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `service_slug` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_slug").toString()));
       }
   }

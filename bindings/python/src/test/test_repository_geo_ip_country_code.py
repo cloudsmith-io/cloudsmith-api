@@ -45,12 +45,6 @@ class TestRepositoryGeoIpCountryCode(unittest.TestCase):
             )
         else:
             return RepositoryGeoIpCountryCode(
-                allow = [
-                    ''
-                    ],
-                deny = [
-                    ''
-                    ],
         )
         """
 

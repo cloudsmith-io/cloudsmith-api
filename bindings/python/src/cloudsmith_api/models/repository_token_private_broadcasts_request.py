@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class RepositoryTokenPrivateBroadcastsRequest(BaseModel):
     """
     RepositoryTokenPrivateBroadcastsRequest
     """ # noqa: E501
-    access_private_broadcasts: StrictBool = Field(description="Whether the token should have access to private broadcasts.")
+    access_private_broadcasts: Optional[StrictBool] = Field(default=None, description="Whether the token should have access to private broadcasts.")
     __properties: ClassVar[List[str]] = ["access_private_broadcasts"]
 
     model_config = ConfigDict(

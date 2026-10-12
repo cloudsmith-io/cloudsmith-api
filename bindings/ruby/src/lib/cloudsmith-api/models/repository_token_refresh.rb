@@ -339,8 +339,6 @@ module CloudsmithApi
 
       if attributes.key?(:'limit_bandwidth_unit')
         self.limit_bandwidth_unit = attributes[:'limit_bandwidth_unit']
-      else
-        self.limit_bandwidth_unit = 'Byte'
       end
 
       if attributes.key?(:'limit_date_range_from')
@@ -389,8 +387,6 @@ module CloudsmithApi
 
       if attributes.key?(:'scheduled_reset_period')
         self.scheduled_reset_period = attributes[:'scheduled_reset_period']
-      else
-        self.scheduled_reset_period = 'Never Reset'
       end
 
       if attributes.key?(:'self_url')
@@ -435,75 +431,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@created_by.nil? && @created_by.to_s.length < 1
-        invalid_properties.push('invalid value for "created_by", the character length must be greater than or equal to 1.')
-      end
-
-      if !@eula_accepted_from.nil? && @eula_accepted_from.to_s.length < 1
-        invalid_properties.push('invalid value for "eula_accepted_from", the character length must be greater than or equal to 1.')
-      end
-
-      if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
-        invalid_properties.push('invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.')
-      end
-
-      if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
-        invalid_properties.push('invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.')
-      end
-
-      if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
-        invalid_properties.push('invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.')
-      end
-
-      if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
-        invalid_properties.push('invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.')
-      end
-
-      if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
-        invalid_properties.push('invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.')
-      end
-
-      if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
-        invalid_properties.push('invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.')
-      end
-
-      if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
-        invalid_properties.push('invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
-        invalid_properties.push('invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@token.nil? && @token.to_s.length < 1
-        invalid_properties.push('invalid value for "token", the character length must be greater than or equal to 1.')
-      end
-
-      if !@updated_by.nil? && @updated_by.to_s.length < 1
-        invalid_properties.push('invalid value for "updated_by", the character length must be greater than or equal to 1.')
-      end
-
-      if !@usage.nil? && @usage.to_s.length < 1
-        invalid_properties.push('invalid value for "usage", the character length must be greater than or equal to 1.')
-      end
-
-      if !@user.nil? && @user.to_s.length < 1
-        invalid_properties.push('invalid value for "user", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -511,191 +438,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@created_by.nil? && @created_by.to_s.length < 1
-      return false if !@eula_accepted_from.nil? && @eula_accepted_from.to_s.length < 1
-      return false if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
-      return false if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
-      return false if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
-      return false if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
-      return false if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
-      return false if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
-      return false if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
-      return false if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@token.nil? && @token.to_s.length < 1
-      return false if !@updated_by.nil? && @updated_by.to_s.length < 1
-      return false if !@usage.nil? && @usage.to_s.length < 1
-      return false if !@user.nil? && @user.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] created_by Value to be assigned
-    def created_by=(created_by)
-      if created_by.nil?
-        fail ArgumentError, 'created_by cannot be nil'
-      end
-
-      if created_by.to_s.length < 1
-        fail ArgumentError, 'invalid value for "created_by", the character length must be greater than or equal to 1.'
-      end
-
-      @created_by = created_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] eula_accepted_from Value to be assigned
-    def eula_accepted_from=(eula_accepted_from)
-      if !eula_accepted_from.nil? && eula_accepted_from.to_s.length < 1
-        fail ArgumentError, 'invalid value for "eula_accepted_from", the character length must be greater than or equal to 1.'
-      end
-
-      @eula_accepted_from = eula_accepted_from
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_bandwidth Value to be assigned
-    def limit_bandwidth=(limit_bandwidth)
-      if !limit_bandwidth.nil? && limit_bandwidth > 9223372036854775807
-        fail ArgumentError, 'invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.'
-      end
-
-      if !limit_bandwidth.nil? && limit_bandwidth < -9223372036854775808
-        fail ArgumentError, 'invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.'
-      end
-
-      @limit_bandwidth = limit_bandwidth
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_num_clients Value to be assigned
-    def limit_num_clients=(limit_num_clients)
-      if !limit_num_clients.nil? && limit_num_clients > 9223372036854775807
-        fail ArgumentError, 'invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.'
-      end
-
-      if !limit_num_clients.nil? && limit_num_clients < -9223372036854775808
-        fail ArgumentError, 'invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.'
-      end
-
-      @limit_num_clients = limit_num_clients
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_num_downloads Value to be assigned
-    def limit_num_downloads=(limit_num_downloads)
-      if !limit_num_downloads.nil? && limit_num_downloads > 9223372036854775807
-        fail ArgumentError, 'invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.'
-      end
-
-      if !limit_num_downloads.nil? && limit_num_downloads < -9223372036854775808
-        fail ArgumentError, 'invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.'
-      end
-
-      @limit_num_downloads = limit_num_downloads
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_package_query Value to be assigned
-    def limit_package_query=(limit_package_query)
-      if !limit_package_query.nil? && limit_package_query.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.'
-      end
-
-      @limit_package_query = limit_package_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_path_query Value to be assigned
-    def limit_path_query=(limit_path_query)
-      if !limit_path_query.nil? && limit_path_query.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.'
-      end
-
-      @limit_path_query = limit_path_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] token Value to be assigned
-    def token=(token)
-      if token.nil?
-        fail ArgumentError, 'token cannot be nil'
-      end
-
-      if token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "token", the character length must be greater than or equal to 1.'
-      end
-
-      @token = token
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] updated_by Value to be assigned
-    def updated_by=(updated_by)
-      if !updated_by.nil? && updated_by.to_s.length < 1
-        fail ArgumentError, 'invalid value for "updated_by", the character length must be greater than or equal to 1.'
-      end
-
-      @updated_by = updated_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] usage Value to be assigned
-    def usage=(usage)
-      if usage.nil?
-        fail ArgumentError, 'usage cannot be nil'
-      end
-
-      if usage.to_s.length < 1
-        fail ArgumentError, 'invalid value for "usage", the character length must be greater than or equal to 1.'
-      end
-
-      @usage = usage
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] user Value to be assigned
-    def user=(user)
-      if !user.nil? && user.to_s.length < 1
-        fail ArgumentError, 'invalid value for "user", the character length must be greater than or equal to 1.'
-      end
-
-      @user = user
     end
 
     # Checks equality by comparing each attribute.

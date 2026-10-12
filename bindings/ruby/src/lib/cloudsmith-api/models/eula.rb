@@ -95,23 +95,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@identifier.nil? && @identifier.to_s.length > 16
-        invalid_properties.push('invalid value for "identifier", the character length must be smaller than or equal to 16.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@identifier.nil? && @identifier !~ pattern
-        invalid_properties.push("invalid value for \"identifier\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@number.nil? && @number > 2147483647
-        invalid_properties.push('invalid value for "number", must be smaller than or equal to 2147483647.')
-      end
-
-      if !@number.nil? && @number < 0
-        invalid_properties.push('invalid value for "number", must be greater than or equal to 0.')
-      end
-
       invalid_properties
     end
 
@@ -119,40 +102,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@identifier.nil? && @identifier.to_s.length > 16
-      return false if !@identifier.nil? && @identifier !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@number.nil? && @number > 2147483647
-      return false if !@number.nil? && @number < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] identifier Value to be assigned
-    def identifier=(identifier)
-      if !identifier.nil? && identifier.to_s.length > 16
-        fail ArgumentError, 'invalid value for "identifier", the character length must be smaller than or equal to 16.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !identifier.nil? && identifier !~ pattern
-        fail ArgumentError, "invalid value for \"identifier\", must conform to the pattern #{pattern}."
-      end
-
-      @identifier = identifier
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] number Value to be assigned
-    def number=(number)
-      if !number.nil? && number > 2147483647
-        fail ArgumentError, 'invalid value for "number", must be smaller than or equal to 2147483647.'
-      end
-
-      if !number.nil? && number < 0
-        fail ArgumentError, 'invalid value for "number", must be greater than or equal to 0.'
-      end
-
-      @number = number
     end
 
     # Checks equality by comparing each attribute.

@@ -37,8 +37,8 @@ class TestOrganizationUsageUpdateRequestPatch(unittest.TestCase):
         if include_optional:
             return OrganizationUsageUpdateRequestPatch(
                 allow_open_source_overage = True,
-                bandwidth_overage_limit = 0,
-                storage_overage_limit = 0
+                bandwidth_overage_limit = 56,
+                storage_overage_limit = 56
             )
         else:
             return OrganizationUsageUpdateRequestPatch(

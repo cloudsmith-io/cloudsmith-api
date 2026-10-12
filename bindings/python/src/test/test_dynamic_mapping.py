@@ -36,13 +36,11 @@ class TestDynamicMapping(unittest.TestCase):
         model = DynamicMapping()
         if include_optional:
             return DynamicMapping(
-                claim_value = '0',
-                service_account = '0'
+                claim_value = '',
+                service_account = ''
             )
         else:
             return DynamicMapping(
-                claim_value = '0',
-                service_account = '0',
         )
         """
 

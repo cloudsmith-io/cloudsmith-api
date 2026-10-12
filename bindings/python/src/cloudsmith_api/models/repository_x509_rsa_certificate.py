@@ -38,7 +38,7 @@ class RepositoryX509RsaCertificate(BaseModel):
     certificate_fingerprint_short: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     default: Optional[StrictBool] = Field(default=None, description="If selected this is the default key for this repository.")
-    issuing_status: Optional[StrictStr] = 'Certificate is pending to be issued'
+    issuing_status: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["active", "certificate", "certificate_chain", "certificate_chain_fingerprint", "certificate_chain_fingerprint_short", "certificate_fingerprint", "certificate_fingerprint_short", "created_at", "default", "issuing_status"]
 
     model_config = ConfigDict(
@@ -134,7 +134,7 @@ class RepositoryX509RsaCertificate(BaseModel):
             "certificate_fingerprint_short": obj.get("certificate_fingerprint_short"),
             "created_at": obj.get("created_at"),
             "default": obj.get("default"),
-            "issuing_status": obj.get("issuing_status") if obj.get("issuing_status") is not None else 'Certificate is pending to be issued'
+            "issuing_status": obj.get("issuing_status")
         })
         return _obj
 

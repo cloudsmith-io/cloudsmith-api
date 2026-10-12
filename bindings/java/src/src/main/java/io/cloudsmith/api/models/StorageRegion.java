@@ -56,18 +56,18 @@ public class StorageRegion implements Serializable {
 
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String label;
 
   public static final String SERIALIZED_NAME_SLUG = "slug";
   @SerializedName(SERIALIZED_NAME_SLUG)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String slug;
 
   public StorageRegion() {
   }
 
-  public StorageRegion label(@javax.annotation.Nonnull String label) {
+  public StorageRegion label(@javax.annotation.Nullable String label) {
     this.label = label;
     return this;
   }
@@ -76,17 +76,17 @@ public class StorageRegion implements Serializable {
    * Name of the storage region
    * @return label
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getLabel() {
     return label;
   }
 
-  public void setLabel(@javax.annotation.Nonnull String label) {
+  public void setLabel(@javax.annotation.Nullable String label) {
     this.label = label;
   }
 
 
-  public StorageRegion slug(@javax.annotation.Nonnull String slug) {
+  public StorageRegion slug(@javax.annotation.Nullable String slug) {
     this.slug = slug;
     return this;
   }
@@ -95,12 +95,12 @@ public class StorageRegion implements Serializable {
    * Slug for the storage region
    * @return slug
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSlug() {
     return slug;
   }
 
-  public void setSlug(@javax.annotation.Nonnull String slug) {
+  public void setSlug(@javax.annotation.Nullable String slug) {
     this.slug = slug;
   }
 
@@ -151,7 +151,7 @@ public class StorageRegion implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("label", "slug"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("label", "slug"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class StorageRegion implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StorageRegion` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : StorageRegion.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("label").isJsonPrimitive()) {
+      if ((jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()) && !jsonObj.get("label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
-      if (!jsonObj.get("slug").isJsonPrimitive()) {
+      if ((jsonObj.get("slug") != null && !jsonObj.get("slug").isJsonNull()) && !jsonObj.get("slug").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slug` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slug").toString()));
       }
   }

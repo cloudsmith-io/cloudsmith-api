@@ -10,7 +10,7 @@
 |**licenseNotes** | **String** |  |  [optional] |
 |**licenseOverride** | **String** |  |  [optional] |
 |**licenseUrl** | **URI** |  |  [optional] |
-|**spdxLicense** | **String** |  |  |
+|**spdxLicense** | **String** |  |  [optional] |
 
 
 ## Implemented Interfaces

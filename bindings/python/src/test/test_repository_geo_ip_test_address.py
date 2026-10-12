@@ -37,14 +37,11 @@ class TestRepositoryGeoIpTestAddress(unittest.TestCase):
         if include_optional:
             return RepositoryGeoIpTestAddress(
                 addresses = [
-                    '0'
+                    ''
                     ]
             )
         else:
             return RepositoryGeoIpTestAddress(
-                addresses = [
-                    '0'
-                    ],
         )
         """
 

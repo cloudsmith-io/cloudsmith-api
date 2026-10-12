@@ -75,8 +75,6 @@ module CloudsmithApi
 
       if attributes.key?(:'visibility')
         self.visibility = attributes[:'visibility']
-      else
-        self.visibility = 'Public'
       end
     end
 

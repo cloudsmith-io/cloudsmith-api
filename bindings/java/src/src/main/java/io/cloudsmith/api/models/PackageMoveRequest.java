@@ -56,13 +56,13 @@ public class PackageMoveRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_DESTINATION = "destination";
   @SerializedName(SERIALIZED_NAME_DESTINATION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String destination;
 
   public PackageMoveRequest() {
   }
 
-  public PackageMoveRequest destination(@javax.annotation.Nonnull String destination) {
+  public PackageMoveRequest destination(@javax.annotation.Nullable String destination) {
     this.destination = destination;
     return this;
   }
@@ -71,12 +71,12 @@ public class PackageMoveRequest implements Serializable {
    * The name of the destination repository without the namespace.
    * @return destination
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getDestination() {
     return destination;
   }
 
-  public void setDestination(@javax.annotation.Nonnull String destination) {
+  public void setDestination(@javax.annotation.Nullable String destination) {
     this.destination = destination;
   }
 
@@ -125,7 +125,7 @@ public class PackageMoveRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("destination"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("destination"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -148,15 +148,8 @@ public class PackageMoveRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageMoveRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageMoveRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("destination").isJsonPrimitive()) {
+      if ((jsonObj.get("destination") != null && !jsonObj.get("destination").isJsonNull()) && !jsonObj.get("destination").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `destination` to be a primitive type in the JSON string but got `%s`", jsonObj.get("destination").toString()));
       }
   }

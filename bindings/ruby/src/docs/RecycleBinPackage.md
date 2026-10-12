@@ -19,7 +19,7 @@
 | **policy_violated** | **Boolean** | Whether or not the package has violated any policy. | [optional][readonly] |
 | **repository** | **String** |  | [optional][readonly] |
 | **security_scan_completed_at** | **Time** | The datetime the security scanning was completed. | [optional][readonly] |
-| **security_scan_status** | **String** |  | [optional][readonly][default to &#39;Awaiting Security Scan&#39;] |
+| **security_scan_status** | **String** |  | [optional][readonly] |
 | **size** | **Integer** | The calculated size of the package. | [optional][readonly] |
 | **slug_perm** | **String** |  | [optional][readonly] |
 | **status** | **Integer** | The synchronisation status of the package. | [optional][readonly] |

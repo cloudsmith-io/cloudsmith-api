@@ -293,7 +293,7 @@ public class GeoIpLocation implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("city", "continent", "country", "country_code", "latitude", "longitude", "postal_code"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("city", "continent", "country", "postal_code"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -314,13 +314,6 @@ public class GeoIpLocation implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GeoIpLocation.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GeoIpLocation` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GeoIpLocation.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

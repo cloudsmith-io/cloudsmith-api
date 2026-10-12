@@ -36,18 +36,17 @@ class TestRawPackageUploadRequest(unittest.TestCase):
         model = RawPackageUploadRequest()
         if include_optional:
             return RawPackageUploadRequest(
-                content_type = '0',
+                content_type = '',
                 description = '',
                 name = '',
-                package_file = '0',
+                package_file = '',
                 republish = True,
                 summary = '',
-                tags = '0',
+                tags = '',
                 version = ''
             )
         else:
             return RawPackageUploadRequest(
-                package_file = '0',
         )
         """
 

@@ -36,14 +36,12 @@ class TestCommonBandwidthMetricsValue(unittest.TestCase):
         model = CommonBandwidthMetricsValue()
         if include_optional:
             return CommonBandwidthMetricsValue(
-                display = '0',
-                units = 'bytes',
+                display = '',
+                units = '',
                 value = 56
             )
         else:
             return CommonBandwidthMetricsValue(
-                display = '0',
-                value = 56,
         )
         """
 

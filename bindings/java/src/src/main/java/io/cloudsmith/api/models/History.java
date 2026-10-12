@@ -64,27 +64,27 @@ public class History implements Serializable {
 
   public static final String SERIALIZED_NAME_DISPLAY = "display";
   @SerializedName(SERIALIZED_NAME_DISPLAY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private HistoryFieldset display;
 
   public static final String SERIALIZED_NAME_END = "end";
   @SerializedName(SERIALIZED_NAME_END)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private OffsetDateTime end;
 
   public static final String SERIALIZED_NAME_PLAN = "plan";
   @SerializedName(SERIALIZED_NAME_PLAN)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String plan;
 
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private HistoryFieldsetRaw raw;
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private OffsetDateTime start;
 
   public History() {
@@ -109,7 +109,7 @@ public class History implements Serializable {
   }
 
 
-  public History display(@javax.annotation.Nonnull HistoryFieldset display) {
+  public History display(@javax.annotation.Nullable HistoryFieldset display) {
     this.display = display;
     return this;
   }
@@ -118,17 +118,17 @@ public class History implements Serializable {
    * Get display
    * @return display
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public HistoryFieldset getDisplay() {
     return display;
   }
 
-  public void setDisplay(@javax.annotation.Nonnull HistoryFieldset display) {
+  public void setDisplay(@javax.annotation.Nullable HistoryFieldset display) {
     this.display = display;
   }
 
 
-  public History end(@javax.annotation.Nonnull OffsetDateTime end) {
+  public History end(@javax.annotation.Nullable OffsetDateTime end) {
     this.end = end;
     return this;
   }
@@ -137,17 +137,17 @@ public class History implements Serializable {
    * Get end
    * @return end
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public OffsetDateTime getEnd() {
     return end;
   }
 
-  public void setEnd(@javax.annotation.Nonnull OffsetDateTime end) {
+  public void setEnd(@javax.annotation.Nullable OffsetDateTime end) {
     this.end = end;
   }
 
 
-  public History plan(@javax.annotation.Nonnull String plan) {
+  public History plan(@javax.annotation.Nullable String plan) {
     this.plan = plan;
     return this;
   }
@@ -156,17 +156,17 @@ public class History implements Serializable {
    * Get plan
    * @return plan
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPlan() {
     return plan;
   }
 
-  public void setPlan(@javax.annotation.Nonnull String plan) {
+  public void setPlan(@javax.annotation.Nullable String plan) {
     this.plan = plan;
   }
 
 
-  public History raw(@javax.annotation.Nonnull HistoryFieldsetRaw raw) {
+  public History raw(@javax.annotation.Nullable HistoryFieldsetRaw raw) {
     this.raw = raw;
     return this;
   }
@@ -175,17 +175,17 @@ public class History implements Serializable {
    * Get raw
    * @return raw
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public HistoryFieldsetRaw getRaw() {
     return raw;
   }
 
-  public void setRaw(@javax.annotation.Nonnull HistoryFieldsetRaw raw) {
+  public void setRaw(@javax.annotation.Nullable HistoryFieldsetRaw raw) {
     this.raw = raw;
   }
 
 
-  public History start(@javax.annotation.Nonnull OffsetDateTime start) {
+  public History start(@javax.annotation.Nullable OffsetDateTime start) {
     this.start = start;
     return this;
   }
@@ -194,12 +194,12 @@ public class History implements Serializable {
    * Get start
    * @return start
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public OffsetDateTime getStart() {
     return start;
   }
 
-  public void setStart(@javax.annotation.Nonnull OffsetDateTime start) {
+  public void setStart(@javax.annotation.Nullable OffsetDateTime start) {
     this.start = start;
   }
 
@@ -258,7 +258,7 @@ public class History implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("days", "display", "end", "plan", "raw", "start"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("display", "end", "plan", "raw", "start"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -281,21 +281,18 @@ public class History implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `History` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : History.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `display`
-      HistoryFieldset.validateJsonElement(jsonObj.get("display"));
-      if (!jsonObj.get("plan").isJsonPrimitive()) {
+      // validate the optional field `display`
+      if (jsonObj.get("display") != null && !jsonObj.get("display").isJsonNull()) {
+        HistoryFieldset.validateJsonElement(jsonObj.get("display"));
+      }
+      if ((jsonObj.get("plan") != null && !jsonObj.get("plan").isJsonNull()) && !jsonObj.get("plan").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `plan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plan").toString()));
       }
-      // validate the required field `raw`
-      HistoryFieldsetRaw.validateJsonElement(jsonObj.get("raw"));
+      // validate the optional field `raw`
+      if (jsonObj.get("raw") != null && !jsonObj.get("raw").isJsonNull()) {
+        HistoryFieldsetRaw.validateJsonElement(jsonObj.get("raw"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

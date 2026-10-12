@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class PackageBulkAction(BaseModel):
     """
     PackageBulkAction
     """ # noqa: E501
-    action: StrictStr = Field(description="The action to perform on the packages.")
-    identifiers: Annotated[List[Annotated[str, Field(min_length=1, strict=True, max_length=255)]], Field(min_length=1, max_length=100)] = Field(description="A list of package identifiers to apply the action to.")
-    repository: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=255)]] = Field(default=None, description="The repository name to filter packages to. If not provided, the action will be performed across all accessible repositories in the workspace.")
-    target_repository: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug of the target repository")
+    action: Optional[StrictStr] = Field(default=None, description="The action to perform on the packages.")
+    identifiers: Optional[List[StrictStr]] = Field(default=None, description="A list of package identifiers to apply the action to.")
+    repository: Optional[StrictStr] = Field(default=None, description="The repository name to filter packages to. If not provided, the action will be performed across all accessible repositories in the workspace.")
+    target_repository: Optional[StrictStr] = Field(default=None, description="The slug of the target repository")
     __properties: ClassVar[List[str]] = ["action", "identifiers", "repository", "target_repository"]
 
     model_config = ConfigDict(

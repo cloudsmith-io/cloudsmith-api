@@ -36,13 +36,12 @@ class TestDartPackageUploadRequest(unittest.TestCase):
         model = DartPackageUploadRequest()
         if include_optional:
             return DartPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return DartPackageUploadRequest(
-                package_file = '0',
         )
         """
 

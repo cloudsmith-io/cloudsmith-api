@@ -104,7 +104,7 @@ public class RepositoryX509RsaCertificate implements Serializable {
   public static final String SERIALIZED_NAME_ISSUING_STATUS = "issuing_status";
   @SerializedName(SERIALIZED_NAME_ISSUING_STATUS)
   @javax.annotation.Nullable
-  private String issuingStatus = "Certificate is pending to be issued";
+  private String issuingStatus;
 
   public RepositoryX509RsaCertificate() {
   }

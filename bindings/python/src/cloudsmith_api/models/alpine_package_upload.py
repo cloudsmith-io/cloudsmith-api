@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.architecture import Architecture
 from cloudsmith_api.models.distribution import Distribution
 from cloudsmith_api.models.distribution_version import DistributionVersion
@@ -44,19 +43,19 @@ class AlpinePackageUpload(BaseModel):
     dependencies_url: Optional[StrictStr] = None
     description: Optional[StrictStr] = Field(default=None, description="A textual description of this package.")
     display_name: Optional[StrictStr] = None
-    display_source: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Where the package originated, for example: 'upstream' (proxied/cached from a configured upstream), 'connected_repository' (blended in from a connected target repository), or 'manual_upload' (uploaded directly to Cloudsmith).")
+    display_source: Optional[StrictStr] = Field(default=None, description="Where the package originated, for example: 'upstream' (proxied/cached from a configured upstream), 'connected_repository' (blended in from a connected target repository), or 'manual_upload' (uploaded directly to Cloudsmith).")
     distro: Optional[Distribution] = None
     distro_version: Optional[DistributionVersion] = None
     downloads: Optional[StrictInt] = None
     epoch: Optional[StrictInt] = Field(default=None, description="The epoch of the package version (if any).")
     extension: Optional[StrictStr] = None
-    filename: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    filename: Optional[StrictStr] = None
     files: Optional[List[PackageFile]] = None
-    format: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    format: Optional[StrictStr] = None
     format_url: Optional[StrictStr] = None
     freeable_storage: Optional[StrictInt] = Field(default=None, description="Amount of storage that will be freed if this package is deleted")
-    fully_qualified_name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    identifier_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Unique and permanent identifier for the package.")
+    fully_qualified_name: Optional[StrictStr] = None
+    identifier_perm: Optional[StrictStr] = Field(default=None, description="Unique and permanent identifier for the package.")
     identifiers: Optional[Dict[str, Optional[StrictStr]]] = Field(default=None, description="Return a map of identifier field names and their values.")
     indexed: Optional[StrictBool] = None
     is_cancellable: Optional[StrictBool] = None
@@ -76,30 +75,30 @@ class AlpinePackageUpload(BaseModel):
     is_sync_in_progress: Optional[StrictBool] = None
     license: Optional[StrictStr] = Field(default=None, description="The license of this package.")
     name: Optional[StrictStr] = Field(default=None, description="The name of this package.")
-    namespace: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    namespace: Optional[StrictStr] = None
     namespace_url: Optional[StrictStr] = None
     num_files: Optional[StrictInt] = None
-    origin_repository: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    origin_repository: Optional[StrictStr] = None
     origin_repository_url: Optional[StrictStr] = None
     osi_approved: Optional[StrictBool] = Field(default=None, description="Whether the package's SPDX license is OSI-approved.")
     package_type: Optional[StrictInt] = Field(default=None, description="The type of package contents.")
     policy_violated: Optional[StrictBool] = Field(default=None, description="Whether or not the package has violated any policy.")
-    raw_license: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The raw license string.")
+    raw_license: Optional[StrictStr] = Field(default=None, description="The raw license string.")
     release: Optional[StrictStr] = Field(default=None, description="The release of the package version (if any).")
-    repository: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    repository: Optional[StrictStr] = None
     repository_url: Optional[StrictStr] = None
     security_scan_completed_at: Optional[datetime] = Field(default=None, description="The datetime the security scanning was completed.")
     security_scan_started_at: Optional[datetime] = Field(default=None, description="The datetime the security scanning was started.")
-    security_scan_status: Optional[StrictStr] = 'Awaiting Security Scan'
+    security_scan_status: Optional[StrictStr] = None
     security_scan_status_updated_at: Optional[datetime] = Field(default=None, description="The datetime the security scanning status was updated.")
-    self_html_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    self_html_url: Optional[StrictStr] = None
     self_url: Optional[StrictStr] = None
-    self_webapp_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    self_webapp_url: Optional[StrictStr] = None
     signature_url: Optional[StrictStr] = None
     size: Optional[StrictInt] = Field(default=None, description="The calculated size of the package.")
-    slug: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The public unique identifier for the package.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    spdx_license: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The SPDX license identifier for this package.")
+    slug: Optional[StrictStr] = Field(default=None, description="The public unique identifier for the package.")
+    slug_perm: Optional[StrictStr] = None
+    spdx_license: Optional[StrictStr] = Field(default=None, description="The SPDX license identifier for this package.")
     stage: Optional[StrictInt] = Field(default=None, description="The synchronisation (in progress) stage of the package.")
     stage_str: Optional[StrictStr] = None
     stage_updated_at: Optional[datetime] = Field(default=None, description="The datetime the package stage was updated at.")
@@ -108,7 +107,7 @@ class AlpinePackageUpload(BaseModel):
     status_str: Optional[StrictStr] = None
     status_updated_at: Optional[datetime] = Field(default=None, description="The datetime the package status was updated at.")
     status_url: Optional[StrictStr] = None
-    store_path: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Absolute store path for the package, including store hash and name.")
+    store_path: Optional[StrictStr] = Field(default=None, description="Absolute store path for the package, including store hash and name.")
     subtype: Optional[StrictStr] = None
     summary: Optional[StrictStr] = Field(default=None, description="A one-liner synopsis of this package.")
     sync_finished_at: Optional[datetime] = Field(default=None, description="The datetime the package sync was finished at.")
@@ -118,32 +117,12 @@ class AlpinePackageUpload(BaseModel):
     tags_static: Optional[Dict[str, List[StrictStr]]] = Field(default=None, description="All static tags on the package, grouped by context. Static tags are derived from the package's properties at request time and carry a 'context' (rather than a tag type). Includes format-specific badges and the package's architecture, subtype, and extension.")
     type_display: Optional[StrictStr] = None
     uploaded_at: Optional[datetime] = Field(default=None, description="The date this package was uploaded.")
-    uploader: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    uploader: Optional[StrictStr] = None
     uploader_url: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="The raw version for this package.")
     version_orig: Optional[StrictStr] = None
     vulnerability_scan_results_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["architectures", "cdn_url", "checksum_md5", "checksum_sha1", "checksum_sha256", "checksum_sha512", "dependencies_checksum_md5", "dependencies_url", "description", "display_name", "display_source", "distro", "distro_version", "downloads", "epoch", "extension", "filename", "files", "format", "format_url", "freeable_storage", "fully_qualified_name", "identifier_perm", "identifiers", "indexed", "is_cancellable", "is_copyable", "is_deleteable", "is_downloadable", "is_hidden", "is_moveable", "is_quarantinable", "is_quarantined", "is_resyncable", "is_security_scannable", "is_sync_awaiting", "is_sync_completed", "is_sync_failed", "is_sync_in_flight", "is_sync_in_progress", "license", "name", "namespace", "namespace_url", "num_files", "origin_repository", "origin_repository_url", "osi_approved", "package_type", "policy_violated", "raw_license", "release", "repository", "repository_url", "security_scan_completed_at", "security_scan_started_at", "security_scan_status", "security_scan_status_updated_at", "self_html_url", "self_url", "self_webapp_url", "signature_url", "size", "slug", "slug_perm", "spdx_license", "stage", "stage_str", "stage_updated_at", "status", "status_reason", "status_str", "status_updated_at", "status_url", "store_path", "subtype", "summary", "sync_finished_at", "sync_progress", "tags_automatic", "tags_immutable", "tags_static", "type_display", "uploaded_at", "uploader", "uploader_url", "version", "version_orig", "vulnerability_scan_results_url"]
-
-    @field_validator('slug', mode="before")
-    def slug_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -545,7 +524,7 @@ class AlpinePackageUpload(BaseModel):
             "repository_url": obj.get("repository_url"),
             "security_scan_completed_at": obj.get("security_scan_completed_at"),
             "security_scan_started_at": obj.get("security_scan_started_at"),
-            "security_scan_status": obj.get("security_scan_status") if "security_scan_status" in obj else 'Awaiting Security Scan',
+            "security_scan_status": obj.get("security_scan_status"),
             "security_scan_status_updated_at": obj.get("security_scan_status_updated_at"),
             "self_html_url": obj.get("self_html_url"),
             "self_url": obj.get("self_url"),

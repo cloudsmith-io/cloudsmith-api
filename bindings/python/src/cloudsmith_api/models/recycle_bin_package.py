@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.web_osv_severity_counts import WebOSVSeverityCounts
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,11 +30,11 @@ class RecycleBinPackage(BaseModel):
     """
     RecycleBinPackage
     """ # noqa: E501
-    action_by: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The name of the user who deleted the package.")
+    action_by: Optional[StrictStr] = Field(default=None, description="The name of the user who deleted the package.")
     downloads: Optional[StrictInt] = None
-    filename: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    format: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    fully_qualified_name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The fully qualified name of the package.")
+    filename: Optional[StrictStr] = None
+    format: Optional[StrictStr] = None
+    fully_qualified_name: Optional[StrictStr] = Field(default=None, description="The fully qualified name of the package.")
     identifiers: Optional[Dict[str, Optional[StrictStr]]] = None
     invoked_retention_rule: Optional[Dict[str, Optional[StrictStr]]] = Field(default=None, description="Information about the retention rule that triggered deletion (if any).")
     is_deleteable: Optional[StrictBool] = None
@@ -44,30 +43,20 @@ class RecycleBinPackage(BaseModel):
     is_restorable: Optional[StrictBool] = None
     name: Optional[StrictStr] = Field(default=None, description="The name of this package.")
     policy_violated: Optional[StrictBool] = Field(default=None, description="Whether or not the package has violated any policy.")
-    repository: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    repository: Optional[StrictStr] = None
     security_scan_completed_at: Optional[datetime] = Field(default=None, description="The datetime the security scanning was completed.")
-    security_scan_status: Optional[StrictStr] = 'Awaiting Security Scan'
+    security_scan_status: Optional[StrictStr] = None
     size: Optional[StrictInt] = Field(default=None, description="The calculated size of the package.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    slug_perm: Optional[StrictStr] = None
     status: Optional[StrictInt] = Field(default=None, description="The synchronisation status of the package.")
     status_updated_at: Optional[datetime] = Field(default=None, description="The datetime the package status was updated at.")
     tags: Optional[Dict[str, Any]] = Field(default=None, description="All tags on the package, grouped by tag type. This includes immutable tags, but doesn't distinguish them from mutable. To see which tags are immutable specifically, see the tags_immutable field.")
     type_display: Optional[StrictStr] = None
     uploaded_at: Optional[datetime] = Field(default=None, description="The date this package was uploaded.")
-    uploader: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    uploader: Optional[StrictStr] = None
     version: Optional[StrictStr] = Field(default=None, description="The raw version for this package.")
     vulnerability_counts: Optional[WebOSVSeverityCounts] = None
     __properties: ClassVar[List[str]] = ["action_by", "downloads", "filename", "format", "fully_qualified_name", "identifiers", "invoked_retention_rule", "is_deleteable", "is_malware_detected", "is_quarantined", "is_restorable", "name", "policy_violated", "repository", "security_scan_completed_at", "security_scan_status", "size", "slug_perm", "status", "status_updated_at", "tags", "type_display", "uploaded_at", "uploader", "version", "vulnerability_counts"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -226,7 +215,7 @@ class RecycleBinPackage(BaseModel):
             "policy_violated": obj.get("policy_violated"),
             "repository": obj.get("repository"),
             "security_scan_completed_at": obj.get("security_scan_completed_at"),
-            "security_scan_status": obj.get("security_scan_status") if "security_scan_status" in obj else 'Awaiting Security Scan',
+            "security_scan_status": obj.get("security_scan_status"),
             "size": obj.get("size"),
             "slug_perm": obj.get("slug_perm"),
             "status": obj.get("status"),

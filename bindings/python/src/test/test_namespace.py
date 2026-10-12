@@ -37,8 +37,8 @@ class TestNamespace(unittest.TestCase):
         if include_optional:
             return Namespace(
                 name = '',
-                slug = 'z',
-                slug_perm = 'z0',
+                slug = '',
+                slug_perm = '',
                 type_name = ''
             )
         else:

@@ -68,7 +68,7 @@ public class RubyPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_ARCHITECTURES = "architectures";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURES)
   @javax.annotation.Nullable
-  private List<Architecture> architectures = new ArrayList<>();
+  private List<Architecture> architectures;
 
   public static final String SERIALIZED_NAME_CDN_URL = "cdn_url";
   @SerializedName(SERIALIZED_NAME_CDN_URL)
@@ -153,7 +153,7 @@ public class RubyPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
   @javax.annotation.Nullable
-  private List<PackageFile> files = new ArrayList<>();
+  private List<PackageFile> files;
 
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
@@ -183,7 +183,7 @@ public class RubyPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_IDENTIFIERS = "identifiers";
   @SerializedName(SERIALIZED_NAME_IDENTIFIERS)
   @javax.annotation.Nullable
-  private Map<String, String> identifiers = new HashMap<>();
+  private Map<String, String> identifiers;
 
   public static final String SERIALIZED_NAME_INDEXED = "indexed";
   @SerializedName(SERIALIZED_NAME_INDEXED)
@@ -348,7 +348,7 @@ public class RubyPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_SECURITY_SCAN_STATUS = "security_scan_status";
   @SerializedName(SERIALIZED_NAME_SECURITY_SCAN_STATUS)
   @javax.annotation.Nullable
-  private String securityScanStatus = "Awaiting Security Scan";
+  private String securityScanStatus;
 
   public static final String SERIALIZED_NAME_SECURITY_SCAN_STATUS_UPDATED_AT = "security_scan_status_updated_at";
   @SerializedName(SERIALIZED_NAME_SECURITY_SCAN_STATUS_UPDATED_AT)
@@ -473,7 +473,7 @@ public class RubyPackageUpload implements Serializable {
   public static final String SERIALIZED_NAME_TAGS_STATIC = "tags_static";
   @SerializedName(SERIALIZED_NAME_TAGS_STATIC)
   @javax.annotation.Nullable
-  private Map<String, List<String>> tagsStatic = new HashMap<>();
+  private Map<String, List<String>> tagsStatic;
 
   public static final String SERIALIZED_NAME_TYPE_DISPLAY = "type_display";
   @SerializedName(SERIALIZED_NAME_TYPE_DISPLAY)

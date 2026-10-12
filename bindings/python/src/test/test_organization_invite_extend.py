@@ -36,19 +36,19 @@ class TestOrganizationInviteExtend(unittest.TestCase):
         model = OrganizationInviteExtend()
         if include_optional:
             return OrganizationInviteExtend(
-                email = '0',
+                email = '',
                 expires_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                inviter = '0',
+                inviter = '',
                 inviter_url = '',
                 org = '',
-                role = 'Member',
-                slug_perm = 'z0',
+                role = '',
+                slug_perm = '',
                 teams = [
                     cloudsmith_api.models.organization_team_invite.OrganizationTeamInvite(
-                        role = 'Member', 
-                        team = 'z0', )
+                        role = '', 
+                        team = '', )
                     ],
-                user = '0',
+                user = '',
                 user_url = ''
             )
         else:

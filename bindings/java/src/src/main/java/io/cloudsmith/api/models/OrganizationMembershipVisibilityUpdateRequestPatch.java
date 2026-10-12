@@ -57,7 +57,7 @@ public class OrganizationMembershipVisibilityUpdateRequestPatch implements Seria
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
   @javax.annotation.Nullable
-  private String visibility = "Public";
+  private String visibility;
 
   public OrganizationMembershipVisibilityUpdateRequestPatch() {
   }

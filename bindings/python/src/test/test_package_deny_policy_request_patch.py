@@ -39,7 +39,7 @@ class TestPackageDenyPolicyRequestPatch(unittest.TestCase):
                 description = '',
                 enabled = True,
                 name = '',
-                package_query_string = '0'
+                package_query_string = ''
             )
         else:
             return PackageDenyPolicyRequestPatch(

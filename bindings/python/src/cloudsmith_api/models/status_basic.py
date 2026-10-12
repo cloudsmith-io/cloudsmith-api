@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class StatusBasic(BaseModel):
     """
     StatusBasic
     """ # noqa: E501
-    detail: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default='Cloudsmith API is operational.', description="The message describing the state of the API.")
-    version: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default='1.0', description="The current version for the Cloudsmith service.")
+    detail: Optional[StrictStr] = Field(default=None, description="The message describing the state of the API.")
+    version: Optional[StrictStr] = Field(default=None, description="The current version for the Cloudsmith service.")
     __properties: ClassVar[List[str]] = ["detail", "version"]
 
     model_config = ConfigDict(
@@ -88,8 +87,8 @@ class StatusBasic(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "detail": obj.get("detail") if obj.get("detail") is not None else 'Cloudsmith API is operational.',
-            "version": obj.get("version") if obj.get("version") is not None else '1.0'
+            "detail": obj.get("detail"),
+            "version": obj.get("version")
         })
         return _obj
 

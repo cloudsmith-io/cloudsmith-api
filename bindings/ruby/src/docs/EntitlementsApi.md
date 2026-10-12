@@ -47,7 +47,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 opts = {
   show_tokens: true, # Boolean | Show entitlement token strings in results
-  data: CloudsmithApi::RepositoryTokenRequest.new({name: 'name_example'}) # RepositoryTokenRequest | 
+  data: CloudsmithApi::RepositoryTokenRequest.new # RepositoryTokenRequest | 
 }
 
 begin
@@ -794,7 +794,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 opts = {
   show_tokens: true, # Boolean | Show entitlement token strings in results
-  data: CloudsmithApi::RepositoryTokenSyncRequest.new({source: 'source_example'}) # RepositoryTokenSyncRequest | 
+  data: CloudsmithApi::RepositoryTokenSyncRequest.new # RepositoryTokenSyncRequest | 
 }
 
 begin
@@ -877,7 +877,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryTokenPrivateBroadcastsRequest.new({access_private_broadcasts: false}) # RepositoryTokenPrivateBroadcastsRequest | 
+  data: CloudsmithApi::RepositoryTokenPrivateBroadcastsRequest.new # RepositoryTokenPrivateBroadcastsRequest | 
 }
 
 begin

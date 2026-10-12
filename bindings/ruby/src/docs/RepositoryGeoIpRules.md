@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cidr** | [**RepositoryGeoIpCidr**](RepositoryGeoIpCidr.md) |  |  |
-| **country_code** | [**RepositoryGeoIpCountryCode**](RepositoryGeoIpCountryCode.md) |  |  |
+| **cidr** | [**RepositoryGeoIpCidr**](RepositoryGeoIpCidr.md) |  | [optional] |
+| **country_code** | [**RepositoryGeoIpCountryCode**](RepositoryGeoIpCountryCode.md) |  | [optional] |
 
 ## Example
 

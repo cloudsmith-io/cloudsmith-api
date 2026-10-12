@@ -15,4 +15,6 @@ mvn -q dependency:build-classpath -Dmdep.outputFile=target/classpath.txt
 classpath="target/classes:$(cat target/classpath.txt)"
 mkdir -p target/compat-tests
 javac -cp "$classpath" -d target/compat-tests "$self_dir"/tests/*.java
-java -cp "target/compat-tests:$classpath" ForwardCompatibilityTest
+for test_file in "$self_dir"/tests/*.java; do
+  java -cp "target/compat-tests:$classpath" "$(basename "$test_file" .java)"
+done

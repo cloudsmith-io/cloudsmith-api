@@ -36,9 +36,9 @@ class TestPackageFilePartsUpload(unittest.TestCase):
         model = PackageFilePartsUpload()
         if include_optional:
             return PackageFilePartsUpload(
-                identifier = '0',
-                upload_querystring = '0',
-                upload_url = '0'
+                identifier = '',
+                upload_querystring = '',
+                upload_url = ''
             )
         else:
             return PackageFilePartsUpload(

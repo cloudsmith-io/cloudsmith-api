@@ -9,7 +9,7 @@
 | **is_enabled** | **Boolean** | Whether this rule is currently active and enforced. | [optional] |
 | **last_applied_at** | **Time** | The last time this rule was evaluated and applied by the expiry task. | [optional][readonly] |
 | **max_age_hours** | **Integer** | The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value. | [optional] |
-| **rule_type** | **String** | Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only. |  |
+| **rule_type** | **String** | Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only. | [optional] |
 | **slug** | **String** | Human-readable identifier for the rule type. Automatically generated based on the rule type. | [optional][readonly] |
 | **slug_perm** | **String** | An auto-generated id that uniquely identifies the API key policy. | [optional][readonly] |
 | **updated_at** | **Time** |  | [optional][readonly] |

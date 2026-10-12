@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -34,32 +33,12 @@ class OrganizationApiKeyRule(BaseModel):
     enforce_refresh: Optional[StrictBool] = Field(default=None, description="When enabled, API keys that violate the organization's rule will be replaced automatically.")
     is_enabled: Optional[StrictBool] = Field(default=None, description="Whether this rule is currently active and enforced.")
     last_applied_at: Optional[datetime] = Field(default=None, description="The last time this rule was evaluated and applied by the expiry task.")
-    max_age_hours: Optional[Annotated[int, Field(le=2147483647, strict=True, ge=24)]] = Field(default=None, description="The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value.")
-    rule_type: StrictStr = Field(description="Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only.")
-    slug: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Human-readable identifier for the rule type. Automatically generated based on the rule type.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="An auto-generated id that uniquely identifies the API key policy.")
+    max_age_hours: Optional[StrictInt] = Field(default=None, description="The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value.")
+    rule_type: Optional[StrictStr] = Field(default=None, description="Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only.")
+    slug: Optional[StrictStr] = Field(default=None, description="Human-readable identifier for the rule type. Automatically generated based on the rule type.")
+    slug_perm: Optional[StrictStr] = Field(default=None, description="An auto-generated id that uniquely identifies the API key policy.")
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["created_at", "enforce_refresh", "is_enabled", "last_applied_at", "max_age_hours", "rule_type", "slug", "slug_perm", "updated_at"]
-
-    @field_validator('slug', mode="before")
-    def slug_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

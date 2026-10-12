@@ -76,8 +76,6 @@ module CloudsmithApi
 
       if attributes.key?(:'destination')
         self.destination = attributes[:'destination']
-      else
-        self.destination = nil
       end
     end
 
@@ -86,14 +84,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @destination.nil?
-        invalid_properties.push('invalid value for "destination", destination cannot be nil.')
-      end
-
-      if @destination.to_s.length < 1
-        invalid_properties.push('invalid value for "destination", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -101,23 +91,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @destination.nil?
-      return false if @destination.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] destination Value to be assigned
-    def destination=(destination)
-      if destination.nil?
-        fail ArgumentError, 'destination cannot be nil'
-      end
-
-      if destination.to_s.length < 1
-        fail ArgumentError, 'invalid value for "destination", the character length must be greater than or equal to 1.'
-      end
-
-      @destination = destination
     end
 
     # Checks equality by comparing each attribute.

@@ -36,7 +36,7 @@ class TestOrganizationInviteUpdate(unittest.TestCase):
         model = OrganizationInviteUpdate()
         if include_optional:
             return OrganizationInviteUpdate(
-                role = 'Member'
+                role = ''
             )
         else:
             return OrganizationInviteUpdate(

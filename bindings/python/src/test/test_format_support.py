@@ -43,36 +43,19 @@ class TestFormatSupport(unittest.TestCase):
                 metadata = True,
                 upstreams = cloudsmith_api.models.format_support_upstream.FormatSupportUpstream(
                     auth_modes = [
-                        'Username and Password'
+                        ''
                         ], 
                     cache_only = True, 
                     caching = True, 
                     indexing = True, 
-                    indexing_behavior = 'Unsupported', 
+                    indexing_behavior = '', 
                     proxying = True, 
-                    signature_verification = 'Unsupported', 
+                    signature_verification = '', 
                     trust = True, ),
                 versioning = True
             )
         else:
             return FormatSupport(
-                dependencies = True,
-                distributions = True,
-                file_lists = True,
-                filepaths = True,
-                metadata = True,
-                upstreams = cloudsmith_api.models.format_support_upstream.FormatSupportUpstream(
-                    auth_modes = [
-                        'Username and Password'
-                        ], 
-                    cache_only = True, 
-                    caching = True, 
-                    indexing = True, 
-                    indexing_behavior = 'Unsupported', 
-                    proxying = True, 
-                    signature_verification = 'Unsupported', 
-                    trust = True, ),
-                versioning = True,
         )
         """
 

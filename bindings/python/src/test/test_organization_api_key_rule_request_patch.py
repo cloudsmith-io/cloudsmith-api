@@ -38,7 +38,7 @@ class TestOrganizationApiKeyRuleRequestPatch(unittest.TestCase):
             return OrganizationApiKeyRuleRequestPatch(
                 enforce_refresh = True,
                 is_enabled = True,
-                max_age_hours = 24,
+                max_age_hours = 56,
                 refresh_immediately = True,
                 rule_type = ''
             )

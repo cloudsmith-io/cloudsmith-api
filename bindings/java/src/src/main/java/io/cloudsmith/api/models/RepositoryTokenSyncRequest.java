@@ -56,13 +56,13 @@ public class RepositoryTokenSyncRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String source;
 
   public RepositoryTokenSyncRequest() {
   }
 
-  public RepositoryTokenSyncRequest source(@javax.annotation.Nonnull String source) {
+  public RepositoryTokenSyncRequest source(@javax.annotation.Nullable String source) {
     this.source = source;
     return this;
   }
@@ -71,12 +71,12 @@ public class RepositoryTokenSyncRequest implements Serializable {
    * The source repository slug (in the same owner namespace).
    * @return source
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSource() {
     return source;
   }
 
-  public void setSource(@javax.annotation.Nonnull String source) {
+  public void setSource(@javax.annotation.Nullable String source) {
     this.source = source;
   }
 
@@ -125,7 +125,7 @@ public class RepositoryTokenSyncRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("source"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("source"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -148,15 +148,8 @@ public class RepositoryTokenSyncRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryTokenSyncRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryTokenSyncRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("source").isJsonPrimitive()) {
+      if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
   }

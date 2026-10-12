@@ -106,44 +106,30 @@ module CloudsmithApi
 
       if attributes.key?(:'dependencies')
         self.dependencies = attributes[:'dependencies']
-      else
-        self.dependencies = nil
       end
 
       if attributes.key?(:'distributions')
         self.distributions = attributes[:'distributions']
-      else
-        self.distributions = nil
       end
 
       if attributes.key?(:'file_lists')
         self.file_lists = attributes[:'file_lists']
-      else
-        self.file_lists = nil
       end
 
       if attributes.key?(:'filepaths')
         self.filepaths = attributes[:'filepaths']
-      else
-        self.filepaths = nil
       end
 
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
-      else
-        self.metadata = nil
       end
 
       if attributes.key?(:'upstreams')
         self.upstreams = attributes[:'upstreams']
-      else
-        self.upstreams = nil
       end
 
       if attributes.key?(:'versioning')
         self.versioning = attributes[:'versioning']
-      else
-        self.versioning = nil
       end
     end
 
@@ -152,34 +138,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @dependencies.nil?
-        invalid_properties.push('invalid value for "dependencies", dependencies cannot be nil.')
-      end
-
-      if @distributions.nil?
-        invalid_properties.push('invalid value for "distributions", distributions cannot be nil.')
-      end
-
-      if @file_lists.nil?
-        invalid_properties.push('invalid value for "file_lists", file_lists cannot be nil.')
-      end
-
-      if @filepaths.nil?
-        invalid_properties.push('invalid value for "filepaths", filepaths cannot be nil.')
-      end
-
-      if @metadata.nil?
-        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
-      end
-
-      if @upstreams.nil?
-        invalid_properties.push('invalid value for "upstreams", upstreams cannot be nil.')
-      end
-
-      if @versioning.nil?
-        invalid_properties.push('invalid value for "versioning", versioning cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -187,84 +145,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @dependencies.nil?
-      return false if @distributions.nil?
-      return false if @file_lists.nil?
-      return false if @filepaths.nil?
-      return false if @metadata.nil?
-      return false if @upstreams.nil?
-      return false if @versioning.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] dependencies Value to be assigned
-    def dependencies=(dependencies)
-      if dependencies.nil?
-        fail ArgumentError, 'dependencies cannot be nil'
-      end
-
-      @dependencies = dependencies
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] distributions Value to be assigned
-    def distributions=(distributions)
-      if distributions.nil?
-        fail ArgumentError, 'distributions cannot be nil'
-      end
-
-      @distributions = distributions
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] file_lists Value to be assigned
-    def file_lists=(file_lists)
-      if file_lists.nil?
-        fail ArgumentError, 'file_lists cannot be nil'
-      end
-
-      @file_lists = file_lists
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] filepaths Value to be assigned
-    def filepaths=(filepaths)
-      if filepaths.nil?
-        fail ArgumentError, 'filepaths cannot be nil'
-      end
-
-      @filepaths = filepaths
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] metadata Value to be assigned
-    def metadata=(metadata)
-      if metadata.nil?
-        fail ArgumentError, 'metadata cannot be nil'
-      end
-
-      @metadata = metadata
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] upstreams Value to be assigned
-    def upstreams=(upstreams)
-      if upstreams.nil?
-        fail ArgumentError, 'upstreams cannot be nil'
-      end
-
-      @upstreams = upstreams
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] versioning Value to be assigned
-    def versioning=(versioning)
-      if versioning.nil?
-        fail ArgumentError, 'versioning cannot be nil'
-      end
-
-      @versioning = versioning
     end
 
     # Checks equality by comparing each attribute.

@@ -57,43 +57,43 @@ public class FormatSupport implements Serializable {
 
   public static final String SERIALIZED_NAME_DEPENDENCIES = "dependencies";
   @SerializedName(SERIALIZED_NAME_DEPENDENCIES)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean dependencies;
 
   public static final String SERIALIZED_NAME_DISTRIBUTIONS = "distributions";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTIONS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean distributions;
 
   public static final String SERIALIZED_NAME_FILE_LISTS = "file_lists";
   @SerializedName(SERIALIZED_NAME_FILE_LISTS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean fileLists;
 
   public static final String SERIALIZED_NAME_FILEPATHS = "filepaths";
   @SerializedName(SERIALIZED_NAME_FILEPATHS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean filepaths;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean metadata;
 
   public static final String SERIALIZED_NAME_UPSTREAMS = "upstreams";
   @SerializedName(SERIALIZED_NAME_UPSTREAMS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private FormatSupportUpstream upstreams;
 
   public static final String SERIALIZED_NAME_VERSIONING = "versioning";
   @SerializedName(SERIALIZED_NAME_VERSIONING)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean versioning;
 
   public FormatSupport() {
   }
 
-  public FormatSupport dependencies(@javax.annotation.Nonnull Boolean dependencies) {
+  public FormatSupport dependencies(@javax.annotation.Nullable Boolean dependencies) {
     this.dependencies = dependencies;
     return this;
   }
@@ -102,17 +102,17 @@ public class FormatSupport implements Serializable {
    * If true the package format supports dependencies
    * @return dependencies
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getDependencies() {
     return dependencies;
   }
 
-  public void setDependencies(@javax.annotation.Nonnull Boolean dependencies) {
+  public void setDependencies(@javax.annotation.Nullable Boolean dependencies) {
     this.dependencies = dependencies;
   }
 
 
-  public FormatSupport distributions(@javax.annotation.Nonnull Boolean distributions) {
+  public FormatSupport distributions(@javax.annotation.Nullable Boolean distributions) {
     this.distributions = distributions;
     return this;
   }
@@ -121,17 +121,17 @@ public class FormatSupport implements Serializable {
    * If true the package format supports distributions
    * @return distributions
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getDistributions() {
     return distributions;
   }
 
-  public void setDistributions(@javax.annotation.Nonnull Boolean distributions) {
+  public void setDistributions(@javax.annotation.Nullable Boolean distributions) {
     this.distributions = distributions;
   }
 
 
-  public FormatSupport fileLists(@javax.annotation.Nonnull Boolean fileLists) {
+  public FormatSupport fileLists(@javax.annotation.Nullable Boolean fileLists) {
     this.fileLists = fileLists;
     return this;
   }
@@ -140,17 +140,17 @@ public class FormatSupport implements Serializable {
    * If true the package format supports file lists
    * @return fileLists
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getFileLists() {
     return fileLists;
   }
 
-  public void setFileLists(@javax.annotation.Nonnull Boolean fileLists) {
+  public void setFileLists(@javax.annotation.Nullable Boolean fileLists) {
     this.fileLists = fileLists;
   }
 
 
-  public FormatSupport filepaths(@javax.annotation.Nonnull Boolean filepaths) {
+  public FormatSupport filepaths(@javax.annotation.Nullable Boolean filepaths) {
     this.filepaths = filepaths;
     return this;
   }
@@ -159,17 +159,17 @@ public class FormatSupport implements Serializable {
    * If true the package format supports filepaths
    * @return filepaths
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getFilepaths() {
     return filepaths;
   }
 
-  public void setFilepaths(@javax.annotation.Nonnull Boolean filepaths) {
+  public void setFilepaths(@javax.annotation.Nullable Boolean filepaths) {
     this.filepaths = filepaths;
   }
 
 
-  public FormatSupport metadata(@javax.annotation.Nonnull Boolean metadata) {
+  public FormatSupport metadata(@javax.annotation.Nullable Boolean metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -178,17 +178,17 @@ public class FormatSupport implements Serializable {
    * If true the package format supports metadata
    * @return metadata
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(@javax.annotation.Nonnull Boolean metadata) {
+  public void setMetadata(@javax.annotation.Nullable Boolean metadata) {
     this.metadata = metadata;
   }
 
 
-  public FormatSupport upstreams(@javax.annotation.Nonnull FormatSupportUpstream upstreams) {
+  public FormatSupport upstreams(@javax.annotation.Nullable FormatSupportUpstream upstreams) {
     this.upstreams = upstreams;
     return this;
   }
@@ -197,17 +197,17 @@ public class FormatSupport implements Serializable {
    * Get upstreams
    * @return upstreams
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public FormatSupportUpstream getUpstreams() {
     return upstreams;
   }
 
-  public void setUpstreams(@javax.annotation.Nonnull FormatSupportUpstream upstreams) {
+  public void setUpstreams(@javax.annotation.Nullable FormatSupportUpstream upstreams) {
     this.upstreams = upstreams;
   }
 
 
-  public FormatSupport versioning(@javax.annotation.Nonnull Boolean versioning) {
+  public FormatSupport versioning(@javax.annotation.Nullable Boolean versioning) {
     this.versioning = versioning;
     return this;
   }
@@ -216,12 +216,12 @@ public class FormatSupport implements Serializable {
    * If true the package format supports versioning
    * @return versioning
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getVersioning() {
     return versioning;
   }
 
-  public void setVersioning(@javax.annotation.Nonnull Boolean versioning) {
+  public void setVersioning(@javax.annotation.Nullable Boolean versioning) {
     this.versioning = versioning;
   }
 
@@ -282,7 +282,7 @@ public class FormatSupport implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("dependencies", "distributions", "file_lists", "filepaths", "metadata", "upstreams", "versioning"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("dependencies", "distributions", "file_lists", "filepaths", "metadata", "upstreams", "versioning"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -305,16 +305,11 @@ public class FormatSupport implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FormatSupport` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FormatSupport.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `upstreams`
-      FormatSupportUpstream.validateJsonElement(jsonObj.get("upstreams"));
+      // validate the optional field `upstreams`
+      if (jsonObj.get("upstreams") != null && !jsonObj.get("upstreams").isJsonNull()) {
+        FormatSupportUpstream.validateJsonElement(jsonObj.get("upstreams"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

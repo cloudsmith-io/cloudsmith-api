@@ -57,17 +57,17 @@ public class VagrantPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String provider;
 
   public static final String SERIALIZED_NAME_REPUBLISH = "republish";
@@ -82,13 +82,13 @@ public class VagrantPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String version;
 
   public VagrantPackageUploadRequest() {
   }
 
-  public VagrantPackageUploadRequest name(@javax.annotation.Nonnull String name) {
+  public VagrantPackageUploadRequest name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
@@ -97,17 +97,17 @@ public class VagrantPackageUploadRequest implements Serializable {
    * The name of this package.
    * @return name
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
 
-  public VagrantPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public VagrantPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -116,17 +116,17 @@ public class VagrantPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
 
-  public VagrantPackageUploadRequest provider(@javax.annotation.Nonnull String provider) {
+  public VagrantPackageUploadRequest provider(@javax.annotation.Nullable String provider) {
     this.provider = provider;
     return this;
   }
@@ -135,12 +135,12 @@ public class VagrantPackageUploadRequest implements Serializable {
    * The virtual machine provider for the box.
    * @return provider
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getProvider() {
     return provider;
   }
 
-  public void setProvider(@javax.annotation.Nonnull String provider) {
+  public void setProvider(@javax.annotation.Nullable String provider) {
     this.provider = provider;
   }
 
@@ -183,7 +183,7 @@ public class VagrantPackageUploadRequest implements Serializable {
   }
 
 
-  public VagrantPackageUploadRequest version(@javax.annotation.Nonnull String version) {
+  public VagrantPackageUploadRequest version(@javax.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
@@ -192,12 +192,12 @@ public class VagrantPackageUploadRequest implements Serializable {
    * The raw version for this package.
    * @return version
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(@javax.annotation.Nonnull String version) {
+  public void setVersion(@javax.annotation.Nullable String version) {
     this.version = version;
   }
 
@@ -267,7 +267,7 @@ public class VagrantPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("name", "package_file", "provider", "republish", "tags", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "package_file", "provider", "version"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -290,27 +290,20 @@ public class VagrantPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VagrantPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : VagrantPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
-      if (!jsonObj.get("provider").isJsonPrimitive()) {
+      if ((jsonObj.get("provider") != null && !jsonObj.get("provider").isJsonNull()) && !jsonObj.get("provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provider").toString()));
       }
       if ((jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) && !jsonObj.get("tags").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
-      if (!jsonObj.get("version").isJsonPrimitive()) {
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
   }

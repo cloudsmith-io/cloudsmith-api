@@ -36,15 +36,13 @@ class TestAlpinePackageUploadRequest(unittest.TestCase):
         model = AlpinePackageUploadRequest()
         if include_optional:
             return AlpinePackageUploadRequest(
-                distribution = '0',
-                package_file = '0',
+                distribution = '',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return AlpinePackageUploadRequest(
-                distribution = '0',
-                package_file = '0',
         )
         """
 

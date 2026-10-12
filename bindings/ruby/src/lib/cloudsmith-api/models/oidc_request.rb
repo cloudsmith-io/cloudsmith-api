@@ -81,14 +81,10 @@ module CloudsmithApi
 
       if attributes.key?(:'oidc_token')
         self.oidc_token = attributes[:'oidc_token']
-      else
-        self.oidc_token = nil
       end
 
       if attributes.key?(:'service_slug')
         self.service_slug = attributes[:'service_slug']
-      else
-        self.service_slug = nil
       end
     end
 
@@ -97,22 +93,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @oidc_token.nil?
-        invalid_properties.push('invalid value for "oidc_token", oidc_token cannot be nil.')
-      end
-
-      if @oidc_token.to_s.length < 1
-        invalid_properties.push('invalid value for "oidc_token", the character length must be greater than or equal to 1.')
-      end
-
-      if @service_slug.nil?
-        invalid_properties.push('invalid value for "service_slug", service_slug cannot be nil.')
-      end
-
-      if @service_slug.to_s.length < 1
-        invalid_properties.push('invalid value for "service_slug", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -120,39 +100,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @oidc_token.nil?
-      return false if @oidc_token.to_s.length < 1
-      return false if @service_slug.nil?
-      return false if @service_slug.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] oidc_token Value to be assigned
-    def oidc_token=(oidc_token)
-      if oidc_token.nil?
-        fail ArgumentError, 'oidc_token cannot be nil'
-      end
-
-      if oidc_token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "oidc_token", the character length must be greater than or equal to 1.'
-      end
-
-      @oidc_token = oidc_token
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] service_slug Value to be assigned
-    def service_slug=(service_slug)
-      if service_slug.nil?
-        fail ArgumentError, 'service_slug cannot be nil'
-      end
-
-      if service_slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "service_slug", the character length must be greater than or equal to 1.'
-      end
-
-      @service_slug = service_slug
     end
 
     # Checks equality by comparing each attribute.

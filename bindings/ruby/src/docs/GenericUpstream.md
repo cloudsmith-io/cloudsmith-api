@@ -4,13 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **auth_mode** | **String** | The authentication mode to use when accessing this upstream.  | [optional][default to &#39;None&#39;] |
+| **auth_mode** | **String** | The authentication mode to use when accessing this upstream.  | [optional] |
 | **auth_secret** | **String** | Secret to provide with requests to upstream. | [optional] |
 | **auth_username** | **String** | Username to provide with requests to upstream. | [optional] |
 | **available** | **Boolean** | Whether the upstream is available for use. | [optional][readonly] |
 | **can_reindex** | **Boolean** | Whether the upstream can be reindexed. | [optional][readonly] |
 | **created_at** | **Time** | The datetime the upstream source was created. | [optional][readonly] |
-| **disable_reason** | **String** |  | [optional][readonly][default to &#39;N/A&#39;] |
+| **disable_reason** | **String** |  | [optional][readonly] |
 | **disable_reason_text** | **String** | Human-readable explanation of why this upstream is disabled | [optional][readonly] |
 | **extra_header_1** | **String** | The key for extra header #1 to send to upstream. | [optional] |
 | **extra_header_2** | **String** | The key for extra header #2 to send to upstream. | [optional] |
@@ -21,14 +21,14 @@
 | **index_status** | **String** | The current indexing status of this upstream source | [optional][readonly] |
 | **is_active** | **Boolean** | Whether or not this upstream is active and ready for requests. | [optional] |
 | **last_indexed** | **String** | The last time this upstream source was indexed | [optional][readonly] |
-| **mode** | **String** | The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode. | [optional][default to &#39;Proxy Only&#39;] |
-| **name** | **String** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. |  |
+| **mode** | **String** | The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode. | [optional] |
+| **name** | **String** | A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream. | [optional] |
 | **pending_validation** | **Boolean** | When true, this upstream source is pending validation. | [optional][readonly] |
 | **priority** | **Integer** | Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date. | [optional] |
 | **slug_perm** | **String** |  | [optional][readonly] |
 | **updated_at** | **Time** |  | [optional][readonly] |
 | **upstream_prefix** | **String** | A unique prefix used to distinguish this upstream source within the repository. Generic upstreams can represent entirely different file servers, and we do not attempt to blend them. The prefix ensures each source remains separate, and requests including this prefix are routed to the correct upstream. | [optional] |
-| **upstream_url** | **String** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  |  |
+| **upstream_url** | **String** | The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository.  | [optional] |
 | **verify_ssl** | **Boolean** | If enabled, SSL certificates are verified when requests are made to this upstream. It&#39;s recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams. | [optional] |
 
 ## Example

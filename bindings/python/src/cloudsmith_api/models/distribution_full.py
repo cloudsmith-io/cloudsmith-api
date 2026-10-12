@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.distribution_version import DistributionVersion
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,12 +29,12 @@ class DistributionFull(BaseModel):
     """
     DistributionFull
     """ # noqa: E501
-    format: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    format: Optional[StrictStr] = None
     format_url: Optional[StrictStr] = None
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=32)]
+    name: Optional[StrictStr] = None
     self_url: Optional[StrictStr] = None
-    slug: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug identifier for this distribution")
-    variants: Optional[Annotated[str, Field(strict=True, max_length=128)]] = None
+    slug: Optional[StrictStr] = Field(default=None, description="The slug identifier for this distribution")
+    variants: Optional[StrictStr] = None
     versions: Optional[List[DistributionVersion]] = Field(default=None, description="A list of the versions for this distribution")
     __properties: ClassVar[List[str]] = ["format", "format_url", "name", "self_url", "slug", "variants", "versions"]
 

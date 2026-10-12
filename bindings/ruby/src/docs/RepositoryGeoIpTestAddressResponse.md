@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **addresses** | [**Array&lt;RepositoryGeoIpTestAddressResponseDict&gt;**](RepositoryGeoIpTestAddressResponseDict.md) | The IP address test results ordered by allowed |  |
+| **addresses** | [**Array&lt;RepositoryGeoIpTestAddressResponseDict&gt;**](RepositoryGeoIpTestAddressResponseDict.md) | The IP address test results ordered by allowed | [optional] |
 
 ## Example
 

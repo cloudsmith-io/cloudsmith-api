@@ -6,7 +6,7 @@ The distributions supported by this package format
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **self_url** | **str** |  | [optional] [readonly] 
 **slug** | **str** | The slug identifier for this distribution | [optional] [readonly] 
 **variants** | **str** |  | [optional] 

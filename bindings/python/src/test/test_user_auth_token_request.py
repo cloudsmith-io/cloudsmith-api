@@ -36,9 +36,9 @@ class TestUserAuthTokenRequest(unittest.TestCase):
         model = UserAuthTokenRequest()
         if include_optional:
             return UserAuthTokenRequest(
-                email = '0',
-                password = '0',
-                totp_token = '0'
+                email = '',
+                password = '',
+                totp_token = ''
             )
         else:
             return UserAuthTokenRequest(

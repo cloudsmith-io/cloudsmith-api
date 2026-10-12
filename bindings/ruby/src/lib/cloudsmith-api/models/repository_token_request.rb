@@ -164,8 +164,6 @@ module CloudsmithApi
 
       if attributes.key?(:'limit_bandwidth_unit')
         self.limit_bandwidth_unit = attributes[:'limit_bandwidth_unit']
-      else
-        self.limit_bandwidth_unit = 'Byte'
       end
 
       if attributes.key?(:'limit_date_range_from')
@@ -198,8 +196,6 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'scheduled_reset_at')
@@ -208,8 +204,6 @@ module CloudsmithApi
 
       if attributes.key?(:'scheduled_reset_period')
         self.scheduled_reset_period = attributes[:'scheduled_reset_period']
-      else
-        self.scheduled_reset_period = 'Never Reset'
       end
 
       if attributes.key?(:'token')
@@ -222,50 +216,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
-        invalid_properties.push('invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.')
-      end
-
-      if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
-        invalid_properties.push('invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.')
-      end
-
-      if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
-        invalid_properties.push('invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.')
-      end
-
-      if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
-        invalid_properties.push('invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.')
-      end
-
-      if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
-        invalid_properties.push('invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.')
-      end
-
-      if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
-        invalid_properties.push('invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.')
-      end
-
-      if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
-        invalid_properties.push('invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
-        invalid_properties.push('invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@token.nil? && @token.to_s.length < 1
-        invalid_properties.push('invalid value for "token", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -273,108 +223,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@limit_bandwidth.nil? && @limit_bandwidth > 9223372036854775807
-      return false if !@limit_bandwidth.nil? && @limit_bandwidth < -9223372036854775808
-      return false if !@limit_num_clients.nil? && @limit_num_clients > 9223372036854775807
-      return false if !@limit_num_clients.nil? && @limit_num_clients < -9223372036854775808
-      return false if !@limit_num_downloads.nil? && @limit_num_downloads > 9223372036854775807
-      return false if !@limit_num_downloads.nil? && @limit_num_downloads < -9223372036854775808
-      return false if !@limit_package_query.nil? && @limit_package_query.to_s.length > 1024
-      return false if !@limit_path_query.nil? && @limit_path_query.to_s.length > 1024
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
-      return false if !@token.nil? && @token.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_bandwidth Value to be assigned
-    def limit_bandwidth=(limit_bandwidth)
-      if !limit_bandwidth.nil? && limit_bandwidth > 9223372036854775807
-        fail ArgumentError, 'invalid value for "limit_bandwidth", must be smaller than or equal to 9223372036854775807.'
-      end
-
-      if !limit_bandwidth.nil? && limit_bandwidth < -9223372036854775808
-        fail ArgumentError, 'invalid value for "limit_bandwidth", must be greater than or equal to -9223372036854775808.'
-      end
-
-      @limit_bandwidth = limit_bandwidth
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_num_clients Value to be assigned
-    def limit_num_clients=(limit_num_clients)
-      if !limit_num_clients.nil? && limit_num_clients > 9223372036854775807
-        fail ArgumentError, 'invalid value for "limit_num_clients", must be smaller than or equal to 9223372036854775807.'
-      end
-
-      if !limit_num_clients.nil? && limit_num_clients < -9223372036854775808
-        fail ArgumentError, 'invalid value for "limit_num_clients", must be greater than or equal to -9223372036854775808.'
-      end
-
-      @limit_num_clients = limit_num_clients
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_num_downloads Value to be assigned
-    def limit_num_downloads=(limit_num_downloads)
-      if !limit_num_downloads.nil? && limit_num_downloads > 9223372036854775807
-        fail ArgumentError, 'invalid value for "limit_num_downloads", must be smaller than or equal to 9223372036854775807.'
-      end
-
-      if !limit_num_downloads.nil? && limit_num_downloads < -9223372036854775808
-        fail ArgumentError, 'invalid value for "limit_num_downloads", must be greater than or equal to -9223372036854775808.'
-      end
-
-      @limit_num_downloads = limit_num_downloads
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_package_query Value to be assigned
-    def limit_package_query=(limit_package_query)
-      if !limit_package_query.nil? && limit_package_query.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "limit_package_query", the character length must be smaller than or equal to 1024.'
-      end
-
-      @limit_package_query = limit_package_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] limit_path_query Value to be assigned
-    def limit_path_query=(limit_path_query)
-      if !limit_path_query.nil? && limit_path_query.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "limit_path_query", the character length must be smaller than or equal to 1024.'
-      end
-
-      @limit_path_query = limit_path_query
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] token Value to be assigned
-    def token=(token)
-      if token.nil?
-        fail ArgumentError, 'token cannot be nil'
-      end
-
-      if token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "token", the character length must be greater than or equal to 1.'
-      end
-
-      @token = token
     end
 
     # Checks equality by comparing each attribute.

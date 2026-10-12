@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **company** | **str** |  | [optional] 
-**first_name** | **str** |  | 
+**first_name** | **str** |  | [optional] 
 **job_title** | **str** |  | [optional] 
 **joined_at** | **datetime** |  | [optional] 
-**last_name** | **str** |  | 
+**last_name** | **str** |  | [optional] 
 **name** | **str** |  | [optional] [readonly] 
 **slug** | **str** |  | [optional] [readonly] 
 **slug_perm** | **str** |  | [optional] [readonly] 

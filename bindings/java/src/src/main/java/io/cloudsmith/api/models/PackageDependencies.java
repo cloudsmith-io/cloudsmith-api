@@ -59,13 +59,13 @@ public class PackageDependencies implements Serializable {
 
   public static final String SERIALIZED_NAME_DEPENDENCIES = "dependencies";
   @SerializedName(SERIALIZED_NAME_DEPENDENCIES)
-  @javax.annotation.Nonnull
-  private List<PackageDependency> dependencies = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<PackageDependency> dependencies;
 
   public PackageDependencies() {
   }
 
-  public PackageDependencies dependencies(@javax.annotation.Nonnull List<PackageDependency> dependencies) {
+  public PackageDependencies dependencies(@javax.annotation.Nullable List<PackageDependency> dependencies) {
     this.dependencies = dependencies;
     return this;
   }
@@ -82,12 +82,12 @@ public class PackageDependencies implements Serializable {
    * Get dependencies
    * @return dependencies
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<PackageDependency> getDependencies() {
     return dependencies;
   }
 
-  public void setDependencies(@javax.annotation.Nonnull List<PackageDependency> dependencies) {
+  public void setDependencies(@javax.annotation.Nullable List<PackageDependency> dependencies) {
     this.dependencies = dependencies;
   }
 
@@ -136,7 +136,7 @@ public class PackageDependencies implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("dependencies"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("dependencies"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -159,22 +159,19 @@ public class PackageDependencies implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageDependencies` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageDependencies.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("dependencies") != null) {
-        if (!jsonObj.get("dependencies").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dependencies` to be an array in the JSON string but got `%s`", jsonObj.get("dependencies").toString()));
-        }
+      if (jsonObj.get("dependencies") != null && !jsonObj.get("dependencies").isJsonNull()) {
         JsonArray jsonArraydependencies = jsonObj.getAsJsonArray("dependencies");
-        // validate the required field `dependencies` (array)
-        for (int i = 0; i < jsonArraydependencies.size(); i++) {
-          PackageDependency.validateJsonElement(jsonArraydependencies.get(i));
+        if (jsonArraydependencies != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("dependencies").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dependencies` to be an array in the JSON string but got `%s`", jsonObj.get("dependencies").toString()));
+          }
+
+          // validate the optional field `dependencies` (array)
+          for (int i = 0; i < jsonArraydependencies.size(); i++) {
+            PackageDependency.validateJsonElement(jsonArraydependencies.get(i));
+          };
         }
       }
   }

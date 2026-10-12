@@ -63,12 +63,12 @@ public class CommonMetrics implements Serializable {
 
   public static final String SERIALIZED_NAME_BANDWIDTH = "bandwidth";
   @SerializedName(SERIALIZED_NAME_BANDWIDTH)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonBandwidthMetrics bandwidth;
 
   public static final String SERIALIZED_NAME_DOWNLOADS = "downloads";
   @SerializedName(SERIALIZED_NAME_DOWNLOADS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonDownloadsMetrics downloads;
 
   public static final String SERIALIZED_NAME_INACTIVE = "inactive";
@@ -103,7 +103,7 @@ public class CommonMetrics implements Serializable {
   }
 
 
-  public CommonMetrics bandwidth(@javax.annotation.Nonnull CommonBandwidthMetrics bandwidth) {
+  public CommonMetrics bandwidth(@javax.annotation.Nullable CommonBandwidthMetrics bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -112,17 +112,17 @@ public class CommonMetrics implements Serializable {
    * Get bandwidth
    * @return bandwidth
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonBandwidthMetrics getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(@javax.annotation.Nonnull CommonBandwidthMetrics bandwidth) {
+  public void setBandwidth(@javax.annotation.Nullable CommonBandwidthMetrics bandwidth) {
     this.bandwidth = bandwidth;
   }
 
 
-  public CommonMetrics downloads(@javax.annotation.Nonnull CommonDownloadsMetrics downloads) {
+  public CommonMetrics downloads(@javax.annotation.Nullable CommonDownloadsMetrics downloads) {
     this.downloads = downloads;
     return this;
   }
@@ -131,12 +131,12 @@ public class CommonMetrics implements Serializable {
    * Get downloads
    * @return downloads
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonDownloadsMetrics getDownloads() {
     return downloads;
   }
 
-  public void setDownloads(@javax.annotation.Nonnull CommonDownloadsMetrics downloads) {
+  public void setDownloads(@javax.annotation.Nullable CommonDownloadsMetrics downloads) {
     this.downloads = downloads;
   }
 
@@ -231,7 +231,7 @@ public class CommonMetrics implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("active", "bandwidth", "downloads", "inactive", "total"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("bandwidth", "downloads"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -254,18 +254,15 @@ public class CommonMetrics implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CommonMetrics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CommonMetrics.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `bandwidth`
-      CommonBandwidthMetrics.validateJsonElement(jsonObj.get("bandwidth"));
-      // validate the required field `downloads`
-      CommonDownloadsMetrics.validateJsonElement(jsonObj.get("downloads"));
+      // validate the optional field `bandwidth`
+      if (jsonObj.get("bandwidth") != null && !jsonObj.get("bandwidth").isJsonNull()) {
+        CommonBandwidthMetrics.validateJsonElement(jsonObj.get("bandwidth"));
+      }
+      // validate the optional field `downloads`
+      if (jsonObj.get("downloads") != null && !jsonObj.get("downloads").isJsonNull()) {
+        CommonDownloadsMetrics.validateJsonElement(jsonObj.get("downloads"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

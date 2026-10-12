@@ -81,8 +81,6 @@ module CloudsmithApi
 
       if attributes.key?(:'entitlement_token')
         self.entitlement_token = attributes[:'entitlement_token']
-      else
-        self.entitlement_token = nil
       end
 
       if attributes.key?(:'expires_in')
@@ -95,18 +93,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @entitlement_token.nil?
-        invalid_properties.push('invalid value for "entitlement_token", entitlement_token cannot be nil.')
-      end
-
-      if @entitlement_token.to_s.length < 1
-        invalid_properties.push('invalid value for "entitlement_token", the character length must be greater than or equal to 1.')
-      end
-
-      if !@expires_in.nil? && @expires_in < 1
-        invalid_properties.push('invalid value for "expires_in", must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -114,38 +100,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @entitlement_token.nil?
-      return false if @entitlement_token.to_s.length < 1
-      return false if !@expires_in.nil? && @expires_in < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] entitlement_token Value to be assigned
-    def entitlement_token=(entitlement_token)
-      if entitlement_token.nil?
-        fail ArgumentError, 'entitlement_token cannot be nil'
-      end
-
-      if entitlement_token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "entitlement_token", the character length must be greater than or equal to 1.'
-      end
-
-      @entitlement_token = entitlement_token
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] expires_in Value to be assigned
-    def expires_in=(expires_in)
-      if expires_in.nil?
-        fail ArgumentError, 'expires_in cannot be nil'
-      end
-
-      if expires_in < 1
-        fail ArgumentError, 'invalid value for "expires_in", must be greater than or equal to 1.'
-      end
-
-      @expires_in = expires_in
     end
 
     # Checks equality by comparing each attribute.

@@ -36,13 +36,11 @@ class TestStorageRegion(unittest.TestCase):
         model = StorageRegion()
         if include_optional:
             return StorageRegion(
-                label = '0',
-                slug = '0'
+                label = '',
+                slug = ''
             )
         else:
             return StorageRegion(
-                label = '0',
-                slug = '0',
         )
         """
 

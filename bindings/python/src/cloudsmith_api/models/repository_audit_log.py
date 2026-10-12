@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from uuid import UUID
 from cloudsmith_api.models.geo_ip_location import GeoIpLocation
 from typing import Optional, Set
@@ -32,18 +31,18 @@ class RepositoryAuditLog(BaseModel):
     """
     RepositoryAuditLog
     """ # noqa: E501
-    actor: Optional[Annotated[str, Field(min_length=1, strict=True)]]
-    actor_ip_address: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    actor: Optional[StrictStr] = None
+    actor_ip_address: Optional[StrictStr] = None
     actor_kind: Optional[StrictStr] = None
-    actor_location: GeoIpLocation
-    actor_slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    actor_location: Optional[GeoIpLocation] = None
+    actor_slug_perm: Optional[StrictStr] = None
     actor_url: Optional[StrictStr] = None
-    context: Annotated[str, Field(min_length=1, strict=True)]
-    event: Annotated[str, Field(min_length=1, strict=True)]
-    event_at: datetime
-    object: Annotated[str, Field(min_length=1, strict=True)]
-    object_kind: Annotated[str, Field(min_length=1, strict=True)]
-    object_slug_perm: Annotated[str, Field(min_length=1, strict=True)]
+    context: Optional[StrictStr] = None
+    event: Optional[StrictStr] = None
+    event_at: Optional[datetime] = None
+    object: Optional[StrictStr] = None
+    object_kind: Optional[StrictStr] = None
+    object_slug_perm: Optional[StrictStr] = None
     uuid: Optional[UUID] = None
     __properties: ClassVar[List[str]] = ["actor", "actor_ip_address", "actor_kind", "actor_location", "actor_slug_perm", "actor_url", "context", "event", "event_at", "object", "object_kind", "object_slug_perm", "uuid"]
 

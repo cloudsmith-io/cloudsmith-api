@@ -37,26 +37,18 @@ class TestFormatSupportUpstream(unittest.TestCase):
         if include_optional:
             return FormatSupportUpstream(
                 auth_modes = [
-                    'Username and Password'
+                    ''
                     ],
                 cache_only = True,
                 caching = True,
                 indexing = True,
-                indexing_behavior = 'Unsupported',
+                indexing_behavior = '',
                 proxying = True,
-                signature_verification = 'Unsupported',
+                signature_verification = '',
                 trust = True
             )
         else:
             return FormatSupportUpstream(
-                auth_modes = [
-                    'Username and Password'
-                    ],
-                cache_only = True,
-                caching = True,
-                indexing = True,
-                proxying = True,
-                trust = True,
         )
         """
 

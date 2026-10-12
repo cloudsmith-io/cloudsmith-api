@@ -21,7 +21,6 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,10 +29,10 @@ class Organization(BaseModel):
     """
     Organization
     """ # noqa: E501
-    country: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=32)]] = None
+    country: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     location: Optional[StrictStr] = Field(default=None, description="The city/town/area your organization is based in.")
-    name: Annotated[str, Field(min_length=1, strict=True)]
+    name: Optional[StrictStr] = None
     slug: Optional[StrictStr] = None
     slug_perm: Optional[StrictStr] = None
     tagline: Optional[StrictStr] = Field(default=None, description="A short public descriptive for your organization.")

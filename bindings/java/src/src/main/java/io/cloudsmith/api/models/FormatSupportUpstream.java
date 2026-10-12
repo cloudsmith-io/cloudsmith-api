@@ -58,48 +58,48 @@ public class FormatSupportUpstream implements Serializable {
 
   public static final String SERIALIZED_NAME_AUTH_MODES = "auth_modes";
   @SerializedName(SERIALIZED_NAME_AUTH_MODES)
-  @javax.annotation.Nonnull
-  private List<String> authModes = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<String> authModes;
 
   public static final String SERIALIZED_NAME_CACHE_ONLY = "cache_only";
   @SerializedName(SERIALIZED_NAME_CACHE_ONLY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean cacheOnly;
 
   public static final String SERIALIZED_NAME_CACHING = "caching";
   @SerializedName(SERIALIZED_NAME_CACHING)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean caching;
 
   public static final String SERIALIZED_NAME_INDEXING = "indexing";
   @SerializedName(SERIALIZED_NAME_INDEXING)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean indexing;
 
   public static final String SERIALIZED_NAME_INDEXING_BEHAVIOR = "indexing_behavior";
   @SerializedName(SERIALIZED_NAME_INDEXING_BEHAVIOR)
   @javax.annotation.Nullable
-  private String indexingBehavior = "Unsupported";
+  private String indexingBehavior;
 
   public static final String SERIALIZED_NAME_PROXYING = "proxying";
   @SerializedName(SERIALIZED_NAME_PROXYING)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean proxying;
 
   public static final String SERIALIZED_NAME_SIGNATURE_VERIFICATION = "signature_verification";
   @SerializedName(SERIALIZED_NAME_SIGNATURE_VERIFICATION)
   @javax.annotation.Nullable
-  private String signatureVerification = "Unsupported";
+  private String signatureVerification;
 
   public static final String SERIALIZED_NAME_TRUST = "trust";
   @SerializedName(SERIALIZED_NAME_TRUST)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean trust;
 
   public FormatSupportUpstream() {
   }
 
-  public FormatSupportUpstream authModes(@javax.annotation.Nonnull List<String> authModes) {
+  public FormatSupportUpstream authModes(@javax.annotation.Nullable List<String> authModes) {
     this.authModes = authModes;
     return this;
   }
@@ -116,17 +116,17 @@ public class FormatSupportUpstream implements Serializable {
    * The authentication modes supported by the upstream format
    * @return authModes
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<String> getAuthModes() {
     return authModes;
   }
 
-  public void setAuthModes(@javax.annotation.Nonnull List<String> authModes) {
+  public void setAuthModes(@javax.annotation.Nullable List<String> authModes) {
     this.authModes = authModes;
   }
 
 
-  public FormatSupportUpstream cacheOnly(@javax.annotation.Nonnull Boolean cacheOnly) {
+  public FormatSupportUpstream cacheOnly(@javax.annotation.Nullable Boolean cacheOnly) {
     this.cacheOnly = cacheOnly;
     return this;
   }
@@ -135,17 +135,17 @@ public class FormatSupportUpstream implements Serializable {
    * If true the upstream format supports cache-only mode.
    * @return cacheOnly
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getCacheOnly() {
     return cacheOnly;
   }
 
-  public void setCacheOnly(@javax.annotation.Nonnull Boolean cacheOnly) {
+  public void setCacheOnly(@javax.annotation.Nullable Boolean cacheOnly) {
     this.cacheOnly = cacheOnly;
   }
 
 
-  public FormatSupportUpstream caching(@javax.annotation.Nonnull Boolean caching) {
+  public FormatSupportUpstream caching(@javax.annotation.Nullable Boolean caching) {
     this.caching = caching;
     return this;
   }
@@ -154,17 +154,17 @@ public class FormatSupportUpstream implements Serializable {
    * If true the upstream format supports caching
    * @return caching
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getCaching() {
     return caching;
   }
 
-  public void setCaching(@javax.annotation.Nonnull Boolean caching) {
+  public void setCaching(@javax.annotation.Nullable Boolean caching) {
     this.caching = caching;
   }
 
 
-  public FormatSupportUpstream indexing(@javax.annotation.Nonnull Boolean indexing) {
+  public FormatSupportUpstream indexing(@javax.annotation.Nullable Boolean indexing) {
     this.indexing = indexing;
     return this;
   }
@@ -173,12 +173,12 @@ public class FormatSupportUpstream implements Serializable {
    * If true the upstream format supports indexing
    * @return indexing
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getIndexing() {
     return indexing;
   }
 
-  public void setIndexing(@javax.annotation.Nonnull Boolean indexing) {
+  public void setIndexing(@javax.annotation.Nullable Boolean indexing) {
     this.indexing = indexing;
   }
 
@@ -202,7 +202,7 @@ public class FormatSupportUpstream implements Serializable {
   }
 
 
-  public FormatSupportUpstream proxying(@javax.annotation.Nonnull Boolean proxying) {
+  public FormatSupportUpstream proxying(@javax.annotation.Nullable Boolean proxying) {
     this.proxying = proxying;
     return this;
   }
@@ -211,12 +211,12 @@ public class FormatSupportUpstream implements Serializable {
    * If true the upstream format supports proxying
    * @return proxying
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getProxying() {
     return proxying;
   }
 
-  public void setProxying(@javax.annotation.Nonnull Boolean proxying) {
+  public void setProxying(@javax.annotation.Nullable Boolean proxying) {
     this.proxying = proxying;
   }
 
@@ -240,7 +240,7 @@ public class FormatSupportUpstream implements Serializable {
   }
 
 
-  public FormatSupportUpstream trust(@javax.annotation.Nonnull Boolean trust) {
+  public FormatSupportUpstream trust(@javax.annotation.Nullable Boolean trust) {
     this.trust = trust;
     return this;
   }
@@ -249,12 +249,12 @@ public class FormatSupportUpstream implements Serializable {
    * If true the upstream format supports configurable trust levels (trusted vs untrusted) for upstream sources.
    * @return trust
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getTrust() {
     return trust;
   }
 
-  public void setTrust(@javax.annotation.Nonnull Boolean trust) {
+  public void setTrust(@javax.annotation.Nullable Boolean trust) {
     this.trust = trust;
   }
 
@@ -317,7 +317,7 @@ public class FormatSupportUpstream implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("auth_modes", "cache_only", "caching", "indexing", "indexing_behavior", "proxying", "signature_verification", "trust"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("auth_modes", "cache_only", "caching", "indexing", "proxying", "trust"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -340,18 +340,9 @@ public class FormatSupportUpstream implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FormatSupportUpstream` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FormatSupportUpstream.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("auth_modes") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("auth_modes").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("auth_modes") != null && !jsonObj.get("auth_modes").isJsonNull() && !jsonObj.get("auth_modes").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_modes` to be an array in the JSON string but got `%s`", jsonObj.get("auth_modes").toString()));
       }
       if ((jsonObj.get("indexing_behavior") != null && !jsonObj.get("indexing_behavior").isJsonNull()) && !jsonObj.get("indexing_behavior").isJsonPrimitive()) {

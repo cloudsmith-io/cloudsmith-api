@@ -85,8 +85,6 @@ module CloudsmithApi
 
       if attributes.key?(:'ed25519_private_key')
         self.ed25519_private_key = attributes[:'ed25519_private_key']
-      else
-        self.ed25519_private_key = nil
       end
     end
 
@@ -95,18 +93,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@ed25519_passphrase.nil? && @ed25519_passphrase.to_s.length < 1
-        invalid_properties.push('invalid value for "ed25519_passphrase", the character length must be greater than or equal to 1.')
-      end
-
-      if @ed25519_private_key.nil?
-        invalid_properties.push('invalid value for "ed25519_private_key", ed25519_private_key cannot be nil.')
-      end
-
-      if @ed25519_private_key.to_s.length < 1
-        invalid_properties.push('invalid value for "ed25519_private_key", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -114,38 +100,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@ed25519_passphrase.nil? && @ed25519_passphrase.to_s.length < 1
-      return false if @ed25519_private_key.nil?
-      return false if @ed25519_private_key.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] ed25519_passphrase Value to be assigned
-    def ed25519_passphrase=(ed25519_passphrase)
-      if ed25519_passphrase.nil?
-        fail ArgumentError, 'ed25519_passphrase cannot be nil'
-      end
-
-      if ed25519_passphrase.to_s.length < 1
-        fail ArgumentError, 'invalid value for "ed25519_passphrase", the character length must be greater than or equal to 1.'
-      end
-
-      @ed25519_passphrase = ed25519_passphrase
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] ed25519_private_key Value to be assigned
-    def ed25519_private_key=(ed25519_private_key)
-      if ed25519_private_key.nil?
-        fail ArgumentError, 'ed25519_private_key cannot be nil'
-      end
-
-      if ed25519_private_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "ed25519_private_key", the character length must be greater than or equal to 1.'
-      end
-
-      @ed25519_private_key = ed25519_private_key
     end
 
     # Checks equality by comparing each attribute.

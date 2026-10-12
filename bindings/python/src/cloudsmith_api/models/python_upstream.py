@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,90 +29,33 @@ class PythonUpstream(BaseModel):
     """
     PythonUpstream
     """ # noqa: E501
-    auth_mode: Optional[StrictStr] = Field(default='None', description="The authentication mode to use when accessing this upstream. ")
-    auth_secret: Optional[Annotated[str, Field(strict=True, max_length=4096)]] = Field(default=None, description="Secret to provide with requests to upstream.")
-    auth_username: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="Username to provide with requests to upstream.")
+    auth_mode: Optional[StrictStr] = Field(default=None, description="The authentication mode to use when accessing this upstream. ")
+    auth_secret: Optional[StrictStr] = Field(default=None, description="Secret to provide with requests to upstream.")
+    auth_username: Optional[StrictStr] = Field(default=None, description="Username to provide with requests to upstream.")
     available: Optional[StrictBool] = Field(default=None, description="Whether the upstream is available for use.")
     can_reindex: Optional[StrictBool] = Field(default=None, description="Whether the upstream can be reindexed.")
     created_at: Optional[datetime] = Field(default=None, description="The datetime the upstream source was created.")
-    disable_reason: Optional[StrictStr] = 'N/A'
+    disable_reason: Optional[StrictStr] = None
     disable_reason_text: Optional[StrictStr] = Field(default=None, description="Human-readable explanation of why this upstream is disabled")
-    extra_header_1: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The key for extra header #1 to send to upstream.")
-    extra_header_2: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The key for extra header #2 to send to upstream.")
-    extra_value_1: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
-    extra_value_2: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
+    extra_header_1: Optional[StrictStr] = Field(default=None, description="The key for extra header #1 to send to upstream.")
+    extra_header_2: Optional[StrictStr] = Field(default=None, description="The key for extra header #2 to send to upstream.")
+    extra_value_1: Optional[StrictStr] = Field(default=None, description="The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
+    extra_value_2: Optional[StrictStr] = Field(default=None, description="The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
     has_failed_signature_verification: Optional[StrictBool] = Field(default=None, description="Whether the upstream has failed signature verification.")
     index_package_count: Optional[StrictInt] = Field(default=None, description="The number of packages available in this upstream source")
     index_status: Optional[StrictStr] = Field(default=None, description="The current indexing status of this upstream source")
     is_active: Optional[StrictBool] = Field(default=None, description="Whether or not this upstream is active and ready for requests.")
     last_indexed: Optional[StrictStr] = Field(default=None, description="The last time this upstream source was indexed")
-    mode: Optional[StrictStr] = Field(default='Proxy Only', description="The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.")
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=64)] = Field(description="A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.")
+    mode: Optional[StrictStr] = Field(default=None, description="The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.")
+    name: Optional[StrictStr] = Field(default=None, description="A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.")
     pending_validation: Optional[StrictBool] = Field(default=None, description="When true, this upstream source is pending validation.")
-    priority: Optional[Annotated[int, Field(le=32767, strict=True, ge=1)]] = Field(default=None, description="Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    trust_level: Optional[StrictStr] = Field(default='Trusted', description="Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
+    priority: Optional[StrictInt] = Field(default=None, description="Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.")
+    slug_perm: Optional[StrictStr] = None
+    trust_level: Optional[StrictStr] = Field(default=None, description="Trust level allows for control of the visibility of upstream artifacts to native package managers. Where supported by formats, the default level (untrusted) is recommended for all upstreams, and helps to safeguard against common dependency confusion attack vectors.")
     updated_at: Optional[datetime] = None
-    upstream_url: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(description="The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. ")
+    upstream_url: Optional[StrictStr] = Field(default=None, description="The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. ")
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates are verified when requests are made to this upstream. It's recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams.")
     __properties: ClassVar[List[str]] = ["auth_mode", "auth_secret", "auth_username", "available", "can_reindex", "created_at", "disable_reason", "disable_reason_text", "extra_header_1", "extra_header_2", "extra_value_1", "extra_value_2", "has_failed_signature_verification", "index_package_count", "index_status", "is_active", "last_indexed", "mode", "name", "pending_validation", "priority", "slug_perm", "trust_level", "updated_at", "upstream_url", "verify_ssl"]
-
-    @field_validator('extra_header_1', mode="before")
-    def extra_header_1_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('extra_header_2', mode="before")
-    def extra_header_2_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('extra_value_1', mode="before")
-    def extra_value_1_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
-            raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
-
-    @field_validator('extra_value_2', mode="before")
-    def extra_value_2_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
-            raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
-
-    @field_validator('name', mode="before")
-    def name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^\w[\w \-\'\.\/()]+$", value):
-            raise ValueError(r"must validate the regular expression /^\w[\w \-'\.\/()]+$/")
-        return value
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -235,13 +177,13 @@ class PythonUpstream(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "auth_mode": obj.get("auth_mode") if obj.get("auth_mode") is not None else 'None',
+            "auth_mode": obj.get("auth_mode"),
             "auth_secret": obj.get("auth_secret"),
             "auth_username": obj.get("auth_username"),
             "available": obj.get("available"),
             "can_reindex": obj.get("can_reindex"),
             "created_at": obj.get("created_at"),
-            "disable_reason": obj.get("disable_reason") if obj.get("disable_reason") is not None else 'N/A',
+            "disable_reason": obj.get("disable_reason"),
             "disable_reason_text": obj.get("disable_reason_text"),
             "extra_header_1": obj.get("extra_header_1"),
             "extra_header_2": obj.get("extra_header_2"),
@@ -252,12 +194,12 @@ class PythonUpstream(BaseModel):
             "index_status": obj.get("index_status"),
             "is_active": obj.get("is_active"),
             "last_indexed": obj.get("last_indexed"),
-            "mode": obj.get("mode") if obj.get("mode") is not None else 'Proxy Only',
+            "mode": obj.get("mode"),
             "name": obj.get("name"),
             "pending_validation": obj.get("pending_validation"),
             "priority": obj.get("priority"),
             "slug_perm": obj.get("slug_perm"),
-            "trust_level": obj.get("trust_level") if obj.get("trust_level") is not None else 'Trusted',
+            "trust_level": obj.get("trust_level"),
             "updated_at": obj.get("updated_at"),
             "upstream_url": obj.get("upstream_url"),
             "verify_ssl": obj.get("verify_ssl")

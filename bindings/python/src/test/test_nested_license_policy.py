@@ -38,11 +38,11 @@ class TestNestedLicensePolicy(unittest.TestCase):
             return NestedLicensePolicy(
                 allow_unknown_licenses = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                description = '0',
-                name = '0',
+                description = '',
+                name = '',
                 on_violation_quarantine = True,
-                package_query_string = '0',
-                slug_perm = 'z0',
+                package_query_string = '',
+                slug_perm = '',
                 spdx_identifiers = [
                     ''
                     ],
@@ -51,9 +51,6 @@ class TestNestedLicensePolicy(unittest.TestCase):
             )
         else:
             return NestedLicensePolicy(
-                spdx_identifiers = [
-                    ''
-                    ],
         )
         """
 

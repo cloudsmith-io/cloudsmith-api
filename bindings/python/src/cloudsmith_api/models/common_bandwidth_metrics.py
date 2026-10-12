@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.common_bandwidth_metrics_value import CommonBandwidthMetricsValue
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +29,10 @@ class CommonBandwidthMetrics(BaseModel):
     """
     CommonBandwidthMetrics
     """ # noqa: E501
-    average: CommonBandwidthMetricsValue
-    highest: CommonBandwidthMetricsValue
-    lowest: CommonBandwidthMetricsValue
-    total: CommonBandwidthMetricsValue
+    average: Optional[CommonBandwidthMetricsValue] = None
+    highest: Optional[CommonBandwidthMetricsValue] = None
+    lowest: Optional[CommonBandwidthMetricsValue] = None
+    total: Optional[CommonBandwidthMetricsValue] = None
     __properties: ClassVar[List[str]] = ["average", "highest", "lowest", "total"]
 
     model_config = ConfigDict(

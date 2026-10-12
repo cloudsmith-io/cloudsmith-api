@@ -36,19 +36,18 @@ class TestPackageDenyPolicy(unittest.TestCase):
         model = PackageDenyPolicy()
         if include_optional:
             return PackageDenyPolicy(
-                action = 'Block downloads',
+                action = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 description = '',
                 enabled = True,
                 name = '',
-                package_query_string = '0',
-                slug_perm = 'z0',
-                status = 'In Progress',
+                package_query_string = '',
+                slug_perm = '',
+                status = '',
                 updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return PackageDenyPolicy(
-                package_query_string = '0',
         )
         """
 

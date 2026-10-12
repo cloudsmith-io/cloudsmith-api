@@ -35,7 +35,7 @@
 |**manageEntitlementsPrivilege** | **String** | This defines the minimum level of privilege required for a user to manage entitlement tokens with private repositories. Management is the ability to create, alter, enable, disable or delete all tokens without a repository. |  [optional] |
 |**moveOwn** | **Boolean** | If checked, users can move any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional] |
 |**movePackages** | **String** | This defines the minimum level of privilege required for a user to move packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific move setting. |  [optional] |
-|**name** | **String** | A descriptive name for the repository. |  |
+|**name** | **String** | A descriptive name for the repository. |  [optional] |
 |**namespace** | **String** | Namespace to which this repository belongs. |  [optional] [readonly] |
 |**namespaceUrl** | **URI** | API endpoint where data about this namespace can be retrieved. |  [optional] [readonly] |
 |**npmUpstreamTagsTakePrecedence** | **Boolean** | If checked, npm distribution tags from configured upstreams will take precedence over matching local tags. When both upstream and local repositories have the same tag name (e.g., &#39;latest&#39;), the upstream tag will be used instead of the local one, even if the local repository has a semantically higher version. |  [optional] |

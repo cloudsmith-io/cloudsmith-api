@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,14 +28,14 @@ class RepositoryRetentionRules(BaseModel):
     """
     RepositoryRetentionRules
     """ # noqa: E501
-    retention_count_limit: Optional[Annotated[int, Field(le=10000, strict=True, ge=0)]] = Field(default=None, description="The maximum X number of packages to retain.")
-    retention_days_limit: Optional[Annotated[int, Field(le=180, strict=True, ge=0)]] = Field(default=None, description="The X number of days of packages to retain.")
+    retention_count_limit: Optional[StrictInt] = Field(default=None, description="The maximum X number of packages to retain.")
+    retention_days_limit: Optional[StrictInt] = Field(default=None, description="The X number of days of packages to retain.")
     retention_enabled: Optional[StrictBool] = Field(default=None, description="If checked, the retention lifecycle rules will be activated for the repository. Any packages that don't match will be deleted automatically, and the rest are retained.")
     retention_group_by_format: Optional[StrictBool] = Field(default=None, description="If checked, retention will apply to packages by package formats rather than across all package formats.For example, when retaining by a limit of 1 and you upload PythonPkg 1.0 and RubyPkg 1.0, no packages are deleted because they are different formats.")
     retention_group_by_name: Optional[StrictBool] = Field(default=None, description="If checked, retention will apply to groups of packages by name rather than all packages.<br>For example, when retaining by a limit of 1 and you upload PkgA 1.0, PkgB 1.0 and PkgB 1.1; only PkgB 1.0 is deleted because there are two (2) PkgBs and one (1) PkgA.")
     retention_group_by_package_type: Optional[StrictBool] = Field(default=None, description="If checked, retention will apply to packages by package type (e.g. by binary, by source, etc.), rather than across all package types for one or more formats. <br>For example, when retaining by a limit of 1 and you upload DebPackage 1.0 and DebSourcePackage 1.0, no packages are deleted because they are different package types, binary and source respectively.")
     retention_package_query_string: Optional[StrictStr] = Field(default=None, description="A package search expression which, if provided, filters the packages to be deleted.<br>For example, a search expression of `name:foo` will result in only packages called 'foo' being deleted, or a search expression of `tag:~latest` will prevent any packages tagged 'latest' from being deleted.<br>Refer to the Cloudsmith documentation for package query syntax.")
-    retention_size_limit: Optional[Annotated[int, Field(le=21474836480, strict=True, ge=0)]] = Field(default=None, description="The maximum X total size (in bytes) of packages to retain.")
+    retention_size_limit: Optional[StrictInt] = Field(default=None, description="The maximum X total size (in bytes) of packages to retain.")
     __properties: ClassVar[List[str]] = ["retention_count_limit", "retention_days_limit", "retention_enabled", "retention_group_by_format", "retention_group_by_name", "retention_group_by_package_type", "retention_package_query_string", "retention_size_limit"]
 
     model_config = ConfigDict(

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allowed** | **bool** | The result of the IP test | 
-**country_code** | **str** | The country code of the tested IP address | 
-**ip_address** | **str** | The IP address that was tested | 
-**reason** | **str** | The reason for the result | 
+**allowed** | **bool** | The result of the IP test | [optional] 
+**country_code** | **str** | The country code of the tested IP address | [optional] 
+**ip_address** | **str** | The IP address that was tested | [optional] 
+**reason** | **str** | The reason for the result | [optional] 
 
 ## Example
 

@@ -36,11 +36,10 @@ class TestPackageMoveRequest(unittest.TestCase):
         model = PackageMoveRequest()
         if include_optional:
             return PackageMoveRequest(
-                destination = '0'
+                destination = ''
             )
         else:
             return PackageMoveRequest(
-                destination = '0',
         )
         """
 

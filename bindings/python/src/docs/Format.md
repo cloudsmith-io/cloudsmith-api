@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** | Description of the package format | 
+**description** | **str** | Description of the package format | [optional] 
 **distributions** | [**List[Distribution]**](Distribution.md) | The distributions supported by this package format | [optional] 
-**extensions** | **List[str]** | A non-exhaustive list of extensions supported | 
-**name** | **str** | Name for the package format | 
-**premium** | **bool** | If true the package format is a premium-only feature | 
+**extensions** | **List[str]** | A non-exhaustive list of extensions supported | [optional] 
+**name** | **str** | Name for the package format | [optional] 
+**premium** | **bool** | If true the package format is a premium-only feature | [optional] 
 **premium_plan_id** | **str** | The minimum plan id required for this package format | [optional] 
 **premium_plan_name** | **str** | The minimum plan name required for this package format | [optional] 
-**slug** | **str** | Slug for the package format | 
-**supports** | [**FormatSupport**](FormatSupport.md) |  | 
+**slug** | **str** | Slug for the package format | [optional] 
+**supports** | [**FormatSupport**](FormatSupport.md) |  | [optional] 
 
 ## Example
 

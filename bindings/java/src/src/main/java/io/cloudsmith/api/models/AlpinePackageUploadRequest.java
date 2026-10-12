@@ -57,12 +57,12 @@ public class AlpinePackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_DISTRIBUTION = "distribution";
   @SerializedName(SERIALIZED_NAME_DISTRIBUTION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String distribution;
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_REPUBLISH = "republish";
@@ -78,7 +78,7 @@ public class AlpinePackageUploadRequest implements Serializable {
   public AlpinePackageUploadRequest() {
   }
 
-  public AlpinePackageUploadRequest distribution(@javax.annotation.Nonnull String distribution) {
+  public AlpinePackageUploadRequest distribution(@javax.annotation.Nullable String distribution) {
     this.distribution = distribution;
     return this;
   }
@@ -87,17 +87,17 @@ public class AlpinePackageUploadRequest implements Serializable {
    * The distribution to store the package for.
    * @return distribution
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getDistribution() {
     return distribution;
   }
 
-  public void setDistribution(@javax.annotation.Nonnull String distribution) {
+  public void setDistribution(@javax.annotation.Nullable String distribution) {
     this.distribution = distribution;
   }
 
 
-  public AlpinePackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public AlpinePackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -106,12 +106,12 @@ public class AlpinePackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -215,7 +215,7 @@ public class AlpinePackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("distribution", "package_file", "republish", "tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("distribution", "package_file"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -238,18 +238,11 @@ public class AlpinePackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AlpinePackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AlpinePackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("distribution").isJsonPrimitive()) {
+      if ((jsonObj.get("distribution") != null && !jsonObj.get("distribution").isJsonNull()) && !jsonObj.get("distribution").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `distribution` to be a primitive type in the JSON string but got `%s`", jsonObj.get("distribution").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) && !jsonObj.get("tags").isJsonPrimitive()) {

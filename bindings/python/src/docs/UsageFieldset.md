@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display** | [**UsageLimits**](UsageLimits.md) |  | 
-**raw** | [**UsageLimitsRaw**](UsageLimitsRaw.md) |  | 
+**display** | [**UsageLimits**](UsageLimits.md) |  | [optional] 
+**raw** | [**UsageLimitsRaw**](UsageLimitsRaw.md) |  | [optional] 
 
 ## Example
 

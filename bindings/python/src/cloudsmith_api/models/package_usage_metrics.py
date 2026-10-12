@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.common_metrics import CommonMetrics
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PackageUsageMetrics(BaseModel):
     """
     PackageUsageMetrics
     """ # noqa: E501
-    packages: CommonMetrics
+    packages: Optional[CommonMetrics] = None
     __properties: ClassVar[List[str]] = ["packages"]
 
     model_config = ConfigDict(

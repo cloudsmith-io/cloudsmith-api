@@ -38,21 +38,17 @@ class TestProviderSettings(unittest.TestCase):
             return ProviderSettings(
                 claims = cloudsmith_api.models.claims.Claims(),
                 enabled = True,
-                mapping_claim = '0',
-                name = '0',
-                provider_url = '0',
+                mapping_claim = '',
+                name = '',
+                provider_url = '',
                 service_accounts = [
                     ''
                     ],
-                slug = 'z0',
-                slug_perm = 'z0'
+                slug = '',
+                slug_perm = ''
             )
         else:
             return ProviderSettings(
-                claims = cloudsmith_api.models.claims.Claims(),
-                enabled = True,
-                name = '0',
-                provider_url = '0',
         )
         """
 

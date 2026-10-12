@@ -60,7 +60,7 @@ public class ResourcesRateCheck implements Serializable {
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
   @javax.annotation.Nullable
-  private Map<String, RateCheck> resources = new HashMap<>();
+  private Map<String, RateCheck> resources;
 
   public ResourcesRateCheck() {
   }

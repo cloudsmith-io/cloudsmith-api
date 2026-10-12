@@ -6,9 +6,9 @@ Average bandwidth usage in the specified period, e.g. a day
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**display** | **str** | Bandwidth usage value | 
-**units** | **str** | Unit of measurement e.g. bytes | [optional] [default to 'bytes']
-**value** | **int** | Human readable version of display value | 
+**display** | **str** | Bandwidth usage value | [optional] 
+**units** | **str** | Unit of measurement e.g. bytes | [optional] 
+**value** | **int** | Human readable version of display value | [optional] 
 
 ## Example
 

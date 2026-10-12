@@ -51,18 +51,6 @@ class TestUsageLimitsRaw(unittest.TestCase):
             )
         else:
             return UsageLimitsRaw(
-                bandwidth = cloudsmith_api.models.allocated_limit_raw.AllocatedLimitRaw(
-                    configured = 56, 
-                    percentage_used = '', 
-                    plan_limit = 56, 
-                    used = 56, ),
-                storage = cloudsmith_api.models.storage_allocated_limit_raw.StorageAllocatedLimitRaw(
-                    configured = 56, 
-                    peak = 56, 
-                    percentage_used = '', 
-                    plan_limit = 56, 
-                    used = 56, 
-                    used_pre_deduplication = 56, ),
         )
         """
 

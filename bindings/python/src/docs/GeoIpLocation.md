@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**city** | **str** |  | 
-**continent** | **str** |  | 
-**country** | **str** |  | 
+**city** | **str** |  | [optional] 
+**continent** | **str** |  | [optional] 
+**country** | **str** |  | [optional] 
 **country_code** | **str** |  | [optional] [readonly] 
 **latitude** | **decimal.Decimal** |  | [optional] 
 **longitude** | **decimal.Decimal** |  | [optional] 
-**postal_code** | **str** |  | 
+**postal_code** | **str** |  | [optional] 
 
 ## Example
 

@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from uuid import UUID
 from cloudsmith_api.models.geo_ip_location import GeoIpLocation
 from typing import Optional, Set
@@ -32,33 +31,23 @@ class NamespaceAuditLog(BaseModel):
     """
     NamespaceAuditLog
     """ # noqa: E501
-    actor: Optional[Annotated[str, Field(min_length=1, strict=True)]]
-    actor_ip_address: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    actor: Optional[StrictStr] = None
+    actor_ip_address: Optional[StrictStr] = None
     actor_kind: Optional[StrictStr] = None
-    actor_location: GeoIpLocation
-    actor_slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    actor_location: Optional[GeoIpLocation] = None
+    actor_slug_perm: Optional[StrictStr] = None
     actor_url: Optional[StrictStr] = None
-    context: Annotated[str, Field(min_length=1, strict=True)]
-    event: Annotated[str, Field(min_length=1, strict=True)]
-    event_at: datetime
-    object: Annotated[str, Field(min_length=1, strict=True)]
-    object_kind: Annotated[str, Field(min_length=1, strict=True)]
-    object_slug_perm: Annotated[str, Field(min_length=1, strict=True)]
-    target: Annotated[str, Field(min_length=1, strict=True)]
-    target_kind: Annotated[str, Field(min_length=1, strict=True)]
-    target_slug_perm: Optional[Annotated[str, Field(strict=True, max_length=24)]] = None
+    context: Optional[StrictStr] = None
+    event: Optional[StrictStr] = None
+    event_at: Optional[datetime] = None
+    object: Optional[StrictStr] = None
+    object_kind: Optional[StrictStr] = None
+    object_slug_perm: Optional[StrictStr] = None
+    target: Optional[StrictStr] = None
+    target_kind: Optional[StrictStr] = None
+    target_slug_perm: Optional[StrictStr] = None
     uuid: Optional[UUID] = None
     __properties: ClassVar[List[str]] = ["actor", "actor_ip_address", "actor_kind", "actor_location", "actor_slug_perm", "actor_url", "context", "event", "event_at", "object", "object_kind", "object_slug_perm", "target", "target_kind", "target_slug_perm", "uuid"]
-
-    @field_validator('target_slug_perm', mode="before")
-    def target_slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

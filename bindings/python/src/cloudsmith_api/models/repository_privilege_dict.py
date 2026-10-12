@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,41 +28,11 @@ class RepositoryPrivilegeDict(BaseModel):
     """
     RepositoryPrivilegeDict
     """ # noqa: E501
-    privilege: StrictStr = Field(description="The level of privilege that the user or team should be granted to the specified repository.")
-    service: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The service identifier (slug).")
-    team: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The team identifier (slug).")
-    user: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The user identifier (slug).")
+    privilege: Optional[StrictStr] = Field(default=None, description="The level of privilege that the user or team should be granted to the specified repository.")
+    service: Optional[StrictStr] = Field(default=None, description="The service identifier (slug).")
+    team: Optional[StrictStr] = Field(default=None, description="The team identifier (slug).")
+    user: Optional[StrictStr] = Field(default=None, description="The user identifier (slug).")
     __properties: ClassVar[List[str]] = ["privilege", "service", "team", "user"]
-
-    @field_validator('service', mode="before")
-    def service_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('team', mode="before")
-    def team_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('user', mode="before")
-    def user_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

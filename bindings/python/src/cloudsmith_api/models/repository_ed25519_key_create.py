@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class RepositoryEd25519KeyCreate(BaseModel):
     """
     RepositoryEd25519KeyCreate
     """ # noqa: E501
-    ed25519_passphrase: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The Ed25519 passphrase used for signing.")
-    ed25519_private_key: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The Ed25519 private key.")
+    ed25519_passphrase: Optional[StrictStr] = Field(default=None, description="The Ed25519 passphrase used for signing.")
+    ed25519_private_key: Optional[StrictStr] = Field(default=None, description="The Ed25519 private key.")
     __properties: ClassVar[List[str]] = ["ed25519_passphrase", "ed25519_private_key"]
 
     model_config = ConfigDict(

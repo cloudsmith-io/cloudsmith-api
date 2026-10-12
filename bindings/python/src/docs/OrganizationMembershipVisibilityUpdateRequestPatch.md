@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**visibility** | **str** |  | [optional] [default to 'Public']
+**visibility** | **str** |  | [optional] 
 
 ## Example
 

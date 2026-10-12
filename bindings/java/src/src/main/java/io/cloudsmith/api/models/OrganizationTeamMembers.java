@@ -59,13 +59,13 @@ public class OrganizationTeamMembers implements Serializable {
 
   public static final String SERIALIZED_NAME_MEMBERS = "members";
   @SerializedName(SERIALIZED_NAME_MEMBERS)
-  @javax.annotation.Nonnull
-  private List<OrganizationTeamServiceMember> members = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<OrganizationTeamServiceMember> members;
 
   public OrganizationTeamMembers() {
   }
 
-  public OrganizationTeamMembers members(@javax.annotation.Nonnull List<OrganizationTeamServiceMember> members) {
+  public OrganizationTeamMembers members(@javax.annotation.Nullable List<OrganizationTeamServiceMember> members) {
     this.members = members;
     return this;
   }
@@ -82,12 +82,12 @@ public class OrganizationTeamMembers implements Serializable {
    * The team members
    * @return members
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<OrganizationTeamServiceMember> getMembers() {
     return members;
   }
 
-  public void setMembers(@javax.annotation.Nonnull List<OrganizationTeamServiceMember> members) {
+  public void setMembers(@javax.annotation.Nullable List<OrganizationTeamServiceMember> members) {
     this.members = members;
   }
 
@@ -136,7 +136,7 @@ public class OrganizationTeamMembers implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("members"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("members"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -159,22 +159,19 @@ public class OrganizationTeamMembers implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationTeamMembers` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrganizationTeamMembers.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("members") != null) {
-        if (!jsonObj.get("members").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
-        }
+      if (jsonObj.get("members") != null && !jsonObj.get("members").isJsonNull()) {
         JsonArray jsonArraymembers = jsonObj.getAsJsonArray("members");
-        // validate the required field `members` (array)
-        for (int i = 0; i < jsonArraymembers.size(); i++) {
-          OrganizationTeamServiceMember.validateJsonElement(jsonArraymembers.get(i));
+        if (jsonArraymembers != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("members").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
+          }
+
+          // validate the optional field `members` (array)
+          for (int i = 0; i < jsonArraymembers.size(); i++) {
+            OrganizationTeamServiceMember.validateJsonElement(jsonArraymembers.get(i));
+          };
         }
       }
   }

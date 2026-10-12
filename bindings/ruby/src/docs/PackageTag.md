@@ -35,7 +35,7 @@
 | **is_deleteable** | **Boolean** |  | [optional][readonly] |
 | **is_downloadable** | **Boolean** |  | [optional][readonly] |
 | **is_hidden** | **Boolean** |  | [optional][readonly] |
-| **is_immutable** | **Boolean** | If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package. | [optional][default to false] |
+| **is_immutable** | **Boolean** | If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package. | [optional] |
 | **is_moveable** | **Boolean** |  | [optional][readonly] |
 | **is_quarantinable** | **Boolean** |  | [optional][readonly] |
 | **is_quarantined** | **Boolean** |  | [optional][readonly] |
@@ -62,7 +62,7 @@
 | **repository_url** | **String** |  | [optional][readonly] |
 | **security_scan_completed_at** | **Time** | The datetime the security scanning was completed. | [optional][readonly] |
 | **security_scan_started_at** | **Time** | The datetime the security scanning was started. | [optional][readonly] |
-| **security_scan_status** | **String** |  | [optional][readonly][default to &#39;Awaiting Security Scan&#39;] |
+| **security_scan_status** | **String** |  | [optional][readonly] |
 | **security_scan_status_updated_at** | **Time** | The datetime the security scanning status was updated. | [optional][readonly] |
 | **self_html_url** | **String** |  | [optional][readonly] |
 | **self_url** | **String** |  | [optional][readonly] |

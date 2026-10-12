@@ -73,7 +73,7 @@ public class OrganizationTeamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
   @javax.annotation.Nullable
-  private String visibility = "Visible";
+  private String visibility;
 
   public OrganizationTeamRequestPatch() {
   }

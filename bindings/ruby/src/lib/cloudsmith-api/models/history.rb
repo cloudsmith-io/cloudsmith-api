@@ -99,32 +99,22 @@ module CloudsmithApi
 
       if attributes.key?(:'display')
         self.display = attributes[:'display']
-      else
-        self.display = nil
       end
 
       if attributes.key?(:'_end')
         self._end = attributes[:'_end']
-      else
-        self._end = nil
       end
 
       if attributes.key?(:'plan')
         self.plan = attributes[:'plan']
-      else
-        self.plan = nil
       end
 
       if attributes.key?(:'raw')
         self.raw = attributes[:'raw']
-      else
-        self.raw = nil
       end
 
       if attributes.key?(:'start')
         self.start = attributes[:'start']
-      else
-        self.start = nil
       end
     end
 
@@ -133,34 +123,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @display.nil?
-        invalid_properties.push('invalid value for "display", display cannot be nil.')
-      end
-
-      if @_end.nil?
-        invalid_properties.push('invalid value for "_end", _end cannot be nil.')
-      end
-
-      if @plan.nil?
-        invalid_properties.push('invalid value for "plan", plan cannot be nil.')
-      end
-
-      if @plan.to_s.length > 64
-        invalid_properties.push('invalid value for "plan", the character length must be smaller than or equal to 64.')
-      end
-
-      if @plan.to_s.length < 1
-        invalid_properties.push('invalid value for "plan", the character length must be greater than or equal to 1.')
-      end
-
-      if @raw.nil?
-        invalid_properties.push('invalid value for "raw", raw cannot be nil.')
-      end
-
-      if @start.nil?
-        invalid_properties.push('invalid value for "start", start cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -168,72 +130,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @display.nil?
-      return false if @_end.nil?
-      return false if @plan.nil?
-      return false if @plan.to_s.length > 64
-      return false if @plan.to_s.length < 1
-      return false if @raw.nil?
-      return false if @start.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] display Value to be assigned
-    def display=(display)
-      if display.nil?
-        fail ArgumentError, 'display cannot be nil'
-      end
-
-      @display = display
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] _end Value to be assigned
-    def _end=(_end)
-      if _end.nil?
-        fail ArgumentError, '_end cannot be nil'
-      end
-
-      @_end = _end
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] plan Value to be assigned
-    def plan=(plan)
-      if plan.nil?
-        fail ArgumentError, 'plan cannot be nil'
-      end
-
-      if plan.to_s.length > 64
-        fail ArgumentError, 'invalid value for "plan", the character length must be smaller than or equal to 64.'
-      end
-
-      if plan.to_s.length < 1
-        fail ArgumentError, 'invalid value for "plan", the character length must be greater than or equal to 1.'
-      end
-
-      @plan = plan
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] raw Value to be assigned
-    def raw=(raw)
-      if raw.nil?
-        fail ArgumentError, 'raw cannot be nil'
-      end
-
-      @raw = raw
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] start Value to be assigned
-    def start=(start)
-      if start.nil?
-        fail ArgumentError, 'start cannot be nil'
-      end
-
-      @start = start
     end
 
     # Checks equality by comparing each attribute.

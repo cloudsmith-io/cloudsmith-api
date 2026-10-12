@@ -5,11 +5,11 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **days** | **Integer** |  | [optional] |
-| **display** | [**HistoryFieldset**](HistoryFieldset.md) |  |  |
-| **_end** | **Time** |  |  |
-| **plan** | **String** |  |  |
-| **raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  |  |
-| **start** | **Time** |  |  |
+| **display** | [**HistoryFieldset**](HistoryFieldset.md) |  | [optional] |
+| **_end** | **Time** |  | [optional] |
+| **plan** | **String** |  | [optional] |
+| **raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  | [optional] |
+| **start** | **Time** |  | [optional] |
 
 ## Example
 

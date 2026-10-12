@@ -57,7 +57,7 @@ public class RepositoryTransferRegion implements Serializable {
   public static final String SERIALIZED_NAME_STORAGE_REGION = "storage_region";
   @SerializedName(SERIALIZED_NAME_STORAGE_REGION)
   @javax.annotation.Nullable
-  private String storageRegion = "default";
+  private String storageRegion;
 
   public RepositoryTransferRegion() {
   }

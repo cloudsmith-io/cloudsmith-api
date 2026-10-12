@@ -48,7 +48,7 @@
 |**isSyncInFlight** | **Boolean** |  |  [optional] [readonly] |
 |**isSyncInProgress** | **Boolean** |  |  [optional] [readonly] |
 |**license** | **String** | The license of this package. |  [optional] [readonly] |
-|**name** | **String** |  |  |
+|**name** | **String** |  |  [optional] |
 |**namespace** | **String** |  |  [optional] [readonly] |
 |**namespaceUrl** | **URI** |  |  [optional] [readonly] |
 |**numFiles** | **java.math.BigInteger** |  |  [optional] [readonly] |
@@ -93,7 +93,7 @@
 |**uploadedAt** | **OffsetDateTime** | The date this package was uploaded. |  [optional] [readonly] |
 |**uploader** | **String** |  |  [optional] [readonly] |
 |**uploaderUrl** | **URI** |  |  [optional] [readonly] |
-|**version** | **String** |  |  |
+|**version** | **String** |  |  [optional] |
 |**versionOrig** | **String** |  |  [optional] [readonly] |
 |**vulnerabilityScanResultsUrl** | **URI** |  |  [optional] [readonly] |
 

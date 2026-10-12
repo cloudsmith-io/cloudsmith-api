@@ -36,7 +36,7 @@ class TestRepositoryTransferRegionRequest(unittest.TestCase):
         model = RepositoryTransferRegionRequest()
         if include_optional:
             return RepositoryTransferRegionRequest(
-                storage_region = 'default'
+                storage_region = ''
             )
         else:
             return RepositoryTransferRegionRequest(

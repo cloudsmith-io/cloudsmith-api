@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **is_sync_in_flight** | **bool** |  | [optional] [readonly] 
 **is_sync_in_progress** | **bool** |  | [optional] [readonly] 
 **license** | **str** | The license of this package. | [optional] [readonly] 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **namespace** | **str** |  | [optional] [readonly] 
 **namespace_url** | **str** |  | [optional] [readonly] 
 **num_files** | **int** |  | [optional] [readonly] 
@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 **repository_url** | **str** |  | [optional] [readonly] 
 **security_scan_completed_at** | **datetime** | The datetime the security scanning was completed. | [optional] [readonly] 
 **security_scan_started_at** | **datetime** | The datetime the security scanning was started. | [optional] [readonly] 
-**security_scan_status** | **str** |  | [optional] [readonly] [default to 'Awaiting Security Scan']
+**security_scan_status** | **str** |  | [optional] [readonly] 
 **security_scan_status_updated_at** | **datetime** | The datetime the security scanning status was updated. | [optional] [readonly] 
 **self_html_url** | **str** |  | [optional] [readonly] 
 **self_url** | **str** |  | [optional] [readonly] 
@@ -91,7 +91,7 @@ Name | Type | Description | Notes
 **uploaded_at** | **datetime** | The date this package was uploaded. | [optional] [readonly] 
 **uploader** | **str** |  | [optional] [readonly] 
 **uploader_url** | **str** |  | [optional] [readonly] 
-**version** | **str** |  | 
+**version** | **str** |  | [optional] 
 **version_orig** | **str** |  | [optional] [readonly] 
 **vulnerability_scan_results_url** | **str** |  | [optional] [readonly] 
 

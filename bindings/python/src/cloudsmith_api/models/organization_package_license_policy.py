@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,24 +31,14 @@ class OrganizationPackageLicensePolicy(BaseModel):
     """ # noqa: E501
     allow_unknown_licenses: Optional[StrictBool] = None
     created_at: Optional[datetime] = None
-    description: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=250)]] = None
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=100)]
+    description: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
     on_violation_quarantine: Optional[StrictBool] = None
-    package_query_string: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    spdx_identifiers: List[StrictStr]
+    package_query_string: Optional[StrictStr] = None
+    slug_perm: Optional[StrictStr] = None
+    spdx_identifiers: Optional[List[StrictStr]] = None
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["allow_unknown_licenses", "created_at", "description", "name", "on_violation_quarantine", "package_query_string", "slug_perm", "spdx_identifiers", "updated_at"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

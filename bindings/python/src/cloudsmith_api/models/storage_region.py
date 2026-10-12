@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class StorageRegion(BaseModel):
     """
     StorageRegion
     """ # noqa: E501
-    label: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Name of the storage region")
-    slug: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Slug for the storage region")
+    label: Optional[StrictStr] = Field(default=None, description="Name of the storage region")
+    slug: Optional[StrictStr] = Field(default=None, description="Slug for the storage region")
     __properties: ClassVar[List[str]] = ["label", "slug"]
 
     model_config = ConfigDict(

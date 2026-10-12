@@ -77,8 +77,6 @@ module CloudsmithApi
         if (value = attributes[:'history']).is_a?(Array)
           self.history = value
         end
-      else
-        self.history = nil
       end
     end
 
@@ -87,10 +85,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @history.nil?
-        invalid_properties.push('invalid value for "history", history cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -98,18 +92,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @history.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] history Value to be assigned
-    def history=(history)
-      if history.nil?
-        fail ArgumentError, 'history cannot be nil'
-      end
-
-      @history = history
     end
 
     # Checks equality by comparing each attribute.

@@ -5,6 +5,7 @@
     "artifactUrl": "https://api.cloudsmith.io/?format=openapi",
     "artifactVersion": "3.0.0",
     "artifactDescription": "Cloudsmith API",
+    "containerDefaultToNull": true,
     "dateLibrary": "java8",
     "developerName": "Cloudsmith Ltd",
     "developerEmail": "support@cloudsmith.io",

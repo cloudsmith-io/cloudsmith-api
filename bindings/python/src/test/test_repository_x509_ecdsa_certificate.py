@@ -45,7 +45,7 @@ class TestRepositoryX509EcdsaCertificate(unittest.TestCase):
                 certificate_fingerprint_short = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 default = True,
-                issuing_status = 'Certificate is pending to be issued'
+                issuing_status = ''
             )
         else:
             return RepositoryX509EcdsaCertificate(

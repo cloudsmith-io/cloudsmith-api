@@ -36,15 +36,14 @@ class TestPackageLicenseRequestPatch(unittest.TestCase):
         model = PackageLicenseRequestPatch()
         if include_optional:
             return PackageLicenseRequestPatch(
-                action = 'Update',
+                action = '',
                 license_notes = '',
-                license_override = 'None',
+                license_override = '',
                 license_url = '',
-                spdx_license = '0'
+                spdx_license = ''
             )
         else:
             return PackageLicenseRequestPatch(
-                spdx_license = '0',
         )
         """
 

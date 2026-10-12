@@ -37,11 +37,11 @@ class TestUserProfile(unittest.TestCase):
         if include_optional:
             return UserProfile(
                 company = '',
-                first_name = '0',
+                first_name = '',
                 job_title = '',
                 joined_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                last_name = '0',
-                name = '0',
+                last_name = '',
+                name = '',
                 slug = '',
                 slug_perm = '',
                 tagline = '',
@@ -49,8 +49,6 @@ class TestUserProfile(unittest.TestCase):
             )
         else:
             return UserProfile(
-                first_name = '0',
-                last_name = '0',
         )
         """
 

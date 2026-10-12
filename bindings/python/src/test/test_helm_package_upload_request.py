@@ -36,14 +36,13 @@ class TestHelmPackageUploadRequest(unittest.TestCase):
         model = HelmPackageUploadRequest()
         if include_optional:
             return HelmPackageUploadRequest(
-                package_file = '0',
-                provenance_file = '0',
+                package_file = '',
+                provenance_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return HelmPackageUploadRequest(
-                package_file = '0',
         )
         """
 

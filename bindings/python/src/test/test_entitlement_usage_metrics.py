@@ -40,20 +40,20 @@ class TestEntitlementUsageMetrics(unittest.TestCase):
                     active = 56, 
                     bandwidth = cloudsmith_api.models.common_bandwidth_metrics.CommonBandwidthMetrics(
                         average = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
+                            display = '', 
+                            units = '', 
                             value = 56, ), 
                         highest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
+                            display = '', 
+                            units = '', 
                             value = 56, ), 
                         lowest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
+                            display = '', 
+                            units = '', 
                             value = 56, ), 
                         total = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
+                            display = '', 
+                            units = '', 
                             value = 56, ), ), 
                     downloads = cloudsmith_api.models.common_downloads_metrics.CommonDownloadsMetrics(
                         average = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
@@ -69,36 +69,6 @@ class TestEntitlementUsageMetrics(unittest.TestCase):
             )
         else:
             return EntitlementUsageMetrics(
-                tokens = cloudsmith_api.models.common_metrics.CommonMetrics(
-                    active = 56, 
-                    bandwidth = cloudsmith_api.models.common_bandwidth_metrics.CommonBandwidthMetrics(
-                        average = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
-                            value = 56, ), 
-                        highest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
-                            value = 56, ), 
-                        lowest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
-                            value = 56, ), 
-                        total = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                            display = '0', 
-                            units = 'bytes', 
-                            value = 56, ), ), 
-                    downloads = cloudsmith_api.models.common_downloads_metrics.CommonDownloadsMetrics(
-                        average = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                            value = 56, ), 
-                        highest = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                            value = 56, ), 
-                        lowest = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                            value = 56, ), 
-                        total = cloudsmith_api.models.common_downloads_metrics_value.CommonDownloadsMetricsValue(
-                            value = 56, ), ), 
-                    inactive = 56, 
-                    total = 56, ),
         )
         """
 

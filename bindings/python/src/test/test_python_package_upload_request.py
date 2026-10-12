@@ -36,13 +36,12 @@ class TestPythonPackageUploadRequest(unittest.TestCase):
         model = PythonPackageUploadRequest()
         if include_optional:
             return PythonPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return PythonPackageUploadRequest(
-                package_file = '0',
         )
         """
 

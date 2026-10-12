@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**format** | **String** |  |  [optional] [readonly] |
 |**formatUrl** | **URI** |  |  [optional] [readonly] |
-|**name** | **String** |  |  |
+|**name** | **String** |  |  [optional] |
 |**selfUrl** | **URI** |  |  [optional] [readonly] |
 |**slug** | **String** | The slug identifier for this distribution |  [optional] [readonly] |
 |**variants** | **String** |  |  [optional] |

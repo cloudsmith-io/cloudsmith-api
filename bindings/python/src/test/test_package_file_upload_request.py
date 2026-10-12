@@ -36,14 +36,13 @@ class TestPackageFileUploadRequest(unittest.TestCase):
         model = PackageFileUploadRequest()
         if include_optional:
             return PackageFileUploadRequest(
-                filename = '0',
-                md5_checksum = '012345678910111213141516171819202122232425262728293031',
-                method = 'post',
-                sha256_checksum = '0123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263'
+                filename = '',
+                md5_checksum = '',
+                method = '',
+                sha256_checksum = ''
             )
         else:
             return PackageFileUploadRequest(
-                filename = '0',
         )
         """
 

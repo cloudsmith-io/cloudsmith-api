@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,8 +28,8 @@ class RepositoryGeoIpCountryCode(BaseModel):
     """
     RepositoryGeoIpCountryCode
     """ # noqa: E501
-    allow: List[StrictStr] = Field(description="The allowed country codes for this repository")
-    deny: List[StrictStr] = Field(description="The denied country codes for this repository")
+    allow: Optional[List[StrictStr]] = Field(default=None, description="The allowed country codes for this repository")
+    deny: Optional[List[StrictStr]] = Field(default=None, description="The denied country codes for this repository")
     __properties: ClassVar[List[str]] = ["allow", "deny"]
 
     model_config = ConfigDict(

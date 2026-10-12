@@ -4,11 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **idp_key** | **String** |  |  |
-| **idp_value** | **String** |  |  |
-| **organization** | **String** |  |  |
-| **role** | **String** |  | [optional][default to &#39;Member&#39;] |
-| **team** | **String** |  |  |
+| **idp_key** | **String** |  | [optional] |
+| **idp_value** | **String** |  | [optional] |
+| **organization** | **String** |  | [optional] |
+| **role** | **String** |  | [optional] |
+| **team** | **String** |  | [optional] |
 
 ## Example
 

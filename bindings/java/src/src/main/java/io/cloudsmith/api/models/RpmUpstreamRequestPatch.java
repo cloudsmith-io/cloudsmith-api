@@ -59,7 +59,7 @@ public class RpmUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_AUTH_MODE = "auth_mode";
   @SerializedName(SERIALIZED_NAME_AUTH_MODE)
   @javax.annotation.Nullable
-  private String authMode = "None";
+  private String authMode;
 
   public static final String SERIALIZED_NAME_AUTH_SECRET = "auth_secret";
   @SerializedName(SERIALIZED_NAME_AUTH_SECRET)
@@ -109,7 +109,7 @@ public class RpmUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_GPG_VERIFICATION = "gpg_verification";
   @SerializedName(SERIALIZED_NAME_GPG_VERIFICATION)
   @javax.annotation.Nullable
-  private String gpgVerification = "Allow All";
+  private String gpgVerification;
 
   public static final String SERIALIZED_NAME_INCLUDE_SOURCES = "include_sources";
   @SerializedName(SERIALIZED_NAME_INCLUDE_SOURCES)
@@ -124,7 +124,7 @@ public class RpmUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
   @javax.annotation.Nullable
-  private String mode = "Proxy Only";
+  private String mode;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -441,8 +441,6 @@ public class RpmUpstreamRequestPatch implements Serializable {
 
   /**
    * Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
-   * minimum: 1
-   * maximum: 32767
    * @return priority
    */
   @javax.annotation.Nullable

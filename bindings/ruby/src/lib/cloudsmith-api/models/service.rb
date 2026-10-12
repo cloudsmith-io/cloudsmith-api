@@ -142,14 +142,10 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
-      else
-        self.role = 'Member'
       end
 
       if attributes.key?(:'slug')
@@ -168,39 +164,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@created_by.nil? && @created_by.to_s.length < 1
-        invalid_properties.push('invalid value for "created_by", the character length must be greater than or equal to 1.')
-      end
-
-      if !@description.nil? && @description.to_s.length > 1024
-        invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@description.nil? && @description.to_s.length < 1
-        invalid_properties.push('invalid value for "description", the character length must be greater than or equal to 1.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length > 120
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 120.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug.nil? && @slug !~ pattern
-        invalid_properties.push("invalid value for \"slug\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -208,84 +171,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@created_by.nil? && @created_by.to_s.length < 1
-      return false if !@description.nil? && @description.to_s.length > 1024
-      return false if !@description.nil? && @description.to_s.length < 1
-      return false if @name.nil?
-      return false if @name.to_s.length > 120
-      return false if @name.to_s.length < 1
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      return false if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] created_by Value to be assigned
-    def created_by=(created_by)
-      if created_by.nil?
-        fail ArgumentError, 'created_by cannot be nil'
-      end
-
-      if created_by.to_s.length < 1
-        fail ArgumentError, 'invalid value for "created_by", the character length must be greater than or equal to 1.'
-      end
-
-      @created_by = created_by
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
-      if description.nil?
-        fail ArgumentError, 'description cannot be nil'
-      end
-
-      if description.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 1024.'
-      end
-
-      if description.to_s.length < 1
-        fail ArgumentError, 'invalid value for "description", the character length must be greater than or equal to 1.'
-      end
-
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 120
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 120.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if slug.nil?
-        fail ArgumentError, 'slug cannot be nil'
-      end
-
-      if slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug !~ pattern
-        fail ArgumentError, "invalid value for \"slug\", must conform to the pattern #{pattern}."
-      end
-
-      @slug = slug
     end
 
     # Checks equality by comparing each attribute.

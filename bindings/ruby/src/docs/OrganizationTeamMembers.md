@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **members** | [**Array&lt;OrganizationTeamServiceMember&gt;**](OrganizationTeamServiceMember.md) | The team members |  |
+| **members** | [**Array&lt;OrganizationTeamServiceMember&gt;**](OrganizationTeamServiceMember.md) | The team members | [optional] |
 
 ## Example
 

@@ -40,7 +40,7 @@ api_instance = CloudsmithApi::WebhooksApi.new
 owner = 'owner_example' # String | 
 repo = 'repo_example' # String | 
 opts = {
-  data: CloudsmithApi::RepositoryWebhookRequest.new({events: ['events_example'], target_url: 'target_url_example', templates: [CloudsmithApi::WebhookTemplate.new({event: 'event_example'})]}) # RepositoryWebhookRequest | 
+  data: CloudsmithApi::RepositoryWebhookRequest.new # RepositoryWebhookRequest | 
 }
 
 begin

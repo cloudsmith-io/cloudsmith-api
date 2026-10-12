@@ -87,26 +87,18 @@ module CloudsmithApi
 
       if attributes.key?(:'average')
         self.average = attributes[:'average']
-      else
-        self.average = nil
       end
 
       if attributes.key?(:'highest')
         self.highest = attributes[:'highest']
-      else
-        self.highest = nil
       end
 
       if attributes.key?(:'lowest')
         self.lowest = attributes[:'lowest']
-      else
-        self.lowest = nil
       end
 
       if attributes.key?(:'total')
         self.total = attributes[:'total']
-      else
-        self.total = nil
       end
     end
 
@@ -115,22 +107,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @average.nil?
-        invalid_properties.push('invalid value for "average", average cannot be nil.')
-      end
-
-      if @highest.nil?
-        invalid_properties.push('invalid value for "highest", highest cannot be nil.')
-      end
-
-      if @lowest.nil?
-        invalid_properties.push('invalid value for "lowest", lowest cannot be nil.')
-      end
-
-      if @total.nil?
-        invalid_properties.push('invalid value for "total", total cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -138,51 +114,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @average.nil?
-      return false if @highest.nil?
-      return false if @lowest.nil?
-      return false if @total.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] average Value to be assigned
-    def average=(average)
-      if average.nil?
-        fail ArgumentError, 'average cannot be nil'
-      end
-
-      @average = average
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] highest Value to be assigned
-    def highest=(highest)
-      if highest.nil?
-        fail ArgumentError, 'highest cannot be nil'
-      end
-
-      @highest = highest
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] lowest Value to be assigned
-    def lowest=(lowest)
-      if lowest.nil?
-        fail ArgumentError, 'lowest cannot be nil'
-      end
-
-      @lowest = lowest
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] total Value to be assigned
-    def total=(total)
-      if total.nil?
-        fail ArgumentError, 'total cannot be nil'
-      end
-
-      @total = total
     end
 
     # Checks equality by comparing each attribute.

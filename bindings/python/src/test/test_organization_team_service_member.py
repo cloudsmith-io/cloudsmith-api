@@ -37,13 +37,11 @@ class TestOrganizationTeamServiceMember(unittest.TestCase):
         if include_optional:
             return OrganizationTeamServiceMember(
                 role = '',
-                user = '0',
-                user_kind = 'User'
+                user = '',
+                user_kind = ''
             )
         else:
             return OrganizationTeamServiceMember(
-                role = '',
-                user = '0',
         )
         """
 

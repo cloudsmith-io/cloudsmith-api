@@ -36,14 +36,13 @@ class TestNugetPackageUploadRequest(unittest.TestCase):
         model = NugetPackageUploadRequest()
         if include_optional:
             return NugetPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                symbols_file = '0',
-                tags = '0'
+                symbols_file = '',
+                tags = ''
             )
         else:
             return NugetPackageUploadRequest(
-                package_file = '0',
         )
         """
 

@@ -5,9 +5,9 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **event_at** | **Time** |  | [optional][readonly] |
-| **package** | [**PackageVulnerability**](PackageVulnerability.md) |  |  |
-| **policy** | [**NestedLicensePolicy**](NestedLicensePolicy.md) |  |  |
-| **reasons** | **Array&lt;String&gt;** |  |  |
+| **package** | [**PackageVulnerability**](PackageVulnerability.md) |  | [optional] |
+| **policy** | [**NestedLicensePolicy**](NestedLicensePolicy.md) |  | [optional] |
+| **reasons** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 

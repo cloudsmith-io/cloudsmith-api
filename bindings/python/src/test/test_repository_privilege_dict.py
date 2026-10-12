@@ -37,13 +37,12 @@ class TestRepositoryPrivilegeDict(unittest.TestCase):
         if include_optional:
             return RepositoryPrivilegeDict(
                 privilege = '',
-                service = 'z0',
-                team = 'z0',
-                user = 'z0'
+                service = '',
+                team = '',
+                user = ''
             )
         else:
             return RepositoryPrivilegeDict(
-                privilege = '',
         )
         """
 

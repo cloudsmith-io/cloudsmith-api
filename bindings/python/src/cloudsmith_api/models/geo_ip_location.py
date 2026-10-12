@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,13 +28,13 @@ class GeoIpLocation(BaseModel):
     """
     GeoIpLocation
     """ # noqa: E501
-    city: Optional[Annotated[str, Field(min_length=1, strict=True)]]
-    continent: Optional[Annotated[str, Field(min_length=1, strict=True)]]
-    country: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    city: Optional[StrictStr] = None
+    continent: Optional[StrictStr] = None
+    country: Optional[StrictStr] = None
     country_code: Optional[StrictStr] = None
     latitude: Optional[StrictStr] = None
     longitude: Optional[StrictStr] = None
-    postal_code: Optional[Annotated[str, Field(min_length=1, strict=True)]]
+    postal_code: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["city", "continent", "country", "country_code", "latitude", "longitude", "postal_code"]
 
     model_config = ConfigDict(

@@ -38,23 +38,22 @@ class TestRepositoryTokenRequest(unittest.TestCase):
             return RepositoryTokenRequest(
                 eula_required = True,
                 is_active = True,
-                limit_bandwidth = -9223372036854775808,
-                limit_bandwidth_unit = 'Byte',
+                limit_bandwidth = 56,
+                limit_bandwidth_unit = '',
                 limit_date_range_from = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 limit_date_range_to = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                limit_num_clients = -9223372036854775808,
-                limit_num_downloads = -9223372036854775808,
+                limit_num_clients = 56,
+                limit_num_downloads = 56,
                 limit_package_query = '',
                 limit_path_query = '',
                 metadata = cloudsmith_api.models.metadata.Metadata(),
-                name = '0',
+                name = '',
                 scheduled_reset_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                scheduled_reset_period = 'Never Reset',
-                token = '0'
+                scheduled_reset_period = '',
+                token = ''
             )
         else:
             return RepositoryTokenRequest(
-                name = '0',
         )
         """
 

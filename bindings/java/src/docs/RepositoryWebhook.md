@@ -12,7 +12,7 @@
 |**createdByUrl** | **URI** |  |  [optional] [readonly] |
 |**disableReason** | **java.math.BigInteger** |  |  [optional] [readonly] |
 |**disableReasonStr** | **String** |  |  [optional] [readonly] |
-|**events** | **List&lt;String&gt;** |  |  |
+|**events** | **List&lt;String&gt;** |  |  [optional] |
 |**identifier** | **java.math.BigInteger** | Deprecated (23-05-15): Please use &#39;slug_perm&#39; instead. Previously: A monotonically increasing number that identified a webhook request within a repository. |  [optional] [readonly] |
 |**isActive** | **Boolean** | If enabled, the webhook will trigger on subscribed events and send payloads to the configured target URL. |  [optional] |
 |**isLastResponseBad** | **Boolean** |  |  [optional] [readonly] |
@@ -28,8 +28,8 @@
 |**secretHeader** | **String** | The header to send the predefined secret in. This must be unique from existing headers or it won&#39;t be sent. You can use this as a form of authentication on the endpoint side. |  [optional] |
 |**selfUrl** | **URI** |  |  [optional] [readonly] |
 |**slugPerm** | **String** |  |  [optional] [readonly] |
-|**targetUrl** | **URI** | The destination URL that webhook payloads will be POST&#39;ed to. |  |
-|**templates** | [**List&lt;WebhookTemplate&gt;**](WebhookTemplate.md) |  |  |
+|**targetUrl** | **URI** | The destination URL that webhook payloads will be POST&#39;ed to. |  [optional] |
+|**templates** | [**List&lt;WebhookTemplate&gt;**](WebhookTemplate.md) |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] [readonly] |
 |**updatedBy** | **String** |  |  [optional] [readonly] |
 |**updatedByUrl** | **URI** |  |  [optional] [readonly] |

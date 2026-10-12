@@ -90,14 +90,10 @@ module CloudsmithApi
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
-      else
-        self.role = 'Manager'
       end
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
-      else
-        self.slug = nil
       end
     end
 
@@ -106,23 +102,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if @slug.nil?
-        invalid_properties.push('invalid value for "slug", slug cannot be nil.')
-      end
-
-      if @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if @slug !~ pattern
-        invalid_properties.push("invalid value for \"slug\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -130,44 +109,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if @slug.nil?
-      return false if @slug.to_s.length < 1
-      return false if @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if slug.nil?
-        fail ArgumentError, 'slug cannot be nil'
-      end
-
-      if slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug !~ pattern
-        fail ArgumentError, "invalid value for \"slug\", must conform to the pattern #{pattern}."
-      end
-
-      @slug = slug
     end
 
     # Checks equality by comparing each attribute.

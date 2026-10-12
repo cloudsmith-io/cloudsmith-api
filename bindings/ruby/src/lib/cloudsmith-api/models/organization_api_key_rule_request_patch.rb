@@ -121,14 +121,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@max_age_hours.nil? && @max_age_hours > 2147483647
-        invalid_properties.push('invalid value for "max_age_hours", must be smaller than or equal to 2147483647.')
-      end
-
-      if !@max_age_hours.nil? && @max_age_hours < 24
-        invalid_properties.push('invalid value for "max_age_hours", must be greater than or equal to 24.')
-      end
-
       invalid_properties
     end
 
@@ -136,23 +128,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@max_age_hours.nil? && @max_age_hours > 2147483647
-      return false if !@max_age_hours.nil? && @max_age_hours < 24
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] max_age_hours Value to be assigned
-    def max_age_hours=(max_age_hours)
-      if !max_age_hours.nil? && max_age_hours > 2147483647
-        fail ArgumentError, 'invalid value for "max_age_hours", must be smaller than or equal to 2147483647.'
-      end
-
-      if !max_age_hours.nil? && max_age_hours < 24
-        fail ArgumentError, 'invalid value for "max_age_hours", must be greater than or equal to 24.'
-      end
-
-      @max_age_hours = max_age_hours
     end
 
     # Checks equality by comparing each attribute.

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **value** | **Integer** |  |  |
+| **value** | **Integer** |  | [optional] |
 
 ## Example
 

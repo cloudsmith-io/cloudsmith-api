@@ -36,46 +36,29 @@ class TestRepositoryAuditLog(unittest.TestCase):
         model = RepositoryAuditLog()
         if include_optional:
             return RepositoryAuditLog(
-                actor = '0',
-                actor_ip_address = '0',
+                actor = '',
+                actor_ip_address = '',
                 actor_kind = '',
                 actor_location = cloudsmith_api.models.geo_ip_location.GeoIpLocation(
-                    city = '0', 
-                    continent = '0', 
-                    country = '0', 
+                    city = '', 
+                    continent = '', 
+                    country = '', 
                     country_code = '', 
                     latitude = '', 
                     longitude = '', 
-                    postal_code = '0', ),
-                actor_slug_perm = '0',
+                    postal_code = '', ),
+                actor_slug_perm = '',
                 actor_url = '',
-                context = '0',
-                event = '0',
+                context = '',
+                event = '',
                 event_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                object = '0',
-                object_kind = '0',
-                object_slug_perm = '0',
+                object = '',
+                object_kind = '',
+                object_slug_perm = '',
                 uuid = ''
             )
         else:
             return RepositoryAuditLog(
-                actor = '0',
-                actor_ip_address = '0',
-                actor_location = cloudsmith_api.models.geo_ip_location.GeoIpLocation(
-                    city = '0', 
-                    continent = '0', 
-                    country = '0', 
-                    country_code = '', 
-                    latitude = '', 
-                    longitude = '', 
-                    postal_code = '0', ),
-                actor_slug_perm = '0',
-                context = '0',
-                event = '0',
-                event_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                object = '0',
-                object_kind = '0',
-                object_slug_perm = '0',
         )
         """
 

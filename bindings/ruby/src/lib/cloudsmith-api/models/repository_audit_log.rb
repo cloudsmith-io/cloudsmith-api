@@ -127,14 +127,10 @@ module CloudsmithApi
 
       if attributes.key?(:'actor')
         self.actor = attributes[:'actor']
-      else
-        self.actor = nil
       end
 
       if attributes.key?(:'actor_ip_address')
         self.actor_ip_address = attributes[:'actor_ip_address']
-      else
-        self.actor_ip_address = nil
       end
 
       if attributes.key?(:'actor_kind')
@@ -143,14 +139,10 @@ module CloudsmithApi
 
       if attributes.key?(:'actor_location')
         self.actor_location = attributes[:'actor_location']
-      else
-        self.actor_location = nil
       end
 
       if attributes.key?(:'actor_slug_perm')
         self.actor_slug_perm = attributes[:'actor_slug_perm']
-      else
-        self.actor_slug_perm = nil
       end
 
       if attributes.key?(:'actor_url')
@@ -159,38 +151,26 @@ module CloudsmithApi
 
       if attributes.key?(:'context')
         self.context = attributes[:'context']
-      else
-        self.context = nil
       end
 
       if attributes.key?(:'event')
         self.event = attributes[:'event']
-      else
-        self.event = nil
       end
 
       if attributes.key?(:'event_at')
         self.event_at = attributes[:'event_at']
-      else
-        self.event_at = nil
       end
 
       if attributes.key?(:'object')
         self.object = attributes[:'object']
-      else
-        self.object = nil
       end
 
       if attributes.key?(:'object_kind')
         self.object_kind = attributes[:'object_kind']
-      else
-        self.object_kind = nil
       end
 
       if attributes.key?(:'object_slug_perm')
         self.object_slug_perm = attributes[:'object_slug_perm']
-      else
-        self.object_slug_perm = nil
       end
 
       if attributes.key?(:'uuid')
@@ -203,66 +183,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @actor.to_s.length < 1
-        invalid_properties.push('invalid value for "actor", the character length must be greater than or equal to 1.')
-      end
-
-      if @actor_ip_address.to_s.length < 1
-        invalid_properties.push('invalid value for "actor_ip_address", the character length must be greater than or equal to 1.')
-      end
-
-      if @actor_location.nil?
-        invalid_properties.push('invalid value for "actor_location", actor_location cannot be nil.')
-      end
-
-      if @actor_slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "actor_slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      if @context.nil?
-        invalid_properties.push('invalid value for "context", context cannot be nil.')
-      end
-
-      if @context.to_s.length < 1
-        invalid_properties.push('invalid value for "context", the character length must be greater than or equal to 1.')
-      end
-
-      if @event.nil?
-        invalid_properties.push('invalid value for "event", event cannot be nil.')
-      end
-
-      if @event.to_s.length < 1
-        invalid_properties.push('invalid value for "event", the character length must be greater than or equal to 1.')
-      end
-
-      if @event_at.nil?
-        invalid_properties.push('invalid value for "event_at", event_at cannot be nil.')
-      end
-
-      if @object.nil?
-        invalid_properties.push('invalid value for "object", object cannot be nil.')
-      end
-
-      if @object.to_s.length < 1
-        invalid_properties.push('invalid value for "object", the character length must be greater than or equal to 1.')
-      end
-
-      if @object_kind.nil?
-        invalid_properties.push('invalid value for "object_kind", object_kind cannot be nil.')
-      end
-
-      if @object_kind.to_s.length < 1
-        invalid_properties.push('invalid value for "object_kind", the character length must be greater than or equal to 1.')
-      end
-
-      if @object_slug_perm.nil?
-        invalid_properties.push('invalid value for "object_slug_perm", object_slug_perm cannot be nil.')
-      end
-
-      if @object_slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "object_slug_perm", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -270,142 +190,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @actor.to_s.length < 1
-      return false if @actor_ip_address.to_s.length < 1
-      return false if @actor_location.nil?
-      return false if @actor_slug_perm.to_s.length < 1
-      return false if @context.nil?
-      return false if @context.to_s.length < 1
-      return false if @event.nil?
-      return false if @event.to_s.length < 1
-      return false if @event_at.nil?
-      return false if @object.nil?
-      return false if @object.to_s.length < 1
-      return false if @object_kind.nil?
-      return false if @object_kind.to_s.length < 1
-      return false if @object_slug_perm.nil?
-      return false if @object_slug_perm.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] actor Value to be assigned
-    def actor=(actor)
-      if !actor.nil? && actor.to_s.length < 1
-        fail ArgumentError, 'invalid value for "actor", the character length must be greater than or equal to 1.'
-      end
-
-      @actor = actor
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] actor_ip_address Value to be assigned
-    def actor_ip_address=(actor_ip_address)
-      if !actor_ip_address.nil? && actor_ip_address.to_s.length < 1
-        fail ArgumentError, 'invalid value for "actor_ip_address", the character length must be greater than or equal to 1.'
-      end
-
-      @actor_ip_address = actor_ip_address
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] actor_location Value to be assigned
-    def actor_location=(actor_location)
-      if actor_location.nil?
-        fail ArgumentError, 'actor_location cannot be nil'
-      end
-
-      @actor_location = actor_location
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] actor_slug_perm Value to be assigned
-    def actor_slug_perm=(actor_slug_perm)
-      if !actor_slug_perm.nil? && actor_slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "actor_slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      @actor_slug_perm = actor_slug_perm
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] context Value to be assigned
-    def context=(context)
-      if context.nil?
-        fail ArgumentError, 'context cannot be nil'
-      end
-
-      if context.to_s.length < 1
-        fail ArgumentError, 'invalid value for "context", the character length must be greater than or equal to 1.'
-      end
-
-      @context = context
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] event Value to be assigned
-    def event=(event)
-      if event.nil?
-        fail ArgumentError, 'event cannot be nil'
-      end
-
-      if event.to_s.length < 1
-        fail ArgumentError, 'invalid value for "event", the character length must be greater than or equal to 1.'
-      end
-
-      @event = event
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] event_at Value to be assigned
-    def event_at=(event_at)
-      if event_at.nil?
-        fail ArgumentError, 'event_at cannot be nil'
-      end
-
-      @event_at = event_at
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] object Value to be assigned
-    def object=(object)
-      if object.nil?
-        fail ArgumentError, 'object cannot be nil'
-      end
-
-      if object.to_s.length < 1
-        fail ArgumentError, 'invalid value for "object", the character length must be greater than or equal to 1.'
-      end
-
-      @object = object
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] object_kind Value to be assigned
-    def object_kind=(object_kind)
-      if object_kind.nil?
-        fail ArgumentError, 'object_kind cannot be nil'
-      end
-
-      if object_kind.to_s.length < 1
-        fail ArgumentError, 'invalid value for "object_kind", the character length must be greater than or equal to 1.'
-      end
-
-      @object_kind = object_kind
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] object_slug_perm Value to be assigned
-    def object_slug_perm=(object_slug_perm)
-      if object_slug_perm.nil?
-        fail ArgumentError, 'object_slug_perm cannot be nil'
-      end
-
-      if object_slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "object_slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      @object_slug_perm = object_slug_perm
     end
 
     # Checks equality by comparing each attribute.

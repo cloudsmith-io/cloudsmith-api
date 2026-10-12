@@ -36,13 +36,11 @@ class TestOidcRequest(unittest.TestCase):
         model = OidcRequest()
         if include_optional:
             return OidcRequest(
-                oidc_token = '0',
-                service_slug = '0'
+                oidc_token = '',
+                service_slug = ''
             )
         else:
             return OidcRequest(
-                oidc_token = '0',
-                service_slug = '0',
         )
         """
 

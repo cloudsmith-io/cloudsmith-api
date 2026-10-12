@@ -83,20 +83,14 @@ module CloudsmithApi
 
       if attributes.key?(:'downloaded')
         self.downloaded = attributes[:'downloaded']
-      else
-        self.downloaded = nil
       end
 
       if attributes.key?(:'storage_used')
         self.storage_used = attributes[:'storage_used']
-      else
-        self.storage_used = nil
       end
 
       if attributes.key?(:'uploaded')
         self.uploaded = attributes[:'uploaded']
-      else
-        self.uploaded = nil
       end
     end
 
@@ -105,18 +99,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @downloaded.nil?
-        invalid_properties.push('invalid value for "downloaded", downloaded cannot be nil.')
-      end
-
-      if @storage_used.nil?
-        invalid_properties.push('invalid value for "storage_used", storage_used cannot be nil.')
-      end
-
-      if @uploaded.nil?
-        invalid_properties.push('invalid value for "uploaded", uploaded cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -124,40 +106,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @downloaded.nil?
-      return false if @storage_used.nil?
-      return false if @uploaded.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] downloaded Value to be assigned
-    def downloaded=(downloaded)
-      if downloaded.nil?
-        fail ArgumentError, 'downloaded cannot be nil'
-      end
-
-      @downloaded = downloaded
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] storage_used Value to be assigned
-    def storage_used=(storage_used)
-      if storage_used.nil?
-        fail ArgumentError, 'storage_used cannot be nil'
-      end
-
-      @storage_used = storage_used
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] uploaded Value to be assigned
-    def uploaded=(uploaded)
-      if uploaded.nil?
-        fail ArgumentError, 'uploaded cannot be nil'
-      end
-
-      @uploaded = uploaded
     end
 
     # Checks equality by comparing each attribute.

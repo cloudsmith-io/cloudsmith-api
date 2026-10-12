@@ -75,8 +75,6 @@ module CloudsmithApi
 
       if attributes.key?(:'tokens')
         self.tokens = attributes[:'tokens']
-      else
-        self.tokens = nil
       end
     end
 
@@ -85,10 +83,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @tokens.nil?
-        invalid_properties.push('invalid value for "tokens", tokens cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -96,18 +90,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @tokens.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tokens Value to be assigned
-    def tokens=(tokens)
-      if tokens.nil?
-        fail ArgumentError, 'tokens cannot be nil'
-      end
-
-      @tokens = tokens
     end
 
     # Checks equality by comparing each attribute.

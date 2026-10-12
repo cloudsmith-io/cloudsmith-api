@@ -131,8 +131,6 @@ module CloudsmithApi
 
       if attributes.key?(:'disable_reason')
         self.disable_reason = attributes[:'disable_reason']
-      else
-        self.disable_reason = 'N/A'
       end
 
       if attributes.key?(:'disable_reason_text')
@@ -141,8 +139,6 @@ module CloudsmithApi
 
       if attributes.key?(:'is_active')
         self.is_active = attributes[:'is_active']
-      else
-        self.is_active = false
       end
 
       if attributes.key?(:'priority')
@@ -155,8 +151,6 @@ module CloudsmithApi
 
       if attributes.key?(:'target_repository')
         self.target_repository = attributes[:'target_repository']
-      else
-        self.target_repository = nil
       end
 
       if attributes.key?(:'target_repository_summary')
@@ -169,32 +163,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@priority.nil? && @priority > 32767
-        invalid_properties.push('invalid value for "priority", must be smaller than or equal to 32767.')
-      end
-
-      if !@priority.nil? && @priority < 1
-        invalid_properties.push('invalid value for "priority", must be greater than or equal to 1.')
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
-      if @target_repository.nil?
-        invalid_properties.push('invalid value for "target_repository", target_repository cannot be nil.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if @target_repository !~ pattern
-        invalid_properties.push("invalid value for \"target_repository\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -202,65 +170,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@priority.nil? && @priority > 32767
-      return false if !@priority.nil? && @priority < 1
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if @target_repository.nil?
-      return false if @target_repository !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] priority Value to be assigned
-    def priority=(priority)
-      if priority.nil?
-        fail ArgumentError, 'priority cannot be nil'
-      end
-
-      if priority > 32767
-        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 32767.'
-      end
-
-      if priority < 1
-        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
-      end
-
-      @priority = priority
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] target_repository Value to be assigned
-    def target_repository=(target_repository)
-      if target_repository.nil?
-        fail ArgumentError, 'target_repository cannot be nil'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if target_repository !~ pattern
-        fail ArgumentError, "invalid value for \"target_repository\", must conform to the pattern #{pattern}."
-      end
-
-      @target_repository = target_repository
     end
 
     # Checks equality by comparing each attribute.

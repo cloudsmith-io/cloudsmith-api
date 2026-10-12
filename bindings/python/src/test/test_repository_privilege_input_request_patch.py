@@ -39,9 +39,9 @@ class TestRepositoryPrivilegeInputRequestPatch(unittest.TestCase):
                 privileges = [
                     cloudsmith_api.models.repository_privilege_dict.RepositoryPrivilegeDict(
                         privilege = '', 
-                        service = 'z0', 
-                        team = 'z0', 
-                        user = 'z0', )
+                        service = '', 
+                        team = '', 
+                        user = '', )
                     ]
             )
         else:

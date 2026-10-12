@@ -44,24 +44,21 @@ class TestOrganizationCustomDomains(unittest.TestCase):
                 dns_cert_value = '',
                 domain_type = 56,
                 enabled = True,
-                host = '0',
+                host = '',
                 namespace = 56,
                 primary = True,
                 redirect_root = True,
                 redirect_root_url = '',
                 repository = cloudsmith_api.models.organization_custom_domain_nested_repo.OrganizationCustomDomainNestedRepo(
-                    name = '0', 
-                    slug = 'z', ),
+                    name = '', 
+                    slug = '', ),
                 repository_only = True,
-                slug_perm = 'z0',
+                slug_perm = '',
                 validated = True,
                 validated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return OrganizationCustomDomains(
-                repository = cloudsmith_api.models.organization_custom_domain_nested_repo.OrganizationCustomDomainNestedRepo(
-                    name = '0', 
-                    slug = 'z', ),
         )
         """
 

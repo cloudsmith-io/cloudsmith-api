@@ -36,13 +36,12 @@ class TestCondaPackageUploadRequest(unittest.TestCase):
         model = CondaPackageUploadRequest()
         if include_optional:
             return CondaPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return CondaPackageUploadRequest(
-                package_file = '0',
         )
         """
 

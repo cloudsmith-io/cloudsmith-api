@@ -36,14 +36,13 @@ class TestNpmPackageUploadRequest(unittest.TestCase):
         model = NpmPackageUploadRequest()
         if include_optional:
             return NpmPackageUploadRequest(
-                npm_dist_tag = 'latest',
-                package_file = '0',
+                npm_dist_tag = '',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return NpmPackageUploadRequest(
-                package_file = '0',
         )
         """
 

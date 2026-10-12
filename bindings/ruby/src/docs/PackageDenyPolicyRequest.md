@@ -7,7 +7,7 @@
 | **description** | **String** |  | [optional] |
 | **enabled** | **Boolean** | Whether this rule is enabled or disabled. | [optional] |
 | **name** | **String** |  | [optional] |
-| **package_query_string** | **String** | Packages that match this query will trigger this deny rule. |  |
+| **package_query_string** | **String** | Packages that match this query will trigger this deny rule. | [optional] |
 
 ## Example
 

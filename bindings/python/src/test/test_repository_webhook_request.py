@@ -44,28 +44,19 @@ class TestRepositoryWebhookRequest(unittest.TestCase):
                 request_body_format = 56,
                 request_body_template_format = 56,
                 request_content_type = '',
-                secret_header = 'z',
-                secret_value = 'j',
-                signature_key = '0',
-                target_url = '0',
+                secret_header = '',
+                secret_value = '',
+                signature_key = '',
+                target_url = '',
                 templates = [
                     cloudsmith_api.models.webhook_template.WebhookTemplate(
-                        event = '0', 
+                        event = '', 
                         template = '', )
                     ],
                 verify_ssl = True
             )
         else:
             return RepositoryWebhookRequest(
-                events = [
-                    ''
-                    ],
-                target_url = '0',
-                templates = [
-                    cloudsmith_api.models.webhook_template.WebhookTemplate(
-                        event = '0', 
-                        template = '', )
-                    ],
         )
         """
 

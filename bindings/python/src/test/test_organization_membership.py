@@ -36,24 +36,24 @@ class TestOrganizationMembership(unittest.TestCase):
         model = OrganizationMembership()
         if include_optional:
             return OrganizationMembership(
-                email = '0',
+                email = '',
                 has_two_factor = True,
                 is_active = True,
                 joined_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 last_login_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                last_login_method = 'Unknown',
-                role = 'Owner',
+                last_login_method = '',
+                role = '',
                 teams = [
                     cloudsmith_api.models.member_teams.MemberTeams(
-                        name = '0', 
-                        role = 'Manager', 
-                        slug = 'z0', )
+                        name = '', 
+                        role = '', 
+                        slug = '', )
                     ],
-                user = '0',
-                user_id = '0',
-                user_name = '0',
+                user = '',
+                user_id = '',
+                user_name = '',
                 user_url = '',
-                visibility = 'Public'
+                visibility = ''
             )
         else:
             return OrganizationMembership(

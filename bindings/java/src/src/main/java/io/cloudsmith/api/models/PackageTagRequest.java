@@ -60,12 +60,12 @@ public class PackageTagRequest implements Serializable {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   @javax.annotation.Nullable
-  private String action = "Add";
+  private String action;
 
   public static final String SERIALIZED_NAME_IS_IMMUTABLE = "is_immutable";
   @SerializedName(SERIALIZED_NAME_IS_IMMUTABLE)
   @javax.annotation.Nullable
-  private Boolean isImmutable = false;
+  private Boolean isImmutable;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)

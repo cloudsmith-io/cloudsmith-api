@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | **str** | The role to be assigned to the invited user. | [optional] [default to 'Member']
+**role** | **str** | The role to be assigned to the invited user. | [optional] 
 
 ## Example
 

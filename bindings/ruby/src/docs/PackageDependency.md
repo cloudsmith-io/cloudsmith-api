@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **dep_type** | **String** |  | [optional][readonly][default to &#39;Depends&#39;] |
+| **dep_type** | **String** |  | [optional][readonly] |
 | **name** | **String** |  | [optional][readonly] |
-| **operator** | **String** |  | [optional][readonly][default to &#39;&#x3D;&#39;] |
+| **operator** | **String** |  | [optional][readonly] |
 | **version** | **String** |  | [optional][readonly] |
 
 ## Example

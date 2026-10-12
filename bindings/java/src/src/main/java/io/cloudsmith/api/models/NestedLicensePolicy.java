@@ -96,8 +96,8 @@ public class NestedLicensePolicy implements Serializable {
 
   public static final String SERIALIZED_NAME_SPDX_IDENTIFIERS = "spdx_identifiers";
   @SerializedName(SERIALIZED_NAME_SPDX_IDENTIFIERS)
-  @javax.annotation.Nonnull
-  private Set<String> spdxIdentifiers = new LinkedHashSet<>();
+  @javax.annotation.Nullable
+  private Set<String> spdxIdentifiers;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
@@ -212,7 +212,7 @@ public class NestedLicensePolicy implements Serializable {
 
 
 
-  public NestedLicensePolicy spdxIdentifiers(@javax.annotation.Nonnull Set<String> spdxIdentifiers) {
+  public NestedLicensePolicy spdxIdentifiers(@javax.annotation.Nullable Set<String> spdxIdentifiers) {
     this.spdxIdentifiers = spdxIdentifiers;
     return this;
   }
@@ -229,12 +229,12 @@ public class NestedLicensePolicy implements Serializable {
    * Get spdxIdentifiers
    * @return spdxIdentifiers
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Set<String> getSpdxIdentifiers() {
     return spdxIdentifiers;
   }
 
-  public void setSpdxIdentifiers(@javax.annotation.Nonnull Set<String> spdxIdentifiers) {
+  public void setSpdxIdentifiers(@javax.annotation.Nullable Set<String> spdxIdentifiers) {
     this.spdxIdentifiers = spdxIdentifiers;
   }
 
@@ -334,7 +334,7 @@ public class NestedLicensePolicy implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("allow_unknown_licenses", "created_at", "description", "name", "on_violation_quarantine", "package_query_string", "slug_perm", "spdx_identifiers", "updated_at", "url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("spdx_identifiers"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -357,13 +357,6 @@ public class NestedLicensePolicy implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NestedLicensePolicy` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : NestedLicensePolicy.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
@@ -377,10 +370,8 @@ public class NestedLicensePolicy implements Serializable {
       if ((jsonObj.get("slug_perm") != null && !jsonObj.get("slug_perm").isJsonNull()) && !jsonObj.get("slug_perm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `slug_perm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slug_perm").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("spdx_identifiers") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("spdx_identifiers").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("spdx_identifiers") != null && !jsonObj.get("spdx_identifiers").isJsonNull() && !jsonObj.get("spdx_identifiers").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `spdx_identifiers` to be an array in the JSON string but got `%s`", jsonObj.get("spdx_identifiers").toString()));
       }
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {

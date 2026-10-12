@@ -37,40 +37,24 @@ class TestCommonBandwidthMetrics(unittest.TestCase):
         if include_optional:
             return CommonBandwidthMetrics(
                 average = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
+                    display = '', 
+                    units = '', 
                     value = 56, ),
                 highest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
+                    display = '', 
+                    units = '', 
                     value = 56, ),
                 lowest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
+                    display = '', 
+                    units = '', 
                     value = 56, ),
                 total = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
+                    display = '', 
+                    units = '', 
                     value = 56, )
             )
         else:
             return CommonBandwidthMetrics(
-                average = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
-                    value = 56, ),
-                highest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
-                    value = 56, ),
-                lowest = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
-                    value = 56, ),
-                total = cloudsmith_api.models.common_bandwidth_metrics_value.CommonBandwidthMetricsValue(
-                    display = '0', 
-                    units = 'bytes', 
-                    value = 56, ),
         )
         """
 

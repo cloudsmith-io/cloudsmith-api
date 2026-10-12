@@ -69,7 +69,7 @@ public class ProviderSettingsWriteRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_DYNAMIC_MAPPINGS = "dynamic_mappings";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_MAPPINGS)
   @javax.annotation.Nullable
-  private List<DynamicMapping> dynamicMappings = new ArrayList<>();
+  private List<DynamicMapping> dynamicMappings;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -94,7 +94,7 @@ public class ProviderSettingsWriteRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNTS = "service_accounts";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNTS)
   @javax.annotation.Nullable
-  private Set<String> serviceAccounts = new LinkedHashSet<>();
+  private Set<String> serviceAccounts;
 
   public ProviderSettingsWriteRequestPatch() {
   }

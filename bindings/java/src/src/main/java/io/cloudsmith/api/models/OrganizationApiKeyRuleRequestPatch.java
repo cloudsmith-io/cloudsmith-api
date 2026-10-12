@@ -128,8 +128,6 @@ public class OrganizationApiKeyRuleRequestPatch implements Serializable {
 
   /**
    * The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value.
-   * minimum: 24
-   * maximum: 2147483647
    * @return maxAgeHours
    */
   @javax.annotation.Nullable

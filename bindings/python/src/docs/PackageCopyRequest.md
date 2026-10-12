@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**destination** | **str** | The name of the destination repository without the namespace. | 
+**destination** | **str** | The name of the destination repository without the namespace. | [optional] 
 **republish** | **bool** | If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
 
 ## Example

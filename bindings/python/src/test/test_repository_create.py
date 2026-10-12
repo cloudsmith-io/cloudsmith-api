@@ -37,21 +37,21 @@ class TestRepositoryCreate(unittest.TestCase):
         if include_optional:
             return RepositoryCreate(
                 active_connection_count = 56,
-                broadcast_state = 'Off',
+                broadcast_state = '',
                 cdn_url = '',
-                content_kind = 'Standard',
+                content_kind = '',
                 contextual_auth_realm = True,
                 copy_own = True,
-                copy_packages = 'Read',
+                copy_packages = '',
                 cosign_signing_enabled = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                default_privilege = 'None',
+                default_privilege = '',
                 delete_own = True,
-                delete_packages = 'Admin',
+                delete_packages = '',
                 deleted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 description = '',
                 distributes = [
-                    'z'
+                    ''
                     ],
                 docker_refresh_tokens_enabled = True,
                 ecdsa_keys = [
@@ -59,9 +59,9 @@ class TestRepositoryCreate(unittest.TestCase):
                         active = True, 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         default = True, 
-                        fingerprint = '0', 
+                        fingerprint = '', 
                         fingerprint_short = '', 
-                        public_key = '0', 
+                        public_key = '', 
                         ssh_fingerprint = '', )
                     ],
                 enforce_eula = True,
@@ -69,23 +69,23 @@ class TestRepositoryCreate(unittest.TestCase):
                 gpg_keys = [
                     cloudsmith_api.models.repository_gpg_key.RepositoryGpgKey(
                         active = True, 
-                        comment = '0', 
+                        comment = '', 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         default = True, 
-                        fingerprint = '0', 
+                        fingerprint = '', 
                         fingerprint_short = '', 
-                        public_key = '0', )
+                        public_key = '', )
                     ],
                 index_files = True,
                 is_open_source = True,
                 is_private = True,
                 is_public = True,
                 is_public_hidden = True,
-                manage_entitlements_privilege = 'Admin',
+                manage_entitlements_privilege = '',
                 move_own = True,
-                move_packages = 'Admin',
-                name = 'eBXK5y0',
-                namespace = 'z',
+                move_packages = '',
+                name = '',
+                namespace = '',
                 namespace_url = '',
                 npm_upstream_tags_take_precedence = True,
                 nuget_native_signing_enabled = True,
@@ -101,37 +101,36 @@ class TestRepositoryCreate(unittest.TestCase):
                 proxy_pypi = True,
                 raw_package_index_enabled = True,
                 raw_package_index_signatures_enabled = True,
-                replace_packages = 'Write',
+                replace_packages = '',
                 replace_packages_by_default = True,
                 repository_type = 56,
-                repository_type_str = 'Public',
+                repository_type_str = '',
                 resync_own = True,
-                resync_packages = 'Admin',
+                resync_packages = '',
                 scan_own = True,
-                scan_packages = 'Read',
-                self_html_url = '0',
+                scan_packages = '',
+                self_html_url = '',
                 self_url = '',
-                self_webapp_url = '0',
+                self_webapp_url = '',
                 show_setup_all = True,
                 size = 56,
                 size_str = '',
                 slug = '',
-                slug_perm = 'z0',
-                storage_region = 'default',
+                slug_perm = '',
+                storage_region = '',
                 strict_npm_validation = True,
                 tag_pre_releases_as_latest = True,
                 use_debian_labels = True,
                 use_default_cargo_upstream = True,
-                use_entitlements_privilege = 'Read',
+                use_entitlements_privilege = '',
                 use_noarch_packages = True,
                 use_source_packages = True,
                 use_vulnerability_scanning = True,
                 user_entitlements_enabled = True,
-                view_statistics = 'Read'
+                view_statistics = ''
             )
         else:
             return RepositoryCreate(
-                name = 'eBXK5y0',
         )
         """
 

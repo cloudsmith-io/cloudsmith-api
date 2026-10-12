@@ -74,7 +74,7 @@ public class RepositoryTokenRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_LIMIT_BANDWIDTH_UNIT = "limit_bandwidth_unit";
   @SerializedName(SERIALIZED_NAME_LIMIT_BANDWIDTH_UNIT)
   @javax.annotation.Nullable
-  private String limitBandwidthUnit = "Byte";
+  private String limitBandwidthUnit;
 
   public static final String SERIALIZED_NAME_LIMIT_DATE_RANGE_FROM = "limit_date_range_from";
   @SerializedName(SERIALIZED_NAME_LIMIT_DATE_RANGE_FROM)
@@ -124,7 +124,7 @@ public class RepositoryTokenRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_SCHEDULED_RESET_PERIOD = "scheduled_reset_period";
   @SerializedName(SERIALIZED_NAME_SCHEDULED_RESET_PERIOD)
   @javax.annotation.Nullable
-  private String scheduledResetPeriod = "Never Reset";
+  private String scheduledResetPeriod;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -179,8 +179,6 @@ public class RepositoryTokenRequestPatch implements Serializable {
 
   /**
    * The maximum download bandwidth allowed for the token. Values are expressed as the selected unit of bandwidth. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point. 
-   * minimum: -9223372036854775808
-   * maximum: 9223372036854775807
    * @return limitBandwidth
    */
   @javax.annotation.Nullable
@@ -257,8 +255,6 @@ public class RepositoryTokenRequestPatch implements Serializable {
 
   /**
    * The maximum number of unique clients allowed for the token. Please note that since clients are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
-   * minimum: -9223372036854775808
-   * maximum: 9223372036854775807
    * @return limitNumClients
    */
   @javax.annotation.Nullable
@@ -278,8 +274,6 @@ public class RepositoryTokenRequestPatch implements Serializable {
 
   /**
    * The maximum number of downloads allowed for the token. Please note that since downloads are calculated asynchronously (after the download happens), the limit may not be imposed immediately but at a later point.
-   * minimum: -9223372036854775808
-   * maximum: 9223372036854775807
    * @return limitNumDownloads
    */
   @javax.annotation.Nullable

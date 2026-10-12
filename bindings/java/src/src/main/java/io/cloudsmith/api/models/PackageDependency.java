@@ -58,7 +58,7 @@ public class PackageDependency implements Serializable {
   public static final String SERIALIZED_NAME_DEP_TYPE = "dep_type";
   @SerializedName(SERIALIZED_NAME_DEP_TYPE)
   @javax.annotation.Nullable
-  private String depType = "Depends";
+  private String depType;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -68,7 +68,7 @@ public class PackageDependency implements Serializable {
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
   @SerializedName(SERIALIZED_NAME_OPERATOR)
   @javax.annotation.Nullable
-  private String operator = "=";
+  private String operator;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)

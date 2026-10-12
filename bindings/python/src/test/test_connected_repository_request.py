@@ -37,12 +37,11 @@ class TestConnectedRepositoryRequest(unittest.TestCase):
         if include_optional:
             return ConnectedRepositoryRequest(
                 is_active = True,
-                priority = 1,
-                target_repository = 'z'
+                priority = 56,
+                target_repository = ''
             )
         else:
             return ConnectedRepositoryRequest(
-                target_repository = 'z',
         )
         """
 

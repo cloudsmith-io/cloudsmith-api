@@ -58,18 +58,18 @@ public class RepositoryGeoIpRulesRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_CIDR = "cidr";
   @SerializedName(SERIALIZED_NAME_CIDR)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private RepositoryGeoIpCidr cidr;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "country_code";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private RepositoryGeoIpCountryCode countryCode;
 
   public RepositoryGeoIpRulesRequest() {
   }
 
-  public RepositoryGeoIpRulesRequest cidr(@javax.annotation.Nonnull RepositoryGeoIpCidr cidr) {
+  public RepositoryGeoIpRulesRequest cidr(@javax.annotation.Nullable RepositoryGeoIpCidr cidr) {
     this.cidr = cidr;
     return this;
   }
@@ -78,17 +78,17 @@ public class RepositoryGeoIpRulesRequest implements Serializable {
    * Get cidr
    * @return cidr
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public RepositoryGeoIpCidr getCidr() {
     return cidr;
   }
 
-  public void setCidr(@javax.annotation.Nonnull RepositoryGeoIpCidr cidr) {
+  public void setCidr(@javax.annotation.Nullable RepositoryGeoIpCidr cidr) {
     this.cidr = cidr;
   }
 
 
-  public RepositoryGeoIpRulesRequest countryCode(@javax.annotation.Nonnull RepositoryGeoIpCountryCode countryCode) {
+  public RepositoryGeoIpRulesRequest countryCode(@javax.annotation.Nullable RepositoryGeoIpCountryCode countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -97,12 +97,12 @@ public class RepositoryGeoIpRulesRequest implements Serializable {
    * Get countryCode
    * @return countryCode
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public RepositoryGeoIpCountryCode getCountryCode() {
     return countryCode;
   }
 
-  public void setCountryCode(@javax.annotation.Nonnull RepositoryGeoIpCountryCode countryCode) {
+  public void setCountryCode(@javax.annotation.Nullable RepositoryGeoIpCountryCode countryCode) {
     this.countryCode = countryCode;
   }
 
@@ -153,7 +153,7 @@ public class RepositoryGeoIpRulesRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("cidr", "country_code"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("cidr", "country_code"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -176,18 +176,15 @@ public class RepositoryGeoIpRulesRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryGeoIpRulesRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryGeoIpRulesRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `cidr`
-      RepositoryGeoIpCidr.validateJsonElement(jsonObj.get("cidr"));
-      // validate the required field `country_code`
-      RepositoryGeoIpCountryCode.validateJsonElement(jsonObj.get("country_code"));
+      // validate the optional field `cidr`
+      if (jsonObj.get("cidr") != null && !jsonObj.get("cidr").isJsonNull()) {
+        RepositoryGeoIpCidr.validateJsonElement(jsonObj.get("cidr"));
+      }
+      // validate the optional field `country_code`
+      if (jsonObj.get("country_code") != null && !jsonObj.get("country_code").isJsonNull()) {
+        RepositoryGeoIpCountryCode.validateJsonElement(jsonObj.get("country_code"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

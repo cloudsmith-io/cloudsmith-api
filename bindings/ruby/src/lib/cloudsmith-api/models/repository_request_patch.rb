@@ -308,14 +308,10 @@ module CloudsmithApi
 
       if attributes.key?(:'broadcast_state')
         self.broadcast_state = attributes[:'broadcast_state']
-      else
-        self.broadcast_state = 'Off'
       end
 
       if attributes.key?(:'content_kind')
         self.content_kind = attributes[:'content_kind']
-      else
-        self.content_kind = 'Standard'
       end
 
       if attributes.key?(:'contextual_auth_realm')
@@ -328,8 +324,6 @@ module CloudsmithApi
 
       if attributes.key?(:'copy_packages')
         self.copy_packages = attributes[:'copy_packages']
-      else
-        self.copy_packages = 'Read'
       end
 
       if attributes.key?(:'cosign_signing_enabled')
@@ -338,8 +332,6 @@ module CloudsmithApi
 
       if attributes.key?(:'default_privilege')
         self.default_privilege = attributes[:'default_privilege']
-      else
-        self.default_privilege = 'None'
       end
 
       if attributes.key?(:'delete_own')
@@ -348,8 +340,6 @@ module CloudsmithApi
 
       if attributes.key?(:'delete_packages')
         self.delete_packages = attributes[:'delete_packages']
-      else
-        self.delete_packages = 'Admin'
       end
 
       if attributes.key?(:'description')
@@ -384,8 +374,6 @@ module CloudsmithApi
 
       if attributes.key?(:'manage_entitlements_privilege')
         self.manage_entitlements_privilege = attributes[:'manage_entitlements_privilege']
-      else
-        self.manage_entitlements_privilege = 'Admin'
       end
 
       if attributes.key?(:'move_own')
@@ -394,8 +382,6 @@ module CloudsmithApi
 
       if attributes.key?(:'move_packages')
         self.move_packages = attributes[:'move_packages']
-      else
-        self.move_packages = 'Admin'
       end
 
       if attributes.key?(:'name')
@@ -436,8 +422,6 @@ module CloudsmithApi
 
       if attributes.key?(:'replace_packages')
         self.replace_packages = attributes[:'replace_packages']
-      else
-        self.replace_packages = 'Write'
       end
 
       if attributes.key?(:'replace_packages_by_default')
@@ -446,8 +430,6 @@ module CloudsmithApi
 
       if attributes.key?(:'repository_type_str')
         self.repository_type_str = attributes[:'repository_type_str']
-      else
-        self.repository_type_str = 'Public'
       end
 
       if attributes.key?(:'resync_own')
@@ -456,8 +438,6 @@ module CloudsmithApi
 
       if attributes.key?(:'resync_packages')
         self.resync_packages = attributes[:'resync_packages']
-      else
-        self.resync_packages = 'Admin'
       end
 
       if attributes.key?(:'scan_own')
@@ -466,8 +446,6 @@ module CloudsmithApi
 
       if attributes.key?(:'scan_packages')
         self.scan_packages = attributes[:'scan_packages']
-      else
-        self.scan_packages = 'Read'
       end
 
       if attributes.key?(:'show_setup_all')
@@ -496,8 +474,6 @@ module CloudsmithApi
 
       if attributes.key?(:'use_entitlements_privilege')
         self.use_entitlements_privilege = attributes[:'use_entitlements_privilege']
-      else
-        self.use_entitlements_privilege = 'Read'
       end
 
       if attributes.key?(:'use_noarch_packages')
@@ -518,8 +494,6 @@ module CloudsmithApi
 
       if attributes.key?(:'view_statistics')
         self.view_statistics = attributes[:'view_statistics']
-      else
-        self.view_statistics = 'Read'
       end
     end
 
@@ -528,23 +502,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@name.nil? && @name.to_s.length > 50
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 50.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^\w[\w \-'\.\/()]+$/)
-      if !@name.nil? && @name !~ pattern
-        invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@open_source_project_url.nil? && @open_source_project_url.to_s.length > 200
-        invalid_properties.push('invalid value for "open_source_project_url", the character length must be smaller than or equal to 200.')
-      end
-
       invalid_properties
     end
 
@@ -552,10 +509,6 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@name.nil? && @name.to_s.length > 50
-      return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@name.nil? && @name !~ Regexp.new(/^\w[\w \-'\.\/()]+$/)
-      return false if !@open_source_project_url.nil? && @open_source_project_url.to_s.length > 200
       true
     end
 
@@ -567,39 +520,6 @@ module CloudsmithApi
       end
 
       @distributes = distributes
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 50
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 50.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^\w[\w \-'\.\/()]+$/)
-      if name !~ pattern
-        fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] open_source_project_url Value to be assigned
-    def open_source_project_url=(open_source_project_url)
-      if !open_source_project_url.nil? && open_source_project_url.to_s.length > 200
-        fail ArgumentError, 'invalid value for "open_source_project_url", the character length must be smaller than or equal to 200.'
-      end
-
-      @open_source_project_url = open_source_project_url
     end
 
     # Checks equality by comparing each attribute.

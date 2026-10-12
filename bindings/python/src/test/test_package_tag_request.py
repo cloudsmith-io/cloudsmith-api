@@ -36,10 +36,10 @@ class TestPackageTagRequest(unittest.TestCase):
         model = PackageTagRequest()
         if include_optional:
             return PackageTagRequest(
-                action = 'Add',
+                action = '',
                 is_immutable = True,
                 tags = [
-                    '0'
+                    ''
                     ]
             )
         else:

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**packages** | [**CommonMetrics**](CommonMetrics.md) |  |  |
+|**packages** | [**CommonMetrics**](CommonMetrics.md) |  |  [optional] |
 
 
 ## Implemented Interfaces

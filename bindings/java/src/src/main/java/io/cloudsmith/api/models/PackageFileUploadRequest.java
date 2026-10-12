@@ -56,7 +56,7 @@ public class PackageFileUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_FILENAME = "filename";
   @SerializedName(SERIALIZED_NAME_FILENAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String filename;
 
   public static final String SERIALIZED_NAME_MD5_CHECKSUM = "md5_checksum";
@@ -67,7 +67,7 @@ public class PackageFileUploadRequest implements Serializable {
   public static final String SERIALIZED_NAME_METHOD = "method";
   @SerializedName(SERIALIZED_NAME_METHOD)
   @javax.annotation.Nullable
-  private String method = "post";
+  private String method;
 
   public static final String SERIALIZED_NAME_SHA256_CHECKSUM = "sha256_checksum";
   @SerializedName(SERIALIZED_NAME_SHA256_CHECKSUM)
@@ -77,7 +77,7 @@ public class PackageFileUploadRequest implements Serializable {
   public PackageFileUploadRequest() {
   }
 
-  public PackageFileUploadRequest filename(@javax.annotation.Nonnull String filename) {
+  public PackageFileUploadRequest filename(@javax.annotation.Nullable String filename) {
     this.filename = filename;
     return this;
   }
@@ -86,12 +86,12 @@ public class PackageFileUploadRequest implements Serializable {
    * Filename for the package file upload.
    * @return filename
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getFilename() {
     return filename;
   }
 
-  public void setFilename(@javax.annotation.Nonnull String filename) {
+  public void setFilename(@javax.annotation.Nullable String filename) {
     this.filename = filename;
   }
 
@@ -203,7 +203,7 @@ public class PackageFileUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("filename", "md5_checksum", "method", "sha256_checksum"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("filename"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -226,15 +226,8 @@ public class PackageFileUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageFileUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageFileUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("filename").isJsonPrimitive()) {
+      if ((jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonNull()) && !jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
       }
       if ((jsonObj.get("md5_checksum") != null && !jsonObj.get("md5_checksum").isJsonNull()) && !jsonObj.get("md5_checksum").isJsonPrimitive()) {

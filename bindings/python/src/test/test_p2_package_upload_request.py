@@ -36,13 +36,12 @@ class TestP2PackageUploadRequest(unittest.TestCase):
         model = P2PackageUploadRequest()
         if include_optional:
             return P2PackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return P2PackageUploadRequest(
-                package_file = '0',
         )
         """
 

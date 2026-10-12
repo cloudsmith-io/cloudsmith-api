@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -35,25 +34,15 @@ class PackageFile(BaseModel):
     checksum_sha256: Optional[StrictStr] = None
     checksum_sha512: Optional[StrictStr] = None
     downloads: Optional[StrictInt] = None
-    filename: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    filename: Optional[StrictStr] = None
     is_downloadable: Optional[StrictBool] = None
     is_primary: Optional[StrictBool] = None
     is_synchronised: Optional[StrictBool] = None
     signature_url: Optional[StrictStr] = None
     size: Optional[StrictInt] = Field(default=None, description="The calculated size of the file.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    slug_perm: Optional[StrictStr] = None
     tag: Optional[StrictStr] = Field(default=None, description="Freeform descriptor that describes what the file is.")
     __properties: ClassVar[List[str]] = ["cdn_url", "checksum_md5", "checksum_sha1", "checksum_sha256", "checksum_sha512", "downloads", "filename", "is_downloadable", "is_primary", "is_synchronised", "signature_url", "size", "slug_perm", "tag"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

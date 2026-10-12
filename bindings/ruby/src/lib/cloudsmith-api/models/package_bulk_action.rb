@@ -91,16 +91,12 @@ module CloudsmithApi
 
       if attributes.key?(:'action')
         self.action = attributes[:'action']
-      else
-        self.action = nil
       end
 
       if attributes.key?(:'identifiers')
         if (value = attributes[:'identifiers']).is_a?(Array)
           self.identifiers = value
         end
-      else
-        self.identifiers = nil
       end
 
       if attributes.key?(:'repository')
@@ -117,34 +113,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @action.nil?
-        invalid_properties.push('invalid value for "action", action cannot be nil.')
-      end
-
-      if @identifiers.nil?
-        invalid_properties.push('invalid value for "identifiers", identifiers cannot be nil.')
-      end
-
-      if @identifiers.length > 100
-        invalid_properties.push('invalid value for "identifiers", number of items must be less than or equal to 100.')
-      end
-
-      if @identifiers.length < 1
-        invalid_properties.push('invalid value for "identifiers", number of items must be greater than or equal to 1.')
-      end
-
-      if !@repository.nil? && @repository.to_s.length > 255
-        invalid_properties.push('invalid value for "repository", the character length must be smaller than or equal to 255.')
-      end
-
-      if !@repository.nil? && @repository.to_s.length < 1
-        invalid_properties.push('invalid value for "repository", the character length must be greater than or equal to 1.')
-      end
-
-      if !@target_repository.nil? && @target_repository.to_s.length < 1
-        invalid_properties.push('invalid value for "target_repository", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -152,74 +120,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @action.nil?
-      return false if @identifiers.nil?
-      return false if @identifiers.length > 100
-      return false if @identifiers.length < 1
-      return false if !@repository.nil? && @repository.to_s.length > 255
-      return false if !@repository.nil? && @repository.to_s.length < 1
-      return false if !@target_repository.nil? && @target_repository.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] action Value to be assigned
-    def action=(action)
-      if action.nil?
-        fail ArgumentError, 'action cannot be nil'
-      end
-
-      @action = action
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] identifiers Value to be assigned
-    def identifiers=(identifiers)
-      if identifiers.nil?
-        fail ArgumentError, 'identifiers cannot be nil'
-      end
-
-      if identifiers.length > 100
-        fail ArgumentError, 'invalid value for "identifiers", number of items must be less than or equal to 100.'
-      end
-
-      if identifiers.length < 1
-        fail ArgumentError, 'invalid value for "identifiers", number of items must be greater than or equal to 1.'
-      end
-
-      @identifiers = identifiers
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] repository Value to be assigned
-    def repository=(repository)
-      if repository.nil?
-        fail ArgumentError, 'repository cannot be nil'
-      end
-
-      if repository.to_s.length > 255
-        fail ArgumentError, 'invalid value for "repository", the character length must be smaller than or equal to 255.'
-      end
-
-      if repository.to_s.length < 1
-        fail ArgumentError, 'invalid value for "repository", the character length must be greater than or equal to 1.'
-      end
-
-      @repository = repository
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] target_repository Value to be assigned
-    def target_repository=(target_repository)
-      if target_repository.nil?
-        fail ArgumentError, 'target_repository cannot be nil'
-      end
-
-      if target_repository.to_s.length < 1
-        fail ArgumentError, 'invalid value for "target_repository", the character length must be greater than or equal to 1.'
-      end
-
-      @target_repository = target_repository
     end
 
     # Checks equality by comparing each attribute.

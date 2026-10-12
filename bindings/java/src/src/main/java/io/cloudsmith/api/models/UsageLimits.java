@@ -58,18 +58,18 @@ public class UsageLimits implements Serializable {
 
   public static final String SERIALIZED_NAME_BANDWIDTH = "bandwidth";
   @SerializedName(SERIALIZED_NAME_BANDWIDTH)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private AllocatedLimit bandwidth;
 
   public static final String SERIALIZED_NAME_STORAGE = "storage";
   @SerializedName(SERIALIZED_NAME_STORAGE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private StorageAllocatedLimit storage;
 
   public UsageLimits() {
   }
 
-  public UsageLimits bandwidth(@javax.annotation.Nonnull AllocatedLimit bandwidth) {
+  public UsageLimits bandwidth(@javax.annotation.Nullable AllocatedLimit bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -78,17 +78,17 @@ public class UsageLimits implements Serializable {
    * Get bandwidth
    * @return bandwidth
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public AllocatedLimit getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(@javax.annotation.Nonnull AllocatedLimit bandwidth) {
+  public void setBandwidth(@javax.annotation.Nullable AllocatedLimit bandwidth) {
     this.bandwidth = bandwidth;
   }
 
 
-  public UsageLimits storage(@javax.annotation.Nonnull StorageAllocatedLimit storage) {
+  public UsageLimits storage(@javax.annotation.Nullable StorageAllocatedLimit storage) {
     this.storage = storage;
     return this;
   }
@@ -97,12 +97,12 @@ public class UsageLimits implements Serializable {
    * Get storage
    * @return storage
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public StorageAllocatedLimit getStorage() {
     return storage;
   }
 
-  public void setStorage(@javax.annotation.Nonnull StorageAllocatedLimit storage) {
+  public void setStorage(@javax.annotation.Nullable StorageAllocatedLimit storage) {
     this.storage = storage;
   }
 
@@ -153,7 +153,7 @@ public class UsageLimits implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("bandwidth", "storage"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("bandwidth", "storage"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -176,18 +176,15 @@ public class UsageLimits implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UsageLimits` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UsageLimits.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `bandwidth`
-      AllocatedLimit.validateJsonElement(jsonObj.get("bandwidth"));
-      // validate the required field `storage`
-      StorageAllocatedLimit.validateJsonElement(jsonObj.get("storage"));
+      // validate the optional field `bandwidth`
+      if (jsonObj.get("bandwidth") != null && !jsonObj.get("bandwidth").isJsonNull()) {
+        AllocatedLimit.validateJsonElement(jsonObj.get("bandwidth"));
+      }
+      // validate the optional field `storage`
+      if (jsonObj.get("storage") != null && !jsonObj.get("storage").isJsonNull()) {
+        StorageAllocatedLimit.validateJsonElement(jsonObj.get("storage"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -45,8 +45,6 @@ class TestOrganizationSAMLAuth(unittest.TestCase):
             )
         else:
             return OrganizationSAMLAuth(
-                saml_auth_enabled = True,
-                saml_auth_enforced = True,
         )
         """
 

@@ -76,8 +76,6 @@ module CloudsmithApi
 
       if attributes.key?(:'access_private_broadcasts')
         self.access_private_broadcasts = attributes[:'access_private_broadcasts']
-      else
-        self.access_private_broadcasts = nil
       end
     end
 
@@ -86,10 +84,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @access_private_broadcasts.nil?
-        invalid_properties.push('invalid value for "access_private_broadcasts", access_private_broadcasts cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -97,18 +91,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @access_private_broadcasts.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] access_private_broadcasts Value to be assigned
-    def access_private_broadcasts=(access_private_broadcasts)
-      if access_private_broadcasts.nil?
-        fail ArgumentError, 'access_private_broadcasts cannot be nil'
-      end
-
-      @access_private_broadcasts = access_private_broadcasts
     end
 
     # Checks equality by comparing each attribute.

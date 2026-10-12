@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
@@ -56,7 +57,7 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
 
   public static final String SERIALIZED_NAME_ALLOWED = "allowed";
   @SerializedName(SERIALIZED_NAME_ALLOWED)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean allowed;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "country_code";
@@ -66,18 +67,18 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
 
   public static final String SERIALIZED_NAME_IP_ADDRESS = "ip_address";
   @SerializedName(SERIALIZED_NAME_IP_ADDRESS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String ipAddress;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String reason;
 
   public RepositoryGeoIpTestAddressResponseDict() {
   }
 
-  public RepositoryGeoIpTestAddressResponseDict allowed(@javax.annotation.Nonnull Boolean allowed) {
+  public RepositoryGeoIpTestAddressResponseDict allowed(@javax.annotation.Nullable Boolean allowed) {
     this.allowed = allowed;
     return this;
   }
@@ -86,12 +87,12 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
    * The result of the IP test
    * @return allowed
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getAllowed() {
     return allowed;
   }
 
-  public void setAllowed(@javax.annotation.Nonnull Boolean allowed) {
+  public void setAllowed(@javax.annotation.Nullable Boolean allowed) {
     this.allowed = allowed;
   }
 
@@ -115,7 +116,7 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
   }
 
 
-  public RepositoryGeoIpTestAddressResponseDict ipAddress(@javax.annotation.Nonnull String ipAddress) {
+  public RepositoryGeoIpTestAddressResponseDict ipAddress(@javax.annotation.Nullable String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
@@ -124,17 +125,17 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
    * The IP address that was tested
    * @return ipAddress
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getIpAddress() {
     return ipAddress;
   }
 
-  public void setIpAddress(@javax.annotation.Nonnull String ipAddress) {
+  public void setIpAddress(@javax.annotation.Nullable String ipAddress) {
     this.ipAddress = ipAddress;
   }
 
 
-  public RepositoryGeoIpTestAddressResponseDict reason(@javax.annotation.Nonnull String reason) {
+  public RepositoryGeoIpTestAddressResponseDict reason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
@@ -143,12 +144,12 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
    * The reason for the result
    * @return reason
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getReason() {
     return reason;
   }
 
-  public void setReason(@javax.annotation.Nonnull String reason) {
+  public void setReason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
@@ -169,9 +170,20 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
         Objects.equals(this.reason, repositoryGeoIpTestAddressResponseDict.reason);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(allowed, countryCode, ipAddress, reason);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -203,7 +215,7 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("allowed", "country_code", "ip_address", "reason"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("allowed", "country_code", "ip_address", "reason"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -226,21 +238,14 @@ public class RepositoryGeoIpTestAddressResponseDict implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryGeoIpTestAddressResponseDict` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryGeoIpTestAddressResponseDict.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("country_code") != null && !jsonObj.get("country_code").isJsonNull()) && !jsonObj.get("country_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `country_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country_code").toString()));
       }
-      if (!jsonObj.get("ip_address").isJsonPrimitive()) {
+      if ((jsonObj.get("ip_address") != null && !jsonObj.get("ip_address").isJsonNull()) && !jsonObj.get("ip_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ip_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip_address").toString()));
       }
-      if (!jsonObj.get("reason").isJsonPrimitive()) {
+      if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
   }

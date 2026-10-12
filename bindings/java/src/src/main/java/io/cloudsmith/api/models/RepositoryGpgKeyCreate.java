@@ -61,7 +61,7 @@ public class RepositoryGpgKeyCreate implements Serializable {
 
   public static final String SERIALIZED_NAME_GPG_PRIVATE_KEY = "gpg_private_key";
   @SerializedName(SERIALIZED_NAME_GPG_PRIVATE_KEY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String gpgPrivateKey;
 
   public RepositoryGpgKeyCreate() {
@@ -86,7 +86,7 @@ public class RepositoryGpgKeyCreate implements Serializable {
   }
 
 
-  public RepositoryGpgKeyCreate gpgPrivateKey(@javax.annotation.Nonnull String gpgPrivateKey) {
+  public RepositoryGpgKeyCreate gpgPrivateKey(@javax.annotation.Nullable String gpgPrivateKey) {
     this.gpgPrivateKey = gpgPrivateKey;
     return this;
   }
@@ -95,12 +95,12 @@ public class RepositoryGpgKeyCreate implements Serializable {
    * The GPG private key.
    * @return gpgPrivateKey
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getGpgPrivateKey() {
     return gpgPrivateKey;
   }
 
-  public void setGpgPrivateKey(@javax.annotation.Nonnull String gpgPrivateKey) {
+  public void setGpgPrivateKey(@javax.annotation.Nullable String gpgPrivateKey) {
     this.gpgPrivateKey = gpgPrivateKey;
   }
 
@@ -151,7 +151,7 @@ public class RepositoryGpgKeyCreate implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("gpg_passphrase", "gpg_private_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("gpg_private_key"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class RepositoryGpgKeyCreate implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryGpgKeyCreate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryGpgKeyCreate.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gpg_passphrase") != null && !jsonObj.get("gpg_passphrase").isJsonNull()) && !jsonObj.get("gpg_passphrase").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gpg_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gpg_passphrase").toString()));
       }
-      if (!jsonObj.get("gpg_private_key").isJsonPrimitive()) {
+      if ((jsonObj.get("gpg_private_key") != null && !jsonObj.get("gpg_private_key").isJsonNull()) && !jsonObj.get("gpg_private_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gpg_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gpg_private_key").toString()));
       }
   }

@@ -76,8 +76,6 @@ module CloudsmithApi
 
       if attributes.key?(:'storage_region')
         self.storage_region = attributes[:'storage_region']
-      else
-        self.storage_region = 'default'
       end
     end
 

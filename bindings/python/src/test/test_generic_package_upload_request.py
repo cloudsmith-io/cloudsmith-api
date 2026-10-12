@@ -36,17 +36,15 @@ class TestGenericPackageUploadRequest(unittest.TestCase):
         model = GenericPackageUploadRequest()
         if include_optional:
             return GenericPackageUploadRequest(
-                filepath = '0',
+                filepath = '',
                 name = '',
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0',
+                tags = '',
                 version = ''
             )
         else:
             return GenericPackageUploadRequest(
-                filepath = '0',
-                package_file = '0',
         )
         """
 

@@ -5,10 +5,10 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **company** | **String** |  | [optional] |
-| **first_name** | **String** |  |  |
+| **first_name** | **String** |  | [optional] |
 | **job_title** | **String** |  | [optional] |
 | **joined_at** | **Time** |  | [optional] |
-| **last_name** | **String** |  |  |
+| **last_name** | **String** |  | [optional] |
 | **name** | **String** |  | [optional][readonly] |
 | **slug** | **String** |  | [optional][readonly] |
 | **slug_perm** | **String** |  | [optional][readonly] |

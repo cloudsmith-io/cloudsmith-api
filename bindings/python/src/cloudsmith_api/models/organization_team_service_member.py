@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class OrganizationTeamServiceMember(BaseModel):
     """
     The team members
     """ # noqa: E501
-    role: StrictStr
-    user: Annotated[str, Field(min_length=1, strict=True)]
-    user_kind: Optional[StrictStr] = 'User'
+    role: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
+    user_kind: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["role", "user", "user_kind"]
 
     model_config = ConfigDict(
@@ -87,7 +86,7 @@ class OrganizationTeamServiceMember(BaseModel):
         _obj = cls.model_validate({
             "role": obj.get("role"),
             "user": obj.get("user"),
-            "user_kind": obj.get("user_kind") if obj.get("user_kind") is not None else 'User'
+            "user_kind": obj.get("user_kind")
         })
         return _obj
 

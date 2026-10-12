@@ -36,19 +36,18 @@ class TestServiceRequest(unittest.TestCase):
         model = ServiceRequest()
         if include_optional:
             return ServiceRequest(
-                description = '0',
-                name = '0',
-                role = 'Member',
+                description = '',
+                name = '',
+                role = '',
                 teams = [
                     cloudsmith_api.models.service_teams.ServiceTeams(
-                        name = '0', 
-                        role = 'Manager', 
-                        slug = 'z0', )
+                        name = '', 
+                        role = '', 
+                        slug = '', )
                     ]
             )
         else:
             return ServiceRequest(
-                name = '0',
         )
         """
 

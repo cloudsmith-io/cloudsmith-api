@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,9 +28,9 @@ class UserAuthTokenRequest(BaseModel):
     """
     UserAuthTokenRequest
     """ # noqa: E501
-    email: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Email address to authenticate with")
-    password: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Password to authenticate with")
-    totp_token: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Two-factor authentication code")
+    email: Optional[StrictStr] = Field(default=None, description="Email address to authenticate with")
+    password: Optional[StrictStr] = Field(default=None, description="Password to authenticate with")
+    totp_token: Optional[StrictStr] = Field(default=None, description="Two-factor authentication code")
     __properties: ClassVar[List[str]] = ["email", "password", "totp_token"]
 
     model_config = ConfigDict(

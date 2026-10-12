@@ -81,14 +81,10 @@ module CloudsmithApi
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
-      else
-        self.role = 'Member'
       end
 
       if attributes.key?(:'team')
         self.team = attributes[:'team']
-      else
-        self.team = nil
       end
     end
 
@@ -97,19 +93,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @team.nil?
-        invalid_properties.push('invalid value for "team", team cannot be nil.')
-      end
-
-      if @team.to_s.length < 1
-        invalid_properties.push('invalid value for "team", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if @team !~ pattern
-        invalid_properties.push("invalid value for \"team\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -117,29 +100,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @team.nil?
-      return false if @team.to_s.length < 1
-      return false if @team !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] team Value to be assigned
-    def team=(team)
-      if team.nil?
-        fail ArgumentError, 'team cannot be nil'
-      end
-
-      if team.to_s.length < 1
-        fail ArgumentError, 'invalid value for "team", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if team !~ pattern
-        fail ArgumentError, "invalid value for \"team\", must conform to the pattern #{pattern}."
-      end
-
-      @team = team
     end
 
     # Checks equality by comparing each attribute.

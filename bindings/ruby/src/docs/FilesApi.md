@@ -41,7 +41,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageFileUploadRequest.new({filename: 'filename_example'}) # PackageFileUploadRequest | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -123,7 +123,7 @@ owner = 'owner_example' # String |
 repo = 'repo_example' # String | 
 identifier = 'identifier_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageFileUploadRequest.new({filename: 'filename_example'}) # PackageFileUploadRequest | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -205,7 +205,7 @@ api_instance = CloudsmithApi::FilesApi.new
 owner = 'owner_example' # String | 
 repo = 'repo_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageFileUploadRequest.new({filename: 'filename_example'}) # PackageFileUploadRequest | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin
@@ -371,7 +371,7 @@ api_instance = CloudsmithApi::FilesApi.new
 owner = 'owner_example' # String | 
 repo = 'repo_example' # String | 
 opts = {
-  data: CloudsmithApi::PackageFileUploadRequest.new({filename: 'filename_example'}) # PackageFileUploadRequest | 
+  data: CloudsmithApi::PackageFileUploadRequest.new # PackageFileUploadRequest | 
 }
 
 begin

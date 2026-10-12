@@ -37,7 +37,7 @@ class TestDistributionVersion(unittest.TestCase):
         if include_optional:
             return DistributionVersion(
                 name = '',
-                slug = '0'
+                slug = ''
             )
         else:
             return DistributionVersion(

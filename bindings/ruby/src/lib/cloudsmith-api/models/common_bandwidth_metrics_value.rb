@@ -87,20 +87,14 @@ module CloudsmithApi
 
       if attributes.key?(:'display')
         self.display = attributes[:'display']
-      else
-        self.display = nil
       end
 
       if attributes.key?(:'units')
         self.units = attributes[:'units']
-      else
-        self.units = 'bytes'
       end
 
       if attributes.key?(:'value')
         self.value = attributes[:'value']
-      else
-        self.value = nil
       end
     end
 
@@ -109,26 +103,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @display.nil?
-        invalid_properties.push('invalid value for "display", display cannot be nil.')
-      end
-
-      if @display.to_s.length > 64
-        invalid_properties.push('invalid value for "display", the character length must be smaller than or equal to 64.')
-      end
-
-      if @display.to_s.length < 1
-        invalid_properties.push('invalid value for "display", the character length must be greater than or equal to 1.')
-      end
-
-      if !@units.nil? && @units.to_s.length < 1
-        invalid_properties.push('invalid value for "units", the character length must be greater than or equal to 1.')
-      end
-
-      if @value.nil?
-        invalid_properties.push('invalid value for "value", value cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -136,54 +110,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @display.nil?
-      return false if @display.to_s.length > 64
-      return false if @display.to_s.length < 1
-      return false if !@units.nil? && @units.to_s.length < 1
-      return false if @value.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] display Value to be assigned
-    def display=(display)
-      if display.nil?
-        fail ArgumentError, 'display cannot be nil'
-      end
-
-      if display.to_s.length > 64
-        fail ArgumentError, 'invalid value for "display", the character length must be smaller than or equal to 64.'
-      end
-
-      if display.to_s.length < 1
-        fail ArgumentError, 'invalid value for "display", the character length must be greater than or equal to 1.'
-      end
-
-      @display = display
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] units Value to be assigned
-    def units=(units)
-      if units.nil?
-        fail ArgumentError, 'units cannot be nil'
-      end
-
-      if units.to_s.length < 1
-        fail ArgumentError, 'invalid value for "units", the character length must be greater than or equal to 1.'
-      end
-
-      @units = units
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] value Value to be assigned
-    def value=(value)
-      if value.nil?
-        fail ArgumentError, 'value cannot be nil'
-      end
-
-      @value = value
     end
 
     # Checks equality by comparing each attribute.

@@ -63,7 +63,7 @@
 | **repository_url** | **String** |  | [optional][readonly] |
 | **security_scan_completed_at** | **Time** | The datetime the security scanning was completed. | [optional][readonly] |
 | **security_scan_started_at** | **Time** | The datetime the security scanning was started. | [optional][readonly] |
-| **security_scan_status** | **String** |  | [optional][readonly][default to &#39;Awaiting Security Scan&#39;] |
+| **security_scan_status** | **String** |  | [optional][readonly] |
 | **security_scan_status_updated_at** | **Time** | The datetime the security scanning status was updated. | [optional][readonly] |
 | **self_html_url** | **String** |  | [optional][readonly] |
 | **self_url** | **String** |  | [optional][readonly] |

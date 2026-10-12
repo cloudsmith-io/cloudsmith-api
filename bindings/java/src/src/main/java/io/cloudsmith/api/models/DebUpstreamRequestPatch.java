@@ -61,7 +61,7 @@ public class DebUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_AUTH_MODE = "auth_mode";
   @SerializedName(SERIALIZED_NAME_AUTH_MODE)
   @javax.annotation.Nullable
-  private String authMode = "None";
+  private String authMode;
 
   public static final String SERIALIZED_NAME_AUTH_SECRET = "auth_secret";
   @SerializedName(SERIALIZED_NAME_AUTH_SECRET)
@@ -81,7 +81,7 @@ public class DebUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_DISTRO_VERSIONS = "distro_versions";
   @SerializedName(SERIALIZED_NAME_DISTRO_VERSIONS)
   @javax.annotation.Nullable
-  private Set<String> distroVersions = new LinkedHashSet<>();
+  private Set<String> distroVersions;
 
   public static final String SERIALIZED_NAME_EXTRA_HEADER1 = "extra_header_1";
   @SerializedName(SERIALIZED_NAME_EXTRA_HEADER1)
@@ -116,7 +116,7 @@ public class DebUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_GPG_VERIFICATION = "gpg_verification";
   @SerializedName(SERIALIZED_NAME_GPG_VERIFICATION)
   @javax.annotation.Nullable
-  private String gpgVerification = "Allow All";
+  private String gpgVerification;
 
   public static final String SERIALIZED_NAME_INCLUDE_SOURCES = "include_sources";
   @SerializedName(SERIALIZED_NAME_INCLUDE_SOURCES)
@@ -131,7 +131,7 @@ public class DebUpstreamRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
   @javax.annotation.Nullable
-  private String mode = "Proxy Only";
+  private String mode;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -480,8 +480,6 @@ public class DebUpstreamRequestPatch implements Serializable {
 
   /**
    * Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.
-   * minimum: 1
-   * maximum: 32767
    * @return priority
    */
   @javax.annotation.Nullable

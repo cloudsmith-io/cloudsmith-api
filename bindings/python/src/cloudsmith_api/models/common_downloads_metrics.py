@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.common_downloads_metrics_value import CommonDownloadsMetricsValue
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +29,10 @@ class CommonDownloadsMetrics(BaseModel):
     """
     CommonDownloadsMetrics
     """ # noqa: E501
-    average: CommonDownloadsMetricsValue
-    highest: CommonDownloadsMetricsValue
-    lowest: CommonDownloadsMetricsValue
-    total: CommonDownloadsMetricsValue
+    average: Optional[CommonDownloadsMetricsValue] = None
+    highest: Optional[CommonDownloadsMetricsValue] = None
+    lowest: Optional[CommonDownloadsMetricsValue] = None
+    total: Optional[CommonDownloadsMetricsValue] = None
     __properties: ClassVar[List[str]] = ["average", "highest", "lowest", "total"]
 
     model_config = ConfigDict(

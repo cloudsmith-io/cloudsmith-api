@@ -62,7 +62,7 @@ public class RepositoryGpgKey implements Serializable {
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
@@ -121,7 +121,7 @@ public class RepositoryGpgKey implements Serializable {
 
 
 
-  public RepositoryGpgKey comment(@javax.annotation.Nonnull String comment) {
+  public RepositoryGpgKey comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
@@ -130,12 +130,12 @@ public class RepositoryGpgKey implements Serializable {
    * Get comment
    * @return comment
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nonnull String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
@@ -251,7 +251,7 @@ public class RepositoryGpgKey implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("active", "comment", "created_at", "default", "fingerprint", "fingerprint_short", "public_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("comment"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -274,15 +274,8 @@ public class RepositoryGpgKey implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryGpgKey` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryGpgKey.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("comment").isJsonPrimitive()) {
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
       if ((jsonObj.get("fingerprint") != null && !jsonObj.get("fingerprint").isJsonNull()) && !jsonObj.get("fingerprint").isJsonPrimitive()) {

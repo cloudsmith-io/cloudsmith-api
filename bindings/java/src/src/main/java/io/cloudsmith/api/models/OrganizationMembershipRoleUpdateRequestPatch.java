@@ -57,7 +57,7 @@ public class OrganizationMembershipRoleUpdateRequestPatch implements Serializabl
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Owner";
+  private String role;
 
   public OrganizationMembershipRoleUpdateRequestPatch() {
   }

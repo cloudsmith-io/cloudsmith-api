@@ -28,7 +28,7 @@ class OrganizationInviteUpdateRequestPatch(BaseModel):
     """
     OrganizationInviteUpdateRequestPatch
     """ # noqa: E501
-    role: Optional[StrictStr] = Field(default='Member', description="The role to be assigned to the invited user.")
+    role: Optional[StrictStr] = Field(default=None, description="The role to be assigned to the invited user.")
     __properties: ClassVar[List[str]] = ["role"]
 
     model_config = ConfigDict(
@@ -82,7 +82,7 @@ class OrganizationInviteUpdateRequestPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "role": obj.get("role") if obj.get("role") is not None else 'Member'
+            "role": obj.get("role")
         })
         return _obj
 

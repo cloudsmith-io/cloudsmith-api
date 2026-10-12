@@ -14,7 +14,7 @@
 |**onViolationQuarantine** | **Boolean** |  |  [optional] [readonly] |
 |**packageQueryString** | **String** |  |  [optional] [readonly] |
 |**slugPerm** | **String** |  |  [optional] [readonly] |
-|**spdxIdentifiers** | **Set&lt;String&gt;** |  |  |
+|**spdxIdentifiers** | **Set&lt;String&gt;** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] [readonly] |
 |**url** | **URI** |  |  [optional] [readonly] |
 

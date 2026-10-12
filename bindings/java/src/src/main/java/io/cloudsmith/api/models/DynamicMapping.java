@@ -56,18 +56,18 @@ public class DynamicMapping implements Serializable {
 
   public static final String SERIALIZED_NAME_CLAIM_VALUE = "claim_value";
   @SerializedName(SERIALIZED_NAME_CLAIM_VALUE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String claimValue;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT = "service_account";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String serviceAccount;
 
   public DynamicMapping() {
   }
 
-  public DynamicMapping claimValue(@javax.annotation.Nonnull String claimValue) {
+  public DynamicMapping claimValue(@javax.annotation.Nullable String claimValue) {
     this.claimValue = claimValue;
     return this;
   }
@@ -76,17 +76,17 @@ public class DynamicMapping implements Serializable {
    * The OIDC token claim value that must be present in the token for it to successfully authenticate as the mapped &#x60;service_account&#x60;.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
    * @return claimValue
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getClaimValue() {
     return claimValue;
   }
 
-  public void setClaimValue(@javax.annotation.Nonnull String claimValue) {
+  public void setClaimValue(@javax.annotation.Nullable String claimValue) {
     this.claimValue = claimValue;
   }
 
 
-  public DynamicMapping serviceAccount(@javax.annotation.Nonnull String serviceAccount) {
+  public DynamicMapping serviceAccount(@javax.annotation.Nullable String serviceAccount) {
     this.serviceAccount = serviceAccount;
     return this;
   }
@@ -95,12 +95,12 @@ public class DynamicMapping implements Serializable {
    * The service account associated with the provider setting and &#x60;claim_value&#x60;  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
    * @return serviceAccount
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getServiceAccount() {
     return serviceAccount;
   }
 
-  public void setServiceAccount(@javax.annotation.Nonnull String serviceAccount) {
+  public void setServiceAccount(@javax.annotation.Nullable String serviceAccount) {
     this.serviceAccount = serviceAccount;
   }
 
@@ -151,7 +151,7 @@ public class DynamicMapping implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("claim_value", "service_account"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("claim_value", "service_account"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class DynamicMapping implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DynamicMapping` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DynamicMapping.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("claim_value").isJsonPrimitive()) {
+      if ((jsonObj.get("claim_value") != null && !jsonObj.get("claim_value").isJsonNull()) && !jsonObj.get("claim_value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `claim_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("claim_value").toString()));
       }
-      if (!jsonObj.get("service_account").isJsonPrimitive()) {
+      if ((jsonObj.get("service_account") != null && !jsonObj.get("service_account").isJsonNull()) && !jsonObj.get("service_account").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `service_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_account").toString()));
       }
   }

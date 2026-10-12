@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**idpKey** | **String** |  |  |
-|**idpValue** | **String** |  |  |
+|**idpKey** | **String** |  |  [optional] |
+|**idpValue** | **String** |  |  [optional] |
 |**role** | **String** |  |  [optional] |
 |**slugPerm** | **String** |  |  [optional] [readonly] |
-|**team** | **String** |  |  |
+|**team** | **String** |  |  [optional] |
 
 
 ## Implemented Interfaces

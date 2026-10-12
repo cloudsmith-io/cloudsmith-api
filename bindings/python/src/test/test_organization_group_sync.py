@@ -36,17 +36,14 @@ class TestOrganizationGroupSync(unittest.TestCase):
         model = OrganizationGroupSync()
         if include_optional:
             return OrganizationGroupSync(
-                idp_key = '0',
-                idp_value = '0',
-                role = 'Member',
-                slug_perm = 'z0',
-                team = 'z'
+                idp_key = '',
+                idp_value = '',
+                role = '',
+                slug_perm = '',
+                team = ''
             )
         else:
             return OrganizationGroupSync(
-                idp_key = '0',
-                idp_value = '0',
-                team = 'z',
         )
         """
 

@@ -58,13 +58,13 @@ public class RepositoryGeoIpTestAddress implements Serializable {
 
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
-  @javax.annotation.Nonnull
-  private List<String> addresses = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<String> addresses;
 
   public RepositoryGeoIpTestAddress() {
   }
 
-  public RepositoryGeoIpTestAddress addresses(@javax.annotation.Nonnull List<String> addresses) {
+  public RepositoryGeoIpTestAddress addresses(@javax.annotation.Nullable List<String> addresses) {
     this.addresses = addresses;
     return this;
   }
@@ -81,12 +81,12 @@ public class RepositoryGeoIpTestAddress implements Serializable {
    * The IP addresses to test against this repository
    * @return addresses
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<String> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(@javax.annotation.Nonnull List<String> addresses) {
+  public void setAddresses(@javax.annotation.Nullable List<String> addresses) {
     this.addresses = addresses;
   }
 
@@ -135,7 +135,7 @@ public class RepositoryGeoIpTestAddress implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("addresses"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addresses"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -158,18 +158,9 @@ public class RepositoryGeoIpTestAddress implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryGeoIpTestAddress` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryGeoIpTestAddress.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("addresses") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("addresses").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("addresses") != null && !jsonObj.get("addresses").isJsonNull() && !jsonObj.get("addresses").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
       }
   }

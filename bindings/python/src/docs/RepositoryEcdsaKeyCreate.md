@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ecdsa_passphrase** | **str** | The ECDSA passphrase used for signing. | [optional] 
-**ecdsa_private_key** | **str** | The ECDSA private key. | 
+**ecdsa_private_key** | **str** | The ECDSA private key. | [optional] 
 
 ## Example
 

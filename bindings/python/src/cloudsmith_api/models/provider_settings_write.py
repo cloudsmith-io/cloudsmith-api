@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.dynamic_mapping import DynamicMapping
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,36 +29,16 @@ class ProviderSettingsWrite(BaseModel):
     """
     ProviderSettingsWrite
     """ # noqa: E501
-    claims: Dict[str, Any] = Field(description="The set of claims that any received tokens from the provider must contain to authenticate as the configured service account.")
+    claims: Optional[Dict[str, Any]] = Field(default=None, description="The set of claims that any received tokens from the provider must contain to authenticate as the configured service account.")
     dynamic_mappings: Optional[List[DynamicMapping]] = Field(default=None, description="The dynamic mappings of `mapping_claim` values to service accounts. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
-    enabled: StrictBool = Field(description="Whether the provider settings should be used for incoming OIDC requests.")
-    mapping_claim: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The OIDC claim to use for mapping to service accounts in dynamic_mappings. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
-    name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The name of the provider settings are being configured for")
-    provider_url: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
+    enabled: Optional[StrictBool] = Field(default=None, description="Whether the provider settings should be used for incoming OIDC requests.")
+    mapping_claim: Optional[StrictStr] = Field(default=None, description="The OIDC claim to use for mapping to service accounts in dynamic_mappings. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.")
+    name: Optional[StrictStr] = Field(default=None, description="The name of the provider settings are being configured for")
+    provider_url: Optional[StrictStr] = Field(default=None, description="The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
     service_accounts: Optional[List[StrictStr]] = Field(default=None, description="The service accounts associated with these provider settings. Cannot be provided if `mapping_claim` or `dynamic_mappings` are specified.")
-    slug: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The slug of the provider settings")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="The unique, immutable identifier of the provider settings.")
+    slug: Optional[StrictStr] = Field(default=None, description="The slug of the provider settings")
+    slug_perm: Optional[StrictStr] = Field(default=None, description="The unique, immutable identifier of the provider settings.")
     __properties: ClassVar[List[str]] = ["claims", "dynamic_mappings", "enabled", "mapping_claim", "name", "provider_url", "service_accounts", "slug", "slug_perm"]
-
-    @field_validator('slug', mode="before")
-    def slug_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

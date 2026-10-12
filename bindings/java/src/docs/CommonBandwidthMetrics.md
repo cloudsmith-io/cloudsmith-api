@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**average** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  |
-|**highest** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  |
-|**lowest** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  |
-|**total** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  |
+|**average** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  [optional] |
+|**highest** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  [optional] |
+|**lowest** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  [optional] |
+|**total** | [**CommonBandwidthMetricsValue**](CommonBandwidthMetricsValue.md) |  |  [optional] |
 
 
 ## Implemented Interfaces

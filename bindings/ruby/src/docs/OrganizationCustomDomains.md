@@ -14,10 +14,10 @@
 | **enabled** | **Boolean** | If checked, the domain is enabled. | [optional][readonly] |
 | **host** | **String** |  | [optional][readonly] |
 | **namespace** | **Integer** |  | [optional][readonly] |
-| **primary** | **Boolean** | If checked, this domain is the preferred/primary domain in the case that there are other overlapping domains (e.g. for the same repository, package format, etc.) | [optional][readonly][default to true] |
+| **primary** | **Boolean** | If checked, this domain is the preferred/primary domain in the case that there are other overlapping domains (e.g. for the same repository, package format, etc.) | [optional][readonly] |
 | **redirect_root** | **Boolean** | If checked, the domain root redirects to the repository. | [optional][readonly] |
 | **redirect_root_url** | **String** | Where root requests should be redirected to if redirect_root is enabled. | [optional][readonly] |
-| **repository** | [**OrganizationCustomDomainNestedRepo**](OrganizationCustomDomainNestedRepo.md) |  |  |
+| **repository** | [**OrganizationCustomDomainNestedRepo**](OrganizationCustomDomainNestedRepo.md) |  | [optional] |
 | **repository_only** | **Boolean** | If checked, the domain applies to a specific repository only. | [optional][readonly] |
 | **slug_perm** | **String** |  | [optional][readonly] |
 | **validated** | **Boolean** | If validated, the domain is ready for requests. | [optional][readonly] |

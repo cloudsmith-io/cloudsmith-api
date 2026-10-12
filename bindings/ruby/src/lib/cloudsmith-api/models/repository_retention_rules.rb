@@ -148,30 +148,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@retention_count_limit.nil? && @retention_count_limit > 10000
-        invalid_properties.push('invalid value for "retention_count_limit", must be smaller than or equal to 10000.')
-      end
-
-      if !@retention_count_limit.nil? && @retention_count_limit < 0
-        invalid_properties.push('invalid value for "retention_count_limit", must be greater than or equal to 0.')
-      end
-
-      if !@retention_days_limit.nil? && @retention_days_limit > 180
-        invalid_properties.push('invalid value for "retention_days_limit", must be smaller than or equal to 180.')
-      end
-
-      if !@retention_days_limit.nil? && @retention_days_limit < 0
-        invalid_properties.push('invalid value for "retention_days_limit", must be greater than or equal to 0.')
-      end
-
-      if !@retention_size_limit.nil? && @retention_size_limit > 21474836480
-        invalid_properties.push('invalid value for "retention_size_limit", must be smaller than or equal to 21474836480.')
-      end
-
-      if !@retention_size_limit.nil? && @retention_size_limit < 0
-        invalid_properties.push('invalid value for "retention_size_limit", must be greater than or equal to 0.')
-      end
-
       invalid_properties
     end
 
@@ -179,67 +155,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@retention_count_limit.nil? && @retention_count_limit > 10000
-      return false if !@retention_count_limit.nil? && @retention_count_limit < 0
-      return false if !@retention_days_limit.nil? && @retention_days_limit > 180
-      return false if !@retention_days_limit.nil? && @retention_days_limit < 0
-      return false if !@retention_size_limit.nil? && @retention_size_limit > 21474836480
-      return false if !@retention_size_limit.nil? && @retention_size_limit < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] retention_count_limit Value to be assigned
-    def retention_count_limit=(retention_count_limit)
-      if retention_count_limit.nil?
-        fail ArgumentError, 'retention_count_limit cannot be nil'
-      end
-
-      if retention_count_limit > 10000
-        fail ArgumentError, 'invalid value for "retention_count_limit", must be smaller than or equal to 10000.'
-      end
-
-      if retention_count_limit < 0
-        fail ArgumentError, 'invalid value for "retention_count_limit", must be greater than or equal to 0.'
-      end
-
-      @retention_count_limit = retention_count_limit
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] retention_days_limit Value to be assigned
-    def retention_days_limit=(retention_days_limit)
-      if retention_days_limit.nil?
-        fail ArgumentError, 'retention_days_limit cannot be nil'
-      end
-
-      if retention_days_limit > 180
-        fail ArgumentError, 'invalid value for "retention_days_limit", must be smaller than or equal to 180.'
-      end
-
-      if retention_days_limit < 0
-        fail ArgumentError, 'invalid value for "retention_days_limit", must be greater than or equal to 0.'
-      end
-
-      @retention_days_limit = retention_days_limit
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] retention_size_limit Value to be assigned
-    def retention_size_limit=(retention_size_limit)
-      if retention_size_limit.nil?
-        fail ArgumentError, 'retention_size_limit cannot be nil'
-      end
-
-      if retention_size_limit > 21474836480
-        fail ArgumentError, 'invalid value for "retention_size_limit", must be smaller than or equal to 21474836480.'
-      end
-
-      if retention_size_limit < 0
-        fail ArgumentError, 'invalid value for "retention_size_limit", must be greater than or equal to 0.'
-      end
-
-      @retention_size_limit = retention_size_limit
     end
 
     # Checks equality by comparing each attribute.

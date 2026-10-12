@@ -36,14 +36,13 @@ class TestMcpPackageUploadRequest(unittest.TestCase):
         model = McpPackageUploadRequest()
         if include_optional:
             return McpPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0',
+                tags = '',
                 version = ''
             )
         else:
             return McpPackageUploadRequest(
-                package_file = '0',
         )
         """
 

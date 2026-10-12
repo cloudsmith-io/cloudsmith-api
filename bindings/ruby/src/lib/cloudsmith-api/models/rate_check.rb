@@ -129,10 +129,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@reset_iso_8601.nil? && @reset_iso_8601.to_s.length < 1
-        invalid_properties.push('invalid value for "reset_iso_8601", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -140,22 +136,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@reset_iso_8601.nil? && @reset_iso_8601.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] reset_iso_8601 Value to be assigned
-    def reset_iso_8601=(reset_iso_8601)
-      if reset_iso_8601.nil?
-        fail ArgumentError, 'reset_iso_8601 cannot be nil'
-      end
-
-      if reset_iso_8601.to_s.length < 1
-        fail ArgumentError, 'invalid value for "reset_iso_8601", the character length must be greater than or equal to 1.'
-      end
-
-      @reset_iso_8601 = reset_iso_8601
     end
 
     # Checks equality by comparing each attribute.

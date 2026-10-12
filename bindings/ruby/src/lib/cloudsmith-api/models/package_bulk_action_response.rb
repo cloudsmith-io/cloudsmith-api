@@ -106,10 +106,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@action.nil? && @action.to_s.length < 1
-        invalid_properties.push('invalid value for "action", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -117,22 +113,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@action.nil? && @action.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] action Value to be assigned
-    def action=(action)
-      if action.nil?
-        fail ArgumentError, 'action cannot be nil'
-      end
-
-      if action.to_s.length < 1
-        fail ArgumentError, 'invalid value for "action", the character length must be greater than or equal to 1.'
-      end
-
-      @action = action
     end
 
     # Checks equality by comparing each attribute.

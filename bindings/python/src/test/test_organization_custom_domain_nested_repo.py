@@ -36,8 +36,8 @@ class TestOrganizationCustomDomainNestedRepo(unittest.TestCase):
         model = OrganizationCustomDomainNestedRepo()
         if include_optional:
             return OrganizationCustomDomainNestedRepo(
-                name = '0',
-                slug = 'z'
+                name = '',
+                slug = ''
             )
         else:
             return OrganizationCustomDomainNestedRepo(

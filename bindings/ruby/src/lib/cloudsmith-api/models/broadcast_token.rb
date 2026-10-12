@@ -91,10 +91,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@token.nil? && @token.to_s.length < 1
-        invalid_properties.push('invalid value for "token", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -102,22 +98,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@token.nil? && @token.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] token Value to be assigned
-    def token=(token)
-      if token.nil?
-        fail ArgumentError, 'token cannot be nil'
-      end
-
-      if token.to_s.length < 1
-        fail ArgumentError, 'invalid value for "token", the character length must be greater than or equal to 1.'
-      end
-
-      @token = token
     end
 
     # Checks equality by comparing each attribute.

@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class BroadcastTokenInput(BaseModel):
     """
     BroadcastTokenInput
     """ # noqa: E501
-    entitlement_token: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Repository entitlement token used to authorize the creation of a broadcast token")
-    expires_in: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="Token expiry time in seconds (optional, defaults to 3600 seconds)")
+    entitlement_token: Optional[StrictStr] = Field(default=None, description="Repository entitlement token used to authorize the creation of a broadcast token")
+    expires_in: Optional[StrictInt] = Field(default=None, description="Token expiry time in seconds (optional, defaults to 3600 seconds)")
     __properties: ClassVar[List[str]] = ["entitlement_token", "expires_in"]
 
     model_config = ConfigDict(

@@ -84,7 +84,7 @@ public class MavenPackageUploadRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGE_FILE = "package_file";
   @SerializedName(SERIALIZED_NAME_PACKAGE_FILE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageFile;
 
   public static final String SERIALIZED_NAME_PACKAGING = "packaging";
@@ -238,7 +238,7 @@ public class MavenPackageUploadRequest implements Serializable {
   }
 
 
-  public MavenPackageUploadRequest packageFile(@javax.annotation.Nonnull String packageFile) {
+  public MavenPackageUploadRequest packageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
     return this;
   }
@@ -247,12 +247,12 @@ public class MavenPackageUploadRequest implements Serializable {
    * The primary file for the package.
    * @return packageFile
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageFile() {
     return packageFile;
   }
 
-  public void setPackageFile(@javax.annotation.Nonnull String packageFile) {
+  public void setPackageFile(@javax.annotation.Nullable String packageFile) {
     this.packageFile = packageFile;
   }
 
@@ -511,7 +511,7 @@ public class MavenPackageUploadRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("artifact_id", "extra_files", "group_id", "ivy_file", "javadoc_file", "package_file", "packaging", "pom_file", "republish", "sbt_version", "scala_version", "sources_file", "tags", "tests_file", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("package_file"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -534,13 +534,6 @@ public class MavenPackageUploadRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MavenPackageUploadRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MavenPackageUploadRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("artifact_id") != null && !jsonObj.get("artifact_id").isJsonNull()) && !jsonObj.get("artifact_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifact_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_id").toString()));
@@ -558,7 +551,7 @@ public class MavenPackageUploadRequest implements Serializable {
       if ((jsonObj.get("javadoc_file") != null && !jsonObj.get("javadoc_file").isJsonNull()) && !jsonObj.get("javadoc_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `javadoc_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("javadoc_file").toString()));
       }
-      if (!jsonObj.get("package_file").isJsonPrimitive()) {
+      if ((jsonObj.get("package_file") != null && !jsonObj.get("package_file").isJsonNull()) && !jsonObj.get("package_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_file").toString()));
       }
       if ((jsonObj.get("packaging") != null && !jsonObj.get("packaging").isJsonNull()) && !jsonObj.get("packaging").isJsonPrimitive()) {

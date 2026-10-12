@@ -60,7 +60,7 @@ public class RepositoryTokenSync implements Serializable {
   public static final String SERIALIZED_NAME_TOKENS = "tokens";
   @SerializedName(SERIALIZED_NAME_TOKENS)
   @javax.annotation.Nullable
-  private List<RepositoryToken> tokens = new ArrayList<>();
+  private List<RepositoryToken> tokens;
 
   public RepositoryTokenSync() {
   }

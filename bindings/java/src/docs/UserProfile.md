@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**company** | **String** |  |  [optional] |
-|**firstName** | **String** |  |  |
+|**firstName** | **String** |  |  [optional] |
 |**jobTitle** | **String** |  |  [optional] |
 |**joinedAt** | **OffsetDateTime** |  |  [optional] |
-|**lastName** | **String** |  |  |
+|**lastName** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] [readonly] |
 |**slug** | **String** |  |  [optional] [readonly] |
 |**slugPerm** | **String** |  |  [optional] [readonly] |

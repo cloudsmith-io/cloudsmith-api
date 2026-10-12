@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,77 +28,27 @@ class DebUpstreamRequestPatch(BaseModel):
     """
     DebUpstreamRequestPatch
     """ # noqa: E501
-    auth_mode: Optional[StrictStr] = Field(default='None', description="The authentication mode to use when accessing this upstream. ")
-    auth_secret: Optional[Annotated[str, Field(strict=True, max_length=4096)]] = Field(default=None, description="Secret to provide with requests to upstream.")
-    auth_username: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="Username to provide with requests to upstream.")
-    component: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=64)]] = Field(default=None, description="The component to fetch from the upstream")
+    auth_mode: Optional[StrictStr] = Field(default=None, description="The authentication mode to use when accessing this upstream. ")
+    auth_secret: Optional[StrictStr] = Field(default=None, description="Secret to provide with requests to upstream.")
+    auth_username: Optional[StrictStr] = Field(default=None, description="Username to provide with requests to upstream.")
+    component: Optional[StrictStr] = Field(default=None, description="The component to fetch from the upstream")
     distro_versions: Optional[List[StrictStr]] = Field(default=None, description="The distribution version that packages found on this upstream could be associated with.")
-    extra_header_1: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The key for extra header #1 to send to upstream.")
-    extra_header_2: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The key for extra header #2 to send to upstream.")
-    extra_value_1: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
-    extra_value_2: Optional[Annotated[str, Field(strict=True, max_length=128)]] = Field(default=None, description="The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
+    extra_header_1: Optional[StrictStr] = Field(default=None, description="The key for extra header #1 to send to upstream.")
+    extra_header_2: Optional[StrictStr] = Field(default=None, description="The key for extra header #2 to send to upstream.")
+    extra_value_1: Optional[StrictStr] = Field(default=None, description="The value for extra header #1 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
+    extra_value_2: Optional[StrictStr] = Field(default=None, description="The value for extra header #2 to send to upstream. This is stored as plaintext, and is NOT encrypted.")
     gpg_key_inline: Optional[StrictStr] = Field(default=None, description="A public GPG key to associate with packages found on this upstream. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
-    gpg_key_url: Optional[Annotated[str, Field(strict=True, max_length=254)]] = Field(default=None, description="When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
-    gpg_verification: Optional[StrictStr] = Field(default='Allow All', description="The GPG signature verification mode for this upstream.")
+    gpg_key_url: Optional[StrictStr] = Field(default=None, description="When provided, Cloudsmith will fetch, validate, and associate a public GPG key found at the provided URL. When using the Cloudsmith setup script, this GPG key will be automatically imported on your deployment machines to allow upstream packages to validate and install.")
+    gpg_verification: Optional[StrictStr] = Field(default=None, description="The GPG signature verification mode for this upstream.")
     include_sources: Optional[StrictBool] = Field(default=None, description="When true, source packages will be available from this upstream.")
     is_active: Optional[StrictBool] = Field(default=None, description="Whether or not this upstream is active and ready for requests.")
-    mode: Optional[StrictStr] = Field(default='Proxy Only', description="The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.")
-    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=64)]] = Field(default=None, description="A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.")
-    priority: Optional[Annotated[int, Field(le=32767, strict=True, ge=1)]] = Field(default=None, description="Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.")
-    upstream_distribution: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=64)]] = Field(default=None, description="The distribution to fetch from the upstream")
-    upstream_url: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, description="The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. ")
+    mode: Optional[StrictStr] = Field(default=None, description="The mode that this upstream should operate in. Upstream sources can be used to proxy resolved packages, as well as operate in a proxy/cache or cache only mode.")
+    name: Optional[StrictStr] = Field(default=None, description="A descriptive name for this upstream source. A shortened version of this name will be used for tagging cached packages retrieved from this upstream.")
+    priority: Optional[StrictInt] = Field(default=None, description="Upstream sources are selected for resolving requests by sequential order (1..n), followed by creation date.")
+    upstream_distribution: Optional[StrictStr] = Field(default=None, description="The distribution to fetch from the upstream")
+    upstream_url: Optional[StrictStr] = Field(default=None, description="The URL for this upstream source. This must be a fully qualified URL including any path elements required to reach the root of the repository. ")
     verify_ssl: Optional[StrictBool] = Field(default=None, description="If enabled, SSL certificates are verified when requests are made to this upstream. It's recommended to leave this enabled for all public sources to help mitigate Man-In-The-Middle (MITM) attacks. Please note this only applies to HTTPS upstreams.")
     __properties: ClassVar[List[str]] = ["auth_mode", "auth_secret", "auth_username", "component", "distro_versions", "extra_header_1", "extra_header_2", "extra_value_1", "extra_value_2", "gpg_key_inline", "gpg_key_url", "gpg_verification", "include_sources", "is_active", "mode", "name", "priority", "upstream_distribution", "upstream_url", "verify_ssl"]
-
-    @field_validator('extra_header_1', mode="before")
-    def extra_header_1_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('extra_header_2', mode="before")
-    def extra_header_2_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-\w]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-\w]+$/")
-        return value
-
-    @field_validator('extra_value_1', mode="before")
-    def extra_value_1_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
-            raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
-
-    @field_validator('extra_value_2', mode="before")
-    def extra_value_2_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[^\n\r]+$", value):
-            raise ValueError(r"must validate the regular expression /^[^\n\r]+$/")
-        return value
-
-    @field_validator('name', mode="before")
-    def name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^\w[\w \-\'\.\/()]+$", value):
-            raise ValueError(r"must validate the regular expression /^\w[\w \-'\.\/()]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -197,7 +146,7 @@ class DebUpstreamRequestPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "auth_mode": obj.get("auth_mode") if obj.get("auth_mode") is not None else 'None',
+            "auth_mode": obj.get("auth_mode"),
             "auth_secret": obj.get("auth_secret"),
             "auth_username": obj.get("auth_username"),
             "component": obj.get("component"),
@@ -208,10 +157,10 @@ class DebUpstreamRequestPatch(BaseModel):
             "extra_value_2": obj.get("extra_value_2"),
             "gpg_key_inline": obj.get("gpg_key_inline"),
             "gpg_key_url": obj.get("gpg_key_url"),
-            "gpg_verification": obj.get("gpg_verification") if obj.get("gpg_verification") is not None else 'Allow All',
+            "gpg_verification": obj.get("gpg_verification"),
             "include_sources": obj.get("include_sources"),
             "is_active": obj.get("is_active"),
-            "mode": obj.get("mode") if obj.get("mode") is not None else 'Proxy Only',
+            "mode": obj.get("mode"),
             "name": obj.get("name"),
             "priority": obj.get("priority"),
             "upstream_distribution": obj.get("upstream_distribution"),

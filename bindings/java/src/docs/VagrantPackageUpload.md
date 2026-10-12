@@ -48,7 +48,7 @@
 |**isSyncInFlight** | **Boolean** |  |  [optional] [readonly] |
 |**isSyncInProgress** | **Boolean** |  |  [optional] [readonly] |
 |**license** | **String** | The license of this package. |  [optional] [readonly] |
-|**name** | **String** | The name of this package. |  |
+|**name** | **String** | The name of this package. |  [optional] |
 |**namespace** | **String** |  |  [optional] [readonly] |
 |**namespaceUrl** | **URI** |  |  [optional] [readonly] |
 |**numFiles** | **java.math.BigInteger** |  |  [optional] [readonly] |
@@ -57,7 +57,7 @@
 |**osiApproved** | **Boolean** | Whether the package&#39;s SPDX license is OSI-approved. |  [optional] [readonly] |
 |**packageType** | **java.math.BigInteger** | The type of package contents. |  [optional] [readonly] |
 |**policyViolated** | **Boolean** | Whether or not the package has violated any policy. |  [optional] [readonly] |
-|**provider** | **String** | The virtual machine provider for the box. |  |
+|**provider** | **String** | The virtual machine provider for the box. |  [optional] |
 |**rawLicense** | **String** | The raw license string. |  [optional] [readonly] |
 |**release** | **String** | The release of the package version (if any). |  [optional] [readonly] |
 |**repository** | **String** |  |  [optional] [readonly] |
@@ -94,7 +94,7 @@
 |**uploadedAt** | **OffsetDateTime** | The date this package was uploaded. |  [optional] [readonly] |
 |**uploader** | **String** |  |  [optional] [readonly] |
 |**uploaderUrl** | **URI** |  |  [optional] [readonly] |
-|**version** | **String** | The raw version for this package. |  |
+|**version** | **String** | The raw version for this package. |  [optional] |
 |**versionOrig** | **String** |  |  [optional] [readonly] |
 |**vulnerabilityScanResultsUrl** | **URI** |  |  [optional] [readonly] |
 

@@ -36,9 +36,9 @@ class TestUserAuthToken(unittest.TestCase):
         model = UserAuthToken()
         if include_optional:
             return UserAuthToken(
-                token = '0',
+                token = '',
                 two_factor_required = True,
-                two_factor_token = '0'
+                two_factor_token = ''
             )
         else:
             return UserAuthToken(

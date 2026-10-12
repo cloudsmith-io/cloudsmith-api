@@ -85,8 +85,6 @@ module CloudsmithApi
 
       if attributes.key?(:'is_active')
         self.is_active = attributes[:'is_active']
-      else
-        self.is_active = false
       end
 
       if attributes.key?(:'priority')
@@ -103,19 +101,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@priority.nil? && @priority > 32767
-        invalid_properties.push('invalid value for "priority", must be smaller than or equal to 32767.')
-      end
-
-      if !@priority.nil? && @priority < 1
-        invalid_properties.push('invalid value for "priority", must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@target_repository.nil? && @target_repository !~ pattern
-        invalid_properties.push("invalid value for \"target_repository\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -123,43 +108,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@priority.nil? && @priority > 32767
-      return false if !@priority.nil? && @priority < 1
-      return false if !@target_repository.nil? && @target_repository !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] priority Value to be assigned
-    def priority=(priority)
-      if priority.nil?
-        fail ArgumentError, 'priority cannot be nil'
-      end
-
-      if priority > 32767
-        fail ArgumentError, 'invalid value for "priority", must be smaller than or equal to 32767.'
-      end
-
-      if priority < 1
-        fail ArgumentError, 'invalid value for "priority", must be greater than or equal to 1.'
-      end
-
-      @priority = priority
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] target_repository Value to be assigned
-    def target_repository=(target_repository)
-      if target_repository.nil?
-        fail ArgumentError, 'target_repository cannot be nil'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if target_repository !~ pattern
-        fail ArgumentError, "invalid value for \"target_repository\", must conform to the pattern #{pattern}."
-      end
-
-      @target_repository = target_repository
     end
 
     # Checks equality by comparing each attribute.

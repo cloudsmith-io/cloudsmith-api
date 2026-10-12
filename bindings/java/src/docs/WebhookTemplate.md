@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**event** | **String** |  |  |
+|**event** | **String** |  |  [optional] |
 |**template** | **String** |  |  [optional] |
 
 

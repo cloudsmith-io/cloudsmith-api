@@ -57,7 +57,7 @@ public class WebhookTemplate implements Serializable {
 
   public static final String SERIALIZED_NAME_EVENT = "event";
   @SerializedName(SERIALIZED_NAME_EVENT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String event;
 
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
@@ -68,7 +68,7 @@ public class WebhookTemplate implements Serializable {
   public WebhookTemplate() {
   }
 
-  public WebhookTemplate event(@javax.annotation.Nonnull String event) {
+  public WebhookTemplate event(@javax.annotation.Nullable String event) {
     this.event = event;
     return this;
   }
@@ -77,12 +77,12 @@ public class WebhookTemplate implements Serializable {
    * Get event
    * @return event
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getEvent() {
     return event;
   }
 
-  public void setEvent(@javax.annotation.Nonnull String event) {
+  public void setEvent(@javax.annotation.Nullable String event) {
     this.event = event;
   }
 
@@ -163,7 +163,7 @@ public class WebhookTemplate implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("event", "template"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("event"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -186,15 +186,8 @@ public class WebhookTemplate implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `WebhookTemplate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WebhookTemplate.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("event").isJsonPrimitive()) {
+      if ((jsonObj.get("event") != null && !jsonObj.get("event").isJsonNull()) && !jsonObj.get("event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event").toString()));
       }
       if ((jsonObj.get("template") != null && !jsonObj.get("template").isJsonNull()) && !jsonObj.get("template").isJsonPrimitive()) {

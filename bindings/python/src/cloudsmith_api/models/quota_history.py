@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from cloudsmith_api.models.history import History
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class QuotaHistory(BaseModel):
     """
     QuotaHistory
     """ # noqa: E501
-    history: List[History]
+    history: Optional[List[History]] = None
     __properties: ClassVar[List[str]] = ["history"]
 
     model_config = ConfigDict(

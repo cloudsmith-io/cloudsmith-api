@@ -94,8 +94,6 @@ module CloudsmithApi
 
       if attributes.key?(:'license_override')
         self.license_override = attributes[:'license_override']
-      else
-        self.license_override = 'None'
       end
 
       if attributes.key?(:'license_url')
@@ -104,8 +102,6 @@ module CloudsmithApi
 
       if attributes.key?(:'spdx_license')
         self.spdx_license = attributes[:'spdx_license']
-      else
-        self.spdx_license = nil
       end
     end
 
@@ -114,26 +110,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@license_notes.nil? && @license_notes.to_s.length > 1000
-        invalid_properties.push('invalid value for "license_notes", the character length must be smaller than or equal to 1000.')
-      end
-
-      if !@license_url.nil? && @license_url.to_s.length > 255
-        invalid_properties.push('invalid value for "license_url", the character length must be smaller than or equal to 255.')
-      end
-
-      if @spdx_license.nil?
-        invalid_properties.push('invalid value for "spdx_license", spdx_license cannot be nil.')
-      end
-
-      if @spdx_license.to_s.length > 255
-        invalid_properties.push('invalid value for "spdx_license", the character length must be smaller than or equal to 255.')
-      end
-
-      if @spdx_license.to_s.length < 1
-        invalid_properties.push('invalid value for "spdx_license", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -141,50 +117,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@license_notes.nil? && @license_notes.to_s.length > 1000
-      return false if !@license_url.nil? && @license_url.to_s.length > 255
-      return false if @spdx_license.nil?
-      return false if @spdx_license.to_s.length > 255
-      return false if @spdx_license.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] license_notes Value to be assigned
-    def license_notes=(license_notes)
-      if !license_notes.nil? && license_notes.to_s.length > 1000
-        fail ArgumentError, 'invalid value for "license_notes", the character length must be smaller than or equal to 1000.'
-      end
-
-      @license_notes = license_notes
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] license_url Value to be assigned
-    def license_url=(license_url)
-      if !license_url.nil? && license_url.to_s.length > 255
-        fail ArgumentError, 'invalid value for "license_url", the character length must be smaller than or equal to 255.'
-      end
-
-      @license_url = license_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] spdx_license Value to be assigned
-    def spdx_license=(spdx_license)
-      if spdx_license.nil?
-        fail ArgumentError, 'spdx_license cannot be nil'
-      end
-
-      if spdx_license.to_s.length > 255
-        fail ArgumentError, 'invalid value for "spdx_license", the character length must be smaller than or equal to 255.'
-      end
-
-      if spdx_license.to_s.length < 1
-        fail ArgumentError, 'invalid value for "spdx_license", the character length must be greater than or equal to 1.'
-      end
-
-      @spdx_license = spdx_license
     end
 
     # Checks equality by comparing each attribute.

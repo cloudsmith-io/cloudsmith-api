@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **tokens** | [**CommonMetrics**](CommonMetrics.md) |  |  |
+| **tokens** | [**CommonMetrics**](CommonMetrics.md) |  | [optional] |
 
 ## Example
 

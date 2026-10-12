@@ -41,7 +41,7 @@ class TestPackagesGroupsList200Response(unittest.TestCase):
                         backend_kind = 56, 
                         count = 56, 
                         last_push = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        name = '0', 
+                        name = '', 
                         num_downloads = 56, 
                         size = 56, )
                     ]
@@ -53,7 +53,7 @@ class TestPackagesGroupsList200Response(unittest.TestCase):
                         backend_kind = 56, 
                         count = 56, 
                         last_push = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        name = '0', 
+                        name = '', 
                         num_downloads = 56, 
                         size = 56, )
                     ],

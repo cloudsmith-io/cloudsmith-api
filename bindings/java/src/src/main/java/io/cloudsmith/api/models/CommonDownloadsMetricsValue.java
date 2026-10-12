@@ -56,13 +56,13 @@ public class CommonDownloadsMetricsValue implements Serializable {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private java.math.BigInteger value;
 
   public CommonDownloadsMetricsValue() {
   }
 
-  public CommonDownloadsMetricsValue value(@javax.annotation.Nonnull java.math.BigInteger value) {
+  public CommonDownloadsMetricsValue value(@javax.annotation.Nullable java.math.BigInteger value) {
     this.value = value;
     return this;
   }
@@ -71,12 +71,12 @@ public class CommonDownloadsMetricsValue implements Serializable {
    * Get value
    * @return value
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public java.math.BigInteger getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull java.math.BigInteger value) {
+  public void setValue(@javax.annotation.Nullable java.math.BigInteger value) {
     this.value = value;
   }
 
@@ -125,7 +125,7 @@ public class CommonDownloadsMetricsValue implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -146,13 +146,6 @@ public class CommonDownloadsMetricsValue implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CommonDownloadsMetricsValue.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CommonDownloadsMetricsValue` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CommonDownloadsMetricsValue.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

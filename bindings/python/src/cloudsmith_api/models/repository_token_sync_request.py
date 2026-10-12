@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +28,7 @@ class RepositoryTokenSyncRequest(BaseModel):
     """
     RepositoryTokenSyncRequest
     """ # noqa: E501
-    source: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The source repository slug (in the same owner namespace).")
+    source: Optional[StrictStr] = Field(default=None, description="The source repository slug (in the same owner namespace).")
     __properties: ClassVar[List[str]] = ["source"]
 
     model_config = ConfigDict(

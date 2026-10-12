@@ -61,7 +61,7 @@ public class RepositoryEcdsaKeyCreate implements Serializable {
 
   public static final String SERIALIZED_NAME_ECDSA_PRIVATE_KEY = "ecdsa_private_key";
   @SerializedName(SERIALIZED_NAME_ECDSA_PRIVATE_KEY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String ecdsaPrivateKey;
 
   public RepositoryEcdsaKeyCreate() {
@@ -86,7 +86,7 @@ public class RepositoryEcdsaKeyCreate implements Serializable {
   }
 
 
-  public RepositoryEcdsaKeyCreate ecdsaPrivateKey(@javax.annotation.Nonnull String ecdsaPrivateKey) {
+  public RepositoryEcdsaKeyCreate ecdsaPrivateKey(@javax.annotation.Nullable String ecdsaPrivateKey) {
     this.ecdsaPrivateKey = ecdsaPrivateKey;
     return this;
   }
@@ -95,12 +95,12 @@ public class RepositoryEcdsaKeyCreate implements Serializable {
    * The ECDSA private key.
    * @return ecdsaPrivateKey
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getEcdsaPrivateKey() {
     return ecdsaPrivateKey;
   }
 
-  public void setEcdsaPrivateKey(@javax.annotation.Nonnull String ecdsaPrivateKey) {
+  public void setEcdsaPrivateKey(@javax.annotation.Nullable String ecdsaPrivateKey) {
     this.ecdsaPrivateKey = ecdsaPrivateKey;
   }
 
@@ -151,7 +151,7 @@ public class RepositoryEcdsaKeyCreate implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("ecdsa_passphrase", "ecdsa_private_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("ecdsa_private_key"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,18 +174,11 @@ public class RepositoryEcdsaKeyCreate implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryEcdsaKeyCreate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryEcdsaKeyCreate.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("ecdsa_passphrase") != null && !jsonObj.get("ecdsa_passphrase").isJsonNull()) && !jsonObj.get("ecdsa_passphrase").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ecdsa_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ecdsa_passphrase").toString()));
       }
-      if (!jsonObj.get("ecdsa_private_key").isJsonPrimitive()) {
+      if ((jsonObj.get("ecdsa_private_key") != null && !jsonObj.get("ecdsa_private_key").isJsonNull()) && !jsonObj.get("ecdsa_private_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ecdsa_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ecdsa_private_key").toString()));
       }
   }

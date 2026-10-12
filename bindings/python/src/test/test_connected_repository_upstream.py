@@ -37,7 +37,7 @@ class TestConnectedRepositoryUpstream(unittest.TestCase):
         if include_optional:
             return ConnectedRepositoryUpstream(
                 type = '',
-                upstream_url = '0'
+                upstream_url = ''
             )
         else:
             return ConnectedRepositoryUpstream(

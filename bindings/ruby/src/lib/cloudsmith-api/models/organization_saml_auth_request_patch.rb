@@ -130,22 +130,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@saml_metadata_inline.nil? && @saml_metadata_inline.to_s.length > 32000
-        invalid_properties.push('invalid value for "saml_metadata_inline", the character length must be smaller than or equal to 32000.')
-      end
-
-      if !@saml_metadata_inline_webapp.nil? && @saml_metadata_inline_webapp.to_s.length > 32000
-        invalid_properties.push('invalid value for "saml_metadata_inline_webapp", the character length must be smaller than or equal to 32000.')
-      end
-
-      if !@saml_metadata_url.nil? && @saml_metadata_url.to_s.length > 254
-        invalid_properties.push('invalid value for "saml_metadata_url", the character length must be smaller than or equal to 254.')
-      end
-
-      if !@saml_metadata_url_webapp.nil? && @saml_metadata_url_webapp.to_s.length > 254
-        invalid_properties.push('invalid value for "saml_metadata_url_webapp", the character length must be smaller than or equal to 254.')
-      end
-
       invalid_properties
     end
 
@@ -153,55 +137,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@saml_metadata_inline.nil? && @saml_metadata_inline.to_s.length > 32000
-      return false if !@saml_metadata_inline_webapp.nil? && @saml_metadata_inline_webapp.to_s.length > 32000
-      return false if !@saml_metadata_url.nil? && @saml_metadata_url.to_s.length > 254
-      return false if !@saml_metadata_url_webapp.nil? && @saml_metadata_url_webapp.to_s.length > 254
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] saml_metadata_inline Value to be assigned
-    def saml_metadata_inline=(saml_metadata_inline)
-      if saml_metadata_inline.nil?
-        fail ArgumentError, 'saml_metadata_inline cannot be nil'
-      end
-
-      if saml_metadata_inline.to_s.length > 32000
-        fail ArgumentError, 'invalid value for "saml_metadata_inline", the character length must be smaller than or equal to 32000.'
-      end
-
-      @saml_metadata_inline = saml_metadata_inline
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] saml_metadata_inline_webapp Value to be assigned
-    def saml_metadata_inline_webapp=(saml_metadata_inline_webapp)
-      if !saml_metadata_inline_webapp.nil? && saml_metadata_inline_webapp.to_s.length > 32000
-        fail ArgumentError, 'invalid value for "saml_metadata_inline_webapp", the character length must be smaller than or equal to 32000.'
-      end
-
-      @saml_metadata_inline_webapp = saml_metadata_inline_webapp
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] saml_metadata_url Value to be assigned
-    def saml_metadata_url=(saml_metadata_url)
-      if !saml_metadata_url.nil? && saml_metadata_url.to_s.length > 254
-        fail ArgumentError, 'invalid value for "saml_metadata_url", the character length must be smaller than or equal to 254.'
-      end
-
-      @saml_metadata_url = saml_metadata_url
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] saml_metadata_url_webapp Value to be assigned
-    def saml_metadata_url_webapp=(saml_metadata_url_webapp)
-      if !saml_metadata_url_webapp.nil? && saml_metadata_url_webapp.to_s.length > 254
-        fail ArgumentError, 'invalid value for "saml_metadata_url_webapp", the character length must be smaller than or equal to 254.'
-      end
-
-      @saml_metadata_url_webapp = saml_metadata_url_webapp
     end
 
     # Checks equality by comparing each attribute.

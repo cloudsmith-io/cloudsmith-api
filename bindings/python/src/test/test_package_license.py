@@ -37,13 +37,12 @@ class TestPackageLicense(unittest.TestCase):
         if include_optional:
             return PackageLicense(
                 license_notes = '',
-                license_override = 'None',
+                license_override = '',
                 license_url = '',
-                spdx_license = '0'
+                spdx_license = ''
             )
         else:
             return PackageLicense(
-                spdx_license = '0',
         )
         """
 

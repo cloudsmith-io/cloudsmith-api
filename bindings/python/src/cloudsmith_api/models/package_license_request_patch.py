@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,11 +28,11 @@ class PackageLicenseRequestPatch(BaseModel):
     """
     PackageLicenseRequestPatch
     """ # noqa: E501
-    action: Optional[StrictStr] = 'Update'
-    license_notes: Optional[Annotated[str, Field(strict=True, max_length=1000)]] = None
-    license_override: Optional[StrictStr] = 'None'
-    license_url: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
-    spdx_license: Annotated[str, Field(min_length=1, strict=True, max_length=255)]
+    action: Optional[StrictStr] = None
+    license_notes: Optional[StrictStr] = None
+    license_override: Optional[StrictStr] = None
+    license_url: Optional[StrictStr] = None
+    spdx_license: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["action", "license_notes", "license_override", "license_url", "spdx_license"]
 
     model_config = ConfigDict(
@@ -107,9 +106,9 @@ class PackageLicenseRequestPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "action": obj.get("action") if "action" in obj else 'Update',
+            "action": obj.get("action"),
             "license_notes": obj.get("license_notes"),
-            "license_override": obj.get("license_override") if "license_override" in obj else 'None',
+            "license_override": obj.get("license_override"),
             "license_url": obj.get("license_url"),
             "spdx_license": obj.get("spdx_license")
         })

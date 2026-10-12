@@ -8,11 +8,11 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**days** | **java.math.BigInteger** |  |  [optional] |
-|**display** | [**HistoryFieldset**](HistoryFieldset.md) |  |  |
-|**end** | **OffsetDateTime** |  |  |
-|**plan** | **String** |  |  |
-|**raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  |  |
-|**start** | **OffsetDateTime** |  |  |
+|**display** | [**HistoryFieldset**](HistoryFieldset.md) |  |  [optional] |
+|**end** | **OffsetDateTime** |  |  [optional] |
+|**plan** | **String** |  |  [optional] |
+|**raw** | [**HistoryFieldsetRaw**](HistoryFieldsetRaw.md) |  |  [optional] |
+|**start** | **OffsetDateTime** |  |  [optional] |
 
 
 ## Implemented Interfaces

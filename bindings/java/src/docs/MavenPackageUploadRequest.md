@@ -12,7 +12,7 @@
 |**groupId** | **String** | Artifact&#39;s group ID. |  [optional] |
 |**ivyFile** | **String** | The ivy file is an XML file describing the dependencies of the project. |  [optional] |
 |**javadocFile** | **String** | Adds bundled Java documentation to the Maven package |  [optional] |
-|**packageFile** | **String** | The primary file for the package. |  |
+|**packageFile** | **String** | The primary file for the package. |  [optional] |
 |**packaging** | **String** | Artifact&#39;s Maven packaging type. |  [optional] |
 |**pomFile** | **String** | The POM file is an XML file containing the Maven coordinates. |  [optional] |
 |**republish** | **Boolean** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. |  [optional] |

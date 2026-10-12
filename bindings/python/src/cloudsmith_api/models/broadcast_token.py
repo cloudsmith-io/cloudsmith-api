@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,7 +30,7 @@ class BroadcastToken(BaseModel):
     BroadcastToken
     """ # noqa: E501
     expires_at: Optional[datetime] = None
-    token: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    token: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["expires_at", "token"]
 
     model_config = ConfigDict(

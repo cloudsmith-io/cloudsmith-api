@@ -36,12 +36,11 @@ class TestBroadcastTokenInput(unittest.TestCase):
         model = BroadcastTokenInput()
         if include_optional:
             return BroadcastTokenInput(
-                entitlement_token = '0',
-                expires_in = 1
+                entitlement_token = '',
+                expires_in = 56
             )
         else:
             return BroadcastTokenInput(
-                entitlement_token = '0',
         )
         """
 

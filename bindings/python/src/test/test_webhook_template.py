@@ -36,12 +36,11 @@ class TestWebhookTemplate(unittest.TestCase):
         model = WebhookTemplate()
         if include_optional:
             return WebhookTemplate(
-                event = '0',
+                event = '',
                 template = ''
             )
         else:
             return WebhookTemplate(
-                event = '0',
         )
         """
 

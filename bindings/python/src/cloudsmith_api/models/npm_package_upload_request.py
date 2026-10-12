@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class NpmPackageUploadRequest(BaseModel):
     """
     NpmPackageUploadRequest
     """ # noqa: E501
-    npm_dist_tag: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default='latest', description="The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.")
-    package_file: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The primary file for the package.")
+    npm_dist_tag: Optional[StrictStr] = Field(default=None, description="The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag.")
+    package_file: Optional[StrictStr] = Field(default=None, description="The primary file for the package.")
     republish: Optional[StrictBool] = Field(default=None, description="If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.")
-    tags: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=1024)]] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
+    tags: Optional[StrictStr] = Field(default=None, description="A comma-separated values list of tags to add to the package.")
     __properties: ClassVar[List[str]] = ["npm_dist_tag", "package_file", "republish", "tags"]
 
     model_config = ConfigDict(
@@ -96,7 +95,7 @@ class NpmPackageUploadRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "npm_dist_tag": obj.get("npm_dist_tag") if "npm_dist_tag" in obj else 'latest',
+            "npm_dist_tag": obj.get("npm_dist_tag"),
             "package_file": obj.get("package_file"),
             "republish": obj.get("republish"),
             "tags": obj.get("tags")

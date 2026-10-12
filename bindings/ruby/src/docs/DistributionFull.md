@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **format** | **String** |  | [optional][readonly] |
 | **format_url** | **String** |  | [optional][readonly] |
-| **name** | **String** |  |  |
+| **name** | **String** |  | [optional] |
 | **self_url** | **String** |  | [optional][readonly] |
 | **slug** | **String** | The slug identifier for this distribution | [optional][readonly] |
 | **variants** | **String** |  | [optional] |

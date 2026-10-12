@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,19 +28,9 @@ class Eula(BaseModel):
     """
     Eula
     """ # noqa: E501
-    identifier: Optional[Annotated[str, Field(strict=True, max_length=16)]] = Field(default=None, description="A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.")
-    number: Optional[Annotated[int, Field(le=2147483647, strict=True, ge=0)]] = Field(default=None, description="A sequential identifier that increments by one for each new commit in a repository.")
+    identifier: Optional[StrictStr] = Field(default=None, description="A unique identifier that you can use for your own EULA tracking purposes. This might be a date, or a semantic version, etc. The only requirement is that it is unique across multiple EULAs.")
+    number: Optional[StrictInt] = Field(default=None, description="A sequential identifier that increments by one for each new commit in a repository.")
     __properties: ClassVar[List[str]] = ["identifier", "number"]
-
-    @field_validator('identifier', mode="before")
-    def identifier_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

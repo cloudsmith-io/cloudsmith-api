@@ -116,8 +116,6 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'slug')
@@ -138,22 +136,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@country.nil? && @country.to_s.length > 32
-        invalid_properties.push('invalid value for "country", the character length must be smaller than or equal to 32.')
-      end
-
-      if !@country.nil? && @country.to_s.length < 1
-        invalid_properties.push('invalid value for "country", the character length must be greater than or equal to 1.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -161,39 +143,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@country.nil? && @country.to_s.length > 32
-      return false if !@country.nil? && @country.to_s.length < 1
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] country Value to be assigned
-    def country=(country)
-      if !country.nil? && country.to_s.length > 32
-        fail ArgumentError, 'invalid value for "country", the character length must be smaller than or equal to 32.'
-      end
-
-      if !country.nil? && country.to_s.length < 1
-        fail ArgumentError, 'invalid value for "country", the character length must be greater than or equal to 1.'
-      end
-
-      @country = country
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
     end
 
     # Checks equality by comparing each attribute.

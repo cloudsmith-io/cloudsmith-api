@@ -36,15 +36,14 @@ class TestNixPackageUploadRequest(unittest.TestCase):
         model = NixPackageUploadRequest()
         if include_optional:
             return NixPackageUploadRequest(
-                narinfo_file = '0',
-                package_file = '0',
+                narinfo_file = '',
+                package_file = '',
                 republish = True,
-                tags = '0',
+                tags = '',
                 version = ''
             )
         else:
             return NixPackageUploadRequest(
-                package_file = '0',
         )
         """
 

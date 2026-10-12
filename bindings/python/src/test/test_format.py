@@ -36,22 +36,22 @@ class TestFormat(unittest.TestCase):
         model = Format()
         if include_optional:
             return Format(
-                description = '0',
+                description = '',
                 distributions = [
                     cloudsmith_api.models.distribution.Distribution(
-                        name = '0', 
+                        name = '', 
                         self_url = '', 
-                        slug = '0', 
+                        slug = '', 
                         variants = '', )
                     ],
                 extensions = [
-                    '0'
+                    ''
                     ],
-                name = '0',
+                name = '',
                 premium = True,
-                premium_plan_id = '0',
-                premium_plan_name = '0',
-                slug = '0',
+                premium_plan_id = '',
+                premium_plan_name = '',
+                slug = '',
                 supports = cloudsmith_api.models.format_support.FormatSupport(
                     dependencies = True, 
                     distributions = True, 
@@ -60,44 +60,19 @@ class TestFormat(unittest.TestCase):
                     metadata = True, 
                     upstreams = cloudsmith_api.models.format_support_upstream.FormatSupportUpstream(
                         auth_modes = [
-                            'Username and Password'
+                            ''
                             ], 
                         cache_only = True, 
                         caching = True, 
                         indexing = True, 
-                        indexing_behavior = 'Unsupported', 
+                        indexing_behavior = '', 
                         proxying = True, 
-                        signature_verification = 'Unsupported', 
+                        signature_verification = '', 
                         trust = True, ), 
                     versioning = True, )
             )
         else:
             return Format(
-                description = '0',
-                extensions = [
-                    '0'
-                    ],
-                name = '0',
-                premium = True,
-                slug = '0',
-                supports = cloudsmith_api.models.format_support.FormatSupport(
-                    dependencies = True, 
-                    distributions = True, 
-                    file_lists = True, 
-                    filepaths = True, 
-                    metadata = True, 
-                    upstreams = cloudsmith_api.models.format_support_upstream.FormatSupportUpstream(
-                        auth_modes = [
-                            'Username and Password'
-                            ], 
-                        cache_only = True, 
-                        caching = True, 
-                        indexing = True, 
-                        indexing_behavior = 'Unsupported', 
-                        proxying = True, 
-                        signature_verification = 'Unsupported', 
-                        trust = True, ), 
-                    versioning = True, ),
         )
         """
 

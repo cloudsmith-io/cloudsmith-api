@@ -56,13 +56,13 @@ public class RepositoryTokenPrivateBroadcasts implements Serializable {
 
   public static final String SERIALIZED_NAME_ACCESS_PRIVATE_BROADCASTS = "access_private_broadcasts";
   @SerializedName(SERIALIZED_NAME_ACCESS_PRIVATE_BROADCASTS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean accessPrivateBroadcasts;
 
   public RepositoryTokenPrivateBroadcasts() {
   }
 
-  public RepositoryTokenPrivateBroadcasts accessPrivateBroadcasts(@javax.annotation.Nonnull Boolean accessPrivateBroadcasts) {
+  public RepositoryTokenPrivateBroadcasts accessPrivateBroadcasts(@javax.annotation.Nullable Boolean accessPrivateBroadcasts) {
     this.accessPrivateBroadcasts = accessPrivateBroadcasts;
     return this;
   }
@@ -71,12 +71,12 @@ public class RepositoryTokenPrivateBroadcasts implements Serializable {
    * Whether the token should have access to private broadcasts.
    * @return accessPrivateBroadcasts
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getAccessPrivateBroadcasts() {
     return accessPrivateBroadcasts;
   }
 
-  public void setAccessPrivateBroadcasts(@javax.annotation.Nonnull Boolean accessPrivateBroadcasts) {
+  public void setAccessPrivateBroadcasts(@javax.annotation.Nullable Boolean accessPrivateBroadcasts) {
     this.accessPrivateBroadcasts = accessPrivateBroadcasts;
   }
 
@@ -125,7 +125,7 @@ public class RepositoryTokenPrivateBroadcasts implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("access_private_broadcasts"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("access_private_broadcasts"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -146,13 +146,6 @@ public class RepositoryTokenPrivateBroadcasts implements Serializable {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RepositoryTokenPrivateBroadcasts.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryTokenPrivateBroadcasts` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryTokenPrivateBroadcasts.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

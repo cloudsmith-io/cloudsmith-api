@@ -82,14 +82,10 @@ module CloudsmithApi
 
       if attributes.key?(:'claim_value')
         self.claim_value = attributes[:'claim_value']
-      else
-        self.claim_value = nil
       end
 
       if attributes.key?(:'service_account')
         self.service_account = attributes[:'service_account']
-      else
-        self.service_account = nil
       end
     end
 
@@ -98,22 +94,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @claim_value.nil?
-        invalid_properties.push('invalid value for "claim_value", claim_value cannot be nil.')
-      end
-
-      if @claim_value.to_s.length < 1
-        invalid_properties.push('invalid value for "claim_value", the character length must be greater than or equal to 1.')
-      end
-
-      if @service_account.nil?
-        invalid_properties.push('invalid value for "service_account", service_account cannot be nil.')
-      end
-
-      if @service_account.to_s.length < 1
-        invalid_properties.push('invalid value for "service_account", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -121,39 +101,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @claim_value.nil?
-      return false if @claim_value.to_s.length < 1
-      return false if @service_account.nil?
-      return false if @service_account.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] claim_value Value to be assigned
-    def claim_value=(claim_value)
-      if claim_value.nil?
-        fail ArgumentError, 'claim_value cannot be nil'
-      end
-
-      if claim_value.to_s.length < 1
-        fail ArgumentError, 'invalid value for "claim_value", the character length must be greater than or equal to 1.'
-      end
-
-      @claim_value = claim_value
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] service_account Value to be assigned
-    def service_account=(service_account)
-      if service_account.nil?
-        fail ArgumentError, 'service_account cannot be nil'
-      end
-
-      if service_account.to_s.length < 1
-        fail ArgumentError, 'invalid value for "service_account", the character length must be greater than or equal to 1.'
-      end
-
-      @service_account = service_account
     end
 
     # Checks equality by comparing each attribute.

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **str** | A machine-readable code for the error. Only set for validation errors. | [optional] 
-**detail** | **str** | An extended message for the response. | 
+**detail** | **str** | An extended message for the response. | [optional] 
 **fields** | **Dict[str, List[str]]** | A Dictionary of related errors where key: Field and value: Array of Errors related to that field | [optional] 
 
 ## Example

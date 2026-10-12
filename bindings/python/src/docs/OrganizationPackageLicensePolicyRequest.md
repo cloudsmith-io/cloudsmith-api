@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allow_unknown_licenses** | **bool** |  | [optional] 
 **description** | **str** |  | [optional] 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **on_violation_quarantine** | **bool** |  | [optional] 
 **package_query_string** | **str** |  | [optional] 
-**spdx_identifiers** | **List[str]** |  | 
+**spdx_identifiers** | **List[str]** |  | [optional] 
 
 ## Example
 

@@ -57,28 +57,28 @@ public class CommonBandwidthMetrics implements Serializable {
 
   public static final String SERIALIZED_NAME_AVERAGE = "average";
   @SerializedName(SERIALIZED_NAME_AVERAGE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonBandwidthMetricsValue average;
 
   public static final String SERIALIZED_NAME_HIGHEST = "highest";
   @SerializedName(SERIALIZED_NAME_HIGHEST)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonBandwidthMetricsValue highest;
 
   public static final String SERIALIZED_NAME_LOWEST = "lowest";
   @SerializedName(SERIALIZED_NAME_LOWEST)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonBandwidthMetricsValue lowest;
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonBandwidthMetricsValue total;
 
   public CommonBandwidthMetrics() {
   }
 
-  public CommonBandwidthMetrics average(@javax.annotation.Nonnull CommonBandwidthMetricsValue average) {
+  public CommonBandwidthMetrics average(@javax.annotation.Nullable CommonBandwidthMetricsValue average) {
     this.average = average;
     return this;
   }
@@ -87,17 +87,17 @@ public class CommonBandwidthMetrics implements Serializable {
    * Get average
    * @return average
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonBandwidthMetricsValue getAverage() {
     return average;
   }
 
-  public void setAverage(@javax.annotation.Nonnull CommonBandwidthMetricsValue average) {
+  public void setAverage(@javax.annotation.Nullable CommonBandwidthMetricsValue average) {
     this.average = average;
   }
 
 
-  public CommonBandwidthMetrics highest(@javax.annotation.Nonnull CommonBandwidthMetricsValue highest) {
+  public CommonBandwidthMetrics highest(@javax.annotation.Nullable CommonBandwidthMetricsValue highest) {
     this.highest = highest;
     return this;
   }
@@ -106,17 +106,17 @@ public class CommonBandwidthMetrics implements Serializable {
    * Get highest
    * @return highest
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonBandwidthMetricsValue getHighest() {
     return highest;
   }
 
-  public void setHighest(@javax.annotation.Nonnull CommonBandwidthMetricsValue highest) {
+  public void setHighest(@javax.annotation.Nullable CommonBandwidthMetricsValue highest) {
     this.highest = highest;
   }
 
 
-  public CommonBandwidthMetrics lowest(@javax.annotation.Nonnull CommonBandwidthMetricsValue lowest) {
+  public CommonBandwidthMetrics lowest(@javax.annotation.Nullable CommonBandwidthMetricsValue lowest) {
     this.lowest = lowest;
     return this;
   }
@@ -125,17 +125,17 @@ public class CommonBandwidthMetrics implements Serializable {
    * Get lowest
    * @return lowest
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonBandwidthMetricsValue getLowest() {
     return lowest;
   }
 
-  public void setLowest(@javax.annotation.Nonnull CommonBandwidthMetricsValue lowest) {
+  public void setLowest(@javax.annotation.Nullable CommonBandwidthMetricsValue lowest) {
     this.lowest = lowest;
   }
 
 
-  public CommonBandwidthMetrics total(@javax.annotation.Nonnull CommonBandwidthMetricsValue total) {
+  public CommonBandwidthMetrics total(@javax.annotation.Nullable CommonBandwidthMetricsValue total) {
     this.total = total;
     return this;
   }
@@ -144,12 +144,12 @@ public class CommonBandwidthMetrics implements Serializable {
    * Get total
    * @return total
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonBandwidthMetricsValue getTotal() {
     return total;
   }
 
-  public void setTotal(@javax.annotation.Nonnull CommonBandwidthMetricsValue total) {
+  public void setTotal(@javax.annotation.Nullable CommonBandwidthMetricsValue total) {
     this.total = total;
   }
 
@@ -204,7 +204,7 @@ public class CommonBandwidthMetrics implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("average", "highest", "lowest", "total"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("average", "highest", "lowest", "total"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -227,22 +227,23 @@ public class CommonBandwidthMetrics implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CommonBandwidthMetrics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CommonBandwidthMetrics.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `average`
-      CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("average"));
-      // validate the required field `highest`
-      CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("highest"));
-      // validate the required field `lowest`
-      CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("lowest"));
-      // validate the required field `total`
-      CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("total"));
+      // validate the optional field `average`
+      if (jsonObj.get("average") != null && !jsonObj.get("average").isJsonNull()) {
+        CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("average"));
+      }
+      // validate the optional field `highest`
+      if (jsonObj.get("highest") != null && !jsonObj.get("highest").isJsonNull()) {
+        CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("highest"));
+      }
+      // validate the optional field `lowest`
+      if (jsonObj.get("lowest") != null && !jsonObj.get("lowest").isJsonNull()) {
+        CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("lowest"));
+      }
+      // validate the optional field `total`
+      if (jsonObj.get("total") != null && !jsonObj.get("total").isJsonNull()) {
+        CommonBandwidthMetricsValue.validateJsonElement(jsonObj.get("total"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

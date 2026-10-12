@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**npm_dist_tag** | **str** | The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag. | [optional] [default to 'latest']
-**package_file** | **str** | The primary file for the package. | 
+**npm_dist_tag** | **str** | The default npm dist-tag for this package/version - This will replace any other package/version if they are using the same tag. | [optional] 
+**package_file** | **str** | The primary file for the package. | [optional] 
 **republish** | **bool** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
 **tags** | **str** | A comma-separated values list of tags to add to the package. | [optional] 
 

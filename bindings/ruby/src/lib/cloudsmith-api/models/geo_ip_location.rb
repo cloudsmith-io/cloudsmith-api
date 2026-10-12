@@ -105,20 +105,14 @@ module CloudsmithApi
 
       if attributes.key?(:'city')
         self.city = attributes[:'city']
-      else
-        self.city = nil
       end
 
       if attributes.key?(:'continent')
         self.continent = attributes[:'continent']
-      else
-        self.continent = nil
       end
 
       if attributes.key?(:'country')
         self.country = attributes[:'country']
-      else
-        self.country = nil
       end
 
       if attributes.key?(:'country_code')
@@ -135,8 +129,6 @@ module CloudsmithApi
 
       if attributes.key?(:'postal_code')
         self.postal_code = attributes[:'postal_code']
-      else
-        self.postal_code = nil
       end
     end
 
@@ -145,22 +137,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @city.to_s.length < 1
-        invalid_properties.push('invalid value for "city", the character length must be greater than or equal to 1.')
-      end
-
-      if @continent.to_s.length < 1
-        invalid_properties.push('invalid value for "continent", the character length must be greater than or equal to 1.')
-      end
-
-      if @country.to_s.length < 1
-        invalid_properties.push('invalid value for "country", the character length must be greater than or equal to 1.')
-      end
-
-      if @postal_code.to_s.length < 1
-        invalid_properties.push('invalid value for "postal_code", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -168,51 +144,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @city.to_s.length < 1
-      return false if @continent.to_s.length < 1
-      return false if @country.to_s.length < 1
-      return false if @postal_code.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] city Value to be assigned
-    def city=(city)
-      if !city.nil? && city.to_s.length < 1
-        fail ArgumentError, 'invalid value for "city", the character length must be greater than or equal to 1.'
-      end
-
-      @city = city
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] continent Value to be assigned
-    def continent=(continent)
-      if !continent.nil? && continent.to_s.length < 1
-        fail ArgumentError, 'invalid value for "continent", the character length must be greater than or equal to 1.'
-      end
-
-      @continent = continent
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] country Value to be assigned
-    def country=(country)
-      if !country.nil? && country.to_s.length < 1
-        fail ArgumentError, 'invalid value for "country", the character length must be greater than or equal to 1.'
-      end
-
-      @country = country
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] postal_code Value to be assigned
-    def postal_code=(postal_code)
-      if !postal_code.nil? && postal_code.to_s.length < 1
-        fail ArgumentError, 'invalid value for "postal_code", the character length must be greater than or equal to 1.'
-      end
-
-      @postal_code = postal_code
     end
 
     # Checks equality by comparing each attribute.

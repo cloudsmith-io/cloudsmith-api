@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dependencies** | [**List[PackageDependency]**](PackageDependency.md) |  | 
+**dependencies** | [**List[PackageDependency]**](PackageDependency.md) |  | [optional] 
 
 ## Example
 

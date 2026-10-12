@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**addresses** | **List&lt;String&gt;** | The IP addresses to test against this repository |  |
+|**addresses** | **List&lt;String&gt;** | The IP addresses to test against this repository |  [optional] |
 
 
 ## Implemented Interfaces

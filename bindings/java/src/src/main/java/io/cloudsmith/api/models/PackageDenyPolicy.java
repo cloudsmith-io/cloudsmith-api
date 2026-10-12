@@ -59,7 +59,7 @@ public class PackageDenyPolicy implements Serializable {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   @javax.annotation.Nullable
-  private String action = "Block downloads";
+  private String action;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -83,7 +83,7 @@ public class PackageDenyPolicy implements Serializable {
 
   public static final String SERIALIZED_NAME_PACKAGE_QUERY_STRING = "package_query_string";
   @SerializedName(SERIALIZED_NAME_PACKAGE_QUERY_STRING)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String packageQueryString;
 
   public static final String SERIALIZED_NAME_SLUG_PERM = "slug_perm";
@@ -94,7 +94,7 @@ public class PackageDenyPolicy implements Serializable {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nullable
-  private String status = "In Progress";
+  private String status;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
@@ -198,7 +198,7 @@ public class PackageDenyPolicy implements Serializable {
   }
 
 
-  public PackageDenyPolicy packageQueryString(@javax.annotation.Nonnull String packageQueryString) {
+  public PackageDenyPolicy packageQueryString(@javax.annotation.Nullable String packageQueryString) {
     this.packageQueryString = packageQueryString;
     return this;
   }
@@ -207,12 +207,12 @@ public class PackageDenyPolicy implements Serializable {
    * Packages that match this query will trigger this deny rule.
    * @return packageQueryString
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPackageQueryString() {
     return packageQueryString;
   }
 
-  public void setPackageQueryString(@javax.annotation.Nonnull String packageQueryString) {
+  public void setPackageQueryString(@javax.annotation.Nullable String packageQueryString) {
     this.packageQueryString = packageQueryString;
   }
 
@@ -321,7 +321,7 @@ public class PackageDenyPolicy implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("action", "created_at", "description", "enabled", "name", "package_query_string", "slug_perm", "status", "updated_at"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("package_query_string"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -344,13 +344,6 @@ public class PackageDenyPolicy implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PackageDenyPolicy` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PackageDenyPolicy.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
@@ -361,7 +354,7 @@ public class PackageDenyPolicy implements Serializable {
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (!jsonObj.get("package_query_string").isJsonPrimitive()) {
+      if ((jsonObj.get("package_query_string") != null && !jsonObj.get("package_query_string").isJsonNull()) && !jsonObj.get("package_query_string").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `package_query_string` to be a primitive type in the JSON string but got `%s`", jsonObj.get("package_query_string").toString()));
       }
       if ((jsonObj.get("slug_perm") != null && !jsonObj.get("slug_perm").isJsonNull()) && !jsonObj.get("slug_perm").isJsonPrimitive()) {

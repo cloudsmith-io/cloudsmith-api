@@ -38,16 +38,12 @@ class TestPackageRecycleBin(unittest.TestCase):
             return PackageRecycleBin(
                 action = '',
                 identifiers = [
-                    '0'
+                    ''
                     ],
-                repository = '0'
+                repository = ''
             )
         else:
             return PackageRecycleBin(
-                action = '',
-                identifiers = [
-                    '0'
-                    ],
         )
         """
 

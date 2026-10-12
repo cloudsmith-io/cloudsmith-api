@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**storage_region** | **str** | The Cloudsmith region in which package files are stored. | [optional] [default to 'default']
+**storage_region** | **str** | The Cloudsmith region in which package files are stored. | [optional] 
 
 ## Example
 

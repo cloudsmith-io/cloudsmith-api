@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from cloudsmith_api.models.connected_repository_target_summary import ConnectedRepositoryTargetSummary
 from cloudsmith_api.models.connected_repository_upstream import ConnectedRepositoryUpstream
 from typing import Optional, Set
@@ -35,31 +34,14 @@ class ConnectedRepository(BaseModel):
     can_view_target_repository_settings: Optional[StrictBool] = Field(default=None, description="Whether the current user has permission to view the target repository's settings. When false, `configured_upstreams` will be empty even if upstreams are configured.")
     configured_upstreams: Optional[List[ConnectedRepositoryUpstream]] = Field(default=None, description="The upstream sources configured on the target repository, used to display which formats/upstreams the connection exposes.")
     created_at: Optional[datetime] = Field(default=None, description="The date and time when the connection was created.")
-    disable_reason: Optional[StrictStr] = 'N/A'
+    disable_reason: Optional[StrictStr] = None
     disable_reason_text: Optional[StrictStr] = Field(default=None, description="Human-readable explanation of why this connection is disabled.")
-    is_active: Optional[StrictBool] = False
-    priority: Optional[Annotated[int, Field(le=32767, strict=True, ge=1)]] = Field(default=None, description="Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first.")
-    slug_perm: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
-    target_repository: Annotated[str, Field(strict=True)] = Field(description="The slug of the target repository to connect to.")
+    is_active: Optional[StrictBool] = None
+    priority: Optional[StrictInt] = Field(default=None, description="Repositories are checked in ascending order (starting at 1). If multiple repositories have the same priority, the oldest one is used first.")
+    slug_perm: Optional[StrictStr] = None
+    target_repository: Optional[StrictStr] = Field(default=None, description="The slug of the target repository to connect to.")
     target_repository_summary: Optional[ConnectedRepositoryTargetSummary] = None
     __properties: ClassVar[List[str]] = ["can_view_target_repository_settings", "configured_upstreams", "created_at", "disable_reason", "disable_reason_text", "is_active", "priority", "slug_perm", "target_repository", "target_repository_summary"]
-
-    @field_validator('slug_perm', mode="before")
-    def slug_perm_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
-
-    @field_validator('target_repository', mode="before")
-    def target_repository_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^[-a-zA-Z0-9_]+$", value):
-            raise ValueError(r"must validate the regular expression /^[-a-zA-Z0-9_]+$/")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -136,9 +118,9 @@ class ConnectedRepository(BaseModel):
             "can_view_target_repository_settings": obj.get("can_view_target_repository_settings"),
             "configured_upstreams": [ConnectedRepositoryUpstream.from_dict(_item) for _item in obj["configured_upstreams"]] if obj.get("configured_upstreams") is not None else None,
             "created_at": obj.get("created_at"),
-            "disable_reason": obj.get("disable_reason") if obj.get("disable_reason") is not None else 'N/A',
+            "disable_reason": obj.get("disable_reason"),
             "disable_reason_text": obj.get("disable_reason_text"),
-            "is_active": obj.get("is_active") if obj.get("is_active") is not None else False,
+            "is_active": obj.get("is_active"),
             "priority": obj.get("priority"),
             "slug_perm": obj.get("slug_perm"),
             "target_repository": obj.get("target_repository"),

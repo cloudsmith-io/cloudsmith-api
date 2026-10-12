@@ -36,12 +36,11 @@ class TestOrganizationTeamInvite(unittest.TestCase):
         model = OrganizationTeamInvite()
         if include_optional:
             return OrganizationTeamInvite(
-                role = 'Member',
-                team = 'z0'
+                role = '',
+                team = ''
             )
         else:
             return OrganizationTeamInvite(
-                team = 'z0',
         )
         """
 

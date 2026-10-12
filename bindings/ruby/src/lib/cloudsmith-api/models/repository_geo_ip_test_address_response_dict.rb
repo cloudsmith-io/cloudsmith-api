@@ -92,26 +92,18 @@ module CloudsmithApi
 
       if attributes.key?(:'allowed')
         self.allowed = attributes[:'allowed']
-      else
-        self.allowed = nil
       end
 
       if attributes.key?(:'country_code')
         self.country_code = attributes[:'country_code']
-      else
-        self.country_code = nil
       end
 
       if attributes.key?(:'ip_address')
         self.ip_address = attributes[:'ip_address']
-      else
-        self.ip_address = nil
       end
 
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
-      else
-        self.reason = nil
       end
     end
 
@@ -120,30 +112,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @allowed.nil?
-        invalid_properties.push('invalid value for "allowed", allowed cannot be nil.')
-      end
-
-      if @country_code.to_s.length < 1
-        invalid_properties.push('invalid value for "country_code", the character length must be greater than or equal to 1.')
-      end
-
-      if @ip_address.nil?
-        invalid_properties.push('invalid value for "ip_address", ip_address cannot be nil.')
-      end
-
-      if @ip_address.to_s.length < 1
-        invalid_properties.push('invalid value for "ip_address", the character length must be greater than or equal to 1.')
-      end
-
-      if @reason.nil?
-        invalid_properties.push('invalid value for "reason", reason cannot be nil.')
-      end
-
-      if @reason.to_s.length < 1
-        invalid_properties.push('invalid value for "reason", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -151,61 +119,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @allowed.nil?
-      return false if @country_code.to_s.length < 1
-      return false if @ip_address.nil?
-      return false if @ip_address.to_s.length < 1
-      return false if @reason.nil?
-      return false if @reason.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] allowed Value to be assigned
-    def allowed=(allowed)
-      if allowed.nil?
-        fail ArgumentError, 'allowed cannot be nil'
-      end
-
-      @allowed = allowed
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] country_code Value to be assigned
-    def country_code=(country_code)
-      if !country_code.nil? && country_code.to_s.length < 1
-        fail ArgumentError, 'invalid value for "country_code", the character length must be greater than or equal to 1.'
-      end
-
-      @country_code = country_code
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] ip_address Value to be assigned
-    def ip_address=(ip_address)
-      if ip_address.nil?
-        fail ArgumentError, 'ip_address cannot be nil'
-      end
-
-      if ip_address.to_s.length < 1
-        fail ArgumentError, 'invalid value for "ip_address", the character length must be greater than or equal to 1.'
-      end
-
-      @ip_address = ip_address
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] reason Value to be assigned
-    def reason=(reason)
-      if reason.nil?
-        fail ArgumentError, 'reason cannot be nil'
-      end
-
-      if reason.to_s.length < 1
-        fail ArgumentError, 'invalid value for "reason", the character length must be greater than or equal to 1.'
-      end
-
-      @reason = reason
     end
 
     # Checks equality by comparing each attribute.

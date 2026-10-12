@@ -98,8 +98,6 @@ module CloudsmithApi
 
       if attributes.key?(:'role')
         self.role = attributes[:'role']
-      else
-        self.role = 'Member'
       end
 
       if attributes.key?(:'teams')
@@ -114,22 +112,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@description.nil? && @description.to_s.length > 1024
-        invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 1024.')
-      end
-
-      if !@description.nil? && @description.to_s.length < 1
-        invalid_properties.push('invalid value for "description", the character length must be greater than or equal to 1.')
-      end
-
-      if !@name.nil? && @name.to_s.length > 120
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 120.')
-      end
-
-      if !@name.nil? && @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -137,47 +119,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@description.nil? && @description.to_s.length > 1024
-      return false if !@description.nil? && @description.to_s.length < 1
-      return false if !@name.nil? && @name.to_s.length > 120
-      return false if !@name.nil? && @name.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
-      if description.nil?
-        fail ArgumentError, 'description cannot be nil'
-      end
-
-      if description.to_s.length > 1024
-        fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 1024.'
-      end
-
-      if description.to_s.length < 1
-        fail ArgumentError, 'invalid value for "description", the character length must be greater than or equal to 1.'
-      end
-
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length > 120
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 120.'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
     end
 
     # Checks equality by comparing each attribute.

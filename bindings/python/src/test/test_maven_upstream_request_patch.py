@@ -36,22 +36,22 @@ class TestMavenUpstreamRequestPatch(unittest.TestCase):
         model = MavenUpstreamRequestPatch()
         if include_optional:
             return MavenUpstreamRequestPatch(
-                auth_mode = 'None',
+                auth_mode = '',
                 auth_secret = '',
                 auth_username = '',
-                extra_header_1 = 'z',
-                extra_header_2 = 'z',
-                extra_value_1 = 'j',
-                extra_value_2 = 'j',
+                extra_header_1 = '',
+                extra_header_2 = '',
+                extra_value_1 = '',
+                extra_value_2 = '',
                 gpg_key_inline = '',
                 gpg_key_url = '',
-                gpg_verification = 'Allow All',
+                gpg_verification = '',
                 is_active = True,
-                mode = 'Proxy Only',
-                name = 'eBXK5y0',
-                priority = 1,
-                trust_level = 'Trusted',
-                upstream_url = '0',
+                mode = '',
+                name = '',
+                priority = 56,
+                trust_level = '',
+                upstream_url = '',
                 verify_ssl = True
             )
         else:

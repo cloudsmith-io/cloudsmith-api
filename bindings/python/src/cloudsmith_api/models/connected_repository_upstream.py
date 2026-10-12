@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,7 +29,7 @@ class ConnectedRepositoryUpstream(BaseModel):
     ConnectedRepositoryUpstream
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default=None, description="The format/backend slug of the upstream (e.g. 'npm').")
-    upstream_url: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
+    upstream_url: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["type", "upstream_url"]
 
     model_config = ConfigDict(

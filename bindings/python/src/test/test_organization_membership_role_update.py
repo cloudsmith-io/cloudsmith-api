@@ -36,17 +36,17 @@ class TestOrganizationMembershipRoleUpdate(unittest.TestCase):
         model = OrganizationMembershipRoleUpdate()
         if include_optional:
             return OrganizationMembershipRoleUpdate(
-                email = '0',
+                email = '',
                 has_two_factor = True,
                 joined_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 last_login_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                last_login_method = 'Unknown',
-                role = 'Owner',
-                user = '0',
-                user_id = '0',
-                user_name = '0',
+                last_login_method = '',
+                role = '',
+                user = '',
+                user_id = '',
+                user_name = '',
                 user_url = '',
-                visibility = 'Public'
+                visibility = ''
             )
         else:
             return OrganizationMembershipRoleUpdate(

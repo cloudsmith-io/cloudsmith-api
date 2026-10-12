@@ -39,9 +39,9 @@ class TestRepositoryRsaKey(unittest.TestCase):
                 active = True,
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 default = True,
-                fingerprint = '0',
+                fingerprint = '',
                 fingerprint_short = '',
-                public_key = '0',
+                public_key = '',
                 ssh_fingerprint = ''
             )
         else:

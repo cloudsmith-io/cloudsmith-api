@@ -57,13 +57,13 @@ public class EntitlementUsageMetrics implements Serializable {
 
   public static final String SERIALIZED_NAME_TOKENS = "tokens";
   @SerializedName(SERIALIZED_NAME_TOKENS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private CommonMetrics tokens;
 
   public EntitlementUsageMetrics() {
   }
 
-  public EntitlementUsageMetrics tokens(@javax.annotation.Nonnull CommonMetrics tokens) {
+  public EntitlementUsageMetrics tokens(@javax.annotation.Nullable CommonMetrics tokens) {
     this.tokens = tokens;
     return this;
   }
@@ -72,12 +72,12 @@ public class EntitlementUsageMetrics implements Serializable {
    * Get tokens
    * @return tokens
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CommonMetrics getTokens() {
     return tokens;
   }
 
-  public void setTokens(@javax.annotation.Nonnull CommonMetrics tokens) {
+  public void setTokens(@javax.annotation.Nullable CommonMetrics tokens) {
     this.tokens = tokens;
   }
 
@@ -126,7 +126,7 @@ public class EntitlementUsageMetrics implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("tokens"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("tokens"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -149,16 +149,11 @@ public class EntitlementUsageMetrics implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EntitlementUsageMetrics` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : EntitlementUsageMetrics.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `tokens`
-      CommonMetrics.validateJsonElement(jsonObj.get("tokens"));
+      // validate the optional field `tokens`
+      if (jsonObj.get("tokens") != null && !jsonObj.get("tokens").isJsonNull()) {
+        CommonMetrics.validateJsonElement(jsonObj.get("tokens"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

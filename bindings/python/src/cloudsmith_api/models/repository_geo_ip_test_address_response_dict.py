@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,10 +28,10 @@ class RepositoryGeoIpTestAddressResponseDict(BaseModel):
     """
     RepositoryGeoIpTestAddressResponseDict
     """ # noqa: E501
-    allowed: StrictBool = Field(description="The result of the IP test")
-    country_code: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(description="The country code of the tested IP address")
-    ip_address: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The IP address that was tested")
-    reason: Annotated[str, Field(min_length=1, strict=True)] = Field(description="The reason for the result")
+    allowed: Optional[StrictBool] = Field(default=None, description="The result of the IP test")
+    country_code: Optional[StrictStr] = Field(default=None, description="The country code of the tested IP address")
+    ip_address: Optional[StrictStr] = Field(default=None, description="The IP address that was tested")
+    reason: Optional[StrictStr] = Field(default=None, description="The reason for the result")
     __properties: ClassVar[List[str]] = ["allowed", "country_code", "ip_address", "reason"]
 
     model_config = ConfigDict(

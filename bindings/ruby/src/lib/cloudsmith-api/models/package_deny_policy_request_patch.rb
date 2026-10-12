@@ -111,18 +111,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@description.nil? && @description.to_s.length > 250
-        invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 250.')
-      end
-
-      if !@name.nil? && @name.to_s.length > 100
-        invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 100.')
-      end
-
-      if !@package_query_string.nil? && @package_query_string.to_s.length < 1
-        invalid_properties.push('invalid value for "package_query_string", the character length must be greater than or equal to 1.')
-      end
-
       invalid_properties
     end
 
@@ -130,44 +118,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if !@description.nil? && @description.to_s.length > 250
-      return false if !@name.nil? && @name.to_s.length > 100
-      return false if !@package_query_string.nil? && @package_query_string.to_s.length < 1
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
-      if !description.nil? && description.to_s.length > 250
-        fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 250.'
-      end
-
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if !name.nil? && name.to_s.length > 100
-        fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 100.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] package_query_string Value to be assigned
-    def package_query_string=(package_query_string)
-      if package_query_string.nil?
-        fail ArgumentError, 'package_query_string cannot be nil'
-      end
-
-      if package_query_string.to_s.length < 1
-        fail ArgumentError, 'invalid value for "package_query_string", the character length must be greater than or equal to 1.'
-      end
-
-      @package_query_string = package_query_string
     end
 
     # Checks equality by comparing each attribute.

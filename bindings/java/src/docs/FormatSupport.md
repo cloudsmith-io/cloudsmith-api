@@ -8,13 +8,13 @@ A set of what the package format supports
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dependencies** | **Boolean** | If true the package format supports dependencies |  |
-|**distributions** | **Boolean** | If true the package format supports distributions |  |
-|**fileLists** | **Boolean** | If true the package format supports file lists |  |
-|**filepaths** | **Boolean** | If true the package format supports filepaths |  |
-|**metadata** | **Boolean** | If true the package format supports metadata |  |
-|**upstreams** | [**FormatSupportUpstream**](FormatSupportUpstream.md) |  |  |
-|**versioning** | **Boolean** | If true the package format supports versioning |  |
+|**dependencies** | **Boolean** | If true the package format supports dependencies |  [optional] |
+|**distributions** | **Boolean** | If true the package format supports distributions |  [optional] |
+|**fileLists** | **Boolean** | If true the package format supports file lists |  [optional] |
+|**filepaths** | **Boolean** | If true the package format supports filepaths |  [optional] |
+|**metadata** | **Boolean** | If true the package format supports metadata |  [optional] |
+|**upstreams** | [**FormatSupportUpstream**](FormatSupportUpstream.md) |  |  [optional] |
+|**versioning** | **Boolean** | If true the package format supports versioning |  [optional] |
 
 
 ## Implemented Interfaces

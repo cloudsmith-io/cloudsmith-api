@@ -40,15 +40,15 @@ class TestConnectedRepository(unittest.TestCase):
                 configured_upstreams = [
                     cloudsmith_api.models.connected_repository_upstream.ConnectedRepositoryUpstream(
                         type = '', 
-                        upstream_url = '0', )
+                        upstream_url = '', )
                     ],
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                disable_reason = 'N/A',
+                disable_reason = '',
                 disable_reason_text = '',
                 is_active = True,
-                priority = 1,
-                slug_perm = 'z0',
-                target_repository = 'z',
+                priority = 56,
+                slug_perm = '',
+                target_repository = '',
                 target_repository_summary = cloudsmith_api.models.connected_repository_target_summary.ConnectedRepositoryTargetSummary(
                     is_private = True, 
                     is_public = True, 
@@ -57,7 +57,6 @@ class TestConnectedRepository(unittest.TestCase):
             )
         else:
             return ConnectedRepository(
-                target_repository = 'z',
         )
         """
 

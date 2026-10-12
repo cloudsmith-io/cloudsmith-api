@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **rsa_passphrase** | **str** | The RSA passphrase used for signing. | [optional] 
-**rsa_private_key** | **str** | The RSA private key. | 
+**rsa_private_key** | **str** | The RSA private key. | [optional] 
 
 ## Example
 

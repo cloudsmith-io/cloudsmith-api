@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**ecdsaPassphrase** | **String** | The ECDSA passphrase used for signing. |  [optional] |
-|**ecdsaPrivateKey** | **String** | The ECDSA private key. |  |
+|**ecdsaPrivateKey** | **String** | The ECDSA private key. |  [optional] |
 
 
 ## Implemented Interfaces

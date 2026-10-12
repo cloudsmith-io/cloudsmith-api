@@ -36,8 +36,8 @@ class TestEula(unittest.TestCase):
         model = Eula()
         if include_optional:
             return Eula(
-                identifier = 'z',
-                number = 0
+                identifier = '',
+                number = 56
             )
         else:
             return Eula(

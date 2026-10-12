@@ -36,14 +36,13 @@ class TestDistribution(unittest.TestCase):
         model = Distribution()
         if include_optional:
             return Distribution(
-                name = '0',
+                name = '',
                 self_url = '',
-                slug = '0',
+                slug = '',
                 variants = ''
             )
         else:
             return Distribution(
-                name = '0',
         )
         """
 

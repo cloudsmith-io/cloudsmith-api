@@ -4,11 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **action** | **String** |  | [optional][default to &#39;Update&#39;] |
+| **action** | **String** |  | [optional] |
 | **license_notes** | **String** |  | [optional] |
-| **license_override** | **String** |  | [optional][default to &#39;None&#39;] |
+| **license_override** | **String** |  | [optional] |
 | **license_url** | **String** |  | [optional] |
-| **spdx_license** | **String** |  |  |
+| **spdx_license** | **String** |  | [optional] |
 
 ## Example
 

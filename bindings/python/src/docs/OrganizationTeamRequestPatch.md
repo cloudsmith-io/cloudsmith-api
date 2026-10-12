@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **description** | **str** | A detailed description of the team. | [optional] 
 **name** | **str** | A descriptive name for the team. | [optional] 
 **slug** | **str** |  | [optional] 
-**visibility** | **str** |  | [optional] [default to 'Visible']
+**visibility** | **str** |  | [optional] 
 
 ## Example
 

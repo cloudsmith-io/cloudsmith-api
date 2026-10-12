@@ -36,12 +36,11 @@ class TestRepositoryEcdsaKeyCreate(unittest.TestCase):
         model = RepositoryEcdsaKeyCreate()
         if include_optional:
             return RepositoryEcdsaKeyCreate(
-                ecdsa_passphrase = '0',
-                ecdsa_private_key = '0'
+                ecdsa_passphrase = '',
+                ecdsa_private_key = ''
             )
         else:
             return RepositoryEcdsaKeyCreate(
-                ecdsa_private_key = '0',
         )
         """
 

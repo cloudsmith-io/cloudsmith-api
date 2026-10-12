@@ -39,20 +39,20 @@ class TestHistory(unittest.TestCase):
                 days = 56,
                 display = cloudsmith_api.models.history_fieldset.HistoryFieldset(
                     downloaded = cloudsmith_api.models.usage.Usage(
-                        limit = '0', 
-                        percentage = '0', 
-                        used = '0', ), 
+                        limit = '', 
+                        percentage = '', 
+                        used = '', ), 
                     storage_used = cloudsmith_api.models.storage_usage.StorageUsage(
-                        limit = '0', 
-                        peak = '0', 
-                        percentage = '0', 
-                        used = '0', ), 
+                        limit = '', 
+                        peak = '', 
+                        percentage = '', 
+                        used = '', ), 
                     uploaded = cloudsmith_api.models.usage.Usage(
-                        limit = '0', 
-                        percentage = '0', 
-                        used = '0', ), ),
+                        limit = '', 
+                        percentage = '', 
+                        used = '', ), ),
                 end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                plan = '0',
+                plan = '',
                 raw = cloudsmith_api.models.history_fieldset_raw.HistoryFieldsetRaw(
                     downloaded = cloudsmith_api.models.usage_raw.UsageRaw(
                         limit = 56, 
@@ -71,37 +71,6 @@ class TestHistory(unittest.TestCase):
             )
         else:
             return History(
-                display = cloudsmith_api.models.history_fieldset.HistoryFieldset(
-                    downloaded = cloudsmith_api.models.usage.Usage(
-                        limit = '0', 
-                        percentage = '0', 
-                        used = '0', ), 
-                    storage_used = cloudsmith_api.models.storage_usage.StorageUsage(
-                        limit = '0', 
-                        peak = '0', 
-                        percentage = '0', 
-                        used = '0', ), 
-                    uploaded = cloudsmith_api.models.usage.Usage(
-                        limit = '0', 
-                        percentage = '0', 
-                        used = '0', ), ),
-                end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                plan = '0',
-                raw = cloudsmith_api.models.history_fieldset_raw.HistoryFieldsetRaw(
-                    downloaded = cloudsmith_api.models.usage_raw.UsageRaw(
-                        limit = 56, 
-                        percentage = '', 
-                        used = 56, ), 
-                    storage_used = cloudsmith_api.models.storage_usage_raw.StorageUsageRaw(
-                        limit = 56, 
-                        peak = 56, 
-                        percentage = '', 
-                        used = 56, ), 
-                    uploaded = cloudsmith_api.models.usage_raw.UsageRaw(
-                        limit = 56, 
-                        percentage = '', 
-                        used = 56, ), ),
-                start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
         """
 

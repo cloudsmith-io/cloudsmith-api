@@ -8,7 +8,7 @@ The distributions supported by this package format
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  |
+|**name** | **String** |  |  [optional] |
 |**selfUrl** | **URI** |  |  [optional] [readonly] |
 |**slug** | **String** | The slug identifier for this distribution |  [optional] [readonly] |
 |**variants** | **String** |  |  [optional] |

@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +28,8 @@ class Architecture(BaseModel):
     """
     Architecture
     """ # noqa: E501
-    description: Optional[Annotated[str, Field(strict=True, max_length=64)]] = None
-    name: Annotated[str, Field(min_length=1, strict=True, max_length=128)]
+    description: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["description", "name"]
 
     model_config = ConfigDict(

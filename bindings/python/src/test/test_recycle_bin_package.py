@@ -36,11 +36,11 @@ class TestRecycleBinPackage(unittest.TestCase):
         model = RecycleBinPackage()
         if include_optional:
             return RecycleBinPackage(
-                action_by = '0',
+                action_by = '',
                 downloads = 56,
-                filename = '0',
-                format = '0',
-                fully_qualified_name = '0',
+                filename = '',
+                format = '',
+                fully_qualified_name = '',
                 identifiers = {
                     'key' : ''
                     },
@@ -53,17 +53,17 @@ class TestRecycleBinPackage(unittest.TestCase):
                 is_restorable = True,
                 name = '',
                 policy_violated = True,
-                repository = '0',
+                repository = '',
                 security_scan_completed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                security_scan_status = 'Awaiting Security Scan',
+                security_scan_status = '',
                 size = 56,
-                slug_perm = 'z0',
+                slug_perm = '',
                 status = 56,
                 status_updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 tags = None,
                 type_display = '',
                 uploaded_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                uploader = '0',
+                uploader = '',
                 version = '',
                 vulnerability_counts = cloudsmith_api.models.web_osv_severity_counts.WebOSVSeverityCounts(
                     critical = 56, 

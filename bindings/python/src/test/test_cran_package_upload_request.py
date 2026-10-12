@@ -36,15 +36,14 @@ class TestCranPackageUploadRequest(unittest.TestCase):
         model = CranPackageUploadRequest()
         if include_optional:
             return CranPackageUploadRequest(
-                architecture = '0',
-                package_file = '0',
-                r_version = '0',
+                architecture = '',
+                package_file = '',
+                r_version = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return CranPackageUploadRequest(
-                package_file = '0',
         )
         """
 

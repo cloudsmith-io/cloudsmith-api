@@ -9,10 +9,10 @@
 |------------ | ------------- | ------------- | -------------|
 |**allowUnknownLicenses** | **Boolean** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**name** | **String** |  |  |
+|**name** | **String** |  |  [optional] |
 |**onViolationQuarantine** | **Boolean** |  |  [optional] |
 |**packageQueryString** | **String** |  |  [optional] |
-|**spdxIdentifiers** | **Set&lt;String&gt;** |  |  |
+|**spdxIdentifiers** | **Set&lt;String&gt;** |  |  [optional] |
 
 
 ## Implemented Interfaces

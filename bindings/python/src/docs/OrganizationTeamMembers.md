@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**members** | [**List[OrganizationTeamServiceMember]**](OrganizationTeamServiceMember.md) | The team members | 
+**members** | [**List[OrganizationTeamServiceMember]**](OrganizationTeamServiceMember.md) | The team members | [optional] 
 
 ## Example
 

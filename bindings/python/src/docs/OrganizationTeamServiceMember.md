@@ -6,9 +6,9 @@ The team members
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | **str** |  | 
-**user** | **str** |  | 
-**user_kind** | **str** |  | [optional] [default to 'User']
+**role** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
+**user_kind** | **str** |  | [optional] 
 
 ## Example
 

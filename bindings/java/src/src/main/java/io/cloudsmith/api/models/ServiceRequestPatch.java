@@ -70,12 +70,12 @@ public class ServiceRequestPatch implements Serializable {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Member";
+  private String role;
 
   public static final String SERIALIZED_NAME_TEAMS = "teams";
   @SerializedName(SERIALIZED_NAME_TEAMS)
   @javax.annotation.Nullable
-  private List<ServiceTeams> teams = new ArrayList<>();
+  private List<ServiceTeams> teams;
 
   public ServiceRequestPatch() {
   }

@@ -36,13 +36,12 @@ class TestRubyPackageUploadRequest(unittest.TestCase):
         model = RubyPackageUploadRequest()
         if include_optional:
             return RubyPackageUploadRequest(
-                package_file = '0',
+                package_file = '',
                 republish = True,
-                tags = '0'
+                tags = ''
             )
         else:
             return RubyPackageUploadRequest(
-                package_file = '0',
         )
         """
 

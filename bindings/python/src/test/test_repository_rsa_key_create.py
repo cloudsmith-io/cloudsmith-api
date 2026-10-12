@@ -36,12 +36,11 @@ class TestRepositoryRsaKeyCreate(unittest.TestCase):
         model = RepositoryRsaKeyCreate()
         if include_optional:
             return RepositoryRsaKeyCreate(
-                rsa_passphrase = '0',
-                rsa_private_key = '0'
+                rsa_passphrase = '',
+                rsa_private_key = ''
             )
         else:
             return RepositoryRsaKeyCreate(
-                rsa_private_key = '0',
         )
         """
 

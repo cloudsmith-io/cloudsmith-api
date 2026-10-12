@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**history** | [**List&lt;History&gt;**](History.md) |  |  |
+|**history** | [**List&lt;History&gt;**](History.md) |  |  [optional] |
 
 
 ## Implemented Interfaces

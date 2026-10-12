@@ -41,12 +41,23 @@ common_codegen_options="--git-user-id $git_user_id --git-repo-id $git_repo_id"
 # invoking user instead.
 codegen_run_user="$(id -u):$(id -g)"
 
-# Generated models reject enum values that the spec does not list. The API adds
-# enum values over time, so released clients must accept them. Remove the enum
-# lists from the model definitions before generation.
+# Prepare the spec for the generated clients:
+# - Generated models reject enum values that the spec does not list. The API
+#   adds enum values over time, so released clients must accept them.
+# - Generated models send default values for fields that the caller did not
+#   set. A patch request would then reset those fields on the server.
+# - Generated models reject responses that break the required fields or the
+#   value constraints of the spec, and some API responses do. The server
+#   validates every request, so the clients do not need these checks.
+# Remove these keywords from the model definitions.
 function write_client_spec {
   curl -sL --max-time 60 "$openapi_url" \
-    | jq '.definitions |= walk(if type == "object" and (.enum | type) == "array" and ((.type // null) | type) == "string" then del(.enum) else . end)' \
+    | jq '.definitions |= walk(
+        if type == "object" and (.required | type) == "array" and has("properties") then del(.required) else . end
+        | if type == "object" and ((.type // null) | type) == "string"
+          then del(.enum, .default, .minLength, .maxLength, .pattern, .minimum, .maximum, .exclusiveMinimum, .exclusiveMaximum, .minItems, .maxItems)
+          else . end
+      )' \
     > "$1"
 }
 

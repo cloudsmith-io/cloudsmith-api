@@ -79,14 +79,10 @@ module CloudsmithApi
 
       if attributes.key?(:'display')
         self.display = attributes[:'display']
-      else
-        self.display = nil
       end
 
       if attributes.key?(:'raw')
         self.raw = attributes[:'raw']
-      else
-        self.raw = nil
       end
     end
 
@@ -95,14 +91,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @display.nil?
-        invalid_properties.push('invalid value for "display", display cannot be nil.')
-      end
-
-      if @raw.nil?
-        invalid_properties.push('invalid value for "raw", raw cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -110,29 +98,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @display.nil?
-      return false if @raw.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] display Value to be assigned
-    def display=(display)
-      if display.nil?
-        fail ArgumentError, 'display cannot be nil'
-      end
-
-      @display = display
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] raw Value to be assigned
-    def raw=(raw)
-      if raw.nil?
-        fail ArgumentError, 'raw cannot be nil'
-      end
-
-      @raw = raw
     end
 
     # Checks equality by comparing each attribute.

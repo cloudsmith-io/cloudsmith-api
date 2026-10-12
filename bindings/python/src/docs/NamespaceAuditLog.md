@@ -5,20 +5,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**actor** | **str** |  | 
-**actor_ip_address** | **str** |  | 
+**actor** | **str** |  | [optional] 
+**actor_ip_address** | **str** |  | [optional] 
 **actor_kind** | **str** |  | [optional] [readonly] 
-**actor_location** | [**GeoIpLocation**](GeoIpLocation.md) |  | 
-**actor_slug_perm** | **str** |  | 
+**actor_location** | [**GeoIpLocation**](GeoIpLocation.md) |  | [optional] 
+**actor_slug_perm** | **str** |  | [optional] 
 **actor_url** | **str** |  | [optional] [readonly] 
-**context** | **str** |  | 
-**event** | **str** |  | 
-**event_at** | **datetime** |  | 
-**object** | **str** |  | 
-**object_kind** | **str** |  | 
-**object_slug_perm** | **str** |  | 
-**target** | **str** |  | 
-**target_kind** | **str** |  | 
+**context** | **str** |  | [optional] 
+**event** | **str** |  | [optional] 
+**event_at** | **datetime** |  | [optional] 
+**object** | **str** |  | [optional] 
+**object_kind** | **str** |  | [optional] 
+**object_slug_perm** | **str** |  | [optional] 
+**target** | **str** |  | [optional] 
+**target_kind** | **str** |  | [optional] 
 **target_slug_perm** | **str** |  | [optional] 
 **uuid** | **UUID** |  | [optional] [readonly] 
 

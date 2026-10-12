@@ -56,33 +56,33 @@ public class OrganizationGroupSyncRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_IDP_KEY = "idp_key";
   @SerializedName(SERIALIZED_NAME_IDP_KEY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String idpKey;
 
   public static final String SERIALIZED_NAME_IDP_VALUE = "idp_value";
   @SerializedName(SERIALIZED_NAME_IDP_VALUE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String idpValue;
 
   public static final String SERIALIZED_NAME_ORGANIZATION = "organization";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String organization;
 
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
   @javax.annotation.Nullable
-  private String role = "Member";
+  private String role;
 
   public static final String SERIALIZED_NAME_TEAM = "team";
   @SerializedName(SERIALIZED_NAME_TEAM)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String team;
 
   public OrganizationGroupSyncRequest() {
   }
 
-  public OrganizationGroupSyncRequest idpKey(@javax.annotation.Nonnull String idpKey) {
+  public OrganizationGroupSyncRequest idpKey(@javax.annotation.Nullable String idpKey) {
     this.idpKey = idpKey;
     return this;
   }
@@ -91,17 +91,17 @@ public class OrganizationGroupSyncRequest implements Serializable {
    * Get idpKey
    * @return idpKey
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getIdpKey() {
     return idpKey;
   }
 
-  public void setIdpKey(@javax.annotation.Nonnull String idpKey) {
+  public void setIdpKey(@javax.annotation.Nullable String idpKey) {
     this.idpKey = idpKey;
   }
 
 
-  public OrganizationGroupSyncRequest idpValue(@javax.annotation.Nonnull String idpValue) {
+  public OrganizationGroupSyncRequest idpValue(@javax.annotation.Nullable String idpValue) {
     this.idpValue = idpValue;
     return this;
   }
@@ -110,17 +110,17 @@ public class OrganizationGroupSyncRequest implements Serializable {
    * Get idpValue
    * @return idpValue
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getIdpValue() {
     return idpValue;
   }
 
-  public void setIdpValue(@javax.annotation.Nonnull String idpValue) {
+  public void setIdpValue(@javax.annotation.Nullable String idpValue) {
     this.idpValue = idpValue;
   }
 
 
-  public OrganizationGroupSyncRequest organization(@javax.annotation.Nonnull String organization) {
+  public OrganizationGroupSyncRequest organization(@javax.annotation.Nullable String organization) {
     this.organization = organization;
     return this;
   }
@@ -129,12 +129,12 @@ public class OrganizationGroupSyncRequest implements Serializable {
    * Get organization
    * @return organization
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getOrganization() {
     return organization;
   }
 
-  public void setOrganization(@javax.annotation.Nonnull String organization) {
+  public void setOrganization(@javax.annotation.Nullable String organization) {
     this.organization = organization;
   }
 
@@ -158,7 +158,7 @@ public class OrganizationGroupSyncRequest implements Serializable {
   }
 
 
-  public OrganizationGroupSyncRequest team(@javax.annotation.Nonnull String team) {
+  public OrganizationGroupSyncRequest team(@javax.annotation.Nullable String team) {
     this.team = team;
     return this;
   }
@@ -167,12 +167,12 @@ public class OrganizationGroupSyncRequest implements Serializable {
    * Get team
    * @return team
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTeam() {
     return team;
   }
 
-  public void setTeam(@javax.annotation.Nonnull String team) {
+  public void setTeam(@javax.annotation.Nullable String team) {
     this.team = team;
   }
 
@@ -229,7 +229,7 @@ public class OrganizationGroupSyncRequest implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("idp_key", "idp_value", "organization", "role", "team"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("idp_key", "idp_value", "organization", "team"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -252,27 +252,20 @@ public class OrganizationGroupSyncRequest implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationGroupSyncRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : OrganizationGroupSyncRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("idp_key").isJsonPrimitive()) {
+      if ((jsonObj.get("idp_key") != null && !jsonObj.get("idp_key").isJsonNull()) && !jsonObj.get("idp_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `idp_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idp_key").toString()));
       }
-      if (!jsonObj.get("idp_value").isJsonPrimitive()) {
+      if ((jsonObj.get("idp_value") != null && !jsonObj.get("idp_value").isJsonNull()) && !jsonObj.get("idp_value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `idp_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idp_value").toString()));
       }
-      if (!jsonObj.get("organization").isJsonPrimitive()) {
+      if ((jsonObj.get("organization") != null && !jsonObj.get("organization").isJsonNull()) && !jsonObj.get("organization").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization").toString()));
       }
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
-      if (!jsonObj.get("team").isJsonPrimitive()) {
+      if ((jsonObj.get("team") != null && !jsonObj.get("team").isJsonNull()) && !jsonObj.get("team").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `team` to be a primitive type in the JSON string but got `%s`", jsonObj.get("team").toString()));
       }
   }

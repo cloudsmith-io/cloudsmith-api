@@ -112,14 +112,10 @@ module CloudsmithApi
 
       if attributes.key?(:'claims')
         self.claims = attributes[:'claims']
-      else
-        self.claims = nil
       end
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
-      else
-        self.enabled = nil
       end
 
       if attributes.key?(:'mapping_claim')
@@ -128,14 +124,10 @@ module CloudsmithApi
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      else
-        self.name = nil
       end
 
       if attributes.key?(:'provider_url')
         self.provider_url = attributes[:'provider_url']
-      else
-        self.provider_url = nil
       end
 
       if attributes.key?(:'service_accounts')
@@ -158,52 +150,6 @@ module CloudsmithApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @claims.nil?
-        invalid_properties.push('invalid value for "claims", claims cannot be nil.')
-      end
-
-      if @enabled.nil?
-        invalid_properties.push('invalid value for "enabled", enabled cannot be nil.')
-      end
-
-      if !@mapping_claim.nil? && @mapping_claim.to_s.length < 1
-        invalid_properties.push('invalid value for "mapping_claim", the character length must be greater than or equal to 1.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be greater than or equal to 1.')
-      end
-
-      if @provider_url.nil?
-        invalid_properties.push('invalid value for "provider_url", provider_url cannot be nil.')
-      end
-
-      if @provider_url.to_s.length < 1
-        invalid_properties.push('invalid value for "provider_url", the character length must be greater than or equal to 1.')
-      end
-
-      if !@slug.nil? && @slug.to_s.length < 1
-        invalid_properties.push('invalid value for "slug", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug.nil? && @slug !~ pattern
-        invalid_properties.push("invalid value for \"slug\", must conform to the pattern #{pattern}.")
-      end
-
-      if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-        invalid_properties.push('invalid value for "slug_perm", the character length must be greater than or equal to 1.')
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if !@slug_perm.nil? && @slug_perm !~ pattern
-        invalid_properties.push("invalid value for \"slug_perm\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
@@ -211,76 +157,7 @@ module CloudsmithApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @claims.nil?
-      return false if @enabled.nil?
-      return false if !@mapping_claim.nil? && @mapping_claim.to_s.length < 1
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
-      return false if @provider_url.nil?
-      return false if @provider_url.to_s.length < 1
-      return false if !@slug.nil? && @slug.to_s.length < 1
-      return false if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if !@slug_perm.nil? && @slug_perm.to_s.length < 1
-      return false if !@slug_perm.nil? && @slug_perm !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] claims Value to be assigned
-    def claims=(claims)
-      if claims.nil?
-        fail ArgumentError, 'claims cannot be nil'
-      end
-
-      @claims = claims
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] enabled Value to be assigned
-    def enabled=(enabled)
-      if enabled.nil?
-        fail ArgumentError, 'enabled cannot be nil'
-      end
-
-      @enabled = enabled
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] mapping_claim Value to be assigned
-    def mapping_claim=(mapping_claim)
-      if !mapping_claim.nil? && mapping_claim.to_s.length < 1
-        fail ArgumentError, 'invalid value for "mapping_claim", the character length must be greater than or equal to 1.'
-      end
-
-      @mapping_claim = mapping_claim
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
-      end
-
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be greater than or equal to 1.'
-      end
-
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] provider_url Value to be assigned
-    def provider_url=(provider_url)
-      if provider_url.nil?
-        fail ArgumentError, 'provider_url cannot be nil'
-      end
-
-      if provider_url.to_s.length < 1
-        fail ArgumentError, 'invalid value for "provider_url", the character length must be greater than or equal to 1.'
-      end
-
-      @provider_url = provider_url
     end
 
     # Custom attribute writer method with validation
@@ -291,44 +168,6 @@ module CloudsmithApi
       end
 
       @service_accounts = service_accounts
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug Value to be assigned
-    def slug=(slug)
-      if slug.nil?
-        fail ArgumentError, 'slug cannot be nil'
-      end
-
-      if slug.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug !~ pattern
-        fail ArgumentError, "invalid value for \"slug\", must conform to the pattern #{pattern}."
-      end
-
-      @slug = slug
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] slug_perm Value to be assigned
-    def slug_perm=(slug_perm)
-      if slug_perm.nil?
-        fail ArgumentError, 'slug_perm cannot be nil'
-      end
-
-      if slug_perm.to_s.length < 1
-        fail ArgumentError, 'invalid value for "slug_perm", the character length must be greater than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      if slug_perm !~ pattern
-        fail ArgumentError, "invalid value for \"slug_perm\", must conform to the pattern #{pattern}."
-      end
-
-      @slug_perm = slug_perm
     end
 
     # Checks equality by comparing each attribute.

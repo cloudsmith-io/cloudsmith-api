@@ -59,13 +59,13 @@ public class RepositoryGeoIpTestAddressResponse implements Serializable {
 
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
-  @javax.annotation.Nonnull
-  private List<RepositoryGeoIpTestAddressResponseDict> addresses = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<RepositoryGeoIpTestAddressResponseDict> addresses;
 
   public RepositoryGeoIpTestAddressResponse() {
   }
 
-  public RepositoryGeoIpTestAddressResponse addresses(@javax.annotation.Nonnull List<RepositoryGeoIpTestAddressResponseDict> addresses) {
+  public RepositoryGeoIpTestAddressResponse addresses(@javax.annotation.Nullable List<RepositoryGeoIpTestAddressResponseDict> addresses) {
     this.addresses = addresses;
     return this;
   }
@@ -82,12 +82,12 @@ public class RepositoryGeoIpTestAddressResponse implements Serializable {
    * The IP address test results ordered by allowed
    * @return addresses
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<RepositoryGeoIpTestAddressResponseDict> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(@javax.annotation.Nonnull List<RepositoryGeoIpTestAddressResponseDict> addresses) {
+  public void setAddresses(@javax.annotation.Nullable List<RepositoryGeoIpTestAddressResponseDict> addresses) {
     this.addresses = addresses;
   }
 
@@ -136,7 +136,7 @@ public class RepositoryGeoIpTestAddressResponse implements Serializable {
     openapiFields = new HashSet<String>(Arrays.asList("addresses"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addresses"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -159,22 +159,19 @@ public class RepositoryGeoIpTestAddressResponse implements Serializable {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RepositoryGeoIpTestAddressResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RepositoryGeoIpTestAddressResponse.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("addresses") != null) {
-        if (!jsonObj.get("addresses").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
-        }
+      if (jsonObj.get("addresses") != null && !jsonObj.get("addresses").isJsonNull()) {
         JsonArray jsonArrayaddresses = jsonObj.getAsJsonArray("addresses");
-        // validate the required field `addresses` (array)
-        for (int i = 0; i < jsonArrayaddresses.size(); i++) {
-          RepositoryGeoIpTestAddressResponseDict.validateJsonElement(jsonArrayaddresses.get(i));
+        if (jsonArrayaddresses != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("addresses").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
+          }
+
+          // validate the optional field `addresses` (array)
+          for (int i = 0; i < jsonArrayaddresses.size(); i++) {
+            RepositoryGeoIpTestAddressResponseDict.validateJsonElement(jsonArrayaddresses.get(i));
+          };
         }
       }
   }

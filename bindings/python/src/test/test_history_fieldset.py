@@ -37,34 +37,21 @@ class TestHistoryFieldset(unittest.TestCase):
         if include_optional:
             return HistoryFieldset(
                 downloaded = cloudsmith_api.models.usage.Usage(
-                    limit = '0', 
-                    percentage = '0', 
-                    used = '0', ),
+                    limit = '', 
+                    percentage = '', 
+                    used = '', ),
                 storage_used = cloudsmith_api.models.storage_usage.StorageUsage(
-                    limit = '0', 
-                    peak = '0', 
-                    percentage = '0', 
-                    used = '0', ),
+                    limit = '', 
+                    peak = '', 
+                    percentage = '', 
+                    used = '', ),
                 uploaded = cloudsmith_api.models.usage.Usage(
-                    limit = '0', 
-                    percentage = '0', 
-                    used = '0', )
+                    limit = '', 
+                    percentage = '', 
+                    used = '', )
             )
         else:
             return HistoryFieldset(
-                downloaded = cloudsmith_api.models.usage.Usage(
-                    limit = '0', 
-                    percentage = '0', 
-                    used = '0', ),
-                storage_used = cloudsmith_api.models.storage_usage.StorageUsage(
-                    limit = '0', 
-                    peak = '0', 
-                    percentage = '0', 
-                    used = '0', ),
-                uploaded = cloudsmith_api.models.usage.Usage(
-                    limit = '0', 
-                    percentage = '0', 
-                    used = '0', ),
         )
         """
 

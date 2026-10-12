@@ -37,11 +37,10 @@ class TestArchitecture(unittest.TestCase):
         if include_optional:
             return Architecture(
                 description = '',
-                name = '0'
+                name = ''
             )
         else:
             return Architecture(
-                name = '0',
         )
         """
 

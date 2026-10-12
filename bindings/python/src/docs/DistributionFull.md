@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **format** | **str** |  | [optional] [readonly] 
 **format_url** | **str** |  | [optional] [readonly] 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **self_url** | **str** |  | [optional] [readonly] 
 **slug** | **str** | The slug identifier for this distribution | [optional] [readonly] 
 **variants** | **str** |  | [optional] 
