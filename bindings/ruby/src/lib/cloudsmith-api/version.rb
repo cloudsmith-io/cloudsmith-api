@@ -11,5 +11,5 @@ Generator version: 7.26.0
 =end
 
 module CloudsmithApi
-  VERSION = '2.0.37'
+  VERSION = '3.0.0'
 end

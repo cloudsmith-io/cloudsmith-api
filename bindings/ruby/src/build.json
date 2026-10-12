@@ -8,7 +8,7 @@
     "gemName": "cloudsmith-api",
     "gemRequiredRubyVersion": ">= 3.3",
     "gemSummary": "Cloudsmith API",
-    "gemVersion": "2.0.37",
+    "gemVersion": "3.0.0",
     "hideGenerationTimestamp": true,
     "moduleName": "CloudsmithApi",
     "sortParamsByRequiredFlag": true

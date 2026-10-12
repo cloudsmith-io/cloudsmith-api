@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cloudsmith-api"
 # bindings/python/build.sh sets the version from package_version in scripts/common.sh.
-version = "2.0.37"
+version = "3.0.0"
 description = "Cloudsmith API"
 readme = "README.md"
 license = "Apache-2.0"
