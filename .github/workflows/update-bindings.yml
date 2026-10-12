@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up tools
-        uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+        uses: jdx/mise-action@2d8d4cafcbd33be2ea37d2b6f5ad595363d1f1ca # v5.1.1
 
       - name: Generate bindings
         run: mise run build
