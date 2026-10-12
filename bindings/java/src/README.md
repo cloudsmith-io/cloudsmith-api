@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.36</version>
+  <version>2.0.37</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.36"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.37"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.36.jar`
+* `target/cloudsmith-api-2.0.37.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -271,6 +271,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadRaw**](docs/PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 *PackagesApi* | [**packagesUploadRuby**](docs/PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
+*PackagesApi* | [**packagesUploadSkills**](docs/PackagesApi.md#packagesUploadSkills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI Skills package
 *PackagesApi* | [**packagesUploadSwift**](docs/PackagesApi.md#packagesUploadSwift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 *PackagesApi* | [**packagesUploadTerraform**](docs/PackagesApi.md#packagesUploadTerraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
@@ -301,6 +302,7 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadRaw**](docs/PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packagesValidateUploadRpm**](docs/PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 *PackagesApi* | [**packagesValidateUploadRuby**](docs/PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
+*PackagesApi* | [**packagesValidateUploadSkills**](docs/PackagesApi.md#packagesValidateUploadSkills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI Skills package
 *PackagesApi* | [**packagesValidateUploadSwift**](docs/PackagesApi.md#packagesValidateUploadSwift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 *PackagesApi* | [**packagesValidateUploadTerraform**](docs/PackagesApi.md#packagesValidateUploadTerraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
@@ -789,6 +791,8 @@ Class | Method | HTTP request | Description
  - [ServiceRequest](docs/ServiceRequest.md)
  - [ServiceRequestPatch](docs/ServiceRequestPatch.md)
  - [ServiceTeams](docs/ServiceTeams.md)
+ - [SkillsPackageUpload](docs/SkillsPackageUpload.md)
+ - [SkillsPackageUploadRequest](docs/SkillsPackageUploadRequest.md)
  - [StatusBasic](docs/StatusBasic.md)
  - [StorageAllocatedLimit](docs/StorageAllocatedLimit.md)
  - [StorageAllocatedLimitRaw](docs/StorageAllocatedLimitRaw.md)

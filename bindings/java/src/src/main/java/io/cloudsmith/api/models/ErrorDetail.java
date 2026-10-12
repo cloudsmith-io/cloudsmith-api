@@ -37,11 +37,32 @@ import javax.validation.Valid;
 public class ErrorDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("code")
+  private String code = null;
+
   @SerializedName("detail")
   private String detail = null;
 
   @SerializedName("fields")
   private Map<String, List<String>> fields = null;
+
+  public ErrorDetail code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * A machine-readable code for the error. Only set for validation errors.
+   * @return code
+  **/
+ @Size(min=1)  @ApiModelProperty(value = "A machine-readable code for the error. Only set for validation errors.")
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
 
   public ErrorDetail detail(String detail) {
     this.detail = detail;
@@ -99,13 +120,14 @@ public class ErrorDetail implements Serializable {
       return false;
     }
     ErrorDetail errorDetail = (ErrorDetail) o;
-    return Objects.equals(this.detail, errorDetail.detail) &&
+    return Objects.equals(this.code, errorDetail.code) &&
+        Objects.equals(this.detail, errorDetail.detail) &&
         Objects.equals(this.fields, errorDetail.fields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, fields);
+    return Objects.hash(code, detail, fields);
   }
 
 
@@ -114,6 +136,7 @@ public class ErrorDetail implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorDetail {\n");
     
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("}");

@@ -596,6 +596,20 @@ describe 'PackagesApi' do
     end
   end
 
+  # unit tests for packages_upload_skills
+  # Create a new AI Skills package
+  # Create a new AI Skills package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SkillsPackageUploadRequest] :data 
+  # @return [SkillsPackageUpload]
+  describe 'packages_upload_skills test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for packages_upload_swift
   # Create a new Swift package
   # Create a new Swift package
@@ -1011,6 +1025,20 @@ describe 'PackagesApi' do
   # @option opts [RubyPackageUploadRequest] :data 
   # @return [nil]
   describe 'packages_validate_upload_ruby test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for packages_validate_upload_skills
+  # Validate parameters for create AI Skills package
+  # Validate parameters for create AI Skills package
+  # @param owner 
+  # @param repo 
+  # @param [Hash] opts the optional parameters
+  # @option opts [SkillsPackageUploadRequest] :data 
+  # @return [nil]
+  describe 'packages_validate_upload_skills test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
