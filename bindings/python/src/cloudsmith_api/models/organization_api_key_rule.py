@@ -275,7 +275,7 @@ class OrganizationApiKeyRule(object):
     def slug_perm(self):
         """Gets the slug_perm of this OrganizationApiKeyRule.
 
-        An auto-generated id that uniquely identifies the API key policy.
+        An auto-generated id that uniquely identifies the rule.
 
         :return: The slug_perm of this OrganizationApiKeyRule.
         :rtype: str
@@ -286,7 +286,7 @@ class OrganizationApiKeyRule(object):
     def slug_perm(self, slug_perm):
         """Sets the slug_perm of this OrganizationApiKeyRule.
 
-        An auto-generated id that uniquely identifies the API key policy.
+        An auto-generated id that uniquely identifies the rule.
 
         :param slug_perm: The slug_perm of this OrganizationApiKeyRule.
         :type: str

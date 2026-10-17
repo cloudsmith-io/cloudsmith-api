@@ -34,7 +34,7 @@ class OrganizationApiKeyRule
   # Human-readable identifier for the rule type. Automatically generated based on the rule type.
   attr_accessor :slug
 
-  # An auto-generated id that uniquely identifies the API key policy.
+  # An auto-generated id that uniquely identifies the rule.
   attr_accessor :slug_perm
 
   attr_accessor :updated_at

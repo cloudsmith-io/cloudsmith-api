@@ -771,7 +771,7 @@ public class SkillsPackageUpload implements Serializable {
    * @return name
   **/
   @NotNull
- @Pattern(regexp="\\A[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=1,max=64)  @ApiModelProperty(required = true, value = "")
+ @Pattern(regexp="\\A[a-z0-9]+(?:-[a-z0-9]+)*$") @Size(min=1,max=128)  @ApiModelProperty(required = true, value = "")
   public String getName() {
     return name;
   }
