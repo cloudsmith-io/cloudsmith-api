@@ -1120,6 +1120,48 @@ class TestReposApi(unittest.TestCase):
         """
         pass
 
+    def test_repos_upstream_skills_create(self):
+        """Test case for repos_upstream_skills_create
+
+        Create an AI Skills upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_skills_delete(self):
+        """Test case for repos_upstream_skills_delete
+
+        Delete an AI Skills upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_skills_list(self):
+        """Test case for repos_upstream_skills_list
+
+        List AI Skills upstream configs for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_skills_partial_update(self):
+        """Test case for repos_upstream_skills_partial_update
+
+        Partially update an AI Skills upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_skills_read(self):
+        """Test case for repos_upstream_skills_read
+
+        Retrieve an AI Skills upstream config for this repository.  # noqa: E501
+        """
+        pass
+
+    def test_repos_upstream_skills_update(self):
+        """Test case for repos_upstream_skills_update
+
+        Update an AI Skills upstream config for this repository.  # noqa: E501
+        """
+        pass
+
     def test_repos_upstream_swift_create(self):
         """Test case for repos_upstream_swift_create
 

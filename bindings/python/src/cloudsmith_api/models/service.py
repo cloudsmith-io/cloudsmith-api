@@ -218,7 +218,7 @@ class Service(object):
     def key_expires_at(self):
         """Gets the key_expires_at of this Service.
 
-        The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
+        The time at which the API key will expire. This will only be populated if the Organization has an active API key rule.
 
         :return: The key_expires_at of this Service.
         :rtype: datetime
@@ -229,7 +229,7 @@ class Service(object):
     def key_expires_at(self, key_expires_at):
         """Sets the key_expires_at of this Service.
 
-        The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
+        The time at which the API key will expire. This will only be populated if the Organization has an active API key rule.
 
         :param key_expires_at: The key_expires_at of this Service.
         :type: datetime
