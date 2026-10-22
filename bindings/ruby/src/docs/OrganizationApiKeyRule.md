@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **max_age_hours** | **Integer** | The maximum permitted age of an API key for use in the organization. API keys older than this will no longer have access until they are refreshed. To disable the rule unset this value. | [optional] 
 **rule_type** | **String** | Specify which account types this rule applies to: all accounts (deprecated — prefer separate service/user rules), service accounts only, or user accounts only. | 
 **slug** | **String** | Human-readable identifier for the rule type. Automatically generated based on the rule type. | [optional] 
-**slug_perm** | **String** | An auto-generated id that uniquely identifies the API key policy. | [optional] 
+**slug_perm** | **String** | An auto-generated id that uniquely identifies the rule. | [optional] 
 **updated_at** | **DateTime** |  | [optional] 
 
 

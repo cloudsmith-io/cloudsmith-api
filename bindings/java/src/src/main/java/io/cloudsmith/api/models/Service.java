@@ -171,11 +171,11 @@ public class Service implements Serializable {
   }
 
    /**
-   * The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
+   * The time at which the API key will expire. This will only be populated if the Organization has an active API key rule.
    * @return keyExpiresAt
   **/
   @Valid
-  @ApiModelProperty(value = "The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.")
+  @ApiModelProperty(value = "The time at which the API key will expire. This will only be populated if the Organization has an active API key rule.")
   public OffsetDateTime getKeyExpiresAt() {
     return keyExpiresAt;
   }

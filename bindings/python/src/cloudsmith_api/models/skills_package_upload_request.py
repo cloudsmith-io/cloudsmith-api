@@ -90,14 +90,14 @@ class SkillsPackageUploadRequest(object):
         if self._configuration.client_side_validation and name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                name is not None and len(name) > 64):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `64`")  # noqa: E501
+                name is not None and len(name) > 128):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
         if (self._configuration.client_side_validation and
                 name is not None and len(name) < 1):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
         if (self._configuration.client_side_validation and
-                name is not None and not re.search('\\A[a-z0-9]+(?:-[a-z0-9]+)*$', name)):  # noqa: E501
-            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/\\A[a-z0-9]+(?:-[a-z0-9]+)*$/`")  # noqa: E501
+                name is not None and not re.search('^[a-z0-9]+(?:-[a-z0-9]+)*$', name)):  # noqa: E501
+            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^[a-z0-9]+(?:-[a-z0-9]+)*$/`")  # noqa: E501
 
         self._name = name
 

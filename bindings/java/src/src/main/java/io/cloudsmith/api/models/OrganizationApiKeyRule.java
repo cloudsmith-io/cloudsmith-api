@@ -216,10 +216,10 @@ public class OrganizationApiKeyRule implements Serializable {
   }
 
    /**
-   * An auto-generated id that uniquely identifies the API key policy.
+   * An auto-generated id that uniquely identifies the rule.
    * @return slugPerm
   **/
- @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "An auto-generated id that uniquely identifies the API key policy.")
+ @Pattern(regexp="^[-a-zA-Z0-9_]+$") @Size(min=1)  @ApiModelProperty(value = "An auto-generated id that uniquely identifies the rule.")
   public String getSlugPerm() {
     return slugPerm;
   }

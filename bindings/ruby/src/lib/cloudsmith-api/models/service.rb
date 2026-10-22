@@ -26,7 +26,7 @@ class Service
   # The API key of the service
   attr_accessor :key
 
-  # The time at which the API key will expire. This will only be populated if the Organization has an active API Key Policy.
+  # The time at which the API key will expire. This will only be populated if the Organization has an active API key rule.
   attr_accessor :key_expires_at
 
   # The name of the service
