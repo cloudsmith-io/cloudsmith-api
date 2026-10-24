@@ -46,6 +46,9 @@ public class ProviderSettingsWriteRequest implements Serializable {
   @SerializedName("enabled")
   private Boolean enabled = null;
 
+  @SerializedName("jwks")
+  private Object jwks = null;
+
   @SerializedName("mapping_claim")
   private String mappingClaim = null;
 
@@ -123,6 +126,24 @@ public class ProviderSettingsWriteRequest implements Serializable {
     this.enabled = enabled;
   }
 
+  public ProviderSettingsWriteRequest jwks(Object jwks) {
+    this.jwks = jwks;
+    return this;
+  }
+
+   /**
+   * The manually uploaded JWKS, for providers we do not have remote access to.
+   * @return jwks
+  **/
+  @ApiModelProperty(value = "The manually uploaded JWKS, for providers we do not have remote access to.")
+  public Object getJwks() {
+    return jwks;
+  }
+
+  public void setJwks(Object jwks) {
+    this.jwks = jwks;
+  }
+
   public ProviderSettingsWriteRequest mappingClaim(String mappingClaim) {
     this.mappingClaim = mappingClaim;
     return this;
@@ -166,11 +187,11 @@ public class ProviderSettingsWriteRequest implements Serializable {
   }
 
    /**
-   * The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
+   * The URL from the provider that serves as the base for the OpenID configuration. For local providers with an uploaded JWKS, this is the expected issuer. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
    * @return providerUrl
   **/
   @NotNull
- @Size(min=1)  @ApiModelProperty(required = true, value = "The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "The URL from the provider that serves as the base for the OpenID configuration. For local providers with an uploaded JWKS, this is the expected issuer. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
   public String getProviderUrl() {
     return providerUrl;
   }
@@ -218,6 +239,7 @@ public class ProviderSettingsWriteRequest implements Serializable {
     return Objects.equals(this.claims, providerSettingsWriteRequest.claims) &&
         Objects.equals(this.dynamicMappings, providerSettingsWriteRequest.dynamicMappings) &&
         Objects.equals(this.enabled, providerSettingsWriteRequest.enabled) &&
+        Objects.equals(this.jwks, providerSettingsWriteRequest.jwks) &&
         Objects.equals(this.mappingClaim, providerSettingsWriteRequest.mappingClaim) &&
         Objects.equals(this.name, providerSettingsWriteRequest.name) &&
         Objects.equals(this.providerUrl, providerSettingsWriteRequest.providerUrl) &&
@@ -226,7 +248,7 @@ public class ProviderSettingsWriteRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(claims, dynamicMappings, enabled, mappingClaim, name, providerUrl, serviceAccounts);
+    return Objects.hash(claims, dynamicMappings, enabled, jwks, mappingClaim, name, providerUrl, serviceAccounts);
   }
 
 
@@ -238,6 +260,7 @@ public class ProviderSettingsWriteRequest implements Serializable {
     sb.append("    claims: ").append(toIndentedString(claims)).append("\n");
     sb.append("    dynamicMappings: ").append(toIndentedString(dynamicMappings)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    jwks: ").append(toIndentedString(jwks)).append("\n");
     sb.append("    mappingClaim: ").append(toIndentedString(mappingClaim)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerUrl: ").append(toIndentedString(providerUrl)).append("\n");
