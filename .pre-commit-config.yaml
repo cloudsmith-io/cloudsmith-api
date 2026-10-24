@@ -9,6 +9,6 @@ repos:
   hooks:
     - id: zizmor
 - repo: https://github.com/jdx/jactionlint
-  rev: v2.1.0
+  rev: v2.2.0
   hooks:
     - id: jactionlint
