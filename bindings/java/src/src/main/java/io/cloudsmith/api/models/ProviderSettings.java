@@ -42,6 +42,9 @@ public class ProviderSettings implements Serializable {
   @SerializedName("enabled")
   private Boolean enabled = null;
 
+  @SerializedName("jwks")
+  private Object jwks = null;
+
   @SerializedName("mapping_claim")
   private String mappingClaim = null;
 
@@ -98,6 +101,24 @@ public class ProviderSettings implements Serializable {
     this.enabled = enabled;
   }
 
+  public ProviderSettings jwks(Object jwks) {
+    this.jwks = jwks;
+    return this;
+  }
+
+   /**
+   * The manually uploaded JWKS, for providers we do not have remote access to.
+   * @return jwks
+  **/
+  @ApiModelProperty(value = "The manually uploaded JWKS, for providers we do not have remote access to.")
+  public Object getJwks() {
+    return jwks;
+  }
+
+  public void setJwks(Object jwks) {
+    this.jwks = jwks;
+  }
+
   public ProviderSettings mappingClaim(String mappingClaim) {
     this.mappingClaim = mappingClaim;
     return this;
@@ -141,11 +162,11 @@ public class ProviderSettings implements Serializable {
   }
 
    /**
-   * The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
+   * The URL from the provider that serves as the base for the OpenID configuration. For local providers with an uploaded JWKS, this is the expected issuer. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
    * @return providerUrl
   **/
   @NotNull
- @Size(min=1)  @ApiModelProperty(required = true, value = "The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
+ @Size(min=1)  @ApiModelProperty(required = true, value = "The URL from the provider that serves as the base for the OpenID configuration. For local providers with an uploaded JWKS, this is the expected issuer. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/")
   public String getProviderUrl() {
     return providerUrl;
   }
@@ -210,6 +231,7 @@ public class ProviderSettings implements Serializable {
     ProviderSettings providerSettings = (ProviderSettings) o;
     return Objects.equals(this.claims, providerSettings.claims) &&
         Objects.equals(this.enabled, providerSettings.enabled) &&
+        Objects.equals(this.jwks, providerSettings.jwks) &&
         Objects.equals(this.mappingClaim, providerSettings.mappingClaim) &&
         Objects.equals(this.name, providerSettings.name) &&
         Objects.equals(this.providerUrl, providerSettings.providerUrl) &&
@@ -220,7 +242,7 @@ public class ProviderSettings implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(claims, enabled, mappingClaim, name, providerUrl, serviceAccounts, slug, slugPerm);
+    return Objects.hash(claims, enabled, jwks, mappingClaim, name, providerUrl, serviceAccounts, slug, slugPerm);
   }
 
 
@@ -231,6 +253,7 @@ public class ProviderSettings implements Serializable {
     
     sb.append("    claims: ").append(toIndentedString(claims)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    jwks: ").append(toIndentedString(jwks)).append("\n");
     sb.append("    mappingClaim: ").append(toIndentedString(mappingClaim)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    providerUrl: ").append(toIndentedString(providerUrl)).append("\n");

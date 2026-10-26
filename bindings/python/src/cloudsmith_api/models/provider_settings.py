@@ -35,6 +35,7 @@ class ProviderSettings(object):
     swagger_types = {
         'claims': 'object',
         'enabled': 'bool',
+        'jwks': 'object',
         'mapping_claim': 'str',
         'name': 'str',
         'provider_url': 'str',
@@ -46,6 +47,7 @@ class ProviderSettings(object):
     attribute_map = {
         'claims': 'claims',
         'enabled': 'enabled',
+        'jwks': 'jwks',
         'mapping_claim': 'mapping_claim',
         'name': 'name',
         'provider_url': 'provider_url',
@@ -54,7 +56,7 @@ class ProviderSettings(object):
         'slug_perm': 'slug_perm'
     }
 
-    def __init__(self, claims=None, enabled=None, mapping_claim=None, name=None, provider_url=None, service_accounts=None, slug=None, slug_perm=None, _configuration=None):  # noqa: E501
+    def __init__(self, claims=None, enabled=None, jwks=None, mapping_claim=None, name=None, provider_url=None, service_accounts=None, slug=None, slug_perm=None, _configuration=None):  # noqa: E501
         """ProviderSettings - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -62,6 +64,7 @@ class ProviderSettings(object):
 
         self._claims = None
         self._enabled = None
+        self._jwks = None
         self._mapping_claim = None
         self._name = None
         self._provider_url = None
@@ -72,6 +75,8 @@ class ProviderSettings(object):
 
         self.claims = claims
         self.enabled = enabled
+        if jwks is not None:
+            self.jwks = jwks
         if mapping_claim is not None:
             self.mapping_claim = mapping_claim
         self.name = name
@@ -134,6 +139,29 @@ class ProviderSettings(object):
         self._enabled = enabled
 
     @property
+    def jwks(self):
+        """Gets the jwks of this ProviderSettings.
+
+        The manually uploaded JWKS, for providers we do not have remote access to.
+
+        :return: The jwks of this ProviderSettings.
+        :rtype: object
+        """
+        return self._jwks
+
+    @jwks.setter
+    def jwks(self, jwks):
+        """Sets the jwks of this ProviderSettings.
+
+        The manually uploaded JWKS, for providers we do not have remote access to.
+
+        :param jwks: The jwks of this ProviderSettings.
+        :type: object
+        """
+
+        self._jwks = jwks
+
+    @property
     def mapping_claim(self):
         """Gets the mapping_claim of this ProviderSettings.
 
@@ -191,7 +219,7 @@ class ProviderSettings(object):
     def provider_url(self):
         """Gets the provider_url of this ProviderSettings.
 
-        The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
+        The URL from the provider that serves as the base for the OpenID configuration. For local providers with an uploaded JWKS, this is the expected issuer. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
 
         :return: The provider_url of this ProviderSettings.
         :rtype: str
@@ -202,7 +230,7 @@ class ProviderSettings(object):
     def provider_url(self, provider_url):
         """Sets the provider_url of this ProviderSettings.
 
-        The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
+        The URL from the provider that serves as the base for the OpenID configuration. For local providers with an uploaded JWKS, this is the expected issuer. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
 
         :param provider_url: The provider_url of this ProviderSettings.
         :type: str

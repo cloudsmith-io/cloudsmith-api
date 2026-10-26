@@ -23,13 +23,16 @@ class ProviderSettingsWriteRequest
   # Whether the provider settings should be used for incoming OIDC requests.
   attr_accessor :enabled
 
+  # The manually uploaded JWKS, for providers we do not have remote access to.
+  attr_accessor :jwks
+
   # The OIDC claim to use for mapping to service accounts in dynamic_mappings. Cannot be provided if `service_accounts` is also set.  Note: This field and the dynamic mappings feature are still in early access. Breaking changes are possible as we receive feedback on this feature.
   attr_accessor :mapping_claim
 
   # The name of the provider settings are being configured for
   attr_accessor :name
 
-  # The URL from the provider that serves as the base for the OpenID configuration. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
+  # The URL from the provider that serves as the base for the OpenID configuration. For local providers with an uploaded JWKS, this is the expected issuer. For example, if the OpenID configuration is available at https://token.actions.githubusercontent.com/.well-known/openid-configuration, the provider URL would be https://token.actions.githubusercontent.com/
   attr_accessor :provider_url
 
   # The service accounts associated with these provider settings. Cannot be provided if `mapping_claim` or `dynamic_mappings` are specified.
@@ -41,6 +44,7 @@ class ProviderSettingsWriteRequest
       :'claims' => :'claims',
       :'dynamic_mappings' => :'dynamic_mappings',
       :'enabled' => :'enabled',
+      :'jwks' => :'jwks',
       :'mapping_claim' => :'mapping_claim',
       :'name' => :'name',
       :'provider_url' => :'provider_url',
@@ -54,6 +58,7 @@ class ProviderSettingsWriteRequest
       :'claims' => :'Object',
       :'dynamic_mappings' => :'Array<DynamicMapping>',
       :'enabled' => :'BOOLEAN',
+      :'jwks' => :'Object',
       :'mapping_claim' => :'String',
       :'name' => :'String',
       :'provider_url' => :'String',
@@ -81,6 +86,10 @@ class ProviderSettingsWriteRequest
 
     if attributes.has_key?(:'enabled')
       self.enabled = attributes[:'enabled']
+    end
+
+    if attributes.has_key?(:'jwks')
+      self.jwks = attributes[:'jwks']
     end
 
     if attributes.has_key?(:'mapping_claim')
@@ -143,6 +152,7 @@ class ProviderSettingsWriteRequest
         claims == o.claims &&
         dynamic_mappings == o.dynamic_mappings &&
         enabled == o.enabled &&
+        jwks == o.jwks &&
         mapping_claim == o.mapping_claim &&
         name == o.name &&
         provider_url == o.provider_url &&
@@ -158,7 +168,7 @@ class ProviderSettingsWriteRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [claims, dynamic_mappings, enabled, mapping_claim, name, provider_url, service_accounts].hash
+    [claims, dynamic_mappings, enabled, jwks, mapping_claim, name, provider_url, service_accounts].hash
   end
 
     # Builds the object from hash
