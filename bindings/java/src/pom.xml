@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <name>cloudsmith-api</name>
     <!-- bindings/java/build.sh sets the version from package_version in scripts/common.sh. -->
-    <version>2.0.41</version>
+    <version>2.0.42</version>
     <url>https://api.cloudsmith.io/?format&#x3D;openapi</url>
     <description>Cloudsmith API</description>
     <scm>
