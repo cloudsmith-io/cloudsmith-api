@@ -12,3 +12,10 @@ repos:
   rev: v2.2.0
   hooks:
     - id: jactionlint
+- repo: local
+  hooks:
+    - id: java-duplicate-imports
+      name: Check Java bindings for duplicate imports
+      entry: scripts/check-java-duplicate-imports.sh
+      language: script
+      files: ^bindings/java/src/.*\.java$
