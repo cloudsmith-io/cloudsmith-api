@@ -57,3 +57,24 @@ jobs:
 
       - name: Run jactionlint
         run: mise exec python uv -- uvx prek run jactionlint --all-files
+
+  java-duplicate-imports:
+    name: Check Java bindings for duplicate imports
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up mise
+        uses: jdx/mise-action@9b200bcecbfd6303e69a4a261b2e09e3757440a7 # v5.2.0
+        with:
+          install: false
+
+      - name: Install tools with mise
+        run: mise install python uv
+
+      - name: Check for duplicate Java imports
+        run: mise exec python uv -- uvx prek run java-duplicate-imports --all-files

@@ -54,7 +54,5 @@ docker container run --rm --user "${codegen_run_user:?}" -v $self_dir:/local "${
     -t /local/templates \
     $common_codegen_options
 
-bash $root_dir/scripts/fix-java-duplicate-imports.sh
-
 # Dependabot updates release/pom.xml. Replace the generated pom with it.
 write_release_pom "$src_dir/pom.xml"
