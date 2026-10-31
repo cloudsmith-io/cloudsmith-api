@@ -20,6 +20,9 @@ class NpmPackageUploadRequest
   # The primary file for the package.
   attr_accessor :package_file
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -31,6 +34,7 @@ class NpmPackageUploadRequest
     {
       :'npm_dist_tag' => :'npm_dist_tag',
       :'package_file' => :'package_file',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'tags' => :'tags'
     }
@@ -41,6 +45,7 @@ class NpmPackageUploadRequest
     {
       :'npm_dist_tag' => :'String',
       :'package_file' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String'
     }
@@ -62,6 +67,10 @@ class NpmPackageUploadRequest
 
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -98,6 +107,7 @@ class NpmPackageUploadRequest
     self.class == o.class &&
         npm_dist_tag == o.npm_dist_tag &&
         package_file == o.package_file &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         tags == o.tags
   end
@@ -111,7 +121,7 @@ class NpmPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [npm_dist_tag, package_file, republish, tags].hash
+    [npm_dist_tag, package_file, release_notes, republish, tags].hash
   end
 
     # Builds the object from hash

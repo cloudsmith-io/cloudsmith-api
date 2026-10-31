@@ -41,6 +41,7 @@ class MavenPackageUploadRequest(object):
         'package_file': 'str',
         'packaging': 'str',
         'pom_file': 'str',
+        'release_notes': 'str',
         'republish': 'bool',
         'sbt_version': 'str',
         'scala_version': 'str',
@@ -59,6 +60,7 @@ class MavenPackageUploadRequest(object):
         'package_file': 'package_file',
         'packaging': 'packaging',
         'pom_file': 'pom_file',
+        'release_notes': 'release_notes',
         'republish': 'republish',
         'sbt_version': 'sbt_version',
         'scala_version': 'scala_version',
@@ -68,7 +70,7 @@ class MavenPackageUploadRequest(object):
         'version': 'version'
     }
 
-    def __init__(self, artifact_id=None, extra_files=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, republish=None, sbt_version=None, scala_version=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, artifact_id=None, extra_files=None, group_id=None, ivy_file=None, javadoc_file=None, package_file=None, packaging=None, pom_file=None, release_notes=None, republish=None, sbt_version=None, scala_version=None, sources_file=None, tags=None, tests_file=None, version=None, _configuration=None):  # noqa: E501
         """MavenPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -82,6 +84,7 @@ class MavenPackageUploadRequest(object):
         self._package_file = None
         self._packaging = None
         self._pom_file = None
+        self._release_notes = None
         self._republish = None
         self._sbt_version = None
         self._scala_version = None
@@ -106,6 +109,8 @@ class MavenPackageUploadRequest(object):
             self.packaging = packaging
         if pom_file is not None:
             self.pom_file = pom_file
+        if release_notes is not None:
+            self.release_notes = release_notes
         if republish is not None:
             self.republish = republish
         if sbt_version is not None:
@@ -327,6 +332,32 @@ class MavenPackageUploadRequest(object):
             raise ValueError("Invalid value for `pom_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._pom_file = pom_file
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this MavenPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this MavenPackageUploadRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this MavenPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this MavenPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     @property
     def republish(self):

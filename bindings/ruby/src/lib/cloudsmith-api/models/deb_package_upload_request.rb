@@ -26,6 +26,9 @@ class DebPackageUploadRequest
   # The primary file for the package.
   attr_accessor :package_file
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -42,6 +45,7 @@ class DebPackageUploadRequest
       :'component' => :'component',
       :'distribution' => :'distribution',
       :'package_file' => :'package_file',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'sources_file' => :'sources_file',
       :'tags' => :'tags'
@@ -55,6 +59,7 @@ class DebPackageUploadRequest
       :'component' => :'String',
       :'distribution' => :'String',
       :'package_file' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'sources_file' => :'String',
       :'tags' => :'String'
@@ -85,6 +90,10 @@ class DebPackageUploadRequest
 
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -132,6 +141,7 @@ class DebPackageUploadRequest
         component == o.component &&
         distribution == o.distribution &&
         package_file == o.package_file &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         sources_file == o.sources_file &&
         tags == o.tags
@@ -146,7 +156,7 @@ class DebPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [changes_file, component, distribution, package_file, republish, sources_file, tags].hash
+    [changes_file, component, distribution, package_file, release_notes, republish, sources_file, tags].hash
   end
 
     # Builds the object from hash

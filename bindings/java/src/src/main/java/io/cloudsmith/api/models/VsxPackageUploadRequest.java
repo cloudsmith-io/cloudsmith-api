@@ -37,6 +37,9 @@ public class VsxPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -60,6 +63,24 @@ public class VsxPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public VsxPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public VsxPackageUploadRequest republish(Boolean republish) {
@@ -109,13 +130,14 @@ public class VsxPackageUploadRequest implements Serializable {
     }
     VsxPackageUploadRequest vsxPackageUploadRequest = (VsxPackageUploadRequest) o;
     return Objects.equals(this.packageFile, vsxPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, vsxPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, vsxPackageUploadRequest.republish) &&
         Objects.equals(this.tags, vsxPackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(packageFile, releaseNotes, republish, tags);
   }
 
 
@@ -125,6 +147,7 @@ public class VsxPackageUploadRequest implements Serializable {
     sb.append("class VsxPackageUploadRequest {\n");
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

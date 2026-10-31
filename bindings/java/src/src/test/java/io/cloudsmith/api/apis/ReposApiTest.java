@@ -105,9 +105,6 @@ import io.cloudsmith.api.models.RpmUpstreamRequestPatch;
 import io.cloudsmith.api.models.RubyUpstream;
 import io.cloudsmith.api.models.RubyUpstreamRequest;
 import io.cloudsmith.api.models.RubyUpstreamRequestPatch;
-import io.cloudsmith.api.models.SkillsUpstream;
-import io.cloudsmith.api.models.SkillsUpstreamRequest;
-import io.cloudsmith.api.models.SkillsUpstreamRequestPatch;
 import io.cloudsmith.api.models.SwiftUpstream;
 import io.cloudsmith.api.models.SwiftUpstreamRequest;
 import io.cloudsmith.api.models.SwiftUpstreamRequestPatch;
@@ -2985,117 +2982,6 @@ public class ReposApiTest {
         String slugPerm = null;
         RubyUpstreamRequest data = null;
         RubyUpstream response = api.reposUpstreamRubyUpdate(owner, identifier, slugPerm, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Create an AI Skills upstream config for this repository.
-     *
-     * Create an AI Skills upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamSkillsCreateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        SkillsUpstreamRequest data = null;
-        SkillsUpstream response = api.reposUpstreamSkillsCreate(owner, identifier, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete an AI Skills upstream config for this repository.
-     *
-     * Delete an AI Skills upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamSkillsDeleteTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        api.reposUpstreamSkillsDelete(owner, identifier, slugPerm);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List AI Skills upstream configs for this repository.
-     *
-     * List AI Skills upstream configs for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamSkillsListTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        java.math.BigInteger page = null;
-        java.math.BigInteger pageSize = null;
-        List<SkillsUpstream> response = api.reposUpstreamSkillsList(owner, identifier, page, pageSize);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Partially update an AI Skills upstream config for this repository.
-     *
-     * Partially update an AI Skills upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamSkillsPartialUpdateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        SkillsUpstreamRequestPatch data = null;
-        SkillsUpstream response = api.reposUpstreamSkillsPartialUpdate(owner, identifier, slugPerm, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Retrieve an AI Skills upstream config for this repository.
-     *
-     * Retrieve an AI Skills upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamSkillsReadTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        SkillsUpstream response = api.reposUpstreamSkillsRead(owner, identifier, slugPerm);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update an AI Skills upstream config for this repository.
-     *
-     * Update an AI Skills upstream config for this repository.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void reposUpstreamSkillsUpdateTest() throws Exception {
-        String owner = null;
-        String identifier = null;
-        String slugPerm = null;
-        SkillsUpstreamRequest data = null;
-        SkillsUpstream response = api.reposUpstreamSkillsUpdate(owner, identifier, slugPerm, data);
 
         // TODO: test validations
     }

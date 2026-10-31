@@ -38,6 +38,9 @@ class MavenPackageUploadRequest
   # The POM file is an XML file containing the Maven coordinates.
   attr_accessor :pom_file
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -68,6 +71,7 @@ class MavenPackageUploadRequest
       :'package_file' => :'package_file',
       :'packaging' => :'packaging',
       :'pom_file' => :'pom_file',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'sbt_version' => :'sbt_version',
       :'scala_version' => :'scala_version',
@@ -89,6 +93,7 @@ class MavenPackageUploadRequest
       :'package_file' => :'String',
       :'packaging' => :'String',
       :'pom_file' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'sbt_version' => :'String',
       :'scala_version' => :'String',
@@ -139,6 +144,10 @@ class MavenPackageUploadRequest
 
     if attributes.has_key?(:'pom_file')
       self.pom_file = attributes[:'pom_file']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -201,6 +210,7 @@ class MavenPackageUploadRequest
         package_file == o.package_file &&
         packaging == o.packaging &&
         pom_file == o.pom_file &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         sbt_version == o.sbt_version &&
         scala_version == o.scala_version &&
@@ -219,7 +229,7 @@ class MavenPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [artifact_id, extra_files, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, republish, sbt_version, scala_version, sources_file, tags, tests_file, version].hash
+    [artifact_id, extra_files, group_id, ivy_file, javadoc_file, package_file, packaging, pom_file, release_notes, republish, sbt_version, scala_version, sources_file, tags, tests_file, version].hash
   end
 
     # Builds the object from hash

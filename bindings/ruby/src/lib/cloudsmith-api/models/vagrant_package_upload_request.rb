@@ -23,6 +23,9 @@ class VagrantPackageUploadRequest
   # The virtual machine provider for the box.
   attr_accessor :provider
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -38,6 +41,7 @@ class VagrantPackageUploadRequest
       :'name' => :'name',
       :'package_file' => :'package_file',
       :'provider' => :'provider',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'tags' => :'tags',
       :'version' => :'version'
@@ -50,6 +54,7 @@ class VagrantPackageUploadRequest
       :'name' => :'String',
       :'package_file' => :'String',
       :'provider' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String',
       :'version' => :'String'
@@ -74,6 +79,10 @@ class VagrantPackageUploadRequest
 
     if attributes.has_key?(:'provider')
       self.provider = attributes[:'provider']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -130,6 +139,7 @@ class VagrantPackageUploadRequest
         name == o.name &&
         package_file == o.package_file &&
         provider == o.provider &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         tags == o.tags &&
         version == o.version
@@ -144,7 +154,7 @@ class VagrantPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [name, package_file, provider, republish, tags, version].hash
+    [name, package_file, provider, release_notes, republish, tags, version].hash
   end
 
     # Builds the object from hash

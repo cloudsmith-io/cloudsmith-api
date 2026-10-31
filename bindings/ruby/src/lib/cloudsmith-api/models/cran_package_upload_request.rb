@@ -23,6 +23,9 @@ class CranPackageUploadRequest
   # Binary package uploads should specify the version of R they were built for.
   attr_accessor :r_version
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -35,6 +38,7 @@ class CranPackageUploadRequest
       :'architecture' => :'architecture',
       :'package_file' => :'package_file',
       :'r_version' => :'r_version',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'tags' => :'tags'
     }
@@ -46,6 +50,7 @@ class CranPackageUploadRequest
       :'architecture' => :'String',
       :'package_file' => :'String',
       :'r_version' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String'
     }
@@ -69,6 +74,10 @@ class CranPackageUploadRequest
 
     if attributes.has_key?(:'r_version')
       self.r_version = attributes[:'r_version']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -106,6 +115,7 @@ class CranPackageUploadRequest
         architecture == o.architecture &&
         package_file == o.package_file &&
         r_version == o.r_version &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         tags == o.tags
   end
@@ -119,7 +129,7 @@ class CranPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architecture, package_file, r_version, republish, tags].hash
+    [architecture, package_file, r_version, release_notes, republish, tags].hash
   end
 
     # Builds the object from hash

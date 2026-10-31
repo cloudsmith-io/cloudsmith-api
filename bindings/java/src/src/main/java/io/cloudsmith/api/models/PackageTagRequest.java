@@ -93,6 +93,9 @@ public class PackageTagRequest implements Serializable {
   @SerializedName("is_immutable")
   private Boolean isImmutable = false;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("tags")
   private List<String> tags = null;
 
@@ -130,6 +133,24 @@ public class PackageTagRequest implements Serializable {
 
   public void setIsImmutable(Boolean isImmutable) {
     this.isImmutable = isImmutable;
+  }
+
+  public PackageTagRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public PackageTagRequest tags(List<String> tags) {
@@ -170,12 +191,13 @@ public class PackageTagRequest implements Serializable {
     PackageTagRequest packageTagRequest = (PackageTagRequest) o;
     return Objects.equals(this.action, packageTagRequest.action) &&
         Objects.equals(this.isImmutable, packageTagRequest.isImmutable) &&
+        Objects.equals(this.releaseNotes, packageTagRequest.releaseNotes) &&
         Objects.equals(this.tags, packageTagRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, isImmutable, tags);
+    return Objects.hash(action, isImmutable, releaseNotes, tags);
   }
 
 
@@ -186,6 +208,7 @@ public class PackageTagRequest implements Serializable {
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    isImmutable: ").append(toIndentedString(isImmutable)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

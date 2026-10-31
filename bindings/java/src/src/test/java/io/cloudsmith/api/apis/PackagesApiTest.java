@@ -80,8 +80,6 @@ import io.cloudsmith.api.models.RpmPackageUpload;
 import io.cloudsmith.api.models.RpmPackageUploadRequest;
 import io.cloudsmith.api.models.RubyPackageUpload;
 import io.cloudsmith.api.models.RubyPackageUploadRequest;
-import io.cloudsmith.api.models.SkillsPackageUpload;
-import io.cloudsmith.api.models.SkillsPackageUploadRequest;
 import io.cloudsmith.api.models.SwiftPackageUpload;
 import io.cloudsmith.api.models.SwiftPackageUploadRequest;
 import io.cloudsmith.api.models.TerraformPackageUpload;
@@ -829,24 +827,6 @@ public class PackagesApiTest {
     }
     
     /**
-     * Create a new AI Skills package
-     *
-     * Create a new AI Skills package
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void packagesUploadSkillsTest() throws Exception {
-        String owner = null;
-        String repo = null;
-        SkillsPackageUploadRequest data = null;
-        SkillsPackageUpload response = api.packagesUploadSkills(owner, repo, data);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Create a new Swift package
      *
      * Create a new Swift package
@@ -1382,24 +1362,6 @@ public class PackagesApiTest {
         String repo = null;
         RubyPackageUploadRequest data = null;
         api.packagesValidateUploadRuby(owner, repo, data);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Validate parameters for create AI Skills package
-     *
-     * Validate parameters for create AI Skills package
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void packagesValidateUploadSkillsTest() throws Exception {
-        String owner = null;
-        String repo = null;
-        SkillsPackageUploadRequest data = null;
-        api.packagesValidateUploadSkills(owner, repo, data);
 
         // TODO: test validations
     }

@@ -40,6 +40,9 @@ public class AlpinePackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -82,6 +85,24 @@ public class AlpinePackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public AlpinePackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public AlpinePackageUploadRequest republish(Boolean republish) {
@@ -132,13 +153,14 @@ public class AlpinePackageUploadRequest implements Serializable {
     AlpinePackageUploadRequest alpinePackageUploadRequest = (AlpinePackageUploadRequest) o;
     return Objects.equals(this.distribution, alpinePackageUploadRequest.distribution) &&
         Objects.equals(this.packageFile, alpinePackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, alpinePackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, alpinePackageUploadRequest.republish) &&
         Objects.equals(this.tags, alpinePackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(distribution, packageFile, republish, tags);
+    return Objects.hash(distribution, packageFile, releaseNotes, republish, tags);
   }
 
 
@@ -149,6 +171,7 @@ public class AlpinePackageUploadRequest implements Serializable {
     
     sb.append("    distribution: ").append(toIndentedString(distribution)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

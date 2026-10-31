@@ -37,6 +37,9 @@ public class PackageCopyRequest implements Serializable {
   @SerializedName("destination")
   private String destination = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -57,6 +60,24 @@ public class PackageCopyRequest implements Serializable {
 
   public void setDestination(String destination) {
     this.destination = destination;
+  }
+
+  public PackageCopyRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public PackageCopyRequest republish(Boolean republish) {
@@ -88,12 +109,13 @@ public class PackageCopyRequest implements Serializable {
     }
     PackageCopyRequest packageCopyRequest = (PackageCopyRequest) o;
     return Objects.equals(this.destination, packageCopyRequest.destination) &&
+        Objects.equals(this.releaseNotes, packageCopyRequest.releaseNotes) &&
         Objects.equals(this.republish, packageCopyRequest.republish);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, republish);
+    return Objects.hash(destination, releaseNotes, republish);
   }
 
 
@@ -103,6 +125,7 @@ public class PackageCopyRequest implements Serializable {
     sb.append("class PackageCopyRequest {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("}");
     return sb.toString();

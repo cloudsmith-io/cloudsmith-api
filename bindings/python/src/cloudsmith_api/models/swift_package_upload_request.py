@@ -39,6 +39,7 @@ class SwiftPackageUploadRequest(object):
         'name': 'str',
         'package_file': 'str',
         'readme_url': 'str',
+        'release_notes': 'str',
         'repository_url': 'str',
         'republish': 'bool',
         'scope': 'str',
@@ -53,6 +54,7 @@ class SwiftPackageUploadRequest(object):
         'name': 'name',
         'package_file': 'package_file',
         'readme_url': 'readme_url',
+        'release_notes': 'release_notes',
         'repository_url': 'repository_url',
         'republish': 'republish',
         'scope': 'scope',
@@ -60,7 +62,7 @@ class SwiftPackageUploadRequest(object):
         'version': 'version'
     }
 
-    def __init__(self, author_name=None, author_org=None, license_url=None, name=None, package_file=None, readme_url=None, repository_url=None, republish=None, scope=None, tags=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, author_name=None, author_org=None, license_url=None, name=None, package_file=None, readme_url=None, release_notes=None, repository_url=None, republish=None, scope=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """SwiftPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -72,6 +74,7 @@ class SwiftPackageUploadRequest(object):
         self._name = None
         self._package_file = None
         self._readme_url = None
+        self._release_notes = None
         self._repository_url = None
         self._republish = None
         self._scope = None
@@ -89,6 +92,8 @@ class SwiftPackageUploadRequest(object):
         self.package_file = package_file
         if readme_url is not None:
             self.readme_url = readme_url
+        if release_notes is not None:
+            self.release_notes = release_notes
         if repository_url is not None:
             self.repository_url = repository_url
         if republish is not None:
@@ -257,6 +262,32 @@ class SwiftPackageUploadRequest(object):
             raise ValueError("Invalid value for `readme_url`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._readme_url = readme_url
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this SwiftPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this SwiftPackageUploadRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this SwiftPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this SwiftPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     @property
     def repository_url(self):

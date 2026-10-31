@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **is_quarantinable** | **bool** |  | [optional] 
 **is_quarantined** | **bool** |  | [optional] 
 **is_resyncable** | **bool** |  | [optional] 
-**is_security_scannable** | **bool** |  | [optional] 
+**is_security_scannable** | **bool** | Deprecated. Whether the package can be scanned for vulnerabilities. | [optional] 
 **is_sync_awaiting** | **bool** |  | [optional] 
 **is_sync_completed** | **bool** |  | [optional] 
 **is_sync_failed** | **bool** |  | [optional] 

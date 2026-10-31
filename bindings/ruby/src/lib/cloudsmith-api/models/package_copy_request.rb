@@ -17,6 +17,9 @@ class PackageCopyRequest
   # The name of the destination repository without the namespace.
   attr_accessor :destination
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -24,6 +27,7 @@ class PackageCopyRequest
   def self.attribute_map
     {
       :'destination' => :'destination',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish'
     }
   end
@@ -32,6 +36,7 @@ class PackageCopyRequest
   def self.swagger_types
     {
       :'destination' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN'
     }
   end
@@ -46,6 +51,10 @@ class PackageCopyRequest
 
     if attributes.has_key?(:'destination')
       self.destination = attributes[:'destination']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -77,6 +86,7 @@ class PackageCopyRequest
     return true if self.equal?(o)
     self.class == o.class &&
         destination == o.destination &&
+        release_notes == o.release_notes &&
         republish == o.republish
   end
 
@@ -89,7 +99,7 @@ class PackageCopyRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [destination, republish].hash
+    [destination, release_notes, republish].hash
   end
 
     # Builds the object from hash

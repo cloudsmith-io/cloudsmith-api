@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.42</version>
+  <version>2.0.43</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.42"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.43"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.42.jar`
+* `target/cloudsmith-api-2.0.43.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -271,7 +271,6 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadRaw**](docs/PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 *PackagesApi* | [**packagesUploadRuby**](docs/PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
-*PackagesApi* | [**packagesUploadSkills**](docs/PackagesApi.md#packagesUploadSkills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI Skills package
 *PackagesApi* | [**packagesUploadSwift**](docs/PackagesApi.md#packagesUploadSwift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 *PackagesApi* | [**packagesUploadTerraform**](docs/PackagesApi.md#packagesUploadTerraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
@@ -302,7 +301,6 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadRaw**](docs/PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packagesValidateUploadRpm**](docs/PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 *PackagesApi* | [**packagesValidateUploadRuby**](docs/PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
-*PackagesApi* | [**packagesValidateUploadSkills**](docs/PackagesApi.md#packagesValidateUploadSkills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI Skills package
 *PackagesApi* | [**packagesValidateUploadSwift**](docs/PackagesApi.md#packagesValidateUploadSwift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 *PackagesApi* | [**packagesValidateUploadTerraform**](docs/PackagesApi.md#packagesValidateUploadTerraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
@@ -470,12 +468,6 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposUpstreamRubyPartialUpdate**](docs/ReposApi.md#reposUpstreamRubyPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
 *ReposApi* | [**reposUpstreamRubyRead**](docs/ReposApi.md#reposUpstreamRubyRead) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
 *ReposApi* | [**reposUpstreamRubyUpdate**](docs/ReposApi.md#reposUpstreamRubyUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsCreate**](docs/ReposApi.md#reposUpstreamSkillsCreate) | **POST** /repos/{owner}/{identifier}/upstream/skills/ | Create an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsDelete**](docs/ReposApi.md#reposUpstreamSkillsDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Delete an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsList**](docs/ReposApi.md#reposUpstreamSkillsList) | **GET** /repos/{owner}/{identifier}/upstream/skills/ | List AI Skills upstream configs for this repository.
-*ReposApi* | [**reposUpstreamSkillsPartialUpdate**](docs/ReposApi.md#reposUpstreamSkillsPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Partially update an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsRead**](docs/ReposApi.md#reposUpstreamSkillsRead) | **GET** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Retrieve an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsUpdate**](docs/ReposApi.md#reposUpstreamSkillsUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Update an AI Skills upstream config for this repository.
 *ReposApi* | [**reposUpstreamSwiftCreate**](docs/ReposApi.md#reposUpstreamSwiftCreate) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
 *ReposApi* | [**reposUpstreamSwiftDelete**](docs/ReposApi.md#reposUpstreamSwiftDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
 *ReposApi* | [**reposUpstreamSwiftList**](docs/ReposApi.md#reposUpstreamSwiftList) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
@@ -720,6 +712,7 @@ Class | Method | HTTP request | Description
  - [PackageVulnerabilityPolicyEvaluationRequestRequest](docs/PackageVulnerabilityPolicyEvaluationRequestRequest.md)
  - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
  - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
+ - [PluginSkill](docs/PluginSkill.md)
  - [ProviderSettings](docs/ProviderSettings.md)
  - [ProviderSettingsWrite](docs/ProviderSettingsWrite.md)
  - [ProviderSettingsWriteRequest](docs/ProviderSettingsWriteRequest.md)
@@ -797,12 +790,6 @@ Class | Method | HTTP request | Description
  - [ServiceRequest](docs/ServiceRequest.md)
  - [ServiceRequestPatch](docs/ServiceRequestPatch.md)
  - [ServiceTeams](docs/ServiceTeams.md)
- - [SkillsPackageUpload](docs/SkillsPackageUpload.md)
- - [SkillsPackageUploadRequest](docs/SkillsPackageUploadRequest.md)
- - [SkillsUpstream](docs/SkillsUpstream.md)
- - [SkillsUpstreamRequest](docs/SkillsUpstreamRequest.md)
- - [SkillsUpstreamRequestPatch](docs/SkillsUpstreamRequestPatch.md)
- - [SkillsUpstreamSelection](docs/SkillsUpstreamSelection.md)
  - [StatusBasic](docs/StatusBasic.md)
  - [StorageAllocatedLimit](docs/StorageAllocatedLimit.md)
  - [StorageAllocatedLimitRaw](docs/StorageAllocatedLimitRaw.md)
