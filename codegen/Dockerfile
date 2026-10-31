@@ -1,1 +1,1 @@
-FROM swaggerapi/swagger-codegen-cli:v2.4.52@sha256:60deb669b031f09611c1a092384358828fe9b98422222440f955c2da975f2ea1
+FROM swaggerapi/swagger-codegen-cli:v2.4.53@sha256:2888bdfe6cd57c72a864e32db57ba159adc037ef1e3c6fd6e3fb50214b516f1d
