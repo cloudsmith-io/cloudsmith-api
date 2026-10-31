@@ -19,6 +19,9 @@ class PackageTagRequest
   # If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package.
   attr_accessor :is_immutable
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # A list of tags to apply the action to. Not required for clears.
   attr_accessor :tags
 
@@ -49,6 +52,7 @@ class PackageTagRequest
     {
       :'action' => :'action',
       :'is_immutable' => :'is_immutable',
+      :'release_notes' => :'release_notes',
       :'tags' => :'tags'
     }
   end
@@ -58,6 +62,7 @@ class PackageTagRequest
     {
       :'action' => :'String',
       :'is_immutable' => :'BOOLEAN',
+      :'release_notes' => :'String',
       :'tags' => :'Array<String>'
     }
   end
@@ -80,6 +85,10 @@ class PackageTagRequest
       self.is_immutable = attributes[:'is_immutable']
     else
       self.is_immutable = false
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'tags')
@@ -121,6 +130,7 @@ class PackageTagRequest
     self.class == o.class &&
         action == o.action &&
         is_immutable == o.is_immutable &&
+        release_notes == o.release_notes &&
         tags == o.tags
   end
 
@@ -133,7 +143,7 @@ class PackageTagRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [action, is_immutable, tags].hash
+    [action, is_immutable, release_notes, tags].hash
   end
 
     # Builds the object from hash

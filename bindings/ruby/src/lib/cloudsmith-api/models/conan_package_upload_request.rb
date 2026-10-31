@@ -35,6 +35,9 @@ class ConanPackageUploadRequest
   # The primary file for the package.
   attr_accessor :package_file
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -54,6 +57,7 @@ class ConanPackageUploadRequest
       :'metadata_file' => :'metadata_file',
       :'name' => :'name',
       :'package_file' => :'package_file',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'tags' => :'tags',
       :'version' => :'version'
@@ -70,6 +74,7 @@ class ConanPackageUploadRequest
       :'metadata_file' => :'String',
       :'name' => :'String',
       :'package_file' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String',
       :'version' => :'String'
@@ -110,6 +115,10 @@ class ConanPackageUploadRequest
 
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -170,6 +179,7 @@ class ConanPackageUploadRequest
         metadata_file == o.metadata_file &&
         name == o.name &&
         package_file == o.package_file &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         tags == o.tags &&
         version == o.version
@@ -184,7 +194,7 @@ class ConanPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, name, package_file, republish, tags, version].hash
+    [conan_channel, conan_prefix, info_file, manifest_file, metadata_file, name, package_file, release_notes, republish, tags, version].hash
   end
 
     # Builds the object from hash

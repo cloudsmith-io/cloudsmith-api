@@ -34,26 +34,31 @@ class PackageQuarantineRequest(object):
     """
     swagger_types = {
         'release': 'bool',
+        'release_notes': 'str',
         'restore': 'bool'
     }
 
     attribute_map = {
         'release': 'release',
+        'release_notes': 'release_notes',
         'restore': 'restore'
     }
 
-    def __init__(self, release=None, restore=None, _configuration=None):  # noqa: E501
+    def __init__(self, release=None, release_notes=None, restore=None, _configuration=None):  # noqa: E501
         """PackageQuarantineRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._release = None
+        self._release_notes = None
         self._restore = None
         self.discriminator = None
 
         if release is not None:
             self.release = release
+        if release_notes is not None:
+            self.release_notes = release_notes
         if restore is not None:
             self.restore = restore
 
@@ -79,6 +84,32 @@ class PackageQuarantineRequest(object):
         """
 
         self._release = release
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this PackageQuarantineRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this PackageQuarantineRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this PackageQuarantineRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this PackageQuarantineRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     @property
     def restore(self):

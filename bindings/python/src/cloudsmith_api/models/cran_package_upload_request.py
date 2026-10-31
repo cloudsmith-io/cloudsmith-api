@@ -36,6 +36,7 @@ class CranPackageUploadRequest(object):
         'architecture': 'str',
         'package_file': 'str',
         'r_version': 'str',
+        'release_notes': 'str',
         'republish': 'bool',
         'tags': 'str'
     }
@@ -44,11 +45,12 @@ class CranPackageUploadRequest(object):
         'architecture': 'architecture',
         'package_file': 'package_file',
         'r_version': 'r_version',
+        'release_notes': 'release_notes',
         'republish': 'republish',
         'tags': 'tags'
     }
 
-    def __init__(self, architecture=None, package_file=None, r_version=None, republish=None, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, architecture=None, package_file=None, r_version=None, release_notes=None, republish=None, tags=None, _configuration=None):  # noqa: E501
         """CranPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -57,6 +59,7 @@ class CranPackageUploadRequest(object):
         self._architecture = None
         self._package_file = None
         self._r_version = None
+        self._release_notes = None
         self._republish = None
         self._tags = None
         self.discriminator = None
@@ -66,6 +69,8 @@ class CranPackageUploadRequest(object):
         self.package_file = package_file
         if r_version is not None:
             self.r_version = r_version
+        if release_notes is not None:
+            self.release_notes = release_notes
         if republish is not None:
             self.republish = republish
         if tags is not None:
@@ -153,6 +158,32 @@ class CranPackageUploadRequest(object):
             raise ValueError("Invalid value for `r_version`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._r_version = r_version
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this CranPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this CranPackageUploadRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this CranPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this CranPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     @property
     def republish(self):

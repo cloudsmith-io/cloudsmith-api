@@ -48,9 +48,10 @@ class RecycleBinPackage
 
   attr_accessor :repository
 
-  # The datetime the security scanning was completed.
+  # Deprecated. The datetime the security scanning was completed.
   attr_accessor :security_scan_completed_at
 
+  # Deprecated. The status of security scanning for the package.
   attr_accessor :security_scan_status
 
   # The calculated size of the package.

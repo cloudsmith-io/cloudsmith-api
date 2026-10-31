@@ -17,17 +17,22 @@ class PackageMoveRequest
   # The name of the destination repository without the namespace.
   attr_accessor :destination
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'destination' => :'destination'
+      :'destination' => :'destination',
+      :'release_notes' => :'release_notes'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'destination' => :'String'
+      :'destination' => :'String',
+      :'release_notes' => :'String'
     }
   end
 
@@ -41,6 +46,10 @@ class PackageMoveRequest
 
     if attributes.has_key?(:'destination')
       self.destination = attributes[:'destination']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
   end
 
@@ -67,7 +76,8 @@ class PackageMoveRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        destination == o.destination
+        destination == o.destination &&
+        release_notes == o.release_notes
   end
 
   # @see the `==` method
@@ -79,7 +89,7 @@ class PackageMoveRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [destination].hash
+    [destination, release_notes].hash
   end
 
     # Builds the object from hash

@@ -26,6 +26,9 @@ class RawPackageUploadRequest
   # The primary file for the package.
   attr_accessor :package_file
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -45,6 +48,7 @@ class RawPackageUploadRequest
       :'description' => :'description',
       :'name' => :'name',
       :'package_file' => :'package_file',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'summary' => :'summary',
       :'tags' => :'tags',
@@ -59,6 +63,7 @@ class RawPackageUploadRequest
       :'description' => :'String',
       :'name' => :'String',
       :'package_file' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'summary' => :'String',
       :'tags' => :'String',
@@ -88,6 +93,10 @@ class RawPackageUploadRequest
 
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -134,6 +143,7 @@ class RawPackageUploadRequest
         description == o.description &&
         name == o.name &&
         package_file == o.package_file &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         summary == o.summary &&
         tags == o.tags &&
@@ -149,7 +159,7 @@ class RawPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [content_type, description, name, package_file, republish, summary, tags, version].hash
+    [content_type, description, name, package_file, release_notes, republish, summary, tags, version].hash
   end
 
     # Builds the object from hash

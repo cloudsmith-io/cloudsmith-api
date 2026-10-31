@@ -37,6 +37,9 @@ public class LuarocksPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -60,6 +63,24 @@ public class LuarocksPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public LuarocksPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public LuarocksPackageUploadRequest republish(Boolean republish) {
@@ -109,13 +130,14 @@ public class LuarocksPackageUploadRequest implements Serializable {
     }
     LuarocksPackageUploadRequest luarocksPackageUploadRequest = (LuarocksPackageUploadRequest) o;
     return Objects.equals(this.packageFile, luarocksPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, luarocksPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, luarocksPackageUploadRequest.republish) &&
         Objects.equals(this.tags, luarocksPackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags);
+    return Objects.hash(packageFile, releaseNotes, republish, tags);
   }
 
 
@@ -125,6 +147,7 @@ public class LuarocksPackageUploadRequest implements Serializable {
     sb.append("class LuarocksPackageUploadRequest {\n");
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

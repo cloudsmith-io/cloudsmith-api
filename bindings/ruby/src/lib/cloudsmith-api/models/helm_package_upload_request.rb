@@ -20,6 +20,9 @@ class HelmPackageUploadRequest
   # The provenance file containing the signature for the chart. If one is not provided, it will be generated automatically.
   attr_accessor :provenance_file
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -31,6 +34,7 @@ class HelmPackageUploadRequest
     {
       :'package_file' => :'package_file',
       :'provenance_file' => :'provenance_file',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'tags' => :'tags'
     }
@@ -41,6 +45,7 @@ class HelmPackageUploadRequest
     {
       :'package_file' => :'String',
       :'provenance_file' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'tags' => :'String'
     }
@@ -60,6 +65,10 @@ class HelmPackageUploadRequest
 
     if attributes.has_key?(:'provenance_file')
       self.provenance_file = attributes[:'provenance_file']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -96,6 +105,7 @@ class HelmPackageUploadRequest
     self.class == o.class &&
         package_file == o.package_file &&
         provenance_file == o.provenance_file &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         tags == o.tags
   end
@@ -109,7 +119,7 @@ class HelmPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [package_file, provenance_file, republish, tags].hash
+    [package_file, provenance_file, release_notes, republish, tags].hash
   end
 
     # Builds the object from hash

@@ -78,7 +78,9 @@ public class VulnerabilitiesApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesNamespaceListCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
@@ -128,6 +130,7 @@ public class VulnerabilitiesApi {
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesNamespaceListValidateBeforeCall(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -164,7 +167,9 @@ public class VulnerabilitiesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public List<VulnerabilityScanResultsList> vulnerabilitiesNamespaceList(String owner, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesNamespaceListWithHttpInfo(owner, page, pageSize);
         return resp.getData();
@@ -178,7 +183,9 @@ public class VulnerabilitiesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesNamespaceListWithHttpInfo( @NotNull String owner,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesNamespaceListValidateBeforeCall(owner, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
@@ -194,7 +201,9 @@ public class VulnerabilitiesApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesNamespaceListAsync(String owner, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -232,7 +241,9 @@ public class VulnerabilitiesApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesPackageListCall(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
@@ -284,6 +295,7 @@ public class VulnerabilitiesApi {
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesPackageListValidateBeforeCall(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -322,7 +334,9 @@ public class VulnerabilitiesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public List<VulnerabilityScanResultsList> vulnerabilitiesPackageList(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesPackageListWithHttpInfo(owner, repo, _package, page, pageSize);
         return resp.getData();
@@ -338,7 +352,9 @@ public class VulnerabilitiesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesPackageListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesPackageListValidateBeforeCall(owner, repo, _package, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
@@ -356,7 +372,9 @@ public class VulnerabilitiesApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesPackageListAsync(String owner, String repo, String _package, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -393,7 +411,9 @@ public class VulnerabilitiesApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesReadCall(String owner, String repo, String _package, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
@@ -442,6 +462,7 @@ public class VulnerabilitiesApi {
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesReadValidateBeforeCall(String owner, String repo, String _package, String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -479,7 +500,9 @@ public class VulnerabilitiesApi {
      * @param identifier  (required)
      * @return VulnerabilityScanResults
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public VulnerabilityScanResults vulnerabilitiesRead(String owner, String repo, String _package, String identifier) throws ApiException {
         ApiResponse<VulnerabilityScanResults> resp = vulnerabilitiesReadWithHttpInfo(owner, repo, _package, identifier);
         return resp.getData();
@@ -494,7 +517,9 @@ public class VulnerabilitiesApi {
      * @param identifier  (required)
      * @return ApiResponse&lt;VulnerabilityScanResults&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<VulnerabilityScanResults> vulnerabilitiesReadWithHttpInfo( @NotNull String owner,  @NotNull String repo,  @NotNull String _package,  @NotNull String identifier) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesReadValidateBeforeCall(owner, repo, _package, identifier, null, null);
         Type localVarReturnType = new TypeToken<VulnerabilityScanResults>(){}.getType();
@@ -511,7 +536,9 @@ public class VulnerabilitiesApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesReadAsync(String owner, String repo, String _package, String identifier, final ApiCallback<VulnerabilityScanResults> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -548,7 +575,9 @@ public class VulnerabilitiesApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesRepoListCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
@@ -599,6 +628,7 @@ public class VulnerabilitiesApi {
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call vulnerabilitiesRepoListValidateBeforeCall(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
@@ -636,7 +666,9 @@ public class VulnerabilitiesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @return List&lt;VulnerabilityScanResultsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public List<VulnerabilityScanResultsList> vulnerabilitiesRepoList(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize) throws ApiException {
         ApiResponse<List<VulnerabilityScanResultsList>> resp = vulnerabilitiesRepoListWithHttpInfo(owner, repo, page, pageSize);
         return resp.getData();
@@ -651,7 +683,9 @@ public class VulnerabilitiesApi {
      * @param pageSize Number of results to return per page. (optional)
      * @return ApiResponse&lt;List&lt;VulnerabilityScanResultsList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<VulnerabilityScanResultsList>> vulnerabilitiesRepoListWithHttpInfo( @NotNull String owner,  @NotNull String repo,  java.math.BigInteger page,  java.math.BigInteger pageSize) throws ApiException {
         com.squareup.okhttp.Call call = vulnerabilitiesRepoListValidateBeforeCall(owner, repo, page, pageSize, null, null);
         Type localVarReturnType = new TypeToken<List<VulnerabilityScanResultsList>>(){}.getType();
@@ -668,7 +702,9 @@ public class VulnerabilitiesApi {
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call vulnerabilitiesRepoListAsync(String owner, String repo, java.math.BigInteger page, java.math.BigInteger pageSize, final ApiCallback<List<VulnerabilityScanResultsList>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;

@@ -32,6 +32,9 @@ class SwiftPackageUploadRequest
   # The URL of the readme for the package.
   attr_accessor :readme_url
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # The URL of the SCM repository for the package.
   attr_accessor :repository_url
 
@@ -56,6 +59,7 @@ class SwiftPackageUploadRequest
       :'name' => :'name',
       :'package_file' => :'package_file',
       :'readme_url' => :'readme_url',
+      :'release_notes' => :'release_notes',
       :'repository_url' => :'repository_url',
       :'republish' => :'republish',
       :'scope' => :'scope',
@@ -73,6 +77,7 @@ class SwiftPackageUploadRequest
       :'name' => :'String',
       :'package_file' => :'String',
       :'readme_url' => :'String',
+      :'release_notes' => :'String',
       :'repository_url' => :'String',
       :'republish' => :'BOOLEAN',
       :'scope' => :'String',
@@ -111,6 +116,10 @@ class SwiftPackageUploadRequest
 
     if attributes.has_key?(:'readme_url')
       self.readme_url = attributes[:'readme_url']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'repository_url')
@@ -178,6 +187,7 @@ class SwiftPackageUploadRequest
         name == o.name &&
         package_file == o.package_file &&
         readme_url == o.readme_url &&
+        release_notes == o.release_notes &&
         repository_url == o.repository_url &&
         republish == o.republish &&
         scope == o.scope &&
@@ -194,7 +204,7 @@ class SwiftPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [author_name, author_org, license_url, name, package_file, readme_url, repository_url, republish, scope, tags, version].hash
+    [author_name, author_org, license_url, name, package_file, readme_url, release_notes, repository_url, republish, scope, tags, version].hash
   end
 
     # Builds the object from hash

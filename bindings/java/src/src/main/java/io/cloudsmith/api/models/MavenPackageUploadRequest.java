@@ -60,6 +60,9 @@ public class MavenPackageUploadRequest implements Serializable {
   @SerializedName("pom_file")
   private String pomFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -234,6 +237,24 @@ public class MavenPackageUploadRequest implements Serializable {
     this.pomFile = pomFile;
   }
 
+  public MavenPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
   public MavenPackageUploadRequest republish(Boolean republish) {
     this.republish = republish;
     return this;
@@ -378,6 +399,7 @@ public class MavenPackageUploadRequest implements Serializable {
         Objects.equals(this.packageFile, mavenPackageUploadRequest.packageFile) &&
         Objects.equals(this.packaging, mavenPackageUploadRequest.packaging) &&
         Objects.equals(this.pomFile, mavenPackageUploadRequest.pomFile) &&
+        Objects.equals(this.releaseNotes, mavenPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, mavenPackageUploadRequest.republish) &&
         Objects.equals(this.sbtVersion, mavenPackageUploadRequest.sbtVersion) &&
         Objects.equals(this.scalaVersion, mavenPackageUploadRequest.scalaVersion) &&
@@ -389,7 +411,7 @@ public class MavenPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactId, extraFiles, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, republish, sbtVersion, scalaVersion, sourcesFile, tags, testsFile, version);
+    return Objects.hash(artifactId, extraFiles, groupId, ivyFile, javadocFile, packageFile, packaging, pomFile, releaseNotes, republish, sbtVersion, scalaVersion, sourcesFile, tags, testsFile, version);
   }
 
 
@@ -406,6 +428,7 @@ public class MavenPackageUploadRequest implements Serializable {
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    packaging: ").append(toIndentedString(packaging)).append("\n");
     sb.append("    pomFile: ").append(toIndentedString(pomFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    sbtVersion: ").append(toIndentedString(sbtVersion)).append("\n");
     sb.append("    scalaVersion: ").append(toIndentedString(scalaVersion)).append("\n");

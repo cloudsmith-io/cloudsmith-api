@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **String** | The name of this package. | 
 **packageFile** | **String** | The primary file for the package. | 
 **readmeUrl** | **String** | The URL of the readme for the package. |  [optional]
+**releaseNotes** | **String** | The release notes for this package (if any). |  [optional]
 **repositoryUrl** | **String** | The URL of the SCM repository for the package. |  [optional]
 **republish** | **Boolean** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. |  [optional]
 **scope** | **String** | A scope provides a namespace for related packages within the package registry. | 

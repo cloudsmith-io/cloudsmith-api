@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **is_quarantinable** | **BOOLEAN** |  | [optional] 
 **is_quarantined** | **BOOLEAN** |  | [optional] 
 **is_resyncable** | **BOOLEAN** |  | [optional] 
-**is_security_scannable** | **BOOLEAN** |  | [optional] 
+**is_security_scannable** | **BOOLEAN** | Deprecated. Whether the package can be scanned for vulnerabilities. | [optional] 
 **is_sync_awaiting** | **BOOLEAN** |  | [optional] 
 **is_sync_completed** | **BOOLEAN** |  | [optional] 
 **is_sync_failed** | **BOOLEAN** |  | [optional] 
@@ -56,12 +56,13 @@ Name | Type | Description | Notes
 **provider** | **String** | The virtual machine provider for the box. | 
 **raw_license** | **String** | The raw license string. | [optional] 
 **release** | **String** | The release of the package version (if any). | [optional] 
+**release_notes** | **String** | The release notes for this package (if any). | [optional] 
 **repository** | **String** |  | [optional] 
 **repository_url** | **String** |  | [optional] 
-**security_scan_completed_at** | **DateTime** | The datetime the security scanning was completed. | [optional] 
-**security_scan_started_at** | **DateTime** | The datetime the security scanning was started. | [optional] 
-**security_scan_status** | **String** |  | [optional] [default to &#39;Awaiting Security Scan&#39;]
-**security_scan_status_updated_at** | **DateTime** | The datetime the security scanning status was updated. | [optional] 
+**security_scan_completed_at** | **DateTime** | Deprecated. The datetime the security scanning was completed. | [optional] 
+**security_scan_started_at** | **DateTime** | Deprecated. The datetime the security scanning was started. | [optional] 
+**security_scan_status** | **String** | Deprecated. The status of security scanning for the package. | [optional] [default to &#39;Awaiting Security Scan&#39;]
+**security_scan_status_updated_at** | **DateTime** | Deprecated. The datetime the security scanning status was updated. | [optional] 
 **self_html_url** | **String** |  | [optional] 
 **self_url** | **String** |  | [optional] 
 **self_webapp_url** | **String** |  | [optional] 
@@ -92,6 +93,6 @@ Name | Type | Description | Notes
 **uploader_url** | **String** |  | [optional] 
 **version** | **String** | The raw version for this package. | 
 **version_orig** | **String** |  | [optional] 
-**vulnerability_scan_results_url** | **String** |  | [optional] 
+**vulnerability_scan_results_url** | **String** | Deprecated. The URL of the package&#39;s vulnerability scan results. | [optional] 
 
 

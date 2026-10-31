@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import cloudsmith_api
-from cloudsmith_api.models.skills_package_upload_request import SkillsPackageUploadRequest  # noqa: E501
+from cloudsmith_api.models.plugin_skill import PluginSkill  # noqa: E501
 from cloudsmith_api.rest import ApiException
 
 
-class TestSkillsPackageUploadRequest(unittest.TestCase):
-    """SkillsPackageUploadRequest unit test stubs"""
+class TestPluginSkill(unittest.TestCase):
+    """PluginSkill unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestSkillsPackageUploadRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testSkillsPackageUploadRequest(self):
-        """Test SkillsPackageUploadRequest"""
+    def testPluginSkill(self):
+        """Test PluginSkill"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = cloudsmith_api.models.skills_package_upload_request.SkillsPackageUploadRequest()  # noqa: E501
+        # model = cloudsmith_api.models.plugin_skill.PluginSkill()  # noqa: E501
         pass
 
 

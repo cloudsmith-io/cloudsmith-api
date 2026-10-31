@@ -86,7 +86,7 @@ public class RecycleBinPackage implements Serializable {
   private OffsetDateTime securityScanCompletedAt = null;
 
   /**
-   * Gets or Sets securityScanStatus
+   * Deprecated. The status of security scanning for the package.
    */
   @JsonAdapter(SecurityScanStatusEnum.Adapter.class)
   public enum SecurityScanStatusEnum {
@@ -304,20 +304,20 @@ public class RecycleBinPackage implements Serializable {
   }
 
    /**
-   * The datetime the security scanning was completed.
+   * Deprecated. The datetime the security scanning was completed.
    * @return securityScanCompletedAt
   **/
   @Valid
-  @ApiModelProperty(value = "The datetime the security scanning was completed.")
+  @ApiModelProperty(value = "Deprecated. The datetime the security scanning was completed.")
   public OffsetDateTime getSecurityScanCompletedAt() {
     return securityScanCompletedAt;
   }
 
    /**
-   * Get securityScanStatus
+   * Deprecated. The status of security scanning for the package.
    * @return securityScanStatus
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. The status of security scanning for the package.")
   public SecurityScanStatusEnum getSecurityScanStatus() {
     return securityScanStatus;
   }

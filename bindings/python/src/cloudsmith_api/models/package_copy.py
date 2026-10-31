@@ -86,6 +86,7 @@ class PackageCopy(object):
         'policy_violated': 'bool',
         'raw_license': 'str',
         'release': 'str',
+        'release_notes': 'str',
         'repository': 'str',
         'repository_url': 'str',
         'security_scan_completed_at': 'datetime',
@@ -180,6 +181,7 @@ class PackageCopy(object):
         'policy_violated': 'policy_violated',
         'raw_license': 'raw_license',
         'release': 'release',
+        'release_notes': 'release_notes',
         'repository': 'repository',
         'repository_url': 'repository_url',
         'security_scan_completed_at': 'security_scan_completed_at',
@@ -220,7 +222,7 @@ class PackageCopy(object):
         'vulnerability_scan_results_url': 'vulnerability_scan_results_url'
     }
 
-    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, display_source=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, filepath=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_hidden=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, osi_approved=None, package_type=None, policy_violated=None, raw_license=None, release=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, self_webapp_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, store_path=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags=None, tags_automatic=None, tags_immutable=None, tags_static=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
+    def __init__(self, architectures=None, cdn_url=None, checksum_md5=None, checksum_sha1=None, checksum_sha256=None, checksum_sha512=None, dependencies_checksum_md5=None, dependencies_url=None, description=None, display_name=None, display_source=None, distro=None, distro_version=None, downloads=None, epoch=None, extension=None, filename=None, filepath=None, files=None, format=None, format_url=None, freeable_storage=None, fully_qualified_name=None, identifier_perm=None, identifiers=None, indexed=None, is_cancellable=None, is_copyable=None, is_deleteable=None, is_downloadable=None, is_hidden=None, is_moveable=None, is_quarantinable=None, is_quarantined=None, is_resyncable=None, is_security_scannable=None, is_sync_awaiting=None, is_sync_completed=None, is_sync_failed=None, is_sync_in_flight=None, is_sync_in_progress=None, license=None, name=None, namespace=None, namespace_url=None, num_files=None, origin_repository=None, origin_repository_url=None, osi_approved=None, package_type=None, policy_violated=None, raw_license=None, release=None, release_notes=None, repository=None, repository_url=None, security_scan_completed_at=None, security_scan_started_at=None, security_scan_status='Awaiting Security Scan', security_scan_status_updated_at=None, self_html_url=None, self_url=None, self_webapp_url=None, signature_url=None, size=None, slug=None, slug_perm=None, spdx_license=None, stage=None, stage_str=None, stage_updated_at=None, status=None, status_reason=None, status_str=None, status_updated_at=None, status_url=None, store_path=None, subtype=None, summary=None, sync_finished_at=None, sync_progress=None, tags=None, tags_automatic=None, tags_immutable=None, tags_static=None, type_display=None, uploaded_at=None, uploader=None, uploader_url=None, version=None, version_orig=None, vulnerability_scan_results_url=None, _configuration=None):  # noqa: E501
         """PackageCopy - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -279,6 +281,7 @@ class PackageCopy(object):
         self._policy_violated = None
         self._raw_license = None
         self._release = None
+        self._release_notes = None
         self._repository = None
         self._repository_url = None
         self._security_scan_completed_at = None
@@ -425,6 +428,8 @@ class PackageCopy(object):
             self.raw_license = raw_license
         if release is not None:
             self.release = release
+        if release_notes is not None:
+            self.release_notes = release_notes
         if repository is not None:
             self.repository = repository
         if repository_url is not None:
@@ -1275,6 +1280,7 @@ class PackageCopy(object):
     def is_security_scannable(self):
         """Gets the is_security_scannable of this PackageCopy.
 
+        Deprecated. Whether the package can be scanned for vulnerabilities.
 
         :return: The is_security_scannable of this PackageCopy.
         :rtype: bool
@@ -1285,6 +1291,7 @@ class PackageCopy(object):
     def is_security_scannable(self, is_security_scannable):
         """Sets the is_security_scannable of this PackageCopy.
 
+        Deprecated. Whether the package can be scanned for vulnerabilities.
 
         :param is_security_scannable: The is_security_scannable of this PackageCopy.
         :type: bool
@@ -1673,6 +1680,32 @@ class PackageCopy(object):
         self._release = release
 
     @property
+    def release_notes(self):
+        """Gets the release_notes of this PackageCopy.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this PackageCopy.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this PackageCopy.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this PackageCopy.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
+
+    @property
     def repository(self):
         """Gets the repository of this PackageCopy.
 
@@ -1723,7 +1756,7 @@ class PackageCopy(object):
     def security_scan_completed_at(self):
         """Gets the security_scan_completed_at of this PackageCopy.
 
-        The datetime the security scanning was completed.
+        Deprecated. The datetime the security scanning was completed.
 
         :return: The security_scan_completed_at of this PackageCopy.
         :rtype: datetime
@@ -1734,7 +1767,7 @@ class PackageCopy(object):
     def security_scan_completed_at(self, security_scan_completed_at):
         """Sets the security_scan_completed_at of this PackageCopy.
 
-        The datetime the security scanning was completed.
+        Deprecated. The datetime the security scanning was completed.
 
         :param security_scan_completed_at: The security_scan_completed_at of this PackageCopy.
         :type: datetime
@@ -1746,7 +1779,7 @@ class PackageCopy(object):
     def security_scan_started_at(self):
         """Gets the security_scan_started_at of this PackageCopy.
 
-        The datetime the security scanning was started.
+        Deprecated. The datetime the security scanning was started.
 
         :return: The security_scan_started_at of this PackageCopy.
         :rtype: datetime
@@ -1757,7 +1790,7 @@ class PackageCopy(object):
     def security_scan_started_at(self, security_scan_started_at):
         """Sets the security_scan_started_at of this PackageCopy.
 
-        The datetime the security scanning was started.
+        Deprecated. The datetime the security scanning was started.
 
         :param security_scan_started_at: The security_scan_started_at of this PackageCopy.
         :type: datetime
@@ -1769,6 +1802,7 @@ class PackageCopy(object):
     def security_scan_status(self):
         """Gets the security_scan_status of this PackageCopy.
 
+        Deprecated. The status of security scanning for the package.
 
         :return: The security_scan_status of this PackageCopy.
         :rtype: str
@@ -1779,6 +1813,7 @@ class PackageCopy(object):
     def security_scan_status(self, security_scan_status):
         """Sets the security_scan_status of this PackageCopy.
 
+        Deprecated. The status of security scanning for the package.
 
         :param security_scan_status: The security_scan_status of this PackageCopy.
         :type: str
@@ -1797,7 +1832,7 @@ class PackageCopy(object):
     def security_scan_status_updated_at(self):
         """Gets the security_scan_status_updated_at of this PackageCopy.
 
-        The datetime the security scanning status was updated.
+        Deprecated. The datetime the security scanning status was updated.
 
         :return: The security_scan_status_updated_at of this PackageCopy.
         :rtype: datetime
@@ -1808,7 +1843,7 @@ class PackageCopy(object):
     def security_scan_status_updated_at(self, security_scan_status_updated_at):
         """Sets the security_scan_status_updated_at of this PackageCopy.
 
-        The datetime the security scanning status was updated.
+        Deprecated. The datetime the security scanning status was updated.
 
         :param security_scan_status_updated_at: The security_scan_status_updated_at of this PackageCopy.
         :type: datetime
@@ -2528,6 +2563,7 @@ class PackageCopy(object):
     def vulnerability_scan_results_url(self):
         """Gets the vulnerability_scan_results_url of this PackageCopy.
 
+        Deprecated. The URL of the package's vulnerability scan results.
 
         :return: The vulnerability_scan_results_url of this PackageCopy.
         :rtype: str
@@ -2538,6 +2574,7 @@ class PackageCopy(object):
     def vulnerability_scan_results_url(self, vulnerability_scan_results_url):
         """Sets the vulnerability_scan_results_url of this PackageCopy.
 
+        Deprecated. The URL of the package's vulnerability scan results.
 
         :param vulnerability_scan_results_url: The vulnerability_scan_results_url of this PackageCopy.
         :type: str

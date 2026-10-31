@@ -32,6 +32,7 @@ class PackageStatus
 
   attr_accessor :is_resyncable
 
+  # Deprecated. Whether the package can be scanned for vulnerabilities.
   attr_accessor :is_security_scannable
 
   attr_accessor :is_sync_awaiting

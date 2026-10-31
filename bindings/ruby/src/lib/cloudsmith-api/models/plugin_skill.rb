@@ -13,39 +13,25 @@ Swagger Codegen version: 2.4.52
 require 'date'
 
 module CloudsmithApi
-class SkillsPackageUploadRequest
+class PluginSkill
+  # The skill's description, if it declares one. Truncated to 200 characters.
+  attr_accessor :description
+
   attr_accessor :name
-
-  # The primary file for the package.
-  attr_accessor :package_file
-
-  # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
-  attr_accessor :republish
-
-  # A comma-separated values list of tags to add to the package.
-  attr_accessor :tags
-
-  attr_accessor :version
 
   # Attribute mapping from ruby-style variable name to JSON key.
   def self.attribute_map
     {
-      :'name' => :'name',
-      :'package_file' => :'package_file',
-      :'republish' => :'republish',
-      :'tags' => :'tags',
-      :'version' => :'version'
+      :'description' => :'description',
+      :'name' => :'name'
     }
   end
 
   # Attribute type mapping.
   def self.swagger_types
     {
-      :'name' => :'String',
-      :'package_file' => :'String',
-      :'republish' => :'BOOLEAN',
-      :'tags' => :'String',
-      :'version' => :'String'
+      :'description' => :'String',
+      :'name' => :'String'
     }
   end
 
@@ -57,24 +43,12 @@ class SkillsPackageUploadRequest
     # convert string to symbol for hash key
     attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+    if attributes.has_key?(:'description')
+      self.description = attributes[:'description']
+    end
+
     if attributes.has_key?(:'name')
       self.name = attributes[:'name']
-    end
-
-    if attributes.has_key?(:'package_file')
-      self.package_file = attributes[:'package_file']
-    end
-
-    if attributes.has_key?(:'republish')
-      self.republish = attributes[:'republish']
-    end
-
-    if attributes.has_key?(:'tags')
-      self.tags = attributes[:'tags']
-    end
-
-    if attributes.has_key?(:'version')
-      self.version = attributes[:'version']
     end
   end
 
@@ -82,27 +56,12 @@ class SkillsPackageUploadRequest
   # @return Array for valid properties with the reasons
   def list_invalid_properties
     invalid_properties = Array.new
-    if @name.nil?
-      invalid_properties.push('invalid value for "name", name cannot be nil.')
-    end
-
-    if @package_file.nil?
-      invalid_properties.push('invalid value for "package_file", package_file cannot be nil.')
-    end
-
-    if @version.nil?
-      invalid_properties.push('invalid value for "version", version cannot be nil.')
-    end
-
     invalid_properties
   end
 
   # Check to see if the all the properties in the model are valid
   # @return true if the model is valid
   def valid?
-    return false if @name.nil?
-    return false if @package_file.nil?
-    return false if @version.nil?
     true
   end
 
@@ -111,11 +70,8 @@ class SkillsPackageUploadRequest
   def ==(o)
     return true if self.equal?(o)
     self.class == o.class &&
-        name == o.name &&
-        package_file == o.package_file &&
-        republish == o.republish &&
-        tags == o.tags &&
-        version == o.version
+        description == o.description &&
+        name == o.name
   end
 
   # @see the `==` method
@@ -127,7 +83,7 @@ class SkillsPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [name, package_file, republish, tags, version].hash
+    [description, name].hash
   end
 
     # Builds the object from hash

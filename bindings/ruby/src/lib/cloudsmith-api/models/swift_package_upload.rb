@@ -95,6 +95,7 @@ class SwiftPackageUpload
 
   attr_accessor :is_resyncable
 
+  # Deprecated. Whether the package can be scanned for vulnerabilities.
   attr_accessor :is_security_scannable
 
   attr_accessor :is_sync_awaiting
@@ -144,6 +145,9 @@ class SwiftPackageUpload
   # The release of the package version (if any).
   attr_accessor :release
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   attr_accessor :repository
 
   # The URL of the SCM repository for the package.
@@ -152,15 +156,16 @@ class SwiftPackageUpload
   # A scope provides a namespace for related packages within the package registry.
   attr_accessor :scope
 
-  # The datetime the security scanning was completed.
+  # Deprecated. The datetime the security scanning was completed.
   attr_accessor :security_scan_completed_at
 
-  # The datetime the security scanning was started.
+  # Deprecated. The datetime the security scanning was started.
   attr_accessor :security_scan_started_at
 
+  # Deprecated. The status of security scanning for the package.
   attr_accessor :security_scan_status
 
-  # The datetime the security scanning status was updated.
+  # Deprecated. The datetime the security scanning status was updated.
   attr_accessor :security_scan_status_updated_at
 
   attr_accessor :self_html_url
@@ -238,6 +243,7 @@ class SwiftPackageUpload
 
   attr_accessor :version_orig
 
+  # Deprecated. The URL of the package's vulnerability scan results.
   attr_accessor :vulnerability_scan_results_url
 
   class EnumAttributeValidator
@@ -321,6 +327,7 @@ class SwiftPackageUpload
       :'raw_license' => :'raw_license',
       :'readme_url' => :'readme_url',
       :'release' => :'release',
+      :'release_notes' => :'release_notes',
       :'repository' => :'repository',
       :'repository_url' => :'repository_url',
       :'scope' => :'scope',
@@ -421,6 +428,7 @@ class SwiftPackageUpload
       :'raw_license' => :'String',
       :'readme_url' => :'String',
       :'release' => :'String',
+      :'release_notes' => :'String',
       :'repository' => :'String',
       :'repository_url' => :'String',
       :'scope' => :'String',
@@ -700,6 +708,10 @@ class SwiftPackageUpload
       self.release = attributes[:'release']
     end
 
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
+    end
+
     if attributes.has_key?(:'repository')
       self.repository = attributes[:'repository']
     end
@@ -958,6 +970,7 @@ class SwiftPackageUpload
         raw_license == o.raw_license &&
         readme_url == o.readme_url &&
         release == o.release &&
+        release_notes == o.release_notes &&
         repository == o.repository &&
         repository_url == o.repository_url &&
         scope == o.scope &&
@@ -1007,7 +1020,7 @@ class SwiftPackageUpload
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [architectures, author_name, author_org, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, display_source, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, license_url, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, osi_approved, package_type, policy_violated, raw_license, readme_url, release, repository, repository_url, scope, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, store_path, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, tags_static, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
+    [architectures, author_name, author_org, cdn_url, checksum_md5, checksum_sha1, checksum_sha256, checksum_sha512, dependencies_checksum_md5, dependencies_url, description, display_name, display_source, distro, distro_version, downloads, epoch, extension, filename, files, format, format_url, freeable_storage, fully_qualified_name, identifier_perm, identifiers, indexed, is_cancellable, is_copyable, is_deleteable, is_downloadable, is_hidden, is_moveable, is_quarantinable, is_quarantined, is_resyncable, is_security_scannable, is_sync_awaiting, is_sync_completed, is_sync_failed, is_sync_in_flight, is_sync_in_progress, license, license_url, name, namespace, namespace_url, num_files, origin_repository, origin_repository_url, osi_approved, package_type, policy_violated, raw_license, readme_url, release, release_notes, repository, repository_url, scope, security_scan_completed_at, security_scan_started_at, security_scan_status, security_scan_status_updated_at, self_html_url, self_url, self_webapp_url, signature_url, size, slug, slug_perm, spdx_license, stage, stage_str, stage_updated_at, status, status_reason, status_str, status_updated_at, status_url, store_path, subtype, summary, sync_finished_at, sync_progress, tags_automatic, tags_immutable, tags_static, type_display, uploaded_at, uploader, uploader_url, version, version_orig, vulnerability_scan_results_url].hash
   end
 
     # Builds the object from hash

@@ -17,6 +17,9 @@ class PackageQuarantineRequest
   # If true, the package is released from quarantine.
   attr_accessor :release
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the package is released from quarantine. Note: This field is deprecated, please use 'release' instead.
   attr_accessor :restore
 
@@ -24,6 +27,7 @@ class PackageQuarantineRequest
   def self.attribute_map
     {
       :'release' => :'release',
+      :'release_notes' => :'release_notes',
       :'restore' => :'restore'
     }
   end
@@ -32,6 +36,7 @@ class PackageQuarantineRequest
   def self.swagger_types
     {
       :'release' => :'BOOLEAN',
+      :'release_notes' => :'String',
       :'restore' => :'BOOLEAN'
     }
   end
@@ -46,6 +51,10 @@ class PackageQuarantineRequest
 
     if attributes.has_key?(:'release')
       self.release = attributes[:'release']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'restore')
@@ -72,6 +81,7 @@ class PackageQuarantineRequest
     return true if self.equal?(o)
     self.class == o.class &&
         release == o.release &&
+        release_notes == o.release_notes &&
         restore == o.restore
   end
 
@@ -84,7 +94,7 @@ class PackageQuarantineRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [release, restore].hash
+    [release, release_notes, restore].hash
   end
 
     # Builds the object from hash

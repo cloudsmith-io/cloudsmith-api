@@ -37,6 +37,9 @@ public class PackageMoveRequest implements Serializable {
   @SerializedName("destination")
   private String destination = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   public PackageMoveRequest destination(String destination) {
     this.destination = destination;
     return this;
@@ -56,6 +59,24 @@ public class PackageMoveRequest implements Serializable {
     this.destination = destination;
   }
 
+  public PackageMoveRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -66,12 +87,13 @@ public class PackageMoveRequest implements Serializable {
       return false;
     }
     PackageMoveRequest packageMoveRequest = (PackageMoveRequest) o;
-    return Objects.equals(this.destination, packageMoveRequest.destination);
+    return Objects.equals(this.destination, packageMoveRequest.destination) &&
+        Objects.equals(this.releaseNotes, packageMoveRequest.releaseNotes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination);
+    return Objects.hash(destination, releaseNotes);
   }
 
 
@@ -81,6 +103,7 @@ public class PackageMoveRequest implements Serializable {
     sb.append("class PackageMoveRequest {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

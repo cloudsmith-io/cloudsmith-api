@@ -17,6 +17,9 @@ class NugetPackageUploadRequest
   # The primary file for the package.
   attr_accessor :package_file
 
+  # The release notes for this package (if any).
+  attr_accessor :release_notes
+
   # If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate.
   attr_accessor :republish
 
@@ -30,6 +33,7 @@ class NugetPackageUploadRequest
   def self.attribute_map
     {
       :'package_file' => :'package_file',
+      :'release_notes' => :'release_notes',
       :'republish' => :'republish',
       :'symbols_file' => :'symbols_file',
       :'tags' => :'tags'
@@ -40,6 +44,7 @@ class NugetPackageUploadRequest
   def self.swagger_types
     {
       :'package_file' => :'String',
+      :'release_notes' => :'String',
       :'republish' => :'BOOLEAN',
       :'symbols_file' => :'String',
       :'tags' => :'String'
@@ -56,6 +61,10 @@ class NugetPackageUploadRequest
 
     if attributes.has_key?(:'package_file')
       self.package_file = attributes[:'package_file']
+    end
+
+    if attributes.has_key?(:'release_notes')
+      self.release_notes = attributes[:'release_notes']
     end
 
     if attributes.has_key?(:'republish')
@@ -95,6 +104,7 @@ class NugetPackageUploadRequest
     return true if self.equal?(o)
     self.class == o.class &&
         package_file == o.package_file &&
+        release_notes == o.release_notes &&
         republish == o.republish &&
         symbols_file == o.symbols_file &&
         tags == o.tags
@@ -109,7 +119,7 @@ class NugetPackageUploadRequest
   # Calculates hash code according to all attributes.
   # @return [Fixnum] Hash code
   def hash
-    [package_file, republish, symbols_file, tags].hash
+    [package_file, release_notes, republish, symbols_file, tags].hash
   end
 
     # Builds the object from hash
