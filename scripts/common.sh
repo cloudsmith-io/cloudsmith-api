@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 language=${1:-""}
 api_url=${2:-${api_url:-"https://api.cloudsmith.io/"}}
+# build.sh, test.sh, push.sh, deploy.sh and full-deploy.sh run the per-language
+export api_url
 api_version=$(curl -s "${api_url}status/check/basic/" | jq -r '.version')
 openapi_url="${api_url}?format=openapi"
 package_version="2.0.42"
