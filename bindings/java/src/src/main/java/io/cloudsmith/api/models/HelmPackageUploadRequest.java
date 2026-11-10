@@ -40,6 +40,9 @@ public class HelmPackageUploadRequest implements Serializable {
   @SerializedName("provenance_file")
   private String provenanceFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -81,6 +84,24 @@ public class HelmPackageUploadRequest implements Serializable {
 
   public void setProvenanceFile(String provenanceFile) {
     this.provenanceFile = provenanceFile;
+  }
+
+  public HelmPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public HelmPackageUploadRequest republish(Boolean republish) {
@@ -131,13 +152,14 @@ public class HelmPackageUploadRequest implements Serializable {
     HelmPackageUploadRequest helmPackageUploadRequest = (HelmPackageUploadRequest) o;
     return Objects.equals(this.packageFile, helmPackageUploadRequest.packageFile) &&
         Objects.equals(this.provenanceFile, helmPackageUploadRequest.provenanceFile) &&
+        Objects.equals(this.releaseNotes, helmPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, helmPackageUploadRequest.republish) &&
         Objects.equals(this.tags, helmPackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, provenanceFile, republish, tags);
+    return Objects.hash(packageFile, provenanceFile, releaseNotes, republish, tags);
   }
 
 
@@ -148,6 +170,7 @@ public class HelmPackageUploadRequest implements Serializable {
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    provenanceFile: ").append(toIndentedString(provenanceFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

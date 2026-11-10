@@ -52,6 +52,9 @@ public class SwiftPackageUploadRequest implements Serializable {
   @SerializedName("readme_url")
   private String readmeUrl = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("repository_url")
   private String repositoryUrl = null;
 
@@ -177,6 +180,24 @@ public class SwiftPackageUploadRequest implements Serializable {
     this.readmeUrl = readmeUrl;
   }
 
+  public SwiftPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
   public SwiftPackageUploadRequest repositoryUrl(String repositoryUrl) {
     this.repositoryUrl = repositoryUrl;
     return this;
@@ -285,6 +306,7 @@ public class SwiftPackageUploadRequest implements Serializable {
         Objects.equals(this.name, swiftPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, swiftPackageUploadRequest.packageFile) &&
         Objects.equals(this.readmeUrl, swiftPackageUploadRequest.readmeUrl) &&
+        Objects.equals(this.releaseNotes, swiftPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.repositoryUrl, swiftPackageUploadRequest.repositoryUrl) &&
         Objects.equals(this.republish, swiftPackageUploadRequest.republish) &&
         Objects.equals(this.scope, swiftPackageUploadRequest.scope) &&
@@ -294,7 +316,7 @@ public class SwiftPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorName, authorOrg, licenseUrl, name, packageFile, readmeUrl, repositoryUrl, republish, scope, tags, version);
+    return Objects.hash(authorName, authorOrg, licenseUrl, name, packageFile, readmeUrl, releaseNotes, repositoryUrl, republish, scope, tags, version);
   }
 
 
@@ -309,6 +331,7 @@ public class SwiftPackageUploadRequest implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    readmeUrl: ").append(toIndentedString(readmeUrl)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");

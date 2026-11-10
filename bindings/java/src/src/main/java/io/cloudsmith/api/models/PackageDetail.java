@@ -24,6 +24,7 @@ import io.cloudsmith.api.models.Architecture;
 import io.cloudsmith.api.models.Distribution;
 import io.cloudsmith.api.models.DistributionVersion;
 import io.cloudsmith.api.models.PackageFile;
+import io.cloudsmith.api.models.PluginSkill;
 import io.cloudsmith.api.models.Tags;
 import io.cloudsmith.api.models.WebOSVSeverityCounts;
 import io.swagger.annotations.ApiModel;
@@ -201,6 +202,9 @@ public class PackageDetail implements Serializable {
   @SerializedName("package_type")
   private java.math.BigInteger packageType = null;
 
+  @SerializedName("plugin_skills")
+  private List<PluginSkill> pluginSkills = null;
+
   @SerializedName("policy_violated")
   private Boolean policyViolated = null;
 
@@ -209,6 +213,9 @@ public class PackageDetail implements Serializable {
 
   @SerializedName("release")
   private String release = null;
+
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
 
   @SerializedName("repository")
   private String repository = null;
@@ -223,7 +230,7 @@ public class PackageDetail implements Serializable {
   private OffsetDateTime securityScanStartedAt = null;
 
   /**
-   * Gets or Sets securityScanStatus
+   * Deprecated. The status of security scanning for the package.
    */
   @JsonAdapter(SecurityScanStatusEnum.Adapter.class)
   public enum SecurityScanStatusEnum {
@@ -742,10 +749,10 @@ public class PackageDetail implements Serializable {
   }
 
    /**
-   * Get isSecurityScannable
+   * Deprecated. Whether the package can be scanned for vulnerabilities.
    * @return isSecurityScannable
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. Whether the package can be scanned for vulnerabilities.")
   public Boolean isIsSecurityScannable() {
     return isSecurityScannable;
   }
@@ -877,6 +884,16 @@ public class PackageDetail implements Serializable {
   }
 
    /**
+   * The skills a plugin bundles. Null for any other package.
+   * @return pluginSkills
+  **/
+  @Valid
+  @ApiModelProperty(value = "The skills a plugin bundles. Null for any other package.")
+  public List<PluginSkill> getPluginSkills() {
+    return pluginSkills;
+  }
+
+   /**
    * Whether or not the package has violated any policy.
    * @return policyViolated
   **/
@@ -903,6 +920,24 @@ public class PackageDetail implements Serializable {
     return release;
   }
 
+  public PackageDetail releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
    /**
    * Get repository
    * @return repository
@@ -922,40 +957,40 @@ public class PackageDetail implements Serializable {
   }
 
    /**
-   * The datetime the security scanning was completed.
+   * Deprecated. The datetime the security scanning was completed.
    * @return securityScanCompletedAt
   **/
   @Valid
-  @ApiModelProperty(value = "The datetime the security scanning was completed.")
+  @ApiModelProperty(value = "Deprecated. The datetime the security scanning was completed.")
   public OffsetDateTime getSecurityScanCompletedAt() {
     return securityScanCompletedAt;
   }
 
    /**
-   * The datetime the security scanning was started.
+   * Deprecated. The datetime the security scanning was started.
    * @return securityScanStartedAt
   **/
   @Valid
-  @ApiModelProperty(value = "The datetime the security scanning was started.")
+  @ApiModelProperty(value = "Deprecated. The datetime the security scanning was started.")
   public OffsetDateTime getSecurityScanStartedAt() {
     return securityScanStartedAt;
   }
 
    /**
-   * Get securityScanStatus
+   * Deprecated. The status of security scanning for the package.
    * @return securityScanStatus
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. The status of security scanning for the package.")
   public SecurityScanStatusEnum getSecurityScanStatus() {
     return securityScanStatus;
   }
 
    /**
-   * The datetime the security scanning status was updated.
+   * Deprecated. The datetime the security scanning status was updated.
    * @return securityScanStatusUpdatedAt
   **/
   @Valid
-  @ApiModelProperty(value = "The datetime the security scanning status was updated.")
+  @ApiModelProperty(value = "Deprecated. The datetime the security scanning status was updated.")
   public OffsetDateTime getSecurityScanStatusUpdatedAt() {
     return securityScanStatusUpdatedAt;
   }
@@ -1294,10 +1329,10 @@ public class PackageDetail implements Serializable {
   }
 
    /**
-   * Get vulnerabilityScanResultsUrl
+   * Deprecated. The URL of the package&#39;s vulnerability scan results.
    * @return vulnerabilityScanResultsUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. The URL of the package's vulnerability scan results.")
   public String getVulnerabilityScanResultsUrl() {
     return vulnerabilityScanResultsUrl;
   }
@@ -1364,9 +1399,11 @@ public class PackageDetail implements Serializable {
         Objects.equals(this.originRepositoryUrl, packageDetail.originRepositoryUrl) &&
         Objects.equals(this.osiApproved, packageDetail.osiApproved) &&
         Objects.equals(this.packageType, packageDetail.packageType) &&
+        Objects.equals(this.pluginSkills, packageDetail.pluginSkills) &&
         Objects.equals(this.policyViolated, packageDetail.policyViolated) &&
         Objects.equals(this.rawLicense, packageDetail.rawLicense) &&
         Objects.equals(this.release, packageDetail.release) &&
+        Objects.equals(this.releaseNotes, packageDetail.releaseNotes) &&
         Objects.equals(this.repository, packageDetail.repository) &&
         Objects.equals(this.repositoryUrl, packageDetail.repositoryUrl) &&
         Objects.equals(this.securityScanCompletedAt, packageDetail.securityScanCompletedAt) &&
@@ -1410,7 +1447,7 @@ public class PackageDetail implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, displaySource, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, hasDependencies, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tags, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, displaySource, distro, distroVersion, downloads, epoch, extension, filename, filepath, files, format, formatUrl, freeableStorage, fullyQualifiedName, hasDependencies, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMalwareDetected, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, pluginSkills, policyViolated, rawLicense, release, releaseNotes, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tags, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityCounts, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1471,9 +1508,11 @@ public class PackageDetail implements Serializable {
     sb.append("    originRepositoryUrl: ").append(toIndentedString(originRepositoryUrl)).append("\n");
     sb.append("    osiApproved: ").append(toIndentedString(osiApproved)).append("\n");
     sb.append("    packageType: ").append(toIndentedString(packageType)).append("\n");
+    sb.append("    pluginSkills: ").append(toIndentedString(pluginSkills)).append("\n");
     sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    rawLicense: ").append(toIndentedString(rawLicense)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
     sb.append("    securityScanCompletedAt: ").append(toIndentedString(securityScanCompletedAt)).append("\n");

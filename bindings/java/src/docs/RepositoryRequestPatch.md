@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **scanOwn** | **Boolean** | If checked, users can scan any of their own packages that they have uploaded, assuming that they still have write privilege for the repository. This takes precedence over privileges configured in the &#39;Access Controls&#39; section of the repository, and any inherited from the org. |  [optional]
 **scanPackages** | [**ScanPackagesEnum**](#ScanPackagesEnum) | This defines the minimum level of privilege required for a user to scan packages. Unless the package was uploaded by that user, in which the permission may be overridden by the user-specific scan setting. |  [optional]
 **showSetupAll** | **Boolean** | If checked, the Set Me Up help for all formats will always be shown, even if you don&#39;t have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only. |  [optional]
+**skillsVersioning** | [**SkillsVersioningEnum**](#SkillsVersioningEnum) | How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn&#39;t depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn&#39;t offer can still be downloaded by that version, but isn&#39;t offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting. |  [optional]
 **slug** | **String** | The slug identifies the repository in URIs. |  [optional]
 **strictNpmValidation** | **Boolean** | If checked, npm packages will be validated strictly to ensure the package matches specifcation. You can turn this on if you want to guarantee that the packages will work with npm-cli and other tools correctly. |  [optional]
 **tagPreReleasesAsLatest** | **Boolean** | If checked, packages pushed with a pre-release component on that version will be marked with the &#39;latest&#39; tag. Note that if unchecked, a repository containing ONLY pre-release versions, will have no version marked latest which may cause incompatibility with native tools  |  [optional]
@@ -150,6 +151,14 @@ Name | Value
 ADMIN | &quot;Admin&quot;
 WRITE | &quot;Write&quot;
 READ | &quot;Read&quot;
+
+
+<a name="SkillsVersioningEnum"></a>
+## Enum: SkillsVersioningEnum
+Name | Value
+---- | -----
+SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK | &quot;SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK&quot;
+STRICT_SEMANTIC_VERSION | &quot;STRICT_SEMANTIC_VERSION&quot;
 
 
 <a name="UseEntitlementsPrivilegeEnum"></a>

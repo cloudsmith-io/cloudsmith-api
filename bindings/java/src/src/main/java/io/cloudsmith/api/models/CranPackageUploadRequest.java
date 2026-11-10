@@ -43,6 +43,9 @@ public class CranPackageUploadRequest implements Serializable {
   @SerializedName("r_version")
   private String rVersion = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -104,6 +107,24 @@ public class CranPackageUploadRequest implements Serializable {
     this.rVersion = rVersion;
   }
 
+  public CranPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
   public CranPackageUploadRequest republish(Boolean republish) {
     this.republish = republish;
     return this;
@@ -153,13 +174,14 @@ public class CranPackageUploadRequest implements Serializable {
     return Objects.equals(this.architecture, cranPackageUploadRequest.architecture) &&
         Objects.equals(this.packageFile, cranPackageUploadRequest.packageFile) &&
         Objects.equals(this.rVersion, cranPackageUploadRequest.rVersion) &&
+        Objects.equals(this.releaseNotes, cranPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, cranPackageUploadRequest.republish) &&
         Objects.equals(this.tags, cranPackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, packageFile, rVersion, republish, tags);
+    return Objects.hash(architecture, packageFile, rVersion, releaseNotes, republish, tags);
   }
 
 
@@ -171,6 +193,7 @@ public class CranPackageUploadRequest implements Serializable {
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    rVersion: ").append(toIndentedString(rVersion)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

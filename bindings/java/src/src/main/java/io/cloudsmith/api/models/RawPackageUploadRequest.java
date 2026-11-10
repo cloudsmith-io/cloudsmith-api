@@ -46,6 +46,9 @@ public class RawPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -129,6 +132,24 @@ public class RawPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public RawPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public RawPackageUploadRequest republish(Boolean republish) {
@@ -217,6 +238,7 @@ public class RawPackageUploadRequest implements Serializable {
         Objects.equals(this.description, rawPackageUploadRequest.description) &&
         Objects.equals(this.name, rawPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, rawPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, rawPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, rawPackageUploadRequest.republish) &&
         Objects.equals(this.summary, rawPackageUploadRequest.summary) &&
         Objects.equals(this.tags, rawPackageUploadRequest.tags) &&
@@ -225,7 +247,7 @@ public class RawPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentType, description, name, packageFile, republish, summary, tags, version);
+    return Objects.hash(contentType, description, name, packageFile, releaseNotes, republish, summary, tags, version);
   }
 
 
@@ -238,6 +260,7 @@ public class RawPackageUploadRequest implements Serializable {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

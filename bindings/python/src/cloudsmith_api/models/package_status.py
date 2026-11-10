@@ -365,6 +365,7 @@ class PackageStatus(object):
     def is_security_scannable(self):
         """Gets the is_security_scannable of this PackageStatus.
 
+        Deprecated. Whether the package can be scanned for vulnerabilities.
 
         :return: The is_security_scannable of this PackageStatus.
         :rtype: bool
@@ -375,6 +376,7 @@ class PackageStatus(object):
     def is_security_scannable(self, is_security_scannable):
         """Sets the is_security_scannable of this PackageStatus.
 
+        Deprecated. Whether the package can be scanned for vulnerabilities.
 
         :param is_security_scannable: The is_security_scannable of this PackageStatus.
         :type: bool

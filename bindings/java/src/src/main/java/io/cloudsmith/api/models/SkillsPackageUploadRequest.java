@@ -34,11 +34,17 @@ import javax.validation.Valid;
 public class SkillsPackageUploadRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  @SerializedName("changelog")
+  private String changelog = null;
+
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("package_file")
   private String packageFile = null;
+
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
 
   @SerializedName("republish")
   private Boolean republish = null;
@@ -48,6 +54,24 @@ public class SkillsPackageUploadRequest implements Serializable {
 
   @SerializedName("version")
   private String version = null;
+
+  public SkillsPackageUploadRequest changelog(String changelog) {
+    this.changelog = changelog;
+    return this;
+  }
+
+   /**
+   * Get changelog
+   * @return changelog
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "")
+  public String getChangelog() {
+    return changelog;
+  }
+
+  public void setChangelog(String changelog) {
+    this.changelog = changelog;
+  }
 
   public SkillsPackageUploadRequest name(String name) {
     this.name = name;
@@ -85,6 +109,24 @@ public class SkillsPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public SkillsPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public SkillsPackageUploadRequest republish(Boolean republish) {
@@ -152,8 +194,10 @@ public class SkillsPackageUploadRequest implements Serializable {
       return false;
     }
     SkillsPackageUploadRequest skillsPackageUploadRequest = (SkillsPackageUploadRequest) o;
-    return Objects.equals(this.name, skillsPackageUploadRequest.name) &&
+    return Objects.equals(this.changelog, skillsPackageUploadRequest.changelog) &&
+        Objects.equals(this.name, skillsPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, skillsPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, skillsPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, skillsPackageUploadRequest.republish) &&
         Objects.equals(this.tags, skillsPackageUploadRequest.tags) &&
         Objects.equals(this.version, skillsPackageUploadRequest.version);
@@ -161,7 +205,7 @@ public class SkillsPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, packageFile, republish, tags, version);
+    return Objects.hash(changelog, name, packageFile, releaseNotes, republish, tags, version);
   }
 
 
@@ -170,8 +214,10 @@ public class SkillsPackageUploadRequest implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class SkillsPackageUploadRequest {\n");
     
+    sb.append("    changelog: ").append(toIndentedString(changelog)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

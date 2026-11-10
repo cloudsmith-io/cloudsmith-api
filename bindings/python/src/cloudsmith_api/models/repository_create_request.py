@@ -69,6 +69,7 @@ class RepositoryCreateRequest(object):
         'scan_own': 'bool',
         'scan_packages': 'str',
         'show_setup_all': 'bool',
+        'skills_versioning': 'str',
         'slug': 'str',
         'storage_region': 'str',
         'strict_npm_validation': 'bool',
@@ -120,6 +121,7 @@ class RepositoryCreateRequest(object):
         'scan_own': 'scan_own',
         'scan_packages': 'scan_packages',
         'show_setup_all': 'show_setup_all',
+        'skills_versioning': 'skills_versioning',
         'slug': 'slug',
         'storage_region': 'storage_region',
         'strict_npm_validation': 'strict_npm_validation',
@@ -134,7 +136,7 @@ class RepositoryCreateRequest(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, broadcast_state='Off', content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, generic_package_index_enabled=None, index_files=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, npm_upstream_tags_take_precedence=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, slug=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, broadcast_state='Off', content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, default_privilege='None', delete_own=None, delete_packages='Admin', description=None, distributes=None, docker_refresh_tokens_enabled=None, enforce_eula=None, generic_package_index_enabled=None, index_files=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, npm_upstream_tags_take_precedence=None, nuget_native_signing_enabled=None, open_source_license=None, open_source_project_url=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', show_setup_all=None, skills_versioning='SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK', slug=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """RepositoryCreateRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -176,6 +178,7 @@ class RepositoryCreateRequest(object):
         self._scan_own = None
         self._scan_packages = None
         self._show_setup_all = None
+        self._skills_versioning = None
         self._slug = None
         self._storage_region = None
         self._strict_npm_validation = None
@@ -261,6 +264,8 @@ class RepositoryCreateRequest(object):
             self.scan_packages = scan_packages
         if show_setup_all is not None:
             self.show_setup_all = show_setup_all
+        if skills_versioning is not None:
+            self.skills_versioning = skills_versioning
         if slug is not None:
             self.slug = slug
         if storage_region is not None:
@@ -1204,6 +1209,36 @@ class RepositoryCreateRequest(object):
         """
 
         self._show_setup_all = show_setup_all
+
+    @property
+    def skills_versioning(self):
+        """Gets the skills_versioning of this RepositoryCreateRequest.
+
+        How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn't depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn't offer can still be downloaded by that version, but isn't offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting.
+
+        :return: The skills_versioning of this RepositoryCreateRequest.
+        :rtype: str
+        """
+        return self._skills_versioning
+
+    @skills_versioning.setter
+    def skills_versioning(self, skills_versioning):
+        """Sets the skills_versioning of this RepositoryCreateRequest.
+
+        How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn't depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn't offer can still be downloaded by that version, but isn't offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting.
+
+        :param skills_versioning: The skills_versioning of this RepositoryCreateRequest.
+        :type: str
+        """
+        allowed_values = ["SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK", "STRICT_SEMANTIC_VERSION"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                skills_versioning not in allowed_values):
+            raise ValueError(
+                "Invalid value for `skills_versioning` ({0}), must be one of {1}"  # noqa: E501
+                .format(skills_versioning, allowed_values)
+            )
+
+        self._skills_versioning = skills_versioning
 
     @property
     def slug(self):

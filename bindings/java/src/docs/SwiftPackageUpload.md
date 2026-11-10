@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
 **isResyncable** | **Boolean** |  |  [optional]
-**isSecurityScannable** | **Boolean** |  |  [optional]
+**isSecurityScannable** | **Boolean** | Deprecated. Whether the package can be scanned for vulnerabilities. |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]
 **isSyncFailed** | **Boolean** |  |  [optional]
@@ -60,13 +60,14 @@ Name | Type | Description | Notes
 **rawLicense** | **String** | The raw license string. |  [optional]
 **readmeUrl** | **String** | The URL of the readme for the package. |  [optional]
 **release** | **String** | The release of the package version (if any). |  [optional]
+**releaseNotes** | **String** | The release notes for this package (if any). |  [optional]
 **repository** | **String** |  |  [optional]
 **repositoryUrl** | **String** | The URL of the SCM repository for the package. |  [optional]
 **scope** | **String** | A scope provides a namespace for related packages within the package registry. | 
-**securityScanCompletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was completed. |  [optional]
-**securityScanStartedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning was started. |  [optional]
-**securityScanStatus** | [**SecurityScanStatusEnum**](#SecurityScanStatusEnum) |  |  [optional]
-**securityScanStatusUpdatedAt** | [**OffsetDateTime**](OffsetDateTime.md) | The datetime the security scanning status was updated. |  [optional]
+**securityScanCompletedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Deprecated. The datetime the security scanning was completed. |  [optional]
+**securityScanStartedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Deprecated. The datetime the security scanning was started. |  [optional]
+**securityScanStatus** | [**SecurityScanStatusEnum**](#SecurityScanStatusEnum) | Deprecated. The status of security scanning for the package. |  [optional]
+**securityScanStatusUpdatedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Deprecated. The datetime the security scanning status was updated. |  [optional]
 **selfHtmlUrl** | **String** |  |  [optional]
 **selfUrl** | **String** |  |  [optional]
 **selfWebappUrl** | **String** |  |  [optional]
@@ -97,7 +98,7 @@ Name | Type | Description | Notes
 **uploaderUrl** | **String** |  |  [optional]
 **version** | **String** | The raw version for this package. | 
 **versionOrig** | **String** |  |  [optional]
-**vulnerabilityScanResultsUrl** | **String** |  |  [optional]
+**vulnerabilityScanResultsUrl** | **String** | Deprecated. The URL of the package&#39;s vulnerability scan results. |  [optional]
 
 
 <a name="SecurityScanStatusEnum"></a>

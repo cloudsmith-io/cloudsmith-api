@@ -34,25 +34,30 @@ class PackageCopyRequest(object):
     """
     swagger_types = {
         'destination': 'str',
+        'release_notes': 'str',
         'republish': 'bool'
     }
 
     attribute_map = {
         'destination': 'destination',
+        'release_notes': 'release_notes',
         'republish': 'republish'
     }
 
-    def __init__(self, destination=None, republish=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination=None, release_notes=None, republish=None, _configuration=None):  # noqa: E501
         """PackageCopyRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._destination = None
+        self._release_notes = None
         self._republish = None
         self.discriminator = None
 
         self.destination = destination
+        if release_notes is not None:
+            self.release_notes = release_notes
         if republish is not None:
             self.republish = republish
 
@@ -83,6 +88,32 @@ class PackageCopyRequest(object):
             raise ValueError("Invalid value for `destination`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._destination = destination
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this PackageCopyRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this PackageCopyRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this PackageCopyRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this PackageCopyRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     @property
     def republish(self):

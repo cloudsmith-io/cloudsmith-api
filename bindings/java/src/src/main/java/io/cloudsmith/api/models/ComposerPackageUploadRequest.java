@@ -37,6 +37,9 @@ public class ComposerPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -63,6 +66,24 @@ public class ComposerPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public ComposerPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public ComposerPackageUploadRequest republish(Boolean republish) {
@@ -130,6 +151,7 @@ public class ComposerPackageUploadRequest implements Serializable {
     }
     ComposerPackageUploadRequest composerPackageUploadRequest = (ComposerPackageUploadRequest) o;
     return Objects.equals(this.packageFile, composerPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, composerPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, composerPackageUploadRequest.republish) &&
         Objects.equals(this.tags, composerPackageUploadRequest.tags) &&
         Objects.equals(this.version, composerPackageUploadRequest.version);
@@ -137,7 +159,7 @@ public class ComposerPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, tags, version);
+    return Objects.hash(packageFile, releaseNotes, republish, tags, version);
   }
 
 
@@ -147,6 +169,7 @@ public class ComposerPackageUploadRequest implements Serializable {
     sb.append("class ComposerPackageUploadRequest {\n");
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

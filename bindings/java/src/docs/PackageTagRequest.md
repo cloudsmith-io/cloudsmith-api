@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | [**ActionEnum**](#ActionEnum) |  |  [optional]
 **isImmutable** | **Boolean** | If true, created tags will be immutable. An immutable flag is a tag that cannot be removed from a package. |  [optional]
+**releaseNotes** | **String** | The release notes for this package (if any). |  [optional]
 **tags** | **List&lt;String&gt;** | A list of tags to apply the action to. Not required for clears. |  [optional]
 
 

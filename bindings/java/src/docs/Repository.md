@@ -63,6 +63,7 @@ Name | Type | Description | Notes
 **showSetupAll** | **Boolean** | If checked, the Set Me Up help for all formats will always be shown, even if you don&#39;t have packages of that type uploaded. Otherwise, help will only be shown for packages that are in the repository. For example, if you have uploaded only NuGet packages, then the Set Me Up help for NuGet packages will be shown only. |  [optional]
 **size** | **java.math.BigInteger** | The calculated size of the repository. |  [optional]
 **sizeStr** | **String** | The calculated size of the repository (human readable). |  [optional]
+**skillsVersioning** | [**SkillsVersioningEnum**](#SkillsVersioningEnum) | How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn&#39;t depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn&#39;t offer can still be downloaded by that version, but isn&#39;t offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting. |  [optional]
 **slug** | **String** | The slug identifies the repository in URIs. |  [optional]
 **slugPerm** | **String** | The slug_perm immutably identifies the repository. It will never change once a repository has been created. |  [optional]
 **storageRegion** | **String** | The Cloudsmith region in which package files are stored. |  [optional]
@@ -175,6 +176,14 @@ Name | Value
 ADMIN | &quot;Admin&quot;
 WRITE | &quot;Write&quot;
 READ | &quot;Read&quot;
+
+
+<a name="SkillsVersioningEnum"></a>
+## Enum: SkillsVersioningEnum
+Name | Value
+---- | -----
+SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK | &quot;SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK&quot;
+STRICT_SEMANTIC_VERSION | &quot;STRICT_SEMANTIC_VERSION&quot;
 
 
 <a name="UseEntitlementsPrivilegeEnum"></a>

@@ -92,6 +92,7 @@ class Repository(object):
         'show_setup_all': 'bool',
         'size': 'int',
         'size_str': 'str',
+        'skills_versioning': 'str',
         'slug': 'str',
         'slug_perm': 'str',
         'storage_region': 'str',
@@ -167,6 +168,7 @@ class Repository(object):
         'show_setup_all': 'show_setup_all',
         'size': 'size',
         'size_str': 'size_str',
+        'skills_versioning': 'skills_versioning',
         'slug': 'slug',
         'slug_perm': 'slug_perm',
         'storage_region': 'storage_region',
@@ -182,7 +184,7 @@ class Repository(object):
         'view_statistics': 'view_statistics'
     }
 
-    def __init__(self, active_connection_count=None, broadcast_state='Off', cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, generic_package_index_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, npm_upstream_tags_take_precedence=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_count_excl_subcomponents=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, self_webapp_url=None, show_setup_all=None, size=None, size_str=None, slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
+    def __init__(self, active_connection_count=None, broadcast_state='Off', cdn_url=None, content_kind='Standard', contextual_auth_realm=None, copy_own=None, copy_packages='Read', cosign_signing_enabled=None, created_at=None, default_privilege='None', delete_own=None, delete_packages='Admin', deleted_at=None, description=None, distributes=None, docker_refresh_tokens_enabled=None, ecdsa_keys=None, enforce_eula=None, generic_package_index_enabled=None, gpg_keys=None, index_files=None, is_open_source=None, is_private=None, is_public=None, is_public_hidden=None, manage_entitlements_privilege='Admin', move_own=None, move_packages='Admin', name=None, namespace=None, namespace_url=None, npm_upstream_tags_take_precedence=None, nuget_native_signing_enabled=None, num_downloads=None, num_policy_violated_packages=None, num_quarantined_packages=None, open_source_license=None, open_source_project_url=None, package_count=None, package_count_excl_subcomponents=None, package_group_count=None, proxy_npmjs=None, proxy_pypi=None, raw_package_index_enabled=None, raw_package_index_signatures_enabled=None, replace_packages='Write', replace_packages_by_default=None, repository_type=None, repository_type_str='Public', resync_own=None, resync_packages='Admin', scan_own=None, scan_packages='Read', self_html_url=None, self_url=None, self_webapp_url=None, show_setup_all=None, size=None, size_str=None, skills_versioning='SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK', slug=None, slug_perm=None, storage_region='default', strict_npm_validation=None, tag_pre_releases_as_latest=None, use_debian_labels=None, use_default_cargo_upstream=None, use_entitlements_privilege='Read', use_noarch_packages=None, use_source_packages=None, use_vulnerability_scanning=None, user_entitlements_enabled=None, view_statistics='Read', _configuration=None):  # noqa: E501
         """Repository - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -247,6 +249,7 @@ class Repository(object):
         self._show_setup_all = None
         self._size = None
         self._size_str = None
+        self._skills_versioning = None
         self._slug = None
         self._slug_perm = None
         self._storage_region = None
@@ -379,6 +382,8 @@ class Repository(object):
             self.size = size
         if size_str is not None:
             self.size_str = size_str
+        if skills_versioning is not None:
+            self.skills_versioning = skills_versioning
         if slug is not None:
             self.slug = slug
         if slug_perm is not None:
@@ -1850,6 +1855,36 @@ class Repository(object):
         """
 
         self._size_str = size_str
+
+    @property
+    def skills_versioning(self):
+        """Gets the skills_versioning of this Repository.
+
+        How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn't depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn't offer can still be downloaded by that version, but isn't offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting.
+
+        :return: The skills_versioning of this Repository.
+        :rtype: str
+        """
+        return self._skills_versioning
+
+    @skills_versioning.setter
+    def skills_versioning(self, skills_versioning):
+        """Sets the skills_versioning of this Repository.
+
+        How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn't depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn't offer can still be downloaded by that version, but isn't offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting.
+
+        :param skills_versioning: The skills_versioning of this Repository.
+        :type: str
+        """
+        allowed_values = ["SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK", "STRICT_SEMANTIC_VERSION"]  # noqa: E501
+        if (self._configuration.client_side_validation and
+                skills_versioning not in allowed_values):
+            raise ValueError(
+                "Invalid value for `skills_versioning` ({0}), must be one of {1}"  # noqa: E501
+                .format(skills_versioning, allowed_values)
+            )
+
+        self._skills_versioning = skills_versioning
 
     @property
     def slug(self):

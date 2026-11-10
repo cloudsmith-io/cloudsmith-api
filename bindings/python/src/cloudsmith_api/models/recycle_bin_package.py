@@ -502,7 +502,7 @@ class RecycleBinPackage(object):
     def security_scan_completed_at(self):
         """Gets the security_scan_completed_at of this RecycleBinPackage.
 
-        The datetime the security scanning was completed.
+        Deprecated. The datetime the security scanning was completed.
 
         :return: The security_scan_completed_at of this RecycleBinPackage.
         :rtype: datetime
@@ -513,7 +513,7 @@ class RecycleBinPackage(object):
     def security_scan_completed_at(self, security_scan_completed_at):
         """Sets the security_scan_completed_at of this RecycleBinPackage.
 
-        The datetime the security scanning was completed.
+        Deprecated. The datetime the security scanning was completed.
 
         :param security_scan_completed_at: The security_scan_completed_at of this RecycleBinPackage.
         :type: datetime
@@ -525,6 +525,7 @@ class RecycleBinPackage(object):
     def security_scan_status(self):
         """Gets the security_scan_status of this RecycleBinPackage.
 
+        Deprecated. The status of security scanning for the package.
 
         :return: The security_scan_status of this RecycleBinPackage.
         :rtype: str
@@ -535,6 +536,7 @@ class RecycleBinPackage(object):
     def security_scan_status(self, security_scan_status):
         """Sets the security_scan_status of this RecycleBinPackage.
 
+        Deprecated. The status of security scanning for the package.
 
         :param security_scan_status: The security_scan_status of this RecycleBinPackage.
         :type: str
