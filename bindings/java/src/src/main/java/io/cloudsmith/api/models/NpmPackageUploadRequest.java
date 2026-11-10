@@ -40,6 +40,9 @@ public class NpmPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -81,6 +84,24 @@ public class NpmPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public NpmPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public NpmPackageUploadRequest republish(Boolean republish) {
@@ -131,13 +152,14 @@ public class NpmPackageUploadRequest implements Serializable {
     NpmPackageUploadRequest npmPackageUploadRequest = (NpmPackageUploadRequest) o;
     return Objects.equals(this.npmDistTag, npmPackageUploadRequest.npmDistTag) &&
         Objects.equals(this.packageFile, npmPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, npmPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, npmPackageUploadRequest.republish) &&
         Objects.equals(this.tags, npmPackageUploadRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(npmDistTag, packageFile, republish, tags);
+    return Objects.hash(npmDistTag, packageFile, releaseNotes, republish, tags);
   }
 
 
@@ -148,6 +170,7 @@ public class NpmPackageUploadRequest implements Serializable {
     
     sb.append("    npmDistTag: ").append(toIndentedString(npmDistTag)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

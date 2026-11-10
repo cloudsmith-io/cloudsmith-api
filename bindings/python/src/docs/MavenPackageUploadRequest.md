@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **package_file** | **str** | The primary file for the package. | 
 **packaging** | **str** | Artifact&#39;s Maven packaging type. | [optional] 
 **pom_file** | **str** | The POM file is an XML file containing the Maven coordinates. | [optional] 
+**release_notes** | **str** | The release notes for this package (if any). | [optional] 
 **republish** | **bool** | If true, the uploaded package will overwrite any others with the same attributes (e.g. same version); otherwise, it will be flagged as a duplicate. | [optional] 
 **sbt_version** | **str** |  | [optional] 
 **scala_version** | **str** |  | [optional] 

@@ -40,6 +40,9 @@ public class NixPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -84,6 +87,24 @@ public class NixPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public NixPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public NixPackageUploadRequest republish(Boolean republish) {
@@ -152,6 +173,7 @@ public class NixPackageUploadRequest implements Serializable {
     NixPackageUploadRequest nixPackageUploadRequest = (NixPackageUploadRequest) o;
     return Objects.equals(this.narinfoFile, nixPackageUploadRequest.narinfoFile) &&
         Objects.equals(this.packageFile, nixPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, nixPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, nixPackageUploadRequest.republish) &&
         Objects.equals(this.tags, nixPackageUploadRequest.tags) &&
         Objects.equals(this.version, nixPackageUploadRequest.version);
@@ -159,7 +181,7 @@ public class NixPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(narinfoFile, packageFile, republish, tags, version);
+    return Objects.hash(narinfoFile, packageFile, releaseNotes, republish, tags, version);
   }
 
 
@@ -170,6 +192,7 @@ public class NixPackageUploadRequest implements Serializable {
     
     sb.append("    narinfoFile: ").append(toIndentedString(narinfoFile)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

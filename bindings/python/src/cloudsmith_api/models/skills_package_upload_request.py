@@ -33,41 +33,75 @@ class SkillsPackageUploadRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'changelog': 'str',
         'name': 'str',
         'package_file': 'str',
+        'release_notes': 'str',
         'republish': 'bool',
         'tags': 'str',
         'version': 'str'
     }
 
     attribute_map = {
+        'changelog': 'changelog',
         'name': 'name',
         'package_file': 'package_file',
+        'release_notes': 'release_notes',
         'republish': 'republish',
         'tags': 'tags',
         'version': 'version'
     }
 
-    def __init__(self, name=None, package_file=None, republish=None, tags=None, version=None, _configuration=None):  # noqa: E501
+    def __init__(self, changelog=None, name=None, package_file=None, release_notes=None, republish=None, tags=None, version=None, _configuration=None):  # noqa: E501
         """SkillsPackageUploadRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
+        self._changelog = None
         self._name = None
         self._package_file = None
+        self._release_notes = None
         self._republish = None
         self._tags = None
         self._version = None
         self.discriminator = None
 
+        if changelog is not None:
+            self.changelog = changelog
         self.name = name
         self.package_file = package_file
+        if release_notes is not None:
+            self.release_notes = release_notes
         if republish is not None:
             self.republish = republish
         if tags is not None:
             self.tags = tags
         self.version = version
+
+    @property
+    def changelog(self):
+        """Gets the changelog of this SkillsPackageUploadRequest.
+
+
+        :return: The changelog of this SkillsPackageUploadRequest.
+        :rtype: str
+        """
+        return self._changelog
+
+    @changelog.setter
+    def changelog(self, changelog):
+        """Sets the changelog of this SkillsPackageUploadRequest.
+
+
+        :param changelog: The changelog of this SkillsPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                changelog is not None and len(changelog) > 4096):
+            raise ValueError("Invalid value for `changelog`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._changelog = changelog
 
     @property
     def name(self):
@@ -128,6 +162,32 @@ class SkillsPackageUploadRequest(object):
             raise ValueError("Invalid value for `package_file`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._package_file = package_file
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this SkillsPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this SkillsPackageUploadRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this SkillsPackageUploadRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this SkillsPackageUploadRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     @property
     def republish(self):

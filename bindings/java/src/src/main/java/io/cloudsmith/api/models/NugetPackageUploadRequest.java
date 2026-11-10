@@ -37,6 +37,9 @@ public class NugetPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -63,6 +66,24 @@ public class NugetPackageUploadRequest implements Serializable {
 
   public void setPackageFile(String packageFile) {
     this.packageFile = packageFile;
+  }
+
+  public NugetPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public NugetPackageUploadRequest republish(Boolean republish) {
@@ -130,6 +151,7 @@ public class NugetPackageUploadRequest implements Serializable {
     }
     NugetPackageUploadRequest nugetPackageUploadRequest = (NugetPackageUploadRequest) o;
     return Objects.equals(this.packageFile, nugetPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, nugetPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, nugetPackageUploadRequest.republish) &&
         Objects.equals(this.symbolsFile, nugetPackageUploadRequest.symbolsFile) &&
         Objects.equals(this.tags, nugetPackageUploadRequest.tags);
@@ -137,7 +159,7 @@ public class NugetPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(packageFile, republish, symbolsFile, tags);
+    return Objects.hash(packageFile, releaseNotes, republish, symbolsFile, tags);
   }
 
 
@@ -147,6 +169,7 @@ public class NugetPackageUploadRequest implements Serializable {
     sb.append("class NugetPackageUploadRequest {\n");
     
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    symbolsFile: ").append(toIndentedString(symbolsFile)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

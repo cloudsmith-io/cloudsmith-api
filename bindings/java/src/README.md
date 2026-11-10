@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.42</version>
+  <version>2.0.43</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.42"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.43"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.42.jar`
+* `target/cloudsmith-api-2.0.43.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -720,6 +720,7 @@ Class | Method | HTTP request | Description
  - [PackageVulnerabilityPolicyEvaluationRequestRequest](docs/PackageVulnerabilityPolicyEvaluationRequestRequest.md)
  - [PackageVulnerabilityPolicyViolationLog](docs/PackageVulnerabilityPolicyViolationLog.md)
  - [PackageVulnerabilityPolicyViolationLogCursorPage](docs/PackageVulnerabilityPolicyViolationLogCursorPage.md)
+ - [PluginSkill](docs/PluginSkill.md)
  - [ProviderSettings](docs/ProviderSettings.md)
  - [ProviderSettingsWrite](docs/ProviderSettingsWrite.md)
  - [ProviderSettingsWriteRequest](docs/ProviderSettingsWriteRequest.md)

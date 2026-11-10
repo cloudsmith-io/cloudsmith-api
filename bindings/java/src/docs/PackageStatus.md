@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **isQuarantinable** | **Boolean** |  |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
 **isResyncable** | **Boolean** |  |  [optional]
-**isSecurityScannable** | **Boolean** |  |  [optional]
+**isSecurityScannable** | **Boolean** | Deprecated. Whether the package can be scanned for vulnerabilities. |  [optional]
 **isSyncAwaiting** | **Boolean** |  |  [optional]
 **isSyncCompleted** | **Boolean** |  |  [optional]
 **isSyncFailed** | **Boolean** |  |  [optional]

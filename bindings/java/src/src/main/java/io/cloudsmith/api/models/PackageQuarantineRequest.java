@@ -37,6 +37,9 @@ public class PackageQuarantineRequest implements Serializable {
   @SerializedName("release")
   private Boolean release = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("restore")
   private Boolean restore = null;
 
@@ -56,6 +59,24 @@ public class PackageQuarantineRequest implements Serializable {
 
   public void setRelease(Boolean release) {
     this.release = release;
+  }
+
+  public PackageQuarantineRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public PackageQuarantineRequest restore(Boolean restore) {
@@ -87,12 +108,13 @@ public class PackageQuarantineRequest implements Serializable {
     }
     PackageQuarantineRequest packageQuarantineRequest = (PackageQuarantineRequest) o;
     return Objects.equals(this.release, packageQuarantineRequest.release) &&
+        Objects.equals(this.releaseNotes, packageQuarantineRequest.releaseNotes) &&
         Objects.equals(this.restore, packageQuarantineRequest.restore);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(release, restore);
+    return Objects.hash(release, releaseNotes, restore);
   }
 
 
@@ -102,6 +124,7 @@ public class PackageQuarantineRequest implements Serializable {
     sb.append("class PackageQuarantineRequest {\n");
     
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    restore: ").append(toIndentedString(restore)).append("\n");
     sb.append("}");
     return sb.toString();

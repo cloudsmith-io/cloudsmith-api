@@ -43,6 +43,9 @@ public class VagrantPackageUploadRequest implements Serializable {
   @SerializedName("provider")
   private String provider = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -107,6 +110,24 @@ public class VagrantPackageUploadRequest implements Serializable {
 
   public void setProvider(String provider) {
     this.provider = provider;
+  }
+
+  public VagrantPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
   }
 
   public VagrantPackageUploadRequest republish(Boolean republish) {
@@ -177,6 +198,7 @@ public class VagrantPackageUploadRequest implements Serializable {
     return Objects.equals(this.name, vagrantPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, vagrantPackageUploadRequest.packageFile) &&
         Objects.equals(this.provider, vagrantPackageUploadRequest.provider) &&
+        Objects.equals(this.releaseNotes, vagrantPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, vagrantPackageUploadRequest.republish) &&
         Objects.equals(this.tags, vagrantPackageUploadRequest.tags) &&
         Objects.equals(this.version, vagrantPackageUploadRequest.version);
@@ -184,7 +206,7 @@ public class VagrantPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, packageFile, provider, republish, tags, version);
+    return Objects.hash(name, packageFile, provider, releaseNotes, republish, tags, version);
   }
 
 
@@ -196,6 +218,7 @@ public class VagrantPackageUploadRequest implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

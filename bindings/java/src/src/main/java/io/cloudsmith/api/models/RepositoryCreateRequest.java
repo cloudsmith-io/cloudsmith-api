@@ -683,6 +683,56 @@ public class RepositoryCreateRequest implements Serializable {
   @SerializedName("show_setup_all")
   private Boolean showSetupAll = null;
 
+  /**
+   * How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn&#39;t depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn&#39;t offer can still be downloaded by that version, but isn&#39;t offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting.
+   */
+  @JsonAdapter(SkillsVersioningEnum.Adapter.class)
+  public enum SkillsVersioningEnum {
+    SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK("SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK"),
+    
+    STRICT_SEMANTIC_VERSION("STRICT_SEMANTIC_VERSION");
+
+    private String value;
+
+    SkillsVersioningEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SkillsVersioningEnum fromValue(String text) {
+      for (SkillsVersioningEnum b : SkillsVersioningEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SkillsVersioningEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SkillsVersioningEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SkillsVersioningEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SkillsVersioningEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("skills_versioning")
+  private SkillsVersioningEnum skillsVersioning = SkillsVersioningEnum.SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK;
+
   @SerializedName("slug")
   private String slug = null;
 
@@ -1474,6 +1524,24 @@ public class RepositoryCreateRequest implements Serializable {
     this.showSetupAll = showSetupAll;
   }
 
+  public RepositoryCreateRequest skillsVersioning(SkillsVersioningEnum skillsVersioning) {
+    this.skillsVersioning = skillsVersioning;
+    return this;
+  }
+
+   /**
+   * How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn&#39;t depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn&#39;t offer can still be downloaded by that version, but isn&#39;t offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting.
+   * @return skillsVersioning
+  **/
+  @ApiModelProperty(value = "How skills from GitHub upstreams are versioned. SEMANTIC_VERSION_WITH_COMMIT_SHA_FALLBACK offers a skill by the semantic version its SKILL.md declares, else by its git commit SHA. STRICT_SEMANTIC_VERSION only offers skills that declare a semantic version. Indexing doesn't depend on this setting, so a change takes effect at once. A skill cached under a version the setting doesn't offer can still be downloaded by that version, but isn't offered as the latest. ClawHub skills, uploaded skills and plugins keep their versions whatever the setting.")
+  public SkillsVersioningEnum getSkillsVersioning() {
+    return skillsVersioning;
+  }
+
+  public void setSkillsVersioning(SkillsVersioningEnum skillsVersioning) {
+    this.skillsVersioning = skillsVersioning;
+  }
+
   public RepositoryCreateRequest slug(String slug) {
     this.slug = slug;
     return this;
@@ -1736,6 +1804,7 @@ public class RepositoryCreateRequest implements Serializable {
         Objects.equals(this.scanOwn, repositoryCreateRequest.scanOwn) &&
         Objects.equals(this.scanPackages, repositoryCreateRequest.scanPackages) &&
         Objects.equals(this.showSetupAll, repositoryCreateRequest.showSetupAll) &&
+        Objects.equals(this.skillsVersioning, repositoryCreateRequest.skillsVersioning) &&
         Objects.equals(this.slug, repositoryCreateRequest.slug) &&
         Objects.equals(this.storageRegion, repositoryCreateRequest.storageRegion) &&
         Objects.equals(this.strictNpmValidation, repositoryCreateRequest.strictNpmValidation) &&
@@ -1752,7 +1821,7 @@ public class RepositoryCreateRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadcastState, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, genericPackageIndexEnabled, indexFiles, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, npmUpstreamTagsTakePrecedence, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, slug, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
+    return Objects.hash(broadcastState, contentKind, contextualAuthRealm, copyOwn, copyPackages, cosignSigningEnabled, defaultPrivilege, deleteOwn, deletePackages, description, distributes, dockerRefreshTokensEnabled, enforceEula, genericPackageIndexEnabled, indexFiles, isPublicHidden, manageEntitlementsPrivilege, moveOwn, movePackages, name, npmUpstreamTagsTakePrecedence, nugetNativeSigningEnabled, openSourceLicense, openSourceProjectUrl, proxyNpmjs, proxyPypi, rawPackageIndexEnabled, rawPackageIndexSignaturesEnabled, replacePackages, replacePackagesByDefault, repositoryTypeStr, resyncOwn, resyncPackages, scanOwn, scanPackages, showSetupAll, skillsVersioning, slug, storageRegion, strictNpmValidation, tagPreReleasesAsLatest, useDebianLabels, useDefaultCargoUpstream, useEntitlementsPrivilege, useNoarchPackages, useSourcePackages, useVulnerabilityScanning, userEntitlementsEnabled, viewStatistics);
   }
 
 
@@ -1797,6 +1866,7 @@ public class RepositoryCreateRequest implements Serializable {
     sb.append("    scanOwn: ").append(toIndentedString(scanOwn)).append("\n");
     sb.append("    scanPackages: ").append(toIndentedString(scanPackages)).append("\n");
     sb.append("    showSetupAll: ").append(toIndentedString(showSetupAll)).append("\n");
+    sb.append("    skillsVersioning: ").append(toIndentedString(skillsVersioning)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    storageRegion: ").append(toIndentedString(storageRegion)).append("\n");
     sb.append("    strictNpmValidation: ").append(toIndentedString(strictNpmValidation)).append("\n");

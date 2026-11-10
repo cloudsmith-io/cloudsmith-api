@@ -35,16 +35,18 @@ class PackageTagRequest(object):
     swagger_types = {
         'action': 'str',
         'is_immutable': 'bool',
+        'release_notes': 'str',
         'tags': 'list[str]'
     }
 
     attribute_map = {
         'action': 'action',
         'is_immutable': 'is_immutable',
+        'release_notes': 'release_notes',
         'tags': 'tags'
     }
 
-    def __init__(self, action='Add', is_immutable=False, tags=None, _configuration=None):  # noqa: E501
+    def __init__(self, action='Add', is_immutable=False, release_notes=None, tags=None, _configuration=None):  # noqa: E501
         """PackageTagRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
@@ -52,6 +54,7 @@ class PackageTagRequest(object):
 
         self._action = None
         self._is_immutable = None
+        self._release_notes = None
         self._tags = None
         self.discriminator = None
 
@@ -59,6 +62,8 @@ class PackageTagRequest(object):
             self.action = action
         if is_immutable is not None:
             self.is_immutable = is_immutable
+        if release_notes is not None:
+            self.release_notes = release_notes
         if tags is not None:
             self.tags = tags
 
@@ -112,6 +117,32 @@ class PackageTagRequest(object):
         """
 
         self._is_immutable = is_immutable
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this PackageTagRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this PackageTagRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this PackageTagRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this PackageTagRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     @property
     def tags(self):

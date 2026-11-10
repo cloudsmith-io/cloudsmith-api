@@ -33,23 +33,28 @@ class PackageMoveRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'destination': 'str'
+        'destination': 'str',
+        'release_notes': 'str'
     }
 
     attribute_map = {
-        'destination': 'destination'
+        'destination': 'destination',
+        'release_notes': 'release_notes'
     }
 
-    def __init__(self, destination=None, _configuration=None):  # noqa: E501
+    def __init__(self, destination=None, release_notes=None, _configuration=None):  # noqa: E501
         """PackageMoveRequest - a model defined in Swagger"""  # noqa: E501
         if _configuration is None:
             _configuration = Configuration()
         self._configuration = _configuration
 
         self._destination = None
+        self._release_notes = None
         self.discriminator = None
 
         self.destination = destination
+        if release_notes is not None:
+            self.release_notes = release_notes
 
     @property
     def destination(self):
@@ -78,6 +83,32 @@ class PackageMoveRequest(object):
             raise ValueError("Invalid value for `destination`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._destination = destination
+
+    @property
+    def release_notes(self):
+        """Gets the release_notes of this PackageMoveRequest.
+
+        The release notes for this package (if any).
+
+        :return: The release_notes of this PackageMoveRequest.
+        :rtype: str
+        """
+        return self._release_notes
+
+    @release_notes.setter
+    def release_notes(self, release_notes):
+        """Sets the release_notes of this PackageMoveRequest.
+
+        The release notes for this package (if any).
+
+        :param release_notes: The release_notes of this PackageMoveRequest.
+        :type: str
+        """
+        if (self._configuration.client_side_validation and
+                release_notes is not None and len(release_notes) > 4096):
+            raise ValueError("Invalid value for `release_notes`, length must be less than or equal to `4096`")  # noqa: E501
+
+        self._release_notes = release_notes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -55,6 +55,9 @@ public class ConanPackageUploadRequest implements Serializable {
   @SerializedName("package_file")
   private String packageFile = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("republish")
   private Boolean republish = null;
 
@@ -194,6 +197,24 @@ public class ConanPackageUploadRequest implements Serializable {
     this.packageFile = packageFile;
   }
 
+  public ConanPackageUploadRequest releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
   public ConanPackageUploadRequest republish(Boolean republish) {
     this.republish = republish;
     return this;
@@ -265,6 +286,7 @@ public class ConanPackageUploadRequest implements Serializable {
         Objects.equals(this.metadataFile, conanPackageUploadRequest.metadataFile) &&
         Objects.equals(this.name, conanPackageUploadRequest.name) &&
         Objects.equals(this.packageFile, conanPackageUploadRequest.packageFile) &&
+        Objects.equals(this.releaseNotes, conanPackageUploadRequest.releaseNotes) &&
         Objects.equals(this.republish, conanPackageUploadRequest.republish) &&
         Objects.equals(this.tags, conanPackageUploadRequest.tags) &&
         Objects.equals(this.version, conanPackageUploadRequest.version);
@@ -272,7 +294,7 @@ public class ConanPackageUploadRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, republish, tags, version);
+    return Objects.hash(conanChannel, conanPrefix, infoFile, manifestFile, metadataFile, name, packageFile, releaseNotes, republish, tags, version);
   }
 
 
@@ -288,6 +310,7 @@ public class ConanPackageUploadRequest implements Serializable {
     sb.append("    metadataFile: ").append(toIndentedString(metadataFile)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    packageFile: ").append(toIndentedString(packageFile)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    republish: ").append(toIndentedString(republish)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

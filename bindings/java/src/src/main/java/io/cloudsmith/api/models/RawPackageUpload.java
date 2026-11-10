@@ -200,6 +200,9 @@ public class RawPackageUpload implements Serializable {
   @SerializedName("release")
   private String release = null;
 
+  @SerializedName("release_notes")
+  private String releaseNotes = null;
+
   @SerializedName("repository")
   private String repository = null;
 
@@ -213,7 +216,7 @@ public class RawPackageUpload implements Serializable {
   private OffsetDateTime securityScanStartedAt = null;
 
   /**
-   * Gets or Sets securityScanStatus
+   * Deprecated. The status of security scanning for the package.
    */
   @JsonAdapter(SecurityScanStatusEnum.Adapter.class)
   public enum SecurityScanStatusEnum {
@@ -708,10 +711,10 @@ public class RawPackageUpload implements Serializable {
   }
 
    /**
-   * Get isSecurityScannable
+   * Deprecated. Whether the package can be scanned for vulnerabilities.
    * @return isSecurityScannable
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. Whether the package can be scanned for vulnerabilities.")
   public Boolean isIsSecurityScannable() {
     return isSecurityScannable;
   }
@@ -878,6 +881,24 @@ public class RawPackageUpload implements Serializable {
     return release;
   }
 
+  public RawPackageUpload releaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+    return this;
+  }
+
+   /**
+   * The release notes for this package (if any).
+   * @return releaseNotes
+  **/
+ @Size(max=4096)  @ApiModelProperty(value = "The release notes for this package (if any).")
+  public String getReleaseNotes() {
+    return releaseNotes;
+  }
+
+  public void setReleaseNotes(String releaseNotes) {
+    this.releaseNotes = releaseNotes;
+  }
+
    /**
    * Get repository
    * @return repository
@@ -897,40 +918,40 @@ public class RawPackageUpload implements Serializable {
   }
 
    /**
-   * The datetime the security scanning was completed.
+   * Deprecated. The datetime the security scanning was completed.
    * @return securityScanCompletedAt
   **/
   @Valid
-  @ApiModelProperty(value = "The datetime the security scanning was completed.")
+  @ApiModelProperty(value = "Deprecated. The datetime the security scanning was completed.")
   public OffsetDateTime getSecurityScanCompletedAt() {
     return securityScanCompletedAt;
   }
 
    /**
-   * The datetime the security scanning was started.
+   * Deprecated. The datetime the security scanning was started.
    * @return securityScanStartedAt
   **/
   @Valid
-  @ApiModelProperty(value = "The datetime the security scanning was started.")
+  @ApiModelProperty(value = "Deprecated. The datetime the security scanning was started.")
   public OffsetDateTime getSecurityScanStartedAt() {
     return securityScanStartedAt;
   }
 
    /**
-   * Get securityScanStatus
+   * Deprecated. The status of security scanning for the package.
    * @return securityScanStatus
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. The status of security scanning for the package.")
   public SecurityScanStatusEnum getSecurityScanStatus() {
     return securityScanStatus;
   }
 
    /**
-   * The datetime the security scanning status was updated.
+   * Deprecated. The datetime the security scanning status was updated.
    * @return securityScanStatusUpdatedAt
   **/
   @Valid
-  @ApiModelProperty(value = "The datetime the security scanning status was updated.")
+  @ApiModelProperty(value = "Deprecated. The datetime the security scanning status was updated.")
   public OffsetDateTime getSecurityScanStatusUpdatedAt() {
     return securityScanStatusUpdatedAt;
   }
@@ -1249,10 +1270,10 @@ public class RawPackageUpload implements Serializable {
   }
 
    /**
-   * Get vulnerabilityScanResultsUrl
+   * Deprecated. The URL of the package&#39;s vulnerability scan results.
    * @return vulnerabilityScanResultsUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. The URL of the package's vulnerability scan results.")
   public String getVulnerabilityScanResultsUrl() {
     return vulnerabilityScanResultsUrl;
   }
@@ -1319,6 +1340,7 @@ public class RawPackageUpload implements Serializable {
         Objects.equals(this.policyViolated, rawPackageUpload.policyViolated) &&
         Objects.equals(this.rawLicense, rawPackageUpload.rawLicense) &&
         Objects.equals(this.release, rawPackageUpload.release) &&
+        Objects.equals(this.releaseNotes, rawPackageUpload.releaseNotes) &&
         Objects.equals(this.repository, rawPackageUpload.repository) &&
         Objects.equals(this.repositoryUrl, rawPackageUpload.repositoryUrl) &&
         Objects.equals(this.securityScanCompletedAt, rawPackageUpload.securityScanCompletedAt) &&
@@ -1360,7 +1382,7 @@ public class RawPackageUpload implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, displaySource, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
+    return Objects.hash(architectures, cdnUrl, checksumMd5, checksumSha1, checksumSha256, checksumSha512, dependenciesChecksumMd5, dependenciesUrl, description, displayName, displaySource, distro, distroVersion, downloads, epoch, extension, filename, files, format, formatUrl, freeableStorage, fullyQualifiedName, identifierPerm, identifiers, indexed, isCancellable, isCopyable, isDeleteable, isDownloadable, isHidden, isMoveable, isQuarantinable, isQuarantined, isResyncable, isSecurityScannable, isSyncAwaiting, isSyncCompleted, isSyncFailed, isSyncInFlight, isSyncInProgress, license, name, namespace, namespaceUrl, numFiles, originRepository, originRepositoryUrl, osiApproved, packageType, policyViolated, rawLicense, release, releaseNotes, repository, repositoryUrl, securityScanCompletedAt, securityScanStartedAt, securityScanStatus, securityScanStatusUpdatedAt, selfHtmlUrl, selfUrl, selfWebappUrl, signatureUrl, size, slug, slugPerm, spdxLicense, stage, stageStr, stageUpdatedAt, status, statusReason, statusStr, statusUpdatedAt, statusUrl, storePath, subtype, summary, syncFinishedAt, syncProgress, tagsAutomatic, tagsImmutable, tagsStatic, typeDisplay, uploadedAt, uploader, uploaderUrl, version, versionOrig, vulnerabilityScanResultsUrl);
   }
 
 
@@ -1421,6 +1443,7 @@ public class RawPackageUpload implements Serializable {
     sb.append("    policyViolated: ").append(toIndentedString(policyViolated)).append("\n");
     sb.append("    rawLicense: ").append(toIndentedString(rawLicense)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
+    sb.append("    releaseNotes: ").append(toIndentedString(releaseNotes)).append("\n");
     sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
     sb.append("    securityScanCompletedAt: ").append(toIndentedString(securityScanCompletedAt)).append("\n");

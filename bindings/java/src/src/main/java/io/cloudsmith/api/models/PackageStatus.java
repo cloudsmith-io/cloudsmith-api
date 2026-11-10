@@ -192,10 +192,10 @@ public class PackageStatus implements Serializable {
   }
 
    /**
-   * Get isSecurityScannable
+   * Deprecated. Whether the package can be scanned for vulnerabilities.
    * @return isSecurityScannable
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Deprecated. Whether the package can be scanned for vulnerabilities.")
   public Boolean isIsSecurityScannable() {
     return isSecurityScannable;
   }
