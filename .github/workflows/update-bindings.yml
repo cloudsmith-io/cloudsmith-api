@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up tools
-        uses: jdx/mise-action@82a612c5ab8bcda7cc5db6b7e81a8e7584c3dc6e # v5.2.3
+        uses: jdx/mise-action@b44d12e7d0d8ee7461bb893e1b1993500433185b # v5.2.7
 
       - name: Generate bindings
         run: mise run build
@@ -123,7 +123,7 @@ jobs:
       - name: Create pull request
         if: steps.detect.outputs.changed == 'true'
         id: pull-request
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: peter-evans/create-pull-request@15733dbdfeedb4f7fdb73d13c6f5ac83b710fab8 # v8.1.2
         with:
           token: ${{ secrets.CLOUDSMITH_BOT_TOKEN }}
           author: cloudsmith-bot <${{ secrets.CLOUDSMITH_BOT_EMAIL }}>
