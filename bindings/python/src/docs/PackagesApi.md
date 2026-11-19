@@ -43,7 +43,7 @@ Method | HTTP request | Description
 [**packages_upload_raw**](PackagesApi.md#packages_upload_raw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**packages_upload_rpm**](PackagesApi.md#packages_upload_rpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 [**packages_upload_ruby**](PackagesApi.md#packages_upload_ruby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
-[**packages_upload_skills**](PackagesApi.md#packages_upload_skills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI Skills package
+[**packages_upload_skills**](PackagesApi.md#packages_upload_skills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI skills package
 [**packages_upload_swift**](PackagesApi.md#packages_upload_swift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 [**packages_upload_terraform**](PackagesApi.md#packages_upload_terraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 [**packages_upload_vagrant**](PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
@@ -74,7 +74,7 @@ Method | HTTP request | Description
 [**packages_validate_upload_raw**](PackagesApi.md#packages_validate_upload_raw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**packages_validate_upload_rpm**](PackagesApi.md#packages_validate_upload_rpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 [**packages_validate_upload_ruby**](PackagesApi.md#packages_validate_upload_ruby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
-[**packages_validate_upload_skills**](PackagesApi.md#packages_validate_upload_skills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI Skills package
+[**packages_validate_upload_skills**](PackagesApi.md#packages_validate_upload_skills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI skills package
 [**packages_validate_upload_swift**](PackagesApi.md#packages_validate_upload_swift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 [**packages_validate_upload_terraform**](PackagesApi.md#packages_validate_upload_terraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 [**packages_validate_upload_vagrant**](PackagesApi.md#packages_validate_upload_vagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
@@ -2537,9 +2537,9 @@ Name | Type | Description  | Notes
 # **packages_upload_skills**
 > SkillsPackageUpload packages_upload_skills(owner, repo, data=data)
 
-Create a new AI Skills package
+Create a new AI skills package
 
-Create a new AI Skills package
+Create a new AI skills package
 
 ### Example
 ```python
@@ -2566,7 +2566,7 @@ repo = 'repo_example' # str |
 data = cloudsmith_api.SkillsPackageUploadRequest() # SkillsPackageUploadRequest |  (optional)
 
 try:
-    # Create a new AI Skills package
+    # Create a new AI skills package
     api_response = api_instance.packages_upload_skills(owner, repo, data=data)
     pprint(api_response)
 except ApiException as e:
@@ -4433,9 +4433,9 @@ void (empty response body)
 # **packages_validate_upload_skills**
 > packages_validate_upload_skills(owner, repo, data=data)
 
-Validate parameters for create AI Skills package
+Validate parameters for create AI skills package
 
-Validate parameters for create AI Skills package
+Validate parameters for create AI skills package
 
 ### Example
 ```python
@@ -4462,7 +4462,7 @@ repo = 'repo_example' # str |
 data = cloudsmith_api.SkillsPackageUploadRequest() # SkillsPackageUploadRequest |  (optional)
 
 try:
-    # Validate parameters for create AI Skills package
+    # Validate parameters for create AI skills package
     api_instance.packages_validate_upload_skills(owner, repo, data=data)
 except ApiException as e:
     print("Exception when calling PackagesApi->packages_validate_upload_skills: %s\n" % e)

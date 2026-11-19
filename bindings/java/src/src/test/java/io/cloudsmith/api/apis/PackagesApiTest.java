@@ -829,9 +829,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Create a new AI Skills package
+     * Create a new AI skills package
      *
-     * Create a new AI Skills package
+     * Create a new AI skills package
      *
      * @throws Exception
      *          if the Api call fails
@@ -1387,9 +1387,9 @@ public class PackagesApiTest {
     }
     
     /**
-     * Validate parameters for create AI Skills package
+     * Validate parameters for create AI skills package
      *
-     * Validate parameters for create AI Skills package
+     * Validate parameters for create AI skills package
      *
      * @throws Exception
      *          if the Api call fails

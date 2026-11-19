@@ -305,7 +305,7 @@ class TestPackagesApi(unittest.TestCase):
     def test_packages_upload_skills(self):
         """Test case for packages_upload_skills
 
-        Create a new AI Skills package  # noqa: E501
+        Create a new AI skills package  # noqa: E501
         """
         pass
 
@@ -522,7 +522,7 @@ class TestPackagesApi(unittest.TestCase):
     def test_packages_validate_upload_skills(self):
         """Test case for packages_validate_upload_skills
 
-        Validate parameters for create AI Skills package  # noqa: E501
+        Validate parameters for create AI skills package  # noqa: E501
         """
         pass
 

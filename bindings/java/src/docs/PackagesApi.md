@@ -43,7 +43,7 @@ Method | HTTP request | Description
 [**packagesUploadRaw**](PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**packagesUploadRpm**](PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 [**packagesUploadRuby**](PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
-[**packagesUploadSkills**](PackagesApi.md#packagesUploadSkills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI Skills package
+[**packagesUploadSkills**](PackagesApi.md#packagesUploadSkills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI skills package
 [**packagesUploadSwift**](PackagesApi.md#packagesUploadSwift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 [**packagesUploadTerraform**](PackagesApi.md#packagesUploadTerraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 [**packagesUploadVagrant**](PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
@@ -74,7 +74,7 @@ Method | HTTP request | Description
 [**packagesValidateUploadRaw**](PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**packagesValidateUploadRpm**](PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 [**packagesValidateUploadRuby**](PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
-[**packagesValidateUploadSkills**](PackagesApi.md#packagesValidateUploadSkills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI Skills package
+[**packagesValidateUploadSkills**](PackagesApi.md#packagesValidateUploadSkills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI skills package
 [**packagesValidateUploadSwift**](PackagesApi.md#packagesValidateUploadSwift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 [**packagesValidateUploadTerraform**](PackagesApi.md#packagesValidateUploadTerraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 [**packagesValidateUploadVagrant**](PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
@@ -2616,9 +2616,9 @@ Name | Type | Description  | Notes
 # **packagesUploadSkills**
 > SkillsPackageUpload packagesUploadSkills(owner, repo, data)
 
-Create a new AI Skills package
+Create a new AI skills package
 
-Create a new AI Skills package
+Create a new AI skills package
 
 ### Example
 ```java
@@ -4574,9 +4574,9 @@ null (empty response body)
 # **packagesValidateUploadSkills**
 > packagesValidateUploadSkills(owner, repo, data)
 
-Validate parameters for create AI Skills package
+Validate parameters for create AI skills package
 
-Validate parameters for create AI Skills package
+Validate parameters for create AI skills package
 
 ### Example
 ```java
