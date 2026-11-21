@@ -2531,8 +2531,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Create a new AI Skills package
-    # Create a new AI Skills package
+    # Create a new AI skills package
+    # Create a new AI skills package
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -2543,8 +2543,8 @@ module CloudsmithApi
       data
     end
 
-    # Create a new AI Skills package
-    # Create a new AI Skills package
+    # Create a new AI skills package
+    # Create a new AI skills package
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -4427,8 +4427,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Validate parameters for create AI Skills package
-    # Validate parameters for create AI Skills package
+    # Validate parameters for create AI skills package
+    # Validate parameters for create AI skills package
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters
@@ -4439,8 +4439,8 @@ module CloudsmithApi
       nil
     end
 
-    # Validate parameters for create AI Skills package
-    # Validate parameters for create AI Skills package
+    # Validate parameters for create AI skills package
+    # Validate parameters for create AI skills package
     # @param owner 
     # @param repo 
     # @param [Hash] opts the optional parameters

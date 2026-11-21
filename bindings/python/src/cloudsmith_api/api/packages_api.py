@@ -4479,9 +4479,9 @@ class PackagesApi(object):
             collection_formats=collection_formats)
 
     def packages_upload_skills(self, owner, repo, **kwargs):  # noqa: E501
-        """Create a new AI Skills package  # noqa: E501
+        """Create a new AI skills package  # noqa: E501
 
-        Create a new AI Skills package  # noqa: E501
+        Create a new AI skills package  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_upload_skills(owner, repo, async_req=True)
@@ -4503,9 +4503,9 @@ class PackagesApi(object):
             return data
 
     def packages_upload_skills_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
-        """Create a new AI Skills package  # noqa: E501
+        """Create a new AI skills package  # noqa: E501
 
-        Create a new AI Skills package  # noqa: E501
+        Create a new AI skills package  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_upload_skills_with_http_info(owner, repo, async_req=True)
@@ -7920,9 +7920,9 @@ class PackagesApi(object):
             collection_formats=collection_formats)
 
     def packages_validate_upload_skills(self, owner, repo, **kwargs):  # noqa: E501
-        """Validate parameters for create AI Skills package  # noqa: E501
+        """Validate parameters for create AI skills package  # noqa: E501
 
-        Validate parameters for create AI Skills package  # noqa: E501
+        Validate parameters for create AI skills package  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_validate_upload_skills(owner, repo, async_req=True)
@@ -7944,9 +7944,9 @@ class PackagesApi(object):
             return data
 
     def packages_validate_upload_skills_with_http_info(self, owner, repo, **kwargs):  # noqa: E501
-        """Validate parameters for create AI Skills package  # noqa: E501
+        """Validate parameters for create AI skills package  # noqa: E501
 
-        Validate parameters for create AI Skills package  # noqa: E501
+        Validate parameters for create AI skills package  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.packages_validate_upload_skills_with_http_info(owner, repo, async_req=True)

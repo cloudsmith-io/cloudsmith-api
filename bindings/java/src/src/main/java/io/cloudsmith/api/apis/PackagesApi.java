@@ -6157,8 +6157,8 @@ public class PackagesApi {
     }
 
     /**
-     * Create a new AI Skills package
-     * Create a new AI Skills package
+     * Create a new AI skills package
+     * Create a new AI skills package
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -6171,8 +6171,8 @@ public class PackagesApi {
     }
 
     /**
-     * Create a new AI Skills package
-     * Create a new AI Skills package
+     * Create a new AI skills package
+     * Create a new AI skills package
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -6186,8 +6186,8 @@ public class PackagesApi {
     }
 
     /**
-     * Create a new AI Skills package (asynchronously)
-     * Create a new AI Skills package
+     * Create a new AI skills package (asynchronously)
+     * Create a new AI skills package
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -10672,8 +10672,8 @@ public class PackagesApi {
     }
 
     /**
-     * Validate parameters for create AI Skills package
-     * Validate parameters for create AI Skills package
+     * Validate parameters for create AI skills package
+     * Validate parameters for create AI skills package
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -10684,8 +10684,8 @@ public class PackagesApi {
     }
 
     /**
-     * Validate parameters for create AI Skills package
-     * Validate parameters for create AI Skills package
+     * Validate parameters for create AI skills package
+     * Validate parameters for create AI skills package
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)
@@ -10698,8 +10698,8 @@ public class PackagesApi {
     }
 
     /**
-     * Validate parameters for create AI Skills package (asynchronously)
-     * Validate parameters for create AI Skills package
+     * Validate parameters for create AI skills package (asynchronously)
+     * Validate parameters for create AI skills package
      * @param owner  (required)
      * @param repo  (required)
      * @param data  (optional)

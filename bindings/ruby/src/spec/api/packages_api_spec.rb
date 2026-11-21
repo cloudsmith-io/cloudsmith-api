@@ -597,8 +597,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_upload_skills
-  # Create a new AI Skills package
-  # Create a new AI Skills package
+  # Create a new AI skills package
+  # Create a new AI skills package
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
@@ -1031,8 +1031,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_validate_upload_skills
-  # Validate parameters for create AI Skills package
-  # Validate parameters for create AI Skills package
+  # Validate parameters for create AI skills package
+  # Validate parameters for create AI skills package
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters

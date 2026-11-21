@@ -2268,8 +2268,8 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_upstream_skills_create
-  # Create an AI Skills upstream config for this repository.
-  # Create an AI Skills upstream config for this repository.
+  # Create an AI skills upstream config for this repository.
+  # Create an AI skills upstream config for this repository.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
@@ -2282,8 +2282,8 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_upstream_skills_delete
-  # Delete an AI Skills upstream config for this repository.
-  # Delete an AI Skills upstream config for this repository.
+  # Delete an AI skills upstream config for this repository.
+  # Delete an AI skills upstream config for this repository.
   # @param owner 
   # @param identifier 
   # @param slug_perm 
@@ -2296,8 +2296,8 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_upstream_skills_list
-  # List AI Skills upstream configs for this repository.
-  # List AI Skills upstream configs for this repository.
+  # List AI skills upstream configs for this repository.
+  # List AI skills upstream configs for this repository.
   # @param owner 
   # @param identifier 
   # @param [Hash] opts the optional parameters
@@ -2311,8 +2311,8 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_upstream_skills_partial_update
-  # Partially update an AI Skills upstream config for this repository.
-  # Partially update an AI Skills upstream config for this repository.
+  # Partially update an AI skills upstream config for this repository.
+  # Partially update an AI skills upstream config for this repository.
   # @param owner 
   # @param identifier 
   # @param slug_perm 
@@ -2326,8 +2326,8 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_upstream_skills_read
-  # Retrieve an AI Skills upstream config for this repository.
-  # Retrieve an AI Skills upstream config for this repository.
+  # Retrieve an AI skills upstream config for this repository.
+  # Retrieve an AI skills upstream config for this repository.
   # @param owner 
   # @param identifier 
   # @param slug_perm 
@@ -2340,8 +2340,8 @@ describe 'ReposApi' do
   end
 
   # unit tests for repos_upstream_skills_update
-  # Update an AI Skills upstream config for this repository.
-  # Update an AI Skills upstream config for this repository.
+  # Update an AI skills upstream config for this repository.
+  # Update an AI skills upstream config for this repository.
   # @param owner 
   # @param identifier 
   # @param slug_perm 
