@@ -305,7 +305,7 @@ class TestPackagesApi(unittest.TestCase):
     def test_packages_upload_skills(self):
         """Test case for packages_upload_skills
 
-        Create a new AI Skills package  # noqa: E501
+        Create a new AI skills package  # noqa: E501
         """
         pass
 
@@ -327,13 +327,6 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_upload_vagrant
 
         Create a new Vagrant package  # noqa: E501
-        """
-        pass
-
-    def test_packages_upload_vsx(self):
-        """Test case for packages_upload_vsx
-
-        Create a new VSX package  # noqa: E501
         """
         pass
 
@@ -522,7 +515,7 @@ class TestPackagesApi(unittest.TestCase):
     def test_packages_validate_upload_skills(self):
         """Test case for packages_validate_upload_skills
 
-        Validate parameters for create AI Skills package  # noqa: E501
+        Validate parameters for create AI skills package  # noqa: E501
         """
         pass
 
@@ -544,13 +537,6 @@ class TestPackagesApi(unittest.TestCase):
         """Test case for packages_validate_upload_vagrant
 
         Validate parameters for create Vagrant package  # noqa: E501
-        """
-        pass
-
-    def test_packages_validate_upload_vsx(self):
-        """Test case for packages_validate_upload_vsx
-
-        Validate parameters for create VSX package  # noqa: E501
         """
         pass
 

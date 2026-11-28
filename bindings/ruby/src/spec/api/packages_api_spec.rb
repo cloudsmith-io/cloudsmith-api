@@ -597,8 +597,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_upload_skills
-  # Create a new AI Skills package
-  # Create a new AI Skills package
+  # Create a new AI skills package
+  # Create a new AI skills package
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
@@ -647,20 +647,6 @@ describe 'PackagesApi' do
   # @option opts [VagrantPackageUploadRequest] :data 
   # @return [VagrantPackageUpload]
   describe 'packages_upload_vagrant test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for packages_upload_vsx
-  # Create a new VSX package
-  # Create a new VSX package
-  # @param owner 
-  # @param repo 
-  # @param [Hash] opts the optional parameters
-  # @option opts [VsxPackageUploadRequest] :data 
-  # @return [VsxPackageUpload]
-  describe 'packages_upload_vsx test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -1031,8 +1017,8 @@ describe 'PackagesApi' do
   end
 
   # unit tests for packages_validate_upload_skills
-  # Validate parameters for create AI Skills package
-  # Validate parameters for create AI Skills package
+  # Validate parameters for create AI skills package
+  # Validate parameters for create AI skills package
   # @param owner 
   # @param repo 
   # @param [Hash] opts the optional parameters
@@ -1081,20 +1067,6 @@ describe 'PackagesApi' do
   # @option opts [VagrantPackageUploadRequest] :data 
   # @return [nil]
   describe 'packages_validate_upload_vagrant test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for packages_validate_upload_vsx
-  # Validate parameters for create VSX package
-  # Validate parameters for create VSX package
-  # @param owner 
-  # @param repo 
-  # @param [Hash] opts the optional parameters
-  # @option opts [VsxPackageUploadRequest] :data 
-  # @return [nil]
-  describe 'packages_validate_upload_vsx test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

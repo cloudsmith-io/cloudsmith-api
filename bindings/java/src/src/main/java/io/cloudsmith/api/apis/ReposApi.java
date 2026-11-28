@@ -23771,8 +23771,8 @@ public class ReposApi {
     }
 
     /**
-     * Create an AI Skills upstream config for this repository.
-     * Create an AI Skills upstream config for this repository.
+     * Create an AI skills upstream config for this repository.
+     * Create an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
@@ -23785,8 +23785,8 @@ public class ReposApi {
     }
 
     /**
-     * Create an AI Skills upstream config for this repository.
-     * Create an AI Skills upstream config for this repository.
+     * Create an AI skills upstream config for this repository.
+     * Create an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
@@ -23800,8 +23800,8 @@ public class ReposApi {
     }
 
     /**
-     * Create an AI Skills upstream config for this repository. (asynchronously)
-     * Create an AI Skills upstream config for this repository.
+     * Create an AI skills upstream config for this repository. (asynchronously)
+     * Create an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param data  (optional)
@@ -23921,8 +23921,8 @@ public class ReposApi {
     }
 
     /**
-     * Delete an AI Skills upstream config for this repository.
-     * Delete an AI Skills upstream config for this repository.
+     * Delete an AI skills upstream config for this repository.
+     * Delete an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -23933,8 +23933,8 @@ public class ReposApi {
     }
 
     /**
-     * Delete an AI Skills upstream config for this repository.
-     * Delete an AI Skills upstream config for this repository.
+     * Delete an AI skills upstream config for this repository.
+     * Delete an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -23947,8 +23947,8 @@ public class ReposApi {
     }
 
     /**
-     * Delete an AI Skills upstream config for this repository. (asynchronously)
-     * Delete an AI Skills upstream config for this repository.
+     * Delete an AI skills upstream config for this repository. (asynchronously)
+     * Delete an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24071,8 +24071,8 @@ public class ReposApi {
     }
 
     /**
-     * List AI Skills upstream configs for this repository.
-     * List AI Skills upstream configs for this repository.
+     * List AI skills upstream configs for this repository.
+     * List AI skills upstream configs for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -24086,8 +24086,8 @@ public class ReposApi {
     }
 
     /**
-     * List AI Skills upstream configs for this repository.
-     * List AI Skills upstream configs for this repository.
+     * List AI skills upstream configs for this repository.
+     * List AI skills upstream configs for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -24102,8 +24102,8 @@ public class ReposApi {
     }
 
     /**
-     * List AI Skills upstream configs for this repository. (asynchronously)
-     * List AI Skills upstream configs for this repository.
+     * List AI skills upstream configs for this repository. (asynchronously)
+     * List AI skills upstream configs for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param page A page number within the paginated result set. (optional)
@@ -24225,8 +24225,8 @@ public class ReposApi {
     }
 
     /**
-     * Partially update an AI Skills upstream config for this repository.
-     * Partially update an AI Skills upstream config for this repository.
+     * Partially update an AI skills upstream config for this repository.
+     * Partially update an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24240,8 +24240,8 @@ public class ReposApi {
     }
 
     /**
-     * Partially update an AI Skills upstream config for this repository.
-     * Partially update an AI Skills upstream config for this repository.
+     * Partially update an AI skills upstream config for this repository.
+     * Partially update an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24256,8 +24256,8 @@ public class ReposApi {
     }
 
     /**
-     * Partially update an AI Skills upstream config for this repository. (asynchronously)
-     * Partially update an AI Skills upstream config for this repository.
+     * Partially update an AI skills upstream config for this repository. (asynchronously)
+     * Partially update an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24378,8 +24378,8 @@ public class ReposApi {
     }
 
     /**
-     * Retrieve an AI Skills upstream config for this repository.
-     * Retrieve an AI Skills upstream config for this repository.
+     * Retrieve an AI skills upstream config for this repository.
+     * Retrieve an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24392,8 +24392,8 @@ public class ReposApi {
     }
 
     /**
-     * Retrieve an AI Skills upstream config for this repository.
-     * Retrieve an AI Skills upstream config for this repository.
+     * Retrieve an AI skills upstream config for this repository.
+     * Retrieve an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24407,8 +24407,8 @@ public class ReposApi {
     }
 
     /**
-     * Retrieve an AI Skills upstream config for this repository. (asynchronously)
-     * Retrieve an AI Skills upstream config for this repository.
+     * Retrieve an AI skills upstream config for this repository. (asynchronously)
+     * Retrieve an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24529,8 +24529,8 @@ public class ReposApi {
     }
 
     /**
-     * Update an AI Skills upstream config for this repository.
-     * Update an AI Skills upstream config for this repository.
+     * Update an AI skills upstream config for this repository.
+     * Update an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24544,8 +24544,8 @@ public class ReposApi {
     }
 
     /**
-     * Update an AI Skills upstream config for this repository.
-     * Update an AI Skills upstream config for this repository.
+     * Update an AI skills upstream config for this repository.
+     * Update an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)
@@ -24560,8 +24560,8 @@ public class ReposApi {
     }
 
     /**
-     * Update an AI Skills upstream config for this repository. (asynchronously)
-     * Update an AI Skills upstream config for this repository.
+     * Update an AI skills upstream config for this repository. (asynchronously)
+     * Update an AI skills upstream config for this repository.
      * @param owner  (required)
      * @param identifier  (required)
      * @param slugPerm  (required)

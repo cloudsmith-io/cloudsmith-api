@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **is_deleteable** | **bool** |  | [optional] 
 **is_downloadable** | **bool** |  | [optional] 
 **is_hidden** | **bool** |  | [optional] 
-**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
+**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Null when the package has not been scanned, or its format can&#39;t be. Requires Ultra plan. | [optional] 
 **is_moveable** | **bool** |  | [optional] 
 **is_quarantinable** | **bool** |  | [optional] 
 **is_quarantined** | **bool** |  | [optional] 

@@ -160,12 +160,12 @@ Method | HTTP request | Description
 [**reposUpstreamRubyPartialUpdate**](ReposApi.md#reposUpstreamRubyPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
 [**reposUpstreamRubyRead**](ReposApi.md#reposUpstreamRubyRead) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
 [**reposUpstreamRubyUpdate**](ReposApi.md#reposUpstreamRubyUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
-[**reposUpstreamSkillsCreate**](ReposApi.md#reposUpstreamSkillsCreate) | **POST** /repos/{owner}/{identifier}/upstream/skills/ | Create an AI Skills upstream config for this repository.
-[**reposUpstreamSkillsDelete**](ReposApi.md#reposUpstreamSkillsDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Delete an AI Skills upstream config for this repository.
-[**reposUpstreamSkillsList**](ReposApi.md#reposUpstreamSkillsList) | **GET** /repos/{owner}/{identifier}/upstream/skills/ | List AI Skills upstream configs for this repository.
-[**reposUpstreamSkillsPartialUpdate**](ReposApi.md#reposUpstreamSkillsPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Partially update an AI Skills upstream config for this repository.
-[**reposUpstreamSkillsRead**](ReposApi.md#reposUpstreamSkillsRead) | **GET** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Retrieve an AI Skills upstream config for this repository.
-[**reposUpstreamSkillsUpdate**](ReposApi.md#reposUpstreamSkillsUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Update an AI Skills upstream config for this repository.
+[**reposUpstreamSkillsCreate**](ReposApi.md#reposUpstreamSkillsCreate) | **POST** /repos/{owner}/{identifier}/upstream/skills/ | Create an AI skills upstream config for this repository.
+[**reposUpstreamSkillsDelete**](ReposApi.md#reposUpstreamSkillsDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Delete an AI skills upstream config for this repository.
+[**reposUpstreamSkillsList**](ReposApi.md#reposUpstreamSkillsList) | **GET** /repos/{owner}/{identifier}/upstream/skills/ | List AI skills upstream configs for this repository.
+[**reposUpstreamSkillsPartialUpdate**](ReposApi.md#reposUpstreamSkillsPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Partially update an AI skills upstream config for this repository.
+[**reposUpstreamSkillsRead**](ReposApi.md#reposUpstreamSkillsRead) | **GET** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Retrieve an AI skills upstream config for this repository.
+[**reposUpstreamSkillsUpdate**](ReposApi.md#reposUpstreamSkillsUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Update an AI skills upstream config for this repository.
 [**reposUpstreamSwiftCreate**](ReposApi.md#reposUpstreamSwiftCreate) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
 [**reposUpstreamSwiftDelete**](ReposApi.md#reposUpstreamSwiftDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
 [**reposUpstreamSwiftList**](ReposApi.md#reposUpstreamSwiftList) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
@@ -10242,9 +10242,9 @@ Name | Type | Description  | Notes
 # **reposUpstreamSkillsCreate**
 > SkillsUpstream reposUpstreamSkillsCreate(owner, identifier, data)
 
-Create an AI Skills upstream config for this repository.
+Create an AI skills upstream config for this repository.
 
-Create an AI Skills upstream config for this repository.
+Create an AI skills upstream config for this repository.
 
 ### Example
 ```java
@@ -10306,9 +10306,9 @@ Name | Type | Description  | Notes
 # **reposUpstreamSkillsDelete**
 > reposUpstreamSkillsDelete(owner, identifier, slugPerm)
 
-Delete an AI Skills upstream config for this repository.
+Delete an AI skills upstream config for this repository.
 
-Delete an AI Skills upstream config for this repository.
+Delete an AI skills upstream config for this repository.
 
 ### Example
 ```java
@@ -10369,9 +10369,9 @@ null (empty response body)
 # **reposUpstreamSkillsList**
 > List&lt;SkillsUpstream&gt; reposUpstreamSkillsList(owner, identifier, page, pageSize)
 
-List AI Skills upstream configs for this repository.
+List AI skills upstream configs for this repository.
 
-List AI Skills upstream configs for this repository.
+List AI skills upstream configs for this repository.
 
 ### Example
 ```java
@@ -10435,9 +10435,9 @@ Name | Type | Description  | Notes
 # **reposUpstreamSkillsPartialUpdate**
 > SkillsUpstream reposUpstreamSkillsPartialUpdate(owner, identifier, slugPerm, data)
 
-Partially update an AI Skills upstream config for this repository.
+Partially update an AI skills upstream config for this repository.
 
-Partially update an AI Skills upstream config for this repository.
+Partially update an AI skills upstream config for this repository.
 
 ### Example
 ```java
@@ -10501,9 +10501,9 @@ Name | Type | Description  | Notes
 # **reposUpstreamSkillsRead**
 > SkillsUpstream reposUpstreamSkillsRead(owner, identifier, slugPerm)
 
-Retrieve an AI Skills upstream config for this repository.
+Retrieve an AI skills upstream config for this repository.
 
-Retrieve an AI Skills upstream config for this repository.
+Retrieve an AI skills upstream config for this repository.
 
 ### Example
 ```java
@@ -10565,9 +10565,9 @@ Name | Type | Description  | Notes
 # **reposUpstreamSkillsUpdate**
 > SkillsUpstream reposUpstreamSkillsUpdate(owner, identifier, slugPerm, data)
 
-Update an AI Skills upstream config for this repository.
+Update an AI skills upstream config for this repository.
 
-Update an AI Skills upstream config for this repository.
+Update an AI skills upstream config for this repository.
 
 ### Example
 ```java

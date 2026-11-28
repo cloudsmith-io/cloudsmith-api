@@ -43,11 +43,10 @@ Method | HTTP request | Description
 [**packages_upload_raw**](PackagesApi.md#packages_upload_raw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 [**packages_upload_rpm**](PackagesApi.md#packages_upload_rpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 [**packages_upload_ruby**](PackagesApi.md#packages_upload_ruby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
-[**packages_upload_skills**](PackagesApi.md#packages_upload_skills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI Skills package
+[**packages_upload_skills**](PackagesApi.md#packages_upload_skills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI skills package
 [**packages_upload_swift**](PackagesApi.md#packages_upload_swift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 [**packages_upload_terraform**](PackagesApi.md#packages_upload_terraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 [**packages_upload_vagrant**](PackagesApi.md#packages_upload_vagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
-[**packages_upload_vsx**](PackagesApi.md#packages_upload_vsx) | **POST** /packages/{owner}/{repo}/upload/vsx/ | Create a new VSX package
 [**packages_validate_upload_alpine**](PackagesApi.md#packages_validate_upload_alpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 [**packages_validate_upload_cargo**](PackagesApi.md#packages_validate_upload_cargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 [**packages_validate_upload_cocoapods**](PackagesApi.md#packages_validate_upload_cocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
@@ -74,11 +73,10 @@ Method | HTTP request | Description
 [**packages_validate_upload_raw**](PackagesApi.md#packages_validate_upload_raw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 [**packages_validate_upload_rpm**](PackagesApi.md#packages_validate_upload_rpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 [**packages_validate_upload_ruby**](PackagesApi.md#packages_validate_upload_ruby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
-[**packages_validate_upload_skills**](PackagesApi.md#packages_validate_upload_skills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI Skills package
+[**packages_validate_upload_skills**](PackagesApi.md#packages_validate_upload_skills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI skills package
 [**packages_validate_upload_swift**](PackagesApi.md#packages_validate_upload_swift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 [**packages_validate_upload_terraform**](PackagesApi.md#packages_validate_upload_terraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 [**packages_validate_upload_vagrant**](PackagesApi.md#packages_validate_upload_vagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
-[**packages_validate_upload_vsx**](PackagesApi.md#packages_validate_upload_vsx) | **POST** /packages/{owner}/{repo}/validate-upload/vsx/ | Validate parameters for create VSX package
 
 
 # **packages_copy**
@@ -2659,9 +2657,9 @@ Name | Type | Description  | Notes
 # **packages_upload_skills**
 > SkillsPackageUpload packages_upload_skills(owner, repo, opts)
 
-Create a new AI Skills package
+Create a new AI skills package
 
-Create a new AI Skills package
+Create a new AI skills package
 
 ### Example
 ```ruby
@@ -2690,7 +2688,7 @@ opts = {
 }
 
 begin
-  #Create a new AI Skills package
+  #Create a new AI skills package
   result = api_instance.packages_upload_skills(owner, repo, opts)
   p result
 rescue CloudsmithApi::ApiError => e
@@ -2904,71 +2902,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VagrantPackageUpload**](VagrantPackageUpload.md)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-
-# **packages_upload_vsx**
-> VsxPackageUpload packages_upload_vsx(owner, repo, opts)
-
-Create a new VSX package
-
-Create a new VSX package
-
-### Example
-```ruby
-# load the gem
-require 'cloudsmith-api'
-# setup authorization
-CloudsmithApi.configure do |config|
-  # Configure API key authorization: apikey
-  config.api_key['X-Api-Key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-  # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = CloudsmithApi::PackagesApi.new
-
-owner = 'owner_example' # String | 
-
-repo = 'repo_example' # String | 
-
-opts = { 
-  data: CloudsmithApi::VsxPackageUploadRequest.new # VsxPackageUploadRequest | 
-}
-
-begin
-  #Create a new VSX package
-  result = api_instance.packages_upload_vsx(owner, repo, opts)
-  p result
-rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling PackagesApi->packages_upload_vsx: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **data** | [**VsxPackageUploadRequest**](VsxPackageUploadRequest.md)|  | [optional] 
-
-### Return type
-
-[**VsxPackageUpload**](VsxPackageUpload.md)
 
 ### Authorization
 
@@ -4648,9 +4581,9 @@ nil (empty response body)
 # **packages_validate_upload_skills**
 > packages_validate_upload_skills(owner, repo, opts)
 
-Validate parameters for create AI Skills package
+Validate parameters for create AI skills package
 
-Validate parameters for create AI Skills package
+Validate parameters for create AI skills package
 
 ### Example
 ```ruby
@@ -4679,7 +4612,7 @@ opts = {
 }
 
 begin
-  #Validate parameters for create AI Skills package
+  #Validate parameters for create AI skills package
   api_instance.packages_validate_upload_skills(owner, repo, opts)
 rescue CloudsmithApi::ApiError => e
   puts "Exception when calling PackagesApi->packages_validate_upload_skills: #{e}"
@@ -4885,70 +4818,6 @@ Name | Type | Description  | Notes
  **owner** | **String**|  | 
  **repo** | **String**|  | 
  **data** | [**VagrantPackageUploadRequest**](VagrantPackageUploadRequest.md)|  | [optional] 
-
-### Return type
-
-nil (empty response body)
-
-### Authorization
-
-[apikey](../README.md#apikey), [basic](../README.md#basic)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-
-# **packages_validate_upload_vsx**
-> packages_validate_upload_vsx(owner, repo, opts)
-
-Validate parameters for create VSX package
-
-Validate parameters for create VSX package
-
-### Example
-```ruby
-# load the gem
-require 'cloudsmith-api'
-# setup authorization
-CloudsmithApi.configure do |config|
-  # Configure API key authorization: apikey
-  config.api_key['X-Api-Key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['X-Api-Key'] = 'Bearer'
-
-  # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = CloudsmithApi::PackagesApi.new
-
-owner = 'owner_example' # String | 
-
-repo = 'repo_example' # String | 
-
-opts = { 
-  data: CloudsmithApi::VsxPackageUploadRequest.new # VsxPackageUploadRequest | 
-}
-
-begin
-  #Validate parameters for create VSX package
-  api_instance.packages_validate_upload_vsx(owner, repo, opts)
-rescue CloudsmithApi::ApiError => e
-  puts "Exception when calling PackagesApi->packages_validate_upload_vsx: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **String**|  | 
- **repo** | **String**|  | 
- **data** | [**VsxPackageUploadRequest**](VsxPackageUploadRequest.md)|  | [optional] 
 
 ### Return type
 

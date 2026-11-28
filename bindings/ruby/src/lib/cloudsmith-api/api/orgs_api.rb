@@ -2228,7 +2228,7 @@ module CloudsmithApi
       # http body (model)
       post_body = nil
       auth_names = ['apikey', 'basic']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,

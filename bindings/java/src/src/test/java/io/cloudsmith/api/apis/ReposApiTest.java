@@ -2990,9 +2990,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Create an AI Skills upstream config for this repository.
+     * Create an AI skills upstream config for this repository.
      *
-     * Create an AI Skills upstream config for this repository.
+     * Create an AI skills upstream config for this repository.
      *
      * @throws Exception
      *          if the Api call fails
@@ -3008,9 +3008,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Delete an AI Skills upstream config for this repository.
+     * Delete an AI skills upstream config for this repository.
      *
-     * Delete an AI Skills upstream config for this repository.
+     * Delete an AI skills upstream config for this repository.
      *
      * @throws Exception
      *          if the Api call fails
@@ -3026,9 +3026,9 @@ public class ReposApiTest {
     }
     
     /**
-     * List AI Skills upstream configs for this repository.
+     * List AI skills upstream configs for this repository.
      *
-     * List AI Skills upstream configs for this repository.
+     * List AI skills upstream configs for this repository.
      *
      * @throws Exception
      *          if the Api call fails
@@ -3045,9 +3045,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Partially update an AI Skills upstream config for this repository.
+     * Partially update an AI skills upstream config for this repository.
      *
-     * Partially update an AI Skills upstream config for this repository.
+     * Partially update an AI skills upstream config for this repository.
      *
      * @throws Exception
      *          if the Api call fails
@@ -3064,9 +3064,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Retrieve an AI Skills upstream config for this repository.
+     * Retrieve an AI skills upstream config for this repository.
      *
-     * Retrieve an AI Skills upstream config for this repository.
+     * Retrieve an AI skills upstream config for this repository.
      *
      * @throws Exception
      *          if the Api call fails
@@ -3082,9 +3082,9 @@ public class ReposApiTest {
     }
     
     /**
-     * Update an AI Skills upstream config for this repository.
+     * Update an AI skills upstream config for this repository.
      *
-     * Update an AI Skills upstream config for this repository.
+     * Update an AI skills upstream config for this repository.
      *
      * @throws Exception
      *          if the Api call fails

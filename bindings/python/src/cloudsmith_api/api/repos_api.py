@@ -17886,9 +17886,9 @@ class ReposApi(object):
             collection_formats=collection_formats)
 
     def repos_upstream_skills_create(self, owner, identifier, **kwargs):  # noqa: E501
-        """Create an AI Skills upstream config for this repository.  # noqa: E501
+        """Create an AI skills upstream config for this repository.  # noqa: E501
 
-        Create an AI Skills upstream config for this repository.  # noqa: E501
+        Create an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_create(owner, identifier, async_req=True)
@@ -17910,9 +17910,9 @@ class ReposApi(object):
             return data
 
     def repos_upstream_skills_create_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """Create an AI Skills upstream config for this repository.  # noqa: E501
+        """Create an AI skills upstream config for this repository.  # noqa: E501
 
-        Create an AI Skills upstream config for this repository.  # noqa: E501
+        Create an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_create_with_http_info(owner, identifier, async_req=True)
@@ -17997,9 +17997,9 @@ class ReposApi(object):
             collection_formats=collection_formats)
 
     def repos_upstream_skills_delete(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Delete an AI Skills upstream config for this repository.  # noqa: E501
+        """Delete an AI skills upstream config for this repository.  # noqa: E501
 
-        Delete an AI Skills upstream config for this repository.  # noqa: E501
+        Delete an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_delete(owner, identifier, slug_perm, async_req=True)
@@ -18021,9 +18021,9 @@ class ReposApi(object):
             return data
 
     def repos_upstream_skills_delete_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Delete an AI Skills upstream config for this repository.  # noqa: E501
+        """Delete an AI skills upstream config for this repository.  # noqa: E501
 
-        Delete an AI Skills upstream config for this repository.  # noqa: E501
+        Delete an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_delete_with_http_info(owner, identifier, slug_perm, async_req=True)
@@ -18112,9 +18112,9 @@ class ReposApi(object):
             collection_formats=collection_formats)
 
     def repos_upstream_skills_list(self, owner, identifier, **kwargs):  # noqa: E501
-        """List AI Skills upstream configs for this repository.  # noqa: E501
+        """List AI skills upstream configs for this repository.  # noqa: E501
 
-        List AI Skills upstream configs for this repository.  # noqa: E501
+        List AI skills upstream configs for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_list(owner, identifier, async_req=True)
@@ -18137,9 +18137,9 @@ class ReposApi(object):
             return data
 
     def repos_upstream_skills_list_with_http_info(self, owner, identifier, **kwargs):  # noqa: E501
-        """List AI Skills upstream configs for this repository.  # noqa: E501
+        """List AI skills upstream configs for this repository.  # noqa: E501
 
-        List AI Skills upstream configs for this repository.  # noqa: E501
+        List AI skills upstream configs for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_list_with_http_info(owner, identifier, async_req=True)
@@ -18227,9 +18227,9 @@ class ReposApi(object):
             collection_formats=collection_formats)
 
     def repos_upstream_skills_partial_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Partially update an AI Skills upstream config for this repository.  # noqa: E501
+        """Partially update an AI skills upstream config for this repository.  # noqa: E501
 
-        Partially update an AI Skills upstream config for this repository.  # noqa: E501
+        Partially update an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_partial_update(owner, identifier, slug_perm, async_req=True)
@@ -18252,9 +18252,9 @@ class ReposApi(object):
             return data
 
     def repos_upstream_skills_partial_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Partially update an AI Skills upstream config for this repository.  # noqa: E501
+        """Partially update an AI skills upstream config for this repository.  # noqa: E501
 
-        Partially update an AI Skills upstream config for this repository.  # noqa: E501
+        Partially update an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_partial_update_with_http_info(owner, identifier, slug_perm, async_req=True)
@@ -18346,9 +18346,9 @@ class ReposApi(object):
             collection_formats=collection_formats)
 
     def repos_upstream_skills_read(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Retrieve an AI Skills upstream config for this repository.  # noqa: E501
+        """Retrieve an AI skills upstream config for this repository.  # noqa: E501
 
-        Retrieve an AI Skills upstream config for this repository.  # noqa: E501
+        Retrieve an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_read(owner, identifier, slug_perm, async_req=True)
@@ -18370,9 +18370,9 @@ class ReposApi(object):
             return data
 
     def repos_upstream_skills_read_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Retrieve an AI Skills upstream config for this repository.  # noqa: E501
+        """Retrieve an AI skills upstream config for this repository.  # noqa: E501
 
-        Retrieve an AI Skills upstream config for this repository.  # noqa: E501
+        Retrieve an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_read_with_http_info(owner, identifier, slug_perm, async_req=True)
@@ -18461,9 +18461,9 @@ class ReposApi(object):
             collection_formats=collection_formats)
 
     def repos_upstream_skills_update(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Update an AI Skills upstream config for this repository.  # noqa: E501
+        """Update an AI skills upstream config for this repository.  # noqa: E501
 
-        Update an AI Skills upstream config for this repository.  # noqa: E501
+        Update an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_update(owner, identifier, slug_perm, async_req=True)
@@ -18486,9 +18486,9 @@ class ReposApi(object):
             return data
 
     def repos_upstream_skills_update_with_http_info(self, owner, identifier, slug_perm, **kwargs):  # noqa: E501
-        """Update an AI Skills upstream config for this repository.  # noqa: E501
+        """Update an AI skills upstream config for this repository.  # noqa: E501
 
-        Update an AI Skills upstream config for this repository.  # noqa: E501
+        Update an AI skills upstream config for this repository.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.repos_upstream_skills_update_with_http_info(owner, identifier, slug_perm, async_req=True)
