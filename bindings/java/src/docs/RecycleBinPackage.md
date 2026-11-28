@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **identifiers** | **Map&lt;String, String&gt;** |  |  [optional]
 **invokedRetentionRule** | **Map&lt;String, String&gt;** | Information about the retention rule that triggered deletion (if any). |  [optional]
 **isDeleteable** | **Boolean** |  |  [optional]
-**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Requires Ultra plan. |  [optional]
+**isMalwareDetected** | **Boolean** | Whether the package has been detected as containing malware. Null when the package has not been scanned, or its format can&#39;t be. Requires Ultra plan. |  [optional]
 **isQuarantined** | **Boolean** |  |  [optional]
 **isRestorable** | **Boolean** |  |  [optional]
 **name** | **String** | The name of this package. |  [optional]

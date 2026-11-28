@@ -338,8 +338,6 @@ from cloudsmith_api.models.user_brief import UserBrief
 from cloudsmith_api.models.user_profile import UserProfile
 from cloudsmith_api.models.vagrant_package_upload import VagrantPackageUpload
 from cloudsmith_api.models.vagrant_package_upload_request import VagrantPackageUploadRequest
-from cloudsmith_api.models.vsx_package_upload import VsxPackageUpload
-from cloudsmith_api.models.vsx_package_upload_request import VsxPackageUploadRequest
 from cloudsmith_api.models.vulnerability import Vulnerability
 from cloudsmith_api.models.vulnerability_scan import VulnerabilityScan
 from cloudsmith_api.models.vulnerability_scan_results import VulnerabilityScanResults

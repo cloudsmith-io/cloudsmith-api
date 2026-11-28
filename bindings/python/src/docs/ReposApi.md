@@ -160,12 +160,12 @@ Method | HTTP request | Description
 [**repos_upstream_ruby_partial_update**](ReposApi.md#repos_upstream_ruby_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
 [**repos_upstream_ruby_read**](ReposApi.md#repos_upstream_ruby_read) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
 [**repos_upstream_ruby_update**](ReposApi.md#repos_upstream_ruby_update) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
-[**repos_upstream_skills_create**](ReposApi.md#repos_upstream_skills_create) | **POST** /repos/{owner}/{identifier}/upstream/skills/ | Create an AI Skills upstream config for this repository.
-[**repos_upstream_skills_delete**](ReposApi.md#repos_upstream_skills_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Delete an AI Skills upstream config for this repository.
-[**repos_upstream_skills_list**](ReposApi.md#repos_upstream_skills_list) | **GET** /repos/{owner}/{identifier}/upstream/skills/ | List AI Skills upstream configs for this repository.
-[**repos_upstream_skills_partial_update**](ReposApi.md#repos_upstream_skills_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Partially update an AI Skills upstream config for this repository.
-[**repos_upstream_skills_read**](ReposApi.md#repos_upstream_skills_read) | **GET** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Retrieve an AI Skills upstream config for this repository.
-[**repos_upstream_skills_update**](ReposApi.md#repos_upstream_skills_update) | **PUT** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Update an AI Skills upstream config for this repository.
+[**repos_upstream_skills_create**](ReposApi.md#repos_upstream_skills_create) | **POST** /repos/{owner}/{identifier}/upstream/skills/ | Create an AI skills upstream config for this repository.
+[**repos_upstream_skills_delete**](ReposApi.md#repos_upstream_skills_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Delete an AI skills upstream config for this repository.
+[**repos_upstream_skills_list**](ReposApi.md#repos_upstream_skills_list) | **GET** /repos/{owner}/{identifier}/upstream/skills/ | List AI skills upstream configs for this repository.
+[**repos_upstream_skills_partial_update**](ReposApi.md#repos_upstream_skills_partial_update) | **PATCH** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Partially update an AI skills upstream config for this repository.
+[**repos_upstream_skills_read**](ReposApi.md#repos_upstream_skills_read) | **GET** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Retrieve an AI skills upstream config for this repository.
+[**repos_upstream_skills_update**](ReposApi.md#repos_upstream_skills_update) | **PUT** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Update an AI skills upstream config for this repository.
 [**repos_upstream_swift_create**](ReposApi.md#repos_upstream_swift_create) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
 [**repos_upstream_swift_delete**](ReposApi.md#repos_upstream_swift_delete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
 [**repos_upstream_swift_list**](ReposApi.md#repos_upstream_swift_list) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
@@ -9928,9 +9928,9 @@ Name | Type | Description  | Notes
 # **repos_upstream_skills_create**
 > SkillsUpstream repos_upstream_skills_create(owner, identifier, data=data)
 
-Create an AI Skills upstream config for this repository.
+Create an AI skills upstream config for this repository.
 
-Create an AI Skills upstream config for this repository.
+Create an AI skills upstream config for this repository.
 
 ### Example
 ```python
@@ -9957,7 +9957,7 @@ identifier = 'identifier_example' # str |
 data = cloudsmith_api.SkillsUpstreamRequest() # SkillsUpstreamRequest |  (optional)
 
 try:
-    # Create an AI Skills upstream config for this repository.
+    # Create an AI skills upstream config for this repository.
     api_response = api_instance.repos_upstream_skills_create(owner, identifier, data=data)
     pprint(api_response)
 except ApiException as e:
@@ -9990,9 +9990,9 @@ Name | Type | Description  | Notes
 # **repos_upstream_skills_delete**
 > repos_upstream_skills_delete(owner, identifier, slug_perm)
 
-Delete an AI Skills upstream config for this repository.
+Delete an AI skills upstream config for this repository.
 
-Delete an AI Skills upstream config for this repository.
+Delete an AI skills upstream config for this repository.
 
 ### Example
 ```python
@@ -10019,7 +10019,7 @@ identifier = 'identifier_example' # str |
 slug_perm = 'slug_perm_example' # str | 
 
 try:
-    # Delete an AI Skills upstream config for this repository.
+    # Delete an AI skills upstream config for this repository.
     api_instance.repos_upstream_skills_delete(owner, identifier, slug_perm)
 except ApiException as e:
     print("Exception when calling ReposApi->repos_upstream_skills_delete: %s\n" % e)
@@ -10051,9 +10051,9 @@ void (empty response body)
 # **repos_upstream_skills_list**
 > list[SkillsUpstream] repos_upstream_skills_list(owner, identifier, page=page, page_size=page_size)
 
-List AI Skills upstream configs for this repository.
+List AI skills upstream configs for this repository.
 
-List AI Skills upstream configs for this repository.
+List AI skills upstream configs for this repository.
 
 ### Example
 ```python
@@ -10081,7 +10081,7 @@ page = 56 # int | A page number within the paginated result set. (optional)
 page_size = 56 # int | Number of results to return per page. (optional)
 
 try:
-    # List AI Skills upstream configs for this repository.
+    # List AI skills upstream configs for this repository.
     api_response = api_instance.repos_upstream_skills_list(owner, identifier, page=page, page_size=page_size)
     pprint(api_response)
 except ApiException as e:
@@ -10115,9 +10115,9 @@ Name | Type | Description  | Notes
 # **repos_upstream_skills_partial_update**
 > SkillsUpstream repos_upstream_skills_partial_update(owner, identifier, slug_perm, data=data)
 
-Partially update an AI Skills upstream config for this repository.
+Partially update an AI skills upstream config for this repository.
 
-Partially update an AI Skills upstream config for this repository.
+Partially update an AI skills upstream config for this repository.
 
 ### Example
 ```python
@@ -10145,7 +10145,7 @@ slug_perm = 'slug_perm_example' # str |
 data = cloudsmith_api.SkillsUpstreamRequestPatch() # SkillsUpstreamRequestPatch |  (optional)
 
 try:
-    # Partially update an AI Skills upstream config for this repository.
+    # Partially update an AI skills upstream config for this repository.
     api_response = api_instance.repos_upstream_skills_partial_update(owner, identifier, slug_perm, data=data)
     pprint(api_response)
 except ApiException as e:
@@ -10179,9 +10179,9 @@ Name | Type | Description  | Notes
 # **repos_upstream_skills_read**
 > SkillsUpstream repos_upstream_skills_read(owner, identifier, slug_perm)
 
-Retrieve an AI Skills upstream config for this repository.
+Retrieve an AI skills upstream config for this repository.
 
-Retrieve an AI Skills upstream config for this repository.
+Retrieve an AI skills upstream config for this repository.
 
 ### Example
 ```python
@@ -10208,7 +10208,7 @@ identifier = 'identifier_example' # str |
 slug_perm = 'slug_perm_example' # str | 
 
 try:
-    # Retrieve an AI Skills upstream config for this repository.
+    # Retrieve an AI skills upstream config for this repository.
     api_response = api_instance.repos_upstream_skills_read(owner, identifier, slug_perm)
     pprint(api_response)
 except ApiException as e:
@@ -10241,9 +10241,9 @@ Name | Type | Description  | Notes
 # **repos_upstream_skills_update**
 > SkillsUpstream repos_upstream_skills_update(owner, identifier, slug_perm, data=data)
 
-Update an AI Skills upstream config for this repository.
+Update an AI skills upstream config for this repository.
 
-Update an AI Skills upstream config for this repository.
+Update an AI skills upstream config for this repository.
 
 ### Example
 ```python
@@ -10271,7 +10271,7 @@ slug_perm = 'slug_perm_example' # str |
 data = cloudsmith_api.SkillsUpstreamRequest() # SkillsUpstreamRequest |  (optional)
 
 try:
-    # Update an AI Skills upstream config for this repository.
+    # Update an AI skills upstream config for this repository.
     api_response = api_instance.repos_upstream_skills_update(owner, identifier, slug_perm, data=data)
     pprint(api_response)
 except ApiException as e:

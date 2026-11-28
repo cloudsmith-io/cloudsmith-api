@@ -1239,7 +1239,7 @@ class PackageDetail(object):
     def is_malware_detected(self):
         """Gets the is_malware_detected of this PackageDetail.
 
-        Whether the package has been detected as containing malware. Requires Ultra plan.
+        Whether the package has been detected as containing malware. Null when the package has not been scanned, or its format can't be. Requires Ultra plan.
 
         :return: The is_malware_detected of this PackageDetail.
         :rtype: bool
@@ -1250,7 +1250,7 @@ class PackageDetail(object):
     def is_malware_detected(self, is_malware_detected):
         """Sets the is_malware_detected of this PackageDetail.
 
-        Whether the package has been detected as containing malware. Requires Ultra plan.
+        Whether the package has been detected as containing malware. Null when the package has not been scanned, or its format can't be. Requires Ultra plan.
 
         :param is_malware_detected: The is_malware_detected of this PackageDetail.
         :type: bool

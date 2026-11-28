@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **is_deleteable** | **BOOLEAN** |  | [optional] 
 **is_downloadable** | **BOOLEAN** |  | [optional] 
 **is_hidden** | **BOOLEAN** |  | [optional] 
-**is_malware_detected** | **BOOLEAN** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
+**is_malware_detected** | **BOOLEAN** | Whether the package has been detected as containing malware. Null when the package has not been scanned, or its format can&#39;t be. Requires Ultra plan. | [optional] 
 **is_moveable** | **BOOLEAN** |  | [optional] 
 **is_quarantinable** | **BOOLEAN** |  | [optional] 
 **is_quarantined** | **BOOLEAN** |  | [optional] 

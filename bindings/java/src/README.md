@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.cloudsmith.api</groupId>
   <artifactId>cloudsmith-api</artifactId>
-  <version>2.0.43</version>
+  <version>2.0.44</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.cloudsmith.api:cloudsmith-api:2.0.43"
+compile "io.cloudsmith.api:cloudsmith-api:2.0.44"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cloudsmith-api-2.0.43.jar`
+* `target/cloudsmith-api-2.0.44.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -186,7 +186,7 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**orgsMembersPartialUpdate**](docs/OrgsApi.md#orgsMembersPartialUpdate) | **PATCH** /orgs/{org}/members/{member}/ | Views for working with organization members.
 *OrgsApi* | [**orgsMembersRead**](docs/OrgsApi.md#orgsMembersRead) | **GET** /orgs/{org}/members/{member}/ | Get the details for a specific organization member.
 *OrgsApi* | [**orgsMembersRefresh**](docs/OrgsApi.md#orgsMembersRefresh) | **POST** /orgs/{org}/members/{member}/refresh/ | Refresh a member of the organization&#39;s API key.
-*OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **GET** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
+*OrgsApi* | [**orgsMembersRemove**](docs/OrgsApi.md#orgsMembersRemove) | **DELETE** /orgs/{org}/members/{member}/remove/ | Removes a member from the organization (deprecated, use DELETE instead).
 *OrgsApi* | [**orgsMembersUpdateRole**](docs/OrgsApi.md#orgsMembersUpdateRole) | **PATCH** /orgs/{org}/members/{member}/update-role/ | Update a member&#39;s role in the organization.
 *OrgsApi* | [**orgsMembersUpdateVisibility**](docs/OrgsApi.md#orgsMembersUpdateVisibility) | **PATCH** /orgs/{org}/members/{member}/update-visibility/ | Update a member&#39;s visibility in the organization.
 *OrgsApi* | [**orgsOpenidConnectCreate**](docs/OrgsApi.md#orgsOpenidConnectCreate) | **POST** /orgs/{org}/openid-connect/ | Create the OpenID Connect provider settings for the org.
@@ -271,11 +271,10 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesUploadRaw**](docs/PackagesApi.md#packagesUploadRaw) | **POST** /packages/{owner}/{repo}/upload/raw/ | Create a new Raw package
 *PackagesApi* | [**packagesUploadRpm**](docs/PackagesApi.md#packagesUploadRpm) | **POST** /packages/{owner}/{repo}/upload/rpm/ | Create a new RedHat package
 *PackagesApi* | [**packagesUploadRuby**](docs/PackagesApi.md#packagesUploadRuby) | **POST** /packages/{owner}/{repo}/upload/ruby/ | Create a new Ruby package
-*PackagesApi* | [**packagesUploadSkills**](docs/PackagesApi.md#packagesUploadSkills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI Skills package
+*PackagesApi* | [**packagesUploadSkills**](docs/PackagesApi.md#packagesUploadSkills) | **POST** /packages/{owner}/{repo}/upload/skills/ | Create a new AI skills package
 *PackagesApi* | [**packagesUploadSwift**](docs/PackagesApi.md#packagesUploadSwift) | **POST** /packages/{owner}/{repo}/upload/swift/ | Create a new Swift package
 *PackagesApi* | [**packagesUploadTerraform**](docs/PackagesApi.md#packagesUploadTerraform) | **POST** /packages/{owner}/{repo}/upload/terraform/ | Create a new Terraform package
 *PackagesApi* | [**packagesUploadVagrant**](docs/PackagesApi.md#packagesUploadVagrant) | **POST** /packages/{owner}/{repo}/upload/vagrant/ | Create a new Vagrant package
-*PackagesApi* | [**packagesUploadVsx**](docs/PackagesApi.md#packagesUploadVsx) | **POST** /packages/{owner}/{repo}/upload/vsx/ | Create a new VSX package
 *PackagesApi* | [**packagesValidateUploadAlpine**](docs/PackagesApi.md#packagesValidateUploadAlpine) | **POST** /packages/{owner}/{repo}/validate-upload/alpine/ | Validate parameters for create Alpine package
 *PackagesApi* | [**packagesValidateUploadCargo**](docs/PackagesApi.md#packagesValidateUploadCargo) | **POST** /packages/{owner}/{repo}/validate-upload/cargo/ | Validate parameters for create Cargo package
 *PackagesApi* | [**packagesValidateUploadCocoapods**](docs/PackagesApi.md#packagesValidateUploadCocoapods) | **POST** /packages/{owner}/{repo}/validate-upload/cocoapods/ | Validate parameters for create CocoaPods package
@@ -302,11 +301,10 @@ Class | Method | HTTP request | Description
 *PackagesApi* | [**packagesValidateUploadRaw**](docs/PackagesApi.md#packagesValidateUploadRaw) | **POST** /packages/{owner}/{repo}/validate-upload/raw/ | Validate parameters for create Raw package
 *PackagesApi* | [**packagesValidateUploadRpm**](docs/PackagesApi.md#packagesValidateUploadRpm) | **POST** /packages/{owner}/{repo}/validate-upload/rpm/ | Validate parameters for create RedHat package
 *PackagesApi* | [**packagesValidateUploadRuby**](docs/PackagesApi.md#packagesValidateUploadRuby) | **POST** /packages/{owner}/{repo}/validate-upload/ruby/ | Validate parameters for create Ruby package
-*PackagesApi* | [**packagesValidateUploadSkills**](docs/PackagesApi.md#packagesValidateUploadSkills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI Skills package
+*PackagesApi* | [**packagesValidateUploadSkills**](docs/PackagesApi.md#packagesValidateUploadSkills) | **POST** /packages/{owner}/{repo}/validate-upload/skills/ | Validate parameters for create AI skills package
 *PackagesApi* | [**packagesValidateUploadSwift**](docs/PackagesApi.md#packagesValidateUploadSwift) | **POST** /packages/{owner}/{repo}/validate-upload/swift/ | Validate parameters for create Swift package
 *PackagesApi* | [**packagesValidateUploadTerraform**](docs/PackagesApi.md#packagesValidateUploadTerraform) | **POST** /packages/{owner}/{repo}/validate-upload/terraform/ | Validate parameters for create Terraform package
 *PackagesApi* | [**packagesValidateUploadVagrant**](docs/PackagesApi.md#packagesValidateUploadVagrant) | **POST** /packages/{owner}/{repo}/validate-upload/vagrant/ | Validate parameters for create Vagrant package
-*PackagesApi* | [**packagesValidateUploadVsx**](docs/PackagesApi.md#packagesValidateUploadVsx) | **POST** /packages/{owner}/{repo}/validate-upload/vsx/ | Validate parameters for create VSX package
 *QuotaApi* | [**quotaHistoryRead**](docs/QuotaApi.md#quotaHistoryRead) | **GET** /quota/history/{owner}/ | Quota history for a given namespace.
 *QuotaApi* | [**quotaOssHistoryRead**](docs/QuotaApi.md#quotaOssHistoryRead) | **GET** /quota/oss/history/{owner}/ | Open-source Quota history for a given namespace.
 *QuotaApi* | [**quotaOssRead**](docs/QuotaApi.md#quotaOssRead) | **GET** /quota/oss/{owner}/ | Open-source Quota usage for a given namespace.
@@ -470,12 +468,12 @@ Class | Method | HTTP request | Description
 *ReposApi* | [**reposUpstreamRubyPartialUpdate**](docs/ReposApi.md#reposUpstreamRubyPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Partially update a Ruby upstream config for this repository.
 *ReposApi* | [**reposUpstreamRubyRead**](docs/ReposApi.md#reposUpstreamRubyRead) | **GET** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Retrieve a Ruby upstream config for this repository.
 *ReposApi* | [**reposUpstreamRubyUpdate**](docs/ReposApi.md#reposUpstreamRubyUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/ruby/{slug_perm}/ | Update a Ruby upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsCreate**](docs/ReposApi.md#reposUpstreamSkillsCreate) | **POST** /repos/{owner}/{identifier}/upstream/skills/ | Create an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsDelete**](docs/ReposApi.md#reposUpstreamSkillsDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Delete an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsList**](docs/ReposApi.md#reposUpstreamSkillsList) | **GET** /repos/{owner}/{identifier}/upstream/skills/ | List AI Skills upstream configs for this repository.
-*ReposApi* | [**reposUpstreamSkillsPartialUpdate**](docs/ReposApi.md#reposUpstreamSkillsPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Partially update an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsRead**](docs/ReposApi.md#reposUpstreamSkillsRead) | **GET** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Retrieve an AI Skills upstream config for this repository.
-*ReposApi* | [**reposUpstreamSkillsUpdate**](docs/ReposApi.md#reposUpstreamSkillsUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Update an AI Skills upstream config for this repository.
+*ReposApi* | [**reposUpstreamSkillsCreate**](docs/ReposApi.md#reposUpstreamSkillsCreate) | **POST** /repos/{owner}/{identifier}/upstream/skills/ | Create an AI skills upstream config for this repository.
+*ReposApi* | [**reposUpstreamSkillsDelete**](docs/ReposApi.md#reposUpstreamSkillsDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Delete an AI skills upstream config for this repository.
+*ReposApi* | [**reposUpstreamSkillsList**](docs/ReposApi.md#reposUpstreamSkillsList) | **GET** /repos/{owner}/{identifier}/upstream/skills/ | List AI skills upstream configs for this repository.
+*ReposApi* | [**reposUpstreamSkillsPartialUpdate**](docs/ReposApi.md#reposUpstreamSkillsPartialUpdate) | **PATCH** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Partially update an AI skills upstream config for this repository.
+*ReposApi* | [**reposUpstreamSkillsRead**](docs/ReposApi.md#reposUpstreamSkillsRead) | **GET** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Retrieve an AI skills upstream config for this repository.
+*ReposApi* | [**reposUpstreamSkillsUpdate**](docs/ReposApi.md#reposUpstreamSkillsUpdate) | **PUT** /repos/{owner}/{identifier}/upstream/skills/{slug_perm}/ | Update an AI skills upstream config for this repository.
 *ReposApi* | [**reposUpstreamSwiftCreate**](docs/ReposApi.md#reposUpstreamSwiftCreate) | **POST** /repos/{owner}/{identifier}/upstream/swift/ | Create a Swift upstream config for this repository.
 *ReposApi* | [**reposUpstreamSwiftDelete**](docs/ReposApi.md#reposUpstreamSwiftDelete) | **DELETE** /repos/{owner}/{identifier}/upstream/swift/{slug_perm}/ | Delete a Swift upstream config for this repository.
 *ReposApi* | [**reposUpstreamSwiftList**](docs/ReposApi.md#reposUpstreamSwiftList) | **GET** /repos/{owner}/{identifier}/upstream/swift/ | List Swift upstream configs for this repository.
@@ -830,8 +828,6 @@ Class | Method | HTTP request | Description
  - [UserProfile](docs/UserProfile.md)
  - [VagrantPackageUpload](docs/VagrantPackageUpload.md)
  - [VagrantPackageUploadRequest](docs/VagrantPackageUploadRequest.md)
- - [VsxPackageUpload](docs/VsxPackageUpload.md)
- - [VsxPackageUploadRequest](docs/VsxPackageUploadRequest.md)
  - [Vulnerability](docs/Vulnerability.md)
  - [VulnerabilityScan](docs/VulnerabilityScan.md)
  - [VulnerabilityScanResults](docs/VulnerabilityScanResults.md)

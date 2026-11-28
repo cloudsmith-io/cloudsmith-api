@@ -33,7 +33,7 @@ class RecycleBinPackage
 
   attr_accessor :is_deleteable
 
-  # Whether the package has been detected as containing malware. Requires Ultra plan.
+  # Whether the package has been detected as containing malware. Null when the package has not been scanned, or its format can't be. Requires Ultra plan.
   attr_accessor :is_malware_detected
 
   attr_accessor :is_quarantined

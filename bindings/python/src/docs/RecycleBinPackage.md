@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **identifiers** | **dict(str, str)** |  | [optional] 
 **invoked_retention_rule** | **dict(str, str)** | Information about the retention rule that triggered deletion (if any). | [optional] 
 **is_deleteable** | **bool** |  | [optional] 
-**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Requires Ultra plan. | [optional] 
+**is_malware_detected** | **bool** | Whether the package has been detected as containing malware. Null when the package has not been scanned, or its format can&#39;t be. Requires Ultra plan. | [optional] 
 **is_quarantined** | **bool** |  | [optional] 
 **is_restorable** | **bool** |  | [optional] 
 **name** | **str** | The name of this package. | [optional] 

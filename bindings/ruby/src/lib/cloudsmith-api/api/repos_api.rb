@@ -10142,8 +10142,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Create an AI Skills upstream config for this repository.
-    # Create an AI Skills upstream config for this repository.
+    # Create an AI skills upstream config for this repository.
+    # Create an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
@@ -10154,8 +10154,8 @@ module CloudsmithApi
       data
     end
 
-    # Create an AI Skills upstream config for this repository.
-    # Create an AI Skills upstream config for this repository.
+    # Create an AI skills upstream config for this repository.
+    # Create an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
@@ -10204,8 +10204,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Delete an AI Skills upstream config for this repository.
-    # Delete an AI Skills upstream config for this repository.
+    # Delete an AI skills upstream config for this repository.
+    # Delete an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
@@ -10216,8 +10216,8 @@ module CloudsmithApi
       nil
     end
 
-    # Delete an AI Skills upstream config for this repository.
-    # Delete an AI Skills upstream config for this repository.
+    # Delete an AI skills upstream config for this repository.
+    # Delete an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
@@ -10269,8 +10269,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # List AI Skills upstream configs for this repository.
-    # List AI Skills upstream configs for this repository.
+    # List AI skills upstream configs for this repository.
+    # List AI skills upstream configs for this repository.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
@@ -10282,8 +10282,8 @@ module CloudsmithApi
       data
     end
 
-    # List AI Skills upstream configs for this repository.
-    # List AI Skills upstream configs for this repository.
+    # List AI skills upstream configs for this repository.
+    # List AI skills upstream configs for this repository.
     # @param owner 
     # @param identifier 
     # @param [Hash] opts the optional parameters
@@ -10335,8 +10335,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Partially update an AI Skills upstream config for this repository.
-    # Partially update an AI Skills upstream config for this repository.
+    # Partially update an AI skills upstream config for this repository.
+    # Partially update an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
@@ -10348,8 +10348,8 @@ module CloudsmithApi
       data
     end
 
-    # Partially update an AI Skills upstream config for this repository.
-    # Partially update an AI Skills upstream config for this repository.
+    # Partially update an AI skills upstream config for this repository.
+    # Partially update an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
@@ -10403,8 +10403,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Retrieve an AI Skills upstream config for this repository.
-    # Retrieve an AI Skills upstream config for this repository.
+    # Retrieve an AI skills upstream config for this repository.
+    # Retrieve an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
@@ -10415,8 +10415,8 @@ module CloudsmithApi
       data
     end
 
-    # Retrieve an AI Skills upstream config for this repository.
-    # Retrieve an AI Skills upstream config for this repository.
+    # Retrieve an AI skills upstream config for this repository.
+    # Retrieve an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
@@ -10469,8 +10469,8 @@ module CloudsmithApi
       end
       return data, status_code, headers
     end
-    # Update an AI Skills upstream config for this repository.
-    # Update an AI Skills upstream config for this repository.
+    # Update an AI skills upstream config for this repository.
+    # Update an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
@@ -10482,8 +10482,8 @@ module CloudsmithApi
       data
     end
 
-    # Update an AI Skills upstream config for this repository.
-    # Update an AI Skills upstream config for this repository.
+    # Update an AI skills upstream config for this repository.
+    # Update an AI skills upstream config for this repository.
     # @param owner 
     # @param identifier 
     # @param slug_perm 
